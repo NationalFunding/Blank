@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank</letterhead>
+    <name>Stip Type Changed</name>
+    <style>freeForm</style>
+    <subject>Stip Type Changed To: {!Stipulations__c.Stip_Type__c} For: {!Stipulations__c.Oppty_Name__c}</subject>
+    <textOnly>The Stip Type has changed to [{!Stipulations__c.Stip_Type__c}] for the following Opportunity {!Stipulations__c.Oppty_Name__c}.
+
+Link to the changed record: {!Stipulations__c.Link}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

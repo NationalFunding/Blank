@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Uploaded_Document_Case_Queue_Notification</fullName>
+        <ccEmails>collections@nationalfunding.com</ccEmails>
+        <description>Uploaded Document - Case Queue Notification</description>
+        <protected>false</protected>
+        <senderType>CurrentUser</senderType>
+        <template>Uploaded_Document_Notification/Uploaded_Document_Notification_for_Case</template>
+    </alerts>
+    <alerts>
+        <fullName>Uploaded_Document_NF_Renewal_Rep_Notification_Acct</fullName>
+        <description>Uploaded Document - NF Renewal Rep Notification (Acct)</description>
+        <protected>false</protected>
+        <recipients>
+            <field>NF_Renewal_Rep_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Uploaded_Document_Notification/Uploaded_Document_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>Uploaded_Document_Record_Owner_Notification</fullName>
+        <description>Uploaded Document - Record Owner Notification (Lead)</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Lead_Account_Owner__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Uploaded_Document_Notification/Uploaded_Document_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>Uploaded_Document_Record_Owner_Notification_Acct</fullName>
+        <description>Uploaded Document - Record Owner Notification (Acct)</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>mhandler@nationalfunding.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <field>Lead_Account_Owner__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Uploaded_Document_Notification/Uploaded_Document_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>Uploaded_Document_Record_Owner_Notification_Case</fullName>
+        <description>Uploaded Document - Record Owner Notification (Case)</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Case_Owner__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Uploaded_Document_Notification/Uploaded_Document_Notification_for_Case</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Upload_UnCheck_Send_Email_Field</fullName>
+        <description>This field update will allow for notifications each time a new file has been uploaded by a customer.</description>
+        <field>Send_Email__c</field>
+        <literalValue>0</literalValue>
+        <name>Upload - UnCheck Send Email Field</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Upload - Case Owner Notification</fullName>
+        <actions>
+            <name>Uploaded_Document_Record_Owner_Notification_Case</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Upload_UnCheck_Send_Email_Field</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+        <criteriaItems>
+            <field>Upload_Notification__c.Send_Email__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Upload_Notification__c.Lead_Or_Account__c</field>
+            <operation>equals</operation>
+            <value>Case</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Upload_Notification__c.DLP_Milestone__c</field>
+            <operation>startsWith</operation>
+            <value>LM</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Upload_Notification__c.DLP_Milestone__c</field>
+            <operation>equals</operation>
+            <value>Email Link Clicked</value>
+        </criteriaItems>
+        <description>This work flow will send an email to a Case Owner indicating that a document was uploaded.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Upload - Case Queue Notification</fullName>
+        <actions>
+            <name>Uploaded_Document_Case_Queue_Notification</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Upload_UnCheck_Send_Email_Field</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Upload_Notification__c.Send_Email__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Upload_Notification__c.Lead_Or_Account__c</field>
+            <operation>equals</operation>
+            <value>Case</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Upload_Notification__c.Case_Owner__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <description>This work flow will send an email to a Case Owner indicating that a document was uploaded.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Upload - Lead Owner Notification</fullName>
+        <actions>
+            <name>Uploaded_Document_Record_Owner_Notification</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Upload_UnCheck_Send_Email_Field</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Upload_Notification__c.Send_Email__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Upload_Notification__c.Lead_Or_Account__c</field>
+            <operation>equals</operation>
+            <value>Lead</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Upload_Notification__c.DLP_Milestone__c</field>
+            <operation>notEqual</operation>
+            <value>Email Link Clicked</value>
+        </criteriaItems>
+        <description>This work flow will send an email to an Lead Owner indicating that a document was uploaded.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>

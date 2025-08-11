@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type_of_Equipment__c</fullName>
+    <description>Field used by SDR's to answer script questions - Type of equipment.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Field used by SDR's to answer script questions - Type of equipment.</inlineHelpText>
+    <label>Type of Equipment</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

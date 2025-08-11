@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ACH_File_Fields_Are_Populated</fullName>
+    <active>true</active>
+    <description>This validation rule will ensure all fields necessary for an ACH Payment to be processed have a value.</description>
+    <errorConditionFormula>AND(
+NOT($User.User_Developer_Name__c='NF_Automation_User'),
+OR( 
+ISBLANK(Receiving_Company_Name__c),
+ISBLANK(Payee_s_Bank_Name__c ),
+ISBLANK(TEXT(Payee_s_Account_Type__c)),
+ISBLANK(Amount__c))
+)</errorConditionFormula>
+    <errorDisplayField>ACH_File_Generated__c</errorDisplayField>
+    <errorMessage>The following fields need to be populated for a successful ACH Payment to be processed: Receiving Company Name, Payee's Bank Name, Payee's Account Type and Amount.</errorMessage>
+</ValidationRule>

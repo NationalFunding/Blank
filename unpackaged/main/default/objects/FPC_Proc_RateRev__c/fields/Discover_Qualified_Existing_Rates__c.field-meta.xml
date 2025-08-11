@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Discover_Qualified_Existing_Rates__c</fullName>
+    <description>Discover Qualified Existing Rates</description>
+    <inlineHelpText>Discover Qualified Existing Rates</inlineHelpText>
+    <label>Discover Qualified Existing Rates</label>
+    <precision>5</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

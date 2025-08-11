@@ -1,0 +1,14 @@
+<table height="400" width="550" cellpadding="5" border="0" cellspacing="5" >
+<tr height="50" valign="top" >
+<td style=" color:#000000; font-size:12pt; background-color:#FFFFFF; font-family:arial; bLabel:main; bEditID:r3st1;" tEditID="c1r1" locked="0" aEditID="c1r1" >
+<![CDATA[]]></td>
+</tr>
+<tr height="300" valign="top" >
+<td style=" color:#000000; font-size:12pt; background-color:#FFFFFF; font-family:arial; bLabel:main; bEditID:r3st1;" tEditID="c1r2" locked="0" aEditID="c1r2" >
+<![CDATA[<p class="MsoListParagraphCxSpFirst" style="margin-left: 0.25in;"><b><font face="Arial, sans-serif">The funding department is currently reviewing all items submitted to create the business loan agreement.<o:p></o:p></font></b></p><p class="MsoListParagraphCxSpMiddle" style="margin-left: 0.25in;"><b><font face="Arial, sans-serif">&nbsp;</font></b></p><p class="MsoListParagraphCxSpMiddle" style="margin-left: 0.25in;"><b style="font-size: medium;"><font face="Arial, sans-serif">{!Opportunity.Legal_Name__c}</font></b></p><p class="MsoListParagraphCxSpMiddle" style="margin-left: 0.25in;"><b style="font-size: medium;"><font face="Arial, sans-serif">Merchant Number:&nbsp;</font></b><font face="Arial, sans-serif" style="font-size: medium;"><b>{!Opportunity.Merchant_Number__c}</b></font></p><p class="MsoListParagraphCxSpMiddle" style="margin-left: 0.25in;"><b><font face="Arial, sans-serif"><br></font></b></p><p class="MsoListParagraphCxSpLast" style="margin-left: 0.25in;"><font face="Arial, sans-serif"><b>Please contact&nbsp;</b><b><a href="mailto:NFfunding@nationalfunding.com">NFfunding@nationalfunding.com</a></b><b>&nbsp;for updates.</b></font></p>]]></td>
+</tr>
+<tr height="50" valign="top" >
+<td style=" color:#000000; font-size:12pt; background-color:#FFFFFF; font-family:arial; bLabel:main; bEditID:r3st1;" tEditID="c1r3" locked="0" aEditID="c1r3" >
+<![CDATA[]]></td>
+</tr>
+</table>

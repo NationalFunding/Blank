@@ -1,0 +1,230 @@
+<template>
+
+    <lightning-card title="Contact Information" icon-name="standard:contact">
+
+        <!-- <div slot="actions">
+         <lightning-button-icon icon-name="action:lead_convert" variant="bare" alternative-text="Convert to Account" size="Medium"
+                onclick={convert}>
+            </lightning-button-icon>
+        </div> -->
+
+        <template if:true={lastName}>
+
+            <ul class="slds-has-dividers_around-space" style="margin-right: 5px; margin-left: 5px;">
+
+                <li class="slds-item" key={recordId}>
+
+                    <lightning-card title={fullName} icon-name="standard:client">
+
+                        <div slot="actions">
+                            <lightning-button-icon icon-name="utility:edit_form" variant="bare"
+                                alternative-text="Update" onclick={openmodal} value={recordId} data-id={recordId}>
+                            </lightning-button-icon>
+                        </div>
+
+                        <div class="slds-region_narrow">
+                            <dl class="slds-dl_horizontal">
+                                <!-- Title -->
+                                <dt class="slds-dl_horizontal__label slds-text-title">Title:</dt>
+                                <dd class="slds-dl_horizontal__detail">
+                                    {title}
+                                </dd>
+                                <!-- Nickname -->
+                                <dt class="slds-dl_horizontal__label slds-text-title">Nickname:</dt>
+                                <dd class="slds-dl_horizontal__detail">
+                                    {nickName}
+                                </dd>
+                                <!-- Email -->
+                                <dt class="slds-dl_horizontal__label slds-text-title">Email:</dt>
+                                <dd class="slds-dl_horizontal__detail">
+                                    <p>
+                                        <lightning-formatted-email value={email}></lightning-formatted-email>
+                                    </p>
+                                </dd>
+                                <!-- Mobile Phone -->
+                                <dt class="slds-dl_horizontal__label slds-text-title">Mobile Phone:</dt>
+                                <dd class="slds-dl_horizontal__detail">
+                                    <lightning-click-to-dial value={mobilePhone} record-id={recordId}>
+                                        {mobilePhone}
+                                    </lightning-click-to-dial>
+                                </dd>
+                                <dt class="slds-dl_horizontal__label slds-text-title">Ownership %:</dt>
+                                <dd class="slds-dl_horizontal__detail">
+                                    {ownershipPercentage}
+                                </dd>
+                                <dt class="slds-dl_horizontal__label slds-text-title">Response Channel:</dt>
+                                <dd class="slds-dl_horizontal__detail">
+                                    {responseChannel}
+                                </dd>
+                                <!-- <dt class="slds-dl_horizontal__label slds-text-title">DLP Status:</dt>
+                                <dd class="slds-dl_horizontal__detail">
+                                    {dlpStatus}
+                                </dd> -->
+                            </dl>
+                        </div>
+                    </lightning-card>
+
+                </li>
+
+            </ul>
+
+        </template>
+
+    </lightning-card>
+
+    <!-- Modal Edit 'Contact' -->
+    <template if:true={openmodel}>
+
+        <div class="contact-edit" data-id="contact-edit" >
+
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+
+                <div class="slds-modal__container">
+
+                    <header class="slds-modal__header">
+
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">
+                            {fullName}
+                        </h2>
+
+                    </header>
+
+                    <!-- BODY -->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+
+                        <!-- CREATE CONTACT -->
+                        <lightning-card>
+
+                            <lightning-record-edit-form record-id={recordId} onload={handleLoad}
+                                object-api-name={objectApiName}>
+
+                                <!-- Lightning Messages Display -->
+                                <lightning-messages></lightning-messages>
+
+                                <!-- Contact Edit Form -->
+                                <div class="slds-grid slds-wrap">
+
+                                    <div class="slds-col slds-size_1-of-2">
+                                        <lightning-input-field data-field="FirstName" field-name="FirstName"
+                                            onchange={handleFieldChange}>
+                                        </lightning-input-field>
+                                    </div>
+
+                                    <div class="slds-col slds-size_1-of-2">
+                                        <lightning-input-field data-field="LastName" field-name="LastName"
+                                            onchange={handleFieldChange}>
+                                        </lightning-input-field>
+                                    </div>
+
+                                    <div class="slds-col slds-size_1-of-2">
+                                        <lightning-input-field data-field="Title" field-name="Title"
+                                            onchange={handleFieldChange}>
+                                        </lightning-input-field>
+                                    </div>
+
+                                    <div class="slds-col slds-size_1-of-2">
+                                        <lightning-input-field data-field="Email" field-name="Email"
+                                            onchange={handleFieldChange}>
+                                        </lightning-input-field>
+                                    </div>
+
+                                    <div class="slds-col slds-size_1-of-2">
+                                        <lightning-input-field data-field="MobilePhone" field-name="MobilePhone"
+                                            onchange={handleFieldChange}>
+                                        </lightning-input-field>
+                                    </div>
+
+                                    <div class="slds-col slds-size_1-of-2">
+                                        <lightning-input-field data-field="Birth_Date__c" field-name="Birth_Date__c"
+                                            onchange={handleFieldChange}>
+                                        </lightning-input-field>
+                                    </div>
+
+                                    <div class="slds-col slds-size_1-of-2">
+                                        <lightning-input-field data-field="SSN_Encrypted__c"
+                                            field-name="SSN_Encrypted__c" onchange={handleFieldChange}>
+                                        </lightning-input-field>
+                                    </div>
+
+                                    <div class="slds-col slds-size_1-of-2">
+                                        <lightning-input-field data-field="Ownership_Percentage__c"
+                                            field-name="Ownership_Percentage__c" onchange={handleFieldChange}>
+                                        </lightning-input-field>
+                                    </div>
+
+                                    <div class="slds-col slds-size_1-of-2">
+                                        <lightning-input-field data-field="Home_Phone__c" field-name="Home_Phone__c"
+                                            onchange={handleFieldChange}>
+                                        </lightning-input-field>
+                                    </div>
+
+                                </div>
+
+                                <hr>
+
+                                <div class="slds-grid slds-gutters">
+
+                                    <div class="slds-col">
+
+                                        <lightning-input-field data-field="Home_Address__c" field-name="Home_Address__c"
+                                            onchange={handleFieldChange}>
+                                        </lightning-input-field>
+
+                                        <lightning-input-field data-field="City__c" field-name="City__c"
+                                            onchange={handleFieldChange}>
+                                        </lightning-input-field>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="slds-grid slds-gutters">
+
+                                    <div class="slds-col slds-size_1-of-2">
+
+                                        <lightning-input-field data-field="State__c" field-name="State__c"
+                                            onchange={handleFieldChange}>
+                                        </lightning-input-field>
+
+                                    </div>
+
+                                    <div class="slds-col slds-size_1-of-2">
+
+                                        <lightning-input-field data-field="Zip_Code__c" field-name="Zip_Code__c"
+                                            onchange={handleFieldChange}>
+                                        </lightning-input-field>
+
+                                    </div>
+
+                                </div>
+
+                            </lightning-record-edit-form>
+                        </lightning-card>
+                    </div>
+
+                    <!-- FOOTER -->
+                    <footer class="slds-modal__footer">
+                        <!-- Cancel Button -->
+                        <lightning-button label="Cancel" variant="neutral" onclick={closeModal}></lightning-button>
+
+                        <!-- Spacing -->
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+
+                        <!-- Update/Save Button -->
+                        <lightning-button label="Update" variant="brand" onclick={saveForm}>
+                        </lightning-button>
+
+                    </footer>
+
+                </div>
+
+            </section>
+            <!-- Create Shading for Modal -->
+            <div class="slds-backdrop slds-backdrop_open"></div>
+
+        </div>
+
+    </template>
+
+</template>

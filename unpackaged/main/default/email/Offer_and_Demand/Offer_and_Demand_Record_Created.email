@@ -1,0 +1,11 @@
+Matter: {!advpm__Offer_And_Demand__c.advpm__Matter__c} 
+Loan Number: {!advpm__Offer_And_Demand__c.Loan_Number__c}
+Chargeoff Amount: {!advpm__Offer_And_Demand__c.Outstanding_Balance__c}
+
+A new {!advpm__Offer_And_Demand__c.RecordType} was created. Please have a look: 
+
+{!advpm__Offer_And_Demand__c.Link}
+
+Details: 
+
+{!advpm__Offer_And_Demand__c.advpm__Details__c}

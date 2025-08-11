@@ -1,0 +1,6 @@
+Case for {!Case.Merchant_Number__c} has been closed.
+
+Type: {!Case.Type}
+Loan Number: {!Case.Merchant_Number__c}
+Account Name: {!Case.Legal_Name__c}
+{!Case.Link}

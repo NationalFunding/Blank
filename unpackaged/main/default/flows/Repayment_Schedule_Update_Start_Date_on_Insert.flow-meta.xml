@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Set_Start_Date_on_Repayment_Schedules</name>
+        <label>Set Start Date on Repayment Schedules</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <actionName>SetStartDateRepaymentSchedule</actionName>
+        <actionType>apex</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>frequency</name>
+            <value>
+                <elementReference>$Record.cmbls__Preset__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>startDate</name>
+            <value>
+                <elementReference>$Record.cmbls__Repayment__r.cmbls__Loan_Start_Date__c</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>SetStartDateRepaymentSchedule</nameSegment>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <apiVersion>58.0</apiVersion>
+    <decisions>
+        <name>Payment_Frequency</name>
+        <label>Payment Frequency</label>
+        <locationX>182</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Weekly_or_Daily_Loan</name>
+            <conditionLogic>(1 OR 2) AND 3</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.cmbls__Preset__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Weekly</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.cmbls__Preset__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Daily</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.cmbls__Repayment__r.cmbls__Loan_Start_Date__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Start_Date_on_Repayment_Schedules</targetReference>
+            </connector>
+            <label>Weekly or Daily Loan</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <interviewLabel>Repayment Schedule - Update Start Date on Insert {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Repayment Schedule - Update Start Date on Insert</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Payment_Frequency</targetReference>
+        </connector>
+        <filterFormula>AND(
+{!$Record.cmbls__Repayment__r.cmbls__Enable_AS_Fixed_Payback_Loan__c},
+{!$Record.cmbls__Repayment__r.cmbls__Funded_Date__c} = {!$Record.cmbls__Start_Date__c}
+)</filterFormula>
+        <object>cmbls__Repayment_Schedule__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Draft</status>
+</Flow>

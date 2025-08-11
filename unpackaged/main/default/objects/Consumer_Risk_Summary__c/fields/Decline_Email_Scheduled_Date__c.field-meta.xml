@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Decline_Email_Scheduled_Date__c</fullName>
+    <description>The scheduled date for a Reg B or Notice of Incomplete Application email. Unexpired Consumer Risk Summaries that are OBS eligible will also have this scheduled as a check for bank statements. If bank statements were provided before expiration, this field will be cleared.</description>
+    <inlineHelpText>Scheduled date for a Reg B or Notice of Incomplete Application email.</inlineHelpText>
+    <label>Decline Email Scheduled Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

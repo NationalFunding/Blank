@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Related_To_Type__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+    AND(
+        NOT(ISBLANK(WhoId)),
+        NOT(ISBLANK(WhatId))
+    ), 
+    (
+        IF( BEGINS(WhoId, "00Q"), "Lead", "") +
+        IF( BEGINS(WhoId, "003"), "Contact", "") +
+        " / " +
+        IF( BEGINS(WhatId, "001"), "Account", "") +
+        IF( BEGINS(WhatId, "006"), "Opportunity", "")
+    ),
+    IF(NOT(ISBLANK(WhoId)),IF( BEGINS(WhoId, "00Q"), "Lead", "Contact"),IF( BEGINS(WhatId, "001"), "Account", "Opportunity"))
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Related To Type</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

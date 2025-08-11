@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Broker_Guarantor_2_Info_must_be_Complete</fullName>
+    <active>false</active>
+    <description>Requested by Nikki to be made inactive.  5/2/14</description>
+    <errorConditionFormula>((NOT(ISBLANK(Doc_Formulas_LU__r.Guarantor_2_Contact_ID__c))) &amp;&amp; (ISBLANK( Doc_Formulas_LU__r.Guarantor_2_Contact_ID__r.SSN_Encrypted__c ) || ISBLANK(Doc_Formulas_LU__r.Guarantor_2_Date_of_Birth__c) ||  ISBLANK(Doc_Formulas_LU__r.Guarantor_2_Home_Phone__c) ||  ISBLANK(Doc_Formulas_LU__r.Guarantor_2_Street_Address__c) || ISBLANK(Doc_Formulas_LU__r.Guarantor_2_City__c) || ISBLANK(Doc_Formulas_LU__r.Guarantor_2_State__c) || ISBLANK(Doc_Formulas_LU__r.Guarantor_2_Zip_Code__c) || ISBLANK(Doc_Formulas_LU__r.Guarantor_2_Contact_ID__r.Email) || ISBLANK(Doc_Formulas_LU__r.Guarantor_2_Contact_ID__r.Ownership_Percentage__c))) &amp;&amp; ISPICKVAL(StageName, 'Statements In - MCA') &amp;&amp; ISCHANGED(StageName) &amp;&amp; (RecordType.Name = 'Broker WC Oppty')</errorConditionFormula>
+    <errorMessage>Guarantor 2 SSN, Ownership %, Birthdate, Home Phone, Email, and Address info must be populated before updating the Stage to 'Statements In - MCA'. Once these fields are complete, click the 'Recalc Roles' button.</errorMessage>
+</ValidationRule>

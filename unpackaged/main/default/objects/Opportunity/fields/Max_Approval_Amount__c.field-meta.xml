@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Max_Approval_Amount__c</fullName>
+    <description>Roll up summary of approved amount for all related approved funding records</description>
+    <inlineHelpText>Roll up summary of approved amount for all related approved funding records</inlineHelpText>
+    <label>Max Approval Amount</label>
+    <summarizedField>FPC_Funding_del__c.Approved_Amount__c</summarizedField>
+    <summaryFilterItems>
+        <field>FPC_Funding_del__c.Status__c</field>
+        <operation>equals</operation>
+        <value>Approved, Older Approval, Lender Approved</value>
+    </summaryFilterItems>
+    <summaryForeignKey>FPC_Funding_del__c.Opportunity__c</summaryForeignKey>
+    <summaryOperation>max</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

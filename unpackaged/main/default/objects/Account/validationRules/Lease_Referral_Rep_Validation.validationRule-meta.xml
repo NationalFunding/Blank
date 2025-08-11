@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lease_Referral_Rep_Validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( 
+ISCHANGED(Refer_To__c), 
+ISPICKVAL( Refer_To__c , 'Equipment Leasing'), 
+OR( 
+ISPICKVAL(Owner.Product_Eligibility__c, 'Lease'), 
+ISPICKVAL(Owner.Product_Eligibility__c, 'All'),
+ISPICKVAL(Owner.Product_Eligibility__c, ''), 
+OR(Referred_Date_From_Lead__c  &gt;= NOW() - 30,
+   Referred_Date__c &gt;= NOW() - 30),  
+NOT(ISBLANK(FPC_Rep_Lease__c))))</errorConditionFormula>
+    <errorMessage>This record cannot be referred.  Either it has been referred in the last 30 days, a Lease rep is already assigned to the record or you can sell lease products.  Field to fix = Refer To</errorMessage>
+</ValidationRule>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MCA_Rep_Validation</fullName>
+    <active>false</active>
+    <errorConditionFormula>$Profile.Name  = "FPC - MCA - Sales User"  &amp;&amp;  (ISPICKVAL( Refer_To__c , "MCA"))</errorConditionFormula>
+    <errorDisplayField>Refer_To__c</errorDisplayField>
+    <errorMessage>MCA Rep's Cannot Refer to MCA.</errorMessage>
+</ValidationRule>

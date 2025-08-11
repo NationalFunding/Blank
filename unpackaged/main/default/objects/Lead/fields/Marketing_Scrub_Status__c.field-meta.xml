@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Marketing_Scrub_Status__c</fullName>
+    <description>This field will be used to capture if a marketing scrub has taken place.</description>
+    <inlineHelpText>This field will be used to capture if a marketing scrub has taken place.</inlineHelpText>
+    <label>Marketing Scrub Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Marketing_Scrub__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>All Phone Numbers Out of Service</fullName>
+                <default>false</default>
+                <label>All Phone Numbers Out of Service</label>
+            </value>
+            <value>
+                <fullName>Contact(s) Deceased</fullName>
+                <default>false</default>
+                <label>Contact(s) Deceased</label>
+            </value>
+            <value>
+                <fullName>Contact No Longer with Company</fullName>
+                <default>false</default>
+                <label>Contact No Longer with Company</label>
+            </value>
+            <value>
+                <fullName>Contact Not a Decision Maker</fullName>
+                <default>false</default>
+                <label>Contact Not a Decision Maker</label>
+            </value>
+            <value>
+                <fullName>Wrong Phone Numbers</fullName>
+                <default>false</default>
+                <label>Wrong Phone Numbers</label>
+            </value>
+            <value>
+                <fullName>Complete - Record Updated</fullName>
+                <default>false</default>
+                <label>Complete - Record Updated</label>
+            </value>
+            <value>
+                <fullName>Complete - Retire Record</fullName>
+                <default>false</default>
+                <label>Complete - Retire Record</label>
+            </value>
+            <value>
+                <fullName>Attempted</fullName>
+                <default>false</default>
+                <label>Attempted</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Language Barrier</fullName>
+                <default>false</default>
+                <label>Language Barrier</label>
+            </value>
+            <value>
+                <fullName>D&amp;B Non Marketable</fullName>
+                <default>false</default>
+                <label>D&amp;B Non Marketable</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>checked</controllingFieldValue>
+            <valueName>All Phone Numbers Out of Service</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>checked</controllingFieldValue>
+            <valueName>Contact(s) Deceased</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>checked</controllingFieldValue>
+            <valueName>Contact No Longer with Company</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>checked</controllingFieldValue>
+            <valueName>Contact Not a Decision Maker</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>checked</controllingFieldValue>
+            <valueName>Wrong Phone Numbers</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>checked</controllingFieldValue>
+            <valueName>Complete - Record Updated</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>checked</controllingFieldValue>
+            <valueName>Complete - Retire Record</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>checked</controllingFieldValue>
+            <valueName>Attempted</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

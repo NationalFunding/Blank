@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Comp_Credit_Level_Guidelines__c</fullName>
+    <description>This field will represent the amount of comparable credit that a company has taken out.</description>
+    <inlineHelpText>This field will represent the amount of comparable credit that a company has taken out.</inlineHelpText>
+    <label>Comp Credit Level (Guidelines)</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>100,000</fullName>
+                <default>false</default>
+                <label>100,000</label>
+            </value>
+            <value>
+                <fullName>75,000</fullName>
+                <default>false</default>
+                <label>75,000</label>
+            </value>
+            <value>
+                <fullName>50,000</fullName>
+                <default>false</default>
+                <label>50,000</label>
+            </value>
+            <value>
+                <fullName>25,000</fullName>
+                <default>false</default>
+                <label>25,000</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,191 @@
+<apex:page controller="NFCreditEquifaxPullController" standardStylesheets="false" showHeader="false" applyBodyTag="false" docType="html-5.0">
+    <apex:stylesheet value="{!URLFOR($Resource.CreditReviewScreen, 'css/bootstrap.css')}"/>
+    <!--  font awesome/4.3.0 css-->
+    <apex:stylesheet value="{!URLFOR($Resource.CreditReviewScreen, 'css/font-awesome/css/font-awesome.css')}" />
+    <apex:includescript value="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"/>
+    <apex:includeScript value="{!URLFOR($Resource.CreditReviewScreen, 'js/bootstrap.js')}"/>
+    <style>
+        .spin{
+            -webkit-transform-origin: 50% 50%;
+            transform-origin:50% 50%;
+            -ms-transform-origin:50% 50%; /* IE 9 */
+            -webkit-animation: spin 2s infinite linear;
+            -moz-animation: spin 2s infinite linear;
+            -o-animation: spin 2s infinite linear;
+            animation: spin 2s infinite linear;
+        }
+        @-moz-keyframes spin {
+        from {
+        -moz-transform: rotate(0deg);
+        }
+        to {
+        -moz-transform: rotate(360deg);
+        }
+        }
+        
+        @-webkit-keyframes spin {
+        from {
+        -webkit-transform: rotate(0deg);
+        }
+        to {
+        -webkit-transform: rotate(360deg);
+        }
+        }
+        
+        @keyframes spin {
+        from {
+        transform: rotate(0deg);
+        }
+        to {
+        transform: rotate(360deg);
+        }
+        }
+    </style>
+    <script>
+    var $j = jQuery.noConflict();
+    </script>
+    <body class="mb30">
+        <div class="container" style="min-width: 1000px;margin: 0 auto;">
+            <apex:form >
+                <apex:actionfunction action="{!pullSimilars}" name="pullSimilars" rerender="mainForm" />
+                <apex:outputpanel id="mainForm">
+                    <div class="page-header">
+                        <h1>Pulling Equifax Commercial Credit <small>for {!acct.Name}</small></h1>
+                    </div>
+                    <div class="panel panel-default">
+                        <!-- Default panel contents -->
+                        <div class="panel-heading panel-title" style="font-weight: bolder;">Inquiry Information</div>
+                        <!-- Table -->
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td style="font-style: italic;">Legal Name:</td>
+                                    <td>{!cr.Opportunity__r.Legal_Name__c}</td>
+                                    <td rowspan="2">{!cr.Opportunity__r.Physical_Address_1__c}<br />{!cr.Opportunity__r.Physical_Address_City__c}, {!cr.Opportunity__r.Physical_Address_State__c} {!cr.Opportunity__r.Physical_Address_Zip__c}</td>
+                                    <td rowspan="2">{!cr.Opportunity__r.Phone__c}</td>
+                                    <td rowspan="2"></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-style: italic;border-top: 0px;">Company DBA:</td>
+                                    <td style="border-top: 0px;">{!cr.Opportunity__r.Company_DBA__c}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <apex:outputtext rendered="{!isLoading == true}">
+                        <p style="text-align: center; padding-top: 100px">
+                            Searching for business names similar to <strong>{!cr.Opportunity__r.Legal_Name__c}</strong>...  (this may take some time)
+                        </p>
+                        <h1 style="padding-bottom: 100px 0">
+                            <center><span class="glyphicon glyphicon-repeat spin" aria-hidden="true"></span></center>
+                        </h1>
+                    </apex:outputtext>
+                    <apex:outputtext rendered="{!errorMessage != null}">
+                        <div class="panel panel-danger">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Unable to Pull Credit</h3>
+                            </div>
+                            <div class="panel-body">
+                                {!errorMessage}
+                                <apex:outputtext rendered="{!inquiryErrors != null && inquiryErrors.size > 0}">
+                                    <ul>
+                                        <apex:repeat value="{!inquiryErrors}" var="appError">
+                                            <li>{!appError}</li>
+                                        </apex:repeat>
+                                    </ul>
+                                </apex:outputtext>
+                            </div>
+                        </div>
+                    </apex:outputtext>
+                    <apex:outputtext rendered="{!records != null && records.size > 0}">
+                        <div class="panel panel-default">
+                            <!-- Default panel contents -->
+                            <div class="panel-heading">Returned Results</div>
+                            <!-- Table -->
+                            <apex:inputtext value="{!primaryResult}" id="primaryResult" style="display: none" styleclass="primaryResult" />
+                            <table class="table table-striped table-hover" style="font-size: small;">
+                                <thead>
+                                <th width="20">Pull</th>
+                                <th width="20">Primary</th>
+                                <th>Business Name</th>
+                                <th>Address</th>
+                                <th>Phone(s)</th>
+                                <th>Business Level</th>
+                                <th>Parent</th>
+                                <th>Confidence</th>
+                                <th>Equifax Id</th>
+                                <th>Recent Credit Report</th>
+                                </thead>
+                                <tbody>
+                                    <apex:repeat value="{!records}" var="rec">
+                                        <tr>
+                                            <td><apex:inputcheckbox value="{!rec.pullResult}" /></td>
+                                            <td style="text-align: center"><input type="radio" value="{!rec.EfxId}" name="prRes" onchange="$j('.primaryResult').attr('value','{!rec.EfxId}');setToPull(this);" required="true" /></td>
+                                            <td>{!rec.BusinessName}</td>
+                                            <td>{!rec.AddressLine1}<br />{!rec.City}, {!rec.State} {!rec.PostalCode}</td>
+                                            <td>
+                                                <apex:repeat value="{!rec.TelephoneNumbers}" var="phone">
+                                                    {!phone}<br />
+                                                </apex:repeat>
+                                            </td>
+                                            <td>{!rec.BusinessLevel}</td>
+                                            <td style="text-align: center;">
+                                                <i class="{!IF(rec.IsParent, 'fa fa-check fa-1x', '' )}"></i>
+                                            </td>
+                                            <td style="text-align: center;">{!rec.Cli}</td>
+                                            <td>{!rec.EfxId}</td>
+                                            <td>
+                                                <apex:outputtext rendered="{!rec.recentReport != null}">
+                                                    <!-- There is a recent credit report in the past 30 days for this experian file number -->
+                                                    <apex:outputtext value="{0, date, MMM d','  yyyy}">
+                                                        <apex:param value="{!IF(rec.recentReport != null, rec.recentReport.Transaction_Date__c, 'None')}" />
+                                                    </apex:outputtext>
+                                                    <span style="padding-left: 5px;">
+                                                        <a href="{!IF(rec.recentReport != null, rec.recentReport.Efx_Report_Link__c, '')}" target="_blank">(View Report)</a>
+                                                    </span>
+                                                </apex:outputtext>
+                                                <apex:outputtext rendered="{!rec.recentReport == null}">
+                                                    <!-- There is a NO recent credit report in the past 30 days for this experian file number -->
+                                                    None in the past 30 days
+                                                </apex:outputtext>
+                                            </td>
+                                        </tr>
+                                    </apex:repeat>
+                                </tbody>
+                            </table>
+                            <div class="panel-footer">
+                                <apex:commandbutton action="{!pullResults}" styleclass="btn lgBtn" value="Pull Credit Records from Equifax" />
+                            </div>
+                        </div>
+                    </apex:outputtext>
+                    <apex:outputtext rendered="{!isLoading == false && errorMessage == null && records.size == 0}">
+                        <div class="panel panel-default">
+                            <!-- Default panel contents -->
+                            <div class="panel-heading">Returned Results</div>
+                            <!-- Table -->
+                            <div class="panel-body">
+                                Equifax returned no results.
+                            </div>
+                        </div>
+                    </apex:outputtext>
+                </apex:outputpanel>
+            </apex:form>
+            <apex:outputtext rendered="{!isComplete}">
+                <script>
+                    window.opener.callBusinessLoading('equifax');
+                    window.close();
+                </script>
+            </apex:outputtext>
+        </div>
+        
+        
+        <script>
+        function setToPull(obj) {
+            var checkbox = $j(obj).closest('tr').find('input[type=checkbox]')
+            checkbox.prop( "checked", true )
+        }
+
+        $j(document).ready(pullSimilars());
+        </script>
+    </body>
+</apex:page>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Event to publish when a Credit Model decision is created</description>
+    <eventType>HighVolume</eventType>
+    <label>CreditModelResult</label>
+    <pluralLabel>CreditModelResults</pluralLabel>
+    <publishBehavior>PublishAfterCommit</publishBehavior>
+</CustomObject>

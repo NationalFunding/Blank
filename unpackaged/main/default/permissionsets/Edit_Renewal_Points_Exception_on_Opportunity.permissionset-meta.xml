@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Edit Renewal Points Exception on Opportunity</label>
+    <license>Salesforce</license>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Renewal_Points_Exception__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+</PermissionSet>

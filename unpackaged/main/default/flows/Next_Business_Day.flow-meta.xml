@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>49.0</apiVersion>
+    <assignments>
+        <name>Assign_Input_Bank_Holiday</name>
+        <label>Assign Input Bank Holiday</label>
+        <locationX>710</locationX>
+        <locationY>217</locationY>
+        <assignmentItems>
+            <assignToReference>varInputDateHoliday</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_InputDate</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Output variable.</description>
+        <name>Assign_Output_Date</name>
+        <label>Assign Output Date</label>
+        <locationX>397</locationX>
+        <locationY>13</locationY>
+        <assignmentItems>
+            <assignToReference>varOutputDate</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formNextBusinessDay</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <description>Updates the varInputDate value to the varObservedDate. This is so the formNextBusinessDay now outputs the next business day after the holiday.</description>
+        <name>Update_InputDate</name>
+        <label>Update InputDate</label>
+        <locationX>611</locationX>
+        <locationY>48</locationY>
+        <assignmentItems>
+            <assignToReference>varInputDate</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>varObservedDate</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Assign_Output_Date</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Bank_Holiday_Decision</name>
+        <label>Bank Holiday Decision</label>
+        <locationX>157</locationX>
+        <locationY>52</locationY>
+        <defaultConnector>
+            <targetReference>Assign_Output_Date</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Do Not Observe Bank Holidays</defaultConnectorLabel>
+        <rules>
+            <name>Observe_Bank_Holidays</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varBankHoliday</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Bank_Holidays</targetReference>
+            </connector>
+            <label>Observe Bank Holidays</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Bank_Holiday_Found_Decision</name>
+        <label>Bank Holiday Found Decision</label>
+        <locationX>292</locationX>
+        <locationY>222</locationY>
+        <defaultConnector>
+            <targetReference>Assign_Output_Date</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No Bank Holiday</defaultConnectorLabel>
+        <rules>
+            <name>Bank_Holiday_Found</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varObservedDate</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Input_Date_Holiday_Decision</targetReference>
+            </connector>
+            <label>Bank Holiday Found</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Input_Date_Holiday_Decision</name>
+        <label>Input Date Holiday Decision</label>
+        <locationX>497</locationX>
+        <locationY>220</locationY>
+        <defaultConnector>
+            <targetReference>Update_InputDate</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Input Date Not Holiday</defaultConnectorLabel>
+        <rules>
+            <name>Input_Date_Holiday</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varInputDate</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>varObservedDate</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Input_Bank_Holiday</targetReference>
+            </connector>
+            <label>Input Date Holiday</label>
+        </rules>
+    </decisions>
+    <formulas>
+        <name>formNextBusinessDay</name>
+        <dataType>Date</dataType>
+        <expression>CASE(
+MOD( {!varInputDate}- DATE(1900, 1, 7), 7),
+0, {!varInputDate}+1, /*if varInputDate is Sun,varInputDate+1=Monday */
+1, {!varInputDate}+1, /*if varInputDate is Mon,varInputDate+1=Tuesday */
+2, {!varInputDate}+1, /*if varInputDate is Tues,varInputDate+1=Wednesday */
+3, {!varInputDate}+1, /*if varInputDate is Wed,varInputDate+1=Thursday*/
+4, {!varInputDate}+1, /*if varInputDate is Thurs,varInputDate+1=Friday */
+5,{!varInputDate}+3, /*if varInputDate is Fri,varInputDate+3=Monday next week */
+6,{!varInputDate}+2, /*if varInputDate is Sat,varInputDate+2=Monday next week */
+
+{!varInputDate})</expression>
+    </formulas>
+    <interviewLabel>Next Business Day {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Next Business Day</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Bank_Holidays</name>
+        <label>Get Bank Holidays</label>
+        <locationX>167</locationX>
+        <locationY>220</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Bank_Holiday_Found_Decision</targetReference>
+        </connector>
+        <filterLogic>or</filterLogic>
+        <filters>
+            <field>Observed_Date__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>formNextBusinessDay</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Observed_Date__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>varInputDate</elementReference>
+            </value>
+        </filters>
+        <object>Bank_Holiday__c</object>
+        <outputAssignments>
+            <assignToReference>varObservedDate</assignToReference>
+            <field>Observed_Date__c</field>
+        </outputAssignments>
+        <sortField>Observed_Date__c</sortField>
+        <sortOrder>Desc</sortOrder>
+    </recordLookups>
+    <start>
+        <locationX>50</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>Bank_Holiday_Decision</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>varBankHoliday</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </variables>
+    <variables>
+        <name>varHolidaysFound</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Bank_Holiday__c</objectType>
+    </variables>
+    <variables>
+        <description>Pass the date you want the next business day calculated for to this variable.</description>
+        <name>varInputDate</name>
+        <dataType>Date</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varInputDateHoliday</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </variables>
+    <variables>
+        <name>varObservedDate</name>
+        <dataType>Date</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varObservedDates</name>
+        <dataType>Date</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>This is the Date to be returned from the service.</description>
+        <name>varOutputDate</name>
+        <dataType>Date</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

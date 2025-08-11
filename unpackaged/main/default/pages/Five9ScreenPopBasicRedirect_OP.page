@@ -1,0 +1,310 @@
+<apex:page >
+    <script src="/support/console/36.0/integration.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="/support/console/36.0/integration.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+    var debug = false;
+    var Campaign_Name = "{!$CurrentPage.parameters.Campaign_Name}";
+    var ANI = "{!$CurrentPage.parameters.ANI}";
+    var DNIS = "{!$CurrentPage.parameters.DNIS}";
+    var sURL = "/_ui/search/ui/UnifiedSearchResults?str=" + ANI;
+    var tabTitle = "Search";
+    console.log('this is the campaign name' + Campaign_Name);
+    console.log('this is the ANI' + ANI);
+    console.log('this is the DNIS' + DNIS);
+    console.log('this is the URL' + sURL);
+    
+    window.onload = main();
+    
+    function openCardSearch() {  
+         //Fire an event of type 'FireEvent'
+        
+        sforce.console.fireEvent('FireEvent', 'EventMessage', callback);      
+         }
+
+    var callback = function (result)
+        {
+            if (debug==true)
+            {
+                 if (result.success==true)
+                 {
+                    alert('Callback success!');
+                 }
+                 else
+                 {
+                      alert('Callback error');
+                 }
+            }
+    };
+
+    function main()
+    {
+        var isInConsole = determineifInConsole();
+
+        if (isInConsole!=null && isInConsole==true)
+        {
+            if (debug==true){alert("Entering In Console");
+                              }
+            redirectInConsole();
+        }
+        else
+        {
+            if (debug==true){alert("Entering Not In Console");}
+            redirectNotInConsole();
+        }
+
+    }
+
+    //determine if in the console - if not it will throw an exception so catch it and set to false
+    function determineifInConsole()
+    {
+        try
+        {
+            var foo = sforce.console.isInConsole();
+            return foo;
+        }
+        catch(err)
+        {
+            return false;
+        }
+    }
+
+    function determineifInNewConsole()
+    {
+        var url = (window.location != window.parent.location)
+            ? document.referrer
+            : document.location;
+
+        if (debug==true){alert(url);}
+
+        var foo = url.includes("/console");
+
+        return (foo);
+    }
+
+    function redirectInConsole()
+    {   
+        console.log('im a campaign name :   ' + Campaign_Name);
+        console.log('im a boolean that represents the Campaign_Name Marketing Attb: ' + Campaign_Name.includes('Marketing'));
+        if (debug==true){alert("In Console");}
+
+         //determine if new console or not
+         var isNewConsole = determineifInNewConsole();
+         if (Campaign_Name==null || Campaign_Name.length==0)
+         {
+              if (debug==true){alert("No Campaign");}
+              if (isNewConsole==true)
+                {
+                    //if we are in the new console fire an event to close a tab
+                    if (debug==true){alert("About to fire event to close tab");}
+                    openCardSearch();
+                    fireEventToCloseTab();
+                }
+                else
+                {
+                    //if we are in the old console, this won't work so just backpage
+                    window.history.back(); //this is ignored in the new console                                       
+                }
+            }
+        if(Campaign_Name.includes("Marketing")){
+                    
+            //sforce.console.fireEvent('listener', 'Ring Ring');
+                 //for all others, redirect to card search
+                 if (isNewConsole)
+                 {
+                     openCardSearch();
+                    //sURL = ("/apex/ConsoleCardSearch?name="+ANI);
+                    //fireEventToRedirectTab();
+                    fireEventToCloseTab();
+                 }
+                 else
+                 {   
+                     //we are in the old console which loads this page instead of opening a tab
+                    //to combat that, open a new browser tab and backpage on the current one.
+                    if (debug==true){alert("Not in new console");}
+                    window.open("/apex/cardSearchV2");
+                    window.history.back();
+                 }
+             }   	    
+                    
+            else if(Campaign_Name=="Agent Direct")
+            {
+                if (debug==true){alert("Agent Direct");}
+
+                if (isNewConsole)   
+                {   
+                    //for agent direct, redirect to generic search
+                    sURL = "/_ui/search/ui/UnifiedSearchResults?str=" + ANI;
+                    fireEventToRedirectTab();
+                    //openCardSearch();
+                    if (debug==true){alert("Fired Event To Redirect Tab");}
+                    fireEventToCloseTab();
+                    if (debug==true){alert("Fired Event To Close Tab");}
+                }
+                else
+                {
+                    //then we are in the old console which loads this page instead of opening a tab
+                    //to combat that, open a new browser tab and backpage on the current one.
+                    window.open("/_ui/search/ui/UnifiedSearchResults#!/str=" + ANI + "&initialViewMode=summary");
+                    window.history.back();
+                }
+            }
+            else
+            {
+                 //for all others, redirect to card search
+                 if (isNewConsole)
+                 {
+                    openCardSearch();
+                    //sURL = ("/apex/ConsoleCardSearch?name="+ANI);
+                    //fireEventToRedirectTab();
+                    fireEventToCloseTab();
+                 }
+                 else
+                 {   
+                     //we are in the old console which loads this page instead of opening a tab
+                    //to combat that, open a new browser tab and backpage on the current one.
+                    if (debug==true){alert("Not in new console");}
+                    window.open("/apex/cardSearchV2");
+                    window.history.back();
+                 }
+             }
+        }
+
+        function redirectNotInConsole()
+        {
+            if (debug==true){alert("Not In Console");}
+
+            if (Campaign_Name==null || Campaign_Name.length==0)
+            {
+                window.close();
+            }
+            else if(Campaign_Name=="Agent Direct")
+            {
+                if (debug==true){alert("Agent Direct - Send to Generic Search");}
+                //for agent direct, redirect to generic search
+                window.location = ("/_ui/search/ui/UnifiedSearchResults?str=" + ANI);                 
+            }
+            else
+            {
+                 if (debug==true){alert("Not Agent Direct - Send to Card Search");}
+                 //for all others, redirect to card search
+                 window.location = ("/apex/cardSearchV2");
+            }
+        }
+
+        function fireEventToCloseTab()
+        {   
+            if (debug==true){alert("firing event to close tab");}
+            sforce.console.addEventListener("CloseConsoleTab", closeTab);
+            sforce.console.fireEvent("CloseConsoleTab", "Closing Console Tab", callback);
+        }
+
+        function fireEventToRedirectTab()
+        {
+            try
+            {
+                sforce.console.addEventListener( "RedirectConsoleTab", testOpenPrimaryTab);
+                sforce.console.fireEvent("RedirectConsoleTab", "Closing Console Tab", callback);
+                //sforce.console.removeEventListener( "RedirectConsoleTab", testOpenPrimaryTab);
+            }
+            catch(err)
+            {
+                IsNewConsole = false;
+            }
+
+        }
+
+
+        function closeTab()
+        {
+            if (debug==true){alert("Trying to closeTab");}
+            //First find the ID of the current tab to close it
+            sforce.console.getEnclosingTabId(closeSubtab);
+        }
+
+        var closeSubtab = function closeSubtab(result)
+        {
+            //Now that we have the tab ID, we can close it
+            var tabId = result.id;
+            sforce.console.closeTab(tabId, callback);
+        };
+
+        function testGetFocusedSubtabId()
+        {
+            if (debug==true){alert("Trying to get subtabid");}
+            sforce.console.getFocusedSubtabId(showTabId);
+        }
+
+        var currentTabId = null;
+
+        var showTabId = function showTabId(result) {
+            // Display the tab ID
+            if (debug==true){alert ("Tab ID: " + result.id);}
+            currentTabId = result.id;
+        };
+
+        function testGetFocusedSubtabId()
+        {
+            sforce.console.getFocusedSubtabId(showTabId);
+        }
+
+        var showTabId = function showTabId(result) {
+            // Display the tab ID
+            alert ("Tab ID: " + result.id);
+        };
+
+        function testOpenPrimaryTab()
+        {
+            if (debug==true){alert("Trying to open primary tab id: "+ currentTabId);}
+            //Open a new primary tab with the salesforce.com home page in it
+            sforce.console.openPrimaryTab(undefined, sURL, true, tabTitle, openSuccess, ANI);
+        }
+
+        function testOpenSubTab()
+        {
+            if (debug==true){alert("Trying to open sub tab id:"+ currentTabId);}
+            //Open a new sub tab with the salesforce.com home page in it
+            sforce.console.openSubTab(undefined, sURL, true, tabTitle, openSuccess, ANI);
+        }
+
+        var openSuccess = function openSuccess(result)
+        {
+            //Report whether opening the new tab was successful
+            if(debug == true)
+            {
+                if (result.success == true) {
+                    alert("Primary tab successfully opened");
+                } else {
+                    alert("Primary tab cannot be opened");
+                }
+            }
+        };   
+
+        </script>
+
+        <body>
+
+            <H1>Five9 Screenpop - Basic Redirect Page</H1>
+            <p>
+                This Page Redirects to the Search Page for Direct Dial, and to the Card Search for non Direct Dial Calls and back to the previous page if the Campaign is not set.
+            </p>
+
+        <form>
+            <input type="button" value="Close this Salesforce tab" onclick="closeTab();return false;" />
+            <input type="button" value="Close This Browser Tab" onclick="window.close();" />
+            <!--<input type="button" value="Fire an Event to Redirect Tab" onclick="fireEventToRedirectTab();" />-->
+            <input type="button" value="Redirect Tab" onclick="testOpenPrimaryTab();"/>
+            <input type="button" value="GetFocusedTabID" onclick="testGetFocusedSubtabId();"/>
+            <input type="button" value="OpenCardSearchCloseVFP" onclick="testOpenPrimaryTab('');closeTab();"/>
+            <input type="button" value="OpenSubTabTest" onclick="testOpenSubTab('');closeTab();"/>
+            <input type="button" value="TestGenerateConsoleURL" onclick="testGenerateConsoleURL();return false;"/>
+            <input type="button" value="DoGenericSearch" onclick="doGenericSearch();"/>
+        </form>
+            <p>Debug Info</p>
+            <p>DNIS: {!$CurrentPage.parameters.DNIS}</p>
+            <p>ANI: {!$CurrentPage.parameters.ANI}</p>
+            <p>Campaign_Name: {!$CurrentPage.parameters.Campaign_Name}</p>
+
+        </body>
+</apex:page>

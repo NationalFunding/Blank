@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Manager_is_Approver__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>If checked the approver will be the manager of the submitting user - otherwise it will be the hardcoded user in the flow</description>
+    <inlineHelpText>If checked the approver will be the manager of the submitting user - otherwise it will be the hardcoded user in the flow</inlineHelpText>
+    <label>Manager is Approver</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

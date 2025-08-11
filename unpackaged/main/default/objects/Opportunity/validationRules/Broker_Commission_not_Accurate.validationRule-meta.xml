@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Broker_Commission_not_Accurate</fullName>
+    <active>false</active>
+    <description>Broker Commission must be equal to the Actual Amount Offered * (Actual Ratio - Broker Buy Ratio)
+Deactivating - seems to be calculating beyond 2 decimal places.</description>
+    <errorConditionFormula>Broker_Commission__c &lt;&gt; ACTUAL_AMT_OFFERED__c * (Actual_Ratio__c - Broker_Buy_Ratio__c) &amp;&amp;
+DATEVALUE(Fund_Date__c) &gt; DATE(2015,4,3)</errorConditionFormula>
+    <errorMessage>Broker Commission must be equal to the Actual Amount Offered * (Actual Buy Ratio - Broker Buy Ratio)</errorMessage>
+</ValidationRule>

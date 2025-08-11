@@ -1,0 +1,6 @@
+Credit Review: {!Credit_Review__c.Link}
+Opportunity: {!Credit_Review__c.Oppty_Legal_Name__c}
+
+Analyst: {!Credit_Review__c.Initial_Decline_By__c}
+Status: {!Credit_Review__c.Status__c}
+Decline Reason: {!Credit_Review__c.Broker_Decline_Reasons__c}{!Credit_Review__c.Decline_Reasons__c}

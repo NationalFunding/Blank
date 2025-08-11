@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Calc_Net_From_Lender__c</fullName>
+    <description>The calculated net amount we should retrieve from the Lease lender</description>
+    <inlineHelpText>The calculated net amount we should retrieve from the Lease lender</inlineHelpText>
+    <label>Calc Net From Lender</label>
+    <precision>17</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

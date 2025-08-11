@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Invoice_Number_Prompt__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Invoice number prompt - Status</description>
+    <inlineHelpText>Check box if merchant has invoice number prompt.</inlineHelpText>
+    <label>Invoice Number Prompt</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

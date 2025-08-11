@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Agency_AGS_Over_100k__c</fullName>
+    <description>This field will represent that the agency has contacted a customer and has received an answer around whether or not the customer does over 100k in AGS.  If True, the customer does over 100k.</description>
+    <inlineHelpText>This field will represent that the agency has contacted a customer and has received an answer around whether or not the customer does over 100k in AGS.</inlineHelpText>
+    <label>Agency AGS Over 100k</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>True</fullName>
+                <default>false</default>
+                <label>True</label>
+            </value>
+            <value>
+                <fullName>Under</fullName>
+                <default>false</default>
+                <label>Under</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

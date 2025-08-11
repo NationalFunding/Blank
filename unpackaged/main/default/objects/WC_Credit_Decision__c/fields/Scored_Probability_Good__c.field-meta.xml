@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Scored_Probability_Good__c</fullName>
+    <externalId>false</externalId>
+    <label>Scored Probability Good</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>14</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

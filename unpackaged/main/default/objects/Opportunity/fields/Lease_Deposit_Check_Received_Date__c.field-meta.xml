@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lease_Deposit_Check_Received_Date__c</fullName>
+    <description>This field will capture the date in which the Lease Deposit Check was received through a workflow.  This field is used in the Lease Plus integration as a flag for import.</description>
+    <inlineHelpText>This field will capture the date in which the Lease Deposit Check was received through a workflow.  This field is used in the Lease Plus integration as a flag for import.</inlineHelpText>
+    <label>Lease Deposit Check Received Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

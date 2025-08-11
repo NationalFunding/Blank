@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>External_Date_Rec_d__c</fullName>
+    <description>Date of commission received from external lender</description>
+    <inlineHelpText>Date of commission received from external lender</inlineHelpText>
+    <label>External - Date Rec'd</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Vendor_Postalcode__c</fullName>
+    <description>Equipment vednor postal / zip code</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Type in the equipment vendor's postal / zip code.</inlineHelpText>
+    <label>Vendor Postalcode</label>
+    <length>32</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

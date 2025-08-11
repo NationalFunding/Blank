@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Manager_for_Reports__c</fullName>
+    <label>Manager for Reports</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Adam Ankers</fullName>
+                <default>false</default>
+                <label>Adam Ankers</label>
+            </value>
+            <value>
+                <fullName>Brian Goodbody</fullName>
+                <default>false</default>
+                <label>Brian Goodbody</label>
+            </value>
+            <value>
+                <fullName>Bryan Tarpley</fullName>
+                <default>false</default>
+                <label>Bryan Tarpley</label>
+            </value>
+            <value>
+                <fullName>Carlos Ituarte</fullName>
+                <default>false</default>
+                <label>Carlos Ituarte</label>
+            </value>
+            <value>
+                <fullName>Dana Hunt</fullName>
+                <default>false</default>
+                <label>Dana Hunt</label>
+            </value>
+            <value>
+                <fullName>Eric Fong</fullName>
+                <default>false</default>
+                <label>Eric Fong</label>
+            </value>
+            <value>
+                <fullName>Justin Thompson</fullName>
+                <default>false</default>
+                <label>Justin Thompson</label>
+            </value>
+            <value>
+                <fullName>Kevin Lawrence</fullName>
+                <default>false</default>
+                <label>Kevin Lawrence</label>
+            </value>
+            <value>
+                <fullName>Lauren Martin</fullName>
+                <default>false</default>
+                <label>Lauren Martin</label>
+            </value>
+            <value>
+                <fullName>Philip Lancashire</fullName>
+                <default>false</default>
+                <label>Philip Lancashire</label>
+            </value>
+            <value>
+                <fullName>Ryan Freitas</fullName>
+                <default>false</default>
+                <label>Ryan Freitas</label>
+            </value>
+            <value>
+                <fullName>Roman Bogomolny</fullName>
+                <default>false</default>
+                <label>Roman Bogomolny</label>
+            </value>
+            <value>
+                <fullName>Michael Cowles</fullName>
+                <default>false</default>
+                <label>Michael Cowles</label>
+            </value>
+            <value>
+                <fullName>Don Quach</fullName>
+                <default>false</default>
+                <label>Don Quach</label>
+            </value>
+            <value>
+                <fullName>Ben Greet</fullName>
+                <default>false</default>
+                <label>Ben Greet</label>
+            </value>
+            <value>
+                <fullName>Robert Anthony</fullName>
+                <default>false</default>
+                <label>Robert Anthony</label>
+            </value>
+            <value>
+                <fullName>Johnny Snyder</fullName>
+                <default>false</default>
+                <label>Johnny Snyder</label>
+            </value>
+            <value>
+                <fullName>Kyle Burke</fullName>
+                <default>false</default>
+                <label>Kyle Burke</label>
+            </value>
+            <value>
+                <fullName>Melissa Dean</fullName>
+                <default>false</default>
+                <label>Melissa Dean</label>
+            </value>
+            <value>
+                <fullName>Jake Peterson</fullName>
+                <default>false</default>
+                <label>Jake Peterson</label>
+            </value>
+            <value>
+                <fullName>Krista Lowery</fullName>
+                <default>false</default>
+                <label>Krista Lowery</label>
+            </value>
+            <value>
+                <fullName>David Jacobs</fullName>
+                <default>false</default>
+                <label>David Jacobs</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

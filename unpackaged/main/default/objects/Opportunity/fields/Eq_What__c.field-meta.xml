@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Eq_What__c</fullName>
+    <description>Note field describing equipment lessee needs</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Type a name / description of the equipment lessee needs.</inlineHelpText>
+    <label>Equipment Type</label>
+    <length>64</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

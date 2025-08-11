@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Offer and Demand - Record Created</name>
+    <style>none</style>
+    <subject>{!advpm__Offer_And_Demand__c.Loan_Number__c} New Offer Created - {!advpm__Offer_And_Demand__c.RecordType}</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

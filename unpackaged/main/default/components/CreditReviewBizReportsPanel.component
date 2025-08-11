@@ -1,0 +1,152 @@
+<apex:component layout="none">
+<apex:attribute type="Credit_Review__c" name="creditReview" description="Credit Review"/>
+<apex:attribute type="Business_Credit_Summary__c" name="BusinessCreditSummaryObj" description="Business_Credit_Summary__c"/>
+<apex:attribute type="Business_Credit_Summary__c[]" name="BizCreditReports" description="All Business Credit Reports"/>
+<apex:attribute type="String" name="Bureau" description="Experian or Equifax"/>
+<apex:attribute type="String" name="PrimaryId" description="ID of BCS on Credit Review"/>
+
+      <div class="col-md-12 pull-right">
+        <div class="panel panel-warning businessFirstLoading" style="display:none">
+          <div class="panel-heading">{!Bureau} Business Credit Reports </div>
+          <div class="panel-body" align="center">
+            <img src="{!URLFOR($Resource.loading,'loading/circle.gif')}" style="height:25px" />
+          </div>
+        </div>
+
+         <!-- Start business Credit Reports Panel -->
+         <div class="panel {!LOWER(Bureau)}-biz-panel panel-default">
+
+          <!-- Start header row -->
+          <div class="panel-heading green-panel">
+            {!Bureau} Business Credit Reports
+          </div>
+           <!-- End header row -->
+           
+           <!-- Start panel for at least one biz report -->
+           <apex:outputPanel rendered="{!BizCreditReports.size > 0}" layout="none">
+           <div class="{!LOWER(Bureau)}_biz_reports biz_reports_panel" style="display:none;">
+            <apex:repeat value="{!BizCreditReports}" var="report">
+              <h3 class="panel-heading" style="font-size: 14px;margin-top: 0px;margin-bottom: 0px;color:{!If(report.Status__c =='Error','red','darkgreen')}">
+                {!report.Account__r.Name} ({!Bureau} # {!IF(Bureau == 'Experian', report.BISListNumber__c, report.EfxId__c)})
+                <span class="pull-right" style="display:{!If(report.Status__c =='Error','block','none')}"><i class="glyphicon glyphicon-warning-sign"></i></span>
+                <span class="pull-right" style="display:{!If(report.Status__c =='Completed','block','none')}"><i class="glyphicon glyphicon-ok"></i></span>
+              </h3>
+              <div class="panel-body" bislistnumber="{!report.BISListNumber__c}" bcsid="{!report.Id}">
+
+                <!-- Start biz report completed -->
+                <apex:outputPanel rendered="{!report.Status__c =='Completed'}"  layout="none">
+                  <div class="form-group "> 
+                      <table width="100%" border="0" class="table table-striped">
+                         <apex:repeat value="{!IF(Bureau == 'Experian', $ObjectType.Business_Credit_Summary__c.Fieldsets.Credit_Review_Experian_Fields, $ObjectType.Business_Credit_Summary__c.Fieldsets.Credit_Review_Equifax_Fields)}" var="fieldName">
+                           <tr>
+                              <td>{!fieldName.label}:</td>
+                              <td align="right">
+                                <apex:outputText value="{0, date, MMM d','  yyyy}" rendered="{!fieldName.type =='date'}">
+                                   <apex:param value="{!report[fieldName.FieldPath]}" /> 
+                               </apex:outputText>
+                               <apex:outputText value="{0,number,#,##0.##}" rendered="{!fieldName.type == 'double'}">
+                                 <apex:param value="{!report[fieldName.FieldPath]}" />
+                               </apex:outputText>
+                               <apex:outputText value="{0,number,$#,##0.00}" rendered="{!fieldName.type == 'currency'}">
+                                 <apex:param value="{!report[fieldName.FieldPath]}" />
+                               </apex:outputText>
+                               <apex:outputPanel rendered="{!fieldName.type !='date' && fieldName.type !='double' && fieldName.type !='currency'}">
+                                 {!report[fieldName.FieldPath]}         
+                                </apex:outputPanel>
+                               </td>
+                            </tr>
+                         </apex:repeat>
+                        <tr>
+                          <td>Full Report:</td>
+                          <td align="right"><a href="{!IF(Bureau == 'Experian', report.URL_for_View_Link__c, report.Efx_Report_Link__c)}" target="_blank">View Details</a></td>
+                        </tr>
+                      </table>
+                  </div>
+                  <div class="form-group" style="    text-align: center;">
+                    <span class="btn permissionDeny btn-default" onclick="useBizReportData($(this).first().parents('.panel-body').attr('bcsid'), '{!LOWER(Bureau)}')" role="button">
+                      <i class="fa fa-arrow-left" style="padding-right: 8px; color: teal;"></i>Use Data
+                    </span>
+                    <span class="btn permissionDeny btn-default" onclick="removeBizReport($(this).first().parents('.panel-body').attr('bcsid'), '{!LOWER(Bureau)}')" role="button">
+                      <i class="fa fa-times" style="padding-right: 8px; color: teal;"></i>Remove
+                    </span>
+                    <apex:outputPanel rendered="{!PrimaryId == report.Id}"  layout="none">
+                      <span role="button" class="btn permissionDeny btn-default" style="cursor: context-menu;">
+                        <i class="glyphicon glyphicon-ok" style="padding-right: 8px;    color: teal;"></i>Primary</span>
+                    </apex:outputPanel>
+                    <apex:outputPanel rendered="{!PrimaryId != report.Id}"  layout="none">
+                      <span class="btn permissionDeny btn-default" onclick="setPrimaryBizReport($(this).first().parents('.panel-body').attr('bcsid'), '{!LOWER(Bureau)}')" role="button">Set as Primary</span>
+                    </apex:outputPanel>
+                  </div>
+                </apex:outputPanel>
+                <!-- End biz report completed -->
+
+                <!-- Start biz report error -->
+                <apex:outputPanel rendered="{!report.Status__c =='Error'}"  layout="none">
+                  <div class="text-center">
+                    <p>There was an error with this credit report.  Please notify your Salesforce Administrator.</p>
+                  </div>
+                  <div class="form-group" style="text-align: center;">
+                    <span class="btn permissionDeny btn-default" onclick="removeBizReport($(this).first().parents('.panel-body').attr('bcsid'), '{!LOWER(Bureau)}')" role="button">
+                      <i class="fa fa-times" style="padding-right: 8px; color: teal;"></i>Remove
+                    </span>
+                    <span class="btn btn-default" role="button">
+                      <a  href="/{!report}" target="_blank" style="text-decoration: none;color: black;">View Details</a>
+                    </span>
+                  </div>
+                </apex:outputPanel>
+                <!-- End biz report error -->
+
+              </div>
+            </apex:repeat>
+            </div>
+            <script>
+              makeBizReportAccordion("{!LOWER(Bureau)}");
+            </script>
+           </apex:outputPanel>
+           <!-- End panel for at least one biz report -->
+
+            <!-- Loading Spinner -->
+            <div class="business-loading-icon panel-body" align="center" style="display:none;margin-right:5px;height:178px;">
+                <span style='display: inline-block;height: 100%;vertical-align: middle;'></span>
+                <img src="{!URLFOR($Resource.loadingspinner)}" style="height:100px" />
+            </div>
+
+           <!-- Start panel for no biz report -->
+           <apex:outputPanel rendered="{!BizCreditReports.size == 0}" layout="none">
+            <div class="panel-body">
+              <div class="text-center">
+                  <p>Credit has not yet been pulled for this organization.</p>
+              </div>
+            </div>
+           </apex:outputPanel>
+           <!-- End panel for no biz report -->
+
+           <!-- Start panel for error -->
+           <apex:outputPanel rendered="{!creditReview.EXP_Business_Summary__r.Status__c =='Error'}"  layout="none">
+            <div class="panel-body">
+              <div class="text-center">
+                <p>There was an error with this credit pull.  Please notify your Salesforce Administrator.</p>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="singlebutton"></label>
+                <div class="col-md-8"> <a  href="/{!creditReview.EXP_Business_Summary__c}" target="_blank" role="button" class="btn  btn-default">View Details</a> </div>
+              </div>
+            </div>
+           </apex:outputPanel>
+           <!-- End panel for error -->
+
+           <!-- Start pull credit button -->
+           <div class="panel-body panel-footer">
+             <div class="form-group"  style="position:relative;text-align:center">
+              <div class="disabledByZ-index"></div>
+              <input type="hidden" value="1" class="pullBizCredit"></input>
+              <a  href="javascript:void(0)"  onclick="{!IF(Bureau == 'Experian', 'accountPull', 'accountPullEquifaxComm')}($('.pullBizCredit'))" role="button" class="btn permissionDeny {!IF(Bureau == 'Experian', 'permissionDenyExpBiz', '')} btn-default">Pull Credit</a> 
+             </div>
+           </div>
+          <!-- End pull credit button -->
+
+         </div>
+         <!-- End Business Credit Reports Panel -->
+
+      </div>
+</apex:component>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Review_Type__c</fullName>
+    <label>Review Type</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Initial Review</fullName>
+                <default>true</default>
+                <label>Initial Review</label>
+            </value>
+            <value>
+                <fullName>Gold Review</fullName>
+                <default>false</default>
+                <label>Gold Review</label>
+            </value>
+            <value>
+                <fullName>Platinum Review</fullName>
+                <default>false</default>
+                <label>Platinum Review</label>
+            </value>
+            <value>
+                <fullName>Diamond Review</fullName>
+                <default>false</default>
+                <label>Diamond Review</label>
+            </value>
+            <value>
+                <fullName>Commercial Review</fullName>
+                <default>false</default>
+                <label>Commercial Review</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

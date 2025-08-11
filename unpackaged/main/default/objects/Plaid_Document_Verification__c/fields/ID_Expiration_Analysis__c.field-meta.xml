@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ID_Expiration_Analysis__c</fullName>
+    <description>documents.analysis.extracted_data.expiration_date</description>
+    <externalId>false</externalId>
+    <inlineHelpText>A description of whether the associated document was expired when the verification was performed.</inlineHelpText>
+    <label>ID Expiration Analysis</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

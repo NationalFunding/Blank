@@ -1,0 +1,1813 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Alert_when_Refer_to_MCA</fullName>
+        <description>Alert when Refer  to = MCA</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>MCA Sales Rep</recipient>
+            <type>accountTeam</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Queue_Notification_Emails/MCA_Account_Referral</template>
+    </alerts>
+    <alerts>
+        <fullName>Broker_Account_Status_Change_Email_Alert</fullName>
+        <description>Broker Account Status Change Email Alert</description>
+        <protected>false</protected>
+        <recipients>
+            <type>accountOwner</type>
+        </recipients>
+        <recipients>
+            <field>Business_Developer__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <recipients>
+            <field>Regional_Business_Developer__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderAddress>info@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Broker_Email_Templates/Broker_Account_Status_Change</template>
+    </alerts>
+    <alerts>
+        <fullName>Broker_is_Declined</fullName>
+        <ccEmails>brokerservices@nationalfunding.com</ccEmails>
+        <description>Broker is Declined</description>
+        <protected>false</protected>
+        <recipients>
+            <type>accountOwner</type>
+        </recipients>
+        <recipients>
+            <recipient>acaisido@fairsquare.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>mvanasselt@nationalfunding.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>nrojas@nationalfunding.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>sotero@nationalfunding.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <field>Regional_Business_Developer__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Broker_Email_Templates/Broker_is_Declined</template>
+    </alerts>
+    <alerts>
+        <fullName>DLP_Contact_Alert_Renewal_Owner_of_Form_Submit</fullName>
+        <description>DLP Contact - Alert Renewal Owner of Form Submit</description>
+        <protected>false</protected>
+        <recipients>
+            <field>NF_Renewal_Rep__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Digital_Loan_Process_Templates/DLP_Form_Submitted</template>
+    </alerts>
+    <alerts>
+        <fullName>Internet_Auto_Assignment_Account</fullName>
+        <ccEmails>salesforce@nationalfunding.com</ccEmails>
+        <description>Internet Auto Assignment - Account</description>
+        <protected>false</protected>
+        <recipients>
+            <type>accountOwner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Queue_Notification_Emails/Auto_Assign</template>
+    </alerts>
+    <alerts>
+        <fullName>Internet_Auto_Assignment_Edge_Account</fullName>
+        <ccEmails>aburdick@nationalfunding.com</ccEmails>
+        <description>Internet Auto Assignment - Edge - Account</description>
+        <protected>false</protected>
+        <recipients>
+            <type>accountOwner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Queue_Notification_Emails/Auto_Assign_Edge</template>
+    </alerts>
+    <alerts>
+        <fullName>LM_Sweep_Date_Exception_Accepted_Account</fullName>
+        <description>LM - Sweep Date Exception Accepted Account</description>
+        <protected>false</protected>
+        <recipients>
+            <type>accountOwner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Lead_Management_Notifications/Account_Sweep_Date_Exception_Accepted</template>
+    </alerts>
+    <alerts>
+        <fullName>LM_Sweep_Date_Exception_Declined_Account</fullName>
+        <description>LM - Sweep Date Exception Declined Account</description>
+        <protected>false</protected>
+        <recipients>
+            <type>accountOwner</type>
+        </recipients>
+        <recipients>
+            <recipient>jthompson@nationalfunding.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Lead_Management_Notifications/Account_Sweep_Date_Exception_Declined</template>
+    </alerts>
+    <alerts>
+        <fullName>LM_Sweep_Date_Exception_Request_Account</fullName>
+        <description>LM - Sweep Date Exception Request Account (Team Kevin)</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Lead_Management_Notifications/Account_Sweep_Date_Exception_Requested</template>
+    </alerts>
+    <alerts>
+        <fullName>LM_Sweep_Date_Exception_Request_Account_Team_Carlos</fullName>
+        <description>LM - Sweep Date Exception Request Account (Team Carlos)</description>
+        <protected>false</protected>
+        <recipients>
+            <type>accountOwner</type>
+        </recipients>
+        <recipients>
+            <recipient>cituarte@nationalfunding.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Lead_Management_Notifications/Account_Sweep_Date_Exception_Requested</template>
+    </alerts>
+    <alerts>
+        <fullName>LM_Sweep_Date_Exception_Request_Account_Team_Philip</fullName>
+        <description>LM - Sweep Date Exception Request Account (Team Philip)</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <recipients>
+            <recipient>plancashire@nationalfunding.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Lead_Management_Notifications/Account_Sweep_Date_Exception_Requested</template>
+    </alerts>
+    <alerts>
+        <fullName>LM_Sweep_Date_Exception_Request_Account_Team_Ryan</fullName>
+        <ccEmails>trover@nationalfunding.com</ccEmails>
+        <description>LM - Sweep Date Exception Request Account (Team Kevin)</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>klawrence@nationalfunding.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Lead_Management_Notifications/Account_Sweep_Date_Exception_Requested</template>
+    </alerts>
+    <alerts>
+        <fullName>Lease_Account_Reference</fullName>
+        <description>Lease Account Reference</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Lease Sales Rep</recipient>
+            <type>accountTeam</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Queue_Notification_Emails/Lease_Account_Referral</template>
+    </alerts>
+    <alerts>
+        <fullName>Navigator_New_Broker_Sign_Up</fullName>
+        <ccEmails>femerson@quickbridgefunding.com</ccEmails>
+        <ccEmails>josiecki@nationalfunding.com</ccEmails>
+        <ccEmails>jshaw@quickbridgefunding.com</ccEmails>
+        <ccEmails>support@quickbridgefunding.com</ccEmails>
+        <description>Navigator - New Broker Sign Up</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>jthompson@nationalfunding.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>nrojas@nationalfunding.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>tdool@nationalfunding.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>trover@nationalfunding.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Navigator_Program/Navigator_Dual_Broker_Sign_Up</template>
+    </alerts>
+    <alerts>
+        <fullName>Navigator_Remove_Broker</fullName>
+        <ccEmails>femerson@quickbridgefunding.com</ccEmails>
+        <ccEmails>josiecki@quickbridgefunding.com</ccEmails>
+        <ccEmails>jshaw@quickbridgefunding.com</ccEmails>
+        <description>Navigator - Remove Broker email alert</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>ranthony@nationalfunding.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>tinouye@nationalfunding.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Navigator_Program/Navigator_Remove_Broker</template>
+    </alerts>
+    <alerts>
+        <fullName>New_Broker_Request_Pending_Approval</fullName>
+        <ccEmails>brokerservices@nationalfunding.com</ccEmails>
+        <ccEmails>nfbroker@enoahisolution.com</ccEmails>
+        <description>New Broker Request - Pending Approval</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Broker_Approvals</recipient>
+            <type>group</type>
+        </recipients>
+        <recipients>
+            <field>Regional_Business_Developer__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Broker_Email_Templates/New_Broker_Request_Pending_Approval</template>
+    </alerts>
+    <alerts>
+        <fullName>New_Broker_Request_Pending_Approval_Reminder</fullName>
+        <description>New Broker Request - Pending Approval Reminder</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Broker_Approvals</recipient>
+            <type>group</type>
+        </recipients>
+        <senderAddress>brokerservices@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Broker_Email_Templates/New_Broker_Request_Pending_Approval_reminder</template>
+    </alerts>
+    <alerts>
+        <fullName>Nofication_To_Prepare_VAP_Kit</fullName>
+        <description>Nofication To Prepare VAP Kit</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>MktgCoordinator</recipient>
+            <type>role</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Vendor_Advantage/Nofication_To_Prepare_VAP_Kit</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>AccountID18_Populate</fullName>
+        <field>AccountID18__c</field>
+        <formula>Id&amp;
+CASE(
+IF(CONTAINS("ABCDEFGHIJKLMNOPQRSTUVWXYZ",RIGHT(LEFT(Id,1),1)),1,0)+
+IF(CONTAINS("ABCDEFGHIJKLMNOPQRSTUVWXYZ",RIGHT(LEFT(Id,2),1)),2,0)+
+IF(CONTAINS("ABCDEFGHIJKLMNOPQRSTUVWXYZ",RIGHT(LEFT(Id,3),1)),4,0)+
+IF(CONTAINS("ABCDEFGHIJKLMNOPQRSTUVWXYZ",RIGHT(LEFT(Id,4),1)),8,0)+
+IF(CONTAINS("ABCDEFGHIJKLMNOPQRSTUVWXYZ",RIGHT(LEFT(Id,5),1)),16,0),
+0,"A",1,"B",2,"C",3,"D",4,"E",5,"F",6,"G",7,"H",8,"I",
+9,"J",10,"K",11,"L",12,"M",13,"N",14,"O",15,"P",16,"Q",17,"R",
+18,"S",19,"T",20,"U",21,"V",22,"W",23,"X",24,"Y",25,"Z",26,"0",
+27,"1",28,"2",29,"3",30,"4",31,"5","0")&amp;
+CASE(
+IF(CONTAINS("ABCDEFGHIJKLMNOPQRSTUVWXYZ",RIGHT(LEFT(Id,6),1)),1,0)+
+IF(CONTAINS("ABCDEFGHIJKLMNOPQRSTUVWXYZ",RIGHT(LEFT(Id,7),1)),2,0)+
+IF(CONTAINS("ABCDEFGHIJKLMNOPQRSTUVWXYZ",RIGHT(LEFT(Id,8),1)),4,0)+
+IF(CONTAINS("ABCDEFGHIJKLMNOPQRSTUVWXYZ",RIGHT(LEFT(Id,9),1)),8,0)+
+IF(CONTAINS("ABCDEFGHIJKLMNOPQRSTUVWXYZ",RIGHT(LEFT(Id,10),1)),16,0),
+0,"A",1,"B",2,"C",3,"D",4,"E",5,"F",6,"G",7,"H",8,"I",
+9,"J",10,"K",11,"L",12,"M",13,"N",14,"O",15,"P",16,"Q",17,"R",
+18,"S",19,"T",20,"U",21,"V",22,"W",23,"X",24,"Y",25,"Z",26,"0",
+27,"1",28,"2",29,"3",30,"4",31,"5","0")&amp;
+CASE(
+IF(CONTAINS("ABCDEFGHIJKLMNOPQRSTUVWXYZ",RIGHT(LEFT(Id,11),1)),1,0)+
+IF(CONTAINS("ABCDEFGHIJKLMNOPQRSTUVWXYZ",RIGHT(LEFT(Id,12),1)),2,0)+
+IF(CONTAINS("ABCDEFGHIJKLMNOPQRSTUVWXYZ",RIGHT(LEFT(Id,13),1)),4,0)+
+IF(CONTAINS("ABCDEFGHIJKLMNOPQRSTUVWXYZ",RIGHT(LEFT(Id,14),1)),8,0)+
+IF(CONTAINS("ABCDEFGHIJKLMNOPQRSTUVWXYZ",RIGHT(LEFT(Id,15),1)),16,0),
+0,"A",1,"B",2,"C",3,"D",4,"E",5,"F",6,"G",7,"H",8,"I",
+9,"J",10,"K",11,"L",12,"M",13,"N",14,"O",15,"P",16,"Q",17,"R",
+18,"S",19,"T",20,"U",21,"V",22,"W",23,"X",24,"Y",25,"Z",26,"0",
+27,"1",28,"2",29,"3",30,"4",31,"5","0")</formula>
+        <name>AccountID18 Populate</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Account_Do_Not_Call_Checked</fullName>
+        <description>Checks the Account table Do Not Call Field</description>
+        <field>Do_Not_Call__c</field>
+        <literalValue>1</literalValue>
+        <name>Account Do Not Call Checked</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Account_Do_Not_Email_Checked</fullName>
+        <description>Sets the Accounts Do Not Email Checkbox to True</description>
+        <field>Do_Not_E_Mail__c</field>
+        <literalValue>1</literalValue>
+        <name>Account Do Not Email Checked</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Account_Do_Not_Fax_Checked</fullName>
+        <description>Sets the Account Do Not Fax Checkbox to True</description>
+        <field>Do_Not_Fax__c</field>
+        <literalValue>1</literalValue>
+        <name>Account Do Not Fax Checked</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Account_Do_Not_Mail_Checked</fullName>
+        <field>Do_Not_Mail__c</field>
+        <literalValue>1</literalValue>
+        <name>Account Do Not Mail Checked</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Account_Populate_Web_Id_NatFund</fullName>
+        <field>Web_Id_NatFund__c</field>
+        <formula>National_Funding_WebId__c</formula>
+        <name>Account - Populate Web Id NatFund</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Account_Status_Remove_From_List</fullName>
+        <description>Sets the Account Status Field to Inactive</description>
+        <field>Status__c</field>
+        <literalValue>Remove From List</literalValue>
+        <name>Account Status = Remove From List</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Broker_Status_Update</fullName>
+        <field>Status__c</field>
+        <literalValue>Active</literalValue>
+        <name>Broker Status Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Broker_Status_Update_Broker_Approved</fullName>
+        <description>Updates the Status of a Broker Account to Broker Approved</description>
+        <field>Status__c</field>
+        <literalValue>Broker Approved</literalValue>
+        <name>Broker Status Update =&gt; Broker Approved</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Broker_Status_Update_Broker_Declined</fullName>
+        <description>Updates the Status of a Broker Account to Broker Declined</description>
+        <field>Status__c</field>
+        <literalValue>Broker Declined</literalValue>
+        <name>Broker Status Update =&gt; Broker Declined</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Broker_Status_Update_Pending_Approval</fullName>
+        <description>Updates the Status of a Broker Account to Pending Approval</description>
+        <field>Status__c</field>
+        <literalValue>Pending Approval</literalValue>
+        <name>Broker Status Update =&gt; Pending Approval</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Broker_Tier_Referral_Partner</fullName>
+        <description>Updates the Broker Tier to Referral Partner when the Account Type = Referral Partner.</description>
+        <field>Broker_Tier__c</field>
+        <literalValue>Referral Partner</literalValue>
+        <name>Broker Tier = Referral Partner</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Broker_Tier_Tier_2</fullName>
+        <description>Updates the field Broker Tier to Tier 2 when the Account Type = Broker</description>
+        <field>Broker_Tier__c</field>
+        <literalValue>Tier 2</literalValue>
+        <name>Broker Tier = Tier 2</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Do_Not_Solicit_Account</fullName>
+        <description>If all Do Not " " fields are marked true, then the Do Not Solicit field will be checked true.</description>
+        <field>Do_Not_Solicit__c</field>
+        <literalValue>1</literalValue>
+        <name>Do Not Solicit - Account</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>IMF_NF_Renewal_Rep_Pardot_Update</fullName>
+        <field>NF_Renewal_Rep_Pardot__c</field>
+        <formula>NF_Renewal_Rep__r.Full_Name__c</formula>
+        <name>IMF - NF Renewal Rep Pardot Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>LM_Acct_Remove_From_List_Assign_2_Hou</fullName>
+        <field>OwnerId</field>
+        <lookupValue>haccount@fivepointcapital.com</lookupValue>
+        <lookupValueType>User</lookupValueType>
+        <name>LM - Acct Remove From List/Assign 2 Hou</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>LM_Add_30_Days_to_Sweep_Date</fullName>
+        <field>Sweep_Date__c</field>
+        <formula>Sweep_Date__c + 30</formula>
+        <name>LM - Add 30 Days to Sweep Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>LM_Rep_Ownership_Date_Acct</fullName>
+        <field>Rep_Ownership_Date__c</field>
+        <formula>TODAY()</formula>
+        <name>LM - Rep Ownership Date (Acct)</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>LM_Sweep_Date_Account_180_days</fullName>
+        <description>Updates the Sweep Date field on an Account to 180 days in the future.</description>
+        <field>Sweep_Date__c</field>
+        <formula>TODAY() + 180</formula>
+        <name>LM - Sweep Date - Account: +180 days</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>LM_Sweep_Date_Account_NULL</fullName>
+        <description>Updates the Sweep Date field on an Account to NULL.</description>
+        <field>Sweep_Date__c</field>
+        <name>LM - Sweep Date - Account: NULL</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>LM_Sweep_Date_Decision_Clear_Field_A</fullName>
+        <field>Sweep_Exception_Decision__c</field>
+        <name>LM - Sweep Date Decision (Clear Field A)</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>LM_Update_Rating_field_to_null_acct</fullName>
+        <description>Updates the Rating field with a null value.</description>
+        <field>Rating</field>
+        <name>LM - Update Rating field to null</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>LM_Update_Sweep_Date_Acct</fullName>
+        <field>Sweep_Date__c</field>
+        <formula>IF(
+ Lease_Opportunities_Funded__c &gt; 0,
+Null, 
+TODAY() + 215
+)</formula>
+        <name>LM - Update Sweep Date (Acct)</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Lease_90_Day_Remove_FPC_Rep_Lease</fullName>
+        <field>FPC_Rep_Lease__c</field>
+        <name>Lease 90 Day - Remove FPC Rep Lease</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Lease_Plus_Vendor_Account_Type</fullName>
+        <description>This update will change the Account Record Type to a vendor.</description>
+        <field>RecordTypeId</field>
+        <lookupValue>Vendor_Acct</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>Lease Plus - Vendor Account Type</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>MCA_90_Day_Remove_FPC_Rep_MCA</fullName>
+        <description>This will update the FPC Rep MCA field if no MCA opportunities have been created.</description>
+        <field>FPC_Rep_MCA__c</field>
+        <name>MCA 90 Day - Remove FPC Rep MCA</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Navigator_Broker_Sign_Up_Timestamp</fullName>
+        <field>Navigator_Sign_Up__c</field>
+        <formula>NOW()</formula>
+        <name>Navigator - Broker Sign Up Timestamp</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Navigator_Remove_Broker_Timestamp</fullName>
+        <description>Sets the date when a Broker was removed from the Navigator program.</description>
+        <field>Navigator_Removed__c</field>
+        <formula>NOW()</formula>
+        <name>Navigator - Remove Broker Timestamp</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Partner_Sharing_Opt_Out_Date_field_updat</fullName>
+        <description>Updates the value of the Account field Partner Sharing Opt Out Date</description>
+        <field>Partner_Sharing_Opt_Out_Date__c</field>
+        <formula>NOW()</formula>
+        <name>Partner Sharing Opt Out Date field updat</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Populate_Broker_Approved_By</fullName>
+        <field>Broker_Approved_By__c</field>
+        <formula>$User.Full_Name__c</formula>
+        <name>Populate Broker Approved By</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Populate_Broker_Approved_By_Date</fullName>
+        <field>Broker_Approved_By_Date__c</field>
+        <formula>$User.Full_Name__c  &amp; ' '  &amp; TEXT(TODAY())</formula>
+        <name>Populate Broker Approved By/Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Populate_Broker_Approved_Date</fullName>
+        <field>Broker_Approved_Date__c</field>
+        <formula>NOW()</formula>
+        <name>Populate Broker Approved Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Populate_Broker_Declined_By</fullName>
+        <description>Set the Broker Declined By value to the running user.</description>
+        <field>Broker_Declined_By__c</field>
+        <formula>$User.Full_Name__c</formula>
+        <name>Populate Broker Declined By</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Populate_Broker_Declined_Date</fullName>
+        <description>Populate Broker Declined date with the timestamp of when the Broker was declined.</description>
+        <field>Broker_Declined_Date__c</field>
+        <formula>NOW()</formula>
+        <name>Populate Broker Declined Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Populate_Submit_Broker_for_Approval_Date</fullName>
+        <description>Populates the Date a Broker was submitted for approval.</description>
+        <field>Submit_Broker_for_Approval_Date__c</field>
+        <formula>NOW()</formula>
+        <name>Populate Submit Broker for Approval Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Referencd_User_Name_Update</fullName>
+        <field>Referred_By__c</field>
+        <formula>LastModifiedBy.FirstName  + ' '+  LastModifiedBy.LastName</formula>
+        <name>Referenced User Name Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>ReferencedUser_name_Update</fullName>
+        <field>Referred_By__c</field>
+        <formula>LastModifiedBy.FirstName  + ' '+  LastModifiedBy.LastName</formula>
+        <name>Referenced User name Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>ReferredDate_UPdate</fullName>
+        <field>Referred_Date__c</field>
+        <formula>NOW()</formula>
+        <name>Referred Date Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Referred_DateUpdate_c</fullName>
+        <field>Referred_Date__c</field>
+        <formula>NOW()</formula>
+        <name>Referred Date Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Remove_Refer_By_Acct</fullName>
+        <field>Referred_By__c</field>
+        <name>Remove Refer By (Acct)</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Remove_Refer_Date_Acct</fullName>
+        <field>Referred_Date__c</field>
+        <name>Remove Refer Date (Acct)</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Remove_Refer_To_Acct</fullName>
+        <field>Refer_To__c</field>
+        <name>Remove Refer To (Acct)</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>SDR_Account_Opener_Date</fullName>
+        <description>This field update will update the Opener Date field with date/time upon the Opener field being populated.</description>
+        <field>Opener_Date__c</field>
+        <formula>NOW()</formula>
+        <name>SDR - Account Opener Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>SIC_Code_Field_Update</fullName>
+        <field>Sic</field>
+        <formula>SICCODE__c</formula>
+        <name>SIC Code Field Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Inactive</fullName>
+        <description>Set Account Status to inactive</description>
+        <field>Status__c</field>
+        <literalValue>Inactive</literalValue>
+        <name>Set Inactive</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Status_Lease_Do_Not_Solicit</fullName>
+        <field>Status_Lease__c</field>
+        <literalValue>Do Not Solicit</literalValue>
+        <name>Status Lease - Do Not Solicit</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Status_MCA_Do_Not_Solicit</fullName>
+        <field>Status_MCA__c</field>
+        <literalValue>Do Not Solicit</literalValue>
+        <name>Status MCA - Do Not Solicit</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Account_Owner_to_House</fullName>
+        <field>OwnerId</field>
+        <lookupValue>haccount@fivepointcapital.com</lookupValue>
+        <lookupValueType>User</lookupValueType>
+        <name>Update Account Owner to House</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Activation_Date</fullName>
+        <field>Activation_Date__c</field>
+        <formula>TODAY()</formula>
+        <name>Update Activation Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_CA_Lender_s_License_Approved_By</fullName>
+        <field>CA_Lender_s_License_Approved_By__c</field>
+        <formula>$User.Full_Name__c</formula>
+        <name>Update CA Lender's License Approved By</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_CA_Lender_s_License_Approved_Date</fullName>
+        <field>CA_Lender_s_License_Approved_Date__c</field>
+        <formula>NOW()</formula>
+        <name>Update CA Lender's License Approved Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Record_Type_to_Vendor</fullName>
+        <field>RecordTypeId</field>
+        <lookupValue>Vendor_Acct</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>Update Record Type to Vendor</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Referred_By_to_Account_Owner</fullName>
+        <field>Referred_By__c</field>
+        <formula>Owner.Full_Name__c</formula>
+        <name>Update Referred By to Account Owner</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Referred_Date_to_Now</fullName>
+        <field>Referred_Date__c</field>
+        <formula>NOW()</formula>
+        <name>Update Referred Date to Now</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>VAP_Sign_Up_Date</fullName>
+        <field>VAP_Sign_Up_Date__c</field>
+        <formula>TODAY()</formula>
+        <name>VAP - Sign Up Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Vendor_Update_Type_if_Associated_VAP</fullName>
+        <field>Type</field>
+        <literalValue>Vendor - VAP</literalValue>
+        <name>Vendor - Update Type if Associated &amp; VAP</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <flowActions>
+        <fullName>Internet_Auto_Assign_Edge_Round_Robin_Flow_Trigger_Account</fullName>
+        <flow>Internet_Auto_Assign_Round_Robin_Edge_Funding</flow>
+        <flowInputs>
+            <name>inputAGS</name>
+            <value>{!AnnualRevenue}</value>
+        </flowInputs>
+        <flowInputs>
+            <name>inputAccountId</name>
+            <value>{!Id}</value>
+        </flowInputs>
+        <label>Internet Auto Assign - Edge - Round Robin Flow Trigger (Account)</label>
+        <language>en_US</language>
+        <protected>false</protected>
+    </flowActions>
+    <rules>
+        <fullName>Account - Populate Web Id NatFund</fullName>
+        <active>true</active>
+        <description>Updates NF Web Id from criteria set by NF Web Id Activation</description>
+        <formula>AND( NOT(ISPICKVAL(Status__c, 'House')), NOT(ISBLANK(Activation_Date__c)), ISBLANK(Web_Id_NatFund__c))</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Account_Populate_Web_Id_NatFund</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Account - Referred Date Rule for Lease</fullName>
+        <actions>
+            <name>Lease_Account_Reference</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>ReferencedUser_name_Update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Referred_DateUpdate_c</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(ISPICKVAL( Refer_To__c , "Lease"))</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Account - Referred Date Rule for MCA</fullName>
+        <actions>
+            <name>Alert_when_Refer_to_MCA</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Referencd_User_Name_Update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>ReferredDate_UPdate</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(ISPICKVAL( Refer_To__c , "MCA"))</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Account Do Not Solicit Checked</fullName>
+        <actions>
+            <name>Account_Do_Not_Call_Checked</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Account_Do_Not_Email_Checked</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Account_Do_Not_Fax_Checked</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Account_Do_Not_Mail_Checked</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Account_Status_Remove_From_List</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>LM_Acct_Remove_From_List_Assign_2_Hou</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Status_Lease_Do_Not_Solicit</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Status_MCA_Do_Not_Solicit</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Do_Not_Solicit__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.RecordTypeId</field>
+            <operation>notEqual</operation>
+            <value>External Collections - Customer Account</value>
+        </criteriaItems>
+        <description>Fires when the Do Not Solicit checkbox on the Account record is checked</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Account Out Of Business Checked</fullName>
+        <actions>
+            <name>Account_Status_Remove_From_List</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Out_of_Business__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <description>Fires when the Out Of Business Checkbox is checked on the accoutn screen</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Account Remove From List Status</fullName>
+        <actions>
+            <name>Do_Not_Solicit_Account</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Account_Owner_to_House</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Status__c</field>
+            <operation>equals</operation>
+            <value>Remove From List</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Broker - CA Lender%27s License Approved</fullName>
+        <actions>
+            <name>Update_CA_Lender_s_License_Approved_By</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_CA_Lender_s_License_Approved_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.CA_Lender_s_License__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <description>Triggers when a Broker Account has been approved to submit deals with a CA Lender's License</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Broker Account - Id Present Update Status</fullName>
+        <actions>
+            <name>Broker_Status_Update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Broker_Casesafe_User_Id__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Broker Account</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Broker Account Status Change - Agreement In</fullName>
+        <actions>
+            <name>Broker_Account_Status_Change_Email_Alert</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Status__c</field>
+            <operation>equals</operation>
+            <value>Agreement In</value>
+        </criteriaItems>
+        <description>Triggers when a Broker Account Status has changed to Agreement in. Status set via Process - Broker Account Status Update – Agreement Out/In</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Broker Account Status Change - Application In</fullName>
+        <actions>
+            <name>Broker_Account_Status_Change_Email_Alert</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Status__c</field>
+            <operation>equals</operation>
+            <value>Application In</value>
+        </criteriaItems>
+        <description>Triggers when a Broker Account Status has changed to Application in. Status set via Process - Broker Account Status Update – Application Out/In</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Broker is Approved</fullName>
+        <actions>
+            <name>Broker_Account_Status_Change_Email_Alert</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Broker_Status_Update_Broker_Approved</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Populate_Broker_Approved_By</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Populate_Broker_Approved_By_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Populate_Broker_Approved_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Broker_Approved__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <description>Triggers when a Broker Account has been approved.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Broker is Declined</fullName>
+        <actions>
+            <name>Broker_Account_Status_Change_Email_Alert</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Broker_Status_Update_Broker_Declined</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Populate_Broker_Declined_By</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Populate_Broker_Declined_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Broker_Declined__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Broker_Approved__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <description>Triggers when a Broker Account has been declined.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Broker is Declined - remove portal</fullName>
+        <actions>
+            <name>Broker_is_Declined</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Broker_Status_Update_Broker_Declined</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Populate_Broker_Declined_By</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Populate_Broker_Declined_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Broker_Declined__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Broker_Approved__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <description>Triggers when a Broker Account has been declined after it has previously been approved.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Do Not Solicit - Account</fullName>
+        <actions>
+            <name>Do_Not_Solicit_Account</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Do_Not_Call__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Do_Not_E_Mail__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Do_Not_Fax__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Do_Not_Mail__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <description>If all Do Not " " fields are checked, the Do Not Solicit check box will be checked.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Flow - Account Create by Flow</fullName>
+        <actions>
+            <name>Update_Activation_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Created_By_Flow__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Vendor Acct</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Activation_Date__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>IMF - Renewal Rep Update for Pardot</fullName>
+        <actions>
+            <name>IMF_NF_Renewal_Rep_Pardot_Update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>ISCHANGED(NF_Renewal_Rep__c)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>LM - Lease %26 WC Status %3D Not Qualified %28Acct%29</fullName>
+        <actions>
+            <name>Update_Account_Owner_to_House</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Status_Lease__c</field>
+            <operation>equals</operation>
+            <value>Not Qualified</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Status_MCA__c</field>
+            <operation>equals</operation>
+            <value>Not Qualified</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Status_EPP__c</field>
+            <operation>notEqual</operation>
+            <value>Not Interested,Not Qualified</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>LM - Sweep Date Exception Accepted Account</fullName>
+        <actions>
+            <name>LM_Sweep_Date_Exception_Accepted_Account</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>LM_Add_30_Days_to_Sweep_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Sweep_Exception_Decision__c</field>
+            <operation>equals</operation>
+            <value>Accepted</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>LM - Sweep Date Exception Declined Account</fullName>
+        <actions>
+            <name>LM_Sweep_Date_Exception_Declined_Account</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Sweep_Exception_Decision__c</field>
+            <operation>equals</operation>
+            <value>Declined</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>LM - Sweep Date Exception Request Account %28Team Bob%29</fullName>
+        <actions>
+            <name>LM_Sweep_Date_Exception_Request_Account</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>LM_Sweep_Date_Decision_Clear_Field_A</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(
+ Owner.Manager.Full_Name__c = 'Robert Anthony',    Sweep_Exception_Request__c = True)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>LM - Sweep Date Exception Request Account %28Team Carlos%29</fullName>
+        <actions>
+            <name>LM_Sweep_Date_Exception_Request_Account_Team_Carlos</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>LM_Sweep_Date_Decision_Clear_Field_A</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(
+ Owner.Manager.Full_Name__c = 'Carlos Ituarte',    Sweep_Exception_Request__c = True)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>LM - Sweep Date Exception Request Account %28Team Philip%29</fullName>
+        <actions>
+            <name>LM_Sweep_Date_Exception_Request_Account_Team_Philip</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>LM_Sweep_Date_Decision_Clear_Field_A</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(
+ Owner.Manager.Full_Name__c = 'Philip Lancashire',    Sweep_Exception_Request__c = True)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>LM - Sweep Date Exception Request Account %28Team Ryan%29</fullName>
+        <actions>
+            <name>LM_Sweep_Date_Exception_Request_Account_Team_Ryan</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>LM_Sweep_Date_Decision_Clear_Field_A</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(  Owner.Manager.Full_Name__c = 'Bob Anthony',    Sweep_Exception_Request__c = True)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>LM - Update Sweep Date - Account - Lease Oppty Funded</fullName>
+        <actions>
+            <name>LM_Sweep_Date_Account_NULL</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>If a Lease deal is Funded, remove Sweep Date.</description>
+        <formula>ISCHANGED(   Newest_Lease_Oppty_Funded__c   )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>LM - Update Sweep Date - Account - Lease Oppty Subbed</fullName>
+        <actions>
+            <name>LM_Sweep_Date_Account_180_days</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>If a Lease deal is submitted to credit, extend the sweep date by 6 months from today. If there is no sweep date, don't change.</description>
+        <formula>AND( ISCHANGED(  Newest_Lease_Oppty_Submitted__c  ), NOT(ISBLANK( Sweep_Date__c )) )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>LM - Update Sweep Date - Account - WC Oppty Funded</fullName>
+        <actions>
+            <name>LM_Sweep_Date_Account_180_days</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>If a WC deal is funded, set the sweep date 6 months from TODAY. If there is no sweep date, don't change.</description>
+        <formula>AND( ISCHANGED( Newest_WC_Oppty_Funded__c ), NOT(ISBLANK( Sweep_Date__c )) )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>LM - Update Sweep Date - Account - WC Oppty Subbed</fullName>
+        <actions>
+            <name>LM_Sweep_Date_Account_180_days</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>If a Lease deal is submitted to credit, extend the sweep date by 6 months from TODAY. If there is no sweep date, don't change.</description>
+        <formula>AND( ISCHANGED(   Newest_WC_Oppty_Submitted__c   ), NOT(ISBLANK( Sweep_Date__c )) )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>LM - Upon Account Ownership Change</fullName>
+        <actions>
+            <name>LM_Rep_Ownership_Date_Acct</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>LM_Update_Rating_field_to_null_acct</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>LM_Update_Sweep_Date_Acct</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>This workflow will indicate an ownership and start the leadmanagement workflow unless a queue, house account the following is owner: Travis Rover, Sandra Otero, Amber Conley, Nancy Maya, Nicole Naporlee 
+Broker Record Type = 01280000000BkKo</description>
+        <formula>AND(  
+  ISCHANGED( OwnerId ), 
+  RecordType.Id &lt;&gt; "01280000000BkKo", 
+  
+OwnerId &lt;&gt;"00580000003efd8", /* House Account */  OwnerId &lt;&gt;"00580000003RXlf", /* DB Amp */  OwnerId &lt;&gt; "00580000004Sbwm", /* Binary M */ OwnerId &lt;&gt; "00580000004QkkA", /* Amber Conley */ OwnerId &lt;&gt; "00580000004SUZQ", /* Nancy Maya */ OwnerId &lt;&gt; "00580000003rkH7", /* Nicole Naporlee */ OwnerId &lt;&gt; "00580000003edxL", /* Sandra Otero */ OwnerId &lt;&gt; "00580000003HZZn", /* Travis Rover */ OwnerId &lt;&gt; "00580000005cnRM" /* Reanna Jackson */)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Lease 90 Day - Account No Opportunity</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.FPC_Rep_Lease__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Active_Lease_Opportunities__c</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Lease_90_Day_Remove_FPC_Rep_Lease</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <timeLength>90</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>MCA 90 Day - Account No Opportunity</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.FPC_Rep_MCA__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Active_Merchant_Opportunities__c</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>MCA_90_Day_Remove_FPC_Rep_MCA</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <timeLength>90</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Navigator - Broker Signed Up</fullName>
+        <actions>
+            <name>Navigator_New_Broker_Sign_Up</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Navigator_Broker_Sign_Up_Timestamp</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Broker Account</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.NF_QB_Dual_Broker__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Navigator - Remove Broker</fullName>
+        <actions>
+            <name>Navigator_Remove_Broker</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Navigator_Remove_Broker_Timestamp</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Workflow to send email to NF &amp; Quickbridge team when Broker is removed from Navigator program.</description>
+        <formula>ISCHANGED( NF_QB_Dual_Broker__c ) &amp;&amp;   NF_QB_Dual_Broker__c =false</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Partner Sharing Opt Out Date field updat</fullName>
+        <actions>
+            <name>Partner_Sharing_Opt_Out_Date_field_updat</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Do_Not_Share_With_Partners__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <description>Updates the field Partner Sharing Opt Out Date when Do Not Share With Partners = true.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Populate AccountID18</fullName>
+        <actions>
+            <name>AccountID18_Populate</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>TRUE</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Populate Broker Tier %3D%3E Referral Partner</fullName>
+        <actions>
+            <name>Broker_Tier_Referral_Partner</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Type</field>
+            <operation>equals</operation>
+            <value>Referral Partner</value>
+        </criteriaItems>
+        <description>Populates field Broker Tier with the value Referral Partner when Account Type = Referral Partner</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Populate Broker Tier %3D%3E Tier 2</fullName>
+        <actions>
+            <name>Broker_Tier_Tier_2</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Type</field>
+            <operation>equals</operation>
+            <value>Broker</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Status__c</field>
+            <operation>equals</operation>
+            <value>Broker Approved</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Broker_Tier__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <description>Populates field Broker Tier with the value Tier 2 when Account Type = Broker</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Referral to Lease Group %28Acct%29</fullName>
+        <actions>
+            <name>Update_Referred_By_to_Account_Owner</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Referred_Date_to_Now</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(  ISPICKVAL( Owner.Product_Eligibility__c, "Working Capital"),  ISPICKVAL(Refer_To__c , "Equipment Leasing"), ISBLANK(FPC_Rep_Lease__c),  OR(ISBLANK(Referred_Date__c), Referred_Date__c = NOW()-30))</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Remove_Refer_By_Acct</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <actions>
+                <name>Remove_Refer_Date_Acct</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <actions>
+                <name>Remove_Refer_To_Acct</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <timeLength>31</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Referral to Working Capital Group %28Acct%29</fullName>
+        <actions>
+            <name>Update_Referred_By_to_Account_Owner</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Referred_Date_to_Now</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(  ISPICKVAL(Owner.Product_Eligibility__c, "Lease"),  ISPICKVAL(Refer_To__c , "Working Capital"), ISBLANK(FPC_Rep_MCA__c),   OR(ISBLANK(Referred_Date__c), Referred_Date__c = NOW()-30))</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Remove_Refer_By_Acct</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <actions>
+                <name>Remove_Refer_Date_Acct</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <actions>
+                <name>Remove_Refer_To_Acct</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <timeLength>31</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Round Robin - Edge Funding - Flow Trigger - Manual %28Account%29 UPDATED</fullName>
+        <actions>
+            <name>Internet_Auto_Assign_Edge_Round_Robin_Flow_Trigger_Account</name>
+            <type>FlowAction</type>
+        </actions>
+        <active>true</active>
+        <description>Auto Assigns Edge Funding Accounts (using Round Robin flow) that come in through the internet and are manually added to the auto-distribution flow.</description>
+        <formula>AND(ISCHANGED(Round_Robin_Flow__c), NOT(ISBLANK(PRIORVALUE(Round_Robin_Flow__c))), OR( ISPICKVAL(Round_Robin_Flow__c,"T1 Edge Funding"), ISPICKVAL(Round_Robin_Flow__c,"T2 Edge Funding"), ISPICKVAL(Round_Robin_Flow__c,"T3 Edge Funding")  ))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>SDR - Account Opener Date</fullName>
+        <actions>
+            <name>SDR_Account_Opener_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Acct_Opener__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <description>This workflow will update the date/time in the Opener Date field when an opener enters their name in the Opener field.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>SIC Field Update</fullName>
+        <actions>
+            <name>SIC_Code_Field_Update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Sic</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Set Account to Inactive</fullName>
+        <actions>
+            <name>Set_Inactive</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Out_of_Business__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Status__c</field>
+            <operation>equals</operation>
+            <value>Fraud,Duplicate</value>
+        </criteriaItems>
+        <description>Set Account Status to Inactive if Account = Fraud, Duplicate or Out of Business</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Submit Broker for Approval</fullName>
+        <actions>
+            <name>New_Broker_Request_Pending_Approval</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Broker_Status_Update_Pending_Approval</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Populate_Submit_Broker_for_Approval_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Submit_Broker_for_Approval__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Broker_Approved__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Broker_Declined__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <description>Triggers when a Broker is submitted for approval</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>New_Broker_Request_Pending_Approval_Reminder</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>3</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Vendor - Record Type From Customer</fullName>
+        <actions>
+            <name>Update_Record_Type_to_Vendor</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Customer Acct,New Customer Acct</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Type</field>
+            <operation>equals</operation>
+            <value>Vendor - VAP,Vendor - Lease Eq</value>
+        </criteriaItems>
+        <description>This workflow will update the Account Record Type for equipment lease vendors.</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Vendor - VAP Sign Up Date</fullName>
+        <actions>
+            <name>Nofication_To_Prepare_VAP_Kit</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>VAP_Sign_Up_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Type</field>
+            <operation>equals</operation>
+            <value>Vendor - VAP</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.VAP_Sign_Up_Date__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Vendor Account Type - Update for Lease Plus</fullName>
+        <actions>
+            <name>Lease_Plus_Vendor_Account_Type</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Type</field>
+            <operation>equals</operation>
+            <value>Vendor - VAP,Vendor - Lease Eq,Vendor - Bank,Private Party</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Customer Acct,New Customer Acct</value>
+        </criteriaItems>
+        <description>This workflow will update the Account Record Type for equipment lease vendors.</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Vendor Type - Update on Vendor Association</fullName>
+        <actions>
+            <name>Vendor_Update_Type_if_Associated_VAP</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(
+ISPICKVAL(PRIORVALUE(Type), "Vendor - VAP"),
+ $UserRole.Name = "Sales Operations")</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

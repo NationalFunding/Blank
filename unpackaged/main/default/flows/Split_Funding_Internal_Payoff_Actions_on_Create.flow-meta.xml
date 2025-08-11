@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>56.0</apiVersion>
+    <description>Triggers the sub-flow Split Funding - Update Amount Using Payoff Opportunity Balance to update the Split Funding Amount ($) for Internal Payoff records 
+
+PD-730</description>
+    <environments>Default</environments>
+    <interviewLabel>Split Funding - Internal Payoff Actions on Create {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Split Funding - Internal Payoff Actions on Create</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Update_Split_Funding_Amount</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Payoff_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Internal Payoff</stringValue>
+            </value>
+        </filters>
+        <object>Split_Funding__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <name>Update_Split_Funding_Amount</name>
+        <label>Update Split Funding Amount</label>
+        <locationX>176</locationX>
+        <locationY>335</locationY>
+        <flowName>Split_Funding_Update_Amount_Using_Payoff_Opportunity_Balance</flowName>
+        <inputAssignments>
+            <name>input_split_funding_record</name>
+            <value>
+                <elementReference>$Record</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+</Flow>

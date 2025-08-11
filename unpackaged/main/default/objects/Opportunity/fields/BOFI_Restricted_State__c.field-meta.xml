@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BOFI_Restricted_State__c</fullName>
+    <description>This field will be indicate if a state is available to be approved and documented under a BOFI agreement.</description>
+    <externalId>false</externalId>
+    <formula>IF(
+     AND(NOT(ISBLANK(Campaign.Partner_Account__r.Id)),
+         Physical_Address_State__c = 'CA',
+         Campaign.Partner_Account__r.CA_Lender_s_License__c =TRUE),  
+     'Restricted',
+   IF(
+     AND(NOT(ISBLANK(Campaign.Partner_Account__r.Id)),
+         Physical_Address_State__c = 'CA',
+         Campaign.Partner_Account__r.CA_Lender_s_License__c =FALSE),
+     'Allowed',
+      IF(
+     AND(
+        OR(
+            RecordType.Name = 'Broker WC Oppty',
+            RecordType.Name = 'Broker FRPSA'
+        ),
+        Physical_Address_State__c = 'CA',
+        Broker_Account__r.CA_Lender_s_License__c = TRUE
+    ), 'Restricted',
+    
+
+IF(
+        AND(
+            OR(
+                RecordType.Name = 'Broker WC Oppty',
+                RecordType.Name = 'Broker FRPSA'
+            ),
+            Physical_Address_State__c = 'CA',
+            Broker_Account__r.CA_Lender_s_License__c = FALSE
+        ),
+        'Allowed',
+
+IF(
+ 
+OR(
+   DATEVALUE(APPROVAL_DATE__c) &lt; DATE(2021,06,11),
+   AND 
+      (Physical_Address_State__c = 'CO',
+       DATEVALUE(APPROVAL_DATE__c) &lt; DATE(2023,11,10)
+      ),
+   AND(
+       Physical_Address_State__c = 'NE',
+       OR(
+       DATEVALUE(APPROVAL_DATE__c) &lt; DATE(2023,12,05),
+       NOT(ISPICKVAL(Account.Legal_Status__c,'Sole Proprietor'))
+       )
+      )
+),
+'Restricted',   
+
+        CASE(Physical_Address_State__c,
+            'AK', 'Allowed',
+            'MA', 'Allowed',
+            'MN', 'Allowed',
+            'MT', 'Allowed',
+            'NV', 'Allowed',
+            'NJ', 'Allowed',
+            'NY', 'Allowed',
+            'ND', 'Allowed',
+            'OK', 'Allowed',
+            'OR', 'Allowed',
+            'PA', 'Allowed',
+            'RI', 'Allowed',
+            'SD', 'Allowed',
+            'TN', 'Allowed',
+            'VT', 'Allowed',
+            'CO', 'Allowed',
+            'NE', 'Allowed',
+
+            'Restricted'
+        )
+    )
+))))</formula>
+    <inlineHelpText>Allowed = Axos 
+Restricted = Non-Axos</inlineHelpText>
+    <label>FRPSA State</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

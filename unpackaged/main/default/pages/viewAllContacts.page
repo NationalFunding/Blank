@@ -1,0 +1,19 @@
+<apex:page Controller="viewAll">
+<apex:form >
+    <apex:pageBlock title="Contacts" id="searchContactBlock"> 
+       <apex:pageBlockButtons >
+           <apex:commandButton action="{!Cancel}" value="Cancel" styleClass="btn"/>
+       </apex:pageBlockButtons>
+       <apex:pageBlockTable value="{!lstContacts}" var="item">
+           <apex:column headerValue="Name" value="{!item.Name}"/>
+           <apex:column headerValue="Account" value="{!item.Account.Name}"/>
+           <apex:column headerValue="Title" value="{!item.Title}"/>
+           <apex:column headerValue="Email" value="{!item.Email}"/>
+           <apex:column headerValue="Phone" value="{!item.Phone}"/>
+           <apex:column headerValue="Is Primary" value="{!item.Isprimary__c}"/>
+           <apex:column headerValue="City" value="{!item.MailingCity}"/>
+           <apex:column headerValue="State" value="{!item.MailingState}"/>
+       </apex:pageBlockTable>
+    </apex:pageBlock>
+</apex:form>
+</apex:page>

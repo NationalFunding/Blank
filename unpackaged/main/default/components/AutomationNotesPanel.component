@@ -1,0 +1,31 @@
+<!--
+ - Created by oporter on 11/15/2017.
+ -->
+
+<apex:component id="AutomationNotesPanel" layout="none">
+    <apex:attribute type="Credit_Review__c" name="creditreviewobjAutomation" description="Controller object" />
+
+    <div class="panel panel-default mt10">
+        <div class="panel-heading Rubyred-panel">
+            <h3 class="panel-title pull-left" style="margin:10px 0px 5px;font-size:14px; color: #fff;">
+                Automation Notes for Analyst
+            </h3>
+            <div class="pull-right" style="position:relative">
+                <div class="disabledByZ-index"></div>
+                <!--<a  href="javascript:void(0)" class="btn permissionDeny btn-primary text-right change_stripulations disabled-event" >Change Stipulations</a>-->
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="panel-body">
+            <table class="table" style=" border-top: 1px solid #fff !important;" >
+                <tbody id="stipulations_contents">
+                <apex:outputPanel layout="none" rendered="{!creditreviewobjAutomation.Automation_Notes_for_Analyst__c != null}">
+                    <tr>
+                        <td>{!creditreviewobjAutomation.Automation_Notes_for_Analyst__c}</td>
+                    </tr>
+                </apex:outputPanel>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</apex:component>

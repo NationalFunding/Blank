@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Valid_Request__c</fullName>
+    <description>A request is valid if it is related to a Contact and Opportunity, or Lead, and if if is a Lead, the lead must be more than 30 minutes old.</description>
+    <formula>IF(
+	AND(      ISPICKVAL(Conversion_Status__c, "NEW"),
+                  NOT(ISBLANK( Click_ID__c )),
+		OR(
+		   NOT(ISBLANK(Related_Lead__c)),
+		   NOT(ISBLANK(Related_Opportunity__c))),
+
+		OR(
+                   (NOW() - Send_Time__c)  * 24 * 60 &gt; 0,
+                   (NOW() - Related_Opportunity__r.CreatedDate)  * 24 * 60  &gt; 0)), TRUE, FALSE)
+&amp;&amp;
+  IF( AND(Send_Time__c &lt; (NOW() - (2/24)), 
+Send_Time__c &gt; NOW() - 14), TRUE, FALSE)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Valid Request?</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

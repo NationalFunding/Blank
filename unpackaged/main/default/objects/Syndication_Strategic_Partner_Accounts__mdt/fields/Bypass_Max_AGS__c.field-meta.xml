@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bypass_Max_AGS__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Used in the Send To QB flow to bypass the Max AGS restriction for Strategic Partner Accounts</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Bypass Max AGS</label>
+    <type>Checkbox</type>
+</CustomField>

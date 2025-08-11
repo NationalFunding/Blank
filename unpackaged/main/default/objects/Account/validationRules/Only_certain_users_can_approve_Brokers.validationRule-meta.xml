@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Only_certain_users_can_approve_Brokers</fullName>
+    <active>true</active>
+    <description>This rule allows only certain users and the System Administrator Profile to approve Brokers.</description>
+    <errorConditionFormula>AND(
+ISCHANGED(Broker_Approved__c),
+Broker_Approved__c=True,
+NOT(OR(
+$User.CaseSafe_User_Id__c ='00580000007hZEEAA2', /* Michael Van Asselt*/
+$User.CaseSafe_User_Id__c ='00580000004Pz0NAAS', /* Nikki Maldonado*/
+$User.CaseSafe_User_Id__c ='00580000003edxLAAQ', /* Sandra Otero*/
+$User.CaseSafe_User_Id__c ='0052T00000CuHiAQAV', /* Angie Blumer - 48165*/
+$User.CaseSafe_User_Id__c ='00580000006KuaEAAS', /* Amber Hoehn */
+$User.CaseSafe_User_Id__c ='00580000005DY32AAG', /* Shakira Underwood */
+$User.ProfileId ='00e800000014YDt' /* System Administrator Profile */
+)))</errorConditionFormula>
+    <errorMessage>User not authorized to approve Broker Account.</errorMessage>
+</ValidationRule>

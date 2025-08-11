@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fin_Pac_Lease_DocuSign</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>600</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>Fin Pac Lease DocuSign</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>https://composer.congamerge.com/composer8/index.html
+?sessionId={!API.Session_ID}
+&amp;serverUrl={!API.Partner_Server_URL_210}
+&amp;id={!Opportunity.Id}
+&amp;TemplateGroup=Fin+Pac+Lease+DS
+&amp;QueryId=a068000000OH2X1,a068000000OH2Wm,a068000000OH2aZ,a068000000OH2Xq,a068000000OH2XH,a068000000OH2at,a068000000OH2b3,a068000000OH2cf,a068000000OH2cp,a068000000OH2d4,a068000000OH2dE,a068000000UVaz1,a068000000XMd5h,a068000000cugae,a068000000df06R,a068000000gckMi
+&amp;DS8=1
+&amp;SelectTemplates=1
+&amp;PS0=0
+&amp;PS1=1
+&amp;PS2=0
+&amp;AttachmentParentId={!Opportunity.Id}
+&amp;DocuSignTag=1
+
+&amp;DocuSignVisible=1
+&amp;DocuSignR1Id={!Opportunity.OwnerId}
+&amp;DocuSignR1Role=Approver
+&amp;DocuSignR1Type=Signer
+&amp;DocuSignR1RoutingOrder=1
+
+&amp;DocuSignR2Id={QVar0}
+&amp;DocuSignR2Role=Signor
+&amp;DocuSignR2Type=Signer
+&amp;DocuSignR2RoutingOrder=2
+&amp;QVar0Id=a068000000m0ger
+&amp;QVar0Format=10010
+&amp;DocuSignR2IdCheck=1
+&amp;DocuSignR2IdCheckType=RSA
+
+&amp;DocuSignR3Id={QVar1}
+&amp;DocuSignR3Role=Guarantor+2
+&amp;DocuSignR3Type=Signer
+&amp;DocuSignR3RoutingOrder=2
+&amp;QVar1Id=a068000000m0ghb
+&amp;QVar1Format=10010
+&amp;DocuSignR3IdCheck=1
+&amp;DocuSignR3IdCheckType=RSA
+
+&amp;DocuSignR4Id={QVar2}
+&amp;DocuSignR4Role=Guarantor+3
+&amp;DocuSignR4Type=Signer
+&amp;DocuSignR4RoutingOrder=2
+&amp;QVar2Id=a068000000m0ggx
+&amp;QVar2Format=10010
+&amp;DocuSignR4IdCheck=1
+&amp;DocuSignR4IdCheckType=RSA
+
+&amp;DocuSignR5Id={QVar3}
+&amp;DocuSignR5Role=Guarantor+4
+&amp;DocuSignR5Type=Signer
+&amp;DocuSignR5RoutingOrder=2
+&amp;QVar3Id=a068000000m0gbK
+&amp;QVar3Format=10010
+&amp;DocuSignR5IdCheck=1
+&amp;DocuSignR5IdCheckType=RSA
+
+&amp;DocuSignR6Id={!Opportunity.OwnerId}
+&amp;DocuSignR6Role=CC
+&amp;DocuSignR6Type=Carbon+Copy
+&amp;DocuSignR6RoutingOrder=3
+
+&amp;DocuSignR7Id=0038000001jilsX
+&amp;DocuSignR7Role=Funder+Approver
+&amp;DocuSignR7Type=Signer
+&amp;DocuSignR7RoutingOrder=3
+
+&amp;DocuSignR8Id=0038000001lqeF5
+&amp;DocuSignR8Role=Lender+Approver
+&amp;DocuSignR8Type=Signer
+&amp;DocuSignR8RoutingOrder=4
+
+&amp;DocuSignR9Id=0038000001i4QiC
+&amp;DocuSignR9Role=Director+of+Operations
+&amp;DocuSignR9Type=Any+Signer
+&amp;DocuSignR9RoutingOrder=5
+
+&amp;DocuSignEmailSubject=Documents+for+your+DocuSign+Signature+-+Lease+Number+{!Opportunity.Lease_Number__c}
+&amp;DocuSignIgnoreOCR=1
+&amp;DocuSignSendReminders=1
+&amp;DocuSignRemindIn=1
+&amp;DocuSignRemindAgainIn=1
+&amp;DocuSignExpireIn=7
+&amp;DocuSignWarnIn=3
+
+&amp;DocuSignCustomField1=dsfs__Custom_Field_1_Name__c
+&amp;DocuSignCustomFieldValue1=Vault With eOriginal
+&amp;DocuSignCustomField2=dsfs__Custom_Field_1_Value__c
+&amp;DocuSignCustomFieldValue2=No
+
+&amp;DocuSignCustomField3=dsfs__Custom_Field_2_Name__c
+&amp;DocuSignCustomFieldValue3=Lease Number
+&amp;DocuSignCustomField4=dsfs__Custom_Field_2_Value__c
+&amp;DocuSignCustomFieldValue4={!Opportunity.Lease_Number__c}
+
+&amp;DocuSignEndpoint=Prod</url>
+</WebLink>

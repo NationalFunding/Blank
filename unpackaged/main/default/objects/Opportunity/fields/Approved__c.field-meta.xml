@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Approved__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field will indicate if a deal has been approved with any lender and will be used in reporting.  It will be updated by workflow.</description>
+    <inlineHelpText>This field will indicate if a deal has been approved with any lender and will be used in reporting.  It will be updated by workflow.</inlineHelpText>
+    <label>Approved</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

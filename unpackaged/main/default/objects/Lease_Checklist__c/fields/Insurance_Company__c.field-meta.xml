@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Insurance_Company__c</fullName>
+    <description>This field will capture the lessee's Insurance Company.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This field will capture the lessee's Insurance Company.</inlineHelpText>
+    <label>Insurance Company</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

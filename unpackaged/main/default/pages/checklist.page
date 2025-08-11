@@ -1,0 +1,1655 @@
+<apex:page applyHtmlTag="false" applyBodyTag="false" standardStylesheets="false" sidebar="false" showHeader="false" controller="ChecklistController">
+  <html lang="en">
+
+  <head>
+    <title>Credit Review</title>
+
+    <!-- Bootstrap core CSS -->
+    <apex:stylesheet value="{!URLFOR($Resource.CreditReviewScreen, 'css/bootstrap.css')}" />
+    <!-- Custom styles for this app -->
+    <apex:stylesheet value="{!URLFOR($Resource.CreditReviewScreen, 'css/app.css')}" />
+    <!--  Bootstrap dataTables css -->
+    <apex:stylesheet value="{!URLFOR($Resource.CreditReviewScreen, 'css/dataTables.bootstrap.css')}" />
+    <!--  font awesome/4.3.0 css-->
+    <apex:stylesheet value="{!URLFOR($Resource.CreditReviewScreen, 'css/font-awesome/css/font-awesome.css')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.CreditReviewScreen, 'assets/plugins/bootstrap-datepicker/css/datepicker.css')}"/>
+    
+    <script src='{!$Resource.autosize}'></script>
+    <script>
+      var checklistFlag = false;
+      var stipulationsFlag = false;
+      var creditReviewStatus = '{!creditReviewObj.Status__c}';
+      function disabledEvents(creditStatus) {
+        if ('{!$Permission.Modify_Completed_Credit_Reviews}' == 'false') {
+          if ((creditStatus == 'Approved' || creditStatus == 'Second Review' || creditStatus == 'Withdrawn' || creditStatus == 'Declined')) {
+            $('input,button,select,textarea').attr('disabled', 'disabled');
+          } else {
+            $('input,button,select,textarea').removeAttr('disabled');
+          }
+        }
+      }
+      function removeChecklistPrevent() {
+        $('[href="#tab2"]').removeClass('disabled');
+        window.onbeforeunload = function () {
+          null;
+        };
+        checklistFlag = false;
+      }
+      function removeStipulationsPrevent() {
+        $('[href="#tab1"]').removeClass('disabled');
+        window.onbeforeunload = function () {
+          null;
+        };
+        stipulationsFlag = false;
+      }
+      function canceChecklistChanges() {
+        var r = confirm('Are you sure?');
+        if (r) {
+          removeChecklistPrevent();
+          checklistReset();
+        }
+      }
+      function canceStipulationsChanges() {
+        var r = confirm('Are you sure?');
+        if (r) {
+          removeStipulationsPrevent();
+          stipulationsReset();
+        }
+      }
+
+      function checkedRow() {
+        $('.done').each(function () {
+          if ($(this).is(":checked")) {
+            $(this).closest('tr').addClass('complete');
+          } else {
+            $(this).closest('tr').removeAttr('class');
+          }
+        }).click(function () {
+          if ($(this).is(":checked")) {
+            $(this).closest('tr').addClass('complete');
+          } else {
+            $(this).closest('tr').removeAttr('class');
+          }
+        })
+      }
+      function bindCheckListInput() {
+        $('#tab1').find('input[type=text]').keyup(function (event) {
+          if ($(this).val() != '') {
+            // alert()
+            if (!checklistFlag) {
+              checklistFlag = true;
+              $('[href="#tab2"]').addClass('disabled');
+              window.onbeforeunload = function () {
+                return "You have unsaved changes. Are you sure you want to leave this page? All changes will be lost.";
+              };
+            }
+          }
+        });
+        $('#tab1').find('input[type=checkbox]').click(function (event) {
+          if (!checklistFlag) {
+            checklistFlag = true;
+            $('[href="#tab2"]').addClass('disabled');
+            window.onbeforeunload = function () {
+              return "You have unsaved changes. Are you sure you want to leave this page? All changes will be lost.";
+            };
+          }
+        });
+      }
+      function bindStipulationsInput() {
+        $('#tab2').find('select').change(function (event) {
+          if ($(this).val() != '') {
+            if (!stipulationsFlag) {
+              stipulationsFlag = true;
+              $('[href="#tab1"]').addClass('disabled');
+              window.onbeforeunload = function () {
+                return "You have unsaved changes. Are you sure you want to leave this page? All changes will be lost.";
+              };
+            }
+          }
+        });
+        $('#tab2').find('input[type=text]').keyup(function (event) {
+          if ($(this).val() != '') {
+            if (!stipulationsFlag) {
+              stipulationsFlag = true;
+              $('[href="#tab1"]').addClass('disabled');
+              window.onbeforeunload = function () {
+                return "You have unsaved changes. Are you sure you want to leave this page? All changes will be lost.";
+              };
+            }
+          }
+        });
+      }
+
+      function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == ' ') c = c.substring(1);
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return "";
+      }
+      function unsetCookie(cname) {
+        document.cookie = cname + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+      }
+      function bindUrlMaker() {
+        $('.search_for').each(function (index, el) {
+          var url = 'https://www.google.com/search?q=' + encodeURIComponent($(this).val()).split(' ').join('+');
+          var link = '<a href="' + url + '" target="_blank">' + url + '</a>';
+          $(this).closest('tr').find('.url').html(link);
+        }).keyup(function (event) {
+          var url = 'https://www.google.com/search?q=' + encodeURIComponent($(this).val()).split(' ').join('+');
+          var link = '<a href="' + url + '" target="_blank">' + url + '</a>';
+          $(this).closest('tr').find('.url').html(link);
+        });
+      }
+      function valueFill() {
+        if ($('.gs').val() == '') {
+          $('.gs').val("{!JSENCODE(creditReviewObj.Account__r.Name)}");
+        }
+        if ($('.pa').val() == '') {
+          var pAdd = '';
+          pAdd += "{!creditReviewObj.Opportunity__r.Physical_Address_1__c}" != 'null' ? "{!creditReviewObj.Opportunity__r.Physical_Address_1__c} " : '';
+          pAdd += "{!creditReviewObj.Opportunity__r.Physical_Address_City__c}" != 'null' ? "{!creditReviewObj.Opportunity__r.Physical_Address_City__c} " : '';
+          pAdd += "{!creditReviewObj.Opportunity__r.Physical_Address_State__c}" != 'null' ? "{!creditReviewObj.Opportunity__r.Physical_Address_State__c}" : '';
+          $('.pa').val(pAdd);
+        }
+        if ($('.ma').val() == '') {
+          var mAdd = '';
+          mAdd += "{!creditReviewObj.Opportunity__r.Mailing_Address_1__c}" != 'null' ? "{!creditReviewObj.Opportunity__r.Mailing_Address_1__c} " : '';
+          mAdd += "{!creditReviewObj.Opportunity__r.Mailing_Address_City__c}" != 'null' ? "{!creditReviewObj.Opportunity__r.Mailing_Address_City__c} " : '';
+          mAdd += "{!creditReviewObj.Opportunity__r.Mailing_Address_State__c}" != 'null' ? "{!creditReviewObj.Opportunity__r.Mailing_Address_State__c}" : '';
+          $('.ma').val(mAdd);
+        }
+        if ($('.bn').val() == '') {
+          $('.bn').val("{!creditReviewObj.Opportunity__r.Phone__c}");
+        }
+        if ($('.dba').val() == '') {
+          $('.dba').val("{!JSENCODE(creditReviewObj.Account__r.Company_DBA__c)}");
+        }
+        if ($('.miscellaneous').val() == '') {
+          $('.miscellaneous').val("{!creditReviewObj.GIS_Name_Miscellaneous_Search__c}");
+        }
+        if ($('.ln').val() == '') {
+          $('.ln').val("{!JSENCODE(creditReviewObj.Opportunity__r.Legal_Name__c)}");
+        }
+        if ($('.c1').val() == '') {
+          $('.c1').val("{!JSENCODE(creditReviewObj.PG1__r.Name)}");
+        }
+        if ($('.c2').val() == '') {
+          $('.c2').val("{!JSENCODE(creditReviewObj.PG2__r.Name)}");
+        }
+        if ($('.c3').val() == '') {
+          $('.c3').val("{!JSENCODE(creditReviewObj.PG3__r.Name)}");
+        }
+      }
+      function fillParentWindow() {
+        var table = '';
+        if ($('.cs1').val() != '') {
+          table += '<tr>';
+          table += '<td> Credit Stipulation #1 </td>';
+          table += '<td>' + $('.cs1').val() + '</td>';
+          table += '<td> Reason: </td>';
+          table += '<td>' + $('.csr1').val() + '</td>';
+          table += '</tr>';
+        }
+        if ($('.cs2').val() != '') {
+          table += '<tr>';
+          table += '<td> Credit Stipulation #2 </td>';
+          table += '<td>' + $('.cs2').val() + '</td>';
+          table += '<td> Reason: </td>';
+          table += '<td>' + $('.csr2').val() + '</td>';
+          table += '</tr>';
+        }
+        if ($('.cs3').val() != '') {
+          table += '<tr>';
+          table += '<td> Credit Stipulation #3 </td>';
+          table += '<td>' + $('.cs3').val() + '</td>';
+          table += '<td> Reason: </td>';
+          table += '<td>' + $('.csr3').val() + '</td>';
+          table += '</tr>';
+        }
+        if ($('.cs4').val() != '') {
+          table += '<tr>';
+          table += '<td> Credit Stipulation #4 </td>';
+          table += '<td>' + $('.cs4').val() + '</td>';
+          table += '<td> Reason: </td>';
+          table += '<td>' + $('.csr4').val() + '</td>';
+          table += '</tr>';
+        }
+        if ($('.fs1').val() != '') {
+          table += '<tr>';
+          table += '<td> Funding Stipulation #1 </td>';
+          table += '<td>' + $('.fs1').val() + '</td>';
+          table += '<td> Reason: </td>';
+          table += '<td>' + $('.fsr1').val() + '</td>';
+          table += '</tr>';
+        }
+        if ($('.fs2').val() != '') {
+          table += '<tr>';
+          table += '<td> Funding Stipulation #2 </td>';
+          table += '<td>' + $('.fs2').val() + '</td>';
+          table += '<td> Reason: </td>';
+          table += '<td>' + $('.fsr2').val() + '</td>';
+          table += '</tr>';
+        }
+        if ($('.fs3').val() != '') {
+          table += '<tr>';
+          table += '<td> Funding Stipulation #3 </td>';
+          table += '<td>' + $('.fs3').val() + '</td>';
+          table += '<td> Reason: </td>';
+          table += '<td>' + $('.fsr3').val() + '</td>';
+          table += '</tr>';
+        }
+        if ($('.fs4').val() != '') {
+          table += '<tr>';
+          table += '<td> Funding Stipulation #4 </td>';
+          table += '<td>' + $('.fs4').val() + '</td>';
+          table += '<td> Reason: </td>';
+          table += '<td>' + $('.fsr4').val() + '</td>';
+          table += '</tr>';
+        }
+        window.opener.document.getElementById('stipulations_contents').innerHTML = table;
+        window.close();
+
+
+      }
+
+      function stipCheck() {
+        autosize($('.stip_notes'));
+        $('.stip').click(function () {
+          if ($(this).is(":checked")) {
+            $(this).closest('.input-group').find('.stip_notes').removeClass('disabled')
+          } else {
+            $(this).closest('.input-group').find('.stip_notes').addClass('disabled');
+          }
+          // checklistSaveNew();
+          $(document).on('keypress keydown', '.disabled', function (e) {
+            if (event.keyCode == 9) {
+              return true;
+            }
+            if (event.keyCode == 8 || event.keyCode == 46) {
+              return false;
+            }
+
+            return false;
+          });
+        })
+        disabledTextarea();
+      }
+      function disabledTextarea() {
+        $('.stip').each(function () {
+          if ($(this).is(":checked")) {
+            $(this).closest('.input-group').find('.stip_notes').removeClass('disabled')
+          } else {
+            $(this).closest('.input-group').find('.stip_notes').addClass('disabled');
+          }
+        });
+      }
+      $(function () {
+        $(document).on('keypress keydown', '.disabled', function (e) {
+          if (event.keyCode == 9) {
+            return true;
+          }
+          if (event.keyCode == 8 || event.keyCode == 46) {
+            return false;
+          }
+
+          return false;
+        });
+
+        bindCheckListInput();
+        checkedRow();
+        bindStipulationsInput();
+        valueFill();
+        bindUrlMaker();
+        stipCheck();
+        disabledEvents(creditReviewStatus);
+
+        $('.done').click(function () {
+          if ($(this).is(":checked")) {
+            $(this).closest('tr').addClass('complete');
+          } else {
+            $(this).closest('tr').removeAttr('class');
+          }
+        })
+        if (getCookie("stripulations") != '') {
+          $('.tab2').click();
+          unsetCookie('stripulations');
+        }
+        $("[data-toggle='tab']").click(function () {
+          if ($(this).hasClass("disabled")) {
+            alert('Please save your changes before switching tabs. If you do not wish to save your changes, please click \'Cancel\' on the bottom of this page.');
+            return false;
+          }
+        });
+      })
+      function unlockCreditReviewForm() {
+        $('input,button,select,textarea').removeAttr('disabled');
+        $('.unlockForm').hide();
+      }
+
+      // function payoffType() {
+      //   let payoffType = document.getElementById('payoffType1');
+      //   let loan = document.getElementById('payoffTypeLoan1');
+      //   let lender = document.getElementById('payoffTypeLender1');
+        
+      //   if (event.currentTarget.value == 'Internal Payoff') {
+      //     loan.style.display = "block";
+      //     lender.style.display = "none";
+      //   } else if(event.currentTarget.value == '3rd Party Payoff'){
+      //     lender.style.display = "block";
+      //     loan.style.display = "none";
+      //   } else {
+      //     loan.style.display = "none";
+      //     lender.style.display = "none";
+      //   }
+      // }
+      
+    </script>
+    <style>
+      textarea.disabled {
+        cursor: not-allowed;
+        background: #eee
+      }
+
+      .key-business {
+        margin-top: 40px;
+      }
+
+      #sample_8 .checker {
+        /*float:left;
+      margin-right:7px;*/
+      }
+
+      .bank-label-head .checker {
+        float: left;
+        margin-right: 7px;
+      }
+
+      .checker {
+        /*float:left;
+      margin-right:7px;*/
+      }
+
+      #Bank-America-Checking .bank-label {
+        font-size: 13px;
+      }
+
+      #Bank-America-Checking .text-center {
+        text-align: center;
+        display: block;
+      }
+
+      .dataTables_filter {
+        display: none;
+      }
+
+      .btn-black {
+        background-color: #000 !important;
+        border-color: #000 !important;
+        color: #fff;
+      }
+
+      .btn-black:hover {
+        color: #fff;
+      }
+
+      .showButton {
+        width: 100%;
+        margin-bottom: 15px;
+      }
+
+      .targetDiv {
+        display: none;
+      }
+
+      .key-business {
+        margin-top: 40px;
+      }
+
+      .decisionbox {
+        padding: 8px;
+        background: #dddddd;
+        border-radius: 8px;
+        margin: 0PX;
+        border: 4px solid #fff;
+      }
+
+      .mb30 {
+        margin-bottom: 30px
+      }
+
+      td {
+        vertical-align: middle!important
+      }
+
+      .complete {
+        background-color: #e5f9ee!important;
+      }
+
+      .checker,
+      label {
+        display: inline;
+        font-weight: normal
+      }
+    </style>
+
+    <style>
+      .custPopup {
+        background-color: white;
+        border-width: 0px;
+        border-radius: 10px;
+        z-index: 9999;
+        left: 50%;
+        padding: 20px;
+        position: fixed;
+        /* These are the 3 css properties you will need to change so the popup displays in the center of the screen. First set the width. Then set margin-left to negative half of what the width is. You can add the height property for a fixed size pop up if you want.*/
+        margin-left: -100px;
+        top: 40%;
+      }
+
+      .popupBackground {
+        background-color: black;
+        opacity: 0.30;
+        filter: alpha(opacity=30);
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 9998;
+      }
+    </style>
+
+  </head>
+
+  <body class="mb30">
+    <apex:form id="frm">
+      <apex:actionStatus startText="Processing....." id="process" />
+      <apex:actionStatus id="fetching">
+        <apex:facet name="start">
+          <apex:outputPanel id="tstpopup">
+            <apex:outputPanel styleClass="popupBackground" layout="block" />
+            <apex:outputPanel styleClass="custPopup" layout="block">
+              <img src="/img/loading24.gif" style="vertical-align:middle; horizontal-align:middle" />
+              <span>Please wait...</span>
+            </apex:outputPanel>
+          </apex:outputPanel>
+        </apex:facet>
+      </apex:actionStatus>
+      <div class="container">
+        <div class="row">
+          <div class="page-header" style="margin-top:15px;margin-bottom:0px">
+            <h1>Analyst Checklist
+              <small>{!creditReviewObj.Opportunity__r.name}</small>
+            </h1>
+          </div>
+          <!--<h2>Analyst Checklist</h2>-->
+          <div class=" main-nav-tabs">
+            <ul class="nav nav-pills" id="myTab" role="tablist">
+              <li class="active">
+                <a data-toggle="tab" href="#tab1">Checklist</a>
+              </li>
+              <li>
+                <a data-toggle="tab" class="tab2" href="#tab2">Stipulations</a>
+              </li>
+              <apex:outputPanel layout="none" rendered="{!!$Permission.Credit_Review_Read_Only}">
+                <a role="button" class="btn btn-success pull-right unlockForm" style="padding:8px 12px; margin-right: 10px;display:{!If($Permission.Allow_Modify_Completed_Credit_Reviews == false && (creditReviewObj.Status__c =='Approved' || creditReviewObj.Status__c =='Second Review' || creditReviewObj.Status__c =='Withdrawn' || creditReviewObj.Status__c =='Declined'),'block','none')}"
+                  onclick="unlockCreditReviewForm()">Unlock Form</a>
+              </apex:outputPanel>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="tab1">
+
+                <apex:pageMessages />
+                <apex:actionFunction name="checklistSave" action="{!saveRecord}" reRender="panel1,panel2" status="fetching" oncomplete="removeChecklistPrevent();bindCheckListInput();checkedRow();bindStipulationsInput();valueFill();bindUrlMaker();stipCheck()"/>
+
+                <apex:actionFunction name="addNewSplitFundingRow" action="{!addNewSplitFundingRow}" reRender="panel2" status="fetching" />
+
+                <apex:actionFunction name="checklistSaveNew" reRender="panel1" status="fetching" oncomplete="removeChecklistPrevent();bindCheckListInput();checkedRow();bindStipulationsInput();valueFill();bindUrlMaker();stipCheck()"
+                />
+
+                <apex:actionFunction name="stipulationsSave" action="{!saveRecord}" reRender="panel2" status="fetching" oncomplete="removeStipulationsPrevent();bindStipulationsInput();bindCheckListInput();checkedRow();stipCheck();"
+                />
+
+                <apex:actionFunction name="stipulationsSaveClose" action="{!saveRecord}" reRender="panel2" status="fetching" oncomplete="removeStipulationsPrevent();bindStipulationsInput();bindCheckListInput();checkedRow();fillParentWindow();stipCheck()"
+                />
+
+                <apex:actionFunction action="{!resetChecklist}" name="checklistReset" reRender="panel1" status="fetching" oncomplete="bindCheckListInput();bindStipulationsInput();checkedRow();valueFill();bindUrlMaker();stipCheck()"
+                />
+
+                <apex:actionFunction name="stipulationsReset" action="{!resetChecklist}" reRender="panel2" status="fetching" oncomplete="bindCheckListInput();bindStipulationsInput();checkedRow();valueFill();bindUrlMaker();stipCheck()"
+                />
+
+                <apex:outputPanel id="panel1">
+
+                  <!--------Related Opp Search Start------------>
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <h3>Related Opportunity Search</h3>
+                    </div>
+                    <div class="col-sm-6">
+                      <h3>
+                        <apex:commandButton onclick="canceChecklistChanges(); return false;" value="Cancel" styleClass="btn btn-danger" />
+                        <input type="button" class="btn btn-primary" value="Save" onclick="checklistSave(); return false;" />
+                      </h3>
+                    </div>
+                  </div>
+                  <table class="table table-striped table-bordered table-hover" id="sample_8" width="90%">
+                    <thead>
+                      <tr>
+                        <th width="20%">Checklist Items</th>
+                        <th width="40%">Notes</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="complete">
+                        <td>
+                          <apex:inputField value="{!creditReviewObj.ROS_Done_1__c}" styleClass="done" />
+                          <label for="example1">Related Opportunity Search - Initial</label>
+                        </td>
+                        <td>
+                          <apex:outputField value="{!creditReviewObj.ROS_Notes_1__c}" styleClass="form-control" />
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <apex:inputField value="{!creditReviewObj.ROS_Done_2__c}" styleClass="done" />
+                          <label for="example2">Related Opportunity Search - Underwriting</label>
+                        </td>
+                        <td>
+                          <apex:outputField value="{!creditReviewObj.ROS_Notes_2__c}" styleClass="form-control" />
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!-----------------Related Opp Search End--->
+
+
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <h3>Bank Analysis</h3>
+                    </div>
+                    <div class="col-sm-6">
+                      <h3>
+                        <apex:commandButton onclick="canceChecklistChanges(); return false;" value="Cancel" styleClass="btn btn-danger" />
+                        <input type="button" class="btn btn-primary" value="Save" onclick="checklistSave(); return false;" />
+                      </h3>
+                    </div>
+                  </div>
+                  <table class="table table-striped table-bordered table-hover" id="sample_8" width="90%">
+                    <thead>
+                      <tr>
+                        <th width="20%">Checklist Items</th>
+                        <th width="40%">Notes</th>
+                        <th width="20%">Stip?</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="complete">
+                        <td>
+                          <apex:inputField value="{!creditReviewObj.BA_Done_Official_Statements__c}" styleClass="done" />
+                          <label for="example1">Official Statement, Matching Info, Beg/End Match</label>
+                        </td>
+                        <td>
+                          <apex:inputText value="{!creditReviewObj.BA_Notes_Official_Statements__c}" styleClass="form-control" />
+                        </td>
+                        <td align="center">
+                          <div class="input-group">
+                            <span class="input-group-addon">
+                              <apex:inputField value="{!creditReviewObj.BA_Stip_Official_Statements__c}" styleClass="stip" />
+                            </span>
+                            <apex:inputTextarea value="{!creditReviewObj.BA_Stip_Notes_Official_Statements__c}" rows="1" styleClass="form-control stip_notes"
+                            />
+                          </div>
+                          <!-- /input-group -->
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <apex:inputField value="{!creditReviewObj.BA_Done_Deposits__c}" styleClass="done" />
+                          <label for="example2">Bank Activity</label>
+                        </td>
+                        <td>
+                          <apex:inputText value="{!creditReviewObj.BA_Notes_Deposits__c}" styleClass="form-control" />
+                        </td>
+                        <td align="center">
+                          <div class="input-group">
+                            <span class="input-group-addon">
+                              <apex:inputField value="{!creditReviewObj.BA_Stip_Deposits__c}" styleClass="stip" />
+                            </span>
+                            <apex:inputTextarea value="{!creditReviewObj.BA_Stip_Notes_Deposits__c}" rows="1" styleClass="form-control stip_notes" />
+                          </div>
+                          <!-- /input-group -->
+
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <apex:inputField value="{!creditReviewObj.BA_Done_Balances__c}" styleClass="done" />
+                          <label for="example3">Cash Flow / Trends</label>
+                        </td>
+                        <td>
+                          <apex:inputText value="{!creditReviewObj.BA_Notes_Balances__c}" styleClass="form-control" />
+                        </td>
+                        <td align="center">
+                          <div class="input-group">
+                            <span class="input-group-addon">
+                              <apex:inputField value="{!creditReviewObj.BA_Stip_Balances__c}" styleClass="stip" />
+                            </span>
+                            <apex:inputTextarea value="{!creditReviewObj.BA_Stip_Notes_Balances__c}" rows="1" styleClass="form-control stip_notes" />
+                          </div>
+                          <!-- /input-group -->
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          <apex:inputField value="{!creditReviewObj.BA_Done_Competitor_on_Banks__c}" styleClass="done" />
+                          <label for="example5">Competitor on Banks</label>
+                        </td>
+                        <td>
+                          <apex:inputText value="{!creditReviewObj.BA_Notes_Competitor_on_Banks__c}" styleClass="form-control" />
+                        </td>
+                        <td align="center">
+                          <div class="input-group">
+                            <span class="input-group-addon">
+                              <apex:inputField value="{!creditReviewObj.BA_Stip_Competitor_on_Banks__c}" styleClass="stip" />
+                            </span>
+                            <apex:inputTextarea value="{!creditReviewObj.BA_Stip_Notes_Competitor_on_Banks__c}" rows="1" styleClass="form-control stip_notes"
+                            />
+                          </div>
+                          <!-- /input-group -->
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <th colspan="3">Bank Analysis Notes</th>
+                      </tr>
+                      <tr>
+                        <td colspan="3">
+                          <apex:inputField value="{!creditReviewObj.Bank_Analysis_Notes__c}" styleClass="form-control" /> </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <h3>Personal Credit</h3>
+                    </div>
+                    <div class="col-sm-6">
+                      <h3>
+                        <apex:commandButton onclick="canceChecklistChanges(); return false;" value="Cancel" styleClass="btn btn-danger" />
+                        <input type="button" class="btn btn-primary" value="Save" onclick="checklistSave(); return false;" />
+                      </h3>
+                    </div>
+                  </div>
+                  <table class="table table-striped table-bordered table-hover" id="sample_8" width="90%">
+                    <thead>
+                      <tr>
+                        <!--<th width="20">Done?</th>-->
+                        <th width="20%">Checklist Items</th>
+                        <th width="40%">Notes</th>
+                        <th width="20%">Stip?</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <!--<td><apex:inputField value="{!creditReviewObj.BA_Done_Balances__c}" styleClass="stip" /></td>-->
+                        <td>
+                          <apex:inputField value="{!creditReviewObj.PF_Done_Matching_Information__c}" styleClass="done" /> Absentee Ownership and Citizenship Review</td>
+                        <td>
+                          <apex:inputText value="{!creditReviewObj.PF_Notes_Matching_Information__c}" styleClass="form-control" />
+                        </td>
+                        <td align="center">
+                          <div class="input-group">
+                            <span class="input-group-addon">
+                              <apex:inputField value="{!creditReviewObj.PF_Stip_Matching_Information__c}" styleClass="stip" />
+                            </span>
+                            <apex:inputTextarea value="{!creditReviewObj.PF_Stip_Notes_Matching_Information__c}" rows="1" styleClass="form-control stip_notes"
+                            />
+                          </div>
+                          <!-- /input-group -->
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <apex:inputField value="{!creditReviewObj.PF_Done_Approvable_Credit__c}" styleClass="done" /> Sufficient Credit</td>
+                        <td>
+                          <apex:inputText value="{!creditReviewObj.PF_Notes_Approvable_Credit__c}" styleClass="form-control" />
+                        </td>
+                        <td align="center">
+                          <div class="input-group">
+                            <span class="input-group-addon">
+                              <apex:inputField value="{!creditReviewObj.PF_Stip_Approvable_Credit__c}" styleClass="stip" />
+                            </span>
+                            <apex:inputTextarea value="{!creditReviewObj.PF_Stip_Notes_Approvable_Credit__c}" rows="1" styleClass="form-control stip_notes"
+                            />
+                          </div>
+                          <!-- /input-group -->
+                        </td>
+                      </tr>
+                      <tr>
+                        <th colspan="3">Personal Credit Notes</th>
+                      </tr>
+                      <tr>
+                        <td colspan="3">
+                          <apex:inputField value="{!creditReviewObj.Personal_Credit_Notes__c}" styleClass="form-control" /> </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <h3>Business Credit</h3>
+                    </div>
+                    <div class="col-sm-6">
+                      <h3>
+                        <apex:commandButton onclick="canceChecklistChanges(); return false;" value="Cancel" styleClass="btn btn-danger" />
+                        <input type="button" class="btn btn-primary" value="Save" onclick="checklistSave(); return false;" />
+                      </h3>
+                    </div>
+                  </div>
+                  <table class="table table-striped table-bordered table-hover" id="sample_8" width="90%">
+                    <thead>
+                      <tr>
+                        <!--<th width="20">Done?</th>-->
+                        <th width="20%">Checklist Items</th>
+                        <th width="40%">Notes</th>
+                        <th width="20%">Stip?</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      <tr>
+                        <td>
+                          <apex:inputField value="{!creditReviewObj.BC_Done_TIB_Ownership_Industry__c}" styleClass="done" />Ownership</td>
+                        <td>
+                          <apex:inputText value="{!creditReviewObj.BC_Notes_TIB_Ownership_Industry__c}" styleClass="form-control" />
+                        </td>
+                        <td align="center">
+                          <div class="input-group">
+                            <span class="input-group-addon">
+                              <apex:inputField value="{!creditReviewObj.BC_Stip_TIB_Ownership_Industry__c}" styleClass="stip" />
+                            </span>
+                            <apex:inputTextarea value="{!creditReviewObj.BC_Stip_Notes_TIB_Ownership_Industry__c}" rows="1" styleClass="form-control stip_notes"
+                            />
+                          </div>
+                          <!-- /input-group -->
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          <apex:inputField value="{!creditReviewObj.BC_Done_UCC_Filings__c}" styleClass="done" /> UCC Filings</td>
+                        <td>
+                          <apex:inputText value="{!creditReviewObj.BC_Notes_UCC_Filings__c}" styleClass="form-control" />
+                        </td>
+                        <td align="center">
+                          <div class="input-group">
+                            <span class="input-group-addon">
+                              <apex:inputField value="{!creditReviewObj.BC_Stip_UCC_Filings__c}" styleClass="stip" />
+                            </span>
+                            <apex:inputTextarea value="{!creditReviewObj.BC_Stip_Notes_UCC_Filings__c}" rows="1" styleClass="form-control stip_notes"
+                            />
+                          </div>
+                          <!-- /input-group -->
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <apex:inputField value="{!creditReviewObj.BC_Done_Approvable_Credit__c}" styleClass="done" /> Approvable Credit</td>
+                        <td>
+                          <apex:inputText value="{!creditReviewObj.BC_Notes_Approvable_Credit__c}" styleClass="form-control" />
+                        </td>
+                        <td align="center">
+                          <div class="input-group">
+                            <span class="input-group-addon">
+                              <apex:inputField value="{!creditReviewObj.BC_Stip_Approvable_Credit__c}" styleClass="stip" />
+                            </span>
+                            <apex:inputTextarea value="{!creditReviewObj.BC_Stip_Notes_Approvable_Credit__c}" rows="1" styleClass="form-control stip_notes"
+                            />
+                          </div>
+                          <!-- /input-group -->
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <th colspan="3">Business Credit Notes</th>
+                      </tr>
+                      <tr>
+                        <td colspan="3">
+                          <apex:inputField value="{!creditReviewObj.Business_Credit_Notes__c}" styleClass="form-control" /> </td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <h3>Verification</h3>
+                    </div>
+                    <div class="col-sm-6">
+                      <h3>
+                        <apex:commandButton onclick="canceChecklistChanges(); return false;" value="Cancel" styleClass="btn btn-danger" />
+                        <input type="button" class="btn btn-primary" value="Save" onclick="checklistSave(); return false;" />
+                      </h3>
+                    </div>
+                  </div>
+                  <table class="table table-striped table-bordered table-hover" id="sample_8" width="90%">
+                    <thead>
+                      <tr>
+                        <!--<th width="20">Done?</th>-->
+                        <th width="40%">Checklist Items</th>
+                        <th width="40%">Notes</th>
+                        <th width="20">Stip?</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      <tr>
+                        <td>
+                          <apex:inputField value="{!creditReviewObj.BC_Done_SIC_Code_Industry_Restrict__c}" styleClass="done" /> SIC Code, Industry Restrictions?</td>
+                        <td>
+                          <apex:inputText value="{!creditReviewObj.BC_Notes_SIC_Code_Industry_Restric__c}" styleClass="form-control" />
+                        </td>
+                        <td align="center">
+                          <div class="input-group">
+                            <span class="input-group-addon">
+                              <apex:inputField value="{!creditReviewObj.BC_Stip_SIC_Code_Industry_Restrict__c}" styleClass="stip" />
+                            </span>
+                            <apex:inputTextarea value="{!creditReviewObj.BC_Stip_Notes_SIC_Code_Industry_Restrict__c}" rows="1" styleClass="form-control stip_notes"
+                            />
+                          </div>
+                          <!-- /input-group -->
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <apex:inputField value="{!creditReviewObj.BC_Done_Absentee_Ownership_Miami_D__c}" styleClass="done" /> Miami Dade or High Risk </td>
+                        <td>
+                          <apex:inputText value="{!creditReviewObj.BC_Notes_Absentee_Ownership_Miami__c}" styleClass="form-control" />
+                        </td>
+                        <td align="center">
+                          <div class="input-group">
+                            <span class="input-group-addon">
+                              <apex:inputField value="{!creditReviewObj.BC_Stip_Absentee_Ownership_Miami_D__c}" styleClass="stip" />
+                            </span>
+                            <apex:inputTextarea value="{!creditReviewObj.BC_Stip_Notes_Absentee_Ownership_Miami_D__c}" rows="1" styleClass="form-control stip_notes"
+                            />
+                          </div>
+                          <!-- /input-group -->
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <apex:inputField value="{!creditReviewObj.BC_Done_Website__c}" styleClass="done" /> Website</td>
+                        <td>
+                          <apex:inputText value="{!creditReviewObj.BC_Notes_Website__c}" styleClass="form-control" />
+                        </td>
+                        <td align="center">
+                          <div class="input-group">
+                            <span class="input-group-addon">
+                              <apex:inputField value="{!creditReviewObj.BC_Stip_Website__c}" styleClass="stip" />
+                            </span>
+                            <apex:inputTextarea value="{!creditReviewObj.BC_Stip_Notes_Website__c}" rows="1" styleClass="form-control stip_notes" />
+                          </div>
+                          <!-- /input-group -->
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <apex:inputField value="{!creditReviewObj.BC_Done_License__c}" styleClass="done" /> License</td>
+                        <td>
+                          <apex:inputText value="{!creditReviewObj.BC_Notes_License__c}" styleClass="form-control" />
+                        </td>
+                        <td align="center">
+                          <div class="input-group">
+                            <span class="input-group-addon">
+                              <apex:inputField value="{!creditReviewObj.BC_Stip_License__c}" styleClass="stip" />
+                            </span>
+                            <apex:inputTextarea value="{!creditReviewObj.BC_Stip_Notes_License__c}" rows="1" styleClass="form-control stip_notes" />
+                          </div>
+                          <!-- /input-group -->
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <apex:inputField value="{!creditReviewObj.BC_Done_Lexis_Nexis__c}" styleClass="done" /> Lexis Nexis</td>
+                        <td>
+                          <apex:inputText value="{!creditReviewObj.BC_Notes_Lexis_Nexis__c}" styleClass="form-control" />
+                        </td>
+                        <td align="center">
+                          <div class="input-group">
+                            <span class="input-group-addon">
+                              <apex:inputField value="{!creditReviewObj.BC_Stip_Lexis_Nexis__c}" styleClass="stip" />
+                            </span>
+                            <apex:inputTextarea value="{!creditReviewObj.BC_Stip_Notes_Lexis_Nexis__c}" rows="1" styleClass="form-control stip_notes"
+                            />
+                          </div>
+                          <!-- /input-group -->
+                        </td>
+                      </tr>
+
+
+                      <tr>
+                        <th colspan="3">Verification Notes</th>
+                      </tr>
+                      <tr>
+                        <td colspan="3">
+                          <apex:inputField value="{!creditReviewObj.Verification_Notes__c}" styleClass="form-control" /> </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <h3>Google Search Items</h3>
+                    </div>
+                    <div class="col-sm-6">
+                      <h3>
+                        <apex:commandButton onclick="canceChecklistChanges(); return false;" value="Cancel" styleClass="btn btn-danger" />
+                        <input type="button" class="btn btn-primary" value="Save" onclick="checklistSave(); return false;" />
+                      </h3>
+                    </div>
+                  </div>
+                  <table class="table table-striped table-bordered table-hover" id="sample_8" width="90%">
+                    <thead>
+                      <tr>
+                        <th width="20%">Search Source</th>
+                        <th width="20%">Search For</th>
+                        <th width="20%">Search URL</th>
+                        <th width="20%">Notes</th>
+                        <th width="20%">Stip?</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <apex:inputField value="{!creditReviewObj.GSI_Done_Business_Address__c}" styleClass="done" /> Physical Address</td>
+                        <td>
+                          <apex:inputText value="{!creditReviewObj.GSI_Name_on_Acct_Business_Address__c}" styleClass="form-control search_for pa" />
+                        </td>
+                        <td class="url"></td>
+                        <td>
+                          <apex:inputText value="{!creditReviewObj.GSI_Notes_Business_Address__c}" styleClass="form-control" />
+                        </td>
+                        <td align="center">
+                          <div class="input-group">
+                            <span class="input-group-addon">
+                              <apex:inputField value="{!creditReviewObj.GSI_Stip_Business_Address__c}" styleClass="stip" />
+                            </span>
+                            <apex:inputTextarea value="{!creditReviewObj.GSI_Stip_Notes_Business_Address__c}" rows="1" styleClass="form-control stip_notes"
+                            />
+                          </div>
+                          <!-- /input-group -->
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <apex:inputField value="{!creditReviewObj.GSI_Done_PO_Box_Address__c}" styleClass="done" /> Mailing Address</td>
+                        <td>
+                          <apex:inputText value="{!creditReviewObj.GSI_Name_on_Acct_PO_Box_Address__c}" styleClass="form-control ma search_for" />
+                        </td>
+                        <td class="url"></td>
+                        <td>
+                          <apex:inputText value="{!creditReviewObj.GSI_Notes_PO_Box_Address__c}" styleClass="form-control" />
+                        </td>
+                        <td align="center">
+                          <div class="input-group">
+                            <span class="input-group-addon">
+                              <apex:inputField value="{!creditReviewObj.GSI_Stip_PO_Box_Address__c}" styleClass="stip" />
+                            </span>
+                            <apex:inputTextarea value="{!creditReviewObj.GSI_Stip_Notes_PO_Box_Address__c}" rows="1" styleClass="form-control stip_notes"
+                            />
+                          </div>
+                          <!-- /input-group -->
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <apex:inputField value="{!creditReviewObj.GSI_Done_Business_Number__c}" styleClass="done" /> Business Number</td>
+                        <td>
+                          <apex:inputText value="{!creditReviewObj.GSI_Name_on_Acct_Business_Number__c}" styleClass="form-control bn search_for" />
+                        </td>
+                        <td class="url"></td>
+                        <td>
+                          <apex:inputText value="{!creditReviewObj.GSI_Notes_Business_Number__c}" styleClass="form-control" />
+                        </td>
+                        <td align="center">
+                          <div class="input-group">
+                            <span class="input-group-addon">
+                              <apex:inputField value="{!creditReviewObj.GSI_Stip_Business_Number__c}" styleClass="stip" />
+                            </span>
+                            <apex:inputTextarea value="{!creditReviewObj.GSI_Stip_Notes_Business_Number__c}" rows="1" styleClass="form-control stip_notes"
+                            />
+                          </div>
+                          <!-- /input-group -->
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <apex:inputField value="{!creditReviewObj.GSI_Done_Legal_Name__c}" styleClass="done" /> Legal Name</td>
+                        <td>
+                          <apex:inputText value="{!creditReviewObj.GSI_Name_on_Acct_Legal_Name__c}" styleClass="form-control search_for ln" />
+                        </td>
+                        <td class="url"></td>
+                        <td>
+                          <apex:inputText value="{!creditReviewObj.GSI_Notes_Legal_Name__c}" styleClass="form-control" />
+                        </td>
+                        <td align="center">
+                          <div class="input-group">
+                            <span class="input-group-addon">
+                              <apex:inputField value="{!creditReviewObj.GSI_Stip_Legal_Name__c}" styleClass="stip" />
+                            </span>
+                            <apex:inputTextarea value="{!creditReviewObj.GSI_Stip_Notes_Legal_Name__c}" rows="1" styleClass="form-control stip_notes"
+                            />
+                          </div>
+                          <!-- /input-group -->
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <apex:inputField value="{!creditReviewObj.GSI_Done_DBA__c}" styleClass="done" /> DBA</td>
+                        <td>
+                          <apex:inputText value="{!creditReviewObj.GSI_Name_on_Acct_DBA__c}" styleClass="form-control dba search_for" />
+                        </td>
+                        <td class="url"></td>
+                        <td>
+                          <apex:inputText value="{!creditReviewObj.GSI_Notes_DBA__c}" styleClass="form-control" />
+                        </td>
+                        <td align="center">
+                          <div class="input-group">
+                            <span class="input-group-addon">
+                              <apex:inputField value="{!creditReviewObj.GSI_Stip_DBA__c}" styleClass="stip" />
+                            </span>
+                            <apex:inputTextarea value="{!creditReviewObj.GSI_Stip_Notes_DBA__c}" rows="1" styleClass="form-control stip_notes" />
+                          </div>
+                          <!-- /input-group -->
+                        </td>
+                      </tr>
+                      <apex:outputPanel rendered="{!creditReviewObj.PG1__r.name != null}" id="pg1div" layout="none">
+                        <tr>
+                          <td>
+                            <apex:inputField value="{!creditReviewObj.GSI_Done_PG1__c}" styleClass="done" /> {!creditReviewObj.PG1__r.name}</td>
+                          <td>
+                            <apex:inputText value="{!creditReviewObj.GSI_Name_on_Acct_PG1__c}" styleClass="form-control c1 search_for" />
+                          </td>
+                          <td class="url"></td>
+                          <td>
+                            <apex:inputText value="{!creditReviewObj.GSI_Notes_PG1__c}" styleClass="form-control" />
+                          </td>
+                          <td align="center">
+                            <div class="input-group">
+                              <span class="input-group-addon">
+                                <apex:inputField value="{!creditReviewObj.GSI_Stip_PG1__c}" styleClass="stip" />
+                              </span>
+                              <apex:inputTextarea value="{!creditReviewObj.GSl_Stip_Notes_PG1__c}" rows="1" styleClass="form-control stip_notes" />
+                            </div>
+                            <!-- /input-group -->
+                          </td>
+                        </tr>
+                      </apex:outputPanel>
+
+                      <apex:outputPanel rendered="{!creditReviewObj.PG2__r.name != null}" id="pg2div" layout="none">
+                        <tr>
+                          <td>
+                            <apex:inputField value="{!creditReviewObj.GSI_Done_PG2__c}" styleClass="done" /> {!creditReviewObj.PG2__r.name}</td>
+                          <td>
+                            <apex:inputText value="{!creditReviewObj.GSI_Name_on_Acct_PG2__c}" styleClass="form-control search_for c2" />
+                          </td>
+                          <td class="url"></td>
+                          <td>
+                            <apex:inputText value="{!creditReviewObj.GSI_Notes_PG2__c}" styleClass="form-control" />
+                          </td>
+                          <td align="center">
+                            <div class="input-group">
+                              <span class="input-group-addon">
+                                <apex:inputField value="{!creditReviewObj.GSI_Stip_PG2__c}" styleClass="stip" />
+                              </span>
+                              <apex:inputTextarea value="{!creditReviewObj.GSl_Stip_Notes_PG2__c}" rows="1" styleClass="form-control stip_notes" />
+                            </div>
+                            <!-- /input-group -->
+                          </td>
+                        </tr>
+                      </apex:outputPanel>
+                      <apex:outputPanel rendered="{!creditReviewObj.PG3__r.name != null}" id="pg3div" layout="none">
+                        <tr>
+                          <td>
+                            <apex:inputField value="{!creditReviewObj.GSI_Done_PG3__c}" styleClass="done" /> {!creditReviewObj.PG3__r.name}</td>
+                          <td>
+                            <apex:inputText value="{!creditReviewObj.GSI_Name_on_Acct_PG3__c}" styleClass="form-control c3 search_for" />
+                          </td>
+                          <td class="url"></td>
+                          <td>
+                            <apex:inputText value="{!creditReviewObj.GSI_Notes_PG3__c}" styleClass="form-control" />
+                          </td>
+                          <td align="center">
+                            <div class="input-group">
+                              <span class="input-group-addon">
+                                <apex:inputField value="{!creditReviewObj.GSI_Stip_PG3__c}" styleClass="stip" />
+                              </span>
+                              <apex:inputTextarea value="{!creditReviewObj.GSl_Stip_Notes_PG3__c}" rows="1" styleClass="form-control stip_notes" />
+                            </div>
+                            <!-- /input-group -->
+                          </td>
+                        </tr>
+                      </apex:outputPanel>
+                      <tr>
+                        <td>
+                          <apex:inputField value="{!creditReviewObj.GIS_Done_Miscellaneous_Search__c}" styleClass="done" /> Miscellaneous Search</td>
+                        <td>
+                          <apex:inputText value="{!creditReviewObj.GIS_Name_Miscellaneous_Search__c}" styleClass="form-control miscellaneous search_for"
+                          />
+                        </td>
+                        <td class="url"></td>
+                        <td>
+                          <apex:inputText value="{!creditReviewObj.GIS_Notes_Miscellaneous_Search__c}" styleClass="form-control" />
+                        </td>
+                        <td align="center">
+                          <div class="input-group">
+                            <span class="input-group-addon">
+                              <apex:inputField value="{!creditReviewObj.GIS_Stip_Miscellaneous_Search__c}" styleClass="stip" />
+                            </span>
+                            <apex:inputTextarea value="{!creditReviewObj.GIS_Stip_Notes_Miscellaneous_Search__c}" rows="1" styleClass="form-control stip_notes"
+                            />
+                          </div>
+                          <!-- /input-group -->
+                        </td>
+                      </tr>
+                      <tr>
+                        <th colspan="5">Google Search Items Notes</th>
+                      </tr>
+                      <tr>
+                        <td colspan="5">
+                          <apex:inputField value="{!creditReviewObj.Google_Search_Notes__c}" styleClass="form-control" /> </td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                  <!--------------------------------------------------------------------------------------------->
+                  <!--OP UPDATES RENEWALS 12.10.18-->
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <h3>Renewal Review</h3>
+                    </div>
+                    <div class="col-sm-6">
+                      <h3>
+                        <apex:commandButton onclick="canceChecklistChanges(); return false;" value="Cancel" styleClass="btn btn-danger" />
+                        <input type="button" class="btn btn-primary" value="Save" onclick="checklistSave(); return false;" />
+                      </h3>
+                    </div>
+                  </div>
+                  <table class="table table-striped table-bordered table-hover" id="sample_8" width="90%">
+                    <thead>
+                      <tr>
+                        <th width="40%">Checklist Items</th>
+                        <th width="40%">Notes</th>
+                        <th width="20">Stip?</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      <tr>
+                        <td>
+                          <apex:inputField value="{!creditReviewObj.RR_Done_HIDCA_HIFCA__c}" styleClass="done" /> HIDCA/HIFCA</td>
+                        <!--checkbox with name -->
+                        <td>
+                          <apex:inputText value="{!creditReviewObj.RR_Notes_HIDCA_HIFCA__c}" styleClass="form-control" />
+                        </td>
+                        <!--note text area-->
+                        <td align="center">
+                          <div class="input-group">
+                            <span class="input-group-addon">
+                              <apex:inputField value="{!creditReviewObj.RR_Stip_HIDCA_HIFCA__c}" styleClass="stip" />
+                              <!--stip checkbox-->
+                            </span>
+                            <apex:inputTextarea value="{!creditReviewObj.RR_Stip_Notes_HIDCA_HIFCA__c}" rows="1" styleClass="form-control stip_notes"
+                            />
+                            <!--long text area for stip note-->
+                          </div>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          <apex:inputField value="{!creditReviewObj.RR_Done_Bounces_Mods__c}" styleClass="done" /> Bounces/Mods</td>
+                        <td>
+                          <apex:inputText value="{!creditReviewObj.RR_Notes_Bounces_Mods__c}" styleClass="form-control" />
+                        </td>
+                        <td align="center">
+                          <div class="input-group">
+                            <span class="input-group-addon">
+                              <apex:inputField value="{!creditReviewObj.RR_Stip_Bounces_Mods__c}" styleClass="stip" />
+                            </span>
+                            <apex:inputTextarea value="{!creditReviewObj.RR_Stip_Notes_Bounces_Mods__c}" rows="1" styleClass="form-control stip_notes"
+                            />
+                          </div>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          <apex:inputField value="{!creditReviewObj.RR_Done_Paid_In_On_Current_Deal__c}" styleClass="done" /> % Paid In On Current Deal</td>
+                        <td>
+                          <apex:inputText value="{!creditReviewObj.RR_Notes_Paid_In_On_Current_Deal__c}" styleClass="form-control" />
+                        </td>
+                        <td align="center">
+                          <div class="input-group">
+                          </div>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          <apex:inputField value="{!creditReviewObj.RR_Done_Balance_on_Current_Deal__c}" styleClass="done" /> Balance on Current Deal</td>
+                        <td>
+                          <apex:inputText value="{!creditReviewObj.RR_Notes_Balance_on_Current_Deal__c}" styleClass="form-control" />
+                        </td>
+                        <td align="center">
+                          <div class="input-group">
+                          </div>
+                        </td>
+                      </tr>
+
+                      <!--<tr>-->
+                      <th colspan="3">Renewal Review Notes</th>
+                      <!--</tr>-->
+                      <tr>
+                        <td colspan="3">
+                          <apex:inputField value="{!creditReviewObj.RR_Notes__c}" styleClass="form-control" /> </td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                  <!--------------------------------------------------------------------------------------------->
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <h3>Final Checklist</h3>
+                    </div>
+                    <div class="col-sm-6">
+                      <h3>
+                        <apex:commandButton onclick="canceChecklistChanges(); return false;" value="Cancel" styleClass="btn btn-danger" />
+                        <input type="button" class="btn btn-primary" value="Save" onclick="checklistSave(); return false;" />
+                      </h3>
+                    </div>
+                  </div>
+                  <table class="table table-striped table-bordered table-hover" id="sample_8" width="90%">
+                    <thead>
+                      <tr>
+                        <th width="20%">Checklist items </th>
+                        <th width="40%">Notes</th>
+                        <th width="20%">Stip?</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <apex:inputField value="{!creditReviewObj.FC_Done_Signed_Application__c}" styleClass="done" /> Signed Application</td>
+                        <td>
+                          <apex:inputText value="{!creditReviewObj.FC_Notes_Signed_Application__c}" styleClass="form-control" />
+                        </td>
+                        <td align="center">
+                          <div class="input-group">
+                            <span class="input-group-addon">
+                              <apex:inputField value="{!creditReviewObj.FC_Stip_Signed_Application__c}" styleClass="stip" />
+                            </span>
+                            <apex:inputTextarea value="{!creditReviewObj.FC_Stip_Notes_Signed_Application__c}" rows="1" styleClass="form-control stip_notes"
+                            />
+                          </div>
+                          <!-- /input-group -->
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <apex:inputField value="{!creditReviewObj.FC_Done_SOS__c}" styleClass="done" /> SOS</td>
+                        <td>
+                          <apex:inputText value="{!creditReviewObj.FC_Notes_SOS__c}" styleClass="form-control" />
+                        </td>
+                        <td align="center">
+                          <div class="input-group">
+                            <span class="input-group-addon">
+                              <apex:inputField value="{!creditReviewObj.FC_Stip_SOS__c}" styleClass="stip" />
+                            </span>
+                            <apex:inputTextarea value="{!creditReviewObj.FC_Stip_Notes_SOS__c}" rows="1" styleClass="form-control stip_notes" />
+                          </div>
+                          <!-- /input-group -->
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <apex:inputField value="{!creditReviewObj.FC_Done_Tax_Return__c}" styleClass="done" /> Tax Return</td>
+                        <td>
+                          <apex:inputText value="{!creditReviewObj.FC_Notes_Tax_Return__c}" styleClass="form-control" />
+                        </td>
+                        <td align="center">
+                          <div class="input-group">
+                            <span class="input-group-addon">
+                              <apex:inputField value="{!creditReviewObj.FC_Stip_Tax_Return__c}" styleClass="stip" />
+                            </span>
+                            <apex:inputTextarea value="{!creditReviewObj.FC_Stip_Notes_Tax_Return__c}" rows="1" styleClass="form-control stip_notes"
+                            />
+                          </div>
+                          <!-- /input-group -->
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <apex:inputField value="{!creditReviewObj.FC_Done_Bank_Statements__c}" styleClass="done" /> Bank Statements</td>
+                        <td>
+                          <apex:inputText value="{!creditReviewObj.FC_Notes_Bank_Statements__c}" styleClass="form-control" />
+                        </td>
+                        <td align="center">
+                          <div class="input-group">
+                            <span class="input-group-addon">
+                              <apex:inputField value="{!creditReviewObj.FC_Stip_Bank_Statements__c}" styleClass="stip" />
+                            </span>
+                            <apex:inputTextarea value="{!creditReviewObj.FC_Stip_Notes_Bank_Statements__c}" rows="1" styleClass="form-control stip_notes"
+                            />
+                          </div>
+                          <!-- /input-group -->
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <apex:inputField value="{!creditReviewObj.FC_Done_SDN_Search_Completed_Attached__c}" styleClass="done" /> SDN Search Completed + Attached</td>
+                        <td>
+                          <apex:inputText value="{!creditReviewObj.FC_Notes_SDN_Search_Completed_Attached__c}" styleClass="form-control" />
+                        </td>
+                        <td align="center">
+                          <div class="input-group">
+                            <span class="input-group-addon">
+                              <apex:inputField value="{!creditReviewObj.FC_Stip_SDN_Search_Completed_Attached__c}" styleClass="stip" />
+                            </span>
+                            <apex:inputTextarea value="{!creditReviewObj.FCStipNoteSDNSearchCompleted_Attached__c}" rows="1" styleClass="form-control stip_notes"
+                            />
+                          </div>
+                          <!-- /input-group -->
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <apex:inputField value="{!creditReviewObj.BC_Done_Paynet__c}" styleClass="done" /> Paynet</td>
+                        <td>
+                          <apex:inputText value="{!creditReviewObj.BC_Notes_Paynet__c}" styleClass="form-control" />
+                        </td>
+                        <td align="center">
+                          <div class="input-group">
+                            <span class="input-group-addon">
+                              <apex:inputField value="{!creditReviewObj.BC_Stip_Paynet__c}" styleClass="stip" />
+                            </span>
+                            <apex:inputTextarea value="{!creditReviewObj.BC_Stip_Notes_Paynet__c}" rows="1" styleClass="form-control stip_notes" />
+                          </div>
+                          <!-- /input-group -->
+                        </td>
+                      </tr>
+                      <tr>
+                        <th colspan="3">Final Checklist Notes</th>
+                      </tr>
+                      <tr>
+                        <td colspan="3">
+                          <apex:inputField value="{!creditReviewObj.Final_Checklist_Notes__c}" styleClass="form-control" /> </td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <div class="row">
+                    <div class="col-sm-offset-5 col-sm-6">
+                      <h3>
+                        <apex:commandButton onclick="canceChecklistChanges(); return false;" value="Cancel" styleClass="btn btn-danger" />
+                        <input type="button" class="btn btn-primary" value="Save" onclick="checklistSave(); return false;" />
+                      </h3>
+                    </div>
+                  </div>
+                </apex:outputPanel>
+              </div>
+              <div class="tab-pane" id="tab2">
+                <h3>Checklist Items Flagged for Stipulations
+                  <div class="pull-right">
+                    <apex:commandButton onclick="canceStipulationsChanges(); return false;" value="Cancel" styleClass="btn btn-danger" />
+                    <input type="button" class="btn btn-primary" value="Save" onclick="stipulationsSave();" />
+                    <input type="button" class="btn btn-primary" value="Save & Close" onclick="stipulationsSaveClose(); return false" />
+                  </div>
+                </h3>
+
+                <apex:outputPanel id="panel2">
+                  <table class="table table-striped table-bordered table-hover" id="sample_8" width="90%">
+                    <thead>
+                      <tr>
+                        <th width="50%">Checklist Items with Stipulations</th>
+                        <th width="50%"> Notes </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <apex:repeat value="{!CheckItems}" var="item" id="table">
+                        <apex:outputPanel layout="none" rendered="{!item.flag}">
+                          <tr>
+                            <td>{!item.item}</td>
+                            <td>{!item.notes}</td>
+                          </tr>
+                        </apex:outputPanel>
+                      </apex:repeat>
+                    </tbody>
+                  </table>
+                  <h3>Stipulations</h3>
+                  <div class="row">
+                    <div class="form-group">
+                      <div class="col-md-6 mt10">
+                        <label class="col-md-6 control-label" for="textinput"> Credit Stipulation #1:</label>
+                        <div class="col-md-6">
+                          <apex:inputField value="{!creditReviewObj.Credit_Stip1__c}" styleClass="form-control cs1" />
+                        </div>
+                      </div>
+                      <div class="col-md-6 mt10">
+                        <label class="col-md-6 control-label" for="textinput">Reason:</label>
+                        <div class="col-md-6">
+                          <apex:inputField value="{!creditReviewObj.Credit_Stip_1_Reason__c}" styleClass="form-control csr1" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="form-group">
+                      <div class="col-md-6 mt10">
+                        <label class="col-md-6 control-label" for="textinput"> Credit Stipulation #2:</label>
+                        <div class="col-md-6">
+                          <apex:inputField value="{!creditReviewObj.Credit_Stip2__c}" styleClass="form-control cs2" />
+                        </div>
+                      </div>
+                      <div class="col-md-6 mt10">
+                        <label class="col-md-6 control-label" for="textinput">Reason:</label>
+                        <div class="col-md-6">
+                          <apex:inputField value="{!creditReviewObj.Credit_Stip_2_Reason__c}" styleClass="form-control csr2" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mb30">
+                    <div class="form-group">
+                      <div class="col-md-6 mt10">
+                        <label class="col-md-6 control-label" for="textinput"> Credit Stipulation #3:</label>
+                        <div class="col-md-6">
+                          <apex:inputField value="{!creditReviewObj.Credit_Stip3__c}" styleClass="form-control cs3" />
+                        </div>
+                      </div>
+                      <div class="col-md-6 mt10">
+                        <label class="col-md-6 control-label" for="textinput">Reason:</label>
+                        <div class="col-md-6">
+                          <apex:inputField value="{!creditReviewObj.Credit_Stip_3_Reason__c}" styleClass="form-control csr3" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-md-6 mt10">
+                        <label class="col-md-6 control-label" for="textinput">Credit Stipulation #4:</label>
+                        <div class="col-md-6">
+                          <apex:inputField value="{!creditReviewObj.Credit_Stips_Other__c}" styleClass="form-control cs4" />
+                        </div>
+                      </div>
+                      <div class="col-md-6 mt10">
+                        <label class="col-md-6 control-label" for="textinput">Reason:</label>
+                        <div class="col-md-6">
+                          <apex:inputField value="{!creditReviewObj.Credit_Stips_Other_Reason__c}" styleClass="form-control csr4" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="row mb30">
+                    <div class="form-group">
+                      <div class="col-md-6 mt10">
+                        <label class="col-md-6 control-label" for="textinput"> Funding Stipulation #1:</label>
+                        <div class="col-md-6">
+                          <apex:inputField value="{!creditReviewObj.Credit_Stip_Funding_Requirement_1__c}" styleClass="form-control fs1" />
+                        </div>
+                      </div>
+                      <div class="col-md-6 mt10">
+                        <label class="col-md-6 control-label" for="textinput">Reason:</label>
+                        <div class="col-md-6">
+                          <apex:inputField value="{!creditReviewObj.Credit_Stip_Funding_Requirement_1_Reason__c}" styleClass="form-control fsr1" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-md-6 mt10">
+                        <label class="col-md-6 control-label" for="textinput">Funding Stipulation #2:</label>
+                        <div class="col-md-6">
+                          <apex:inputField value="{!creditReviewObj.Credit_Stip_Funding_Requirement_2__c}" styleClass="form-control fs2" />
+                        </div>
+                      </div>
+                      <div class="col-md-6 mt10">
+                        <label class="col-md-6 control-label" for="textinput">Reason:</label>
+                        <div class="col-md-6">
+                          <apex:inputField value="{!creditReviewObj.Credit_Stip_Funding_Requirement_2_Reason__c}" styleClass="form-control fsr2" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-md-6 mt10">
+                        <label class="col-md-6 control-label" for="textinput"> Funding Stipulation #3:</label>
+                        <div class="col-md-6">
+                          <apex:inputField value="{!creditReviewObj.Credit_Stip_Funding_Requirement_3__c}" styleClass="form-control fs3" />
+                        </div>
+                      </div>
+                      <div class="col-md-6 mt10">
+                        <label class="col-md-6 control-label" for="textinput">Reason:</label>
+                        <div class="col-md-6">
+                          <apex:inputField value="{!creditReviewObj.Credit_Stip_Funding_Requirement_3_Reason__c}" styleClass="form-control fsr3" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-md-6 mt10">
+                        <label class="col-md-6 control-label" for="textinput">Funding Stipulation #4:</label>
+                        <div class="col-md-6">
+                          <apex:inputField value="{!creditReviewObj.Credit_Stip_Funding_Requirement_Other__c }" styleClass="form-control fs4" />
+                        </div>
+                      </div>
+                      <div class="col-md-6 mt10">
+                        <label class="col-md-6 control-label" for="textinput">Reason:</label>
+                        <div class="col-md-6">
+                          <apex:inputField value="{!creditReviewObj.Stip_Funding_Requirement_Other_Reason__c}" styleClass="form-control fsr4" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- PAYOFF SECTION - 10/27/22 - OPORTER -->
+                  <div class="pull-right">
+                    <a style="margin-top:-3px;" class="expand-btn pull-right"  onClick="addNewSplitFundingRow();">
+                      <i class="fa fa-plus-circle fa-2x"></i>
+                    </a>
+                  </div>
+                  <h3>Payoffs</h3>
+                    <!-- INPUT NEW RECORDS -->
+                    <apex:repeat value="{!createCreditReviewSplitFundingRecords}" var="splitFund" id="SplitFund_Table">
+                      <div class="row"  >
+                        <div class="form-group" id="payoffsInput" >
+                          <div class="col-md-6 mt10">
+                            <label class="col-md-6 control-label" for="textinput"> Payoff Type</label>                          
+                            <div class="col-md-6" id="payoffBlock">
+                              <apex:inputField value="{!splitFund.Payoff_Type__c}" styleClass="form-control cs1" id="payoffType1" />
+                            </div>
+                          </div>
+                          <div class="col-md-6 mt10" style="display:block" id="payoffTypeLenderOrLoan"> 
+                            <label class="col-md-6 control-label" for="textinput">Lender Name / Loan Number</label>
+                            <div class="col-md-6">
+                              <apex:inputField value="{!splitFund.LenderLoan__c}" styleClass="form-control csr1" />
+                            </div>
+                          </div>
+                        </div>
+                      </div> 
+                  </apex:repeat>
+
+                  <br></br>
+    
+                  <!-- DISPLAY EXISTING RECORDS -->
+                  <apex:repeat value="{!creditReviewSplitFundingList}" var="data">
+                    <div class="row">
+                      <div class="form-group">
+                        <div class="col-md-6 mt10">
+                          <label class="col-md-6 control-label" for="textinput"> Payoff Type</label>                          
+                          <div class="col-md-6">
+                            <apex:outputField value="{!data.Payoff_Type__c}" styleClass="form-control cs1" />
+                          </div>
+                        </div>
+                        <div class="col-md-6 mt10">
+                          <div style="display:{!IF(data.Payoff_Type__c = '3rd Party Payoff' , '', 'None')}">
+                            <label class="col-md-6 control-label" for="textinput">Lender Name</label>
+                            <div class="col-md-6">
+                              <apex:outputField value="{!data.Lender__c}" styleClass="form-control csr1" />
+                            </div>
+                          </div>
+                          <div style="display:{!IF(data.Payoff_Type__c = 'Internal Payoff' , '', 'None')}">
+                            <label class="col-md-6 control-label" for="textinput">Loan Number</label>
+                            <div class="col-md-6">
+                              <apex:outputField value="{!data.Payoff_Loan_Number__c}" styleClass="form-control csr1" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </apex:repeat>
+
+
+                  <br></br>
+                  <br></br>
+                  <br></br>
+                  <br></br>
+
+                  <apex:outputPanel styleClass="form-group" layout="none">
+                    <div class="row mb30">
+                      <div class="col-md-12">
+                        Credit Approval Notes:
+                        <apex:inputField value="{!creditReviewObj.Credit_Approval_Notes__c}" styleClass="form-control" />
+                      </div>
+                    </div>
+                  </apex:outputPanel>
+                  <apex:outputPanel styleClass="form-group" layout="none" rendered="{!$Permission.Credit_Reviews_Can_Complete_Post_Audit}">
+                    <div class="row mb30">
+                      <div class="col-md-12">
+                        Post Audit:
+                        <apex:inputField value="{!creditReviewObj.Post_Audit__c}" styleClass="form-control" />
+                      </div>
+                    </div>
+                  </apex:outputPanel>
+                </apex:outputPanel>
+                <div align="center" class="mt10">
+                  <apex:commandButton onclick="canceStipulationsChanges(); return false;" value="Cancel" styleClass="btn btn-danger" />
+                  <input type="button" class="btn btn-primary" value="Save" onclick="stipulationsSave(); return false" />
+                  <input type="button" class="btn btn-primary" value="Save & Close" onclick="stipulationsSaveClose(); return false" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /container -->
+    </apex:form>
+    <apex:includescript value="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></apex:includescript>
+    <apex:includeScript value="{!URLFOR($Resource.CreditReviewScreen, 'js/bootstrap.js')}" />
+  </body>
+
+  </html>
+</apex:page>

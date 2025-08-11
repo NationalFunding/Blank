@@ -1,0 +1,315 @@
+<apex:page standardController="Case" extensions="MatterIntakeScreen"  sidebar="false" showHeader="false" showQuickActionVfHeader="false" id="pg" >
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+    var j$ = jQuery.noConflict;
+    $(document).ready(function() {
+        //pull the value of the current field
+        var recordType = $("#innerRecordTypeHTML :selected").text();
+        console.log('innerRecordTypeHTML:' + recordType);
+        if(recordType != "Litigation" && recordType != "Litigation - BK") {
+            console.log('recordtype onload is litigation');
+        }
+    });
+
+    function disableOrEnableBoxes(recordTypeChosen){
+        var selectedRecordType = $(recordTypeChosen).find("option:selected").text();
+        console.log('record type chosen:: ' + selectedRecordType);
+        if(selectedRecordType == "Bankruptcy" || selectedRecordType == "Defense" || selectedRecordType == "Records Requests") {
+            if(selectedRecordType == "Bankruptcy") {
+                console.log('this got in 1');
+                $('input[name$="dateDefault"]').removeAttr('disabled');
+                $('input[name$="outBalance"]').removeAttr('disabled');
+                $('input[name$="rush"]').attr('disabled','disabled');
+                $('input[name$="woa"]').attr('disabled','disabled');
+                $('input[name$="concurrentDeal"]').attr('disabled','disabled');
+                $('input[name$="fraud"]').attr('disabled','disabled');
+                $('input[name$="stakeout"]').attr('disabled','disabled');
+            }else if(selectedRecordType == "Defense" || selectedRecordType == "Records Requests"){
+                console.log('this got in 2');
+                $('input[name$="dateDefault"]').attr('disabled','disabled');
+                $('input[name$="outBalance"]').attr('disabled','disabled');
+                $('input[name$="rush"]').attr('disabled','disabled');
+                $('input[name$="woa"]').attr('disabled','disabled');
+                $('input[name$="concurrentDeal"]').attr('disabled','disabled');
+                $('input[name$="fraud"]').attr('disabled','disabled');
+                $('input[name$="stakeout"]').attr('disabled','disabled');
+            }
+        } else{
+            $('input[name$="dateDefault"]').removeAttr('disabled');
+            $('input[name$="outBalance"]').removeAttr('disabled');
+            $('input[name$="rush"]').removeAttr('disabled');
+            $('input[name$="woa"]').removeAttr('disabled');
+            $('input[name$="concurrentDeal"]').removeAttr('disabled');
+            $('input[name$="fraud"]').removeAttr('disabled');
+            $('input[name$="stakeout"]').removeAttr('disabled');
+        }
+    }
+    </script>
+     <apex:slds />
+     
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+        <head>
+  
+        </head>
+        <body>
+            <apex:form id="frm" >
+                
+                <div class="slds-notify_container {!IF(hasMessages, '', 'slds-hide')}" style="position: fixed;width: 100%;top: 0;z-index: 1;">
+                    <div class="slds-notify slds-notify--alert slds-theme--error slds-theme--alert-texture" role="alert">
+                        <span class="slds-assistive-text">Error</span>
+                        <h2>
+                            <apex:messages />
+                        </h2>
+                    </div>
+                </div>
+                
+                <apex:outputPanel rendered="{!IF(errorMessage != null, false, true)}">
+                    
+                    <div class="slds-docked-form-footer">   
+                        <div style="width:1000px;">  
+                            <div style="text-align:center;">
+                                <apex:commandButton action="{!saveMatter}" value="Save" styleClass="slds-button slds-button--brand" />
+                                <apex:commandButton action="{!cancel}" value="Cancel" styleClass="slds-button slds-button--neutral" />
+                            </div>
+                       </div>
+                    </div>
+            
+                    <fieldset class="slds-box slds-theme--default slds-m-around--small" style="margin-bottom: 30px;margin-top: 30px;">
+                        
+                        <legend id="" class="slds-text-heading--small slds-p-vertical--medium legend">
+                            
+                        </legend> 
+                        
+                        <div class="slds-page-header">
+                            <div class="slds-media">
+                                <div class="slds-media__figure">
+                                    <span class="slds-icon_container slds-icon_container--square slds-icon-custom-custom90">
+                                        <svg aria-hidden="true" class="slds-icon slds-icon--medium">
+                                            <use xlink:href="{!URLFOR($Resource.SLDSNew,'assets/icons/custom-sprite/svg/symbols.svg#custom90')}"></use>
+                                       </svg>
+                                    </span>
+                                </div>
+                                <div class="slds-media__body">
+                                    <p class="slds-text-body_small slds-line-height_reset">Create Matter</p>
+                                    <h1 class="slds-page-header__title slds-truncate slds-align-middle" title="Select Products">Matter Intake Screen</h1>                    
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+
+                        <fieldset class="slds-form--compound">
+                            <!--<legend class="slds-form-element__label slds-text-title&#45;&#45;caps">Case Information</legend>-->
+                            <div class="slds-form-element__group">
+                                <!--OP Additions 9.19.18-->
+                                <label class="slds-form-element__label" for="select-01">Record Type</label>
+                                <div class="slds-form-element__control" id="innerRecordTypeHTML">
+                                    <apex:selectList value="{!recordTypes}" size="1" onChange="disableOrEnableBoxes(this)">
+                                        <apex:SelectOptions value="{!items}"/>
+                                    </apex:selectList>
+                                </div>
+                                <br></br>
+
+                                <div class="slds-form-element__row">
+                                    <div class="slds-form-element slds-size--1-of-4" >
+                                        <apex:outputLabel for="dateDefault" value="{!$ObjectType.advpm__Matter__c.fields.Date_of_Default__c.label}" styleClass="slds-form-element__label" /><br/>
+                                        <apex:inputField id="dateDefault" value="{!matter.Date_of_Default__c}" styleClass="slds-input" style="width:60%;"/>
+                                    </div>
+                                    <div class="slds-form-element slds-size--1-of-4">
+                                        <apex:outputLabel for="outBalance" value="{!$ObjectType.advpm__Matter__c.fields.Outstanding_Balance__c.label}" styleClass="slds-form-element__label" /><br/>
+                                        <apex:inputField id="outBalance" value="{!matter.Outstanding_Balance__c}" styleClass="slds-input" style="width:60%;" />
+                                    </div>
+                                    <div class="slds-form-element slds-size--1-of-4">
+                                        <div class="slds-form-element__row">
+                                            <div class="slds-form-element slds-size--1-of-2">
+                                                <apex:outputLabel for="rush" value="{!$ObjectType.advpm__Matter__c.fields.Rush__c.label}" styleClass="slds-form-element__label" />
+                                                <div class="slds-form-element__control">
+                                                    <span class="slds-checkbox">
+                                                        <apex:inputCheckbox id="rush" value="{!matter.Rush__c}"/>
+                                                        <label class="slds-checkbox__label" for="pg:frm:rush">
+                                                            <span class="slds-checkbox--faux"></span>
+                                                            <span class="slds-form-element__label"></span>
+                                                        </label>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="slds-form-element slds-size--1-of-2">
+                                                <apex:outputLabel for="woa" value="{!$ObjectType.advpm__Matter__c.fields.WOA__c.label}" styleClass="slds-form-element__label" />
+                                                <div class="slds-form-element__control">
+                                                    <span class="slds-checkbox">
+                                                        <apex:inputCheckbox id="woa" value="{!matter.WOA__c}"/>
+                                                        <label class="slds-checkbox__label" for="pg:frm:woa">
+                                                            <span class="slds-checkbox--faux"></span>
+                                                            <span class="slds-form-element__label"></span>
+                                                        </label>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-form-element slds-size--1-of-4">
+                                        <div class="slds-form-element__row">
+                                            <div class="slds-form-element slds-size--1-of-3">
+                                                <apex:outputLabel for="concurrentDeal" value="{!$ObjectType.advpm__Matter__c.fields.Concurrent_Deal__c.label}" styleClass="slds-form-element__label" />
+                                                <div class="slds-form-element__control">
+                                                    <span class="slds-checkbox">
+                                                        <apex:inputCheckbox id="concurrentDeal" value="{!matter.Concurrent_Deal__c}"/>
+                                                        <label class="slds-checkbox__label" for="pg:frm:concurrentDeal">
+                                                            <span class="slds-checkbox--faux"></span>
+                                                            <span class="slds-form-element__label"></span>
+                                                        </label>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="slds-form-element slds-size--1-of-3">
+                                                <apex:outputLabel for="fraud" value="{!$ObjectType.advpm__Matter__c.fields.Fraud__c.label}" styleClass="slds-form-element__label" />
+                                                <div class="slds-form-element__control">
+                                                    <span class="slds-checkbox">
+                                                        <apex:inputCheckbox id="fraud" value="{!matter.Fraud__c}"/>
+                                                        <label class="slds-checkbox__label" for="pg:frm:fraud">
+                                                            <span class="slds-checkbox--faux"></span>
+                                                            <span class="slds-form-element__label"></span>
+                                                        </label>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="slds-form-element slds-size--1-of-3">
+                                                <apex:outputLabel for="stakeout" value="{!$ObjectType.advpm__Matter__c.fields.Stakeout__c.label}" styleClass="slds-form-element__label" />
+                                                <div class="slds-form-element__control">
+                                                    <span class="slds-checkbox">
+                                                        <apex:inputCheckbox id="stakeout" value="{!matter.Stakeout__c}"/>
+                                                        <label class="slds-checkbox__label" for="pg:frm:stakeout">
+                                                            <span class="slds-checkbox--faux"></span>
+                                                            <span class="slds-form-element__label"></span>
+                                                        </label>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <hr></hr>
+                        <fieldset class="slds-form--compound">
+                            <legend class="slds-form-element__label slds-text-title--caps">Chargeoff Details</legend>
+                            <br></br>
+                            <div class="slds-form-element__group">
+
+                                <div class="slds-form-element__row">
+                                    <div class="slds-form-element slds-size--1-of-12">
+                                        <label class="slds-form-element__label" for="select-02">Status</label>
+                                        <div class="slds-form-element__control">
+                                            <apex:selectList value="{!selectedStatusOption}" size="1">
+                                                <apex:SelectOptions value="{!statusOptions}"/>
+                                            </apex:selectList>
+                                        </div>
+                                    </div>
+
+                                    <div class="slds-form-element slds-size--1-of-12">
+                                        <apex:outputLabel for="BK_Business__c" value="{!$ObjectType.Chargeoff_Summary__c.fields.BK_Business__c.label}" styleClass="slds-form-element__label" />
+                                        <div class="slds-form-element__control">
+                                        <span class="slds-checkbox">
+                                            <apex:inputCheckbox id="BK_Business__c" value="{!chargeOff.BK_Business__c}"/>
+                                            <label class="slds-checkbox__label" for="pg:frm:BK_Business__c">
+                                                <span class="slds-checkbox--faux"></span>
+                                                <span class="slds-form-element__label"></span>
+                                            </label>
+                                        </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="slds-form-element slds-size--1-of-12">
+                                        <apex:outputLabel for="BK_PG__c" value="{!$ObjectType.Chargeoff_Summary__c.fields.BK_PG__c.label}" styleClass="slds-form-element__label" />
+                                        <div class="slds-form-element__control">
+                                        <span class="slds-checkbox">
+                                            <apex:inputCheckbox id="BK_PG__c" value="{!chargeOff.BK_PG__c}"/>
+                                            <label class="slds-checkbox__label" for="pg:frm:BK_PG__c">
+                                                <span class="slds-checkbox--faux"></span>
+                                                <span class="slds-form-element__label"></span>
+                                            </label>
+                                        </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="slds-form-element slds-size--1-of-12">
+                                        <apex:outputLabel for="Business_Closed__c" value="{!$ObjectType.Chargeoff_Summary__c.fields.Business_Closed__c.label}" styleClass="slds-form-element__label" />
+                                        <div class="slds-form-element__control">
+                                        <span class="slds-checkbox">
+                                            <apex:inputCheckbox id="Business_Closed__c" value="{!chargeOff.Business_Closed__c}"/>
+                                            <label class="slds-checkbox__label" for="pg:frm:Business_Closed__c">
+                                                <span class="slds-checkbox--faux"></span>
+                                                <span class="slds-form-element__label"></span>
+                                            </label>
+                                        </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="slds-form-element slds-size--1-of-12">
+                                        <label class="slds-form-element__label" for="select-03">Layered</label>
+                                        <div class="slds-form-element__control">
+                                            <apex:selectList value="{!selectedLayeredOption}" size="1" >
+                                            <!--<apex:selectList value="{!chargeOff.Layered__c}" size="1" > &lt;!&ndash;todo:: see if this will upsert&ndash;&gt;-->
+                                                <apex:SelectOptions value="{!layeredOptions}"/>
+                                            </apex:selectList>
+                                        </div>
+                                    </div>
+
+                                    <div class="slds-form-element slds-size--1-of-12">
+                                        <apex:outputLabel for="Analyst_Behavior__c" value="{!$ObjectType.Chargeoff_Summary__c.fields.Analyst_Behavior__c.label}" styleClass="slds-form-element__label" />
+                                        <div class="slds-form-element__control">
+                                        <span class="slds-checkbox">
+                                            <apex:inputCheckbox id="Analyst_Behavior__c" value="{!chargeOff.Analyst_Behavior__c}"/>
+                                            <label class="slds-checkbox__label" for="pg:frm:Analyst_Behavior__c">
+                                                <span class="slds-checkbox--faux"></span>
+                                                <span class="slds-form-element__label"></span>
+                                            </label>
+                                        </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="slds-form-element slds-size--1-of-12">
+                                        <apex:outputLabel for="X3rd_Party_Debt_Settlement__c" value="{!$ObjectType.Chargeoff_Summary__c.fields.X3rd_Party_Debt_Settlement__c.label}" styleClass="slds-form-element__label" />
+                                        <div class="slds-form-element__control">
+                                        <span class="slds-checkbox">
+                                            <apex:inputCheckbox id="X3rd_Party_Debt_Settlement__c" value="{!chargeOff.X3rd_Party_Debt_Settlement__c}"/>
+                                            <label class="slds-checkbox__label" for="pg:frm:X3rd_Party_Debt_Settlement__c">
+                                                <span class="slds-checkbox--faux"></span>
+                                                <span class="slds-form-element__label"></span>
+                                            </label>
+                                        </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="slds-form-element slds-size--1-of-4">
+                                        <label class="slds-form-element__label" for="select-04">Suspicious Activity</label>
+                                        <div class="slds-form-element__control">
+                                            <apex:selectcheckboxes layout="pageDirection" value="{!selectedSuspiciousActivityOption}">
+                                                <apex:selectoptions value="{!suspiciousActivityOptions}" />
+                                            </apex:selectcheckboxes>
+                                        </div>
+                                    </div>
+
+                                    <div class="slds-form-element slds-size--1-of-12">
+                                        <apex:outputLabel for="Confirmed__c" value="{!$ObjectType.Chargeoff_Summary__c.fields.Confirmed__c.label}" styleClass="slds-form-element__label" />
+                                        <div class="slds-form-element__control">
+                                        <span class="slds-checkbox">
+                                            <apex:inputCheckbox id="Confirmed__c" value="{!chargeOff.Confirmed__c}"/>
+                                            <label class="slds-checkbox__label" for="pg:frm:Confirmed__c">
+                                                <span class="slds-checkbox--faux"></span>
+                                                <span class="slds-form-element__label"></span>
+                                            </label>
+                                        </span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </fieldset>
+                    </fieldset>
+                </apex:outputPanel>
+            </apex:form>
+        </body>
+    </html>
+</apex:page>

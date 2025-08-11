@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Create_New_Opportunity</fullName>
+    <availability>online</availability>
+    <displayType>massActionButton</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Create New Opportunity</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <requireRowSelection>false</requireRowSelection>
+    <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
+{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+{!REQUIRESCRIPT("/support/console/37.0/integration.js")} 
+{!REQUIRESCRIPT("/soap/ajax/20.0/apex.js")} 
+{!REQUIRESCRIPT('//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js')} 
+{!REQUIRESCRIPT('//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js')} 
+
+$(document).ready(function(){ 
+if (sforce.console.isInConsole()){ 
+var CMWindow = sforce.console.openPrimaryTab(undefined, '/setup/ui/recordtypeselect.jsp?ent=Opportunity&amp;retURL=%2F006%2Fo&amp;save_new_url=%2F006%2Fe%3FretURL%3D%252F006%252Fo%26accid%3D{!Account.Id}', true); 
+} 
+else{ 
+if({!Account.Customer_Service_Issue__c} &gt; 0) { 
+alert ("You cannot create a new Opportunity for this Account right now, there is a customer service issue"); 
+} 
+else{ 
+window.open('/setup/ui/recordtypeselect.jsp?ent=Opportunity&amp;retURL=%2F{!Account.Id}&amp;save_new_url=%2F006%2Fe%3FretURL%3D%252F{!Account.Id}%26accid%3D{!Account.Id}'); 
+} 
+} 
+});
+
+
+//{!REQUIRESCRIPT("/soap/ajax/20.0/connection.js")} 
+//{!REQUIRESCRIPT("/soap/ajax/20.0/apex.js")} 
+
+//if({!Account.Customer_Service_Issue__c} &gt; 0) { 
+//alert ("You cannot create a new Opportunity for this Account right now, there is a //customer service issue"); 
+//} 
+//else{ 
+//window.open('/setup/ui/recordtypeselect.jsp?//ent=Opportunity&amp;retURL=%2F{!Account.Id}//&amp;save_new_url=%2F006%2Fe%3FretURL%3D%252F{!Account.Id}%26accid%3D{!Account.Id}'); 
+//}</url>
+</WebLink>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Trigger_Sort_Order_Update__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Used in Distribution Routing Definition schedule flow to trigger sort order update (PD-550)</description>
+    <label>Trigger Sort Order Update</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

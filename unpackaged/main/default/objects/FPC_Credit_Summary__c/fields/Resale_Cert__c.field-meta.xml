@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Resale_Cert__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Resale certificate complete - status</description>
+    <inlineHelpText>Check box if the resale certificate is completed.</inlineHelpText>
+    <label>Resale Cert</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

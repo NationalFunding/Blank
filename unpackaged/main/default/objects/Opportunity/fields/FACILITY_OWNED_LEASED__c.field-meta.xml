@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FACILITY_OWNED_LEASED__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Facility Rent/Own Status.</description>
+    <inlineHelpText>Check box if merchant owns facility business is located in.</inlineHelpText>
+    <label>Facility Owned or Leased</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

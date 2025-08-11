@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NF_to_NFAS3_Transfer__c</fullName>
+    <formula>OR(
+            AND(
+                cmbls__Loan_Transfer_Summary__r.cmbls__Previous_Fund__r.Name = 'National Funding',
+                cmbls__Loan_Transfer_Summary__r.cmbls__New_Fund__r.Name = 'NFAS3'
+            ),
+            AND(
+                cmbls__Loan_Transfer_Summary__r.cmbls__Previous_Fund__r.Name = 'NFAS3',
+                cmbls__Loan_Transfer_Summary__r.cmbls__New_Fund__r.Name = 'National Funding'
+            )
+        )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>NF to NFAS3 Transfer</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

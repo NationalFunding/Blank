@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldOverrides>
+        <field>Contingency__c</field>
+        <formula>advpm__Matter__c.Local_Counsel__r.Contingency_Percent__c *100</formula>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>Contingency_Payout_Method__c</field>
+        <formula>CASE(advpm__Matter__c.Local_Counsel__r.Contingency_Payout_Method__c, 
+&quot;Net Paid to National Funding&quot;,&quot;Net Paid to National Funding&quot;, 
+&quot;Contingency Paid to Local Counsel&quot;,&quot;Contingency Paid to Local Counsel&quot;, 
+&quot;&quot;)</formula>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>Local_Counsel__c</field>
+        <formula>advpm__Matter__c.Local_Counsel__c</formula>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>LP_Loan__c</field>
+        <formula>advpm__Matter__c.LP_Loan__c</formula>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>Matter__c</field>
+        <formula>advpm__Matter__c.Id</formula>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>Ownership__c</field>
+        <formula>IF(
+NOT(ISBLANK(advpm__Matter__c.Local_Counsel__c)),
+&apos;Local Counsel&apos;, 
+&apos;In House&apos;
+)</formula>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>Recovery__c</field>
+        <formula>advpm__Matter__c.Recovery__c</formula>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>Settlement_Total__c</field>
+        <formula>advpm__Matter__c.Settlement_Amount__c</formula>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>Status__c</field>
+        <literalValue>New</literalValue>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>Unique_Loan_and_Status__c</field>
+        <formula>advpm__Matter__c.Loan_Number__c &amp; &apos; - New&apos;</formula>
+    </fieldOverrides>
+    <label>Create Payment Agreement</label>
+    <optionsCreateFeedItem>true</optionsCreateFeedItem>
+    <quickActionLayout>
+        <layoutSectionStyle>TwoColumnsLeftToRight</layoutSectionStyle>
+        <quickActionLayoutColumns>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>Settlement_Agreement__c</field>
+                <uiBehavior>Required</uiBehavior>
+            </quickActionLayoutItems>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>Settlement_Total__c</field>
+                <uiBehavior>Required</uiBehavior>
+            </quickActionLayoutItems>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>Start_Date__c</field>
+                <uiBehavior>Required</uiBehavior>
+            </quickActionLayoutItems>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>Method_of_Payment__c</field>
+                <uiBehavior>Required</uiBehavior>
+            </quickActionLayoutItems>
+        </quickActionLayoutColumns>
+        <quickActionLayoutColumns>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>Ownership__c</field>
+                <uiBehavior>Required</uiBehavior>
+            </quickActionLayoutItems>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>Contingency__c</field>
+                <uiBehavior>Edit</uiBehavior>
+            </quickActionLayoutItems>
+        </quickActionLayoutColumns>
+    </quickActionLayout>
+    <targetObject>Payment_Agreement__c</targetObject>
+    <targetParentField>Matter__c</targetParentField>
+    <targetRecordType>Payment_Agreement__c.Settlement_Agreement</targetRecordType>
+    <type>Create</type>
+</QuickAction>

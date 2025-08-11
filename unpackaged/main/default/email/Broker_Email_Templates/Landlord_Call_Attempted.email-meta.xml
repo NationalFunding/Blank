@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Naitonal_Funding_Standard_Letterhead_Stack</letterhead>
+    <name>Landlord Call Attempted</name>
+    <style>formalLetter</style>
+    <subject>Landlord Verification Call Attempted</subject>
+    <textOnly>Landlord verification call was attempted for {!Landlord_Verifcation__c.Company_Legal_Name__c}.  We will continue to attempt the landlord call again within the next three hours.</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

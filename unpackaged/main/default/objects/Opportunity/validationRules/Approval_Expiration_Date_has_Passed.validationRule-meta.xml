@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Approval_Expiration_Date_has_Passed</fullName>
+    <active>true</active>
+    <errorConditionFormula>Approval_Expiration_Date__c &lt; TODAY() &amp;&amp; 
+ISCHANGED(StageName) &amp;&amp; 
+NOT(ISPICKVAL(StageName,'Offer(s) Not Accepted')) &amp;&amp; NOT(ISPICKVAL(StageName,'Resubmit')) &amp;&amp; NOT(ISPICKVAL(StageName,'Lender Pend Info')) &amp;&amp;
+NOT(ISPICKVAL(StageName,'Re-Process')) &amp;&amp;
+NOT(ISPICKVAL(StageName,'Re-Review')) &amp;&amp;
+$Setup.ValidationRules__c.Bypass_Opportunity_Stage_Validations__c = false</errorConditionFormula>
+    <errorDisplayField>StageName</errorDisplayField>
+    <errorMessage>Stage Cannot be updated to anything other than 'Offer(s) Not Accepted' when the Approval Expiration Date has passed.</errorMessage>
+</ValidationRule>

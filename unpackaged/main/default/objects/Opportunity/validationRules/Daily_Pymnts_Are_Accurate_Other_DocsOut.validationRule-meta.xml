@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Daily_Pymnts_Are_Accurate_Other_DocsOut</fullName>
+    <active>true</active>
+    <errorConditionFormula>Amount_Collected__c &lt;&gt; ROUND(Amount_Offered__c * VALUE(Ratio__c),0) &amp;&amp; 
+(RecordType.Name = 'Working Capital Oppty') &amp;&amp; 
+(Lender_Account__r.Name &lt;&gt; 'National Funding - Gold WC Funding' &amp;&amp; 
+Lender_Account__r.Name &lt;&gt; 'National Funding - Diamond WC Funding' &amp;&amp; 
+Lender_Account__r.Name &lt;&gt; 'National Funding - Platinum WC Funding' &amp;&amp; 
+Lender_Account__r.Name &lt;&gt; 'National Funding - Commercial WC Funding' &amp;&amp; 
+Lender_Account__r.Name &lt;&gt; 'Advance Me, Inc (Merchant)' &amp;&amp; 
+Lender_Account__r.Name &lt;&gt; 'New Logic Business Loans (NL Only)') &amp;&amp; 
+(ISPICKVAL(StageName, "Docs Out - MCA")) &amp;&amp; 
+DATEVALUE(Fund_Date__c) &gt;= DATE(2014,10,28)</errorConditionFormula>
+    <errorMessage>The Amount Collected must be equal to the Amount Doc'd multiplied by the WC Sell Rate, rounded to the nearest dollar.</errorMessage>
+</ValidationRule>

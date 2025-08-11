@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Commercial_Analyst__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>Commercial Analyst</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Commercial_Analyst</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

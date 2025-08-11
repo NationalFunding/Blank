@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank</letterhead>
+    <name>Sole Prop – Pre lawsuit</name>
+    <style>freeForm</style>
+    <subject>{!advpm__Matter__c.Loan_Number__c} - {!advpm__Matter__c.Name_of_Borrower__c}</subject>
+    <textOnly>I am an attorney with National Funding.  I was reviewing your loan since you have had trouble making your payments.  In light of the COVID-19 pandemic, we have additional payment options that we can offer to get you back on track and avoid litigation.  Please email or call me as soon as possible to discuss.
+
+
+Thank you,
+
+{!User.Name} | {!User.Title}
+
+{!Case.Email_Signature_Company__c}
+{!$Setup.Company_Information__c.Street__c}
+{!$Setup.Company_Information__c.City__c}, {!$Setup.Company_Information__c.State__c} {!$Setup.Company_Information__c.Zip__c}
+P: {!User.Phone} | F: {!User.Fax}
+E: {!User.Email}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

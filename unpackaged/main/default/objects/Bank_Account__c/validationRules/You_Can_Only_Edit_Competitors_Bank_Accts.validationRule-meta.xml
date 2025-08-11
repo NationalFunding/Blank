@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>You_Can_Only_Edit_Competitors_Bank_Accts</fullName>
+    <active>true</active>
+    <description>Prevents Ops users to edit non competitor Bank Accounts ACH info.</description>
+    <errorConditionFormula>AND(
+Account__r.RecordType.Name &lt;&gt; 'Competitor',
+$Profile.Name = 'FPC - Operations User',
+OR(
+ISCHANGED( Bank_Account_Number__c),
+ISCHANGED( Bank_Name__c),
+ISCHANGED( Routing_Number__c),
+ISCHANGED( Payee_s_Name__c),
+ISCHANGED( Receiving_Company_Name__c)
+)
+)</errorConditionFormula>
+    <errorMessage>You can only edit Bank Account records for Competitor Accounts.</errorMessage>
+</ValidationRule>

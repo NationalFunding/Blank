@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bank_Change_eSign</fullName>
+    <availability>online</availability>
+    <description>+updated replace ampersands in agreement name</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>600</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>Bank Change/CC eSign</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>/apex/APXTConga4__Conga_Composer?serverUrl={!API.Partner_Server_URL_370}
+&amp;id={!Case.Id}
+&amp;QueryId=a0634000016WUU4,a0634000016WUTa,a0634000016WUUs,a0634000018zqKF
+&amp;FP0={!IF( $Profile.Name = "System Administrator", 0,1)}
+&amp;DS4=0
+&amp;DS7=0
+&amp;DS8={!IF( $Profile.Name = "System Administrator", 1,0)}
+&amp;TemplateGroup=AdobeBankChange
+&amp;TemplateId=a0S3400000meUpZ
+&amp;DefaultPdf=1
+&amp;ContactId={Qvar0}
+&amp;QVar0Id=a0634000016WUUs
+&amp;AC0=1
+&amp;SC1=Attachments
+&amp;SC0=1
+&amp;OFN={!Case.Merchant_Number__c}+-+{!SUBSTITUTE (Case.Legal_Name__c, "&amp;", " and " )}+-+{Template.Label}
+&amp;ESVisible=1
+&amp;ESCustomField=Case__c
+&amp;ESCustomFieldValue={!Case.Id}
+&amp;ESCustomField1=echosign_dev1__Sender_User__c
+&amp;ESCustomFieldValue1=0053400000AMMhp
+&amp;ESCustomField2=NF_Document_Type__c
+&amp;ESCustomFieldValue2=Bank+Change
+&amp;ESRecipient1={Qvar0}
+&amp;ESDataMappingId=a0t3400000ONuFq
+&amp;ESCopyTo={!User.Email},{!Case.OwnerEmail}
+&amp;ESSignatureType=2
+&amp;ESRemindRecipient=2
+&amp;ESExpireInXDays=30</url>
+</WebLink>

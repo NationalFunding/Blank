@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Task</fullName>
+    <active>true</active>
+    <label>New Task</label>
+    <picklistValues>
+        <picklist>Call_Disposition__c</picklist>
+        <values>
+            <fullName>Contacted - Gatekeeper</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hung Up</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Answer - LVM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Answer - No Voicemail</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not In Service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RPC - Does not Meet Criteria</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RPC - Gathering Docs %28Stips%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RPC - Interested Thinking</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RPC - Needs to Complete App</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RPC - Needs to Complete Banks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RPC - Not Interested General</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RPC - ONA - ACH Schedule</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RPC - ONA - Payment Too High</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RPC - ONA - Price Too High</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RPC - ONA - Took Competitor Offer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RPC - Offers Presented - Thinking</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Compliance_Task__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Five9__Five9TaskType__c</picklist>
+        <values>
+            <fullName>Call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chat</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Email</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Priority</picklist>
+        <values>
+            <fullName>High</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Low</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Normal</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>RPC__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Reason__c</picklist>
+        <values>
+            <fullName>Customer Moving Forward</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NI- Advance too Small</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NI- Franchise</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NI- Has Non-MCA Funding</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NI- Hung Up</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NI- No Need</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NI- Price</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NI- Software</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NQ - Restricted State</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NQ- Annual Sales Volume Too Low</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NQ- BK</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NQ- CC Volume Low</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NQ- Home Based</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NQ- MCA Payoff too High</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NQ- No Credit Cards</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NQ- Restricted Industry</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NQ- Seasonal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NQ- Stated Credit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NQ- TIB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NQ- Use of Funds</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Scheduled Call Back</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Timeframe - 30-60 Days</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Timeframe - 60-90 Days</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Timeframe - 90 Days</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Timeframe - Within 30 Days</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Transferred Call</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Response_Channel__c</picklist>
+        <values>
+            <fullName>Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fax</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inbound Call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Internet Application</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Outbound Call</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status</picklist>
+        <values>
+            <fullName>Cancelled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deferred</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In Progress</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Started</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Waiting on someone else</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Subject</picklist>
+        <values>
+            <fullName>Call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Customer Service Task Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>QAR Filed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Send Letter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Send Quote</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Time_Zone__c</picklist>
+        <values>
+            <fullName>01 Eastern</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>02 Indiana</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>03 Central</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>04 Mountain</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>05 Arizona</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>06 Pacific</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>07 Alaska</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>08 Hawaii</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type</picklist>
+        <values>
+            <fullName>Call</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Internal Referral</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Meeting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>advpm__Location_Type__c</picklist>
+        <values>
+            <fullName>Court</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Home</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Remote</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Facility_Company__c</fullName>
+    <description>The company/landlord name of the facility that the business is located at.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter the company/landlord name of the facility that the business is located at.</inlineHelpText>
+    <label>Facility Company</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>When any Account is been Referred to MCA. Do not modify the name. Used in Alert On Refer Trigger .</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Naitonal_Funding_Standard_Letterhead_Stack</letterhead>
+    <name>MCA Account Referral</name>
+    <style>freeForm</style>
+    <subject>{!Account.Name} Has Been Referred To Merchant.</subject>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Net_of_Equip_60__c</fullName>
+    <description>Net equipment cost 60 month term</description>
+    <inlineHelpText>Net equipment cost 60 month term</inlineHelpText>
+    <label>Net of Equip 60</label>
+    <precision>17</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

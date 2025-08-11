@@ -1,0 +1,41 @@
+<!--
+ - Created by oporter on 3/27/2017.
+ -->
+<!--sforce.console.openPrimaryTab(***id:String***, url:URL, active:Boolean, (optional)tabLabel:String, (optional)callback:Function, (optional)name)-->
+
+<apex:page id="casesOnCase" standardController="Case" extensions="casesOnCaseController">
+    <apex:includeScript value="/support/console/26.0/integration.js"/>
+
+    <script type="text/javascript">
+
+    function openPrimaryTabCase(){
+       var href = event.currentTarget.href;
+       console.log(href); 
+       var arrayItem = href.split('.com/');
+       var endIndexOfSubstring = arrayItem[1].indexOf('/');
+       var id;
+       if (endIndexOfSubstring === -1) {
+            id = arrayItem[1];
+            console.log('this is href2: ' + id);
+       }
+       else {
+           id = arrayItem[1].substring(0, endIndexOfSubstring);
+           console.log('this is href: ' + id);
+           sforce.console.openPrimaryTab(undefined, '/' + id, true); 
+       }
+    }
+    </script>
+
+    <apex:pageBlock >
+        <apex:pageBlockTable value="{!caseOnCase}" var="item">
+            <apex:column headerValue="Case Number"><apex:outputLink value="{!URLFOR($Action.Case.View, item.Id)}" onclick="openPrimaryTabCase(); return false;">{!item.CaseNumber}</apex:outputLink></apex:column>
+            <apex:column headerValue="Merchant Number" value="{!item.Merchant_Number__c}"/>
+            <apex:column headerValue="Created Date" value="{!item.CreatedDate}"/>
+            <apex:column headerValue="Type" value="{!item.Type}"/>
+            <apex:column headerValue="Collections Status" value="{!item.Collections_Status__c}"/>
+            <apex:column headerValue="Status" value="{!item.Status}"/>
+            <apex:column headerValue="Owner Name" value="{!item.Owner.Name}"/>
+            <apex:column headerValue="Opportunity Name" value="{!item.Opportunity__r.Name}"/>
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+</apex:page>

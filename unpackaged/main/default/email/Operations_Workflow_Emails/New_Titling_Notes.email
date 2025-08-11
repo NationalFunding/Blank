@@ -1,0 +1,12 @@
+Hello,
+
+Titling Notes have been updated on the following Opportunity:
+{!Titling__c.Opportunity__c}
+
+Titling Notes:
+{!Titling__c.Titling_Notes__c}
+
+Click here to view the Titling record directly:
+{!Titling__c.Link}
+
+Thanks

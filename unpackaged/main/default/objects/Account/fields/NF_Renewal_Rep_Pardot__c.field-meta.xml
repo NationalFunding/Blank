@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NF_Renewal_Rep_Pardot__c</fullName>
+    <description>This field will be used in Pardot email alerts, it will be updated by workflow.  This field will be updated with the value of NF Renewal Rep lookup field when it is changed.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This field will be used in Pardot email alerts, it will be updated by workflow.  This field will be updated with the value of NF Renewal Rep lookup field when it is changed.</inlineHelpText>
+    <label>NF Renewal Rep - Pardot</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

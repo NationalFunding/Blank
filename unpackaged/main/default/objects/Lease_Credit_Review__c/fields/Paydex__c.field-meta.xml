@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Paydex__c</fullName>
+    <description>This field will contain the Paydex score of the business.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This field will contain the Paydex score of the business.</inlineHelpText>
+    <label>Paydex</label>
+    <precision>3</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,26 @@
+<apex:component layout="none">
+<!--Credit Screen opens Modal Modal Starts here-->
+  <div id="rename" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3 id="myModalLabel">Bank Rename</h3>
+          
+        </div>
+        <div class="modal-body"> 
+            <input type="hidden" id="rename-id" />
+            <label>Name</label>
+            <input type="text" class="form-control" id="new-name" /><br/>
+            <label>Account Number</label>
+            <input type="text" class="form-control" id="new-acct-number" /><br/>
+           
+         </div>
+         <div class="modal-footer" style="text-align:center;">
+           <button class="btn btn-primary" type="button" onclick="rename_save()">Save</button>
+          <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</apex:component>

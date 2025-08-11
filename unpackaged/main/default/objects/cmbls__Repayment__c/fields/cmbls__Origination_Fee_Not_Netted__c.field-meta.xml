@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cmbls__Origination_Fee_Not_Netted__c</fullName>
+    <defaultValue>false</defaultValue>
+    <deprecated>false</deprecated>
+    <description>When true, the origination fee will not be deducted from the Funding Amount</description>
+    <inlineHelpText>When true, the origination fee will not be deducted from the Funding Amount</inlineHelpText>
+    <label>Origination Fee Not Netted</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

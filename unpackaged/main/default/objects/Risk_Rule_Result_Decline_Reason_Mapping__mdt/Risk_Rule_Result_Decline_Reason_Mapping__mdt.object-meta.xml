@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Mapping between raw data from Oscilar and a clear format for the Reg B letter.</description>
+    <label>Risk Rule Result Decline Reason Mapping</label>
+    <pluralLabel>Risk Rule Result Decline Reason Mappings</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

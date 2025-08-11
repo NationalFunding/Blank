@@ -1,0 +1,12 @@
+Hello,
+
+The following Close Form has been paid in full, please generate the Bill of Sale on the Opportunity.
+
+Close Form:
+{!Close_Form__c.Link}
+
+Opportunity:
+{!Opportunity.Link}
+
+
+Thanks

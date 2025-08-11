@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Send_QB_Welcome_Email</name>
+        <label>Send QB Welcome Email</label>
+        <locationX>50</locationX>
+        <locationY>708</locationY>
+        <actionName>Lead.QB_Welcome_Email</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Lead.QB_Welcome_Email</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>Send_Welcome_Email</name>
+        <label>Send Welcome Email</label>
+        <locationX>314</locationX>
+        <locationY>708</locationY>
+        <actionName>Lead.Welcome_Email_from_Website_to_SF</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Lead.Welcome_Email_from_Website_to_SF</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>LRJ_Partner_Evaluation</name>
+        <label>Send Welcome Email</label>
+        <locationX>578</locationX>
+        <locationY>492</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Send_Immediately</name>
+            <conditionLogic>(1 OR 2 OR 3) AND 4 AND (5 OR 6)</conditionLogic>
+            <conditions>
+                <leftValueReference>Lookup_LRJ.Distribution_Tier__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Tier 2</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Lookup_LRJ.Distribution_Tier__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Tier 3</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Lookup_LRJ.Distribution_Tier__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Tier 4</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Lookup_LRJ.Lead__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Lookup_LRJ.Partner_Evaluation__c</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Lookup_LRJ.Partner_Evaluation__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Not Evaluated</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Originating_Brand</targetReference>
+            </connector>
+            <label>Send Immediately</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Originating_Brand</name>
+        <label>Originating Brand?</label>
+        <locationX>314</locationX>
+        <locationY>600</locationY>
+        <defaultConnector>
+            <targetReference>Create_LogMessage</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No Originating Brand</defaultConnectorLabel>
+        <rules>
+            <name>Quick_Bridge</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Originating_Brand__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Quick Bridge</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_QB_Welcome_Email</targetReference>
+            </connector>
+            <label>Quick Bridge</label>
+        </rules>
+        <rules>
+            <name>National_Funding</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Originating_Brand__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>National Funding</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_Welcome_Email</targetReference>
+            </connector>
+            <label>National Funding</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Welcome_Email_Eligibility</name>
+        <label>Welcome Email Eligibility</label>
+        <locationX>842</locationX>
+        <locationY>276</locationY>
+        <defaultConnectorLabel>Other</defaultConnectorLabel>
+        <rules>
+            <name>Tier_2_4</name>
+            <conditionLogic>(1 OR 2) AND 3 AND 4 AND 5 AND (6 OR NOT(7)) AND 8</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Annual_Sales__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Tier 2</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Annual_Sales__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Tier 3</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.AnnualRevenue</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.IsConverted</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Email</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.LeadSource</leftValueReference>
+                <operator>EqualTo</operator>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.LeadSource</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <elementReference>$Label.Lead_Sources_to_Exclude_from_Welcome_Email_Workflow</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.LastModifiedBy.LastName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>NF Automation User</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Lookup_LRJ</targetReference>
+            </connector>
+            <label>Tier 2-4</label>
+        </rules>
+    </decisions>
+    <description>Last Update: 05/08/2025 SPR-312 Add QB welcome email + API 63</description>
+    <environments>Default</environments>
+    <interviewLabel>Lead - Send Welcome Email {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Lead - Send Welcome Email</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Create_LogMessage</name>
+        <label>Create LogMessage</label>
+        <locationX>578</locationX>
+        <locationY>708</locationY>
+        <inputAssignments>
+            <field>Process_Name__c</field>
+            <value>
+                <stringValue>Lead - Send Welcome Email</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>exception__c</field>
+            <value>
+                <stringValue>No Originating Brand on record</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>level__c</field>
+            <value>
+                <stringValue>info</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>message__c</field>
+            <value>
+                <stringValue>No Originating Brand on record {!$Record.Id}</stringValue>
+            </value>
+        </inputAssignments>
+        <object>LogMessage__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordLookups>
+        <name>Lookup_LRJ</name>
+        <label>Lookup LRJ</label>
+        <locationX>578</locationX>
+        <locationY>384</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>LRJ_Partner_Evaluation</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Lead__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Lead_Response_Journal__c</object>
+        <sortField>CreatedDate</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>188</locationX>
+        <locationY>0</locationY>
+        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Encrypted_Email_String__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Distribution_Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Ready to Assign</stringValue>
+            </value>
+        </filters>
+        <object>Lead</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <scheduledPaths>
+            <connector>
+                <targetReference>Welcome_Email_Eligibility</targetReference>
+            </connector>
+            <pathType>AsyncAfterCommit</pathType>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

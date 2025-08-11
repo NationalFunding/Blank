@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sum_ACH_Existing_Loan_Balance__c</fullName>
+    <description>This field will calculate total of ACH payments + the amount of the existing loan balance being paid to complete a prior agreement.</description>
+    <externalId>false</externalId>
+    <formula>Opportunity__r.WC_ACH_Payments_Sum__c + Opportunity__r.Current_Balance__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>This field will calculate total of ACH payments + the amount of the existing loan balance being paid to complete a prior agreement.</inlineHelpText>
+    <label>Sum ACH + Existing Loan Balance</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

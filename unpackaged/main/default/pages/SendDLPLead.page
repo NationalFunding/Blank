@@ -1,0 +1,62 @@
+<!--
+ - Created by bkravitz on 6/15/2017.
+ -->
+
+<apex:page standardController="Lead" extensions="SendDLPRequestLead">
+    <apex:sectionHeader title="{!lead.Name}" subtitle="Send DLP Email and Drip Campaign" />
+    <apex:pageMessages />
+    <apex:form >
+        <apex:commandLink action="{!cancel}" value="<< Go Back"/>
+        <apex:pageblock >
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Send Email" action="{!SendEmail}"/>
+            </apex:pageBlockButtons>
+            <apex:pageblockSection title="Leads" collapsible="false" >
+                <apex:pageblockTable value="{!Leads}" var="con">
+                    <apex:facet name="header">Choose which leads to send the Digital request email:</apex:facet>
+                    <apex:column ><apex:inputCheckbox id="looped" value="{!con.IsSelected}" /></apex:column> <!--onclick="enableDisable(this)"-->
+                    <apex:column style="width: 100px;" headerValue="Name" value="{!con.Lead.Name}" />
+                    <apex:column headerValue="Email" style="width: 250px">
+                        <apex:outputPanel styleClass="requiredInput" layout="block" rendered="{!con.Lead.Email==NULL}">
+                            <apex:outputPanel styleClass="requiredBlock" layout="block"/>
+                            <apex:inputField value="{!con.Lead.Email}"
+                                             styleClass="requiredInput" />
+                        </apex:outputPanel>
+                        <apex:outputField value="{!con.Lead.Email}" rendered="{!con.Lead.Email!=NULL}"/>
+                    </apex:column>
+                    <apex:column headerValue="DLP Drip Email Status">
+                        <apex:pageblockSection id="pbs1">
+                            <apex:selectList size="1" id="intext1" value="{!data}" onchange="show()">
+                                <apex:selectOptions value="{!items}"/>
+                            </apex:selectList>
+                        </apex:pageblockSection>
+                    </apex:column>
+                </apex:pageblockTable>
+            </apex:pageblockSection>
+            <script>
+        function show(){
+            var text = document.getElementById('{!$Component.pg.fm.pb1.pbs1.intext1}').value;
+            document.getElementById('pg:fm:pb1:pbs2:intext2').value = text;
+            document.getElementById('pg:fm:pb1:pbs2:outtext1').innerHTML=text;
+        }
+    </script>
+
+
+
+
+        </apex:pageblock>
+    </apex:form>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript" >
+
+
+
+$(function(){
+    $('#looped:checked').attr('checked', 'checked');
+});
+
+
+    </script>
+</apex:page>

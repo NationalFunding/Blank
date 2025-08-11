@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <available>true</available>
+    <description>Approval Recycling Program - External (QB)</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Approval Recycling Program - External (QB)</name>
+    <style>none</style>
+    <subject>Thank you for choosing QuickBridge Funding</subject>
+    <type>visualforce</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

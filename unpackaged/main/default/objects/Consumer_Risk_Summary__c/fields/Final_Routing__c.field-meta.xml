@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Final_Routing__c</fullName>
+    <label>Final Routing</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>NF_QB</fullName>
+                <default>false</default>
+                <label>NF/QB</label>
+            </value>
+            <value>
+                <fullName>Waterfall</fullName>
+                <default>false</default>
+                <label>Waterfall</label>
+            </value>
+            <value>
+                <fullName>SBL</fullName>
+                <default>false</default>
+                <label>SBL</label>
+            </value>
+            <value>
+                <fullName>NFXPRS</fullName>
+                <default>false</default>
+                <label>NFXPRS</label>
+            </value>
+            <value>
+                <fullName>NOT_ELIGIBLE</fullName>
+                <default>false</default>
+                <label>Not Eligible</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

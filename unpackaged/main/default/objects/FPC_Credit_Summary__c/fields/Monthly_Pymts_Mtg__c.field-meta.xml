@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Monthly_Pymts_Mtg__c</fullName>
+    <description>Contact's monthly mortgage payments.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Contact's monthly mortgage payments.</inlineHelpText>
+    <label>Monthly Pymts Mtg</label>
+    <precision>4</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

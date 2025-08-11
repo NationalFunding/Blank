@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lender_Active__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Is this lender active with Five Point Capital?</description>
+    <inlineHelpText>Is this lender active with Five Point Capital?</inlineHelpText>
+    <label>Lender Active</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

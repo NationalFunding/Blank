@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Marketing_Cloud_Sync_Eligible__c</fullName>
+    <formula>AND(
+    NOT(ISBLANK(Email)),
+    ISBLANK(ConvertedDate),
+    ISBLANK(ConvertedAccountId),
+    HasOptedOutOfEmail = FALSE,
+    Marketing_Opt_Out__c = FALSE,
+    Do_Not_Solicit__c = FALSE,
+    OR(
+        ISBLANK(TEXT(Annual_Sales__c)),
+        OR(
+            TEXT(Annual_Sales__c) = 'Tier 2',
+            TEXT(Annual_Sales__c) = 'Tier 3'
+        )
+    ),
+    OR(
+        TEXT(WC_Qualification__c) = 'Interested',
+        ISBLANK(TEXT(WC_Qualification__c))
+    ),
+    OR(
+        ISBLANK(TEXT(Status)),
+        AND(
+            TEXT(Status) != 'Remove from List',
+            TEXT(Status) != 'Duplicate'
+        )
+    ),
+    Activation_Date__c &gt; DATETIMEVALUE('2020-01-01 12:00:00.000')
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Marketing Cloud Sync Eligible</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

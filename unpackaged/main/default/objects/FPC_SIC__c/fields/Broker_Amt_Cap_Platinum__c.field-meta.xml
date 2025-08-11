@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Broker_Amt_Cap_Platinum__c</fullName>
+    <description>This field will indicate the approval cap for broker deals approved by the platinum tier.</description>
+    <inlineHelpText>This field will indicate the approval cap for broker deals approved by the platinum tier.</inlineHelpText>
+    <label>Broker Amt Cap Platinum</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

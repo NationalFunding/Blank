@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>User_Developer_Name__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>Unique name for user that can be used across orgs for workflow rules other automated tasks. Should not contain spaces.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Unique name for user that can be used across orgs for workflow rules other automated tasks. Should not contain spaces.</inlineHelpText>
+    <label>User Developer Name</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

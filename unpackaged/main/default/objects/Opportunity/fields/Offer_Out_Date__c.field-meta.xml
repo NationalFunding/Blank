@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Offer_Out_Date__c</fullName>
+    <description>This field is populated by a workflow.  The field will be populated with the date of an opportunity stage change to Offer Out.</description>
+    <inlineHelpText>This is a read only field.  The field will be populated with the date of an opportunity stage change to Offer Out.</inlineHelpText>
+    <label>Offer Out Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

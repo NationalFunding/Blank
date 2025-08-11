@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SIC_Code__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>This field will contain the 4 digit SIC Code that will be referenced as a data point.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This field will contain the 4 digit SIC Code that will be referenced as a data point.</inlineHelpText>
+    <label>SIC Code</label>
+    <length>4</length>
+    <required>true</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

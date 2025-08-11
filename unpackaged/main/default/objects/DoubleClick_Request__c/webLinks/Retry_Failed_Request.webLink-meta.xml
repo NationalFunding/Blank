@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Retry_Failed_Request</fullName>
+    <availability>online</availability>
+    <description>Sets the Conversion Status to New, un-checks Request Failed, clears Error Message to prep Request for next batch of uploads.</description>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Retry Failed Request</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
+
+var res = confirm('This will prepare the request to be sent again with the next batch of conversion uploads. Are you sure?');
+
+if (res == true) {
+  var dr = new sforce.SObject('DoubleClick_Request__c');
+  dr.id = "{!DoubleClick_Request__c.Id}";
+  dr.Conversion_Status__c = "New";
+  dr.Request_Failed__c = false;
+  dr.Error_Message__c = null;
+  result = sforce.connection.update([dr]);
+  location.reload(true);
+}</url>
+</WebLink>

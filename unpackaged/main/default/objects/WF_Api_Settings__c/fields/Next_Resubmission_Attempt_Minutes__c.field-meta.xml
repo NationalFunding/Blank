@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Next_Resubmission_Attempt_Minutes__c</fullName>
+    <defaultValue>10</defaultValue>
+    <description>If a batch fails and there is a resubmission based on the settings, we will use this value to schedule the failed records and re-process again.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>If a batch fails and there is a resubmission based on the settings, we will use this value to schedule the failed records and re-process again.</inlineHelpText>
+    <label>Next Resubmission Attempt (Minutes)</label>
+    <precision>4</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

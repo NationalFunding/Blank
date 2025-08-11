@@ -1,0 +1,49 @@
+<HTML><HEAD><TITLE>Thank you for applying</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type></HEAD>
+<BODY>
+<P></P>
+<TABLE class=body style="WIDTH: 100%; BORDER-COLLAPSE: separate !important; BACKGROUND-COLOR: #f6f6f6" width="100%" bgColor=#f6f6f6>
+<TBODY>
+<TR>
+<TD style="FONT-SIZE: 14px; FONT-FAMILY: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; VERTICAL-ALIGN: top" vAlign=top></TD>
+<TD class=container style="FONT-SIZE: 14px; MAX-WIDTH: 580px; FONT-FAMILY: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; WIDTH: 580px; VERTICAL-ALIGN: top" vAlign=top width=580>
+<DIV class=content style="MAX-WIDTH: 580px; MARGIN: 0px auto">
+<TABLE class=main style="BORDER-TOP: #e9e9e9 1px solid; BORDER-RIGHT: #e9e9e9 1px solid; WIDTH: 100%; BACKGROUND: #ffffff; BORDER-COLLAPSE: separate !important; BORDER-BOTTOM: #e9e9e9 1px solid; BORDER-LEFT: #e9e9e9 1px solid" width="100%">
+<TBODY>
+<TR class=blue style="MARGIN-BOTTOM: 5px; WIDTH: 100%; TEXT-ALIGN: center; MARGIN-TOP: 0px; BACKGROUND-COLOR: #223657" align=center bgColor=#223657>
+<TD style="FONT-SIZE: 14px; FONT-FAMILY: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; VERTICAL-ALIGN: top" vAlign=top><A style="TEXT-DECORATION: underline; COLOR: #eb8243" href="https://www.nationalfunding.com"><IMG class=pad-b13 style="PADDING-BOTTOM: 13px" alt="National Funding" src="https://wp.natfundcdn.com/static/img/logo-horizontal.png" height=49></A> </TD></TR>
+<TR>
+<TD class=wrapper style="FONT-SIZE: 14px; FONT-FAMILY: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; VERTICAL-ALIGN: top; PADDING-BOTTOM: 20px; PADDING-TOP: 20px; PADDING-LEFT: 20px; PADDING-RIGHT: 20px" vAlign=top>
+<TABLE style="WIDTH: 100%; BORDER-COLLAPSE: separate !important" width="100%">
+<TBODY>
+<TR>
+<TD style="FONT-SIZE: 14px; FONT-FAMILY: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; VERTICAL-ALIGN: top" vAlign=top>
+<H1 class=align-center style="FONT-SIZE: 38px; FONT-FAMILY: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; FONT-WEIGHT: 300; COLOR: #111111 !important; TEXT-ALIGN: center; MARGIN: 0px; LINE-HEIGHT: 1.4em">Small Business Loans</H1>
+<H3 class=align-center style="FONT-SIZE: 18px; FONT-FAMILY: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; FONT-WEIGHT: 400; COLOR: #111111 !important; TEXT-ALIGN: center; MARGIN: 0px 0px 30px; LINE-HEIGHT: 1.4em"><STRONG>Over ${!$Setup.Welcome_Email_Variables__c.Amount_Funded__c}B funded since 1999</STRONG></H3>
+<P style="FONT-SIZE: 14px; FONT-FAMILY: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; FONT-WEIGHT: normal; MARGIN: 0px 0px 15px">Thank you for contacting National Funding, our goal is to fund your business in the most efficient way possible.</P>
+<H3 style="FONT-SIZE: 18px; FONT-FAMILY: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; FONT-WEIGHT: 400; COLOR: #111111 !important; MARGIN: 0px 0px 30px; LINE-HEIGHT: 1.4em"><STRONG>What's next?</STRONG></H3>
+<TABLE style="WIDTH: 100%; BORDER-COLLAPSE: separate !important" cellSpacing=0 cellPadding=0 width="100%">
+<TBODY>
+<TR>
+<TD class=hcenter style="BOX-SIZING: border-box; FONT-SIZE: 14px; FONT-FAMILY: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; VERTICAL-ALIGN: top; TEXT-ALIGN: center" vAlign=top align=center><IMG style="-MS-INTERPOLATION-MODE: bicubic" alt="Fast and easy" src="https://wp.natfundcdn.com/static/img/icons/fast-and-easy.png" width=85 height=60> </TD>
+<TD class="pad-l20 vcenter" style="BOX-SIZING: border-box; FONT-SIZE: 14px; FONT-FAMILY: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; VERTICAL-ALIGN: middle; PADDING-LEFT: 20px" vAlign=middle align=left>Get an even quicker start with our digital funding process.
+<P></P>
+<TABLE class="btn btn-primary small" style="BOX-SIZING: border-box; WIDTH: 100%; BORDER-COLLAPSE: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt" cellSpacing=0 cellPadding=0 width="100%">
+<TBODY>
+<TR>
+<TD style="BOX-SIZING: border-box; FONT-SIZE: 14px; FONT-FAMILY: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; VERTICAL-ALIGN: top; PADDING-BOTTOM: 15px" vAlign=top align=left>
+<TABLE style="BOX-SIZING: border-box; WIDTH: auto; BORDER-COLLAPSE: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt" cellSpacing=0 cellPadding=0>
+<TBODY>
+<TR>
+<TD style="BOX-SIZING: border-box; FONT-SIZE: 14px; FONT-FAMILY: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; VERTICAL-ALIGN: top; TEXT-ALIGN: center; BACKGROUND-COLOR: #eb8243; border-radius: 5px" bgColor=#eb8243 vAlign=top align=center><A style="BOX-SIZING: border-box; CURSOR: pointer; FONT-SIZE: 14px; TEXT-DECORATION: none; BORDER-TOP: #eb8243 1px solid; BORDER-RIGHT: #eb8243 1px solid; BORDER-BOTTOM: #eb8243 1px solid; TEXT-TRANSFORM: capitalize; FONT-WEIGHT: bold; COLOR: #ffffff; PADDING-BOTTOM: 3px; PADDING-TOP: 3px; PADDING-LEFT: 12px; MARGIN: 0px; BORDER-LEFT: #eb8243 1px solid; DISPLAY: inline-block; PADDING-RIGHT: 12px; BACKGROUND-COLOR: #eb8243; border-radius: 5px" href="https://my.nationalfunding.com/?source=email&amp;context=NFD&amp;utm_medium=Email&amp;utm_source=Salesforce&amp;utm_campaign=Welcome&amp;payload={!Lead.Encrypted_Email_String__c}">Start Here</A> </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+<TR>
+<TD class=hcenter style="BOX-SIZING: border-box; FONT-SIZE: 14px; FONT-FAMILY: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; VERTICAL-ALIGN: top; TEXT-ALIGN: center" vAlign=top align=center><IMG style="-MS-INTERPOLATION-MODE: bicubic" alt="Get a solution" src="https://wp.natfundcdn.com/static/img/icons/get-solution.png" width=64 height=76> </TD>
+<TD class="pad-l20 vcenter" style="BOX-SIZING: border-box; FONT-SIZE: 14px; FONT-FAMILY: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; VERTICAL-ALIGN: middle; PADDING-LEFT: 20px" vAlign=middle align=left>A funding specialist will be contacting you promptly during business hours. </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+<TR class=grey style="MARGIN-BOTTOM: 5px; FONT-SIZE: 12px; WIDTH: 100%; MARGIN-TOP: 0px; BACKGROUND-COLOR: #d3d3d3" bgColor=#d3d3d3>
+<TD class="sidewrap small" style="FONT-SIZE: 12px; FONT-FAMILY: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; VERTICAL-ALIGN: top; COLOR: grey; PADDING-BOTTOM: 0px; PADDING-TOP: 20px; PADDING-LEFT: 20px; LINE-HEIGHT: 15px; PADDING-RIGHT: 20px" vAlign=top>
+<P style="FONT-SIZE: 12px; FONT-FAMILY: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; FONT-WEIGHT: normal; MARGIN: 0px 0px 15px">National Funding<BR>{!$Setup.Company_Information__c.Street__c}, {!$Setup.Company_Information__c.City__c}, {!$Setup.Company_Information__c.State__c} {!$Setup.Company_Information__c.Zip__c}&nbsp;<BR>P (888) 733-2383 | F (888) 740-1151&nbsp;<BR><A style="TEXT-DECORATION: none; FONT-WEIGHT: 700; COLOR: #f78d2c; FONT-STYLE: normal" href="http://www.nationalfunding.com" target=_blank>www.nationalfunding.com</A></P>
+<HR>
+
+<DIV style="TEXT-ALIGN: center">National Funding respects your privacy. Our commitment to your privacy is in our privacy policy, which is available on our website for your reference.<BR>© 2023 National Funding. All rights reserved. </DIV>
+<P></P></TD></TR></TBODY></TABLE></DIV></TD>
+<TD style="FONT-SIZE: 14px; FONT-FAMILY: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; VERTICAL-ALIGN: top" vAlign=top></TD></TR></TBODY></TABLE></BODY></HTML>

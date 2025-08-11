@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DATE_OPENED__c</fullName>
+    <description>Date customer opened account with their trade reference.</description>
+    <inlineHelpText>Type in the date that the customer opened their account with their trade reference.</inlineHelpText>
+    <label>DATE_OPENED</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

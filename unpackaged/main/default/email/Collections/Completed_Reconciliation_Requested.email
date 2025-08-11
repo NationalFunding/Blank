@@ -1,0 +1,21 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="400" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[<p class="MsoNormal"><span style="font-size: 12pt;">Hello,</span></p><p class="MsoNormal"><o:p></o:p></p><p class="MsoNormal"><br></p><p class="MsoNormal">We have received and processed the reconciliation requested
+pursuant to section 2.3 of the Agreement.&nbsp; Based on the business’s
+deposits over the last two months, your adjusted remittance amount will
+be:</p><p class="MsoNormal"><br></p><p class="MsoNormal"><b>{!Case.Adjusted_Remittance__c} </b><o:p></o:p></p><p class="MsoNormal"><br></p><p class="MsoNormal"><span style="color:red"><br></span></p><p class="MsoNormal">The adjusted remit will be effective immediately and will
+remain as the remittance due until the Purchased Amount is paid in full or
+until any subsequent reconciliations.&nbsp; <o:p></o:p></p><p class="MsoNormal"><br></p><p class="MsoNormal">Please don’t hesitate to contact us with any questions. <o:p></o:p></p><p class="MsoNormal"><br></p><p class="MsoNormal"><br></p><p class="MsoNormal">
+
+
+
+
+
+
+
+
+
+</p><p class="MsoNormal">Thank you,&nbsp;<o:p></o:p></p><div style="font-size: 12pt; font-family: arial; color: rgb(0, 0, 0);"><div style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><br></div><div style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><div style="font-size: medium; background-color: rgb(255, 255, 255); font-family: &quot;Times New Roman&quot;;"><font face="arial">{!User.Name} |&nbsp;</font><span style="font-family: arial;">{!User.Title}</span></div><div style="font-size: medium; background-color: rgb(255, 255, 255); font-family: &quot;Times New Roman&quot;;"><span style="font-family: arial;"><br></span></div><div style="background-color: rgb(255, 255, 255);"><p class="MsoNormal" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><font face="Arial, sans-serif"><b>{!Case.Email_Signature_Company__c}</b></font></p></div><div style="background-color: rgb(255, 255, 255);"><div style="font-family: &quot;Times New Roman&quot;;"><font face="Arial, sans-serif">{!$Setup.Company_Information__c.Street__c}</font></div><div style="font-family: &quot;Times New Roman&quot;;"><font face="Arial, sans-serif">{!$Setup.Company_Information__c.City__c}, {!$Setup.Company_Information__c.State__c} {!$Setup.Company_Information__c.Zip__c}</font></div></div><div style="font-size: medium; background-color: rgb(255, 255, 255); font-family: &quot;Times New Roman&quot;;"><font face="arial">P:&nbsp;{!User.Phone} | F:&nbsp;{!User.Fax}</font></div><div style="font-size: medium; background-color: rgb(255, 255, 255); font-family: &quot;Times New Roman&quot;;"><span style="font-family: arial;">E:&nbsp;{!User.Email}</span></div></div></div>]]></td>
+</tr>
+</table>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Permission given to Nic to be able to view and edit the David Bass Record Checkbox field, on Lead and Account</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>View/Edit David Bass Checkbox Field</label>
+    <license>Salesforce</license>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.David_Bass_Record_del__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead.David_Bass_Record_del__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+</PermissionSet>

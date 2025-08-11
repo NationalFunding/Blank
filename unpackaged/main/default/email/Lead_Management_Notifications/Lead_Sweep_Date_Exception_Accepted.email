@@ -1,0 +1,7 @@
+The sweep date exception for {!Lead.Company} has been accepted.  30 Days have been added to the sweep date. 
+
+{!Lead.Link}
+
+New Salesforce Console: https://nf.my.salesforce.com/console#%2F{!Lead.Id}
+
+Good luck!

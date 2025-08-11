@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Account Manager</fullName>
+        <default>false</default>
+        <label>Account Manager</label>
+    </standardValue>
+    <standardValue>
+        <fullName>FPC Opener</fullName>
+        <default>false</default>
+        <label>FPC Opener</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Sales Manager</fullName>
+        <default>false</default>
+        <label>Sales Manager</label>
+    </standardValue>
+    <standardValue>
+        <fullName>ML Sales Rep</fullName>
+        <default>false</default>
+        <label>ML Sales Rep</label>
+    </standardValue>
+    <standardValue>
+        <fullName>EPP Sales Rep</fullName>
+        <default>false</default>
+        <label>EPP Sales Rep</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Lease Sales Rep</fullName>
+        <default>false</default>
+        <label>Lease Sales Rep</label>
+    </standardValue>
+    <standardValue>
+        <fullName>MCA Sales Rep</fullName>
+        <default>false</default>
+        <label>MCA Sales Rep</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Sales Ops</fullName>
+        <default>false</default>
+        <label>Sales Ops</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Opportunity Owner</fullName>
+        <default>false</default>
+        <label>Opportunity Owner</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Split Sales Rep</fullName>
+        <default>false</default>
+        <label>Split Sales Rep</label>
+    </standardValue>
+    <standardValue>
+        <fullName>External Sharing</fullName>
+        <default>false</default>
+        <label>External Sharing</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Opener</fullName>
+        <default>false</default>
+        <label>Opener</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Closer</fullName>
+        <default>false</default>
+        <label>Closer</label>
+    </standardValue>
+</StandardValueSet>

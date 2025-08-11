@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ACH_File_Create_And_Pay_On_This_Date</fullName>
+    <active>false</active>
+    <description>This validation rule will ensure a date is entered in the Create ACH File Date and Pay On This Date fields.</description>
+    <errorConditionFormula>OR( 
+ISBLANK(Create_ACH_File_Date__c),  
+ISBLANK(Pay_On_This_Date__c))</errorConditionFormula>
+    <errorMessage>Please enter a date in the following fields: Create ACH File Date &amp; Pay On This Date</errorMessage>
+</ValidationRule>

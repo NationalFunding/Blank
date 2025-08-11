@@ -1,0 +1,2639 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Alert_Owner_of_Lead_Update_Upsert</fullName>
+        <ccEmails>trover@nationalfunding.com</ccEmails>
+        <description>Alert Owner of Lead Update / Upsert</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Marketing_Templates_Event_Driven/Lead_Upsert_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>AmOne_DLP_Email</fullName>
+        <description>AmOne - DLP Email</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Digital_Loan_Process_Templates/AmOne</template>
+    </alerts>
+    <alerts>
+        <fullName>AmOne_DLP_Email_Generic</fullName>
+        <description>AmOne - DLP Email Generic</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/AmOne_Generic</template>
+    </alerts>
+    <alerts>
+        <fullName>AmOne_DLP_Email_Generic_QB</fullName>
+        <description>AmOne - DLP Email Generic QB</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@quickbridge.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/AmOne_Lead_Generic_QB</template>
+    </alerts>
+    <alerts>
+        <fullName>AmOne_DLP_Email_QB</fullName>
+        <description>AmOne - DLP Email QB</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@quickbridge.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/AmOne_Lead_QB</template>
+    </alerts>
+    <alerts>
+        <fullName>BusinessLoanAnalyst_DLP_Email</fullName>
+        <description>BusinessLoanAnalyst - DLP Email</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/BusinessLoanAnalyst</template>
+    </alerts>
+    <alerts>
+        <fullName>BusinessLoanAnalyst_DLP_Email_Generic</fullName>
+        <description>BusinessLoanAnalyst - DLP Email Generic</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/BusinessLoanAnalyst_Generic</template>
+    </alerts>
+    <alerts>
+        <fullName>BusinessLoans_DLP_Email</fullName>
+        <description>BusinessLoans - DLP Email</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Business_Loans</template>
+    </alerts>
+    <alerts>
+        <fullName>BusinessLoans_DLP_Email_Generic</fullName>
+        <description>BusinessLoans - DLP Email Generic</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Business_Loans_Generic</template>
+    </alerts>
+    <alerts>
+        <fullName>BusinessLoans_DLP_Email_Generic_QB</fullName>
+        <description>BusinessLoans - DLP Email Generic QB</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@quickbridge.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Business_Loans_Lead_Generic_QB</template>
+    </alerts>
+    <alerts>
+        <fullName>BusinessLoans_DLP_Email_QB</fullName>
+        <description>BusinessLoans - DLP Email QB</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@quickbridge.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Business_Loans_Lead_QB</template>
+    </alerts>
+    <alerts>
+        <fullName>BusinessLoans_FF_DLP_Email</fullName>
+        <description>BusinessLoans FF - DLP Email</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Business_Loans_FF</template>
+    </alerts>
+    <alerts>
+        <fullName>BusinessLoans_FF_DLP_Email_Generic</fullName>
+        <description>BusinessLoans FF - DLP Email Generic</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Business_Loans_FF_Generic</template>
+    </alerts>
+    <alerts>
+        <fullName>BusinessLoans_FF_DLP_Email_Generic_QB</fullName>
+        <description>BusinessLoans FF - DLP Email Generic QB</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@quickbridge.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Business_Loans_FF_Lead_Generic_QB</template>
+    </alerts>
+    <alerts>
+        <fullName>BusinessLoans_FF_DLP_Email_QB</fullName>
+        <description>BusinessLoans FF - DLP Email QB</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@quickbridge.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Business_Loans_FF_Lead_QB</template>
+    </alerts>
+    <alerts>
+        <fullName>Business_Loan_Analyst_DLP_Email_Generic_QB</fullName>
+        <description>Business Loan Analyst - DLP Email Generic QB</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@quickbridge.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Business_Loan_Analyst_Lead_Generic_QB</template>
+    </alerts>
+    <alerts>
+        <fullName>Business_Loan_Analyst_DLP_Email_QB</fullName>
+        <description>Business Loan Analyst - DLP Email QB</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@quickbridge.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Business_Loan_Analyst_Lead_QB</template>
+    </alerts>
+    <alerts>
+        <fullName>Business_com_DLP_Email</fullName>
+        <description>Business.com - DLP Email</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Business_com</template>
+    </alerts>
+    <alerts>
+        <fullName>Business_com_DLP_Email_Generic</fullName>
+        <description>Business.com - DLP Email Generic</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Business_com_Generic</template>
+    </alerts>
+    <alerts>
+        <fullName>Buyer_Zone_DLP_Email</fullName>
+        <description>Buyer Zone - DLP Email</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Digital_Loan_Process_Templates/Buyer_Zone</template>
+    </alerts>
+    <alerts>
+        <fullName>ConsumerAffairs_DLP_Email</fullName>
+        <description>ConsumerAffairs - DLP Email</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Digital_Loan_Process_Templates/ConsumerAffairs</template>
+    </alerts>
+    <alerts>
+        <fullName>ConsumerAffairs_DLP_Email_Generic</fullName>
+        <description>ConsumerAffairs - DLP Email Generic</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/ConsumerAffairs_Generic</template>
+    </alerts>
+    <alerts>
+        <fullName>ConsumerAffairs_DLP_Email_Generic_QB</fullName>
+        <description>ConsumerAffairs - DLP Email Generic QB</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@quickbridge.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/ConsumerAffairs_Lead_Generic_QB</template>
+    </alerts>
+    <alerts>
+        <fullName>ConsumerAffairs_DLP_Email_QB</fullName>
+        <description>ConsumerAffairs - DLP Email QB</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@quickbridge.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/ConsumerAffairs_Lead_QB</template>
+    </alerts>
+    <alerts>
+        <fullName>DLP_Drip_Email_Alert_L_Day_1</fullName>
+        <description>DLP Drip Email Alert (L) - Day (1)</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Digital_Loan_Process_Templates/HTML_DLP_Drip_Email_L_Day_1</template>
+    </alerts>
+    <alerts>
+        <fullName>DLP_Drip_Email_Alert_L_Day_10</fullName>
+        <description>DLP Drip Email Alert (L) - Day (10)</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Digital_Loan_Process_Templates/HTML_DLP_Drip_Email_L_Day_10</template>
+    </alerts>
+    <alerts>
+        <fullName>DLP_Drip_Email_Alert_L_Day_17</fullName>
+        <description>DLP Drip Email Alert (L) - Day (17)</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Digital_Loan_Process_Templates/HTML_DLP_Drip_Email_L_Day_17</template>
+    </alerts>
+    <alerts>
+        <fullName>DLP_Drip_Email_Alert_L_Day_25</fullName>
+        <description>DLP Drip Email Alert (L) - Day (25)</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Digital_Loan_Process_Templates/HTML_DLP_Drip_Email_L_Day_25</template>
+    </alerts>
+    <alerts>
+        <fullName>DLP_Drip_Email_Alert_L_Day_3</fullName>
+        <description>DLP Drip Email Alert (L) - Day (3)</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Digital_Loan_Process_Templates/HTML_DLP_Drip_Email_L_Day_3</template>
+    </alerts>
+    <alerts>
+        <fullName>DLP_Drip_Email_Alert_L_Day_36</fullName>
+        <description>DLP Drip Email Alert (L) - Day (36)</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Digital_Loan_Process_Templates/HTML_DLP_Drip_Email_L_Day_36</template>
+    </alerts>
+    <alerts>
+        <fullName>DLP_Drip_Email_Alert_L_Day_5</fullName>
+        <description>DLP Drip Email Alert (L) - Day (5)</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Digital_Loan_Process_Templates/HTML_DLP_Drip_Email_L_Day_5</template>
+    </alerts>
+    <alerts>
+        <fullName>DLP_Lead_Alert_Owner_of_Form_Submit</fullName>
+        <description>DLP Lead - Alert Owner of Form Submit</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Digital_Loan_Process_Templates/DLP_Form_Submitted</template>
+    </alerts>
+    <alerts>
+        <fullName>Fundera_DLP_Email</fullName>
+        <description>Fundera - DLP Email</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Fundera</template>
+    </alerts>
+    <alerts>
+        <fullName>Fundera_DLP_Email_Generic</fullName>
+        <description>Fundera - DLP Email Generic</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Fundera_Generic</template>
+    </alerts>
+    <alerts>
+        <fullName>Fundera_DLP_Email_Generic_QB</fullName>
+        <description>Fundera - DLP Email Generic QB</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@quickbridge.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Fundera_Lead_Generic_QB</template>
+    </alerts>
+    <alerts>
+        <fullName>Fundera_DLP_Email_QB</fullName>
+        <description>Fundera - DLP Email QB</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@quickbridge.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Fundera_Lead_QB</template>
+    </alerts>
+    <alerts>
+        <fullName>GuideToLenders_DLP_Email</fullName>
+        <description>GuideToLenders - DLP Email</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Digital_Loan_Process_Templates/GuideToLenders</template>
+    </alerts>
+    <alerts>
+        <fullName>GuideToLenders_DLP_Email_Generic</fullName>
+        <description>GuideToLenders - DLP Email Generic</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/GuideToLenders_Generic</template>
+    </alerts>
+    <alerts>
+        <fullName>GuideToLenders_DLP_Email_Generic_QB</fullName>
+        <description>GuideToLenders - DLP Email Generic QB</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@quickbridge.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/GuideToLenders_Lead_Generic_QB</template>
+    </alerts>
+    <alerts>
+        <fullName>GuideToLenders_DLP_Email_QB</fullName>
+        <description>GuideToLenders - DLP Email QB</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@quickbridge.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/GuideToLenders_Lead_QB</template>
+    </alerts>
+    <alerts>
+        <fullName>Internet_Lead_Auto_Assignment</fullName>
+        <ccEmails>salesforce@nationalfunding.com</ccEmails>
+        <description>Internet Lead Auto Assignment</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Queue_Notification_Emails/Auto_Assign</template>
+    </alerts>
+    <alerts>
+        <fullName>Internet_Lead_Auto_Assignment_Edge</fullName>
+        <ccEmails>salesforce@nationalfunding.com</ccEmails>
+        <description>Internet Lead Auto Assignment - Edge</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Queue_Notification_Emails/Auto_Assign_Edge</template>
+    </alerts>
+    <alerts>
+        <fullName>LM_Sweep_Date</fullName>
+        <ccEmails>trover@nationalfunding.com</ccEmails>
+        <description>LM - Sweep Date Exception Request Lead (Team Kevin)</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>klawrence@nationalfunding.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Lead_Management_Notifications/Lead_Sweep_Date_Exception_Requested</template>
+    </alerts>
+    <alerts>
+        <fullName>LM_Sweep_Date_Exception_Accepted_Lead</fullName>
+        <description>LM - Sweep Date Exception Accepted Lead</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Lead_Management_Notifications/Lead_Sweep_Date_Exception_Accepted</template>
+    </alerts>
+    <alerts>
+        <fullName>LM_Sweep_Date_Exception_Declined_Lead</fullName>
+        <description>LM - Sweep Date Exception Declined Lead</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <recipients>
+            <recipient>jthompson@nationalfunding.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Lead_Management_Notifications/Lead_Sweep_Date_Exception_Declined</template>
+    </alerts>
+    <alerts>
+        <fullName>LM_Sweep_Date_Exception_Request_Lead_Team</fullName>
+        <description>LM - Sweep Date Exception Request Lead (Team Kevin)</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <recipients>
+            <recipient>klawrence@nationalfunding.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Lead_Management_Notifications/Lead_Sweep_Date_Exception_Requested</template>
+    </alerts>
+    <alerts>
+        <fullName>LM_Sweep_Date_Exception_Request_Lead_Team_Carlos</fullName>
+        <description>LM - Sweep Date Exception Request Lead (Team Carlos)</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <recipients>
+            <recipient>cituarte@nationalfunding.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Lead_Management_Notifications/Lead_Sweep_Date_Exception_Requested</template>
+    </alerts>
+    <alerts>
+        <fullName>LM_Sweep_Date_Exception_Request_Lead_Team_Philip</fullName>
+        <description>LM - Sweep Date Exception Request Lead (Team Philip)</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <recipients>
+            <recipient>plancashire@nationalfunding.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Lead_Management_Notifications/Lead_Sweep_Date_Exception_Requested</template>
+    </alerts>
+    <alerts>
+        <fullName>Lease_90_Day_Convert_Lead_Email</fullName>
+        <description>Lease 90 Day - Convert Lead Email</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <recipients>
+            <field>FPC_Rep_Lease__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Retired/Lease_90_Day_Rep_Ready_for_Convert</template>
+    </alerts>
+    <alerts>
+        <fullName>LendingTree_DLP_Email_Generic_QB</fullName>
+        <description>LendingTree - DLP Email Generic QB</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@quickbridge.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/LendingTree_Lead_Generic_QB</template>
+    </alerts>
+    <alerts>
+        <fullName>LendingTree_DLP_Email_QB</fullName>
+        <description>LendingTree - DLP Email QB</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@quickbridge.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/LendingTree_QB_Lead</template>
+    </alerts>
+    <alerts>
+        <fullName>Lending_Tree_DLP_Email</fullName>
+        <description>Lending Tree - DLP Email</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Digital_Loan_Process_Templates/Lending_Tree</template>
+    </alerts>
+    <alerts>
+        <fullName>Lending_Tree_DLP_Email_Generic</fullName>
+        <description>Lending Tree - DLP Email Generic</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Lending_Tree_Generic</template>
+    </alerts>
+    <alerts>
+        <fullName>Lending_Tree_Lead_Created_alert_marketing</fullName>
+        <description>Lending Tree Lead Created - alert marketing</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>dwyse@nationalfunding.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Lead_Management_Notifications/Lending_Tree_check_for_duplicate</template>
+    </alerts>
+    <alerts>
+        <fullName>Lendio_Initial_Email_to_Customer</fullName>
+        <description>Lendio - Initial Email to Customer</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Marketing_Templates_Event_Driven/Lendio_Initial_Email</template>
+    </alerts>
+    <alerts>
+        <fullName>MCA_90_Day_Email_Lease_Rep_to_Convert_Lead</fullName>
+        <description>MCA 90 Day - Email Lease Rep to Convert Lead</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <recipients>
+            <field>FPC_Rep_MCA__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Retired/MCA_90_Day_Rep_Ready_for_Convert</template>
+    </alerts>
+    <alerts>
+        <fullName>NF_Internet_Lead_Notification</fullName>
+        <description>NF - Internet Lead Notification</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Internet_Lead_Processors</recipient>
+            <type>group</type>
+        </recipients>
+        <senderAddress>info@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Queue_Notification_Emails/Internet_Lead_Detail_Link_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>PPC_Internet_Lease_Lead_Auto_Assignment</fullName>
+        <description>PPC Internet Lease Lead Auto Assignment</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>Marketing_Templates_Event_Driven/Lendio_PPC_Lead</template>
+    </alerts>
+    <alerts>
+        <fullName>PPC_Internet_WC_Lead_Auto_Assignment</fullName>
+        <description>PPC Internet WC Lead Auto Assignment</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>Marketing_Templates_Event_Driven/Lendio_PPC_Lead</template>
+    </alerts>
+    <alerts>
+        <fullName>Plaid_Tier_1_Turn_Down_Email</fullName>
+        <description>Plaid Tier 1 Turn Down Email</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>apply@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Marketing_Templates_Event_Driven/TurndownEmail_Lead_Plaid</template>
+    </alerts>
+    <alerts>
+        <fullName>QB_Welcome_Email</fullName>
+        <description>QB Welcome Email</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@quickbridge.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Quick_Bridge_DFP_Emails/Welcome_Email_Lead_QB</template>
+    </alerts>
+    <alerts>
+        <fullName>Seek_Capital_DLP_Email</fullName>
+        <description>Seek Capital - DLP Email</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Seek_Capital</template>
+    </alerts>
+    <alerts>
+        <fullName>Seek_Capital_DLP_Email_Generic</fullName>
+        <description>Seek Capital - DLP Email Generic</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Seek_Capital_Generic</template>
+    </alerts>
+    <alerts>
+        <fullName>SmallBusinessLoans_DLP_Email_Generic_QB</fullName>
+        <description>SmallBusinessLoans - DLP Email Generic QB</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@quickbridge.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/SmallBusinessLoans_Lead_Generic_QB</template>
+    </alerts>
+    <alerts>
+        <fullName>SmallBusinessLoans_DLP_Email_QB</fullName>
+        <description>SmallBusinessLoans - DLP Email QB</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@quickbridge.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/SmallBusinessLoans_Lead_QB</template>
+    </alerts>
+    <alerts>
+        <fullName>SmallBusinessLoans_com_DLP_Email</fullName>
+        <description>SmallBusinessLoans.com - DLP Email</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Digital_Loan_Process_Templates/SmallBusinessLoans_com</template>
+    </alerts>
+    <alerts>
+        <fullName>SmallBusinessLoans_com_DLP_Email_Generic</fullName>
+        <description>SmallBusinessLoans.com - DLP Email Generic</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/SmallBusinessLoans_com_Generic</template>
+    </alerts>
+    <alerts>
+        <fullName>SmallBusinessLoans_com_Equipment_DLP_Email</fullName>
+        <description>SmallBusinessLoans.com Equipment - DLP Email</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Digital_Loan_Process_Templates/SmallBusinessLoans_com_Equipment</template>
+    </alerts>
+    <alerts>
+        <fullName>SmallBusinessLoans_com_Equipment_DLP_Email_Generic</fullName>
+        <description>SmallBusinessLoans.com Equipment- DLP Email Generic</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/SmallBusinessLoans_com_Equipment_Generic</template>
+    </alerts>
+    <alerts>
+        <fullName>Strategic_Partner_Auto_Assignment</fullName>
+        <ccEmails>salesforce@nationalfunding.com</ccEmails>
+        <description>Strategic Partner Auto Assignment</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Digital_Loan_Process_Templates/Strategic_Partner_Auto_Assign</template>
+    </alerts>
+    <alerts>
+        <fullName>Strategic_Partner_DLP_Link</fullName>
+        <description>Strategic Partner DLP Link</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Digital_Loan_Process_Templates/Welcome_Email_Web_to_NF_2018</template>
+    </alerts>
+    <alerts>
+        <fullName>Under_90K_email_alert</fullName>
+        <description>Under 90K email alert</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>apply@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Marketing_Templates_Event_Driven/TurndownEmail_Lead</template>
+    </alerts>
+    <alerts>
+        <fullName>Welcome_Email_from_Website_to_SF</fullName>
+        <description>Welcome Email from Web to SF</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>apply@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Digital_Loan_Process_Templates/Welcome_Email_2024</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>AR_Lease_Status_Lease_Reason_to_Credit</fullName>
+        <field>Lease_Status_Reason__c</field>
+        <literalValue>Credit</literalValue>
+        <name>AR Lease - Status Lease Reason to Credit</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>AR_Lease_Status_Lease_Update_to_NQ</fullName>
+        <field>Status_Lease__c</field>
+        <literalValue>Not Qualified</literalValue>
+        <name>AR Lease - Status Lease Update to NQ</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Activation_Date_is_NOW</fullName>
+        <field>Activation_Date__c</field>
+        <formula>NOW()</formula>
+        <name>Activation Date is NOW</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Address_NCOA_Fail_Update_to_False</fullName>
+        <field>NCOA_Fail__c</field>
+        <literalValue>0</literalValue>
+        <name>Address - NCOA Fail Update to False</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Assign_to_WC_Internet_Leads_T1_Queue</fullName>
+        <field>OwnerId</field>
+        <lookupValue>WC_Internet_Leads_T1</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Assign to WC Internet Leads T1 Queue</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Do_Not_Mail_Update</fullName>
+        <field>Do_Not_Mail__c</field>
+        <literalValue>1</literalValue>
+        <name>Do Not Mail Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Email_Entered</fullName>
+        <field>Email_Workflow__c</field>
+        <formula>Email</formula>
+        <name>Email Entered</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Flow_Initial_Response_Rep_Field</fullName>
+        <field>Initial_Response_Rep__c</field>
+        <formula>$User.Full_Name__c</formula>
+        <name>Flow - Initial Response Rep Field</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Initial_Lead_Source</fullName>
+        <field>Initial_Lead_Source__c</field>
+        <formula>TEXT(LeadSource)</formula>
+        <name>Initial Lead Source</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Initial_Lead_Source_is_Need_A_Lender</fullName>
+        <field>Initial_Lead_Source__c</field>
+        <formula>"Need-A-Lender"</formula>
+        <name>Initial Lead Source is Need-A-Lender</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Initial_Product_Response</fullName>
+        <field>Initial_Product_Response__c</field>
+        <formula>IF( OR(ISPICKVAL(Initial_Product_Interest__c, 'Small Business Loans'), ISPICKVAL(Initial_Product_Interest__c, 'Merchant Cash Advance')) , 'Merchant', IF(ISPICKVAL(Initial_Product_Interest__c, 'Equipment Leasing'), 'Lease', ''))</formula>
+        <name>Initial Product Response</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Initial_Response_Channel</fullName>
+        <field>Initial_Response_Channel__c</field>
+        <formula>TEXT(Response_Channel__c)</formula>
+        <name>Initial Response Channel</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Initial_Response_Channel_is_Email</fullName>
+        <field>Initial_Response_Channel__c</field>
+        <formula>"Email"</formula>
+        <name>Initial Response Channel is Email</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Initial_Response_Rep_Internet</fullName>
+        <field>Initial_Response_Rep__c</field>
+        <formula>TEXT(Response_Channel__c)</formula>
+        <name>Initial Response Rep = Internet</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Internet_Lead_Newsletter_to_NF_Leads</fullName>
+        <field>OwnerId</field>
+        <lookupValue>National_Funding_Leads</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Internet Lead - Newsletter to NF Leads</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>LM_Add_30_Days_to_Sweep_Date</fullName>
+        <field>Sweep_Date__c</field>
+        <formula>Sweep_Date__c + 30</formula>
+        <name>LM - Add 30 Days to Sweep Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>LM_Rep_Ownership_Date_Lead</fullName>
+        <field>Rep_Ownership_Date__c</field>
+        <formula>TODAY()</formula>
+        <name>LM - Rep Ownership Date (Lead)</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>LM_Sweep_Date_Decision_Clear_Field_L</fullName>
+        <field>Sweep_Exception_Decision__c</field>
+        <name>LM - Sweep Date Decision (Clear Field L)</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>LM_Update_Ownership_Transfer</fullName>
+        <field>Ownership_Changed_Last_30_Days__c</field>
+        <literalValue>1</literalValue>
+        <name>LM - Update Ownership Transfer</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>LM_Update_Rating_null</fullName>
+        <description>Updates the Rating field with a null value.</description>
+        <field>Rating</field>
+        <name>LM - Update Rating field to null</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>LM_Update_Sweep_Date</fullName>
+        <field>Sweep_Date__c</field>
+        <formula>TODAY() + 215</formula>
+        <name>LM - Update Sweep Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Lead_Do_Not_Call_Checked</fullName>
+        <description>Check the Do Not Call checkbox on the lead record</description>
+        <field>DoNotCall</field>
+        <literalValue>1</literalValue>
+        <name>Lead Do Not Call Checked</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Lead_Do_Not_Mail_Checked</fullName>
+        <description>Set to Do Not Mail checkbox to True</description>
+        <field>Do_Not_Mail__c</field>
+        <literalValue>1</literalValue>
+        <name>Lead Do Not Mail Checked</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Lead_Email_Opt_Out_Checked</fullName>
+        <description>Set the Email Opt Out</description>
+        <field>HasOptedOutOfEmail</field>
+        <literalValue>1</literalValue>
+        <name>Lead Email Opt Out Checked</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Lead_Fax_Opt_Out_Checked</fullName>
+        <description>Checks the Lead Fax Opt Out checkbox</description>
+        <field>HasOptedOutOfFax</field>
+        <literalValue>1</literalValue>
+        <name>Lead Fax Opt Out Checked</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Lead_Initial_Lead_Source_Telemarketing</fullName>
+        <field>Initial_Lead_Source__c</field>
+        <formula>'Telemarketing'</formula>
+        <name>Lead Initial Lead Source - Telemarketing</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Lead_Initial_Response_Channel_Outbound</fullName>
+        <field>Initial_Response_Channel__c</field>
+        <formula>'Outbound Call'</formula>
+        <name>Lead Initial Response Channel - Outbound</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Lead_Insert_Initial_Rep</fullName>
+        <field>Initial_Response_Rep__c</field>
+        <formula>Owner:User.Full_Name__c</formula>
+        <name>Lead - Insert Initial Rep</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Lead_Lead_Source_Outbound_Call</fullName>
+        <field>LeadSource</field>
+        <literalValue>Telemarketing</literalValue>
+        <name>Lead Lead Source - Outbound Call</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Lead_Response_Channel_Outbound_Call</fullName>
+        <field>Response_Channel__c</field>
+        <literalValue>Outbound Call</literalValue>
+        <name>Lead Response Channel - Outbound Call</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Lead_Source_Direct_Mail</fullName>
+        <field>LeadSource</field>
+        <literalValue>Direct Mail</literalValue>
+        <name>Lead Source - Direct Mail</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Lead_Status_Update_to_Prospect</fullName>
+        <field>Status</field>
+        <literalValue>Prospect</literalValue>
+        <name>Lead Status - Update to Prospect</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Lead_Update_Web_Id_NatFund</fullName>
+        <field>Web_Id_NatFund__c</field>
+        <formula>National_Funding_WebId__c</formula>
+        <name>Lead - Update Web Id NatFund</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Mobile_Phone_to_Contact_Update</fullName>
+        <field>Mobile_Workflow__c</field>
+        <formula>MobilePhone</formula>
+        <name>Mobile Phone to Contact Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>NF_Internet_Lease_Queue</fullName>
+        <field>OwnerId</field>
+        <lookupValue>LeaseInternetLeads</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>NF - Internet Lease Queue</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>NF_Internet_State_Update</fullName>
+        <field>State</field>
+        <formula>IF(State="Alabama","AL",
+IF(State="Alaska","AK",
+IF(State="Arizona","AZ",
+IF(State="Arkansas","AR",
+IF(State="California","CA",
+IF(State="Colorado","CO",
+IF(State="Connecticut","CT",
+IF(State="Delaware","DE",
+IF(State="District of Columbia","DC",
+IF(State="Florida","FL",
+IF(State="Georgia","GA",
+IF(State="Hawaii","HI",
+IF(State="Idaho","ID",
+IF(State="Illinois","IL",
+IF(State="Indiana","IN",
+IF(State="Iowa","IA",
+IF(State="Kansas","KS",
+IF(State="Kentucky","KY",
+IF(State="Louisiana","LA",
+IF(State="Maine","ME",
+IF(State="Maryland","MD",
+IF(State="Massachusetts","MA",
+IF(State="Michigan","MI",
+IF(State="Minnesota","MN",
+IF(State="Mississippi","MS",
+IF(State="Missouri","MO",
+IF(State="Montana","MT",
+IF(State="Nebraska","NE",
+IF(State="Nevada","NV",
+IF(State="New Hampshire","NH",
+IF(State="New Jersey","NJ",
+IF(State="New Mexico","NM",
+IF(State="New York","NY",
+IF(State="North Carolina","NC",
+IF(State="North Dakota","ND",
+IF(State="Ohio","OH",
+IF(State="Oklahoma","OK",
+IF(State="Oregon","OR",
+IF(State="Pennsylvania","PA",
+IF(State="Rhode Island","RI",
+IF(State="South Carolina","SC",
+IF(State="South Dakota","SD",
+IF(State="Tennessee","TN",
+IF(State="Texas","TX",
+IF(State="Utah","UT",
+IF(State="Vermont","VT",
+IF(State="Virginia","VA",
+IF(State="Washington","WA",
+IF(State="West Virginia","WV",
+IF(State="Wisconsin","WI",
+IF(State="Wyoming", "WY",
+ "Not Valid State"
+)))))))))))))))))))))))))))))))))))))))))))))))))))</formula>
+        <name>NF - Internet State Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Populate_Annual_Revenue</fullName>
+        <description>Populates Annual Revenue field with default values based on picklist options on our web forms.</description>
+        <field>AnnualRevenue</field>
+        <formula>CASE(Annual_Sales__c, 
+"$5,000-$25,000", 15999,
+"$25,000-$50,000", 37999,
+"$50,000-$100,000", 75999,
+"$100,000-$200,000", 150999,
+"$200,000-$500,000", 350999,
+"$500,000+", 500999,
+NULL)</formula>
+        <name>Populate Annual Revenue</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Populate_LeadID18</fullName>
+        <description>Populate the Lead ID18 Field</description>
+        <field>LeadID18__c</field>
+        <formula>Id&amp;
+CASE(
+IF(CONTAINS("ABCDEFGHIJKLMNOPQRSTUVWXYZ",RIGHT(LEFT(Id,1),1)),1,0)+
+IF(CONTAINS("ABCDEFGHIJKLMNOPQRSTUVWXYZ",RIGHT(LEFT(Id,2),1)),2,0)+
+IF(CONTAINS("ABCDEFGHIJKLMNOPQRSTUVWXYZ",RIGHT(LEFT(Id,3),1)),4,0)+
+IF(CONTAINS("ABCDEFGHIJKLMNOPQRSTUVWXYZ",RIGHT(LEFT(Id,4),1)),8,0)+
+IF(CONTAINS("ABCDEFGHIJKLMNOPQRSTUVWXYZ",RIGHT(LEFT(Id,5),1)),16,0),
+0,"A",1,"B",2,"C",3,"D",4,"E",5,"F",6,"G",7,"H",8,"I",
+9,"J",10,"K",11,"L",12,"M",13,"N",14,"O",15,"P",16,"Q",17,"R",
+18,"S",19,"T",20,"U",21,"V",22,"W",23,"X",24,"Y",25,"Z",26,"0",
+27,"1",28,"2",29,"3",30,"4",31,"5","0")&amp;
+CASE(
+IF(CONTAINS("ABCDEFGHIJKLMNOPQRSTUVWXYZ",RIGHT(LEFT(Id,6),1)),1,0)+
+IF(CONTAINS("ABCDEFGHIJKLMNOPQRSTUVWXYZ",RIGHT(LEFT(Id,7),1)),2,0)+
+IF(CONTAINS("ABCDEFGHIJKLMNOPQRSTUVWXYZ",RIGHT(LEFT(Id,8),1)),4,0)+
+IF(CONTAINS("ABCDEFGHIJKLMNOPQRSTUVWXYZ",RIGHT(LEFT(Id,9),1)),8,0)+
+IF(CONTAINS("ABCDEFGHIJKLMNOPQRSTUVWXYZ",RIGHT(LEFT(Id,10),1)),16,0),
+0,"A",1,"B",2,"C",3,"D",4,"E",5,"F",6,"G",7,"H",8,"I",
+9,"J",10,"K",11,"L",12,"M",13,"N",14,"O",15,"P",16,"Q",17,"R",
+18,"S",19,"T",20,"U",21,"V",22,"W",23,"X",24,"Y",25,"Z",26,"0",
+27,"1",28,"2",29,"3",30,"4",31,"5","0")&amp;
+CASE(
+IF(CONTAINS("ABCDEFGHIJKLMNOPQRSTUVWXYZ",RIGHT(LEFT(Id,11),1)),1,0)+
+IF(CONTAINS("ABCDEFGHIJKLMNOPQRSTUVWXYZ",RIGHT(LEFT(Id,12),1)),2,0)+
+IF(CONTAINS("ABCDEFGHIJKLMNOPQRSTUVWXYZ",RIGHT(LEFT(Id,13),1)),4,0)+
+IF(CONTAINS("ABCDEFGHIJKLMNOPQRSTUVWXYZ",RIGHT(LEFT(Id,14),1)),8,0)+
+IF(CONTAINS("ABCDEFGHIJKLMNOPQRSTUVWXYZ",RIGHT(LEFT(Id,15),1)),16,0),
+0,"A",1,"B",2,"C",3,"D",4,"E",5,"F",6,"G",7,"H",8,"I",
+9,"J",10,"K",11,"L",12,"M",13,"N",14,"O",15,"P",16,"Q",17,"R",
+18,"S",19,"T",20,"U",21,"V",22,"W",23,"X",24,"Y",25,"Z",26,"0",
+27,"1",28,"2",29,"3",30,"4",31,"5","0")</formula>
+        <name>LeadID18</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Remove_Refer_By_Lead</fullName>
+        <field>Referred_By__c</field>
+        <name>Remove Refer By (Lead)</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Remove_Refer_Date_Lead</fullName>
+        <field>Referred_Date__c</field>
+        <name>Remove Refer Date (Lead)</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Remove_Refer_To_Lead</fullName>
+        <field>Refer_To__c</field>
+        <name>Remove Refer To (Lead)</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Response_Channel_Inbound_Call</fullName>
+        <field>Response_Channel__c</field>
+        <literalValue>Inbound Call</literalValue>
+        <name>Response Channel - Inbound Call</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Response_Channel_Lead_Aggregator</fullName>
+        <description>Updates Response Channel to Internet- Lead Aggregator</description>
+        <field>Response_Channel__c</field>
+        <literalValue>Internet- Lead Aggregator</literalValue>
+        <name>Response Channel = Lead Aggregator</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>SSN_Capture_After_Activation_Date</fullName>
+        <field>SSN_Capture_After_Activation__c</field>
+        <literalValue>1</literalValue>
+        <name>SSN Capture After Activation Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>SSN_Capture_W2L</fullName>
+        <field>SSN_Capture_by_Web2Lead__c</field>
+        <literalValue>1</literalValue>
+        <name>SSN Capture - W2L</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>SSN_Captured_Checkbox</fullName>
+        <field>SSN_Captured__c</field>
+        <literalValue>1</literalValue>
+        <name>SSN Captured - Checkbox</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>SSN_Captured_on_Activation_Date</fullName>
+        <field>SSN_Captured_On_Activation_Date__c</field>
+        <literalValue>1</literalValue>
+        <name>SSN Captured on Activation Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Status_Lease_Interested</fullName>
+        <field>Status_Lease__c</field>
+        <literalValue>Interested</literalValue>
+        <name>Status Lease - Interested</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Status_MCA_Reason_Null</fullName>
+        <field>Merchant_Status_Reason__c</field>
+        <name>Status MCA - Reason Null</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>TwilioSF__Clear_Last_Message_Status</fullName>
+        <field>TwilioSF__Last_Message_Status__c</field>
+        <name>Clear Last Message Status</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>TwilioSF__Clear_Last_Message_Status_Date</fullName>
+        <field>TwilioSF__Last_Message_Status_Date__c</field>
+        <name>Clear Last Message Status Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Activation_Date</fullName>
+        <description>This field update will update the activation date for leads that are created by lead aggregators, eBridge, Stenocall, etc...</description>
+        <field>Activation_Date__c</field>
+        <formula>NOW()</formula>
+        <name>Update Activation Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_DLP_Email_Status_to_Deactivated</fullName>
+        <field>DLP_Email_Status__c</field>
+        <literalValue>DLP Drip Deactivated</literalValue>
+        <name>Update DLP Email Status to Deactivated</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_IL_1st_Sales_Touch</fullName>
+        <field>IL_1st_Sales_Touch__c</field>
+        <formula>NOW()</formula>
+        <name>Update IL - 1st Sales Touch</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Initial_Response_Rep</fullName>
+        <field>Initial_Response_Rep__c</field>
+        <formula>$User.Full_Name__c</formula>
+        <name>Update Initial Response Rep</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Initial_Response_Rep_with_Owner</fullName>
+        <field>Initial_Response_Rep__c</field>
+        <formula>Owner:User.Full_Name__c</formula>
+        <name>Update Initial Response Rep with Owner</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Internet_Response_Date</fullName>
+        <description>This will update the internet response date field on the lead when an internet lead has been created.</description>
+        <field>Internet_Response_Date__c</field>
+        <formula>NOW()</formula>
+        <name>Update Internet Response Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Internet_Workflows_Field</fullName>
+        <description>This field update will indicate that the lead has attempted to be merged and is done processing.</description>
+        <field>Internet_Workflows__c</field>
+        <literalValue>Processed</literalValue>
+        <name>Update Internet Workflows Field</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Lead_Status</fullName>
+        <description>This will update the lead status field to activator upon a SSN being captured in the lead record.</description>
+        <field>Status</field>
+        <literalValue>Activator</literalValue>
+        <name>Update Lead Status</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Lead_Status_for_Web_to_Leads</fullName>
+        <description>The Lead Status field will be updated to Prospect upon a web to lead form being submitted without an SSN.</description>
+        <field>Status</field>
+        <literalValue>Prospect</literalValue>
+        <name>Update Lead Status for Web to Leads</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Referred_By_to_Lead_Owner</fullName>
+        <field>Referred_By__c</field>
+        <formula>Owner:User.Full_Name__c</formula>
+        <name>Update Referred By to Lead Owner</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Referred_Date_to_Now</fullName>
+        <field>Referred_Date__c</field>
+        <formula>NOW()</formula>
+        <name>Update Referred Date to Now</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Status_Lease_Do_Not_Solicit</fullName>
+        <field>Status_Lease__c</field>
+        <literalValue>Do Not Solicit</literalValue>
+        <name>Update Status Lease - Do Not Solicit</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Status_MCA_Do_Not_Solicit</fullName>
+        <field>Status_MCA__c</field>
+        <literalValue>Do Not Solicit</literalValue>
+        <name>Update Status MCA - Do Not Solicit</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Sync_With_Marketo_Lead_field</fullName>
+        <field>Sync_With_Marketo__c</field>
+        <literalValue>1</literalValue>
+        <name>Update Sync With Marketo Lead field</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_VAP_Referral_Date</fullName>
+        <field>VAP_Referral_Date__c</field>
+        <formula>NOW()</formula>
+        <name>Update VAP Referral Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>VAP_Activation_Date</fullName>
+        <field>Activation_Date__c</field>
+        <formula>NOW()</formula>
+        <name>VAP - Activation Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>VAP_Lead_Source</fullName>
+        <field>LeadSource</field>
+        <literalValue>VAP Equipment Vendor</literalValue>
+        <name>VAP - Lead Source</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>VAP_Lead_Source_Update</fullName>
+        <field>LeadSource</field>
+        <literalValue>Equipment Vendor</literalValue>
+        <name>VAP - Lead Source Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>VAP_Referral_Vendor_Name_Insert</fullName>
+        <field>VAP_Referral_Vendor__c</field>
+        <formula>Vendor_Name__c</formula>
+        <name>VAP Referral Vendor Name Insert</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <flowActions>
+        <fullName>Organic_Lead_Auto_Assign_Campaign</fullName>
+        <flow>Organic_Lead_Campaign_Assignment</flow>
+        <flowInputs>
+            <name>inputLeadId</name>
+            <value>{!Id}</value>
+        </flowInputs>
+        <label>Organic Lead - Auto Assign Campaign</label>
+        <language>en_US</language>
+        <protected>false</protected>
+    </flowActions>
+    <flowActions>
+        <fullName>Renewal_Landing_Page_Process</fullName>
+        <flow>Renewal_Landing_Page_Process</flow>
+        <flowInputs>
+            <name>inputLeadId</name>
+            <value>{!Id}</value>
+        </flowInputs>
+        <label>Renewal Landing Page Process</label>
+        <language>en_US</language>
+        <protected>false</protected>
+    </flowActions>
+    <flowActions>
+        <fullName>Tax_eBook_Gated_Content_Flow_Trigger</fullName>
+        <flow>eBook_Gated_Content_Campaign_Member_Create</flow>
+        <flowInputs>
+            <name>inputLeadId</name>
+            <value>{!Id}</value>
+        </flowInputs>
+        <label>eBook Gated Content Flow Trigger</label>
+        <language>en_US</language>
+        <protected>false</protected>
+    </flowActions>
+    <flowActions>
+        <fullName>Trigger_Assign_Owner_Vendor_Leads</fullName>
+        <description>Triggers the flow "Assign Owner - Vendor Leads".</description>
+        <flow>Assign_Owner_Vendor_Leads</flow>
+        <flowInputs>
+            <name>inputLeadId</name>
+            <value>{!Id}</value>
+        </flowInputs>
+        <flowInputs>
+            <name>inputVendorRepID</name>
+            <value>{!Vendor_Rep_ID__c}</value>
+        </flowInputs>
+        <label>Trigger Assign Owner - Vendor Leads</label>
+        <language>en_US</language>
+        <protected>false</protected>
+    </flowActions>
+    <rules>
+        <fullName>Flow - Lead Created by Flow</fullName>
+        <actions>
+            <name>Flow_Initial_Response_Rep_Field</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Activation_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead.Created_By_Flow__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <description>This workflow will populate the Activation date as the time the record was created.</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Initial Rep SSN Capture - Activation Date</fullName>
+        <actions>
+            <name>SSN_Captured_on_Activation_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND($User.Full_Name__c = Initial_Response_Rep__c, SSN_is_Blank__c = False, SSN_Capture_by_Web2Lead__c = False, DATEVALUE(Activation_Date__c) = TODAY())</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Initial Rep SSN Capture - Post Activation Date</fullName>
+        <actions>
+            <name>SSN_Capture_After_Activation_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND($User.Full_Name__c = Initial_Response_Rep__c, SSN_Capture_by_Web2Lead__c = False, DATEVALUE(Activation_Date__c) &lt;&gt; TODAY(),
+SSN_is_Blank__c = True, 
+SSN_Captured_On_Activation_Date__c = False)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Initial Response Rep</fullName>
+        <actions>
+            <name>Update_Initial_Response_Rep</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead.LeadSource</field>
+            <operation>equals</operation>
+            <value>Direct Mail</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead.Response_Channel__c</field>
+            <operation>equals</operation>
+            <value>Inbound Call</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead.Initial_Response_Rep__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead.Activation_Date__c</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Internet Lead - 1st Touch by Sales</fullName>
+        <actions>
+            <name>Update_IL_1st_Sales_Touch</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>OR( 
+AND( 
+NOT(ISBLANK(Internet_Response_Date__c)), 
+DATEVALUE(Internet_Response_Date__c) &gt;= DATEVALUE("2013-09-05"), 
+ISBLANK( IL_1st_Sales_Touch__c ), 
+Owner:User.Sales_User__c = TRUE, 
+Owner:User.Full_Name__c = LastModifiedBy.Full_Name__c), 
+AND( 
+Owner:User.Sales_User__c = TRUE, 
+Owner:User.Full_Name__c = LastModifiedBy.Full_Name__c, 
+Internet_Response_Date__c &gt; IL_1st_Sales_Touch__c),
+AND(
+NOT(ISBLANK(Internet_Response_Date__c)), 
+DATEVALUE(Internet_Response_Date__c) &gt;= DATEVALUE("2013-09-05"), 
+ISBLANK( IL_1st_Sales_Touch__c ), 
+Owner:User.Sales_User__c = TRUE, 
+NOT(ISBLANK(FICO_Score__c))))</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Internet Lead - Annual Sales</fullName>
+        <actions>
+            <name>Populate_Annual_Revenue</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead.Annual_Sales__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Internet Lead - Assign to Lease Queue</fullName>
+        <actions>
+            <name>NF_Internet_Lead_Notification</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>NF_Internet_Lease_Queue</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(  Owner:User.User_Developer_Name__c ="National_Funding_Web_Team",   Delete_Me__c = False, (Landing_Page__c &lt;&gt; 'PPC Non Branded'),   OR(    ISPICKVAL( Initial_Product_Interest__c , 'Equipment Leasing'),    ISPICKVAL(Initial_Product_Interest__c, 'Vendor Advantage Program'),    ISPICKVAL(Initial_Product_Interest__c, 'Vendor Advantage')))</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Internet Lead - Newsletter Requested</fullName>
+        <actions>
+            <name>NF_Internet_Lead_Notification</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Internet_Lead_Newsletter_to_NF_Leads</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead.OwnerId</field>
+            <operation>equals</operation>
+            <value>National Funding Web Team</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead.Newsletter_Requested__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Internet Lead - Organic Search - Campaign Assignment</fullName>
+        <actions>
+            <name>Organic_Lead_Auto_Assign_Campaign</name>
+            <type>FlowAction</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6</booleanFilter>
+        <criteriaItems>
+            <field>Lead.DaddyAnalytics__DA_Campaign_Name__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead.DaddyAnalytics__DA_Campaign_Source__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead.DaddyAnalytics__DA_Campaign_Medium__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead.DaddyAnalytics__DA_Referrer_Website__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead.LeadSource</field>
+            <operation>notEqual</operation>
+            <value>Direct Mail,LendingTree</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead.Internet_Response_Date__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>5/18/2016</value>
+        </criteriaItems>
+        <description>Triggers to flow Organic Lead Campaign Assignment for incoming leads.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Internet Lead - State Abbreviation Workflow</fullName>
+        <actions>
+            <name>NF_Internet_State_Update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>OR(
+State="Alabama",
+State="Alaska",
+State="Arizona",
+State="Arkansas",
+State="California",
+State="Colorado",
+State="Connecticut",
+State="Delaware",
+State="District of Columbia",
+State="Florida",
+State="Georgia",
+State="Hawaii",
+State="Idaho",
+State="Illinois",
+State="Indiana",
+State="Iowa",
+State="Kansas",
+State="Kentucky",
+State="Louisiana",
+State="Maine",
+State="Maryland",
+State="Massachusetts",
+State="Michigan",
+State="Minnesota",
+State="Mississippi",
+State="Missouri",
+State="Montana",
+State="Nebraska",
+State="Nevada",
+State="New Hampshire",
+State="New Jersey",
+State="New Mexico",
+State="New York",
+State="North Carolina",
+State="North Dakota",
+State="Ohio",
+State="Oklahoma",
+State="Oregon",
+State="Pennsylvania",
+State="Rhode Island",
+State="South Carolina",
+State="South Dakota",
+State="Tennessee",
+State="Texas",
+State="Utah",
+State="Vermont",
+State="Virginia",
+State="Washington",
+State="West Virginia",
+State="Wisconsin",
+State="Wyoming")</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Internet Lead is Assigned</fullName>
+        <actions>
+            <name>Update_Initial_Response_Rep_with_Owner</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>CALL_ASAP_Internet_Lead_Assigned</name>
+            <type>Task</type>
+        </actions>
+        <active>true</active>
+        <description>Initial Response Rep = Internet and Lead Owner Changes and Lead Owner is a Sales User (User Table) and activation date is greater than or equal to 2/10/14, then update Initial Response Rep to the Full name of the new lead owner.</description>
+        <formula>(Initial_Response_Rep__c = 'Internet' || Initial_Response_Rep__c = 'Stephanie Beaver' ||Initial_Response_Rep__c = 'Reanna Jackson' || Initial_Response_Rep__c = 'Nancy Maya'  || Initial_Response_Rep__c = 'Nicole Naporlee' || Initial_Response_Rep__c = 'Danielle Giberson' || Initial_Response_Rep__c = 'Amber Conley' || Initial_Response_Rep__c = 'Travis Rover' || Initial_Response_Rep__c = 'Martin Briggs') &amp;&amp; ISCHANGED(OwnerId) &amp;&amp; (Owner:User.UserRole.Name = 'WC Sales User' || Owner:User.UserRole.Name = 'Lease Sales User') &amp;&amp;  (DATEVALUE(Activation_Date__c) &gt;= DATE(2014,2,10))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>LM - Created by Flow</fullName>
+        <actions>
+            <name>LM_Rep_Ownership_Date_Lead</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>LM_Update_Ownership_Transfer</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>LM_Update_Sweep_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead.Created_By_Flow__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>LM - Sweep Date Exception Accepted Lead</fullName>
+        <actions>
+            <name>LM_Sweep_Date_Exception_Accepted_Lead</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>LM_Add_30_Days_to_Sweep_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead.Sweep_Exception_Decision__c</field>
+            <operation>equals</operation>
+            <value>Accepted</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>LM - Sweep Date Exception Declined Lead</fullName>
+        <actions>
+            <name>LM_Sweep_Date_Exception_Declined_Lead</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead.Sweep_Exception_Decision__c</field>
+            <operation>equals</operation>
+            <value>Declined</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>LM - Sweep Date Exception Request Lead %28Team Bob%29</fullName>
+        <actions>
+            <name>LM_Sweep_Date_Exception_Request_Lead_Team</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>LM_Sweep_Date_Decision_Clear_Field_L</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead.Sweep_Exception_Request__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead.Manager_for_Reports__c</field>
+            <operation>equals</operation>
+            <value>Robert Anthony</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>LM - Sweep Date Exception Request Lead %28Team Carlos%29</fullName>
+        <actions>
+            <name>LM_Sweep_Date_Exception_Request_Lead_Team_Carlos</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>LM_Sweep_Date_Decision_Clear_Field_L</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead.Sweep_Exception_Request__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead.Manager_for_Reports__c</field>
+            <operation>equals</operation>
+            <value>Carlos Ituarte</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>LM - Sweep Date Exception Request Lead %28Team Philip%29</fullName>
+        <actions>
+            <name>LM_Sweep_Date_Exception_Request_Lead_Team_Philip</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>LM_Sweep_Date_Decision_Clear_Field_L</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead.Sweep_Exception_Request__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead.Manager_for_Reports__c</field>
+            <operation>equals</operation>
+            <value>Philip Lancashire</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>LM - Sweep Date Exception Request Lead %28Team Ryan%29</fullName>
+        <actions>
+            <name>LM_Sweep_Date</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>LM_Sweep_Date_Decision_Clear_Field_L</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead.Sweep_Exception_Request__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead.Manager_for_Reports__c</field>
+            <operation>equals</operation>
+            <value>Bob Anthony</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>LM - Update Status Lease to NQ %28Credit%29</fullName>
+        <actions>
+            <name>AR_Lease_Status_Lease_Reason_to_Credit</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>AR_Lease_Status_Lease_Update_to_NQ</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND (2 OR 3) AND 4 AND 5 AND 6</booleanFilter>
+        <criteriaItems>
+            <field>Lead.Status</field>
+            <operation>equals</operation>
+            <value>Activator,Prospect</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead.Status_Lease__c</field>
+            <operation>equals</operation>
+            <value>Interested</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead.Status_Lease__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead.FICO_Score__c</field>
+            <operation>lessThan</operation>
+            <value>575</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead.FICO_Score__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead.FICO_Score__c</field>
+            <operation>notEqual</operation>
+            <value>0</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>LM - Upon Lead Ownership Change</fullName>
+        <actions>
+            <name>LM_Rep_Ownership_Date_Lead</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>LM_Update_Ownership_Transfer</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>LM_Update_Rating_null</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>LM_Update_Sweep_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>This workflow will indicate an ownership and start the leadmanagement workflow unless a queue, house account or one of following users is owner: Travis Rover, Sandra Otero, Amber Conley, Nancy Maya, Amanda Eastman, Heather Taylor, Nicole Naporlee.</description>
+        <formula>AND(  ISCHANGED(OwnerId),  OwnerId &lt;&gt;"00580000003efd8", /* House Account */  OwnerId &lt;&gt;"00580000003RXlf", /* DB Amp */  OwnerId &lt;&gt; "00580000004Sbwm", /* Binary M */  OwnerId &lt;&gt; "00580000004QkkA", /* Amber Conley */  OwnerId &lt;&gt; "00580000004SUZQ", /* Nancy Maya */  OwnerId &lt;&gt; "00580000003rkH7", /* Nicole Naporlee */  OwnerId &lt;&gt; "00580000003edxL", /* Sandra Otero */  OwnerId &lt;&gt; "00580000003HZZn", /* Travis Rover */  OwnerId &lt;&gt; "00580000005X7HQ", /* Danielle Giberson */  OwnerId &lt;&gt; "00580000005X7UW", /* Stephanie Beaver */  OwnerId &lt;&gt; "00580000005cnRM", /* Reanna Jackson */ OwnerId &lt;&gt; "00G80000002RNt9", /* WC Leads Low Credit */ OwnerId &lt;&gt; "00G80000001sJoO", /* WC Leads */ OwnerId &lt;&gt; "00G80000001sGjU", /* WC Internet Leads */ OwnerId &lt;&gt; "00G80000002RXwf", /* Vendor Advantage Program */ OwnerId &lt;&gt; "00G80000002TD0d", /* Lease Leads - Low AGS */ OwnerId &lt;&gt; "00G80000001rxJn", /* National Funding Leads */ OwnerId &lt;&gt; "00G80000001sGjK", /* Lease Internet Leads */ OwnerId &lt;&gt; "00G80000002TYd6", /* Lease Internet Auto Assign */ OwnerId &lt;&gt; "00G80000001sou2" /* EPP Internet Leads */ )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Lead - Populate Web Id NatFund</fullName>
+        <actions>
+            <name>Lead_Update_Web_Id_NatFund</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>If the Web Id NatFund field is null, update it with the autonumber upon response.</description>
+        <formula>AND(   NOT(ISPICKVAL(Status, 'House')),   IsConverted = False,    NOT(ISBLANK(Activation_Date__c)),   ISBLANK(Web_Id_NatFund__c))</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Lead - SSN Capture by W2L</fullName>
+        <actions>
+            <name>SSN_Capture_W2L</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead.Response_Channel__c</field>
+            <operation>equals</operation>
+            <value>Internet</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead.SSN_is_Blank__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <description>This workflow will indicate if a SSN is captured from a web to lead.</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Lead - Update Sync With Marketo</fullName>
+        <actions>
+            <name>Update_Sync_With_Marketo_Lead_field</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5</booleanFilter>
+        <criteriaItems>
+            <field>Lead.Email</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead.HasOptedOutOfEmail</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead.Out_Of_Business__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead.Do_Not_Solicit__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>New Lead Process</value>
+        </criteriaItems>
+        <description>Once criteria is met the Sync with Marketo field will be update to true.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Lead Source - VAP Referral</fullName>
+        <actions>
+            <name>VAP_Lead_Source_Update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead.LeadSource</field>
+            <operation>equals</operation>
+            <value>Rep Created</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead.VAP_Referral__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead.VAP_Referral_Vendor__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Lead Source and Response Channel</fullName>
+        <actions>
+            <name>Lead_Source_Direct_Mail</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Response_Channel_Inbound_Call</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5</booleanFilter>
+        <criteriaItems>
+            <field>Lead.Status</field>
+            <operation>equals</operation>
+            <value>Activator,Prospect,Contacted</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead.Marketing_Pilot_Results__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead.LeadSource</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead.Response_Channel__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead.Activation_Date__c</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </criteriaItems>
+        <description>Updates the Lead Source field and Response Channel fields for leads that do respond by direct mail and inbound call.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Lead Status - Activator</fullName>
+        <actions>
+            <name>SSN_Captured_Checkbox</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Lead_Status</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead.SSN_is_Blank__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <description>This workflow will change the value of the "Lead Status" field to Activator upon a SSN being captured.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Lead Status - Update if Activation Date is Populated</fullName>
+        <actions>
+            <name>Lead_Status_Update_to_Prospect</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead.Status</field>
+            <operation>equals</operation>
+            <value>House</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead.Activation_Date__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Lead Updated - DLP Status is Upsert</fullName>
+        <actions>
+            <name>Alert_Owner_of_Lead_Update_Upsert</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(
+ IsConverted = FALSE,
+ ISPICKVAL(DLP_Email_Status__c, 'upsert'),
+ DATEVALUE(Activation_Date__c) != TODAY())</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Lease 90 Day - Convert Lead</fullName>
+        <actions>
+            <name>Lease_90_Day_Convert_Lead_Email</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>AND( $User.Id =  FPC_Rep_Lease__c , Ready_To_Convert__c = TRUE)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Lendio - Send Initial Email to Customer</fullName>
+        <actions>
+            <name>Lendio_Initial_Email_to_Customer</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(DATEVALUE(Activation_Date__c) = TODAY(),
+ISPICKVAL(LeadSource, 'Lendio'),  
+Owner:User.Sales_User__c = True)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Lendio Lead - Email Lease Queue</fullName>
+        <actions>
+            <name>PPC_Internet_Lease_Lead_Auto_Assignment</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Initial_Lead_Source</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Initial_Product_Response</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Initial_Response_Channel</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Internet_Response_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>This workflow will send an email to the Lendio reps informing them a lead is ready to be processed.</description>
+        <formula>Owner:Queue.Id = '00G8000000332rt'</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Lendio Lead - Email Working Capital Queue</fullName>
+        <actions>
+            <name>PPC_Internet_WC_Lead_Auto_Assignment</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Initial_Lead_Source</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Initial_Product_Response</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Initial_Response_Channel</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Internet_Response_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>This workflow will send an email to the Lendio reps informing them a lead is ready to be processed.</description>
+        <formula>Owner:Queue.Id = '00G8000000332ry'</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>MCA 90 Day - Convert Lead</fullName>
+        <actions>
+            <name>MCA_90_Day_Email_Lease_Rep_to_Convert_Lead</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>AND( $User.Id =  FPC_Rep_MCA__c , Ready_To_Convert__c = TRUE)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Mobile to Contact Workflow</fullName>
+        <actions>
+            <name>Mobile_Phone_to_Contact_Update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>ISCHANGED(  MobilePhone  )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Need-A-Lender Activation Date Null</fullName>
+        <actions>
+            <name>Activation_Date_is_NOW</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead.LeadSource</field>
+            <operation>equals</operation>
+            <value>Need-A-Lender</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead.Activation_Date__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Need-A-Lender Initial Lead Source Null</fullName>
+        <actions>
+            <name>Initial_Lead_Source_is_Need_A_Lender</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead.LeadSource</field>
+            <operation>equals</operation>
+            <value>Need-A-Lender</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead.Initial_Lead_Source__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Need-A-Lender Initial Response Channel Null</fullName>
+        <actions>
+            <name>Initial_Response_Channel_is_Email</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead.LeadSource</field>
+            <operation>equals</operation>
+            <value>Need-A-Lender</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead.Initial_Response_Channel__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Populate LeadID18</fullName>
+        <actions>
+            <name>Populate_LeadID18</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>TRUE</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Referral to Lease Group %28Lead%29</fullName>
+        <actions>
+            <name>Update_Referred_By_to_Lead_Owner</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Referred_Date_to_Now</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>This workflow will input the Referred Date and Referred By fields with the owner of the record and Date/Time as Now.</description>
+        <formula>AND(  Ready_To_Convert__c = False, ISPICKVAL(Owner:User.Product_Eligibility__c, "Working Capital"),  ISPICKVAL(Refer_To__c , "Equipment Leasing"),  ISBLANK(FPC_Rep_Lease__c), Referred_By__c = '',  OR(ISBLANK(Referred_Date__c), Referred_Date__c = NOW()-30))</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Remove_Refer_By_Lead</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <actions>
+                <name>Remove_Refer_Date_Lead</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <actions>
+                <name>Remove_Refer_To_Lead</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <timeLength>31</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Referral to Working Capital Group %28Lead%29</fullName>
+        <actions>
+            <name>Update_Referred_By_to_Lead_Owner</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Referred_Date_to_Now</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>This workflow will input the Referred Date and Referred By fields with the owner of the record and Date/Time as Now.</description>
+        <formula>AND(  Ready_To_Convert__c = False, ISPICKVAL(Owner:User.Product_Eligibility__c, "Lease"),  ISPICKVAL(Refer_To__c , "Working Capital"),  ISBLANK(FPC_Rep_MCA__c),  OR(ISBLANK(Referred_Date__c), Referred_Date__c = NOW()-30))</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Remove_Refer_By_Lead</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <actions>
+                <name>Remove_Refer_Date_Lead</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <actions>
+                <name>Remove_Refer_To_Lead</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <timeLength>31</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>TwilioSF__Clear Last Message Status%2FDate</fullName>
+        <actions>
+            <name>TwilioSF__Clear_Last_Message_Status</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>TwilioSF__Clear_Last_Message_Status_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <formula>1!=1</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Email Workflow - Initially Entered</fullName>
+        <actions>
+            <name>Email_Entered</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>OR( Email &lt;&gt; "",  ISCHANGED(Email) )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Vendor VAP - Lead</fullName>
+        <actions>
+            <name>Update_VAP_Referral_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>VAP_Referral_Vendor_Name_Insert</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead.VAP_Referral__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead.Vendor_Name__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <description>This workflow will update the Vendor Name that maps to the account and the VAP Referral Date</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <tasks>
+        <fullName>CALL_ASAP_Internet_Lead_Assigned</fullName>
+        <assignedToType>owner</assignedToType>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>true</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>CALL ASAP - Internet Lead Assigned</subject>
+    </tasks>
+</Workflow>

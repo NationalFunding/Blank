@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Result__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(Exit_Path__c,
+"A.1", "Continue",
+"A.2", "Continue",
+"A.4", "Continue",
+"B.1", "Continue",
+"B.6", "Continue",
+"B.8", "Continue",
+"C.2", "Continue",
+"C.4", "Continue",
+"C.7", "Continue",
+"C.10", "Continue",
+"C.8", "Continue",
+"C.14", "Continue",
+"C.15", "Continue",
+"C.16", "Continue",
+"D.4", "Continue",
+"D.3", "Continue",
+"Internal Error", "Manual Review",
+"A.3", "Manual Review",
+"B.9", "Manual Review",
+"C.5", "Manual Review",
+"C.6", "Manual Review",
+"C.13", "Manual Review",
+"C.12", "Manual Review",
+"B.5", "Stop",
+"A.5", "Stop",
+"B.3", "Stop",
+"B.4", "Stop",
+"C.1", "Stop",
+"C.11", "Stop",
+"C.11b", "Stop",
+"C.9", "Stop",
+"B.10", "Stop",
+"C.3b", "Stop",
+"B.2", "Stop",
+"B.7", "Stop",
+"C.3", "Stop",
+"D.2", "Stop",
+"D.1", "Stop",
+"Other"
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Result</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

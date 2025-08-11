@@ -1,0 +1,6 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="400" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; color:#000000; bEditID:r3st1; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[Hello<br><br>An Account has been referred to Merchant. Please respond immediately. Click on the link below.<br><br>{!Account.Link}<div><br></div><div>New Salesforce Console: https://na29.salesforce.com/console#%2F{!Account.Id}&nbsp;&nbsp;<br><br>Thank You.</div>]]></td>
+</tr>
+</table>

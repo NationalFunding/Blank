@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Allowable_Exceptions__c</fullName>
+    <description>Allowable Exception for BofI reporting.</description>
+    <inlineHelpText>Please select the allowable exceptions made for this transaction.</inlineHelpText>
+    <label>Allowable Exceptions</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>FICO &lt; Program Parameters</fullName>
+                <default>false</default>
+                <label>FICO &lt; Program Parameters</label>
+            </value>
+            <value>
+                <fullName>No Installment Loan on CBR</fullName>
+                <default>false</default>
+                <label>No Installment Loan on CBR</label>
+            </value>
+            <value>
+                <fullName>UCC Filing by Competitor</fullName>
+                <default>false</default>
+                <label>UCC Filing by Competitor</label>
+            </value>
+            <value>
+                <fullName>Average Daily Balance &lt; $1000</fullName>
+                <default>false</default>
+                <label>Average Daily Balance &lt; $1000</label>
+            </value>
+            <value>
+                <fullName>New Bank Account (opened w/in 60 days)</fullName>
+                <default>false</default>
+                <label>New Bank Account (opened w/in 60 days)</label>
+            </value>
+            <value>
+                <fullName>Restricted Industry</fullName>
+                <default>false</default>
+                <label>Restricted Industry</label>
+            </value>
+            <value>
+                <fullName>Directory Assistance Not Found</fullName>
+                <default>false</default>
+                <label>Directory Assistance Not Found</label>
+            </value>
+            <value>
+                <fullName>LL Verbal Unavailable</fullName>
+                <default>false</default>
+                <label>LL Verbal Unavailable</label>
+            </value>
+            <value>
+                <fullName>&lt; 50% Ownership</fullName>
+                <default>false</default>
+                <label>&lt; 50% Ownership</label>
+            </value>
+            <value>
+                <fullName>Renewals (Netting less &amp; funding early)</fullName>
+                <default>false</default>
+                <label>Renewals (Netting less &amp; funding early)</label>
+            </value>
+            <value>
+                <fullName>Absentee Owner (Non-BOFI)</fullName>
+                <default>false</default>
+                <label>Absentee Owner (Non-BOFI)</label>
+            </value>
+            <value>
+                <fullName>Overdrafts (10 averaged over 3 months)</fullName>
+                <default>false</default>
+                <label>Overdrafts (10 averaged over 3 months)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

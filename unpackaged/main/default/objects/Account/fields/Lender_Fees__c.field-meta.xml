@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lender_Fees__c</fullName>
+    <description>What fees do the lender charge for originating the loan?</description>
+    <inlineHelpText>What fees do the lender charge for originating the loan?</inlineHelpText>
+    <label>Lender Fees</label>
+    <precision>10</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+</CustomField>

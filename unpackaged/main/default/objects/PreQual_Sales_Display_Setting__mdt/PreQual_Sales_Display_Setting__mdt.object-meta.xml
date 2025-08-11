@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Sets attributes for the PreQual Sales Display and what is shown in the UI.</description>
+    <label>PreQual Sales Display Setting</label>
+    <pluralLabel>PreQual Sales Display Settings</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

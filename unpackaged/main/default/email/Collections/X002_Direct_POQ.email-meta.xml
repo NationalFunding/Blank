@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank</letterhead>
+    <name>002 Direct POQ</name>
+    <style>freeForm</style>
+    <subject>{!Case.Lease_Plus_Number__c} {!Account.Legal_Name__c} {!Case.Merchant_Number__c} - Payoff Quote</subject>
+    <textOnly>Thank you for your continued partnership with National Funding and your recent request regarding your loan.
+
+Total Payoff Amount:		$
+Total Payoff w/Discount:		$
+Discount Dates: 			[DATES]
+
+Payments may be wired to the following:
+Bank Routing Number: 		021000021
+SWIFT Code:                          CHASUS33
+Bank Name: 		                JPMorgan Chase New York, NY 10004
+Account Number:                    237370207
+Account Name: 	                National Funding Inc
+
+If your payoff funds are not paid from the business account on file with National Funding, please provide the bank name, account owner, and whether this is a business or personal account, to help us accurately apply funds to your balance when received
+
+When paying off your loan early, you will need to wait 30 days before obtaining additional funding from National Funding.
+
+Please contact our servicing department at 800-294-1702 if you have further questions.
+
+
+Thank you,
+
+Payoff Department
+
+National Funding
+{!$Setup.Company_Information__c.Street__c}
+{!$Setup.Company_Information__c.City__c}, {!$Setup.Company_Information__c.State__c} {!$Setup.Company_Information__c.Zip__c}
+P: (800) 294-1702  | F: (888) 279-7564
+E: payoff@nationalfunding.com</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

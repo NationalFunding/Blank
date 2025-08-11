@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bank_Contact__c</fullName>
+    <description>Customer's Bank contact.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Type in the customer's contact at their bank.</inlineHelpText>
+    <label>Bank Contact</label>
+    <length>32</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

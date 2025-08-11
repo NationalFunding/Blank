@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Template to email credit managers when a deal has been declined internally and approved by NL or BFS for a second pass.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Naitonal_Funding_Standard_Letterhead_Stack</letterhead>
+    <name>Alert - Second Pass on External Approved Deals</name>
+    <style>freeForm</style>
+    <subject>Second look at docs out – {!Opportunity.Account}</subject>
+    <textOnly>This deal has been approved by New Logic or Business Financial Services and docs have been requested. Please review deal to see if it can be approved internally.
+
+Account Name: {!Opportunity.Account}
+Opportunity Name: {!Opportunity.Name}
+{!Opportunity.Link}
+Opportunity Stage: {!Opportunity.StageName}
+
+Sincerely,
+Salesforce Automation</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

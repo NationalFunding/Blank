@@ -1,0 +1,5 @@
+Opportunity: {!Opportunity.Link}
+
+{!Opportunity.Name}
+
+Remove the Statements In Date. Change the Stage to Identified. Change the Stage back to Statements In.

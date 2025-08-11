@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status_Lease_Required</fullName>
+    <active>false</active>
+    <description>This rule requires that a product status is required prior to saving the lead record. This rule is specific to the Lease product status.</description>
+    <errorConditionFormula>OR(
+   And(
+             ISBLANK( FPC_Rep_Lease__c ),NOT(ISBLANK(TEXT( Status_Lease__c )))),
+  AND(
+             NOT(ISBLANK( FPC_Rep_Lease__c )),ISBLANK(TEXT( Status_Lease__c ))))</errorConditionFormula>
+    <errorMessage>If FPC Rep Lease is populated the Status Lease is required.</errorMessage>
+</ValidationRule>

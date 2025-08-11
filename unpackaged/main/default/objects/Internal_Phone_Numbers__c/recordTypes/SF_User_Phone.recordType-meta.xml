@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SF_User_Phone</fullName>
+    <active>true</active>
+    <description>Phone number belonging to a Salesforce User</description>
+    <label>SF User Phone</label>
+    <picklistValues>
+        <picklist>Carrier__c</picklist>
+        <values>
+            <fullName>Five9</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ring Central</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Telepacific</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Twilio</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Department__c</picklist>
+        <values>
+            <fullName>Accounting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Administration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Analytics</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Broker</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Collections</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Customer Service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Human Resources</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>IT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Legal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Main Phone - Reception</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marketing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Operations</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Renewals</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Software Development</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Marketing_Channel__c</picklist>
+        <values>
+            <fullName>Affiliate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Assigned House Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Assigned House Fax</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Assigned House Mail</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Financing Landing Page</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Generic Unassigned Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lead Aggregators%28LT%2FPilot%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lease Acq</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lease Funder Assigned Fax</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lease Q</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lease Unassigned Hou</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Leasing Referrals</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lending Tree</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mailer Inbound Call%28Acg%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mailer Internet%28Acq%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Organic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PPC Leasing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PPC WC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Previous All Paid Search</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Renewals</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Social %2F Radio %2F Non-Campaign %2F Older Activation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Strategic Partner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unassigned Fax</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unassigned House Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unassigned House Fax</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unassigned House Mail</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unknown - Can Reassign</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>WC Acq</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>WC Unassigned Hou</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Web Loans %2F MCA %2F Processing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>eBridge Blast</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Messaging_Carrier__c</picklist>
+        <values>
+            <fullName>Twilio</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Phone_System__c</picklist>
+        <values>
+            <fullName>Five9</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mitel</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ring Central</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Twilio</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Resporg_Status__c</picklist>
+        <values>
+            <fullName>Complete</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Started</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Route_to_Sales_Team__c</picklist>
+        <values>
+            <fullName>Commercial Team</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marketing - Inbound Mailer Team</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marketing - Internet Mailer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marketing - Leasing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marketing - PPC Team</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marketing - Renewals</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marketing - Senior Team</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marketing - Training Team</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Standard Team</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Available</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In Use</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Active</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Temporary Route to Manager</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Transitioning</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Text_Enabled__c</picklist>
+        <values>
+            <fullName>Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Issue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Requested</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Requested</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type__c</picklist>
+        <values>
+            <fullName>DID</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fax</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TFN</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Use__c</picklist>
+        <values>
+            <fullName>Campaign</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Direct Phone Number</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fax Only</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

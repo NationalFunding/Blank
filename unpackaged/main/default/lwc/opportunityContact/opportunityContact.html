@@ -1,0 +1,393 @@
+<template>
+    <!-- Card -->
+    <lightning-card title="Contact Information" icon-name="standard:contact">
+
+        <!-- Actions -->
+        <div slot="actions">
+            <lightning-button-icon icon-name="utility:add" variant="bare" alternative-text="New Contact" size="Medium"
+                onclick={addContact}>
+            </lightning-button-icon>
+        </div>
+
+        <template if:true={contacts}>
+
+            <ul class="slds-has-dividers_around-space" style="margin-right: 5px; margin-left: 5px;">
+
+                <template for:each={contacts} for:item="contact">
+
+                    <li class="slds-item" key={contact.Id}>
+
+                        <!-- Contact Card  -->
+                        <lightning-card title={contact.Name} icon-name="standard:client">
+
+                            <!-- Contact Card Actions -->
+                            <div slot="actions">
+                                <lightning-button-icon icon-name="utility:edit_form" variant="bare"
+                                    alternative-text="Update" onclick={openContactModal} value={contact.Id}
+                                    data-name={contact.Name} data-id={contact.Id}
+                                    data-role={contact.OpportunityContactRoleId} data-type={contact.OpportunityContactRoleRole}
+                                    data-street={contact.MailingStreet} data-city={contact.MailingCity}
+                                    data-province={contact.MailingState} data-postal={contact.MailingPostal} 
+                                    data-country={contact.MailingCountry} style="padding-right: 10px;">
+                                </lightning-button-icon>
+
+                                <lightning-button-icon icon-name="utility:sms" variant="bare" alternative-text="View Contact"
+                                size="Medium" onclick={openContact} data-id={contact.Id}>       
+                                </lightning-button-icon>
+                            </div>
+
+                            <!-- Display Fields -->
+                            <div class="slds-region_narrow">
+                                <dl class="slds-dl_horizontal">
+                                    <!-- Title -->
+                                    <dt class="slds-dl_horizontal__label slds-text-title">Title:</dt>
+                                    <dd class="slds-dl_horizontal__detail">
+                                        {contact.Title}
+                                    </dd>
+                                    <!-- Title -->
+                                    <dt class="slds-dl_horizontal__label slds-text-title">Nickname:</dt>
+                                    <dd class="slds-dl_horizontal__detail">
+                                        {contact.Nickname}
+                                    </dd>
+                                    <!-- Email -->
+                                    <dt class="slds-dl_horizontal__label slds-text-title">Email:</dt>
+                                    <dd class="slds-dl_horizontal__detail">
+                                        <p>
+                                            <lightning-formatted-email value={contact.Email}></lightning-formatted-email>
+                                        </p>
+                                    </dd>
+                                    <!-- Mobile Phone -->
+                                    <dt class="slds-dl_horizontal__label slds-text-title">Mobile Phone:</dt>
+                                    <dd class="slds-dl_horizontal__detail">
+                                        <lightning-click-to-dial value={contact.MobilePhone} record-id={contact.Id}>
+                                            {contact.MobilePhone}
+                                        </lightning-click-to-dial>
+                                    </dd>
+                                    <!-- Ownership -->
+                                    <dt class="slds-dl_horizontal__label slds-text-title">Ownership %:</dt>
+                                    <dd class="slds-dl_horizontal__detail">
+                                        {contact.Ownership}
+                                    </dd>
+                                    <!-- Role -->
+                                    <dt class="slds-dl_horizontal__label slds-text-title">Role:</dt>
+                                    <dd class="slds-dl_horizontal__detail">
+                                        {contact.OpportunityContactRoleRole}
+                                    </dd>
+                                    <!-- Response Channel -->
+                                    <dt class="slds-dl_horizontal__label slds-text-title">Response Channel:</dt>
+                                    <dd class="slds-dl_horizontal__detail">
+                                        {contact.ResponseChannel}
+                                    </dd>
+                                    <!-- SMS Opt In -->
+                                    <div id="variants" class="slds-p-horizontal slds-grid slds-dl_horizontal__label slds-text-title">                                
+                                        <dt class="slds-p-top_xx-small">SMS Opted In:</dt>
+                                        <lightning-helptext class="slds-align_absolute-center icn" icon-name="utility:info" content="This checkbox data is coming from the associated Twilio Optin record. The data is not coming from Lead or Contact."> </lightning-helptext>
+                                    </div>
+                                    <dd class="slds-dl_horizontal__detail slds-checkbox">
+                                        <lightning-input type="checkbox" checked={contact.SMS_Opt_In__c} disabled="true"> </lightning-input>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </lightning-card>
+
+                    </li>
+
+                </template>
+
+            </ul>
+
+        </template>
+
+    </lightning-card>
+
+    <!-- Modal Edit 'Contact' -->
+    <template if:true={contactModal}>
+
+        <div class="demo-only">
+
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+
+                <div class="slds-modal__container">
+
+                    <header class="slds-modal__header">
+
+                        <!-- TITLE -->
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">
+                            {fullName}
+                        </h2>
+
+                    </header>
+
+                    <!-- BODY -->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+
+                        <!-- EDIT CONTACT -->
+                        <lightning-card>
+
+                            <lightning-record-edit-form record-id={contactRecordId} object-api-name="Contact">
+
+                                <!-- Lightning Messages Display -->
+                                <lightning-messages></lightning-messages>
+
+                                <!-- Contact Edit Form -->
+                                <div class="slds-grid slds-wrap">
+
+                                    <div class="slds-col slds-size_1-of-2">
+                                        <lightning-input-field data-field="FirstName" field-name="FirstName" onchange={contactFirstNameChange}>
+                                        </lightning-input-field>
+                                    </div>
+                                
+                                    <div class="slds-col slds-size_1-of-2">
+                                        <lightning-input-field data-field="LastName" field-name="LastName" onchange={contactLastNameChange}>
+                                        </lightning-input-field>
+                                    </div>    
+                                
+                                    <div class="slds-col slds-size_1-of-2">
+                                        <lightning-input-field data-field="Title" field-name="Title" onchange={contactTitleChange}>
+                                        </lightning-input-field>
+                                    </div>
+                                
+                                    <div class="slds-col slds-size_1-of-2">
+                                        <lightning-input-field data-field="Email" field-name="Email" onchange={contactEmailChange}>
+                                        </lightning-input-field>
+                                    </div>
+                                
+                                    <div class="slds-col slds-size_1-of-2">
+                                        <lightning-input-field data-field="MobilePhone" field-name="MobilePhone" onchange={contactMobileChange}>
+                                        </lightning-input-field>
+                                    </div>
+                                
+                                    <div class="slds-col slds-size_1-of-2">
+                                        <lightning-input-field data-field="DOB" field-name="Birthdate" onchange={contactDOBChange}>
+                                        </lightning-input-field>
+                                    </div>
+                                
+                                    <div class="slds-col slds-size_1-of-2">
+                                        <lightning-input-field data-field="SSN" field-name="SSN_Encrypted__c" onchange={contactSSNChange}>
+                                        </lightning-input-field>
+                                    </div>
+                                
+                                    <div class="slds-col slds-size_1-of-2">
+                                        <lightning-input-field data-field="Ownership" field-name="Ownership_Percentage__c" onchange={contactOwnershipChange}>
+                                        </lightning-input-field>
+                                    </div>
+                                
+                                    <div class="slds-col slds-size_1-of-2">
+                                        <lightning-input-field data-field="HomePhone" field-name="HomePhone" onchange={contactHPChange}>
+                                        </lightning-input-field>
+                                    </div>
+
+                                    <div class="slds-col slds-size_1-of-2">
+                                        <lightning-combobox
+                                            name="Role"
+                                            label="Role"
+                                            value={contactRole}
+                                            placeholder={contactRole}
+                                            options={options}
+                                            onchange={contactRoleChange}
+                                            data-field="Role">
+                                        </lightning-combobox>
+                                    </div>
+                                
+                                </div>
+
+                                <hr>
+
+                                <lightning-input-address
+                                    address-label="Home Address"
+                                    street-label="Street"
+                                    city-label="City"
+                                    province-label="Province"
+                                    postal-code-label="PostalCode"
+                                    street={mailingAddress.street}
+                                    city={mailingAddress.city}
+                                    province={mailingAddress.state}
+                                    postal-code={mailingAddress.postal}
+                                    country={mailingAddress.country}
+                                    field-level-help="Home Address"
+                                    country-options={countryOptions}
+                                    province-options={stateOptions}
+                                    onchange={mailingChanges}
+                                    show-address-lookup>
+                                </lightning-input-address>
+
+                            </lightning-record-edit-form>
+
+                        </lightning-card>
+                    </div>
+
+                    <!-- FOOTER -->
+                    <footer class="slds-modal__footer">
+                        <!-- Cancel Button -->
+                        <lightning-button label="Cancel" variant="neutral" onclick={closeContactModal}></lightning-button>
+
+                        <!-- Spacing -->
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+
+                        <!-- Update/Save Button -->
+                        <lightning-button label="Update" disabled={disableButton} variant="brand" type="submit" onclick={saveForm}>
+                        </lightning-button>
+
+                    </footer>
+
+                </div>
+
+            </section>
+            <!-- Create Shading for Modal -->
+            <div class="slds-backdrop slds-backdrop_open"></div>
+
+        </div>
+
+    </template>
+
+
+    <!-- CONTACT CREATE MODAL -->
+    <template if:true={contactCreateModal}>
+
+        <div class="demo-only">
+
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+
+                <div class="slds-modal__container">
+
+                    <header class="slds-modal__header">
+
+                        <!-- TITLE -->
+                        <h2 id="modal-heading-02" class="slds-text-heading_medium slds-hyphenate">
+                            Create new Contact
+                        </h2>
+
+                    </header>
+
+                    <!-- BODY -->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-2">
+
+                        <!-- CREATE CONTACT -->
+                        <lightning-card>
+
+                            <!-- Lightning Messages Display -->
+                            <lightning-messages></lightning-messages>
+
+                            <!-- Contact Edit Form -->
+                            <div class="slds-grid slds-gutters">
+
+                                <div class="slds-col slds-size_1-of-2">
+                                    <lightning-input label="First Name" onchange={handleFirstNameChange} type="text">
+                                    </lightning-input>
+                                </div>
+                            
+                                <div class="slds-col slds-size_1-of-2">
+                                    <lightning-input label="Last Name" onchange={handleLastNameChange} type="text">
+                                    </lightning-input>
+                                </div>
+                            
+                            </div>
+
+                            <div class="slds-grid slds-gutters">
+
+                                <div class="slds-col slds-size_1-of-2">
+                                    <lightning-input label="Title" onchange={handleTitleChange} type="text">
+                                    </lightning-input>
+                                </div>
+                            
+                                <div class="slds-col slds-size_1-of-2">
+                                    <lightning-input label="Email" onchange={handleEmailChange} type="email">
+                                    </lightning-input>
+                                </div>
+                            
+                            </div>
+
+                            <div class="slds-grid slds-gutters">
+
+                                <div class="slds-col slds-size_1-of-2">
+                                    <lightning-input label="Mobile Phone" onchange={handleMobileChange} type="tel">
+                                    </lightning-input>
+                                </div>    
+                            
+                                <div class="slds-col slds-size_1-of-2">
+                                    <lightning-input label="Date of Birth" onchange={handleDOBChange} type="date" field-level-help="Please use the format of MM/DD/YYYY or 1/11/1988">
+                                    </lightning-input>
+                                </div>
+                            
+                            </div>
+
+                            <div class="slds-grid slds-gutters">
+                            
+                                <div class="slds-col slds-size_1-of-2">
+                                    <lightning-input label="Social Security Number" maxlength="9" onchange={handleSSNChange} type="number">
+                                    </lightning-input>
+                                </div>
+                            
+                                <div class="slds-col slds-size_1-of-2">
+                                    <lightning-input label="Ownership %" onchange={handleOPChange} type="text">
+                                    </lightning-input>
+                                </div>
+                            </div>
+
+                            <div class="slds-grid slds-gutters">
+
+                                <div class="slds-col slds-size_1-of-2">
+                                    <lightning-input label="Home Phone" onchange={handleHPChange} type="tel">
+                                    </lightning-input>
+                                </div>
+
+                                <div class="slds-col slds-size_1-of-2">
+                                    <lightning-combobox
+                                        name="Role"
+                                        label="Role"
+                                        value={contactRoleCreateVal}
+                                        options={options}
+                                        onchange={contactRoleChange}
+                                        data-field="RoleCreate">
+                                    </lightning-combobox>
+                                </div>
+
+                            </div>
+
+                            <hr>
+
+                            <lightning-input-address
+                                address-label="Home Address"
+                                street-label="Street"
+                                city-label="City"
+                                province-label="Province"
+                                postal-code-label="Postal Code"
+                                field-level-help="Billing Address"
+                                country-options={countryOptions}
+                                province-options={stateOptions}
+                                onchange={mailingCreate}
+                                show-address-lookup>
+                            </lightning-input-address>
+
+                        </lightning-card>
+                    </div>
+
+                    <!-- FOOTER -->
+                    <footer class="slds-modal__footer">
+                        <!-- Cancel Button -->
+                        <lightning-button label="Cancel" variant="neutral" onclick={closeCreateContactModal}>
+                        </lightning-button>
+
+                        <!-- Spacing -->
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+
+                        <!-- Update/Save Button -->
+                        <lightning-button label="Create" disabled={disableButton} variant="brand" type="submit" onclick={createContact}>
+                        </lightning-button>
+
+                    </footer>
+
+                </div>
+
+            </section>
+            <!-- Create Shading for Modal -->
+            <div class="slds-backdrop slds-backdrop_open"></div>
+
+        </div>
+
+    </template>
+
+
+</template>

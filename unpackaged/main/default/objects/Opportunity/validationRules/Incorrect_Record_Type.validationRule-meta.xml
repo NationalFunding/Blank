@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Incorrect_Record_Type</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ ISCHANGED(StageName),
+ ISPICKVAL(StageName,'Docs Out - MCA'),
+ CONTAINS(Lender_Account__r.Name, 'National Funding'),
+ DATEVALUE(APPROVAL_DATE__c) &gt;= DATE(2021,06,11),
+ RecordType.Name &lt;&gt; 'Direct MLP',
+ OR( 
+    AND( 
+        BOFI_Restricted_State__c = 'Restricted', 
+        OR( 
+           RecordType.Name = 'FRPSA',
+           RecordType.Name = 'Broker FRPSA'  
+          )
+        ),
+    AND( 
+        BOFI_Restricted_State__c = 'Allowed',  
+        RecordType.Name &lt;&gt; 'FRPSA',
+        RecordType.Name &lt;&gt; 'Broker FRPSA'   
+        )
+   )
+)</errorConditionFormula>
+    <errorMessage>This deal does not have the appropriate record type to proceed. If this is a FRPSA state ensure the Record Type is either FRPSA or Broker FRPSA. If it is not a FRPSA state ensure the Record Type is either Broker or Working Capital.</errorMessage>
+</ValidationRule>

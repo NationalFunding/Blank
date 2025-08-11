@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Exclusivity_Date__c</fullName>
+    <description>Calculates the Exclusivity Date based on the Lender Account. 
+National Funding = the earlier of the Maturity Date Or Termination Date +365 days
+Quick Bridge/BizFi = Fund Date + Docs Term + 6 mos
+SFS/Fora/Knight/ECG/Elevate/OnDeck = Fund Date + Docs Term + 90 days
+Everest/Forward = Fund Date + Docs Term + 30 days</description>
+    <formula>IF( 
+OR(
+AND(
+CONTAINS(Lender_Account__r.Name,'National Funding'),
+NOT(ISBLANK(NF_WC_Maturity_Date__c)), 
+ISBLANK(Termination_Date__c)
+),
+AND( 
+CONTAINS(Lender_Account__r.Name,'National Funding'), 
+NOT(ISBLANK(NF_WC_Maturity_Date__c)),
+NOT(ISBLANK(Termination_Date__c)),
+NF_WC_Maturity_Date__c &lt;= Termination_Date__c
+)), 
+NF_WC_Maturity_Date__c+365,
+
+IF( 
+OR(
+AND(
+CONTAINS(Lender_Account__r.Name,'National Funding'),
+NOT(ISBLANK(Termination_Date__c)), 
+ISBLANK(NF_WC_Maturity_Date__c)
+),
+AND(
+CONTAINS(Lender_Account__r.Name,'National Funding'), 
+NOT(ISBLANK(NF_WC_Maturity_Date__c)),
+NOT(ISBLANK(Termination_Date__c)),
+NF_WC_Maturity_Date__c &gt; Termination_Date__c
+)),
+Termination_Date__c+365, 
+
+IF( 
+AND( 
+DATEVALUE(Fund_Date__c) &lt; DATEVALUE('2018-06-05'), 
+NOT(ISBLANK(Docs_Term__c)) 
+), 
+(DATEVALUE(Fund_Date__c) + (VALUE(Docs_Term__c) * (365/12)) + Lender_Account__r.Exclusivity_Period__c), 
+IF( 
+NOT( 
+OR( 
+ISBLANK(Docs_Term__c), 
+ISBLANK(TEXT(Docs_Payment_Frequency__c)) 
+)), 
+CASE( 
+Docs_Payment_Frequency__c, 
+'Daily', (DATEVALUE(Fund_Date__c) + ((VALUE(Docs_Term__c)/5)*7) + Lender_Account__r.Exclusivity_Period__c), 
+'Weekly', (DATEVALUE(Fund_Date__c) + (VALUE(Docs_Term__c)*(365/52)) + Lender_Account__r.Exclusivity_Period__c), 
+'Monthly', (DATEVALUE(Fund_Date__c) + (VALUE(Docs_Term__c)*(365/12)) + Lender_Account__r.Exclusivity_Period__c), 
+(DATEVALUE(Fund_Date__c) + (365/2) + Lender_Account__r.Exclusivity_Period__c) 
+), 
+
+(DATEVALUE(Fund_Date__c) + (365/2) + Lender_Account__r.Exclusivity_Period__c) 
+) 
+) 
+))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Exclusivity Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

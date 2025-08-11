@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SOS_Req__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>SOS (Secretary of State) filing is required in good standing - Status</description>
+    <inlineHelpText>Check box if SOS (Secretary of State) filing is required to be in good standing.</inlineHelpText>
+    <label>SOS Req</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

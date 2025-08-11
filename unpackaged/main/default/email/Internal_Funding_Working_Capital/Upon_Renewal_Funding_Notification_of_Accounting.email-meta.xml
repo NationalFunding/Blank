@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Upon an Internally Renewal funding a Merchant Oppty - Notify Accounting to Process Wire</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Naitonal_Funding_Standard_Letterhead_Stack</letterhead>
+    <name>Upon Renewal Funding - Notification of Accounting</name>
+    <style>freeForm</style>
+    <subject>{!Opportunity.Name} - Internal Renewal Funding</subject>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

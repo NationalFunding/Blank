@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Year_validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>NOT(ISNUMBER(Year__c))</errorConditionFormula>
+    <errorDisplayField>Year__c</errorDisplayField>
+    <errorMessage>Not a valid Year, please verify</errorMessage>
+</ValidationRule>

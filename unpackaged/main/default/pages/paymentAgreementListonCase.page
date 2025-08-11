@@ -1,0 +1,39 @@
+<!--
+- Created by aburdick on 05/01/2020.
+ -->
+<apex:page id="paymentAgreementListonCase" standardController="Case" extensions="paymentAgreementListonCaseController">
+    <apex:includeScript value="/support/console/26.0/integration.js"/>
+
+    <script type="text/javascript">
+
+    function openPrimaryTabCase(){
+       var href = event.currentTarget.href;
+       console.log(href); 
+       var arrayItem = href.split('.com/');
+       var endIndexOfSubstring = arrayItem[1].indexOf('/');
+       var id;
+       if (endIndexOfSubstring === -1) {
+            id = arrayItem[1];
+            console.log('this is href2: ' + id);
+       }
+       else {
+           id = arrayItem[1].substring(0, endIndexOfSubstring);
+           console.log('this is href: ' + id);
+           sforce.console.openPrimaryTab(undefined, '/' + id, true); 
+       }
+    }
+    </script>
+
+    <apex:pageBlock >
+        <apex:pageBlockTable value="{!listPaymentAgreements}" var="item">
+            <apex:column headerValue="Agreement Number"><apex:outputLink value="{!URLFOR($Action.Payment_Agreement__c.View, item.Id)}" onclick="openPrimaryTabCase(); return false;">{!item.Name}	</apex:outputLink> </apex:column>
+            <apex:column headerValue="Type" value="{!item.RecordType.Name}"/>   
+			<apex:column headerValue="Status" value="{!item.Status__c}"/>
+            <apex:column headerValue="Start Date" value="{!item.Start_Date__c}"/>
+            <apex:column headerValue="Resume Schedule" value="{!item.Resume_Original_Payment_Schedule__c}"/>           
+            <apex:column headerValue="Past Due Balance" value="{!item.Past_Due_Balance__c}"/>
+            <apex:column headerValue="Created Date" value="{!item.CreatedDate}"/>
+
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+</apex:page>

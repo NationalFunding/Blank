@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Time_to_Docs_Out_Hours__c</fullName>
+    <description>Value of 1 = Goal Met
+Value of 0 = Goal Not Met</description>
+    <externalId>false</externalId>
+    <formula>IF( 
+   AND( RecordTypeId = "01280000000BZvi",
+   ISPICKVAL(Document_Delivery_Method__c, "Email"),
+   (Docs_Out_Date__c -  Offer_In_Date__c) * (1440/60) &lt;1),
+   1,
+IF(
+   AND(RecordTypeId = "01280000000BZvi",
+   ISPICKVAL(Document_Delivery_Method__c, "Overnight"),
+   (Docs_Out_Date__c -  Offer_In_Date__c) * (1440/60) &lt;2),
+   1, 
+IF(
+   AND(RecordTypeId = "01280000000BZvi",
+   ISPICKVAL(Document_Delivery_Method__c, "2nd Day"),
+   (Docs_Out_Date__c -  Offer_In_Date__c) * (1440/60) &lt;2),
+   1, 
+IF(
+   AND(RecordTypeId = "01280000000BZvi",
+   ISPICKVAL(Document_Delivery_Method__c, "DocuSign"),
+   (Docs_Out_Date__c -  Offer_In_Date__c) * (1440/60) &lt;1),
+   1, 
+IF(
+   AND(RecordTypeId = "01280000000BZwl",
+   (Docs_Out_Date__c -  Offer_In_Date__c) * (1440/60) &lt;2),
+   1,
+IF(
+   AND(RecordTypeId = "01280000000BkKu",
+   (Docs_Out_Date__c -  Offer_In_Date__c) * (1440/60) &lt;2),
+   1,
+   0))))))</formula>
+    <inlineHelpText>Value of 1 = Goal Met
+Value of 0 = Goal Not Met</inlineHelpText>
+    <label>Time to Docs Out - Goal Met</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

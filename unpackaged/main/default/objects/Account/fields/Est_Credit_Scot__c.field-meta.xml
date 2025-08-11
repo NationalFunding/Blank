@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Est_Credit_Scot__c</fullName>
+    <description>Customer's self rated estimation of FICO score</description>
+    <inlineHelpText>Customer's self rated estimation of FICO score.  Select the range that applies</inlineHelpText>
+    <label>Est Credit Score</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Below 590</fullName>
+                <default>false</default>
+                <label>Below 590</label>
+            </value>
+            <value>
+                <fullName>Between 600-800</fullName>
+                <default>false</default>
+                <label>Between 600-800</label>
+            </value>
+            <value>
+                <fullName>Over 800</fullName>
+                <default>false</default>
+                <label>Over 800</label>
+            </value>
+            <value>
+                <fullName>Dont know</fullName>
+                <default>false</default>
+                <label>Dont know</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BIZ_busyrs__c</fullName>
+    <defaultValue>0</defaultValue>
+    <description>Calculated using the year started. If the year started is not available, use the SOS filing date, where the status is not inactive. If the filing date is not available use the age of the oldest account.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Years in business</inlineHelpText>
+    <label>Years in Business</label>
+    <precision>16</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

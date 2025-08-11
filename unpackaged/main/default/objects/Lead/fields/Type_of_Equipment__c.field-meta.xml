@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type_of_Equipment__c</fullName>
+    <description>This field on lead will capture the type of equipment that the customer would like to purchase.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This field on lead will capture the type of equipment that the customer would like to purchase.</inlineHelpText>
+    <label>Type of Equipment</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

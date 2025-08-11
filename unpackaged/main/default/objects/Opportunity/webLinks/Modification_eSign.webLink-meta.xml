@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Modification_eSign</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>600</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>Modification eSign</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>/apex/CM8ConsoleLauncher
+?sessionId={!API.Session_ID}
+&amp;serverUrl={!API.Partner_Server_URL_210}
+&amp;id={!Opportunity.Id}
+&amp;TemplateGroup={!IF( CONTAINS( Opportunity.Lender_Account__c , "National Funding"), "MaterialModificationNF",IF(CONTAINS( Opportunity.Lender_Account__c , "Quick Bridge"),"MaterialModificationQB", ""))}
+&amp;QueryId=[AInfo]a063400001BhgVg,[SG2]a063400001Bhgei,[G3G4]a063400001BhggA,[CRInfo]a063400001BhghI,[AT]a063400001BhhHu, [PrevOpp]a062T00001JPMeb, [Signor]a062T00001JPWRw, [G2]a062T00001JPb6t
+&amp;DS4=0
+&amp;DS7=0
+&amp;DS8=1
+&amp;SelectTemplates=1
+&amp;DefaultPdf=1
+&amp;LG3=1
+&amp;LG0=0
+&amp;LG4=1
+&amp;PS0=1
+&amp;PS1=1
+&amp;PS2=0
+&amp;AttachmentParentId={!Opportunity.Id}
+&amp;OFN={!Opportunity.Name}+-+{Template.Label}
+&amp;QVAR0ID=a063400001BhhMQ
+&amp;DV0={QVAR0}
+&amp;ESVisible=1
+&amp;ESAgreementTemplateId=a0c2T00000DlmEcQAJ</url>
+</WebLink>

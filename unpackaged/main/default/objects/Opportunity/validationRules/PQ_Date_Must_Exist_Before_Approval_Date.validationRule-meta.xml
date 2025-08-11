@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PQ_Date_Must_Exist_Before_Approval_Date</fullName>
+    <active>true</active>
+    <description>This validation will require a prequal date be present before an approval date can be entered. Does not apply to deals that were auto-declined and never entered the PreQual Stage.</description>
+    <errorConditionFormula>AND( 
+    OR(
+        ISPICKVAL( Type, "NEW"), 
+        ISPICKVAL(Type, "RENEWAL")
+    ),
+    ISBLANK(PreQual_Date__c),
+    ISBLANK(Syndication_Date__c),
+    ISPICKVAL(StageName, "Approved - MCA" ),
+    Record_Type_Name__c = 'Working Capital Oppty',
+    $Setup.ValidationRules__c.Bypass_Opportunity_Stage_Validations__c = false
+)</errorConditionFormula>
+    <errorMessage>The Prequal stage must be achieved prior to the approval stage.</errorMessage>
+</ValidationRule>

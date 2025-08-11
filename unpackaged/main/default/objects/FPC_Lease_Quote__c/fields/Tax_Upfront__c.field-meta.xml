@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tax_Upfront__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Tax treatment upfront</description>
+    <inlineHelpText>Check box if tax treatment is up front for the lease.</inlineHelpText>
+    <label>Tax Upfront</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

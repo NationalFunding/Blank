@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QUOTE_TIER__c</fullName>
+    <description>Credit tier associated with the lease quote.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Credit tier associated with the lease quote.</inlineHelpText>
+    <label>QUOTE_TIER</label>
+    <length>2</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

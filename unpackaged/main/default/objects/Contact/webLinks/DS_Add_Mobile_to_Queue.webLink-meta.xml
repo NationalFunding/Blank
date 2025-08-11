@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DS_Add_Mobile_to_Queue</fullName>
+    <availability>online</availability>
+    <displayType>massActionButton</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>DS Add Mobile to Queue</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>{!REQUIRESCRIPT("/soap/ajax/15.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/15.0/apex.js")}
+var uid = "{! $User.Id }";
+var oid = "{!Contact.Id}";
+var phn = "{!Contact.MobilePhone}";
+var result = sforce.apex.execute("DSPriorityQueue","ButtonSubmitCallBack",
+{sfdcUserId:uid, sfdcObjectId:oid, callBackNumber:phn, isGlobal:false});
+window.alert("Contact was Queued for DS Call.");</url>
+</WebLink>

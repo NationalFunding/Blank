@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Suspicious_Activity__c</fullName>
+    <description>Indicates if there was any type of suspicious activity related to the loan. Can select more than one.</description>
+    <label>Suspicious Activity</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Banks: banks altered in some way</fullName>
+                <default>false</default>
+                <label>Banks: banks altered in some way</label>
+            </value>
+            <value>
+                <fullName>Identity: synthetic or identity theft</fullName>
+                <default>false</default>
+                <label>Identity: synthetic or identity theft</label>
+            </value>
+            <value>
+                <fullName>Ownership: real business - wrong owner</fullName>
+                <default>false</default>
+                <label>Ownership: real business - wrong owner</label>
+            </value>
+            <value>
+                <fullName>Business: business is not real</fullName>
+                <default>false</default>
+                <label>Business: business is not real</label>
+            </value>
+            <value>
+                <fullName>Fraudulent Docs: non bank related</fullName>
+                <default>false</default>
+                <label>Fraudulent Docs: non bank related</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>5</visibleLines>
+</CustomField>

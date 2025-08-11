@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Broker_Renewal_Decline_Reason_is_Null</fullName>
+    <active>true</active>
+    <description>If the RT is Broker WC, the type is Renewal, and the stage is Closed, a reason must be provided</description>
+    <errorConditionFormula>(RecordType.Name = 'Broker WC Oppty' || RecordType.Name = 'Broker FRPSA') &amp;&amp; 
+(ISPICKVAL(Type, 'RENEWAL') || 
+	ISPICKVAL(Type, 'RENEWAL CONCURRENT') || 
+	ISPICKVAL(Type, 'CONCURRENT')) &amp;&amp; 
+ISPICKVAL(StageName, 'Declined') &amp;&amp; 
+ISBLANK(TEXT(Reason_Closed__c)) &amp;&amp;
+NOT(ISCHANGED(Adverse_Action_Letter_Sent__c)) &amp;&amp;
+$Setup.ValidationRules__c.Decline_Opportunity_No_Reason_Closed__c = FALSE</errorConditionFormula>
+    <errorDisplayField>Reason_Closed__c</errorDisplayField>
+    <errorMessage>You must enter a value for 'Reason Closed'</errorMessage>
+</ValidationRule>

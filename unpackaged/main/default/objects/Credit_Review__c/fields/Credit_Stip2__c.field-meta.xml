@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Credit_Stip2__c</fullName>
+    <label>Credit Stip2</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Address Verification</fullName>
+                <default>false</default>
+                <label>Address Verification</label>
+            </value>
+            <value>
+                <fullName>Discovery Call</fullName>
+                <default>false</default>
+                <label>Discovery Call</label>
+            </value>
+            <value>
+                <fullName>Full 6 Months Banks for &gt; $175k</fullName>
+                <default>false</default>
+                <label>Full 6 Months Banks for &gt; $175k</label>
+            </value>
+            <value>
+                <fullName>Full Statement</fullName>
+                <default>false</default>
+                <label>Full Statement</label>
+            </value>
+            <value>
+                <fullName>Landlord Reference</fullName>
+                <default>false</default>
+                <label>Landlord Reference</label>
+            </value>
+            <value>
+                <fullName>Lease Agreement</fullName>
+                <default>false</default>
+                <label>Lease Agreement</label>
+            </value>
+            <value>
+                <fullName>Legal Name Verification</fullName>
+                <default>false</default>
+                <label>Legal Name Verification</label>
+            </value>
+            <value>
+                <fullName>License Verification</fullName>
+                <default>false</default>
+                <label>License Verification</label>
+            </value>
+            <value>
+                <fullName>MTD - Inquiries</fullName>
+                <default>false</default>
+                <label>MTD - Inquiries</label>
+            </value>
+            <value>
+                <fullName>MTD - Low ending balance</fullName>
+                <default>false</default>
+                <label>MTD - Low ending balance</label>
+            </value>
+            <value>
+                <fullName>MTD Required Day of Funding</fullName>
+                <default>false</default>
+                <label>MTD Required Day of Funding</label>
+            </value>
+            <value>
+                <fullName>Official Bank Statement</fullName>
+                <default>false</default>
+                <label>Official Bank Statement</label>
+            </value>
+            <value>
+                <fullName>Ownership</fullName>
+                <default>false</default>
+                <label>Ownership</label>
+            </value>
+            <value>
+                <fullName>Phone Verification</fullName>
+                <default>false</default>
+                <label>Phone Verification</label>
+            </value>
+            <value>
+                <fullName>Proof Mortgage Current</fullName>
+                <default>false</default>
+                <label>Proof Mortgage Current</label>
+            </value>
+            <value>
+                <fullName>Proof of Fleet</fullName>
+                <default>false</default>
+                <label>Proof of Fleet</label>
+            </value>
+            <value>
+                <fullName>Public Record Payment Plans</fullName>
+                <default>false</default>
+                <label>Public Record Payment Plans</label>
+            </value>
+            <value>
+                <fullName>Site Inspection Required</fullName>
+                <default>false</default>
+                <label>Site Inspection Required</label>
+            </value>
+            <value>
+                <fullName>Tax Return</fullName>
+                <default>false</default>
+                <label>Tax Return</label>
+            </value>
+            <value>
+                <fullName>Tax Return for &gt;$175k</fullName>
+                <default>false</default>
+                <label>Tax Return for &gt;$175k</label>
+            </value>
+            <value>
+                <fullName>Tax Return for &gt;$300k – Renewal</fullName>
+                <default>false</default>
+                <label>Tax Return for &gt;$300k – Renewal</label>
+            </value>
+            <value>
+                <fullName>UCC Clarification</fullName>
+                <default>false</default>
+                <label>UCC Clarification</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

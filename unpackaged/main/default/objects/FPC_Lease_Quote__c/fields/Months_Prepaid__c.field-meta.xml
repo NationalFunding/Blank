@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Months_Prepaid__c</fullName>
+    <description>The number of months in which lease payments are prepaid for.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Type in the number of months in which lease payments have been prepaid for.</inlineHelpText>
+    <label>Months Prepaid</label>
+    <precision>2</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

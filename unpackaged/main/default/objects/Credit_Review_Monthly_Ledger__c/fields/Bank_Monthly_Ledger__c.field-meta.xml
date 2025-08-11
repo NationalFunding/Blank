@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bank_Monthly_Ledger__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>Bank Monthly Ledger</label>
+    <referenceTo>Bank_Monthly_Ledgers__c</referenceTo>
+    <relationshipLabel>Credit Review Monthly Ledgers</relationshipLabel>
+    <relationshipName>Credit_Review_Monthly_Ledgers</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

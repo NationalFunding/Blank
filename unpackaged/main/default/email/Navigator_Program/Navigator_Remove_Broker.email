@@ -1,0 +1,6 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="400" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; color:#000000; bEditID:r3st1; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[The following Broker has been removed from the Navigator Program:&nbsp;<div><br></div><div>Legal Name:&nbsp;{!Account.Legal_Name__c}</div><div>Salesforce Id:&nbsp;{!Account.AccountID18__c}</div><div>Quick Bridge Id:&nbsp;{!Account.Quick_Bridge_Broker_Id__c}</div><div><br></div><div>Thank you,</div><div><br></div><div>National Funding</div>]]></td>
+</tr>
+</table>

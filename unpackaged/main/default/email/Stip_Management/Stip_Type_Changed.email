@@ -1,0 +1,6 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="400" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[<table cellpadding="0" width="500" cellspacing="0" id="topTable" height="450" style="font-family: &quot;Times New Roman&quot;; background-color: rgb(255, 255, 255);"><tbody><tr valign="top"><td style="vertical-align: top; height: 0px;"></td></tr><tr valign="top"><td style="height: 0px;"></td></tr><tr valign="top"><td styleinsert="1" height="300" style="font-size: 12pt; font-family: arial;"><table border="0" cellpadding="5" width="550" cellspacing="5" height="400"><tbody><tr valign="top" height="400"><td teditid="c1r1" aeditid="c1r1" locked="0" id="c1r1" style="font-size: 12pt; border-width: 1px; border-color: rgb(0, 0, 255); border-style: dashed;">The Stip Type has changed to:&nbsp;<i>{!Stipulations__c.Stip_Type__c}&nbsp;</i>for the following Opportunity:&nbsp;<i>{!Stipulations__c.Oppty_Name__c}.</i><div><i><br></i></div><div>Link to the changed Stip:&nbsp;{!Stipulations__c.Link}&nbsp;</div></td></tr></tbody></table></td></tr></tbody></table>]]></td>
+</tr>
+</table>

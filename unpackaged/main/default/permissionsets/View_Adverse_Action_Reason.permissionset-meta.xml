@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Access to the field Adverse Action Reason on WC Credit Decision</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>View Adverse Action Reason</label>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>WC_Credit_Decision__c.Adverse_Action_Reason__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+</PermissionSet>

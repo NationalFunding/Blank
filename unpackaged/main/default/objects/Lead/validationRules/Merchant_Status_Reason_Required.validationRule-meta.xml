@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Merchant_Status_Reason_Required</fullName>
+    <active>true</active>
+    <description>This validation rule will require the field called Merchant Status Reason to be populated if the Status MCA field contains a value of Not Interested, Not Qualified or Marketing Scrub.</description>
+    <errorConditionFormula>ISCHANGED( Status_MCA__c )
+&amp;&amp;
+ISPICKVAL( Merchant_Status_Reason__c , "")
+&amp;&amp;
+(ISPICKVAL(Status_MCA__c, "Not Interested")
+||
+ISPICKVAL(Status_MCA__c, "Not Qualified")
+||
+ISPICKVAL(Status_MCA__c, "Marketing Scrub"))</errorConditionFormula>
+    <errorMessage>Please select a value from the Merchant Status Reason field.  Thank you.</errorMessage>
+</ValidationRule>

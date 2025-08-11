@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Do_Not_Mail__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Check box to halt mail to account.</description>
+    <inlineHelpText>Check box to halt mail to account.</inlineHelpText>
+    <label>Do Not Mail</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

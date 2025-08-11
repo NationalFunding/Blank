@@ -1,0 +1,11 @@
+<table height="400" width="550" cellpadding="5" border="0" cellspacing="5" >
+<tr height="400" valign="top" >
+<td style=" color:#000000; font-size:12pt; background-color:#FFFFFF; font-family:arial; bLabel:main; bEditID:r3st1;" tEditID="c1r1" locked="0" aEditID="c1r1" >
+<![CDATA[<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><font face="Arial, sans-serif">Hello {!Lead.FirstName},<br></font><span style="font-family: Arial, sans-serif; font-size: 12pt;"><br>I've been trying to reach you to discuss the application you
+have submitted through Lendio.&nbsp; Having helped
+businesses like yours for over 15 years,</span><span style="font-family: Arial, sans-serif; font-size: 12pt; color: red;">&nbsp;</span><span style="font-family: Arial, sans-serif; font-size: 12pt; line-height: 115%;"><span style="color: red;"><a href="http://www.nationalfunding.com/?utm_source=SF%20Emails&amp;utm_medium=Email&amp;utm_campaign=LendioFollowupEmail">National Funding</a></span></span><font color="#000099" style="font-family: Arial, sans-serif; font-size: 12pt;">&nbsp;</font><span style="font-family: Arial, sans-serif; font-size: 12pt;">understands that your time is
+valuable, so we won’t bother you with endless phone calls. &nbsp;</span><span style="font-family: Arial, sans-serif; font-size: 12pt;">We
+know you have a business to run, so when you have the time to discuss financing
+for your business, please contact me at the number below at your convenience.</span></p><p class="MsoNormal"><br><font face="Arial, sans-serif" size="3" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;">{!Lead.OwnerFullName} |&nbsp;</font><font face="Arial, sans-serif">{!Lead.OwnerTitle}</font><br><b style="color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 12pt;">National Funding<br></b><span style="color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 12pt;">{!Lead.OwnerEmail}<br></span><span style="color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 12pt;">{!Lead.OwnerPhone}</span></p>]]></td>
+</tr>
+</table>

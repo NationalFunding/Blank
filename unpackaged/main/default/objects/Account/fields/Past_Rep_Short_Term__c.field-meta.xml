@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Past_Rep_Short_Term__c</fullName>
+    <description>Field to specify short-term reassignments and who to return account ownership to. Visible only to system admin profile.</description>
+    <externalId>false</externalId>
+    <label>Past Rep Short Term</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

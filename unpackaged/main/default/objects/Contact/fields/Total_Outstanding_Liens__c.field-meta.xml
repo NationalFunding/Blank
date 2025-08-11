@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Outstanding_Liens__c</fullName>
+    <description>Total of all outstanding liens.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Type in the total of all outstanding liens against the contact.</inlineHelpText>
+    <label>Total Outstanding Liens</label>
+    <precision>8</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

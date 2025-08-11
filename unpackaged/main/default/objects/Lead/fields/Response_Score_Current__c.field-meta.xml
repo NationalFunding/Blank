@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Response_Score_Current__c</fullName>
+    <description>The current D&amp;B Marketing Model scores in the Salesforce database to make analysis of the database easier and also to lay the foundation for a potential prioritization of leads.</description>
+    <externalId>false</externalId>
+    <label>Response Score Current</label>
+    <precision>2</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

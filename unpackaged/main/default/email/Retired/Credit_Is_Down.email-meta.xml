@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Credit Is Down Notification</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Naitonal_Funding_Standard_Letterhead_Stack</letterhead>
+    <name>Credit Is Down</name>
+    <style>freeForm</style>
+    <subject>FPC Credit Has Not Processed a Request for 1 Hour</subject>
+    <textOnly>All signs point to credit being down.  Your attention is needed to correct the issue.
+
+Credit Score Link: {!Credit_Score__c.Link}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

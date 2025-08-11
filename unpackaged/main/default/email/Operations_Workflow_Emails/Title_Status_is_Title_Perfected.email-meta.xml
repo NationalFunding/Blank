@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Naitonal_Funding_Standard_Letterhead_Stack</letterhead>
+    <name>Title Status is Title Perfected</name>
+    <style>formalLetter</style>
+    <subject>Title Perfected</subject>
+    <textOnly>Hello {!Titling__c.Funder__c},
+
+The status on the Title record associated with {!Titling__c.Opportunity__c} has been updated to &apos;Title Perfected&apos;.
+
+{!Titling__c.Link}
+
+Thanks</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

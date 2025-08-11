@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lender_Account__c</fullName>
+    <description>This field will indicate the lender that is financing the piece of equipment.</description>
+    <externalId>false</externalId>
+    <formula>Opportunity__r.Lender_Account__r.Name</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>This field will indicate the lender that is financing the piece of equipment.</inlineHelpText>
+    <label>Lender Account</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

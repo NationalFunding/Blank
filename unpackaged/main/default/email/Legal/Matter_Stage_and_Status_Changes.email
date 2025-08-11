@@ -1,0 +1,6 @@
+{!advpm__Matter__c.Name}
+
+Status: {!advpm__Matter__c.advpm__Status__c}
+Stage: {!advpm__Matter__c.advpm__Stage__c}
+
+{!advpm__Matter__c.Link}

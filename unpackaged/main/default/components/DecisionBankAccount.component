@@ -1,0 +1,1209 @@
+<apex:component layout="none">
+<apex:attribute name="dateStart" description="String" type="String" />
+<apex:attribute name="dateEnd" description="String" type="String" />
+   <div class="panel panel-default mt10">
+   <div class="panel-heading default-panel">Bank Account Details</div>
+   <div class="panel-body"> 
+     <!-- Tabs Navigation starts-->
+     <ul class="nav nav-tabs" id="my-Tab-1" style="padding: 0px; background: #fff;">
+       <li class="active"><a data-toggle="tab" href="#Decision-Summary" >Summary</a> </li>
+       <li><a href="#Decision-Overeiw" data-toggle="tab">Account Overview</a> </li>
+       <!-- <li><a href="#Decision-Bank-America-Checking" data-toggle="tab">Bank of America Checking</a> </li>
+       <li><a href="#Decision-Saving" data-toggle="tab">Chase Saving</a> </li>-->
+     </ul>
+     <!-- Tabs Navigation Ends--> 
+     <!-- Tabs Content starts-->
+     <div class="tab-content"> 
+       <!-- Tabs Summary  content starts-->
+       <div class="tab-pane active" id="Decision-Summary" style="width:175%">
+         <div class="row">
+              <div class="col-md-3">
+                <div style=" margin-top:18px">
+                  <div class="col-md-8" style="line-height: 32px;">
+                    <label class="bank-label-head">Month</label>
+                    <br/>
+                    <label class="bank-label" style="font-size:13px">Beginning Balance($)</label>
+                    <br/>
+                    <label class="bank-label" style="font-size:13px">Deposits(#)</label>
+                    <br/>
+                    <label class="bank-label" style="font-size:13px">Counter Deposits($)</label>
+                    <br/>
+                    <label class="bank-label" style="font-size:13px">Other Deposits($)</label>
+                    <br/>
+                    <label class="bank-label" style="font-size:13px">Withdrawls($)</label>
+                    <br/>
+                    <label class="bank-label" style="font-size:13px">Ending Balance($)</label>
+                    <br/>
+                    <label class="bank-label" style="font-size:13px">Negative Days(#)</label>
+                    <br/>
+                    <label class="bank-label" style="font-size:13px">NSFs(#)</label>
+                    <br/>
+                    <label class="bank-label" style="font-size:13px">Avg Daily Balance($)</label>
+                    <br/>
+                  </div>
+                  <div class="col-md-4" style="line-height: 32px; text-align:right">
+                    <label class="bank-label-head">Average</label>
+                    <br/>
+                    <label class="summaryLabel1 bank-label"></label>
+                    <br/>
+                    <label class="summaryLabel2 bank-label"></label>
+                    <br/>
+                    <label class="summaryLabel3 bank-label"></label>
+                    <br/>
+                    <label class="summaryLabel4 bank-label"></label>
+                    <br/>
+                    <label class="summaryLabel5 bank-label"></label>
+                    <br/>
+                    <label class="summaryLabel6 bank-label"></label>
+                    <br/>
+                    <label class="summaryLabel7 bank-label"></label>
+                    <br/>
+                    <label class="summaryLabel8 bank-label"></label>
+                    <br/>
+                    <label class="summaryLabel9 bank-label"></label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-9">
+                <div style="width:450px; overflow-x:scroll; border:1px solid #CCC; margin-top:10px">
+                  <table class="table " id="" >
+                    <thead id="summaryHeader1">
+                    </thead>
+                    <tbody id="summaryBody1">
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+       </div>
+       <!-- Tabs Summary  content Ends--> 
+       <!-- Tabs Summary  Account Overveiw starts-->
+       <div class="tab-pane" id="Decision-Overeiw">
+        <div class="form-group">
+            <label class="control-label col-md-2" style="text-align: right; padding-right: 0; margin-top: 7px;">Summary Range</label>
+            <div class="col-md-4"><!-- date-picker input-daterange-->
+              <div class="input-group input-large" data-date-format="yyyy/mm">
+                <input type="text" class="form-control startDate" value="{!SUBSTITUTE(dateStart,'-','/')}"/>
+                <span class="input-group-addon"> - </span>
+                <input type="text" class="form-control endDate" value="{!SUBSTITUTE(dateEnd,'-','/')}" />
+              </div>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <div class="table-responsive">
+           <div style=" border:1px solid #CCC; margin-top:10px; width:140%">
+              <table class="table table-striped" id="" >
+                <thead>
+                  <tr>
+                    <th width="10%" style="font-size:12px"> Name </th>
+                    <th  style="font-size:12px;text-align:right"> Acct(#) </th>
+                    <th  style="font-size:12px;text-align:right"> Beginning Balance($) </th>
+                    <th  style="font-size:12px;text-align:right"> Deposits(#) </th>
+                    <th  style="font-size:12px;text-align:right"> Counter Deposits($) </th>
+                    <th  style="font-size:12px;text-align:right"> Other Deposits($) </th>
+                    <th  style="font-size:12px;text-align:right"> Withdrawals($) </th>
+                    <th  style="font-size:12px;text-align:right"> Ending Balance($) </th>
+                    <th  style="font-size:12px;text-align:right"> Negative Days(#) </th>
+                    <th  style="font-size:12px;text-align:right"> NSFs(#) </th>
+                    <th  style="font-size:12px;text-align:right"> Avg Daily Balance($) </th>
+                    <th  style="font-size:12px;width:11%"> Primary?</th>
+                  </tr>
+                </thead>
+                <tbody id="summary-tbody1">
+                  
+                </tbody>
+              </table>
+            </div>
+          </div>
+       </div>
+       <!-- Tabs Summary  Account Overveiw Ends--> 
+       
+       <!-- Tabs Summary  Bank America Checking Starts--> 
+       <!--<div class="tab-pane" id="Decision-Bank-America-Checking">
+         <div class="fa-border" style="margin-top:20px; margin-bottom:20px; width:175%;">
+           <div class="row " >
+             <div class="col-md-2">
+               <div style=" margin-top:10px">
+                 <div class="col-md-12">
+                   <label class="bank-label-head hidden">s</label>
+                   <br/>
+                   <label class=" bank-label"> Beginning Balance</label>
+                   <br/>
+                   <label class=" bank-label">Deposits</label>
+                   <br/>
+                   <label class=" bank-label">Counter Deposits</label>
+                   <br/>
+                   <label class=" bank-label"> Other Deposits</label>
+                   <br/>
+
+
+                   <label class=" bank-label"> With drawls</label>
+                   <br/>
+                   <label class=" bank-label"> Ending Balance</label>
+                   <br/>
+                   <label class=" bank-label"> Negative Days</label>
+                   <br/>
+                   <label class=" bank-label"> NSFs</label>
+                   <br/>
+                   <label class=" bank-label"> Avg Daily Balance</label>
+                   <br/>
+                 </div>
+               </div>
+             </div>
+             <div class="col-md-8">
+               <div class="row">
+                 <div class="col-md-2">
+                   <div style="width:100%; margin-top:10px">
+                     <table class="table table-bordered" id="" >
+                       <label class="bank-label-head">
+                         <input type="checkbox"/>
+                         Apr 2015</label>
+                       <tr>
+                         <td>dd</td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                     </table>
+                   </div>
+                 </div>
+                 <div class="col-md-2">
+                   <div style="width:100%; margin-top:10px">
+                     <table class="table table-bordered" id="" >
+                       <label class="bank-label-head">
+                         <input type="checkbox"/>
+                         Mar 2015</label>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                     </table>
+                   </div>
+                 </div>
+                 <div class="col-md-2">
+                   <div style="width:100%; margin-top:10px">
+                     <table class="table table-bordered" id="" >
+                       <label class="bank-label-head">
+                         <input type="checkbox"/>
+                         Feb 2015</label>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                     </table>
+                   </div>
+                 </div>
+                 <div class="col-md-2">
+                   <div style="width:100%; margin-top:10px">
+                     <table class="table table-bordered" id="" >
+                       <label class="bank-label-head">
+                         <input type="checkbox"/>
+                         Jan 2015</label>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                     </table>
+                   </div>
+                 </div>
+                 <div class="col-md-2">
+                   <div style="width:100%; margin-top:10px">
+                     <table class="table table-bordered" id="" >
+                       <label class="bank-label-head">
+                         <input type="checkbox"/>
+                         Dec. 2014</label>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                     </table>
+                   </div>
+                 </div>
+                 <div class="col-md-2">
+                   <div style="width:100%; margin-top:10px">
+                     <table class="table table-bordered" id="" >
+                       <label class="bank-label-head">
+                         <input type="checkbox"/>
+                         Nov. 2014</label>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                       <tr>
+                         <td></td>
+                       </tr>
+                     </table>
+                   </div>
+                 </div>
+               </div>
+             </div>
+             <div class="col-md-2">
+               <div style=" margin-top:10px">
+                 <div class="col-md-12">
+                   <label class="bank-label-head">Average</label>
+                   <br/>
+                   <label class=" bank-label">$10,000.00</label>
+                   <br/>
+                   <label class=" bank-label"> $1200.00</label>
+                   <br/>
+                   <label class=" bank-label">$0.00</label>
+                   <br/>
+                   <label class=" bank-label">$0.00</label>
+                   <br/>
+                   <label class=" bank-label">$2800.00</label>
+                   <br/>
+                   <label class=" bank-label"> $9000.00</label>
+                   <br/>
+                   <label class=" bank-label"> 0</label>
+                   <br/>
+                   <label class=" bank-label">0</label>
+                   <br/>
+                   <label class=" bank-label"> $9900 </label>
+                 </div>
+               </div>
+             </div>
+           </div>
+           <hr/>
+           <div class="clearfix"></div>
+           <div class="row">
+             <div class="col-md-2" style="margin-top:30%;">
+               <div class="col-md-10 mt10"> <a href="#" data-toggle="modal" class="btn btn-success"> <i class="fa fa-plus-circle fa-4x" style="  margin-top: 10px;"></i><br/>
+                 <span class="mt10">Add 1 Month</span> </a> </div>
+               <div class="col-md-10 mt10"> <a href="#" class="btn btn-default disabled"> <i class="fa fa-plus-circle fa-4x" style="  margin-top: 10px;"></i><br/>
+                 <span class="mt10">Add 6 Month</span> </a> </div>
+             </div>
+             <div class="col-md-8">
+               <div class="row">
+                 <div class="col-md-2">
+                   <div style="width:100%; margin-top:10px">
+                     <table class="table table-bordered-custom"  id="Bank-America-Checking" >
+                       <label class="bank-label-head">
+                         <input type="checkbox"/>
+                         Apr. 2015</label>
+                       <tr>
+                         <td width="10%" >1</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >2</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >3</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >4</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >5</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >6</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >7</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >8</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >9</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >10</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >11</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >12</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >13</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >14</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >15</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >16</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >17</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >18</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >19</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >20</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >21</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >22</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >23</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >24</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >25</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >26</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >27</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >28</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >29</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >30</td>
+                         <td width="90%"></td>
+                       </tr>
+                     </table>
+                   </div>
+                 </div>
+                 <div class="col-md-2">
+                   <div style="width:100%; margin-top:10px">
+                     <table class="table table-bordered-custom"  id="Bank-America-Checking" >
+                       <label class="bank-label-head">
+                         <input type="checkbox"/>
+                         Mar 2015</label>
+                       <tr>
+                         <td width="10%" >1</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >2</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >3</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >4</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >5</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >6</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >7</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >8</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >9</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >10</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >11</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >12</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >13</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >14</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >15</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >16</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >17</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >18</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >19</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >20</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >21</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >22</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >23</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >24</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >25</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >26</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >27</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >28</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >29</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >30</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >31</td>
+                         <td width="90%"></td>
+                       </tr>
+                     </table>
+                   </div>
+                 </div>
+                 <div class="col-md-2">
+                   <div style="width:100%; margin-top:10px">
+                     <table class="table table-bordered-custom"  id="Bank-America-Checking" >
+                       <label class="bank-label-head">
+                         <input type="checkbox"/>
+                         Feb. 2015</label>
+                       <tr>
+                         <td width="10%" >1</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >2</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >3</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >4</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >5</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >6</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >7</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >8</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >9</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >10</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >11</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >12</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >13</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >14</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >15</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >16</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >17</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >18</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >19</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >20</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >21</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >22</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >23</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >24</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >25</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >26</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >27</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >28</td>
+                         <td width="90%"></td>
+                       </tr>
+                     </table>
+                   </div>
+                 </div>
+                 <div class="col-md-2">
+                   <div style="width:100%; margin-top:10px">
+                     <table class="table table-bordered-custom"  id="Bank-America-Checking" >
+                       <label class="bank-label-head">
+                         <input type="checkbox"/>
+                         Jan 2015</label>
+                       <tr>
+                         <td width="10%" >1</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >2</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >3</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >4</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >5</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >6</td>
+                         <td width="90%"></td>
+                       </tr>
+
+                       <tr>
+                         <td width="10%" >7</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >8</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >9</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >10</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >11</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >12</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >13</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >14</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >15</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >16</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >17</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >18</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >19</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >20</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >21</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >22</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >23</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >24</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >25</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >26</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >27</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >28</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >29</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >30</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >31</td>
+                         <td width="90%"></td>
+                       </tr>
+                     </table>
+                   </div>
+                 </div>
+                 <div class="col-md-2">
+                   <div style="width:100%; margin-top:10px">
+                     <table class="table table-bordered-custom"  id="Bank-America-Checking" >
+                       <label class="bank-label-head">
+                         <input type="checkbox"/>
+                         Dec. 2014</label>
+                       <tr>
+                         <td width="10%" >1</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >2</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >3</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >4</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >5</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >6</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >7</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >8</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >9</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >10</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >11</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >12</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >13</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >14</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >15</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >16</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >17</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >18</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >19</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >20</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >21</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >22</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >23</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >24</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >25</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >26</td>
+                         <td width="90%"></td>
+
+                       </tr>
+                       <tr>
+                         <td width="10%" >27</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >28</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >29</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >30</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >31</td>
+                         <td width="90%"></td>
+                       </tr>
+                     </table>
+                   </div>
+                 </div>
+                 <div class="col-md-2">
+                   <div style="width:100%; margin-top:10px">
+                     <table class="table table-bordered-custom"  id="Bank-America-Checking" >
+                       <label class="bank-label-head">
+                         <input type="checkbox"/>
+                         Nov. 2014</label>
+                       <tr>
+                         <td width="10%" >1</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >2</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >3</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >4</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >5</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >6</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >7</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >8</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >9</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >10</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >11</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >12</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >13</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >14</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >15</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >16</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >17</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >18</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >19</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >20</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >21</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >22</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >23</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >24</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >25</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >26</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >27</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >28</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >29</td>
+                         <td width="90%"></td>
+                       </tr>
+                       <tr>
+                         <td width="10%" >30</td>
+                         <td width="90%"></td>
+                       </tr>
+                     </table>
+                   </div>
+                 </div>
+               </div>
+             </div>
+             <div class="col-md-2" style="margin-top:30%;">
+               <div class="col-md-10 mt10 " > <a class="btn btn-success "> <i class="fa fa-plus-circle fa-4x" style="  margin-top: 10px;"></i><br/>
+                 <span class="mt10">Add 1 Month</span> </a> </div>
+               <div class="col-md-10 mt10 " > <a class="btn btn-success "> <i class="fa fa-plus-circle fa-4x" style="  margin-top: 10px;"></i><br/>
+                 <span class="mt10">Add 6 Month</span> </a> </div>
+             </div>
+           </div>
+         </div>
+         <div  style="text-align:center; margin-bottom:20px;"> <a href="#" class="btn btn-danger" >Cancel Changes</a> <a class="btn btn-success" href="#bankmodal" data-toggle="modal" >Save Changes</a> </div>
+       </div>--> 
+       <!-- Tabs Summary  Bank America Checking Ends--> 
+       
+       <!--<div class="tab-pane" id="Decision-Saving">Settings...</div>--> 
+     </div>
+     <!-- Tabs Content Ends--> 
+   </div>
+ </div>
+</apex:component>

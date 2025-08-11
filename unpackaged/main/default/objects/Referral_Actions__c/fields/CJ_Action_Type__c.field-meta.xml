@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CJ_Action_Type__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(ISPICKVAL(Action_Type__c, 'Lead Created'), '401551', 
+IF(ISPICKVAL(Action_Type__c, 'CJ Lead Qualified'), '401552',
+IF(ISPICKVAL(Action_Type__c, 'Credit Sub'), '401553',
+IF(ISPICKVAL(Action_Type__c, 'Approved'), '401554',
+IF(ISPICKVAL(Action_Type__c, 'Funded'), '401555', '')))))</formula>
+    <label>CJ Action Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

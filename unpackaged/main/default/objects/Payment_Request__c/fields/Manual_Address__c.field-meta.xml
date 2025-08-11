@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Manual_Address__c</fullName>
+    <defaultValue>false</defaultValue>
+    <inlineHelpText>If the address associated to the Payable To Account is not correct, check this box to indicate that an address will be entered manually in the fields below.</inlineHelpText>
+    <label>Manually Enter Address</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

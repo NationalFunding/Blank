@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Equipment_Notes__c</fullName>
+    <description>Notes about the processing equipment.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Type in any notes about the processing equipment.</inlineHelpText>
+    <label>Equipment Notes</label>
+    <length>16</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

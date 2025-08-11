@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank</letterhead>
+    <name>MOD approval - 2 review MOD</name>
+    <style>freeForm</style>
+    <subject>{!Case.Merchant_Number__c} - {!Account.Legal_Name__c}</subject>
+    <textOnly>Dear {!Case.Contact},
+
+We have good news regarding your modification request due to COVID-19. We were able to resubmit your modification request and have received the following approval:
+
+We have received approval to stop the payments through . Payments are due to resume 4/16.
+
+We wish you and your family the best during this difficult time. Visit our site for updates and support for our customers: {!Case.Email_Website_Address__c}
+
+We also encourage you to reach out to your banking partner for immediate assistance with loans administered by the SBA.
+
+
+Sincerely,
+
+Loan Modification Team
+
+{!Case.Email_Signature_Company__c}
+9820 Towne Centre Drive
+San Diego, CA 92121</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

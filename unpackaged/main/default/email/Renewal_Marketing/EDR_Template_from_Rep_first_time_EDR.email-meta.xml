@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Naitonal_Funding_Standard_Letterhead_Stack</letterhead>
+    <name>1. EDR Template from Rep – first time EDR</name>
+    <style>freeForm</style>
+    <subject>National Funding Update</subject>
+    <textOnly>Hi {!Contact.FirstName},
+
+We appreciate your business and wanted to let you know you are currently ____% paid in on your funding with National Funding. Due to your positive payment history, you are eligible for our Renewal Program!
+
+
+
+To secure additional funding for your business, please provide the following information:
+
+
+Last 6 months of your business bank statements
+Signed application (sent to you electronically for e-signature)
+
+
+Please feel free to contact me with any questions regarding your account.
+
+
+Thank you,
+
+{!User.Name}
+
+{!User.Name}
+{!User.Title}
+www.nationalfunding.com
+P: {!User.Phone} | F: {!User.Fax}
+Email: {!User.Email}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

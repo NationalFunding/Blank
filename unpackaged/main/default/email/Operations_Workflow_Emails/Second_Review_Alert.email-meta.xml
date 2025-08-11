@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Second Review Alert</name>
+    <style>none</style>
+    <subject>2nd Review Alert - [{!IF(Credit_Review__c.Deal_Origination__c=&quot;Broker_WC_Oppty&quot;,&quot;Broker&quot;, &quot;Direct&quot;)}] - {!Credit_Review__c.Oppty_Legal_Name__c}</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

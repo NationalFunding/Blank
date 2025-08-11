@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Marketing_Scrub__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field will indicate if a record is no longer viable due to contact information being incorrect.</description>
+    <inlineHelpText>This field will indicate if a record is no longer viable due to contact information being incorrect.</inlineHelpText>
+    <label>Marketing Scrub</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

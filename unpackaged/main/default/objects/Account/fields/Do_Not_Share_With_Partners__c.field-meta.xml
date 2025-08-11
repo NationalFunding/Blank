@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Do_Not_Share_With_Partners__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>If this field is checked, the customer has indicated that they do not want to have their information shared for joint marketing efforts with our partners.</description>
+    <inlineHelpText>If this field is checked, the customer has indicated that they do not want to have their information shared for joint marketing efforts with our partners.</inlineHelpText>
+    <label>Do Not Share With Partners</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

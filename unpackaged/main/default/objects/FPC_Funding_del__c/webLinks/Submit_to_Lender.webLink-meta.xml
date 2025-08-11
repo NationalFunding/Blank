@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Submit_to_Lender</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Submit to Lender</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>/flow/Funding_Send_to_Lender_via_API_Manual?inputFundingId={!FPC_Funding_del__c.CaseSafeId__c}&amp;retURL=/{!FPC_Funding_del__c.CaseSafeId__c}</url>
+</WebLink>

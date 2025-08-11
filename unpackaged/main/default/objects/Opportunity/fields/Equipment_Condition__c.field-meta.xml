@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Equipment_Condition__c</fullName>
+    <description>This field will indicate if a piece(s) of equipment is new or used.</description>
+    <inlineHelpText>Indicate if the equipment that the customer is financing is new, used or both by selecting the best option in the pick list.</inlineHelpText>
+    <label>Equipment Condition</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>New</fullName>
+                <default>false</default>
+                <label>New</label>
+            </value>
+            <value>
+                <fullName>Used</fullName>
+                <default>false</default>
+                <label>Used</label>
+            </value>
+            <value>
+                <fullName>Both</fullName>
+                <default>false</default>
+                <label>Both</label>
+            </value>
+            <value>
+                <fullName>Both New &amp; Used</fullName>
+                <default>false</default>
+                <label>Both New &amp; Used</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

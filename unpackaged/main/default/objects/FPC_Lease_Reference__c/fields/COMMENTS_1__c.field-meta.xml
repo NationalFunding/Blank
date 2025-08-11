@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>COMMENTS_1__c</fullName>
+    <description>Comments about customer's bank reference.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Type in comments about the customer's bank reference.</inlineHelpText>
+    <label>COMMENTS_1</label>
+    <length>16</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

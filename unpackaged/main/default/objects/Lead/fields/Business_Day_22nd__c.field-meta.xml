@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Business_Day_22nd__c</fullName>
+    <formula>CASE( MOD( Rep_Ownership_Date__c - DATE( 1900, 1, 7 ), 7 ), 
+0, Rep_Ownership_Date__c + 0 + 5 + 2 + 5 + 2 + 5 + 2 + 5 + 2 + 2, 
+2, Rep_Ownership_Date__c + 3 + 2 + 5 + 2 + 5 + 2 + 5 + 2 + 4, 
+3, Rep_Ownership_Date__c + 2 + 2 + 5 + 2 + 5 + 2 + 5 + 2 + 5, 
+4, Rep_Ownership_Date__c + 1 + 2 + 5 + 2 + 5 + 2 + 5 + 2 + 5 + 2 + 1, 
+5, Rep_Ownership_Date__c + 2 + 5 + 2 + 5 + 2 + 5 + 2 + 5 + 2 + 2, 
+6, Rep_Ownership_Date__c + 1 + 5 + 2 + 5 + 2 + 5 + 2 + 5 + 2 + 3, 
+Rep_Ownership_Date__c + 4 + 2 + 5 + 2 + 5 + 2 + 5 + 2 + 3 
+)</formula>
+    <label>Business Day (22nd)</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

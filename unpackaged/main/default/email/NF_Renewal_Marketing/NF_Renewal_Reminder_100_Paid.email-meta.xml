@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Reminder: You are still eligible for additional cash.</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>NF - Renewal Reminder (100% Paid)</name>
+    <style>none</style>
+    <subject>Reminder: You are still eligible for additional cash.</subject>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

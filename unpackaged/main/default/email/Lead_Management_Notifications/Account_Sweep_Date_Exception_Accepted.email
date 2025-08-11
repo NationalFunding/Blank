@@ -1,0 +1,7 @@
+The sweep date exception for {!Account.Name} has been accepted.  30 Days have been added to the sweep date. 
+
+{!Account.Link}
+
+New Salesforce Console: https://nf.my.salesforce.com/console#%2F{!Account.Id}
+
+Good luck!

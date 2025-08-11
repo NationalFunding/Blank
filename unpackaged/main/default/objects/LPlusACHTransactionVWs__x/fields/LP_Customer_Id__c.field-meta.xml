@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LP_Customer_Id__c</fullName>
+    <externalDeveloperName>achtrn_cust_num</externalDeveloperName>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>Lease Plus Customer</label>
+    <length>128</length>
+    <referenceTo>CVLeaseCustomerVWs__x</referenceTo>
+    <relationshipLabel>LP ACH Current Setup</relationshipLabel>
+    <relationshipName>LPlusACHTransactionVWs</relationshipName>
+    <type>ExternalLookup</type>
+</CustomField>

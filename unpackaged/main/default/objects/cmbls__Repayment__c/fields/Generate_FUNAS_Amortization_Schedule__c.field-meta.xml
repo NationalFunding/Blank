@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Generate_FUNAS_Amortization_Schedule__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>If checked, a batch job will pull the record and it will run Funas Amortization.</description>
+    <inlineHelpText>If checked, a batch job will pull the record and it will run Funas Amortization.</inlineHelpText>
+    <label>Generate FUNAS Amortization Schedule</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

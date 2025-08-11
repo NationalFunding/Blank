@@ -1,0 +1,16 @@
+Hi,
+
+The Stage of this Opportunity has been changed to 'Offer In -Lease' for: {!Opportunity.Link}
+
+New Salesforce Console: https://na29.salesforce.com/console#%2F{!Opportunity.Id}
+
+Please proceed with documentation.
+
+Document Delivery Method: {!Opportunity.Document_Delivery_Method__c}
+
+Goals - 
+Email Documents - 1 Hour
+Overnight Documents - 2 Hours
+
+
+Thank You.

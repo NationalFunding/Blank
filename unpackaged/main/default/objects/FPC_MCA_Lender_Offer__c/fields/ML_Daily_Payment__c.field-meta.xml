@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ML_Daily_Payment__c</fullName>
+    <description>This field indicates the daily payment in a Merchant Loan</description>
+    <inlineHelpText>Type in the daily payment amount for the Merchant Loan.</inlineHelpText>
+    <label>ML Daily Payment</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

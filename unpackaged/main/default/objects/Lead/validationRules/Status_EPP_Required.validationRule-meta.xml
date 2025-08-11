@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status_EPP_Required</fullName>
+    <active>false</active>
+    <description>This rule requires that a product status is required prior to saving the lead record. This rule is specific to the EPP product status.</description>
+    <errorConditionFormula>OR(
+   And(
+             ISBLANK( FPC_Rep_EPP__c ),NOT(ISBLANK(TEXT( Status_EPP__c )))),
+  AND(
+             NOT(ISBLANK(FPC_Rep_EPP__c)),ISBLANK(TEXT(Status_EPP__c))))</errorConditionFormula>
+    <errorMessage>If FPC Rep EPP is populated the Status EPP is required.</errorMessage>
+</ValidationRule>

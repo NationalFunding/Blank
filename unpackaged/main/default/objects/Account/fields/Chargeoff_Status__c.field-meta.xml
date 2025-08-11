@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Chargeoff_Status__c</fullName>
+    <description>Status of Probable Chargeoff - populated by Collections users</description>
+    <label>Chargeoff Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Chargeoff_Status</valueSetName>
+    </valueSet>
+</CustomField>

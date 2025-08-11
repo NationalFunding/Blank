@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SPLIT_POINTS_LOW__c</fullName>
+    <description>Split points low.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Split points low.</inlineHelpText>
+    <label>SPLIT POINTS LOW</label>
+    <length>4</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

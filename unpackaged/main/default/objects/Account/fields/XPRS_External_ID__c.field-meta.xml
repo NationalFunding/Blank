@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>XPRS_External_ID__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>NFXPRS external ID for migrated accounts from MoneyJet/XPRS. Originally implemented to import accounts for loan servicing/customer service</description>
+    <externalId>true</externalId>
+    <label>XPRS External ID</label>
+    <length>26</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

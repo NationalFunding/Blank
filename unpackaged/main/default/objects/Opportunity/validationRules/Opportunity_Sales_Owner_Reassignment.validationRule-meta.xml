@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opportunity_Sales_Owner_Reassignment</fullName>
+    <active>true</active>
+    <description>This rule will not allow a Sales User to reassign record to another user except House Account.</description>
+    <errorConditionFormula>AND(
+OR(
+$UserRole.DeveloperName = "WC_Sales_User",
+$UserRole.DeveloperName = "Renewal_Sales"
+), $Setup.ValidationRules__c.Transfer_Opportunities__c =FALSE, 
+ISCHANGED(OwnerId),
+ Owner.Full_Name__c  &lt;&gt; "House Account")</errorConditionFormula>
+    <errorMessage>You cannot reassign Opportunity to another user.</errorMessage>
+</ValidationRule>

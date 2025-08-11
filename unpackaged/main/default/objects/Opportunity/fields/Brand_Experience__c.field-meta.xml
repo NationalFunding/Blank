@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Brand_Experience__c</fullName>
+    <description>Introduced as part of the Quick Bridge to National Funding migration project to capture which brand experience this opportunity relates to. This field should control which DFP experience the guarantors see when loading the opportunity. This field is used in conjunction with DFP Token - Brand Experience to present the correct opportunity for the payload being used.</description>
+    <inlineHelpText>Displays which brand the guarantor sees when loading the DFP</inlineHelpText>
+    <label>Brand Experience</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Originating_Brand</valueSetName>
+    </valueSet>
+</CustomField>

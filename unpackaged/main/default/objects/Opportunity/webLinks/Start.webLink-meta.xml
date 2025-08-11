@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Start</fullName>
+    <availability>online</availability>
+    <description>launches Credit Transformation Process</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Start</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>/flow/CRC_1_UILayer?inputOpptyId={!Opportunity.Id}&amp;inputCreditAnalyst={!Opportunity.Internal_Credit_AnalystId__c}&amp;inputStmtsInDate=TRUE&amp;RetURL=/{!Opportunity.Id}</url>
+</WebLink>

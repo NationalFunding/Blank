@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Oppty_Stage_Restrictions_Merchant_Sales</fullName>
+    <active>true</active>
+    <description>This rule will prohibit any sales user from changing an opportunity stage to a restricted value.</description>
+    <errorConditionFormula>AND( 
+ISCHANGED(StageName), 
+OR( 
+$UserRole.DeveloperName = 'WC_Sales_User', 
+$UserRole.DeveloperName = 'WCSalesTeamMgr', 
+$UserRole.DeveloperName = 'Broker_Relations_Manager',
+$UserRole.DeveloperName = 'WC_Sales_User', 
+$UserRole.DeveloperName = 'Renewal_Sales',
+$UserRole.DeveloperName = 'Renewal_Sales_Manager'  
+), 
+OR( 
+OR( 
+ISPICKVAL(StageName, 'Approved - MCA'), 
+ISPICKVAL(StageName, 'Submission - MCA/ALT'), 
+ISPICKVAL(StageName, 'Conversion'), 
+ISPICKVAL(StageName, 'Funded'), 
+ISPICKVAL(StageName, 'Declined'), 
+ISPICKVAL(StageName, 'Internal Decline'), 
+ISPICKVAL(StageName, 'NF Decline'), 
+ISPICKVAL(StageName, 'Resubmit'), 
+ISPICKVAL(StageName, 'Syndication'), 
+ISPICKVAL(StageName, 'NF Withdrawn'), 
+ISPICKVAL(StageName, 'Re-Review') 
+), 
+AND( 
+OR( 
+ISPICKVAL(PRIORVALUE(StageName), 'NF Decline'), 
+ISPICKVAL(PRIORVALUE(StageName), 'Internal Decline'), 
+ISPICKVAL(PRIORVALUE(StageName), 'Pre-Qual MCA') 
+), 
+NOT( 
+OR( 
+ISPICKVAL(StageName, 'Desktop Decline'), 
+ISPICKVAL(StageName, 'Offer(s) Not Accepted'),
+ISPICKVAL(StageName, 'Re-Process')
+)) 
+) 
+))</errorConditionFormula>
+    <errorMessage>Sales may not change the opportunity to the Stage selected. Please try again or contact Operations for more information.</errorMessage>
+</ValidationRule>

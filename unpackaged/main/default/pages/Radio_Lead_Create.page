@@ -1,0 +1,4 @@
+<apex:page standardController="Lead" sidebar="false">
+<apex:pageBlock title="Create A Radio Lead"></apex:pageBlock>
+<flow:interview name="Radio_Lead_Create" finishLocation="{!$Page.gotoLastCreatedLead}"/>  
+</apex:page>

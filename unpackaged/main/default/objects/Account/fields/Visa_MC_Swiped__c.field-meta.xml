@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Visa_MC_Swiped__c</fullName>
+    <description>The percentage of time that a credit card is physically swiped by merchant.</description>
+    <inlineHelpText>Enter the percentage of time that a credit card is physically swiped by merchant.</inlineHelpText>
+    <label>Visa/MC Swiped</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Percent</type>
+</CustomField>

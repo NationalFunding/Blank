@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank</letterhead>
+    <name>Auto - Settlement Email No. 2 FRPSA</name>
+    <style>freeForm</style>
+    <subject>Settlement Option - Account No. {!advpm__Matter__c.Loan_Number__c}</subject>
+    <textOnly>To {!Contact.FirstName},
+
+We recently sent you an email regarding your defaulted account.  We have not received a response so we wanted to reach out again to provide you with a settlement offer prior to incurring additional fees.  The current amount due on your account is {!advpm__Matter__c.Total_Amount_Charged_Off__c}.  At this time we are able to offer you the following monthly payment plan on the remaining balance:
+
+- Six (6) monthly payments of {!advpm__Matter__c.Settlement_Offer_6_Months__c}
+
+If you wish to take advantage of this payment plan, please reach out to us to set up.  If you are unable to pay the above settlement amount, but still want to resolve and avoid possible litigation, please reach out to us via phone or email.
+Thank you,
+
+{!advpm__Matter__c.Lead_Attorney_Name__c} | {!advpm__Matter__c.Lead_Attorney_Title__c}
+
+National Funding, Inc., the parent and servicing company of
+Quick Bridge Funding, LLC
+{!$Setup.Company_Information__c.Street__c}
+{!$Setup.Company_Information__c.City__c}, {!$Setup.Company_Information__c.State__c} {!$Setup.Company_Information__c.Zip__c}
+P: {!advpm__Matter__c.Lead_Attorney_Phone__c}
+E: {!advpm__Matter__c.Lead_Attorney_Email__c}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

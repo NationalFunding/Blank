@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tax_Treatment__c</fullName>
+    <description>Tax treatment for an opporunity</description>
+    <inlineHelpText>Pick the tax treatment for the opportunity</inlineHelpText>
+    <label>Tax Treatment</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>EFA</fullName>
+                <default>false</default>
+                <label>EFA</label>
+            </value>
+            <value>
+                <fullName>No Tax</fullName>
+                <default>false</default>
+                <label>No Tax</label>
+            </value>
+            <value>
+                <fullName>Tax Exempt</fullName>
+                <default>false</default>
+                <label>Tax Exempt</label>
+            </value>
+            <value>
+                <fullName>Tax on the Stream</fullName>
+                <default>false</default>
+                <label>Tax on the Stream</label>
+            </value>
+            <value>
+                <fullName>Tax Upfront</fullName>
+                <default>false</default>
+                <label>Tax Upfront</label>
+            </value>
+            <value>
+                <fullName>Tax Upfront on Gross Receipts</fullName>
+                <default>false</default>
+                <label>Tax Upfront on Gross Receipts</label>
+            </value>
+            <value>
+                <fullName>Tax Upfront/Stream</fullName>
+                <default>false</default>
+                <label>Tax Upfront/Stream</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

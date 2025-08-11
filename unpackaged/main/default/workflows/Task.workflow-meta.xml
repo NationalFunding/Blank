@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Loan_Modification_Questionnaire_Complete_Alert_Case_Owner</fullName>
+        <description>Loan Modification Questionnaire Complete - Alert Case Owner</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Collections_Email_Alerts/Collections_Cases_Loan_Modification_DLP_Alert</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Activity_Comments_Field_Update</fullName>
+        <field>Comments__c</field>
+        <formula>LEFT(Description,255)</formula>
+        <name>Activity Comments - Field Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Date_Activity_Logged_Rule</fullName>
+        <description>Captures the 'Last Modified date.'</description>
+        <field>Date_Activity_Logged__c</field>
+        <formula>NOW()</formula>
+        <name>Date Activity Logged Rule</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Completed_By</fullName>
+        <field>Completed_By__c</field>
+        <formula>LastModifiedBy.Full_Name__c</formula>
+        <name>Update Completed By</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <flowActions>
+        <fullName>Task_FT_Upon_Completed_Task</fullName>
+        <flow>Task_Complete_Update_Call_Count_V1_0</flow>
+        <flowInputs>
+            <name>inputTaskId</name>
+            <value>{!Id}</value>
+        </flowInputs>
+        <label>Task - FT Upon Completed Task</label>
+        <language>en_US</language>
+        <protected>false</protected>
+    </flowActions>
+    <rules>
+        <fullName>Backfill Comments</fullName>
+        <actions>
+            <name>Activity_Comments_Field_Update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Task.Trigger_Workflow__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Date Activity Logged Update</fullName>
+        <actions>
+            <name>Date_Activity_Logged_Rule</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Completed_By</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Captures the First 'Last Modified Date' in the Activity History.</description>
+        <formula>And(ISPICKVAL(Status, "Completed"))</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Flow Task - Upon Completed Call</fullName>
+        <actions>
+            <name>Task_FT_Upon_Completed_Task</name>
+            <type>FlowAction</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Task.Status</field>
+            <operation>equals</operation>
+            <value>Completed</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Task.Subject</field>
+            <operation>notEqual</operation>
+            <value>Web Visitor Information Supplied by Daddy Analytics</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Comments Truncated</fullName>
+        <actions>
+            <name>Activity_Comments_Field_Update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Triggers when an activity is created and any time it is edited. Populates the custom field Comments with the first 255 characters of the standard Comments field.</description>
+        <formula>OR( ISNEW(), ISCHANGED(Description) )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

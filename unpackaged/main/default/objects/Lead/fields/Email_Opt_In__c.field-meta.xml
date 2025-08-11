@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Email_Opt_In__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field captures if a customer would like to be included in email newsletters.  This field captures information from the web to lead forms.</description>
+    <inlineHelpText>This field captures if a customer would like to be included in email newsletters.  This field captures information from the web to lead forms.</inlineHelpText>
+    <label>Email Opt In</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

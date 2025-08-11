@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Last_Card_Search_Date__c</fullName>
+    <description>This field will capture the date of the last time a card search was performed on a record.</description>
+    <inlineHelpText>This field will capture the date of the last time a card search was performed on a record.</inlineHelpText>
+    <label>Last Card Search Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

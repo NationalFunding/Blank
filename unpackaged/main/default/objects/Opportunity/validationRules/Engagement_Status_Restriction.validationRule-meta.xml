@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Engagement_Status_Restriction</fullName>
+    <active>true</active>
+    <description>Users cannot change 'Engagement Status' to "No Contact", once out of that value</description>
+    <errorConditionFormula>AND(
+    ISCHANGED(Engagement_Status__c),
+    ISPICKVAL(Engagement_Status__c, "No Contact"),
+    OR(
+        TEXT(PRIORVALUE(Engagement_Status__c)) = "Program Issues",
+        TEXT(PRIORVALUE(Engagement_Status__c)) = "No Need Yet - Cold",
+        TEXT(PRIORVALUE(Engagement_Status__c)) = "No Need Yet - Warm",
+        TEXT(PRIORVALUE(Engagement_Status__c)) = "Interested"
+    )
+)</errorConditionFormula>
+    <errorMessage>You cannot change the Engagement Status back to "No Contact"</errorMessage>
+</ValidationRule>

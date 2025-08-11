@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Visa_MC_Internet__c</fullName>
+    <description>The percentage of time that a credit card is processed over the internet.</description>
+    <inlineHelpText>Enter the percentage of time that a credit card is processed over the internet.</inlineHelpText>
+    <label>Visa/MC Internet</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Percent</type>
+</CustomField>

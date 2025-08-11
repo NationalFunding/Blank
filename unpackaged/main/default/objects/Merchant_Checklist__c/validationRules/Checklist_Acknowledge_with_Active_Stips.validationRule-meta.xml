@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Checklist_Acknowledge_with_Active_Stips</fullName>
+    <active>true</active>
+    <description>The field Merchant_Checklist_Acknowledged__c can not be set to True if there are still active Stips.</description>
+    <errorConditionFormula>Merchant_Checklist_Acknowledged__c = TRUE &amp;&amp;
+Opportunity__r.Funding_Record__r.Stips_to_Clear__c &gt; 0 &amp;&amp;
+CONTAINS(Lender_Account__c, 'National Funding')</errorConditionFormula>
+    <errorDisplayField>Merchant_Checklist_Acknowledged__c</errorDisplayField>
+    <errorMessage>All Stips must be Cleared or Waived before acknowledging the Merchant Checklist</errorMessage>
+</ValidationRule>

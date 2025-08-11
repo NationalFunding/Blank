@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Equipment_Story__c</fullName>
+    <description>Type in the notes about any unique attributes about the equipment in this field.</description>
+    <inlineHelpText>Type in the notes about any unique attributes about the equipment in this field.</inlineHelpText>
+    <label>Equipment Story</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

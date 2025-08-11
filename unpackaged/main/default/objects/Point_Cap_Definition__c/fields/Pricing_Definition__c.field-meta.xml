@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pricing_Definition__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>This is the Pricing Definition this record is related to</description>
+    <inlineHelpText>This is the Pricing Definition this record is related to</inlineHelpText>
+    <label>Pricing Definition</label>
+    <referenceTo>Pricing_Definition__c</referenceTo>
+    <relationshipLabel>Point Cap Definitions</relationshipLabel>
+    <relationshipName>Point_Cap_Definitions</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

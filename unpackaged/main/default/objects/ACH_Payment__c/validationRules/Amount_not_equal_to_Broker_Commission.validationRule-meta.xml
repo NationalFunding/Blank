@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Amount_not_equal_to_Broker_Commission</fullName>
+    <active>true</active>
+    <description>For Broker Opportunities, the Broker Commission must be equal to the Broker Commission on the Opportunity.</description>
+    <errorConditionFormula>Opportunity__r.RecordType.Name = 'Broker WC Oppty' &amp;&amp; 
+RecordType.Name = 'Broker/Internal' &amp;&amp; 
+Payee_Bank_Account__r.Name &lt;&gt; 'National Funding' &amp;&amp; 
+Payee_Bank_Account__r.Name &lt;&gt; 'BOFI FEDERAL BANK' &amp;&amp; 
+Opportunity__r.Broker_Commission__c &lt;&gt; Amount__c</errorConditionFormula>
+    <errorMessage>The Amount must be equal to the Broker Commission field on the Opportunity, for Broker WC Opptortunities.</errorMessage>
+</ValidationRule>

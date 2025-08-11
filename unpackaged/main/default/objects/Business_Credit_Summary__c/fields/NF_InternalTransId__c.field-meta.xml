@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NF_InternalTransId__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>Internal Client Transaction Id returned by National Funding Equifax Commercial API. Used to link back to NF Internal data store</description>
+    <externalId>false</externalId>
+    <label>NF_InternalTransId</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

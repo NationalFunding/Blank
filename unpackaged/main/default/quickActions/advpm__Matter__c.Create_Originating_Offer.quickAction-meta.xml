@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldOverrides>
+        <field>Lead_Attorney_Email__c</field>
+        <formula>advpm__Matter__c.Lead_Attorney__r.Email</formula>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>Matter_Owner_Email__c</field>
+        <formula>advpm__Matter__c.Owner:User.Email</formula>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>Name</field>
+        <formula>advpm__Matter__c.advpm__Matter_Number__c + &apos; Offer &apos; + TEXT(advpm__Matter__c.Originating_Offer_Counter__c + 1)</formula>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>Offer_Made_By__c</field>
+        <formula>IF(
+				OR(ISPICKVAL( advpm__Matter__c.advpm__Status__c ,&quot;Local Counsel&quot;),
+							AND(ISPICKVAL(advpm__Matter__c.advpm__Status__c,&quot;Open&quot;),ISPICKVAL(advpm__Matter__c.advpm__Stage__c ,&quot;Out to Collections&quot;)))
+											,
+											&quot;Local Counsel&quot;,&quot;Defendant&quot;)</formula>
+    </fieldOverrides>
+    <label>Create Originating Offer</label>
+    <optionsCreateFeedItem>true</optionsCreateFeedItem>
+    <quickActionLayout>
+        <layoutSectionStyle>TwoColumnsLeftToRight</layoutSectionStyle>
+        <quickActionLayoutColumns>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>Name</field>
+                <uiBehavior>Required</uiBehavior>
+            </quickActionLayoutItems>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>advpm__Status__c</field>
+                <uiBehavior>Edit</uiBehavior>
+            </quickActionLayoutItems>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>advpm__Matter__c</field>
+                <uiBehavior>Required</uiBehavior>
+            </quickActionLayoutItems>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>advpm__Details__c</field>
+                <uiBehavior>Edit</uiBehavior>
+            </quickActionLayoutItems>
+        </quickActionLayoutColumns>
+        <quickActionLayoutColumns>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>Offer_Made_By__c</field>
+                <uiBehavior>Edit</uiBehavior>
+            </quickActionLayoutItems>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>advpm__Date__c</field>
+                <uiBehavior>Edit</uiBehavior>
+            </quickActionLayoutItems>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>advpm__Amount__c</field>
+                <uiBehavior>Edit</uiBehavior>
+            </quickActionLayoutItems>
+        </quickActionLayoutColumns>
+    </quickActionLayout>
+    <targetObject>advpm__Offer_And_Demand__c</targetObject>
+    <targetParentField>advpm__Matter__c</targetParentField>
+    <targetRecordType>advpm__Offer_And_Demand__c.advpm__Originating_Offer</targetRecordType>
+    <type>Create</type>
+</QuickAction>

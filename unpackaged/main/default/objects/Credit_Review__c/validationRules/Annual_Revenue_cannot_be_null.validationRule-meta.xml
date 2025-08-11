@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Annual_Revenue_cannot_be_null</fullName>
+    <active>true</active>
+    <description>Prohibits a Credit Review from being changed to Status EP Review Done if Annual Revenue is null. Only applies to outsource processors.
+Added Exception for Renewal 4/4/21 - to support Ocrolus processing</description>
+    <errorConditionFormula>ISBLANK(Annual_Revenue__c) 
+&amp;&amp; 
+ISPICKVAL(Status__c, 'EP Review Done') 
+&amp;&amp; 
+$Profile.Name = 'NF - Outsource Processor - WC'
+&amp;&amp; 
+NOT(ISPICKVAL(Opportunity__r.Type,'RENEWAL'))</errorConditionFormula>
+    <errorMessage>Annual Revenue must be entered before you can Complete Processing. You may need to refresh the page to enable the Complete Processing button.</errorMessage>
+</ValidationRule>

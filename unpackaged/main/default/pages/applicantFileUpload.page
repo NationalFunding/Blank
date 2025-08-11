@@ -1,0 +1,78 @@
+<apex:page showheader="false" controller="vf_applicantFileUpload" standardStylesheets="false">
+    <head>
+    <!--
+        <style>
+            body { background-color: #f00; color: #0f0; }
+        </style>-->
+        <style>
+            body, html { font-family: Arial; margin: 0; padding: 0; height: 100% }
+            .container { width: 900px; margin: 20px auto; }
+            h1 { font-size: 200%; margin-top: 40px; color: #b5121b }
+            h2 { font-size: 125%; margin: 30px 0 0 0 }
+            p { margin-top: 5px; }
+            th {text-align: left; }
+            .successMsg { border: 1px solid #62C7C4; background-color: #e0f5f2; padding: 20px; }
+            a:link, a:visited, a:active { color: #6f0208 }
+            a:hover { color: #97484c }
+            .footer { background-color: #222222; color: #fff; font-size: 9pt; padding: 20px }
+            .footer img { margin-right: 10px; }
+            .wrapper { min-height: 80%; height: auto!important; height: 100%; margin-bottom: -271px; }
+            .push { height: 271px }
+            /*input[type="submit"], input[type="file"] > button { display: inline-block; position: relative; min-width: 80px; padding: 6px 15px; font: normal 20px "league-gothic", sans-serif; letter-spacing: .025em; text-transform: uppercase; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15); text-align: center; color: #fff; cursor: pointer; -webkit-appearance: none; background: #62c7c4; border: none; }*/
+            input[type="submit"] { padding: 10px; font-size: 10pt }
+        </style>
+    </head>
+    <div style="display: none">DEBUG: invalidSource: {!invalidSource}; source: {!source}; ParentId: {!parentId}; ProductType: {!productType}; File Selected: {!fileSelected}; File: {!File.name};</div>
+    <div class="container" style="margin-top: 0; margin-bottom: 0; font-size: 9pt; text-align: right">
+        <p>888.733.2383  •  LOANS: 888.981.3552  •  LEASING: 888.981.3554</p>
+    </div>
+    <div style="border-top: 1px solid #e5e5e5;font-size: 2pt">&nbsp;</div>
+    <div class="container">
+        <apex:image value="{!$Resource.Public_Logo}" />
+    </div>
+    <div style="border-bottom: 1px solid #e5e5e5; border-top: 1px solid #e5e5e5;font-size: 2pt">&nbsp;</div>
+    <div class="wrapper container">
+    <apex:outputText rendered="{!invalidSource}">
+        <h1>Something went wrong!</h1>
+        <p>Very strange that you reached this page.  Please get the proper link from your e-mail or call us directly at 888-733-2383 for assistance.<br />&nbsp;<br />&nbsp;</p>
+    </apex:outputText>
+    <apex:outputText rendered="{!invalidSource == false}">
+    <apex:outputPanel rendered="{!fileSelected}">
+        <h1>{!file.Name}</h1>
+        <p>{!file.Description__c}</p>
+        <apex:form >
+        <p><apex:inputFile value="{!fileContents}" fileName="{!fileName}" /></p>
+        <p><apex:commandButton value="Upload Selected File" action="{!fileUploaded}" /></p>
+        </apex:form>
+    </apex:outputPanel>
+    <apex:outputPanel rendered="{!fileSelected == false}">
+        <apex:outputText rendered="{!CheckUploadSuccess}">
+        <div class="successMsg">Success!  Your file was uploaded.  To upload more documents, please select the type of document you would like to upload.</div>
+        </apex:outputText>
+        <h1>Upload Your Documents</h1>
+        <apex:repeat value="{!fileTypes}" var="ft">
+        <h2><apex:outputLink value="/appupload?source={!source}&file={!ft.id}">{!ft.Name}</apex:outputLink></h2>
+        <p>{!ft.Description__c}</p>
+        </apex:repeat>
+        <h1>Most Recent File Uploaded</h1>
+        <p>
+        <apex:outputText rendered="{!FilesHaveBeenUploaded == false}"><b>No files have been uploaded this session.</b></apex:outputText>
+        <apex:repeat var="filename" value="{!filesUploaded}">{!filename}<br /></apex:repeat></p>
+        <p><b>Note:</b> Please select which type of document you are uploading.  You may upload multiple files for each type of document.<br />Please contact us directly if you are unsure what files are remaining to be uploaded.</p>
+        <br />&nbsp;<br />&nbsp;
+    </apex:outputPanel>
+    </apex:outputText>
+        <div class="push">&nbsp;</div>
+    </div>
+    <div class="footer">
+        <div class="container">
+            <p><img src="{!URLFOR($Resource.UploadPortalAssets,'logo.png')}" /></p>
+            <div style="padding-left: 38px">
+                <p><img src="{!URLFOR($Resource.UploadPortalAssets,'affiliate-comodo.png')}" /><img src="{!URLFOR($Resource.UploadPortalAssets,'affiliate-nefa.png')}" /><img src="{!URLFOR($Resource.UploadPortalAssets,'affiliate-inc.png')}" /></p>
+                <p>9820 Towne Centre Drive, Suite 200<br />San Diego, California 92121</p>
+                <p><a href="http://www.nationalfunding.com/privacy-policy/" target="_blank">Privacy Policy</a></p>
+                <p>&copy; 2015</p>
+            </div>
+        </div>
+    </div>
+</apex:page>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Net_to_Customer__c</fullName>
+    <description>This field will capture the net amount that is being paid to a customer when they renew a transaction.</description>
+    <inlineHelpText>This field will capture the net amount that is being paid to a customer when they renew a transaction.</inlineHelpText>
+    <label>Net to Customer</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

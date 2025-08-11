@@ -1,0 +1,17 @@
+<apex:page Controller="viewAll">
+<apex:form >
+    <apex:pageBlock title="Opportunity" id="searchContactBlock"> 
+       <apex:pageBlockButtons >
+           <apex:commandButton action="{!Cancel}" value="Cancel" styleClass="btn"/>
+       </apex:pageBlockButtons>
+       <apex:pageBlockTable value="{!lstOpp}" var="item">
+           <apex:column headerValue="Name" value="{!item.Name}"/>
+           <apex:column headerValue="Account" value="{!item.Account.Name}"/>
+           <apex:column headerValue="Amount" value="{!item.Amount}"/>
+           <apex:column headerValue="Close Date" value="{!item.CloseDate}"/>
+           <apex:column headerValue="Stage" value="{!item.StageName}"/>
+           <apex:column headerValue="Owner Name" value="{!item.OWNERID__r.Name}"/>
+       </apex:pageBlockTable>
+    </apex:pageBlock>
+</apex:form>
+</apex:page>

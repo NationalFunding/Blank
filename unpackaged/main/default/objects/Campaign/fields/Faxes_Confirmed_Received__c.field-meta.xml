@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Faxes_Confirmed_Received__c</fullName>
+    <description>This field will capture the number of faxes that our fax provider successfully sent out on our behalf.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This field will capture the number of faxes that our fax provider successfully sent out on our behalf.</inlineHelpText>
+    <label>Faxes Confirmed Received</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

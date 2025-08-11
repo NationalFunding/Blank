@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lease_CR_Required_Fields_Upon_Approval</fullName>
+    <active>true</active>
+    <description>Upon approval, require that Max Term, Approval Date, Credit Tier, Approved Amount fields are populated.</description>
+    <errorConditionFormula>AND(  ISPICKVAL(Credit_Decision__c, "Approved"),
+OR(  ISPICKVAL(Credit_Tier__c, ""), DATEVALUE(Approval_Date__c)= NULL, Approved_Amount__c = NULL , ISPICKVAL(Max_Term__c, ""), ISPICKVAL( Titling_Attachment_Required__c , ""), ISPICKVAL(EFA__c, ""),  ISPICKVAL(FMV__c, ""),  ISPICKVAL(Dollar_Put__c, ""),  ISPICKVAL(Titling_Attachment_Required__c, "")))</errorConditionFormula>
+    <errorMessage>An approval requires that the following fields contains values: Max Term, Approval Date, Credit Tier, Approved Amount, Titling Required and Buyout Tax Treatments.</errorMessage>
+</ValidationRule>

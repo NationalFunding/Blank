@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Identified</fullName>
+        <default>false</default>
+        <description>All Sales Processes</description>
+        <label>Identified</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>1</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Acceptance</fullName>
+        <default>false</default>
+        <description>All Sales Processes</description>
+        <label>Acceptance</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>5</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Statement In - MP</fullName>
+        <default>false</default>
+        <description>MP Sales Process</description>
+        <label>Statement In - MP</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>12</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Rate Review</fullName>
+        <default>false</default>
+        <description>MP Sales Process</description>
+        <label>Rate Review</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>19</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Offer Out - MP</fullName>
+        <default>false</default>
+        <description>MP Sales Process</description>
+        <label>Offer Out - MP</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>62</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Offer In - MP</fullName>
+        <default>false</default>
+        <description>MP Sales Process</description>
+        <label>Offer In - MP</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>75</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Application Out</fullName>
+        <default>false</default>
+        <description>MP Sales Process</description>
+        <label>Application Out</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>76</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Application In</fullName>
+        <default>false</default>
+        <description>MP Sales Process</description>
+        <label>Application In</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>78</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Submission - MP</fullName>
+        <default>false</default>
+        <description>MP Sales Process</description>
+        <label>Submission - MP</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>79</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Approved - MP</fullName>
+        <default>false</default>
+        <description>MP Sales Process</description>
+        <label>Approved - MP</label>
+        <closed>false</closed>
+        <forecastCategory>BestCase</forecastCategory>
+        <probability>89</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Deployment</fullName>
+        <default>false</default>
+        <description>MP Sales Process</description>
+        <label>Deployment</label>
+        <closed>false</closed>
+        <forecastCategory>Forecast</forecastCategory>
+        <probability>90</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Download</fullName>
+        <default>false</default>
+        <description>The customer is ready for merchant processing download.</description>
+        <label>Download</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>90</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Processing</fullName>
+        <default>false</default>
+        <label>Processing</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>75</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Credit Submittal</fullName>
+        <default>false</default>
+        <label>Credit Submittal</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>20</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Credit Review</fullName>
+        <default>false</default>
+        <description>Lease Sales Process</description>
+        <label>Credit Review</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>23</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Approved - Lease</fullName>
+        <default>false</default>
+        <description>Lease Sales Process</description>
+        <label>Approved - Lease</label>
+        <closed>false</closed>
+        <forecastCategory>BestCase</forecastCategory>
+        <probability>42</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Offer Out - Lease</fullName>
+        <default>false</default>
+        <description>Lease Sales Process</description>
+        <label>Offer Out - Lease</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>43</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Offer In - Lease</fullName>
+        <default>false</default>
+        <description>Lease Sales Process</description>
+        <label>Offer In - Lease</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>70</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Docs Out</fullName>
+        <default>false</default>
+        <description>Lease Sales Process</description>
+        <label>Docs Out</label>
+        <closed>false</closed>
+        <forecastCategory>BestCase</forecastCategory>
+        <probability>75</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Docs In</fullName>
+        <default>false</default>
+        <label>Docs In</label>
+        <closed>false</closed>
+        <forecastCategory>BestCase</forecastCategory>
+        <probability>93</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Up for Funding</fullName>
+        <default>false</default>
+        <description>Lease Sales Process</description>
+        <label>Up for Funding</label>
+        <closed>false</closed>
+        <forecastCategory>Forecast</forecastCategory>
+        <probability>95</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Pre-Fund</fullName>
+        <default>false</default>
+        <label>Pre-Fund</label>
+        <closed>false</closed>
+        <forecastCategory>Forecast</forecastCategory>
+        <probability>99</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Statements In - ALT</fullName>
+        <default>false</default>
+        <description>AL Sales Process</description>
+        <label>Statements In - ALT</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>15</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Pre-Qual ALT</fullName>
+        <default>false</default>
+        <description>ALT Sales Process</description>
+        <label>Pre-Qual ALT</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>20</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Approved - ALT</fullName>
+        <default>false</default>
+        <description>ALT Sales Process</description>
+        <label>Approved - ALT</label>
+        <closed>false</closed>
+        <forecastCategory>BestCase</forecastCategory>
+        <probability>44</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Offer Out - ALT</fullName>
+        <default>false</default>
+        <description>MCA Sales Process</description>
+        <label>Offer Out - ALT</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>46</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Offer In - ALT</fullName>
+        <default>false</default>
+        <description>ALT Sales Process</description>
+        <label>Offer In - ALT</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>48</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Docs Out -ALT</fullName>
+        <default>false</default>
+        <description>ALT Sales Process</description>
+        <label>Docs Out -ALT</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>50</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Docs In - ALT</fullName>
+        <default>false</default>
+        <description>AL Sales Process</description>
+        <label>Docs In - ALT</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>80</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Statements In - MCA</fullName>
+        <default>false</default>
+        <description>MCA Sales Process</description>
+        <label>Statements In - MCA</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>25</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Pre-Qual MCA</fullName>
+        <default>false</default>
+        <description>MCA Sales Process</description>
+        <label>Pre-Qual MCA</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>31</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Approved - MCA</fullName>
+        <default>false</default>
+        <description>MCA Sales Process</description>
+        <label>Approved - MCA</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>44</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Offer Out - MCA</fullName>
+        <default>false</default>
+        <description>MCA Sales PRocess</description>
+        <label>Offer Out - MCA</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>46</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Offer In - MCA</fullName>
+        <default>false</default>
+        <description>MCA Sales Process</description>
+        <label>Offer In - MCA</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>70</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Docs Out - MCA</fullName>
+        <default>false</default>
+        <description>MCA Sales Process</description>
+        <label>Docs Out - MCA</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>77</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Docs In - MCA</fullName>
+        <default>false</default>
+        <description>MCA Sales Process</description>
+        <label>Docs In - MCA</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>85</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Submission - MCA/ALT</fullName>
+        <default>false</default>
+        <description>MCA or ALT Sales Process</description>
+        <label>Submission - MCA/ALT</label>
+        <closed>false</closed>
+        <forecastCategory>BestCase</forecastCategory>
+        <probability>90</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Conversion</fullName>
+        <default>false</default>
+        <description>MCA and ALT Sales Process</description>
+        <label>Conversion</label>
+        <closed>false</closed>
+        <forecastCategory>Forecast</forecastCategory>
+        <probability>95</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Funded</fullName>
+        <default>false</default>
+        <description>Lease, MCA and ALT Sales Processes</description>
+        <label>Funded</label>
+        <closed>true</closed>
+        <forecastCategory>Closed</forecastCategory>
+        <probability>100</probability>
+        <won>true</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Closed Won</fullName>
+        <default>false</default>
+        <label>Closed Won</label>
+        <closed>true</closed>
+        <forecastCategory>Closed</forecastCategory>
+        <probability>100</probability>
+        <won>true</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Deferred</fullName>
+        <default>false</default>
+        <label>Deferred</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>5</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Closed Lost</fullName>
+        <default>false</default>
+        <label>Closed Lost</label>
+        <closed>true</closed>
+        <forecastCategory>Omitted</forecastCategory>
+        <probability>0</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Active</fullName>
+        <default>false</default>
+        <label>Active</label>
+        <closed>true</closed>
+        <forecastCategory>Closed</forecastCategory>
+        <probability>100</probability>
+        <won>true</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Terminated</fullName>
+        <default>false</default>
+        <label>Terminated</label>
+        <closed>true</closed>
+        <forecastCategory>Closed</forecastCategory>
+        <probability>0</probability>
+        <won>true</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Internal Pend Info</fullName>
+        <default>false</default>
+        <label>Internal Pend Info</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>5</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Lender Pend Info</fullName>
+        <default>false</default>
+        <label>Lender Pend Info</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>5</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Resubmit</fullName>
+        <default>false</default>
+        <label>Resubmit</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>5</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Internal Decline</fullName>
+        <default>false</default>
+        <label>Internal Decline</label>
+        <closed>true</closed>
+        <forecastCategory>Omitted</forecastCategory>
+        <probability>0</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Declined</fullName>
+        <default>false</default>
+        <label>Declined</label>
+        <closed>true</closed>
+        <forecastCategory>Omitted</forecastCategory>
+        <probability>0</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Offer(s) Not Accepted</fullName>
+        <default>false</default>
+        <label>Offer(s) Not Accepted</label>
+        <closed>true</closed>
+        <forecastCategory>Omitted</forecastCategory>
+        <probability>0</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Desktop Decline</fullName>
+        <default>false</default>
+        <label>Desktop Decline</label>
+        <closed>true</closed>
+        <forecastCategory>Omitted</forecastCategory>
+        <probability>0</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Withdrawn By Broker</fullName>
+        <default>false</default>
+        <description>This value will be for brokers when they withdraw the deal at any time.  This should status should only be used when a broker initiates the the withdrawal.  This is not a decline.</description>
+        <label>Withdrawn By Broker</label>
+        <closed>true</closed>
+        <forecastCategory>Omitted</forecastCategory>
+        <probability>0</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>NF Decline</fullName>
+        <default>false</default>
+        <label>NF Decline</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>25</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Syndication</fullName>
+        <default>false</default>
+        <label>Syndication</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>27</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>NF Withdrawn</fullName>
+        <default>false</default>
+        <label>NF Withdrawn</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>5</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Re-Process</fullName>
+        <default>false</default>
+        <label>Re-Process</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>31</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Re-Review</fullName>
+        <default>false</default>
+        <label>Re-Review</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>31</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>External Collections</fullName>
+        <default>false</default>
+        <description>Only to be used for External Collections Record Type</description>
+        <label>External Collections</label>
+        <closed>true</closed>
+        <forecastCategory>Omitted</forecastCategory>
+        <probability>100</probability>
+        <won>true</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Invalid Submission</fullName>
+        <default>false</default>
+        <description>Incomplete application submitted</description>
+        <label>Invalid Submission</label>
+        <closed>true</closed>
+        <forecastCategory>Omitted</forecastCategory>
+        <probability>0</probability>
+        <won>false</won>
+    </standardValue>
+</StandardValueSet>

@@ -1,0 +1,637 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Alert_Opportunity_has_been_in_NF_Decline_for_2_Hours</fullName>
+        <description>Alert - Opportunity has been in NF Decline for 2 Hours</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>acaisido@fairsquare.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Operations_Workflow_Emails/Alert_Opportunity_has_been_in_NF_Decline_for_2_Hours</template>
+    </alerts>
+    <alerts>
+        <fullName>Broker_Approval_Email</fullName>
+        <ccEmails>salesforce@nationalfunding.com, brokergroup@nationalfunding.com</ccEmails>
+        <description>Broker Approval Email</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Broker_Preferred_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>Opportunity_Owner_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>nfcredit@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Broker_Email_Templates/Broker_Approval_Email</template>
+    </alerts>
+    <alerts>
+        <fullName>Concurrent_Decline_Alert_to_Collections</fullName>
+        <description>Concurrent Decline Alert to Collections</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Collections_Email_Notifications</recipient>
+            <type>group</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Operations_Workflow_Emails/Concurrent_Decline_Alert_to_Collections</template>
+    </alerts>
+    <alerts>
+        <fullName>Deal_Review_Alert_to_Ops_Leadership</fullName>
+        <ccEmails>salesforce@nationalfunding.com</ccEmails>
+        <description>Deal Review Alert to Ops Leadership</description>
+        <protected>false</protected>
+        <senderType>CurrentUser</senderType>
+        <template>Operations_Workflow_Emails/Approval_Alert_Over_75k</template>
+    </alerts>
+    <alerts>
+        <fullName>Second_Review_Alert</fullName>
+        <ccEmails>secondreview@nationalfunding.com</ccEmails>
+        <description>Second Review Alert</description>
+        <protected>false</protected>
+        <senderType>CurrentUser</senderType>
+        <template>Operations_Workflow_Emails/Second_Review_Alert</template>
+    </alerts>
+    <alerts>
+        <fullName>Starter_Loan_Approvable_Needs_Review</fullName>
+        <description>Starter Loan Approvable Needs Review</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>acalabrese@nationalfunding.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>amonforte@nationalfunding.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>becheverria@nationalfunding.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderAddress>mcadecisions@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Operations_Workflow_Emails/Starter_Loan_Approvable_Needs_Review</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>CR_Insert_eNoah_Completed_By</fullName>
+        <field>eNoah_Review_Completed_By__c</field>
+        <formula>$User.Full_Name__c</formula>
+        <name>CR - Insert eNoah Completed By</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>CR_Insert_eNoah_Completed_Date</fullName>
+        <field>eNoah_Review_Completed_Date__c</field>
+        <formula>NOW()</formula>
+        <name>CR - Insert eNoah Completed Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Credit_Review_Update_BofI_Field_No</fullName>
+        <description>This field update will set the value of the BOFI field to No if the is a restricted BOFI state.</description>
+        <field>BOFI_Deal__c</field>
+        <literalValue>No</literalValue>
+        <name>Credit Review - Update BofI Field = No</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Credit_Review_Update_BofI_Field_Yes</fullName>
+        <description>This field update will set the value of the BOFI field to Yes if the Physical Location State is an allowed BOFI state.</description>
+        <field>BOFI_Deal__c</field>
+        <literalValue>Yes</literalValue>
+        <name>Credit Review - Update BofI Field = Yes</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>MICF_Completed_By</fullName>
+        <field>Pt_Rev_Completed_By__c</field>
+        <formula>$User.Full_Name__c</formula>
+        <name>MICF - Completed By</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>MICF_Completed_Date</fullName>
+        <field>PT_Rev_Completed_Date__c</field>
+        <formula>NOW()</formula>
+        <name>MICF - Completed Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>MICR_Approved_By</fullName>
+        <field>Approved_By__c</field>
+        <formula>$User.Full_Name__c</formula>
+        <name>MICR - Approved By</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>MICR_Approved_Date</fullName>
+        <field>Approved_Date__c</field>
+        <formula>NOW()</formula>
+        <name>MICR - Approved Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>MICR_Commercial_Complete_Date</fullName>
+        <field>Commercial_Review_Completed_Date__c</field>
+        <formula>NOW()</formula>
+        <name>MICR - Commercial Complete Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>MICR_Commercial_Completed_By</fullName>
+        <field>Commercial_Review_Completed_By__c</field>
+        <formula>$User.Full_Name__c</formula>
+        <name>MICR - Commercial Completed By</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>MICR_Commercial_Fin_Analysis_By</fullName>
+        <field>Financial_Analysis_By__c</field>
+        <formula>$User.Full_Name__c</formula>
+        <name>MICR - Commercial Fin Analysis By</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>MICR_Commercial_Fin_Analysis_Start</fullName>
+        <field>Financial_Analysis_Date__c</field>
+        <formula>NOW()</formula>
+        <name>MICR - Commercial Fin Analysis Start</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>MICR_Diamond_Complete_Date</fullName>
+        <field>Diamond_Review_Completed_Date__c</field>
+        <formula>NOW()</formula>
+        <name>MICR - Diamond Complete Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>MICR_Diamond_Completed_By</fullName>
+        <field>Diamond_Review_Completed_By__c</field>
+        <formula>$User.Full_Name__c</formula>
+        <name>MICR - Diamond Completed By</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>MICR_Gold_Complete_Date</fullName>
+        <field>AU_Review_Completed_Date__c</field>
+        <formula>NOW()</formula>
+        <name>MICR - Gold Complete Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>MICR_Gold_Completed_By</fullName>
+        <field>AU_Review_Completed_By__c</field>
+        <formula>$User.Full_Name__c</formula>
+        <name>MICR - Gold Completed By</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>MICR_Insert_Initial_Decline_By</fullName>
+        <field>Initial_Decline_By__c</field>
+        <formula>$User.Full_Name__c</formula>
+        <name>MICR - Insert Initial Decline By</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>MICR_Insert_Initial_Decline_Date</fullName>
+        <field>Initial_Decline_Date__c</field>
+        <formula>TODAY()</formula>
+        <name>MICR - Insert Initial Decline Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>MICR_UW_Call_By</fullName>
+        <field>UW_Call_By__c</field>
+        <formula>$User.Full_Name__c</formula>
+        <name>MICR - UW Call By</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>MICR_UW_Call_Start</fullName>
+        <field>UW_Call_Date__c</field>
+        <formula>NOW()</formula>
+        <name>MICR - UW Call Start</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Populate_Second_Review_By</fullName>
+        <field>Second_Review_By__c</field>
+        <formula>$User.Full_Name__c</formula>
+        <name>Populate Second Review By</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Populate_Second_Review_Date</fullName>
+        <field>Second_Review_Date__c</field>
+        <formula>NOW()</formula>
+        <name>Populate Second Review Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <flowActions>
+        <fullName>Credit_Review_Create_WC_Decision_Record</fullName>
+        <flow>Create_Encinitas_Record</flow>
+        <flowInputs>
+            <name>inputCreditReviewId</name>
+            <value>{!Id}</value>
+        </flowInputs>
+        <label>Credit Review - Create WC Decision Record</label>
+        <language>en_US</language>
+        <protected>false</protected>
+    </flowActions>
+    <flowActions>
+        <fullName>Insert_2nd_Review_Analyst</fullName>
+        <flow>Insert_Second_Review_Analyst</flow>
+        <flowInputs>
+            <name>inputCreditReviewId</name>
+            <value>{!Id}</value>
+        </flowInputs>
+        <flowInputs>
+            <name>varUserId</name>
+            <value>{!$User.Id}</value>
+        </flowInputs>
+        <label>Insert 2nd Review Analyst</label>
+        <language>en_US</language>
+        <protected>false</protected>
+    </flowActions>
+    <flowActions>
+        <fullName>Update_Opportunity_with_PG_Credit_Scores</fullName>
+        <flow>Opportunity_PG_Credit_Score_Update</flow>
+        <flowInputs>
+            <name>inputCreditReviewId</name>
+            <value>{!Id}</value>
+        </flowInputs>
+        <label>Update Opportunity with PG Credit Scores</label>
+        <language>en_US</language>
+        <protected>false</protected>
+    </flowActions>
+    <rules>
+        <fullName>Credit Review - Create WC Decision Record</fullName>
+        <actions>
+            <name>Credit_Review_Create_WC_Decision_Record</name>
+            <type>FlowAction</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Credit_Review__c.Create_WC_Decision_Record__c</field>
+            <operation>equals</operation>
+            <value>Create</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Credit Review - Update BofI Deal %3D No</fullName>
+        <actions>
+            <name>Credit_Review_Update_BofI_Field_No</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>This workflow will update the BOFI field to No if the state that a business is located is in a BofI restricted state.</description>
+        <formula>Opportunity__r.BOFI_Restricted_State__c = 'Restricted'</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Credit Review - Update BofI Deal %3D Yes</fullName>
+        <actions>
+            <name>Credit_Review_Update_BofI_Field_Yes</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>This workflow will update the BOFI field to Yes if the state that a business is located is in a BofI allowed state.</description>
+        <formula>Opportunity__r.BOFI_Restricted_State__c = 'Allowed'</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>MICF - eNoah Processing Review Completed - Update Completed Date</fullName>
+        <actions>
+            <name>CR_Insert_eNoah_Completed_By</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>CR_Insert_eNoah_Completed_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Credit_Review__c.Status__c</field>
+            <operation>equals</operation>
+            <value>EP Review Done</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Credit_Review__c.eNoah_Review_Completed_Date__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>MICR - Approved</fullName>
+        <actions>
+            <name>MICR_Approved_By</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>MICR_Approved_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Credit_Review__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Approved</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>MICR - Commercial Financial Analysis Start</fullName>
+        <actions>
+            <name>MICR_Commercial_Fin_Analysis_By</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>MICR_Commercial_Fin_Analysis_Start</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Credit_Review__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Financial Analysis</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Credit_Review__c.Review_Type__c</field>
+            <operation>equals</operation>
+            <value>Commercial Review</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>MICR - Commercial UW Call Start</fullName>
+        <actions>
+            <name>MICR_UW_Call_By</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>MICR_UW_Call_Start</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Credit_Review__c.Status__c</field>
+            <operation>equals</operation>
+            <value>UW Call</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Credit_Review__c.Review_Type__c</field>
+            <operation>equals</operation>
+            <value>Commercial Review</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>MICR - Commercial Upon Completion</fullName>
+        <actions>
+            <name>MICR_Commercial_Complete_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>MICR_Commercial_Completed_By</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Credit_Review__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Second Review,Declined,Approved</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Credit_Review__c.Review_Type__c</field>
+            <operation>equals</operation>
+            <value>Commercial Review</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>MICR - Diamond Upon Completion</fullName>
+        <actions>
+            <name>MICR_Diamond_Complete_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>MICR_Diamond_Completed_By</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Credit_Review__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Second Review,Declined,Approved</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Credit_Review__c.Review_Type__c</field>
+            <operation>equals</operation>
+            <value>Diamond Review</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>MICR - Gold Upon Completion</fullName>
+        <actions>
+            <name>MICR_Gold_Complete_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>MICR_Gold_Completed_By</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Credit_Review__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Second Review,Declined,Approved</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Credit_Review__c.Review_Type__c</field>
+            <operation>equals</operation>
+            <value>Gold Review</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>MICR - Initial Decline Date</fullName>
+        <actions>
+            <name>MICR_Insert_Initial_Decline_By</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>MICR_Insert_Initial_Decline_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Credit_Review__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Declined,NF Decline</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Credit_Review__c.Initial_Decline_Date__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>MICR - Platinum Upon Completion</fullName>
+        <actions>
+            <name>MICF_Completed_By</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>MICF_Completed_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Credit_Review__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Second Review,Declined,Approved</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Credit_Review__c.Review_Type__c</field>
+            <operation>equals</operation>
+            <value>Platinum Review</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Opportunity has been in NF Decline In for 2 Hours</fullName>
+        <active>true</active>
+        <description>Alert for when Opportunity has remained in NF Decline for an hour with no Internal Credit Analyst. This would indicate eNoah has not yet picked up the deal or completed mini-processing</description>
+        <formula>AND(
+ISPICKVAL(Opportunity__r.StageName, 'NF Decline'),
+ISPICKVAL(Opportunity__r.Type , 'NEW'),
+ISBLANK( Opportunity__r.Internal_Credit_Analyst__c),
+NOT(
+OR(
+INCLUDES(Decline_Reasons__c,'Banks - Excessive NSF'),
+INCLUDES(Decline_Reasons__c,'Banks - Low Balances'),
+INCLUDES(Decline_Reasons__c,'Banks - Low Deposits'),
+INCLUDES(Decline_Reasons__c,'Banks - Low Deposits')
+))
+)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Alert_Opportunity_has_been_in_NF_Decline_for_2_Hours</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>2</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>PG Credit Scores Approved%2FDenied</fullName>
+        <actions>
+            <name>Update_Opportunity_with_PG_Credit_Scores</name>
+            <type>FlowAction</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Credit_Review__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Approved,Declined</value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Second Review is Complete</fullName>
+        <actions>
+            <name>Populate_Second_Review_By</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Populate_Second_Review_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Insert_2nd_Review_Analyst</name>
+            <type>FlowAction</type>
+        </actions>
+        <active>true</active>
+        <formula>AND (
+ISPICKVAL(PRIORVALUE(Status__c),'Second Review'), 
+OR( 
+ISPICKVAL(Status__c, "Approved"),
+ISPICKVAL(Status__c, "Declined"), 
+ISPICKVAL(Status__c, "NF Decline")
+))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

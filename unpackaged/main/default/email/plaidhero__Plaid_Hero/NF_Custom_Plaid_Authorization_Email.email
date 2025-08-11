@@ -1,0 +1,19 @@
+Hello {!Contact.FirstName},
+<br>
+<p>Thank you for reaching out us regarding your account.  Please complete the Plaid <strong><a href="[Url]">Link</a></strong> so that we may review your business bank statements. 
+</p>
+<br>
+ Best Regards,
+<br><br>
+Thank you, 
+<br><br>
+{!User.Name} | {!User.Title}
+<br><br>
+<strong>National Funding, Inc., the parent and servicing company of<BR>
+Quick Bridge Funding, LLC</strong>
+<br>{!$Setup.Company_Information__c.Street__c}
+<br>
+{!$Setup.Company_Information__c.City__c}, {!$Setup.Company_Information__c.State__c} 
+{!$Setup.Company_Information__c.Zip__c}
+<br>P: {!User.Phone} | F: {!User.Fax}
+<br>E: {!User.Email}

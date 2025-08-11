@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_Change_to_Funded_Without_Lender</fullName>
+    <active>true</active>
+    <description>PD-5378, All opportunities cannot be updated to Funded if Lender is blank.</description>
+    <errorConditionFormula>AND(
+    ISBLANK(Lender_Account__c), 
+	   ISPICKVAL(StageName, 'Funded')
+				)</errorConditionFormula>
+    <errorMessage>An opportunity cannot be in 'Funded' stage without a Lender Account.</errorMessage>
+</ValidationRule>

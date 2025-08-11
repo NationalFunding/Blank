@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Error_Codes_To_Resubmit_Request__c</fullName>
+    <description>List of error codes to resubmit request separated by a semicolon.</description>
+    <inlineHelpText>List of error codes to resubmit request separated by a semicolon.</inlineHelpText>
+    <label>Resubmission Error Codes</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

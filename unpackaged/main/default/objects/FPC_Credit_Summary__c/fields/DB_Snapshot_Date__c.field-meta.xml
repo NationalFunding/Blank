@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DB_Snapshot_Date__c</fullName>
+    <description>Date that the D&amp;B snapshot was accepted as complete is recorded.</description>
+    <inlineHelpText>Date that the D&amp;B snapshot was accepted as complete is recorded.</inlineHelpText>
+    <label>DB Snapshot Date</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

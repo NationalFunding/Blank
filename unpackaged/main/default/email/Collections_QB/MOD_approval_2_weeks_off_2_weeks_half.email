@@ -1,0 +1,26 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="400" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[<p class="MsoNormal" style="font-family: arial;"><font style="font-size: 12pt; background-color: rgb(255, 255, 255);">Dear&nbsp;</font><font face="Arial, sans-serif" style="font-size: 12pt; background-color: rgb(255, 255, 255);">{!Case.Contact},</font></p><p class="MsoNormal" style="font-family: arial;"><span style="font-size: 12pt;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="font-family: arial;"><span style="font-size: 12pt;">We have good news
+re: your temporary loan modification request due to the Covid-19 pandemic. <o:p></o:p></span></p>
+
+<p class="MsoNormal" style="font-family: arial;"><span style="font-size: 12pt;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="font-family: arial;"><span style="font-size: 12pt;">We have received
+approval for 2 weeks of no payments followed by 2 weeks of half payments.<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="font-family: arial;"><span style="font-size: 12pt;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="font-family: arial;"><span style="font-size: 12pt;">We wish you and
+your family the best during this difficult time. Visit our site for updates and
+support for our customers:&nbsp;</span><span style="background-color: rgb(255, 255, 255); font-size: 12pt;">{!Case.Email_Website_Address__c}</span></p>
+
+<p class="MsoNormal" style="font-family: arial;"><span class="MsoHyperlink">&nbsp;</span></p>
+
+<p class="MsoNormal" style="font-family: arial;"><span class="MsoHyperlink"><b>We
+also encourage you to reach out to your banking partner for immediate
+assistance</b></span><span class="MsoHyperlink"> with loans administered by the SBA.</span><o:p></o:p></p><div style=""><div style="font-family: arial; color: rgb(0, 0, 0); font-size: 12pt;"><br></div><div style="font-family: arial; color: rgb(0, 0, 0); font-size: 12pt;">Thank you,&nbsp;</div><div style="font-family: arial; color: rgb(0, 0, 0); font-size: 12pt;"><br></div><div style=""><div style="color: rgb(0, 0, 0); font-size: medium; background-color: rgb(255, 255, 255);"><div style=""><font face="arial">Loan Modification Team&nbsp;</font></div><div style=""><font face="arial"><br></font></div></div><div style="background-color: rgb(255, 255, 255);"><p class="MsoNormal" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><font face="Arial, sans-serif"><b>{!Case.Email_Signature_Company__c}</b></font></p></div><div style="font-family: arial; color: rgb(0, 0, 0); font-size: 12pt; background-color: rgb(255, 255, 255);"><span style="font-size: medium;">9820 Towne Centre Drive</span></div><div style="font-family: &quot;Times New Roman&quot;; color: rgb(0, 0, 0); font-size: medium; background-color: rgb(255, 255, 255);"><font face="arial">San Diego, CA 92121</font><span style="font-family: arial; font-size: 12pt;">&nbsp;</span></div></div></div>]]></td>
+</tr>
+</table>

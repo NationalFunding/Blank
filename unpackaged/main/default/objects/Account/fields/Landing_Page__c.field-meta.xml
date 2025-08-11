@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Landing_Page__c</fullName>
+    <description>This field will indicate what landing page a customer clicked on / typed in to complete a web 2 lead.</description>
+    <inlineHelpText>This field will indicate what landing page a customer clicked on / typed in to complete a web 2 lead.</inlineHelpText>
+    <label>Landing Page</label>
+    <length>2048</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>LongTextArea</type>
+    <visibleLines>4</visibleLines>
+</CustomField>

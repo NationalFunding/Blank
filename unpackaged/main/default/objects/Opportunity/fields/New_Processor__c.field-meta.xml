@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Processor__c</fullName>
+    <description>The processor we will switch them to.</description>
+    <label>New Processor</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>ACH</fullName>
+                <default>false</default>
+                <label>ACH</label>
+            </value>
+            <value>
+                <fullName>Boarding Rates</fullName>
+                <default>false</default>
+                <label>Boarding Rates</label>
+            </value>
+            <value>
+                <fullName>Community Merchant Services</fullName>
+                <default>false</default>
+                <label>Community Merchant Services</label>
+            </value>
+            <value>
+                <fullName>Elavon</fullName>
+                <default>false</default>
+                <label>Elavon</label>
+            </value>
+            <value>
+                <fullName>EMG</fullName>
+                <default>false</default>
+                <label>EMG</label>
+            </value>
+            <value>
+                <fullName>FAPS</fullName>
+                <default>false</default>
+                <label>FAPS</label>
+            </value>
+            <value>
+                <fullName>First American Payment systems</fullName>
+                <default>false</default>
+                <label>First American Payment systems</label>
+            </value>
+            <value>
+                <fullName>Heartland</fullName>
+                <default>false</default>
+                <label>Heartland</label>
+            </value>
+            <value>
+                <fullName>Integrity</fullName>
+                <default>false</default>
+                <label>Integrity</label>
+            </value>
+            <value>
+                <fullName>Integrity Payment systems</fullName>
+                <default>false</default>
+                <label>Integrity Payment systems</label>
+            </value>
+            <value>
+                <fullName>iPayment</fullName>
+                <default>false</default>
+                <label>iPayment</label>
+            </value>
+            <value>
+                <fullName>IPS</fullName>
+                <default>false</default>
+                <label>IPS</label>
+            </value>
+            <value>
+                <fullName>Lockbox</fullName>
+                <default>false</default>
+                <label>Lockbox</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Payment Alliance</fullName>
+                <default>false</default>
+                <label>Payment Alliance</label>
+            </value>
+            <value>
+                <fullName>RBS Lynx</fullName>
+                <default>false</default>
+                <label>RBS Lynx</label>
+            </value>
+            <value>
+                <fullName>RBS WorldPay Inc.</fullName>
+                <default>false</default>
+                <label>RBS WorldPay Inc.</label>
+            </value>
+            <value>
+                <fullName>Sage</fullName>
+                <default>false</default>
+                <label>Sage</label>
+            </value>
+            <value>
+                <fullName>Trans First</fullName>
+                <default>false</default>
+                <label>Trans First</label>
+            </value>
+            <value>
+                <fullName>VPS</fullName>
+                <default>false</default>
+                <label>VPS</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

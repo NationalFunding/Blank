@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VAP_Referral_Fee__c</fullName>
+    <description>This field will indicate if a VAP payment should be made to a Vendor's Company or Vendor Sales Rep.</description>
+    <inlineHelpText>Indicate if a VAP payment should be made to a Vendor's Company or Vendor Sales Rep.</inlineHelpText>
+    <label>VAP Referral Payment</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Company</fullName>
+                <default>false</default>
+                <label>Company</label>
+            </value>
+            <value>
+                <fullName>Sales Rep</fullName>
+                <default>false</default>
+                <label>Sales Rep</label>
+            </value>
+            <value>
+                <fullName>Payment Not Accepted</fullName>
+                <default>false</default>
+                <label>Payment Not Accepted</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

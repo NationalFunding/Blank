@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LoanMe_Lending_Tree_Validation</fullName>
+    <active>false</active>
+    <description>This validation rule will stop the credit analyst from selecting the Reason Closed of 'Sent to LoanMe' when a deal is declined.  Per email on 2/22 - this validation has been lifted and no longer necessary.  See Track It ticket  35442</description>
+    <errorConditionFormula>AND(
+NOT(ISBLANK(Lending_Tree_Id__c)),
+OR(
+ISPICKVAL(StageName, 'Declined'), 
+ISPICKVAL(StageName, 'Internal Decline'),
+ISPICKVAL(StageName, 'NF Decline')),
+ISPICKVAL(Reason_Closed__c, 'Sent to LoanMe'))</errorConditionFormula>
+    <errorDisplayField>First_Due_Lender_For_Actual__c</errorDisplayField>
+    <errorMessage>This transaction was referred to us by Lending Tree.  Is it not eligible for LoanMe.</errorMessage>
+</ValidationRule>

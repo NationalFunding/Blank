@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Refund_of_Proceeds_due_to_Overpayment__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field will be checked if the payment is to refund an overages in proceeds to back to the lender.</description>
+    <inlineHelpText>This field will be checked if the payment is to refund an overages in proceeds to back to the lender.</inlineHelpText>
+    <label>Refund of Proceeds due to Overpayment</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

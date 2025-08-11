@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Credit_Stip_Funding_Requirement_3_N__c</fullName>
+    <label>Credit Stip Funding Requirement 3 (N)</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Address Verification</fullName>
+                <default>false</default>
+                <label>Address Verification</label>
+            </value>
+            <value>
+                <fullName>Bank Verification</fullName>
+                <default>false</default>
+                <label>Bank Verification</label>
+            </value>
+            <value>
+                <fullName>Cross Corporate Guaranty</fullName>
+                <default>false</default>
+                <label>Cross Corporate Guaranty</label>
+            </value>
+            <value>
+                <fullName>Dual ACH</fullName>
+                <default>false</default>
+                <label>Dual ACH</label>
+            </value>
+            <value>
+                <fullName>Form 8821</fullName>
+                <default>false</default>
+                <label>Form 8821</label>
+            </value>
+            <value>
+                <fullName>Fraud Alert Verification</fullName>
+                <default>false</default>
+                <label>Fraud Alert Verification</label>
+            </value>
+            <value>
+                <fullName>Funding Layering Question</fullName>
+                <default>false</default>
+                <label>Funding Layering Question</label>
+            </value>
+            <value>
+                <fullName>Landlord Reference</fullName>
+                <default>false</default>
+                <label>Landlord Reference</label>
+            </value>
+            <value>
+                <fullName>Lender Payoff</fullName>
+                <default>false</default>
+                <label>Lender Payoff</label>
+            </value>
+            <value>
+                <fullName>Main Signor Clarification</fullName>
+                <default>false</default>
+                <label>Main Signor Clarification</label>
+            </value>
+            <value>
+                <fullName>MTD - Low ending balance</fullName>
+                <default>false</default>
+                <label>MTD - Low ending balance</label>
+            </value>
+            <value>
+                <fullName>Phone Verification</fullName>
+                <default>false</default>
+                <label>Phone Verification</label>
+            </value>
+            <value>
+                <fullName>Proof Mortgage Current</fullName>
+                <default>false</default>
+                <label>Proof Mortgage Current</label>
+            </value>
+            <value>
+                <fullName>Second Position</fullName>
+                <default>false</default>
+                <label>Second Position</label>
+            </value>
+            <value>
+                <fullName>Site Inspection Required</fullName>
+                <default>false</default>
+                <label>Site Inspection Required</label>
+            </value>
+            <value>
+                <fullName>Tax Return if funding $150+</fullName>
+                <default>false</default>
+                <label>Tax Return if funding $150+</label>
+            </value>
+            <value>
+                <fullName>Updated Signed &amp; Dated Applications</fullName>
+                <default>false</default>
+                <label>Updated Signed &amp; Dated Applications</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

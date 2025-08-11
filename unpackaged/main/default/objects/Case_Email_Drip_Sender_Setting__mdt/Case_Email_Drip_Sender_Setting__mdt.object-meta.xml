@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This mtd if active and Email To Case is not null will be used to be the sender of the Case Email Drips</description>
+    <label>Case - Email Drip Sender Setting</label>
+    <pluralLabel>Case - Email Drip Sender Settings</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

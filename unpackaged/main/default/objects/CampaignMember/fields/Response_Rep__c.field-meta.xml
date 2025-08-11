@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Response_Rep__c</fullName>
+    <description>This field will capture the data of the user that marked the campaign as responded to.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This field will capture the data of the user that marked the campaign as responded to.</inlineHelpText>
+    <label>Response Rep</label>
+    <length>255</length>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

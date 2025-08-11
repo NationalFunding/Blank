@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <description>This flow updates the Payoff Text Fields.</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>formula_Concurrent_Amount_Text</name>
+        <dataType>String</dataType>
+        <expression>TEXT({!$Record.Concurrent_Payoff_Amount__c})</expression>
+    </formulas>
+    <formulas>
+        <name>formula_MLP_Payoff_Amount_Text</name>
+        <dataType>String</dataType>
+        <expression>TEXT({!$Record.MLP_Payoff_Amount__c})</expression>
+    </formulas>
+    <formulas>
+        <name>formula_Payoff_Amount_Text</name>
+        <dataType>String</dataType>
+        <expression>TEXT({!$Record.Payoff_Amount__c})</expression>
+    </formulas>
+    <formulas>
+        <name>formula_Total_Payoff</name>
+        <dataType>String</dataType>
+        <expression>IF( 
+TEXT(
+BLANKVALUE({!$Record.Payoff_Amount__c}, 0) + 
+BLANKVALUE({!$Record.Concurrent_Payoff_Amount__c},0) + 
+BLANKVALUE({!$Record.MLP_Payoff_Amount__c},0)
+) = &apos;0&apos;, &apos;&apos;,
+TEXT(BLANKVALUE({!$Record.Payoff_Amount__c}, 0) + 
+BLANKVALUE({!$Record.Concurrent_Payoff_Amount__c},0) + 
+BLANKVALUE({!$Record.MLP_Payoff_Amount__c},0)
+) 
+)</expression>
+    </formulas>
+    <interviewLabel>Case - Update Payoff Text Fields {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Case - Update Payoff Text Fields</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Payoff_Fields</name>
+        <label>Update Payoff Fields</label>
+        <locationX>776</locationX>
+        <locationY>359</locationY>
+        <inputAssignments>
+            <field>Concurrent_Payoff_Amount_Text__c</field>
+            <value>
+                <elementReference>formula_Concurrent_Amount_Text</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>MLP_Payoff_Amount_Text__c</field>
+            <value>
+                <elementReference>formula_MLP_Payoff_Amount_Text</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Payoff_Amount_Text__c</field>
+            <value>
+                <elementReference>formula_Payoff_Amount_Text</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Total_Payoff__c</field>
+            <value>
+                <elementReference>formula_Total_Payoff</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>650</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>Update_Payoff_Fields</targetReference>
+        </connector>
+        <filterFormula>( ISNEW() &amp;&amp; NOT(ISNULL({!$Record.Payoff_Amount__c}))) || ISCHANGED({!$Record.Payoff_Amount__c}) || (ISNEW() &amp;&amp; NOT(ISNULL({!$Record.Concurrent_Payoff_Amount__c}))) || ISCHANGED({!$Record.Concurrent_Payoff_Amount__c}) || (ISNEW() &amp;&amp; NOT(ISNULL({!$Record.MLP_Payoff_Amount__c}))) || ISCHANGED({!$Record.MLP_Payoff_Amount__c})</filterFormula>
+        <object>Case</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

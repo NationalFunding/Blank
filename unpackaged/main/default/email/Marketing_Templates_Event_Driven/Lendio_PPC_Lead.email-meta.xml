@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Lendio / PPC Working Capital Email Template</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Naitonal_Funding_Standard_Letterhead_Stack</letterhead>
+    <name>Lendio / PPC Lead</name>
+    <style>freeForm</style>
+    <subject>PPC Lead - Call ASAP</subject>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

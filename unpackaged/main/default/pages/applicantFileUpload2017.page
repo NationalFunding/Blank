@@ -1,0 +1,296 @@
+<apex:page showheader="false" controller="vf_applicantFileUpload" standardStylesheets="false">
+    
+    <apex:stylesheet value="{!URLFOR($Resource.visualforce_uploads, 'css/bootstrap.min.css')}"/>
+    
+    
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>National Funding Document Upload</title>
+        <meta name="description" content="Document Uploads into Salesforce for National Funding"/>
+        <link rel="shortcut icon" href="//wp.natfundcdn.com/static/img/favicon.png"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  
+
+    <style>
+        @font-face {
+            font-family: 'BrandonTextWeb-Regular';
+            src: url("{!URLFOR($Resource.visualforce_uploads, 'fonts/3217CA_1_0.eot')}"), url("{!URLFOR($Resource.visualforce_uploads, 'fonts/3217CA_1_0.eot?#iefix')}") format('embedded-opentype'), url("{!URLFOR($Resource.visualforce_uploads, 'fonts/3217CA_1_0.woff2')}") format('woff2'), url("{!URLFOR($Resource.visualforce_uploads, 'fonts/3217CA_1_0.woff')}") format('woff'), url("{!URLFOR($Resource.visualforce_uploads, 'fonts/3217CA_1_0.ttf')}") format('truetype');
+        }
+
+        html,
+        body {
+          height: 100%;
+        }
+
+        body {
+            font-family: 'BrandonTextWeb-Regular', BrandonText, Tahoma, sans-serif;
+            color: #223657;
+        }
+
+        a, a:hover, a:active, a:focus {
+            color: #eb8243;
+        }
+
+
+        .btn-primary, .btn-primary:hover, .btn-primaary:active, .btn-primary:focus {
+            background-color: #eb8243;
+            border-color: #eb8243;
+        }
+
+        .btn-primary[disabled] {
+            background-color: #eb8243;
+            border-color: #eb8243;
+        }
+
+
+        .navbar-brand {
+            padding: 0;
+        }
+
+        .phone {
+            font-size: 18px;
+            color: #eb8243 !important;
+        }
+
+        /* Wrapper for page content to push down footer */
+        #wrap {
+          height: auto !important;
+          
+          /* Negative indent footer by it's height */
+          margin: 0 auto;
+        }
+
+        .content-container {
+            padding-top: 70px;
+        }
+
+        .btn-file {
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-file input[type=file] {
+            position: absolute;
+            top: 0;
+            right: 0;
+            min-width: 100%;
+            min-height: 100%;
+            font-size: 100px;
+            text-align: right;
+            filter: alpha(opacity=0);
+            opacity: 0;
+            outline: none;
+            background: white;
+            cursor: inherit;
+            display: block;
+        }
+
+
+        /* Footer CSS */
+        /* Set the fixed height of the footer here */
+        #push {
+          height: 278px;
+        }
+        /* Lastly, apply responsive CSS fixes as necessary */
+        @media (max-width: 767px) {
+          #footer {
+            margin-left: -20px;
+            margin-right: -20px;
+            padding-left: 20px;
+            padding-right: 20px;
+          }
+        
+        }
+.trust {
+  background: #223657;
+  padding: 8px 0 0 0;
+  text-align: center; }
+  .trust span {
+    display: inline-block;
+    height: 55px;
+    margin: 0 40px;
+    background: url("{!URLFOR($Resource.visualforce_uploads, 'img/partners.png')}") no-repeat center;
+    background-size: 191px; }
+    .trust span.bbb {
+      background-position: 0 0;
+      width: 191px; }
+    .trust span.elfa {
+      background-position: center -55px;
+      width: 191px; }
+    .trust span.docusign {
+      background-position: center -110px;
+      width: 191px; }
+    .trust span.inc {
+      background-position: center -165px;
+      width: 191px; }
+
+@media (max-width: 545px) {
+  .trust span {
+    margin: 0 3px; } }
+
+.sponsorships {
+  background: #ffffff;
+  display: block;
+  text-align: center;
+  position: relative;
+  padding: 0; }
+  .sponsorships h4.title {
+    color: #223657; }
+  .sponsorships .sponsorship-description a {
+    color: #223657;
+    text-decoration: underline;
+    font-weight: bold; }
+  .sponsorships span {
+    display: inline-block;
+    position: relative; } 
+    .sponsorships span[data-icon='chargers'] {
+      background: url("{!URLFOR($Resource.visualforce_uploads, 'img/chargers-small.png')}") no-repeat left center;
+      padding: 40px 0 40px 100px; }
+    .sponsorships span[data-icon='padres'] {
+      background: url("{!URLFOR($Resource.visualforce_uploads, 'img/padres-small.png')}") no-repeat left center;
+      padding: 40px 0 40px 100px; }
+    .sponsorships span[data-icon='usc'] {
+      background: url("{!URLFOR($Resource.visualforce_uploads, 'img/usc-small.png')}") no-repeat left center;
+      padding: 40px 0 40px 77px; }
+    .sponsorships span[data-icon='holiday'] {
+      background: url("{!URLFOR($Resource.visualforce_uploads, 'img/holiday_bowl-small.png')}") no-repeat left center;
+      padding: 40px 0 40px 100px; }
+
+        .footer-bottom {
+  background-color: #eb8243;
+  color: #ffffff;
+  font-family: "BrandonTextWeb-Bold", BrandonText, Tahoma, sans-serif;
+  font-size: 14px;
+  text-align: center;
+  padding: 1.25rem 0; 
+  }
+  .footer-bottom a {
+    color: #ffffff !important; }
+
+@media screen and (min-width: 640px) {
+  .footer-bottom .copyright {
+    text-align: left; }
+  .footer-bottom .subfooter-nav {
+    text-align: right; } 
+        
+    </style>
+</head>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5FFH4C"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5FFH4C');</script>
+    <!-- End Google Tag Manager -->
+<div style="display: none">DEBUG: invalidSource: {!invalidSource}; source: {!source}; ParentId: {!parentId}; ProductType: {!productType}; File Selected: {!fileSelected}; File: {!File.name};</div>
+    <nav id="nf-navbar" class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span> 
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="https://www.nationalfunding.com">
+                    <img src="{!URLFOR($Resource.visualforce_uploads, 'img/logo_horizontal.png')}" width="263" height="50"/>
+                </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="phone" href="tel:8887332383"><span class="glyphicon glyphicon-earphone"></span>&nbsp;888.733.2383</a></li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </nav>
+    
+    <div id="wrap" class="content-container container">
+        <!-- Example row of columns -->
+        <div class="row">
+            <div class="col-md-12">
+                <apex:outputText rendered="{!invalidSource}">
+                    <h1>Something went wrong!</h1>
+                    <p>Very strange that you reached this page.  Please get the proper link from your e-mail or call us directly at 888-733-2383 for assistance.<br />&nbsp;<br />&nbsp;</p>
+                </apex:outputText>
+                <apex:outputText rendered="{!invalidSource == false}">
+                    <apex:outputPanel rendered="{!fileSelected}">
+                        <h2>{!file.Name}</h2>
+                        <p>{!file.Description__c}</p>
+                        <apex:form >
+                            <p><apex:inputFile value="{!fileContents}" fileName="{!fileName}" /></p>
+                            <p><apex:commandButton id="upload-file" styleClass="upload-file btn-primary btn" value="Upload Selected File" action="{!fileUploaded}" /></p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                        </apex:form>
+                    </apex:outputPanel>
+                    <apex:outputPanel rendered="{!fileSelected == false}">
+                        <apex:outputText rendered="{!CheckUploadSuccess}">
+                            <div class="alert alert-success" role="alert">Success!  Your file was uploaded.  To upload more documents, please select the type of document you would like to upload.</div>
+                        </apex:outputText>
+                        <h2>Upload Your Documents</h2>
+                        <apex:repeat value="{!fileTypes}" var="ft">
+                            <h2><apex:outputLink value="/appupload2017?source={!source}&file={!ft.id}">{!ft.Name}</apex:outputLink></h2>
+                            <p>{!ft.Description__c}</p>
+                        </apex:repeat>
+                        <h2>Most Recent File Uploaded</h2>
+                        <p>
+                            <apex:outputText rendered="{!FilesHaveBeenUploaded == false}"><b>No files have been uploaded this session.</b></apex:outputText>
+                            <apex:repeat var="filename" value="{!filesUploaded}">{!filename}<br /></apex:repeat></p>
+                        <p><b>Note:</b> Please select which type of document you are uploading.  You may upload multiple files for each type of document.<br />Please contact us directly if you are unsure what files are remaining to be uploaded.</p>
+                        <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                    </apex:outputPanel>
+                </apex:outputText>
+            </div>
+        </div>
+    </div>
+ <footer id="footer">
+            <div class="trust">
+                <span class="bbb" title="BBB Accredited Business"></span>
+                <span class="elfa" title="ELFA"></span>
+                <span class="docusign" title="DocuSign"></span>
+                <span class="inc" title="Inc. 5000"></span>
+            </div>
+            <div class="sponsorships text-center" style="display:none">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h4 class="title"><strong>Proud Sponsorships</strong></h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <p class="sponsorship-description">We're in a league of our own. <a href="https://www.nationalfunding.com/about-us/sponsorships/" target="_blank">Find out more.</a></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-3">
+                            <span data-icon="chargers"></span>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-3">
+                            <span data-icon="padres"></span>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-3">
+                            <span data-icon="usc"></span>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-3">
+                            <span data-icon="holiday"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6 copyright">© 2017 National Funding. All rights reserved.</div>
+                        <div class="col-xs-12 col-md-6 subfooter-nav">
+                            <a href="https://www.nationalfunding.com/terms-conditions/" target="_blank">Terms &amp; Conditions</a>  <a href="https://www.nationalfunding.com/privacy-policy/" target="_blank">Privacy Policy</a>    <a href="https://www.nationalfunding.com/sitemap/" target="_blank">Sitemap</a>
+                    </div>
+                    </div>
+            </div>
+        </div>
+    </footer>
+    <!-- /container -->
+</apex:page>

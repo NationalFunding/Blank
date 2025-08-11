@@ -1,0 +1,83 @@
+<html>
+<body bgcolor="#f0f0ec">
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#e6e6db">
+ <tr>
+  <td valign="top">
+   <table width="615" cellpadding="0" cellspacing="0" border="0" align="center">
+    <tr>
+     <!-- first header -->
+     <td valign="top" align="center"><img src="https://c.na6.content.force.com/servlet/servlet.ImageServer?id=01580000001XewS&oid=00D80000000diq5&lastMod=1344976551000" width="615" height="47" border="0" usemap="#topbar" />
+      <map name="topbar">
+       <area shape="rect" coords="17,6,193,42" href="http://www.nationalfunding.com" target="_blank" alt="National Funding" title="National Funding">
+       <area shape="rect" coords="446,1,480,44" href="https://plus.google.com/+Nationalfunding/" target="_blank" alt="Google+" title="Google+">
+       <area shape="rect" coords="486,1,517,44" href="http://www.facebook.com/national.funding" target="_blank" alt="Facebook" title="Facebook">
+       <area shape="rect" coords="518,1,556,44" href="http://twitter.com/NatFunding/" target="_blank" alt="Twitter" title="Twitter">
+       <area shape="rect" coords="560,1,592,44" href="http://www.linkedin.com/company/national-funding" target="_blank" alt="LinkedIn" title="LinkedIn">
+      </map>
+     </td>
+    </tr>
+    <tr>
+     <td valign="top" align="center">
+      <a href="http://www.fivepointcapital.com" target="_blank"><img src="https://c.na6.content.force.com/servlet/servlet.ImageServer?id=01580000001XexP&oid=00D80000000diq5&lastMod=1344976856000" width="615" height="195" border="0" alt="Welcome. National Funding." title="Welcome. National Funding."></a>
+     </td>
+    </tr>
+    <tr>
+     <td valign="top">
+      <table width="590" cellpadding="30" cellspacing="0" border="0" bgcolor="#ffffff" align="center" style="line-height: 1.3em;">
+       <tr>
+        <td valign="top">
+         <font face="arial, sans-serif" color="#3e362a size="3">
+          Hi {!Lead.FirstName},
+          <br><br>
+         Great news – we have received your Preliminary Lease application submitted through our website and it looks like we can help you.  The Application has been forwarded to an Account Executive who will contact you as soon as possible during business hours.
+          <br>
+          <strong>For fastest service (1 business day), please do the following:
+          <UL>
+          <LI>Complete and Sign the attached verification form.
+          <br><br>
+          <LI>Get a quote for New or Used Equipment
+          <br><br>
+           <LI>Fax everything to (888) 740-1151</strong>
+           </UL>
+           <font face="arial, sans-serif" color="#3e362a size="3">In any case, an Account Executive will contact you as soon as possible during business hours to discuss your needs in more detail so we can get you an accurate quote. 
+           <br><br>
+Thank you for using National Funding. We look forward to building a lasting business relationship with you and your company.
+          <br><br>
+          Kind Regards,
+          <br><br>
+          <strong>National Funding</strong>
+          <br>
+          Fax: (888) 740-1151
+          <br>
+          Email: apply@nationalfunding.com
+         </font>
+        </td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+    <tr>
+      <td valign="top">
+      <table width="600" cellpadding="5" cellspacing="0" border="0" align="center">
+       <tr>
+        <td valign="top">
+         <font face="arial, sans-serif" color="#666666" size="1">
+         If you no longer wish to receive emails from National Funding, send an email to emailreply@nationalfunding.com with Unsubscribe in the subject line. You may also unsubscribe by sending written notice to: National Funding Unsubscribe, <br>
+9530 Towne Centre Dr., Suite 120, San Diego, CA 92121. Thank you.
+         <br><br>
+         National Funding respects your privacy. Our commitment to your privacy is described in our Privacy Policy which is available on our Web site for your reference.
+         <br>
+         &#169; 2014 National Funding.  All Rights Reserved.
+         </font>
+         <br><br>
+        </td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+</body>
+</html>

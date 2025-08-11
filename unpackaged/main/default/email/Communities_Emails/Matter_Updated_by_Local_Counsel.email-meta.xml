@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Matter Updated by Local Counsel</name>
+    <style>none</style>
+    <subject>Matter updated by Local Counsel</subject>
+    <textOnly>Dear {!advpm__Matter__c.OwnerFullName},
+
+This is to notify that the matter has been updated by Local counsel.
+
+Please see the following matter:
+{!advpm__Matter__c.Name}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

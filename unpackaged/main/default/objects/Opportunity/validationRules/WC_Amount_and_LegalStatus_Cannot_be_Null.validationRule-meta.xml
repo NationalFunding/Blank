@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WC_Amount_and_LegalStatus_Cannot_be_Null</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+   ISPICKVAL(StageName, 'Statements In - MCA'),
+   ISCHANGED(StageName),
+   ISPICKVAL( Type , 'NEW'),
+   OR(
+     ISBLANK( Amount ),
+     ISBLANK( Legal_Status__c )
+)
+)</errorConditionFormula>
+    <errorMessage>Amount and Legal Status must have a value for a new deal before the Stage can be updated to 'Statements In - MCA'.</errorMessage>
+</ValidationRule>

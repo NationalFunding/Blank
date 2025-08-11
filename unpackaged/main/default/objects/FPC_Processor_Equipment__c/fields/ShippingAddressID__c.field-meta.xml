@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ShippingAddressID__c</fullName>
+    <description>ID of shipping address for processing equipment in a custom lookup.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>ID of shipping address for processing equipment in a custom lookup.</inlineHelpText>
+    <label>ShippingAddressID</label>
+    <length>12</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Print_Sched_B_For_Actual__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Print Sched.B for actual</description>
+    <inlineHelpText>Print Sched.B for actual</inlineHelpText>
+    <label>Print Sched.B</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

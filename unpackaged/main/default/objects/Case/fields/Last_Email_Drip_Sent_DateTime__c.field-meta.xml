@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Last_Email_Drip_Sent_DateTime__c</fullName>
+    <description>Stores the date and time when the most recent email in the drip sequence was sent. Used to track email cadence and control timing of subsequent emails. Currently only used for NCCI email drip, but can be scaled further.</description>
+    <inlineHelpText>The date and time when the most recent email in the drip campaign was sent.</inlineHelpText>
+    <label>Last Email Drip Sent Date/Time</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

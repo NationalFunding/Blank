@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Completed</fullName>
+        <default>false</default>
+        <label>Completed</label>
+    </customValue>
+    <customValue>
+        <fullName>Incomplete</fullName>
+        <default>false</default>
+        <label>Incomplete</label>
+    </customValue>
+    <customValue>
+        <fullName>Not Received</fullName>
+        <default>false</default>
+        <label>Not Received</label>
+    </customValue>
+    <customValue>
+        <fullName>Other Issue</fullName>
+        <default>false</default>
+        <label>Other Issue</label>
+    </customValue>
+    <customValue>
+        <fullName>Not Applicable</fullName>
+        <default>false</default>
+        <label>Not Applicable</label>
+    </customValue>
+    <masterLabel>Broker Management Status</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

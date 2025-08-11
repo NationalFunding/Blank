@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Scheduled_Payments__c</fullName>
+    <description>Sum of Amount of all Scheduled Payments.</description>
+    <label>Total Scheduled Payments ($)</label>
+    <summarizedField>Scheduled_Payment__c.Amount__c</summarizedField>
+    <summaryForeignKey>Scheduled_Payment__c.Payment_Agreement__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

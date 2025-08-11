@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Mini Process for Syndication - alert to eNoah</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Mini Process for Syndication</name>
+    <style>none</style>
+    <subject>Mini Process for: {!Opportunity.Name} {!Opportunity.LastStageChangeDate}</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

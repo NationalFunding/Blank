@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NF_Renewal_Rep__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Previously was “NF Renewal Rep” but the “NF” was removed to make this field generic enough to support Quick Bridge renewals with working out of National Funding Salesforce.</description>
+    <inlineHelpText>The renewal rep's name is entered in this field.</inlineHelpText>
+    <label>Renewal Rep</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Accounts4</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Lookup</type>
+</CustomField>

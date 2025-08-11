@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Start_Date_and_Next_Payment_Date</fullName>
+    <active>true</active>
+    <description>Prevent users from setting ‘Start Date’ to be the same as ‘Next Payment Date’ as the Repayment Schedule will not create payments when this occurs.</description>
+    <errorConditionFormula>cmbls__Start_Date__c  &gt;=  cmbls__Next_Payment_Date__c</errorConditionFormula>
+    <errorDisplayField>cmbls__Start_Date__c</errorDisplayField>
+    <errorMessage>Start Date cannot be the same date as Next Payment Date. Start Date should be at least 1 business day prior to the desired Next Payment Date. If you leave Next Payment Date blank, the system will populate it to the earliest date available upon save</errorMessage>
+</ValidationRule>

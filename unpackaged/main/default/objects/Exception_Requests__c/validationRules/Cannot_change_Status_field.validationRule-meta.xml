@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_change_Status_field</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ISCHANGED(Status__c),
+NOT(
+OR(
+$Profile.Name='System Administrator',
+$Profile.Name='NF Credit API',
+$Profile.Name='NF - CAO',
+$Profile.Name='FPC - Operations User'
+)),
+NOT(
+OR(
+ISPICKVAL(Status__c,'New'),
+ISPICKVAL(Status__c,'Submitted'),
+ISPICKVAL(Status__c,'Escalated')
+))
+)</errorConditionFormula>
+    <errorDisplayField>Status__c</errorDisplayField>
+    <errorMessage>This user can only update the Status to New, Submitted or Escalated.</errorMessage>
+</ValidationRule>

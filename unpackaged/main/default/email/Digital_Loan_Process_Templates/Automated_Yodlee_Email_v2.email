@@ -1,0 +1,80 @@
+<messaging:emailTemplate subject="Automated Yodlee Email" recipientType="Contact" relatedToType="Account">
+    <messaging:plainTextEmailBody >
+        Hi {!recipient.FirstName},
+
+        Follow the 4 simple steps below to expedite your loan approval with Secure Bank Verification.
+
+        1. Click this link to begin the verification process:
+        <apex:repeat var="objBD" value="{!relatedTo.Bank_Data__r}">
+            <apex:outputText rendered="{!objBD.Request_Bank__c == true}">
+                <p>
+                    <b>{!objBD.Bank_Name__c}</b>:
+                    <br />
+                    <a href="https://ydl.nationalfunding.com/Account/GetDetailsFromUrl?{!objBD.Encrypted_Email_String__c}">Transfer Bank Statements</a>
+                </p>
+            </apex:outputText>
+        </apex:repeat>
+        2. Select your bank (if your bank is not listed you can search for it)
+        3. Enter your online banking username and password and click Submit
+        4. Once your accounts have loaded click the X in the top right corner to complete the process
+
+        That’s it! It may take between 30-90 seconds for the account information to transfer to our secure systems. Please do not exit the page or click the back button until after you click the X and you see a message that processing has been completed.
+        
+        Your security and privacy are our primary concern. We never see or store your username and password and we use bank level security to ensure your private information remains private and accessible by only you and your bank.
+        
+        If you have any questions or run into any issues during the Secure Bank Verification process don’t hesitate to contact your National Funding Account Executive.
+        
+        Thanks, 
+        
+        {!$User.FirstName} {!$User.LastName} 
+        {!$User.Title} 
+        {!$User.Phone}
+        National Funding
+    </messaging:plainTextEmailBody>
+    <messaging:htmlEmailBody >
+        <html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><title></title></head>
+        <body style="margin: 0px; padding: 0px background-color: #FFFFFF; font-family: Arial;" bgcolor="#FFFFFF"><!-- << bg color for forwarding (leave white) // main bg color >> --><table bgcolor="#FFFFFF" width="100%" border="0" align="center" cellpadding="0" cellspacing="0"><tr><td>
+        <!-- CENTER FLOAT WIDTH -->
+        <table width="600" border="0" valign="top" align="center" cellpadding="0" cellspacing="0"><tr><td><!-- Master Width of the center panel -->
+        <apex:image id="Logo" value="https://c.na29.content.force.com/servlet/servlet.ImageServer?id=01534000001tRsK&oid=00D80000000diq5&lastMod=1456327894000" />
+        <!-- CENTER PANEL BG COLOR (to hide separation of tables on email forward from Outlook (known issue) -->
+        <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF"><tr><td><!-- Master Color of the center panel -->
+            <br/><br/>
+            <p>Hi {!recipient.FirstName},</p>
+            <p>Follow the 4 simple steps below to expedite your loan approval with Secure Bank Verification.</p>
+            <ol>
+                <li>
+                    Click this link to begin the verification process:
+                    <apex:repeat var="objBD" value="{!relatedTo.Bank_Data__r}">
+                        <apex:outputText rendered="{!objBD.Request_Bank__c == true}">
+                            <p>
+                                <b>{!objBD.Bank_Name__c}</b>:
+                                <br />
+                                <a href="https://ydl.nationalfunding.com/Account/GetDetailsFromUrl?{!objBD.Encrypted_Email_String__c}">Transfer Bank Statements</a>
+                            </p>
+                        </apex:outputText>
+                    </apex:repeat>
+                </li>
+                <li>Select your bank (if your bank is not listed you can search for it)</li>
+                <li>Enter your online banking username and password and click Submit</li>
+                <li>Once your accounts have loaded click the X in the top right corner to complete the process</li>
+            </ol>
+            <p>That’s it! It may take between 30-90 seconds for the account information to transfer to our secure systems. Please do not exit the page or click the back button until after you click the X and you see a message that processing has been completed.</p>
+            <p>Your security and privacy are our primary concern. We never see or store your username and password and we use bank level security to ensure your private information remains private and accessible by only you and your bank.</p>
+            <p>If you have any questions or run into any issues during the Secure Bank Verification process don’t hesitate to contact your National Funding Account Executive.</p>
+            <p>Thanks,<br></br>
+                <br /> {!$User.FirstName} {!$User.LastName}
+                <br /> {!$User.Title}
+                <br /> {!$User.Phone}
+                <br /> National Funding
+            </p>
+            <br/><br/>
+        <!-- /CENTER BG COLOR -->
+        </td></tr></table>
+        <apex:image id="footer-image-bottom" value="https://c.na29.content.force.com/servlet/servlet.ImageServer?id=01534000001tRz6&oid=00D80000000diq5&lastMod=1456347926000" />
+        <!-- /CENTER FLOAT WIDTH -->
+        </td></tr></table>
+        <!-- /CENTER FLOAT -->
+        </td></tr></table></body></html>
+    </messaging:htmlEmailBody>
+</messaging:emailTemplate>

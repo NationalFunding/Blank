@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Referral_Summary__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>This field is a lookup to the referral summary object.</description>
+    <inlineHelpText>This field is a lookup to the referral summary object.</inlineHelpText>
+    <label>Referral Summary</label>
+    <referenceTo>Referral_Summary__c</referenceTo>
+    <relationshipLabel>Referral Attributes</relationshipLabel>
+    <relationshipName>Referral_Attributes</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

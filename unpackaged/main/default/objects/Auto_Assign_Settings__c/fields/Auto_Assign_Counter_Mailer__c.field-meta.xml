@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Auto_Assign_Counter_Mailer__c</fullName>
+    <description>Round Robin Auto Assign Counter - Internet Mailer Leads/Accounts.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Counter for Internet Mailer Team. Will increment by 1 for each lead that is assigned to Internet Mailer Team. When it reaches the maximum number of reps on the team it will restart at 1.</inlineHelpText>
+    <label>Auto Assign Counter - Mailer</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

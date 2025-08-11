@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BIZ_tot_utiliz_24m__c</fullName>
+    <defaultValue>0</defaultValue>
+    <description>Percent of Highest Balance on all accounts to Highest Credit Limit on all accounts with the date reported in the last 24 months</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Total utilization on all accounts in last 24 months</inlineHelpText>
+    <label>Utilization on all accounts</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

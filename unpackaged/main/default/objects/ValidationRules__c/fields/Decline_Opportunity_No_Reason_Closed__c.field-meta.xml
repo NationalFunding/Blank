@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Decline_Opportunity_No_Reason_Closed__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This setting is checked in the Broker_Renewal_Decline_Reason_is_Null Opportunity validation rule to determine if an Opportunity can be declined with a blank Reason Closed value.</description>
+    <label>Decline Opportunity - No Reason Closed</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

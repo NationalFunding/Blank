@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SLX_Stage__c</fullName>
+    <description>Test field..  Should not be seen by users.  When you update an opportunity with this value, then a trigger should populate the stage field.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Test field..  Should not be seen by users.  When you update an opportunity with this value, then a trigger should populate the stage field.</inlineHelpText>
+    <label>SLX Stage</label>
+    <length>32</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

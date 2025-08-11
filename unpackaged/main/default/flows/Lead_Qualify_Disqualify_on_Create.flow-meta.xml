@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>57.0</apiVersion>
+    <assignments>
+        <name>Disqualify_Lead</name>
+        <label>Disqualify Lead</label>
+        <locationX>936</locationX>
+        <locationY>302</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.WC_Qualification__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Low AGS</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.EF_Qualification__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Low AGS</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Sync_With_Marketo__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Commit_Update</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Qualify_Lead</name>
+        <label>Qualify Lead</label>
+        <locationX>755</locationX>
+        <locationY>159</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.WC_Qualification__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Interested</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.EF_Qualification__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Interested</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Sync_With_Marketo__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Commit_Update</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Qualify_or_Disqualify</name>
+        <label>Qualify or Disqualify?</label>
+        <locationX>750</locationX>
+        <locationY>308</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Disqualify</name>
+            <conditionLogic>1 OR (2 AND 3)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Annual_Sales__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Tier 1</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.AnnualRevenue</leftValueReference>
+                <operator>LessThan</operator>
+                <rightValue>
+                    <elementReference>Get_AGS_Tiers.Tier_1__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.AnnualRevenue</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Disqualify_Lead</targetReference>
+            </connector>
+            <label>Disqualify</label>
+        </rules>
+        <rules>
+            <name>Qualify</name>
+            <conditionLogic>1 OR 2 OR 3</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Annual_Sales__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Tier 2</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Annual_Sales__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Tier 3</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.AnnualRevenue</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <elementReference>Get_AGS_Tiers.Tier_1__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Qualify_Lead</targetReference>
+            </connector>
+            <label>Qualify</label>
+        </rules>
+    </decisions>
+    <description>Qualifies or Disqualifies leads submitted by the NF Automation User. Uses distribution tier and annual revenue to determine qualification status SD-5809
+
+Last Update: Removing status update to House because it was causing issues with Experiture leads</description>
+    <environments>Default</environments>
+    <interviewLabel>Lead - Qualify/Disqualify on Create {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Lead - Qualify/Disqualify on Create</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_AGS_Tiers</name>
+        <label>Get AGS Tiers</label>
+        <locationX>610</locationX>
+        <locationY>305</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Qualify_or_Disqualify</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Active__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>AGS_Tiers__mdt</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Commit_Update</name>
+        <label>Commit Update</label>
+        <locationX>934</locationX>
+        <locationY>159</locationY>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>129</locationX>
+        <locationY>195</locationY>
+        <connector>
+            <targetReference>Get_AGS_Tiers</targetReference>
+        </connector>
+        <filterFormula>AND(
+	{!$User.LastName} = &apos;NF Automation User&apos;,
+	NOT(ISBLANK({!$Record.Activation_Date__c})),
+	OR(
+		NOT(ISBLANK(TEXT({!$Record.Annual_Sales__c}))),
+		NOT(ISBLANK({!$Record.AnnualRevenue}))
+	)
+)</filterFormula>
+        <object>Lead</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

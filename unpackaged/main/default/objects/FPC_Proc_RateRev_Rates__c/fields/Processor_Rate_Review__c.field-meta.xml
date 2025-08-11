@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Processor_Rate_Review__c</fullName>
+    <label>Processor Rate Review</label>
+    <referenceTo>FPC_Proc_RateRev__c</referenceTo>
+    <relationshipLabel>Processor Rate Review Rates</relationshipLabel>
+    <relationshipName>Processor_Rate_Review_Rates</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

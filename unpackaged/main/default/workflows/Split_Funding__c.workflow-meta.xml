@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>IMF_Split_Funding_Processed_By</fullName>
+        <field>Split_Funding_Processed_By__c</field>
+        <formula>$User.Full_Name__c</formula>
+        <name>IMF - Split Funding Processed By</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>IMF_Split_Funding_Processed_Date</fullName>
+        <field>Split_Funding_Processed_Date__c</field>
+        <formula>NOW()</formula>
+        <name>IMF - Split Funding Processed  Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>SF_Update_Bank_Acct</fullName>
+        <field>Bank_Account_Number__c</field>
+        <formula>Opportunity__r.Bank_Account_Number__c</formula>
+        <name>SF - Update Bank Acct #</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>SF_Update_Bank_Name</fullName>
+        <field>Bank_Name__c</field>
+        <formula>Opportunity__r.Bank_Name__c</formula>
+        <name>SF - Update Bank Name</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>SF_Update_Bank_Routing</fullName>
+        <field>Bank_Routing_Number__c</field>
+        <formula>Opportunity__r.Bank_Routing_Number__c</formula>
+        <name>SF -Update Bank Routing #</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>SF_Update_Mailing_Addy</fullName>
+        <field>Street_Address__c</field>
+        <formula>Opportunity__r.Mailing_Address_1__c</formula>
+        <name>SF - Update Mailing Addy</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>SF_Update_Mailing_City</fullName>
+        <field>City__c</field>
+        <formula>Opportunity__r.Mailing_Address_City__c</formula>
+        <name>SF - Update Mailing City</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>SF_Update_Mailing_State</fullName>
+        <field>State__c</field>
+        <formula>Opportunity__r.Mailing_Address_State__c</formula>
+        <name>SF - Update Mailing State</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>SF_Update_Mailing_Zip</fullName>
+        <field>Zip_Code__c</field>
+        <formula>Opportunity__r.Mailing_Address_Zip__c</formula>
+        <name>SF - Update Mailing Zip</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>IMF - Update Split Funding Processed Info</fullName>
+        <actions>
+            <name>IMF_Split_Funding_Processed_By</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>IMF_Split_Funding_Processed_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Split_Funding__c.Split_Payment_Processed__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <description>This workflow will update the user that created the split funding record.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Split Funding - Update Customer%27s Info</fullName>
+        <actions>
+            <name>SF_Update_Bank_Acct</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>SF_Update_Bank_Name</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>SF_Update_Bank_Routing</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>SF_Update_Mailing_Addy</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>SF_Update_Mailing_City</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>SF_Update_Mailing_State</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>SF_Update_Mailing_Zip</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Split_Funding__c.Split_Funding_Recipient__c</field>
+            <operation>equals</operation>
+            <value>Customer</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+</Workflow>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Notification of Strategic Partner Auto Assigned Lead</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Naitonal_Funding_Standard_Letterhead_Stack</letterhead>
+    <name>Strategic Partner Auto Assign</name>
+    <style>freeForm</style>
+    <subject>Strategic Partner Lead - Auto Assigned {!Lead.Referral_Source_Name__c}</subject>
+    <textOnly>{!if(Lead.Company=&quot;&quot;,Account.Name,Lead.Company)} has been automatically assigned to you.
+
+{!if(Lead.Link=&quot;&quot;,Account.Link,Lead.Link)}
+
+Please call this lead ASAP!
+
+Good luck.</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

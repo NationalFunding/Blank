@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Exceptions_must_be_entered_on_Approval</fullName>
+    <active>true</active>
+    <description>Requires that if any Policy Exception fields are not blank, all Policy Exception fields must not be blank prior to Approval</description>
+    <errorConditionFormula>AND(
+ISCHANGED(Status__c),
+ISPICKVAL(Status__c, 'Approved'),
+OR( 
+NOT(ISBLANK(Policy_Exception_Categories__c)),
+NOT(ISBLANK(Allowable_Exceptions__c)),
+NOT(ISBLANK(Strong_Mitigating_Factors__c))
+),
+OR(
+ISBLANK(Policy_Exception_Categories__c),
+ISBLANK(Allowable_Exceptions__c),
+ISBLANK(Strong_Mitigating_Factors__c)
+)
+)</errorConditionFormula>
+    <errorMessage>All Policy Exceptions must be entered before Approval can be issued.</errorMessage>
+</ValidationRule>

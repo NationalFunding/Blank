@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EPP_Active_Date__c</fullName>
+    <description>This field will capture the date that an EPP Opportunity went into the Active Status. It will be updated by a workflow upon the Stage of the EPP Opportunity changing to Active.</description>
+    <inlineHelpText>This field will capture the date that an EPP Opportunity went into the Active Status. It will be updated by a workflow upon the Stage of the EPP Opportunity changing to Active.</inlineHelpText>
+    <label>EPP Active Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

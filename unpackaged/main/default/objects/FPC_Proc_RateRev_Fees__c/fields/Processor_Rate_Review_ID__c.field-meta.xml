@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Processor_Rate_Review_ID__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>Processor Rate Review ID</label>
+    <referenceTo>FPC_Proc_RateRev__c</referenceTo>
+    <relationshipLabel>Processor Rate Review Fees (Processor Rate Review ID)</relationshipLabel>
+    <relationshipName>Processor_Rate_Review_Fees1</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

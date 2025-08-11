@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WC_Turn_Down__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Populated by workflow when Lead has been turned down for WC.</description>
+    <inlineHelpText>Populated by workflow when Lead has been turned down for WC.</inlineHelpText>
+    <label>WC Turn Down</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

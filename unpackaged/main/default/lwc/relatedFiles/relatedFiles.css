@@ -1,0 +1,12 @@
+/* Table Truncation */
+
+.table_truncate{
+    width: 100%; 
+    table-layout: fixed;
+}
+
+.th_truncate{
+    overflow: hidden;
+    white-space:nowrap; 
+    width:50%;
+}

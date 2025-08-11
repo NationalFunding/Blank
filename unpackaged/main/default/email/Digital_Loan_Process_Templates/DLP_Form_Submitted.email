@@ -1,0 +1,6 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="400" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[<font face="arial" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><span style="font-size: 12pt;">Hi,</span></font><div style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><br></div><div style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><font face="Arial, sans-serif">{!if(Lead.Company="",Account.Name,Lead.Company)}&nbsp;has started the Digital Loan Process on our website. This customer may or may not have signed an application or uploaded statements at this time.&nbsp;</font><div><font face="Arial, sans-serif"><br></font></div><div><font face="Arial, sans-serif">{!if(Lead.Link="",Account.Link,Lead.Link)}</font></div><div><font face="Arial, sans-serif"><br>Please call this lead ASAP!<br><br>Good luck.</font></div></div><div style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><br></div>]]></td>
+</tr>
+</table>

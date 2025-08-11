@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Title_Perfected_User__c</fullName>
+    <description>User that checked title perfected check box is recorded.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>User that checked title perfected check box is recorded.</inlineHelpText>
+    <label>Title Perfected User</label>
+    <length>12</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

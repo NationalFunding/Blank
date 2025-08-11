@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DocketAlarm_Search</fullName>
+    <availability>online</availability>
+    <description>Triggers a screen flow 'Screen Flow - DocketAlarm Search'</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>DocketAlarm Search</masterLabel>
+    <openType>noSidebar</openType>
+    <protected>false</protected>
+    <url>/flow/Screen_Flow_DocketAlarm_Search?RecordId={!Case.Id}&amp;retURL=/{!Case.Id}</url>
+</WebLink>

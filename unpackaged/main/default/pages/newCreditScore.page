@@ -1,0 +1,85 @@
+<apex:page standardController="Lead" extensions="newCreditScoreExtension">
+  <apex:sectionHeader title="Lead Details" subtitle="Credit Management" />
+  <p><a href="/{!lead}">Go Back</a></p>
+  <style>.labelCol { vertical-align: middle!important }</style>
+  <apex:form >
+      <apex:pageBlock title="Add New Request">
+          <apex:pageBlockButtons location="bottom">
+              <apex:commandButton value="Add Person" action="{!addPerson}" />
+          </apex:pageBlockButtons>
+          <apex:pageBlockSection columns="2" dir="vertical">
+              <apex:inputField value="{!cs.First_Name__c}" required="true" taborderhint="1" />
+              <apex:inputField value="{!cs.DOB__c}" taborderhint="8" />
+              <apex:inputField value="{!cs.Last_Name__c}" required="true" taborderhint="2" />
+              <apex:inputField value="{!cs.Home_Phone__c}" taborderhint="9" />
+              <apex:inputField value="{!cs.SSN__c}" required="true" taborderhint="3" />
+              <apex:inputField value="{!cs.Address_Number__c}" taborderhint="10" required="true" />
+              <apex:inputField value="{!cs.Mobile_Phone__c}" taborderhint="4" />
+              <apex:inputField value="{!cs.Address_Street__c}" taborderhint="11" required="true" />
+              <apex:inputField value="{!cs.Email__c}" taborderhint="5" />
+              <apex:inputField value="{!cs.City__c}" taborderhint="12" />
+              <apex:inputField value="{!cs.Title__c}" taborderhint="6" />
+              <apex:inputField value="{!cs.State__c}" taborderhint="13" />
+              <apex:inputField value="{!cs.Ownership_Percentage__c}" taborderhint="7" />
+              <apex:inputField value="{!cs.Zip_Postal_Code__c}" taborderhint="14" />
+          </apex:pageblockSection>
+          <apex:pageBlockSection columns="1" rendered="{!cs.Linked_with_Lead__c}" title="Note">
+              <apex:pageBlockSectionItem >This credit score will be related to the lead.  When converted, the credit score information will be merged with the lead's contact record. If you are not checking the credit of the primary contact, please enter a dummy social and create the record &ndash; just don't submit it afterwards.</apex:pageBlockSectionItem>
+          </apex:pageBlockSection>
+      </apex:pageBlock>
+  </apex:form>
+  <apex:form id="theForm">
+       <apex:actionPoller action="{!updateScores}" rerender="opSubmitted, opReceived" interval="10" status="RefreshStatus"/>
+       <apex:actionFunction action="{!updateScores}" rerender="opSubmitted, opReceived" status="RefreshStatus" name="manualRefresh"/>
+      <apex:pageBlock title="Requests" id="opSubmitted">
+          <apex:pageBlockButtons location="bottom"><apex:commandButton value="Run Credit Check(s)" action="{!submitRequests}" /> <apex:commandButton value="Remove Selected Request" action="{!deleteRequests}" />&nbsp;&nbsp;<apex:actionStatus id="RefreshStatus" startText=" WARNING: Checking for updated requests..."></apex:actionStatus> </apex:pageblockButtons>
+          <apex:pageBlockTable value="{!creditScoreWrappers}" var="wrapper">
+             <apex:column width="24" style="text-align: center">
+                 <apex:facet name="header"><apex:inputCheckbox onchange="checkAll(this.checked)" /></apex:facet>
+                 <apex:inputCheckbox styleclass="checkMe" value="{!wrapper.isSelected}" rendered="{!wrapper.isSubmitted == false}" />
+                 <apex:image value="{!$Resource.CreditCheckLoaderIcon}" rendered="{!wrapper.isSubmitted}" />
+             </apex:column>
+             <apex:column value="{!wrapper.score.Full_Name__c}"/>
+             <apex:column value="{!wrapper.score.SSN__c}"/>
+             <apex:column value="{!wrapper.score.Request_ID__c}"/>
+          </apex:pageBlockTable>
+      </apex:pageBlock>
+      <script>
+      function handleRerun(scoreId) {
+          newCreditScoreExtension.resubmitScore(scoreId,function(result, event){
+              if (result === true) manualRefresh();
+              else alert('There was an issue while resubmitting that credit score. Please notify your administrator.');
+          });
+      }
+      </script>
+      <apex:outputPanel id="opReceived">
+          <apex:pageBlock id="pbReceived" title="Received Requests" rendered="{!HasReceivedScores}">
+              <apex:pageBlockTable value="{!receivedScores}" var="score">
+                 <apex:column width="90">
+                     <button onclick="this.disabled = true; handleRerun('{!score.Id}'); return false" style="cursor: pointer">Rerun Credit</button>
+                 </apex:column>
+                 <apex:column value="{!score.Full_Name__c}"/>
+                 <apex:column value="{!score.Title__c}"/>
+                 <apex:column value="{!score.Mobile_Phone__c}" width="130" style="text-align: right" />
+                 <apex:column value="{!score.Email__c}" width="130" style="text-align: right" />
+                 <apex:column value="{!score.Ownership_Percentage__c}" width="130" style="text-align: right" />
+                 <apex:column value="{!score.FICO_Score__c}" width="65" style="text-align: right;"/>
+                 <apex:column width="220" style="text-align: center; padding-right: 5px">
+                     <apex:facet name="header"></apex:facet>
+                     <a href="{!score.Latest_Report_URL__c}" target="_blank">View Detailed Report</a> &nbsp;&nbsp;
+                     <apex:outputLink value="/{!score.id}">Edit Record</apex:outputLink>
+                 </apex:column>
+              </apex:pageBlockTable>
+          </apex:pageBlock>
+      </apex:outputPanel>
+<script>
+function checkAll(cb) {
+    var inputElem = document.getElementsByTagName("input");
+    for(var i=0; i<inputElem.length; i++) {
+        if(inputElem[i].className.indexOf("checkMe")!=-1)
+            inputElem[i].checked = cb;
+       }
+}    
+</script>
+  </apex:form>
+</apex:page>

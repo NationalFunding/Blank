@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Post_to_Chatter</name>
+        <label>Post to Chatter</label>
+        <locationX>1340</locationX>
+        <locationY>337</locationY>
+        <actionName>chatterPost</actionName>
+        <actionType>chatterPost</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>text</name>
+            <value>
+                <elementReference>TT_ChatterMessage</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>subjectNameOrId</name>
+            <value>
+                <elementReference>$Record.Opportunity__c</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>chatterPost</nameSegment>
+        <offset>0</offset>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <apiVersion>63.0</apiVersion>
+    <assignments>
+        <name>Increment_Lenders_Still_Eligible</name>
+        <label>Increment Lenders Still Eligible</label>
+        <locationX>949</locationX>
+        <locationY>121</locationY>
+        <assignmentItems>
+            <assignToReference>varLendersStillEligible</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Funding_Records</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>The get funding element before this will only find funding records related to the deal that have not been ruled out or approved yet. If there are records returned in that query, that means the deal should not be auto-declined. If there are no funding records found, that means all lenders have either declined, approved, or are not eligible to fund the deal (meaning the deal should be auto-declined)</description>
+        <name>Are_there_any_eligible_lenders_left</name>
+        <label>Are there any eligible lenders left?</label>
+        <locationX>1036</locationX>
+        <locationY>343</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>No</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varLendersStillEligible</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Decline_Opportunity</targetReference>
+            </connector>
+            <label>No</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Has_Lender_Made_a_Decision</name>
+        <label>Has Lender Made a Decision?</label>
+        <locationX>699</locationX>
+        <locationY>123</locationY>
+        <defaultConnector>
+            <targetReference>Loop_Funding_Records</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Declined/Not Eligible</defaultConnectorLabel>
+        <rules>
+            <name>Lender_Approved</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>Loop_Funding_Records.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Approved</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Loop_Funding_Records.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Older Approval</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Loop_Funding_Records.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Lender Approved</stringValue>
+                </rightValue>
+            </conditions>
+            <label>Lender Approved</label>
+        </rules>
+        <rules>
+            <name>Lender_Still_Eligible</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Loop_Funding_Records.Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Declined</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Loop_Funding_Records.Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Not Eligible</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Increment_Lenders_Still_Eligible</targetReference>
+            </connector>
+            <label>Lender Still Eligible</label>
+        </rules>
+    </decisions>
+    <description>Last Update: 3/14/2025 - BAU-416, included new opportunities linked to external lenders
++ BAU-162: Including logic to decline renewal Opportunities that are not syndicated
+
+Declines a deal if all syndicated lenders decline or are not eligible to fund the deal
+
+JIRA: https://nationalfunding.atlassian.net/browse/SD-4821</description>
+    <environments>Default</environments>
+    <interviewLabel>Funding - Decline Oppty when All Syndicated Lenders Decline {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Funding - Decline Opportunity</label>
+    <loops>
+        <name>Loop_Funding_Records</name>
+        <label>Loop Funding Records</label>
+        <locationX>836</locationX>
+        <locationY>344</locationY>
+        <collectionReference>Get_Funding_Records</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Has_Lender_Made_a_Decision</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Are_there_any_eligible_lenders_left</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Funding_Records</name>
+        <label>Get Funding Records</label>
+        <locationX>709</locationX>
+        <locationY>345</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_Funding_Records</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Opportunity__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Opportunity__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>FPC_Funding_del__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Decline_Opportunity</name>
+        <label>Decline Opportunity</label>
+        <locationX>1216</locationX>
+        <locationY>337</locationY>
+        <connector>
+            <targetReference>Post_to_Chatter</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Opportunity__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>StageName</field>
+            <value>
+                <stringValue>Declined</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Opportunity</object>
+    </recordUpdates>
+    <start>
+        <locationX>268</locationX>
+        <locationY>234</locationY>
+        <connector>
+            <targetReference>Get_Funding_Records</targetReference>
+        </connector>
+        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <filterFormula>AND(        
+    ISPICKVAL({!$Record.Status__c}, &apos;Declined&apos;),
+    {!$Record.Opportunity__r.IsClosed} = FALSE,
+    OR(
+        AND(
+            NOT(ISPICKVAL({!$Record.Opportunity__r.Type}, &apos;New&apos;)),
+            OR(
+                {!$Record.Opportunity__r.RecordType.DeveloperName} = &apos;MCA_Oppty&apos;,
+                {!$Record.Opportunity__r.RecordType.DeveloperName} = &apos;FRPSA&apos;,
+                {!$Record.Opportunity__r.RecordType.DeveloperName} = &apos;Broker_FRPSA&apos;,
+                {!$Record.Opportunity__r.RecordType.DeveloperName} = &apos;Broker_WC_Oppty&apos;
+            )
+        ),
+        AND(
+            ISPICKVAL({!$Record.Opportunity__r.Type}, &apos;New&apos;),
+            NOT(CONTAINS({!$Record.Lender_ID__r.Name}, &apos;National Funding&apos;)),
+            NOT(CONTAINS({!$Record.Lender_ID__r.Name}, &apos;Quick Bridge&apos;)),
+            NOT(CONTAINS({!$Record.Lender_ID__r.Name}, &apos;MLP&apos;))
+        )
+    )
+)</filterFormula>
+        <object>FPC_Funding_del__c</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <name>TT_ChatterMessage</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>This deal was declined by an automated process because all syndicated lenders declined</text>
+    </textTemplates>
+    <variables>
+        <name>varLendersStillEligible</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+</Flow>

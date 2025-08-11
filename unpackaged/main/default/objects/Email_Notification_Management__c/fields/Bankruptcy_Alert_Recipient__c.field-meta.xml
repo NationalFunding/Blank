@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bankruptcy_Alert_Recipient__c</fullName>
+    <description>PD-5163, recipient email address for when a bankruptcy is found with DocketAlarm Search.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Used in flow "Matter - Invoke DocketAlarm Search Flow On Creation"</inlineHelpText>
+    <label>Bankruptcy Alert Recipient</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Email</type>
+    <unique>false</unique>
+</CustomField>

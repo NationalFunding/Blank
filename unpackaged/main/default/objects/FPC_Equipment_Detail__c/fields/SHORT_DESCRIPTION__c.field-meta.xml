@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SHORT_DESCRIPTION__c</fullName>
+    <description>Short Description</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Type in a short description of the equipment.</inlineHelpText>
+    <label>SHORT_DESCRIPTION</label>
+    <length>250</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

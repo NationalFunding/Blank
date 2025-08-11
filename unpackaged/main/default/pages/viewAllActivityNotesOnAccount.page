@@ -1,0 +1,42 @@
+<apex:page Controller="viewAllActivityNotesOnAccount" tabStyle="Account" sidebar="false" showHeader="false">
+<style>
+.container
+{
+   overflow:auto;  
+   height:400px;  
+   align:bottom;
+}
+</style>
+<apex:form > 
+    <apex:PageBlock title="View Activity History" mode="view" id="pbBlock">
+        <apex:pageBlockButtons >
+           <apex:commandButton action="{!Cancel}" value="Cancel"/>
+        </apex:pageBlockButtons>
+        <apex:pageBlockSection title="Account Name : {!strAccName}" columns="2" id="pbsSection" collapsible="false">
+           <apex:pageBlockSectionItem ><B>CALL HISTORY</B></apex:pageBlockSectionItem>
+           <apex:pageBlockSectionItem ><B>NOTES HISTORY</B></apex:pageBlockSectionItem> 
+           <apex:pageBlockSectionItem id="pbsiItem">
+              <apex:outputPanel layout="block" styleClass="container"  > 
+                <apex:pageBlockTable value="{!lstActivities}" var="item">
+                   <apex:column headerValue="Date Activity Logged" value="{!item.sActivityCreatedDate}"/>
+                   <apex:column headerValue="Owner" value="{!item.sActivityOwner}"/>
+                   <apex:column headerValue="Subject" value="{!item.sActivitySubject}"/>
+                   <apex:column headerValue="Comments" value="{!item.sActivityComments}"/>
+                </apex:pageBlockTable>
+              </apex:outputPanel>
+           </apex:pageBlockSectionItem>
+           <apex:pageBlockSectionItem id="pbsiItem1">
+              <apex:outputPanel layout="block" styleClass="container"  > 
+                <apex:pageBlockTable value="{!lstNotes}" var="item">
+                   <apex:column headerValue="Date/Owner" value="{!item.sNoteDate}/{!item.sNoteOwner}"/>
+                   <apex:column headerValue="Title" value="{!item.sNoteTitle}"/>
+                   <apex:column headerValue="Body">
+                    <apex:outputLabel value="{!item.sNoteBody}" escape="false"/>
+                   </apex:column>
+                </apex:pageBlockTable>
+              </apex:outputPanel>
+           </apex:pageBlockSectionItem>
+           </apex:pageBlockSection>
+    </apex:PageBlock> 
+</apex:form>
+</apex:page>

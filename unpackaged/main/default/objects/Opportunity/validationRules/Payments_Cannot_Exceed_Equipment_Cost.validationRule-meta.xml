@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payments_Cannot_Exceed_Equipment_Cost</fullName>
+    <active>true</active>
+    <errorConditionFormula>RecordType.Name = 'Lease Oppty' &amp;&amp;
+Sum_of_Payment_Request_Amounts__c &gt; Actual_Equip_Cost__c &amp;&amp;
+DATEVALUE(Fund_Date__c) &gt; DATE(2015,4,3)</errorConditionFormula>
+    <errorDisplayField>First_Due_Lender_For_Actual__c</errorDisplayField>
+    <errorMessage>The Sum of the Payment Requests cannot be greater than the Actual Equipment Cost</errorMessage>
+</ValidationRule>

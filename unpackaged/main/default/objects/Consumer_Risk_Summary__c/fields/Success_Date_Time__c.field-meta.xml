@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Success_Date_Time__c</fullName>
+    <description>Date and time the Model_Status__c field was updated to Success.</description>
+    <inlineHelpText>Date and time the Model Status field was updated to Success.</inlineHelpText>
+    <label>Success Date/Time</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

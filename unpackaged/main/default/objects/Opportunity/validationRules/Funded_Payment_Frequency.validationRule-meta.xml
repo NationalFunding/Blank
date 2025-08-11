@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Funded_Payment_Frequency</fullName>
+    <active>true</active>
+    <errorConditionFormula>(RecordType.DeveloperName = 'Working Capital Oppty' || 
+RecordType.DeveloperName = 'Broker WC Oppty') &amp;&amp; 
+ISCHANGED(StageName) &amp;&amp; 
+ISPICKVAL(StageName,'Funded') &amp;&amp; 
+ISPICKVAL(Actual_Payment_Frequency__c,'')</errorConditionFormula>
+    <errorDisplayField>Actual_Payment_Frequency__c</errorDisplayField>
+    <errorMessage>The 'Actual Payment Frequency' must be populated before the Stage can be changed to 'Funded'</errorMessage>
+</ValidationRule>

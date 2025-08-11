@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FPC_Rep_MCA__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>This field will allow a MCA rep to work a lease lead for 90 Days or until a MCA opportunity is closed. This field will help support marketing the MCA product to the assigned lease database.</description>
+    <inlineHelpText>Populate this field if you are a BFC and a Lease AE is the account owner.</inlineHelpText>
+    <label>NF Rep WC</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Accounts2</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

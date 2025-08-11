@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Decline_Email_Type__c</fullName>
+    <description>Notes whether a Reg B or Notice of Incomplete Application should be used. If a customer's FICO score was used to decline the customer, "Reg B - FICO Score" will be selected.</description>
+    <label>Decline Email Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Reg B Notice: FICO Score</fullName>
+                <default>false</default>
+                <label>Reg B Notice: FICO Score</label>
+            </value>
+            <value>
+                <fullName>Reg B Notice: Non-FICO Score</fullName>
+                <default>false</default>
+                <label>Reg B Notice: Non-FICO Score</label>
+            </value>
+            <value>
+                <fullName>Notice of Incomplete Application</fullName>
+                <default>false</default>
+                <label>Notice of Incomplete Application</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payoff_Quote_eSign</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>600</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>Payoff Quote eSign</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>/apex/APXTConga4__Conga_Composer?serverUrl={!API.Partner_Server_URL_370}
+&amp;id={!Opportunity.Id}
+&amp;TemplateGroup=AdobeOpWcPayoff
+&amp;QueryId=a068000000OH2Wm,a068000000qPpXt
+&amp;AttachmentParentId={!Opportunity.Id}
+&amp;OFN={!Opportunity.Merchant_Number__c}+-+{!Opportunity.Legal_Name__c}+-+Payoff+Quote
+&amp;QVar0Id=a068000000thK0o
+&amp;QVar1Id=a068000000m0ger
+
+&amp;ESVisible=1
+&amp;ESRecipient1={Qvar0}
+&amp;ESRecipient1Role=Approver
+&amp;ESRecipient2={QVar1}
+&amp;ESRecipient2Role=Signer
+&amp;ESCopyTo=lmartin@nationalfunding.com
+&amp;ESDataMappingId=a0t3400000ONZiP
+&amp;ESCustomField=echosign_dev1__Sender_User__c
+&amp;ESCustomFieldValue=0053400000AMMhp
+&amp;ESCustomField1=NF_Document_Type__c
+&amp;ESCustomFieldValue1=Payoff
+&amp;ESSignatureType=2
+&amp;ESRemindRecipient=2
+&amp;ESExpireInXDays=30</url>
+</WebLink>

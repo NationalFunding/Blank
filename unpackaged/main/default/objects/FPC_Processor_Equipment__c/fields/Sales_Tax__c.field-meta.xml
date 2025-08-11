@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sales_Tax__c</fullName>
+    <description>Sales tax for the processing equipment.</description>
+    <inlineHelpText>Type in the sales tax for the processing equipment.</inlineHelpText>
+    <label>Sales Tax</label>
+    <precision>17</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

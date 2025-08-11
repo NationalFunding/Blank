@@ -1,0 +1,8 @@
+Opportunity: {!Stipulations__c.Oppty_Name__c}
+Stip: {!Stipulations__c.Stip_Description__c}
+
+{!Stipulations__c.Link}
+
+Comments: 
+
+{!Stipulations__c.Comments__c}

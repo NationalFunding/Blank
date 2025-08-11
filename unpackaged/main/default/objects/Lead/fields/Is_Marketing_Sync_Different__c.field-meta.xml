@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Marketing_Sync_Different__c</fullName>
+    <description>This field is used to check if Marketing_Cloud_Sync_Eligible__c and Marketing_Sync__c values are different. This is further used in flow for Marketing Sync</description>
+    <formula>Marketing_Cloud_Sync_Eligible__c &lt;&gt; Marketing_Sync__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Is Marketing Sync Different</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

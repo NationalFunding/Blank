@@ -1,0 +1,5 @@
+Accounting Instructions for Case {!Accounting_Instructions__c.Case__c} have been assigned to you. 
+
+Loan Number: {!Accounting_Instructions__c.Loan_Number__c}
+Type: {!Accounting_Instructions__c.Type__c}
+{!Accounting_Instructions__c.Link}

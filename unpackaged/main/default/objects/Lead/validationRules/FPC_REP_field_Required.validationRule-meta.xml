@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FPC_REP_field_Required</fullName>
+    <active>false</active>
+    <description>This rule requires that a rep field be filled out prior to the record being saved.</description>
+    <errorConditionFormula>AND(
+ FPC_Rep_EPP__c  = "",
+ FPC_Rep_Lease__c ="",
+ FPC_Rep_MCA__c  ="",
+ FPC_Rep_ML__c  ="",
+ Opener__c  = "")</errorConditionFormula>
+    <errorMessage>One FPC Rep Field and corresponding Status is required on all leads.</errorMessage>
+</ValidationRule>

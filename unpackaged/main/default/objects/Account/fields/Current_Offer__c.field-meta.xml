@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Current_Offer__c</fullName>
+    <description>This field indicate if an Account is eligible for any current promotions.&lt;font color='#FF0000'&gt;</description>
+    <inlineHelpText>This field indicate if an Account is eligible for any current promotions.</inlineHelpText>
+    <label>Current Offer</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Equipment Rebate - Fund By July 31st</fullName>
+                <default>false</default>
+                <label>Equipment Rebate - Fund By July 31st</label>
+            </value>
+            <value>
+                <fullName>Vendor Advantage Program Invitation</fullName>
+                <default>false</default>
+                <label>Vendor Advantage Program Invitation</label>
+            </value>
+            <value>
+                <fullName>FinPac Pre-Approval</fullName>
+                <default>false</default>
+                <label>FinPac Pre-Approval</label>
+            </value>
+            <value>
+                <fullName>NF Vendor Advantage Invitation</fullName>
+                <default>false</default>
+                <label>NF Vendor Advantage Invitation</label>
+            </value>
+            <value>
+                <fullName>Renewal Promo Eligible</fullName>
+                <default>false</default>
+                <label>Renewal Promo Eligible</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

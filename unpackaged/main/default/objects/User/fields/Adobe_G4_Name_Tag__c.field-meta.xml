@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Adobe_G4_Name_Tag__c</fullName>
+    <description>This is a field to populate the full name of (Signer 5/Guarantor 4) to prepopulate the full of a customer in a signature field.</description>
+    <externalId>false</externalId>
+    <formula>'{{S5Full_es_:signer5:fullname}}'</formula>
+    <label>Adobe G4 Name Tag</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

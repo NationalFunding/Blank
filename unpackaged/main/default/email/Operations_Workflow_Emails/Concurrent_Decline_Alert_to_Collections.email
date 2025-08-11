@@ -1,0 +1,9 @@
+Credit has declined the following Concurrent deal: 
+
+Customer: {!Credit_Review__c.Oppty_Legal_Name__c}
+
+Opportunity: https://nf.my.salesforce.com/{!Credit_Review__c.OpportunityId__c}
+Credit Review: {!Credit_Review__c.Link}
+
+Decline Reason(s): 
+{!Credit_Review__c.Broker_Decline_Reasons_Formula__c}{!Credit_Review__c.Decline_Reasons__c}

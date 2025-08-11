@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type__c</fullName>
+    <label>Type</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>ACH Bounce</fullName>
+                <default>false</default>
+                <label>ACH Bounce</label>
+            </value>
+            <value>
+                <fullName>ACH Payment</fullName>
+                <default>false</default>
+                <label>ACH Payment</label>
+            </value>
+            <value>
+                <fullName>CC Payment Confirmations</fullName>
+                <default>false</default>
+                <label>CC Payment Confirmations</label>
+            </value>
+            <value>
+                <fullName>Check by Fax</fullName>
+                <default>false</default>
+                <label>Check by Fax</label>
+            </value>
+            <value>
+                <fullName>Check Request</fullName>
+                <default>false</default>
+                <label>Check Request</label>
+            </value>
+            <value>
+                <fullName>Close Form</fullName>
+                <default>false</default>
+                <label>Close Form</label>
+            </value>
+            <value>
+                <fullName>Commission Question</fullName>
+                <default>false</default>
+                <label>Commission Question</label>
+            </value>
+            <value>
+                <fullName>Credit Memos</fullName>
+                <default>false</default>
+                <label>Credit Memos</label>
+            </value>
+            <value>
+                <fullName>Equipment Sale</fullName>
+                <default>false</default>
+                <label>Equipment Sale</label>
+            </value>
+            <value>
+                <fullName>Extension Rent</fullName>
+                <default>false</default>
+                <label>Extension Rent</label>
+            </value>
+            <value>
+                <fullName>Loan Modification</fullName>
+                <default>false</default>
+                <label>Loan Modification</label>
+            </value>
+            <value>
+                <fullName>Loan Payoff</fullName>
+                <default>false</default>
+                <label>Loan Payoff</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Reapply Funds</fullName>
+                <default>false</default>
+                <label>Reapply Funds</label>
+            </value>
+            <value>
+                <fullName>Recovery</fullName>
+                <default>false</default>
+                <label>Recovery</label>
+            </value>
+            <value>
+                <fullName>Unapplied Cash/Funds</fullName>
+                <default>false</default>
+                <label>Unapplied Cash/Funds</label>
+            </value>
+            <value>
+                <fullName>Wire In</fullName>
+                <default>false</default>
+                <label>Wire In</label>
+            </value>
+            <value>
+                <fullName>Settlement Agreement</fullName>
+                <default>false</default>
+                <label>Settlement Agreement</label>
+            </value>
+            <value>
+                <fullName>Catchup</fullName>
+                <default>false</default>
+                <label>Catchup</label>
+            </value>
+            <value>
+                <fullName>Bank Change or Update</fullName>
+                <default>false</default>
+                <label>Bank Change or Update</label>
+            </value>
+            <value>
+                <fullName>Resume Payment</fullName>
+                <default>false</default>
+                <label>Resume Payment</label>
+            </value>
+            <value>
+                <fullName>Material Modification</fullName>
+                <default>false</default>
+                <label>Material Modification</label>
+            </value>
+            <value>
+                <fullName>Paydown</fullName>
+                <default>false</default>
+                <label>Paydown</label>
+            </value>
+            <value>
+                <fullName>Short Term Modification</fullName>
+                <default>false</default>
+                <label>Short Term Modification</label>
+            </value>
+            <value>
+                <fullName>Reconciliation</fullName>
+                <default>false</default>
+                <label>Reconciliation</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

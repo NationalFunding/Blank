@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Scheduled_Pmts_must_be_Settlement_Total</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ISCHANGED(Status__c),
+NOT(ISPICKVAL(Status__c, 'New')),
+Settlement_Total__c &lt;&gt; Total_Scheduled_Payments__c
+)</errorConditionFormula>
+    <errorMessage>Total Scheduled Payments is not equal to the Settlement Total.</errorMessage>
+</ValidationRule>

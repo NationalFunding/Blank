@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>CRML_Deposits_Under_10k</fullName>
+        <field>Deposits_Under_10K__c</field>
+        <formula>IF(Other_Deposits__c + Counter_Deposits__c &lt; 10000, 1, 0)</formula>
+        <name>CRML - Deposits Under 10k</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>CRML - Deposits Under 10k</fullName>
+        <actions>
+            <name>CRML_Deposits_Under_10k</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>OR( ISNEW(), ISCHANGED(Counter_Deposits__c), ISCHANGED(Other_Deposits__c))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

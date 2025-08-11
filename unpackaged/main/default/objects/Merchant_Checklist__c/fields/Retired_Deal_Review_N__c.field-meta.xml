@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Retired_Deal_Review_N__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Field no longer used.  Was replaced by Automated_Deal_Review__c field.</description>
+    <label>Deal Review (N)</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

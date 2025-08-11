@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Claim_Form_Submission_Date__c</fullName>
+    <description>This field will indicate the date that the claim form for the promotion or rebate was submitted.</description>
+    <inlineHelpText>This field will indicate the date that the claim form for the promotion or rebate was submitted.</inlineHelpText>
+    <label>Claim Form Submission Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

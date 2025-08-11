@@ -1,0 +1,5 @@
+<apex:page >
+<apex:includeScript value="{!$Resource.Five9_Custom_JS}"/>
+{!$Resource.Five9_Custom_JS}<br />
+{!$Resource.Five9_Custom_CSS}
+</apex:page>

@@ -1,0 +1,6 @@
+<table height="400" width="550" cellpadding="5" border="0" cellspacing="5" >
+<tr height="400" valign="top" >
+<td style=" color:#000000; font-size:12pt; background-color:#FFFFFF; font-family:arial; bLabel:main; bEditID:r3st1;" tEditID="c1r1" locked="0" aEditID="c1r1" >
+<![CDATA[<font face="arial" size="3">A Lease Plus Customer Number has been created for the following account: {!Account.Name}</font><br><br><font face="arial" size="3">Please follow the link account link below to view the Lease Plus Number.</font><br><font face="arial">{!Account.LP_Cust_Number__c}</font><br><br><font face="arial" size="3">{!Account.Link}</font><br><br><font face="arial" size="3">Thank you! </font><br><br><br><br>]]></td>
+</tr>
+</table>

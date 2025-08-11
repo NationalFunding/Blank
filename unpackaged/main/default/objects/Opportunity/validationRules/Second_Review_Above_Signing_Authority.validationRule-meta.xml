@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Second_Review_Above_Signing_Authority</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISCHANGED(WC_Funding_Approval_Status__c) &amp;&amp;
+(ISPICKVAL(WC_Funding_Approval_Status__c, 'Approved') ||
+ISPICKVAL(WC_Funding_Approval_Status__c, 'Declined') ||
+ISPICKVAL(WC_Funding_Approval_Status__c, 'In Review')) &amp;&amp;
+ACTUAL_AMT_OFFERED__c &gt;  $User.WC_Funding_Signing_Authority__c</errorConditionFormula>
+    <errorMessage>The Actual Amount Offered for this deal is above your funding signing authority.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payee_s_Name__c</fullName>
+    <description>This field will contain the name of the company/person that will be receiving the funds.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This field will contain the name of the company/person that will be receiving the funds.</inlineHelpText>
+    <label>Payee's Name</label>
+    <length>22</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

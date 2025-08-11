@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Assistant_Email__c</fullName>
+    <description>This field will capture a secondary email address number for an associate of the customer.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter a email address for a secondary contact.</inlineHelpText>
+    <label>Asst. Email</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Email</type>
+    <unique>false</unique>
+</CustomField>

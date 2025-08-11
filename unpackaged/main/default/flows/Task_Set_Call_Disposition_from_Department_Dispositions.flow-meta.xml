@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>64.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Assign_Call_Disposition</name>
+        <label>Assign Call Disposition</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Call_Disposition__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>var_call_disposition</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Assign_Call_Disposition_Collections</name>
+        <label>Assign Call Disposition Collections</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>var_call_disposition</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Call_Disposition_Collections__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Assign_Call_Disposition</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Call_Disposition_Sales</name>
+        <label>Assign Call Disposition Sales</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>var_call_disposition</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Call_Disposition_Sales__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Assign_Call_Disposition</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Which_Disposition_Field_Triggered_the_Flow</name>
+        <label>Which Disposition Field Triggered the Flow?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Other</defaultConnectorLabel>
+        <rules>
+            <name>Call_Disposition_Collections</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Call_Disposition_Collections__c</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Call_Disposition_Collections</targetReference>
+            </connector>
+            <label>Call Disposition Collections</label>
+        </rules>
+        <rules>
+            <name>Call_Disposition_Sales</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Call_Disposition_Sales__c</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Call_Disposition_Sales</targetReference>
+            </connector>
+            <label>Call Disposition Sales</label>
+        </rules>
+    </decisions>
+    <description>Due to the Vonage integration, multiple call disposition fields will be created - one for each department that wants their own set of dispositions available. This flow will update the centralized Call Disposition field using the last Department disposition update. The centralized Call Disposition will be used to propagate out to related objects
+
+Last Update: Changed entry criteria to a formula</description>
+    <environments>Default</environments>
+    <interviewLabel>Task - Set Call Disposition from Department Dispositions {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Task - Set Call Disposition from Department Dispositions</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Which_Disposition_Field_Triggered_the_Flow</targetReference>
+        </connector>
+        <filterFormula>OR(
+    AND(
+        ISNEW(),
+        OR(
+            NOT(ISBLANK(TEXT({!$Record.Call_Disposition_Collections__c}))),
+            NOT(ISBLANK(TEXT({!$Record.Call_Disposition_Sales__c})))
+        )
+    ),
+    OR(
+        AND(
+            ISCHANGED({!$Record.Call_Disposition_Collections__c}),
+            NOT(ISBLANK(TEXT({!$Record.Call_Disposition_Collections__c})))
+        ),
+        AND(
+            ISCHANGED({!$Record.Call_Disposition_Sales__c}),
+            NOT(ISBLANK(TEXT({!$Record.Call_Disposition_Sales__c})))
+        )
+    )
+)</filterFormula>
+        <object>Task</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>var_call_disposition</name>
+        <dataType>Picklist</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

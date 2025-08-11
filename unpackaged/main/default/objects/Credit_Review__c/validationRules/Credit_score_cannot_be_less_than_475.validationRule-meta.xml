@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Credit_score_cannot_be_less_than_475</fullName>
+    <active>true</active>
+    <description>Requires that if all PGs have a credit score of &gt;= 475 to approve.</description>
+    <errorConditionFormula>AND(
+ISCHANGED(Status__c),
+ISPICKVAL(Status__c, 'Approved'),
+OR(
+AND(
+NOT(ISBLANK(PG_1_EQF_Score__c)),
+NOT(ISBLANK(PG_1_EXP_Score__c)),
+VALUE(PG_1_EQF_Score__c)&lt;475,
+VALUE(PG_1_EXP_Score__c)&lt;475
+),
+AND(
+NOT(ISBLANK(PG_1_EQF_Score__c)),
+ISBLANK(PG_1_EXP_Score__c),
+VALUE(PG_1_EQF_Score__c)&lt;475
+),
+AND(
+ISBLANK(PG_1_EQF_Score__c),
+NOT(ISBLANK(PG_1_EXP_Score__c)),
+VALUE(PG_1_EXP_Score__c)&lt;475
+),
+AND(
+NOT(ISBLANK(PG_2_EQF_Score__c)),
+NOT(ISBLANK(PG_2_EXP_Score__c)),
+VALUE(PG_2_EQF_Score__c)&lt;475,
+VALUE(PG_2_EXP_Score__c)&lt;475
+),
+AND(
+NOT(ISBLANK(PG_2_EQF_Score__c)),
+ISBLANK(PG_2_EXP_Score__c),
+VALUE(PG_2_EQF_Score__c)&lt;475
+),
+AND(
+ISBLANK(PG_2_EQF_Score__c),
+NOT(ISBLANK(PG_2_EXP_Score__c)),
+VALUE(PG_2_EXP_Score__c)&lt;475
+),
+AND(
+NOT(ISBLANK(PG_3_EQF_Score__c)),
+NOT(ISBLANK(PG_3_EXP_Score__c)),
+VALUE(PG_3_EQF_Score__c)&lt;475,
+VALUE(PG_3_EXP_Score__c)&lt;475
+),
+AND(
+NOT(ISBLANK(PG_3_EQF_Score__c)),
+ISBLANK(PG_3_EXP_Score__c),
+VALUE(PG_3_EQF_Score__c)&lt;475
+),
+AND(
+ISBLANK(PG_3_EQF_Score__c),
+NOT(ISBLANK(PG_3_EXP_Score__c)),
+VALUE(PG_3_EXP_Score__c)&lt;475
+)
+)
+)</errorConditionFormula>
+    <errorMessage>All PG's must have a credit score of 475 or higher to Approve.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Location_Lease_Date__c</fullName>
+    <description>Location description</description>
+    <inlineHelpText>Pick the type of location that the customer operates from.</inlineHelpText>
+    <label>Location Lease Date</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Physical</fullName>
+                <default>false</default>
+                <label>Physical</label>
+            </value>
+            <value>
+                <fullName>Home</fullName>
+                <default>false</default>
+                <label>Home</label>
+            </value>
+            <value>
+                <fullName>Office</fullName>
+                <default>false</default>
+                <label>Office</label>
+            </value>
+            <value>
+                <fullName>Equipment Location</fullName>
+                <default>false</default>
+                <label>Equipment Location</label>
+            </value>
+            <value>
+                <fullName>Warehouse</fullName>
+                <default>false</default>
+                <label>Warehouse</label>
+            </value>
+            <value>
+                <fullName>Retail 1</fullName>
+                <default>false</default>
+                <label>Retail 1</label>
+            </value>
+            <value>
+                <fullName>Retail 2</fullName>
+                <default>false</default>
+                <label>Retail 2</label>
+            </value>
+            <value>
+                <fullName>Retail 3</fullName>
+                <default>false</default>
+                <label>Retail 3</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

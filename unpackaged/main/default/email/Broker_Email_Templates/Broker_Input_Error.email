@@ -1,0 +1,9 @@
+Hi- 
+
+{!Broker_Input__c.OwnerFullName} has attempted to submit a concurrent deal, but was unable to be matched to an existing Account.  The broker input number is: {!Broker_Input__c.Name}
+
+Please user this link to view the broker input and associate it with an Account and create an Opportunity on behalf of the submitting broker. 
+
+{!Broker_Input__c.Link}
+
+Thank you.

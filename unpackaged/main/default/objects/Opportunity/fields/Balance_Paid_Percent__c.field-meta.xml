@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Balance_Paid_Percent__c</fullName>
+    <description>Balance Paid / Actual Amount Offered.  To be updated by LP.</description>
+    <inlineHelpText>Balance Paid / Actual Amount Offered.  To be updated by LP.</inlineHelpText>
+    <label>Balance Paid (%)</label>
+    <precision>5</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

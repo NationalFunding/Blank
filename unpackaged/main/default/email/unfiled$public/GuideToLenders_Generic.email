@@ -1,0 +1,178 @@
+<messaging:emailTemplate subject="Welcome to the National Funding Digital Funding Process" recipientType="Lead" relatedToType="Lead">
+    <messaging:plainTextEmailBody >
+        You’ve done your homework with <a href="https://www.guidetolenders.com/">GuideToLenders</a> and now you’ve made the right choice in choosing National Funding for your financial needs.
+
+        What's next?  Get an even quicker start with our digital funding process
+
+        Head here: 
+        <apex:repeat var="objBD" value="{!recipient}">
+            <apex:outputText >
+                <a href="https://my.nationalfunding.com/?source=email_g2l&utm_campaign=agg_g2l&utm_medium=cpa_email&utm_source=g2l&payload={!RelatedTo.Encrypted_Email_String__c}">Get Started</a>
+            </apex:outputText>
+        </apex:repeat>              
+        
+        Your funding specialist will be contacting you promptly during business hours.
+
+        National Funding
+        {!$Setup.Company_Information__c.Street__c}, {!$Setup.Company_Information__c.City__c}, {!$Setup.Company_Information__c.State__c} {!$Setup.Company_Information__c.Zip__c}
+        www.nationalfunding.com
+    </messaging:plainTextEmailBody>
+    <messaging:htmlEmailBody >
+        <html>
+        <head>
+        <title>Thank you for applying</title>
+        <style media="all" type="text/css">
+        @media only screen and (max-width: 620px) {
+          table[class=body] h1,
+          table[class=body] h2,
+          table[class=body] h3,
+          table[class=body] h4 {
+            font-weight: 600 !important;
+          }
+          table[class=body] h1 {
+            font-size: 22px !important;
+          }
+          table[class=body] h2 {
+            font-size: 18px !important;
+          }
+          table[class=body] h3 {
+            font-size: 16px !important;
+          }
+          table[class=body] .content,
+          table[class=body] .wrapper {
+            padding: 10px !important;
+          }
+          table[class=body] .container {
+            padding: 0 !important;
+            width: 100% !important;
+          }
+          table[class=body] .btn table,
+          table[class=body] .btn a {
+            width: 100% !important;
+          }
+        }
+
+        a:link {
+          color:black;
+          text-decoration: none;
+        }
+
+        a:visted {
+          color:black;
+          text-decoration: none;
+        }
+
+        a:hover {
+          color:black;
+          text-decoration: none;
+        }
+
+        a:active {
+          color:black;
+          text-decoration: none;
+        }
+        </style>
+        </head>
+
+        <body style="margin: 0; font-family: Helvetica, Arial, sans-serif; font-size: 14px; height: 100% !important; line-height: 1.6em; -webkit-font-smoothing: antialiased; padding: 0; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; width: 100% !important; background-color: #f6f6f6;">
+
+        <table class="body" style="box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; background-color: #f6f6f6;" width="100%" bgcolor="#f6f6f6">
+            <tr>
+                <td style="box-sizing: border-box; font-family: Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top;" valign="top"></td>
+                <td class="container" style="box-sizing: border-box; font-family: Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top; display: block; Margin: 0 auto !important; max-width: 580px; width: 580px;" width="580" valign="top">
+                    <div class="content" style="box-sizing: border-box; display: block; margin: 0 auto; max-width: 580px;">
+        <table class="main" style="box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; background: #ffffff; border: 1px solid #e9e9e9; border-radius: 3px;" width="100%">
+            <tr class="blue" style="margin-bottom: 5px; margin-top: 0px; width: 100%; background-color: #223657; text-align: center;" bgcolor="#223657" align="center">
+                <td style="box-sizing: border-box; font-family: Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top;" valign="top">
+                    <a href="https://www.nationalfunding.com" style="box-sizing: border-box; color: #EB8243; text-decoration: underline;"><img class="pad-b13" src="https://wp.natfundcdn.com/static/img/logo-horizontal.png" height="49" alt="National Funding" style="-ms-interpolation-mode: bicubic; padding-bottom: 13px;"/></a>
+                    <h3 class="align-center" style="color: #111111 !important; font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: 400; line-height: 1.4em; margin: 0; font-size: 18px; text-align: center; margin-bottom: 0;"><strong class="font-white" style="color: #FFFFFF;">Over ${!$Setup.Welcome_Email_Variables__c.Amount_Funded__c}B funded since 1999</strong></h3>
+                </td>
+            </tr>
+            <tr>
+                <td class="wrapper" style="box-sizing: border-box; font-family: Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top; padding: 20px;" valign="top">
+                    <table style="box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;" width="100%">
+                        <tr>
+                            <td style="box-sizing: border-box; font-family: Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top;" valign="top">
+                                <h1 class="align-center" style="color: #111111 !important; font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: 300; line-height: 1.4em; margin: 0; margin-bottom: 0; font-size: 30px; text-align: center;">In Partnership with</h1>
+                                <table cellpadding="0" cellspacing="0" style="box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;" width="100%">
+                                    <tr>
+                                        <td class="hcenter" style="box-sizing: border-box; font-family: Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top; text-align: center;" valign="top" align="center">
+                                            <img class="align-center" src="https://694044703213-static-assets.s3.us-west-2.amazonaws.com/salesforce/g2l-logo_vertical.png" height="65" alt="GuideToLenders" style="-ms-interpolation-mode: bicubic; text-align: center; width:280px;max-width:280px;"/>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                                <br></br>
+
+                                <p style="font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 15px;">You’ve done your homework with <a href="https://www.guidetolenders.com/">GuideToLenders</a> and now you’ve made the right choice in choosing National Funding for your financial needs.</p>
+                                <h3 style="color: #111111 !important; font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: 400; line-height: 1.4em; margin: 0; margin-bottom: 30px; font-size: 18px;"><strong>What's next?</strong></h3>
+
+                                <table cellpadding="0" cellspacing="0" style="box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;" width="100%">
+                                    <tr>
+                                        <td class="hcenter" style="box-sizing: border-box; font-family: Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top; text-align: center;" valign="top" align="center">
+                                            <img src="https://wp.natfundcdn.com/static/img/icons/fast-and-easy.png" width="85" height="60" alt="Fast and easy" style="-ms-interpolation-mode: bicubic;"/>
+                                        </td>
+                                        <td align="left" class="pad-l20 vcenter" style="box-sizing: border-box; font-family: Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; padding-left: 20px; vertical-align: middle;" valign="middle">
+                                            Get an even quicker start with our digital funding process
+                                            <table class="btn btn-primary small" cellpadding="0" cellspacing="0" style="box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;" width="100%">
+                                              <tr>
+                                                <td align="left" style="box-sizing: border-box; font-family: Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top; padding-bottom: 15px;" valign="top">
+                                                  <table cellpadding="0" cellspacing="0" style="box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: auto;">
+                                                    <tr>
+                                                      <td style="box-sizing: border-box; font-family: Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top; background-color: #EB8243; border-radius: 5px; text-align: center;" valign="top" bgcolor="#EB8243" align="center">
+                                                        <apex:repeat var="objBD" value="{!recipient}">
+                                                            <apex:outputText >
+                                                                <a href="https://my.nationalfunding.com/?source=email_g2l&utm_campaign=agg_g2l&utm_medium=cpa_email&utm_source=guidetolenders&payload={!RelatedTo.Encrypted_Email_String__c}" style="box-sizing: border-box; border-color: #EB8243; text-decoration: none; background-color: #EB8243; border: solid 1px #EB8243; border-radius: 5px; cursor: pointer; color: #ffffff; font-size: 14px; font-weight: bold; margin: 0; text-transform: capitalize; display: inline-block; padding: 3px 12px;">Get Started</a>
+                                                            </apex:outputText>
+                                                        </apex:repeat>
+                                                      </td>
+                                                    </tr>
+                                                  </table>
+                                                </td>
+                                              </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="hcenter" style="box-sizing: border-box; font-family: Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top; text-align: center;" valign="top" align="center">
+                                            <img src="https://wp.natfundcdn.com/static/img/icons/get-solution.png" width="64" height="76" alt="Get a solution" style="-ms-interpolation-mode: bicubic;"/>
+                                        </td>
+                                        <td align="left" class="pad-l20 vcenter" style="box-sizing: border-box; font-family: Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; padding-left: 20px; vertical-align: middle;" valign="middle">
+                                            Your funding specialist will be contacting you promptly during business hours.
+                                        </td>
+                                    </tr>
+                                </table>
+
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr class="grey" style="margin-bottom: 5px; margin-top: 0px; width: 100%; background-color: #d3d3d3; font-size: 12px;" bgcolor="#d3d3d3">
+                <td class="sidewrap small" style="box-sizing: border-box; font-family: Helvetica, Arial, 'Lucida Grande', sans-serif; vertical-align: top; padding: 20px 20px 0 20px; font-size: 12px; line-height: 15px; color: grey;" valign="top">
+                    <p style="font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: normal; margin: 0; margin-bottom: 15px; font-size: 12px;">National Funding<br/>
+                    {!$Setup.Company_Information__c.Street__c}, {!$Setup.Company_Information__c.City__c}, {!$Setup.Company_Information__c.State__c} {!$Setup.Company_Information__c.Zip__c} &nbsp;<br/>
+                    <a href="http://www.nationalfunding.com" style="box-sizing: border-box; color: #f78d2c; font-style: normal; text-decoration: none; font-weight: 700;" target="_blank">www.nationalfunding.com</a><br/>
+                    <hr/>
+                    
+                    <div style="box-sizing: border-box; text-align: center;">
+                        National Funding respects your privacy. Our commitment to your privacy is in our privacy policy, which is available on our website for your reference.<br/>
+                        © {!YEAR(TODAY())} National Funding. All rights reserved.
+                    </div>
+
+                </p></td>
+            </tr>
+        </table>
+
+
+        </div>
+                </td>
+                <td style="box-sizing: border-box; font-family: Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top;" valign="top"></td>
+            </tr>
+        </table>
+
+        </body>
+        </html>
+
+    </messaging:htmlEmailBody>
+</messaging:emailTemplate>

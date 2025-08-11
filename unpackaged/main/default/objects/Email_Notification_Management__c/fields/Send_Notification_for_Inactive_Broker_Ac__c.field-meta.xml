@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Send_Notification_for_Inactive_Broker_Ac__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Used in the Renewal and Concurrent record creation flows to notify internal users if the the associated broker account is inactive.</description>
+    <label>Send Notification for Inactive Broker Ac</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

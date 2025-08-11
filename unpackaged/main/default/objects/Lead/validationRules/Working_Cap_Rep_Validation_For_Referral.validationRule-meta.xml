@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Working_Cap_Rep_Validation_For_Referral</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( 
+ISCHANGED(Refer_To__c), 
+ISPICKVAL( Refer_To__c , 'Working Capital'), 
+OR( 
+ISPICKVAL( Owner:User.Product_Eligibility__c , 'Working Capital'), 
+ISPICKVAL(Owner:User.Product_Eligibility__c, 'All'),
+ISPICKVAL(Owner:User.Product_Eligibility__c, ''), 
+Referred_Date__c &gt;= NOW() - 30, 
+NOT(ISBLANK(FPC_Rep_MCA__c)),
+Owner:User.Sales_User__c = False))</errorConditionFormula>
+    <errorMessage>This record cannot be referred. Either it has been referred in the last 30 days, a Working Capital rep is already assigned to the record or you can sell Working Capital products. Field to fix = Refer To</errorMessage>
+</ValidationRule>

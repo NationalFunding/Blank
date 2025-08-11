@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lease_Deposit_Check_Bounced_Reason__c</fullName>
+    <label>Lease Deposit Check Bounced Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Lease_Deposit_Check_Bounced__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Insufficient Funds</fullName>
+                <default>false</default>
+                <label>Insufficient Funds</label>
+            </value>
+            <value>
+                <fullName>Account Closed</fullName>
+                <default>false</default>
+                <label>Account Closed</label>
+            </value>
+            <value>
+                <fullName>No Account/Unable to Locate Account</fullName>
+                <default>false</default>
+                <label>No Account/Unable to Locate Account</label>
+            </value>
+            <value>
+                <fullName>Authorization Revoked by Customer</fullName>
+                <default>false</default>
+                <label>Authorization Revoked by Customer</label>
+            </value>
+            <value>
+                <fullName>Payment Stopped or Stop Payment on Item</fullName>
+                <default>false</default>
+                <label>Payment Stopped or Stop Payment on Item</label>
+            </value>
+            <value>
+                <fullName>Customer Advises Not Authorized</fullName>
+                <default>false</default>
+                <label>Customer Advises Not Authorized</label>
+            </value>
+            <value>
+                <fullName>Reason Not Provided</fullName>
+                <default>false</default>
+                <label>Reason Not Provided</label>
+            </value>
+            <value>
+                <fullName>Signatures Not Genuine or Item Altered</fullName>
+                <default>false</default>
+                <label>Signatures Not Genuine or Item Altered</label>
+            </value>
+            <value>
+                <fullName>Account Frozen</fullName>
+                <default>false</default>
+                <label>Account Frozen</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>checked</controllingFieldValue>
+            <valueName>Insufficient Funds</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>checked</controllingFieldValue>
+            <valueName>Account Closed</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>checked</controllingFieldValue>
+            <valueName>No Account/Unable to Locate Account</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>checked</controllingFieldValue>
+            <valueName>Authorization Revoked by Customer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>checked</controllingFieldValue>
+            <valueName>Payment Stopped or Stop Payment on Item</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>checked</controllingFieldValue>
+            <valueName>Customer Advises Not Authorized</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>checked</controllingFieldValue>
+            <valueName>Reason Not Provided</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>checked</controllingFieldValue>
+            <valueName>Signatures Not Genuine or Item Altered</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>checked</controllingFieldValue>
+            <valueName>Account Frozen</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

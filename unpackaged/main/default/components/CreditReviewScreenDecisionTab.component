@@ -1,0 +1,804 @@
+<apex:component layout="none">
+    <apex:attribute name="dateStart" description="String" type="String" />
+    <apex:attribute name="dateEnd" description="String" type="String" />
+    <apex:attribute type="Credit_Review__c" name="creditReviewObj" description="Credit Review"/>
+    <!-- <apex:attribute type="Credit_Review_Bank_Summary__c" name="creditReviewBankSummaryObj" description="Credit Review Bank Summary"/> -->
+    <apex:attribute type="String" name="platinumNum" description="platinum tier number"/>
+    <apex:attribute type="String" name="bankLastFour" description="Credit Review Bank Summary Last Four"/>
+    <apex:attribute type="String" name="bankName" description="Credit Review Bank Summary Bank Name"/>
+    <apex:attribute type="WC_Credit_Decision__c" name="creditReviewWCCreditDecision" description="WC Credit Decision"/>
+    <apex:attribute type="Decimal" name="maxApproval" description="Platnium Approval Field Based off of max term number"/>
+    <apex:attribute type="Consumer_Credit_Summary__c" name="CreditSummaryObj1" description="Consumer_Credit_Summary__c"/>
+    <apex:attribute type="Consumer_Credit_Summary__c" name="CreditSummaryObj2" description="Consumer_Credit_Summary__c"/>
+    <apex:attribute type="Consumer_Credit_Summary__c" name="CreditSummaryObj3" description="Consumer_Credit_Summary__c"/>
+    <apex:attribute type="Consumer_Credit_Summary__c" name="CreditSummaryObj4" description="Consumer_Credit_Summary__c"/>
+    <apex:attribute type="Consumer_Credit_Summary__c" name="CreditSummaryObj5" description="Consumer_Credit_Summary__c"/>
+    <apex:attribute type="Consumer_Credit_Summary__c" name="CreditSummaryObj6" description="Consumer_Credit_Summary__c"/>
+    <apex:attribute type="String[]" name="PolicyExceptionCategoriesList" description="String[]"/>
+    <apex:attribute type="String[]" name="AllowableExceptionList" description="String[]"/>
+    <apex:attribute type="String[]" name="StrongMitigatingFactorsList" description="String[]"/>
+    <apex:attribute type="String[]" name="DeclineReasonsOptions" description="String[]"/>
+    <apex:attribute type="String[]" name="DeclineReasonsCommercialOptions" description="String[]"/>
+    <apex:attribute type="String[]" name="DeclineReasonsBrokerOptions" description="String[]"/>
+    <apex:attribute type="Business_Credit_Summary__c" name="BusinessCreditSummaryObj" description="Business_Credit_Summary__c"/>
+    <apex:attribute type="RecommendationPanelController" name="recController" description="Amount Recommendations from Decision Record" />
+    <apex:attribute type="Credit_Review__c" name="creditreviewobjAutomation" description="Automation Notes" />
+    <apex:attribute type="Date" name="approveDatePlus30" description="Todays Date + 30 days"/>
+    <apex:attribute type="String" name="approveDatePlus30String" description="Todays Date + 30 days in string format"/>
+
+    <Script Language="JavaScript">
+        function openConga() { window.open('{!URLFOR($Action.Credit_Review__c.Business_Loan_Approval_Auto,creditReviewObj.Id)}','','scrollbars=yes,menubar=no,height=600,width=800,resizable=yes,toolbar=no,location=no,status=yes'); } 
+    </Script>
+    <Script Language="JavaScript">
+        window.document.onload = function(e){ 
+            console.log('on page load credit review--> ' + creditReviewObj);  
+        }
+    </Script>
+    <Script Language="JavaScript"> 
+    
+        function openCongaFull() { window.open('{!URLFOR($Action.Credit_Review__c.Business_Loan_Approval,creditReviewObj.Id)}','','scrollbars=yes,menubar=no,height=600,width=800,resizable=yes,toolbar=no,location=no,status=yes'); } 
+    </Script>
+
+    <div class="row">
+        <div class="col-md-9">
+            <c:DecisionRecommendedPanel recController="{!recController}"/>
+            <c:AutomationNotesPanel creditreviewobjAutomation="{!creditreviewobjAutomation}"/>
+            <c:DecisionStipulationsPanel creditreviewobj="{!creditReviewObj}" />
+            <c:DecisionExceptionsPanel />
+        </div>
+        <!--Review Decision Starts-->
+        <style>
+            .platinum_review_decision li a{padding:0px !important; text-align:center}
+        </style>
+        <div class="approved-status div3"></div>
+        <div class="secondReview-status div4"></div>
+        <div class="withdrawn-status div7"></div>
+        <div class="Declined-status div15"></div>
+        <div class="secondReviewNew-status div16"></div>
+        <div class="col-md-3">
+            <apex:outputPanel layout="none" rendered="{!$Permission.Credit_Review_Read_Only}">
+                <div class="disabledByZ-index-decision"></div>
+            </apex:outputPanel>
+            <ul id="reveiw_decision" class="nav  mt10 platinum_review_decision  main-decision-box" role="tablist">
+                <h4 class="reviewType">{!creditReviewObj.Review_Type__c}</h4>
+                <apex:outputPanel layout="none" rendered="{!$Permission.Credit_Review_Can_Make_Decision}">
+                    <apex:outputPanel layout="none" rendered="{!NOT($Permission.Credit_Review_Change_to_Commercial)}">
+                        <li class="Update updateCommercialBtn disabled" style="display:{!If(creditReviewObj.Review_Type__c !='Commercial Review','block','none')}" onclick="$('.validate-approve').show();$('.normal-approve').hide()"> <a href="javascript:void(0)">Update to Commercial</a> </li>
+                        <hr/>
+                    </apex:outputPanel>
+                    <div class="FinancialAnalysis_UWCall" style="display:{!If(creditReviewObj.Review_Type__c !='Commercial Review','none','block')}">
+                        <label><input type="checkbox" class="FinancialAnalysis" /> Financial Analysis</label><br/>
+                        <label><input type="checkbox" class="UWCall" /> UW Call</label><br/>
+                    </div>
+                    <!--commercialReview();-->
+                    <apex:outputPanel layout="none" rendered="{!$Permission.Credit_Review_Change_to_Commercial}">
+                        <li class="Update updateCommercialBtn" style="display:{!If(creditReviewObj.Review_Type__c !='Commercial Review','block','none')}" onclick="tierDeclineSave('Commercial');$(this).hide();"> <a href="javascript:void(0)">Update to Commercial</a> </li>
+                        <hr/>
+                    </apex:outputPanel>
+                    
+                    <apex:outputPanel layout="none" rendered="{!NOT(creditReviewObj.Processing_Completed__c)}">
+                        <li class="Update returnProcessing disabled" onclick="returnToProcessing(this)"> <a href="javascript:void(0)">Return to Processing</a> </li>
+                    </apex:outputPanel>
+
+                    <apex:outputPanel layout="none" rendered="{!creditReviewObj.Processing_Completed__c}">
+                        <li class="Update" onclick="returnToProcessing(this)"> <a href="javascript:void(0)">Return to Processing</a> </li>
+                    </apex:outputPanel>
+
+                    <li class="Approve normal-approve div2" style="display:{!If(creditReviewObj.Review_Type__c !='Commercial Review','block','none')}"> <a href="javascript:void(0)">Approve</a> </li>
+                    
+                    <li class="Approve validate-approve validate-approve-btn div2" style="display:{!If(creditReviewObj.Review_Type__c =='Commercial Review','block','none')}"> <a href="javascript:void(0)">Approve</a> </li>
+                    
+                    <li class="Tier div8"> <a href="javascript:void(0)">Tier Decline</a> </li>
+                
+                    <li class="Syndication div14" > <a href="javascript:void(0)">{!If(creditReviewObj.Opportunity__r.RecordType.Name =='Broker WC Oppty','Broker Full Decline','Send to Syndication')}</a> </li>
+                </apex:outputPanel>
+
+                <apex:outputPanel layout="none" rendered="{!!$Permission.Credit_Review_Can_Make_Decision}">
+                    <li style="display:{!If(creditReviewObj.Review_Type__c !='Commercial Review','block','none')}" class="Update updateCommercialBtn disabled"> <a href="javascript:void(0)">Update to Commercial</a> </li>
+                    <hr/>
+                    <li class="Update disabled"> <a href="javascript:void(0)">Return to Processing</a> </li>
+                    <li class="Approve disabled"> <a href="javascript:void(0)">Approve</a> </li>
+                    <li class="Tier disabled"> <a href="javascript:void(0)">Tier Decline</a> </li>
+                    <li class="Syndication disabled" > <a href="javascript:void(0)">{!If(creditReviewObj.Opportunity__r.RecordType.Name =='Broker WC Oppty','Broker Full Decline','Send to Syndication')}</a> </li>
+                </apex:outputPanel>
+                
+            </ul>
+            <!-- div1 Branch -->
+            <div  class="top-decision decisionbox top-decision-div1">
+                <h4 class="reviewType">{!creditReviewObj.Review_Type__c}</h4>
+            </div>
+
+            <!-- div2 Branch -->
+            <div class="top-decision decisionbox top-decision-div2">
+                <div  class="gray-box mt10">
+                    <h4 class="reviewType">{!creditReviewObj.Review_Type__c}</h4>
+                    <hr style="  border-top: 1px solid #222 !important;"/>
+                    <div class="col-md-12"> 
+                        <a href="#" class="btn btn-default main-decision-call go-back1 mb10"><i class="fa fa-angle-left"></i> Go back</a>
+                        <a href="#" class="btn btn-default go-back2 div3" style="display:none"><i class="fa fa-angle-left"></i> Go back</a>
+                        <a href="#" class="btn btn-default go-back3 div4" style="display:none"><i class="fa fa-angle-left"></i> Go back</a>
+                        <a href="#" class="btn btn-default go-back4 div16" style="display:none"><i class="fa fa-angle-left"></i> Go back</a>
+                        <h4>Policy Exceptions</h4>
+                        <div class="checkbox PEC_Label">
+                            <apex:repeat value="{!PolicyExceptionCategoriesList}" var="PEC">
+                                <label>
+                                    <input type="checkbox" class="PEC" value="{!PEC}" /> {!PEC}
+                                </label> <br/>
+                            </apex:repeat>
+                        </div>
+                        <h4>Allowable Exceptions</h4>
+                        <div class="checkbox AE_Label">
+                            
+                            <apex:repeat value="{!AllowableExceptionList}" var="AE">
+                                <label>
+                                    <input type="checkbox" class="AE" value="{!AE}" /> {!AE}
+                                </label> <br/>
+                            </apex:repeat>
+                        </div>
+                        <h4>Strong Mitigating Factors</h4>
+                        <div class="checkbox SMF_Label">
+                            <apex:repeat value="{!StrongMitigatingFactorsList}" var="SMF">
+                                <label>
+                                    <input type="checkbox" class="SMF" value="{!SMF}"  /> {!SMF}
+                                </label> <br/>
+                            </apex:repeat>
+                        </div>
+                        <h4>Additional Items</h4>
+                    </div>
+                    <div class="col-md-12">
+                        <label style="padding:0px">
+                            <apex:inputField styleclass="form-control approve-risk" value="{!creditReviewObj.High_Risk_Transaction__c}" /> High Risk Transaction </label>
+                    </div>
+                    <div class="col-md-12">
+                        <label style="padding:0px">
+                            <apex:inputField styleclass="form-control approve-sos" value="{!creditReviewObj.SOS_Active_Complete__c}" />  SOS Active Complete  </label>
+                    </div>
+                    <div class="col-md-12">
+                        <label style="padding:0px">
+                            <apex:inputField styleclass="form-control approve-competitor" value="{!creditReviewObj.Competitor_Review_Complete__c}" /> Competitor Review Complete </label>
+                    </div>
+                    <div class="col-md-12">
+                        <label style="padding:0px"><apex:inputField styleclass="form-control approve-ucc" value="{!creditReviewObj.Blanket_UCC_Filed__c}" /> Blanket UCC Filed</label>
+                    </div>
+                    <div class="col-md-12">
+                        <b>Paynet</b>
+                        <apex:inputField styleclass="form-control approve-paynet" value="{!creditReviewObj.Paynet__c}" />
+                    </div>
+                    <div class="col-md-12">
+                        <b>Bank Acct #</b>
+                        <input type="text" class="form-control approve-acct" value="{!bankLastFour}" />
+                    </div>
+                    <div class="col-md-12">
+                        <b>Bank Name</b>
+                        <input type="text" class="form-control approve-bank_name" value="{!bankName}" />
+                    </div>
+                    <div class="col-md-12">
+                        <h4>Date of approval Expiration(*)</h4>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="input-group input-medium date date-picker" data-date-format="mm/dd/yyyy" data-date-start-date="+0d">
+                            <input type="text" class="form-control approve-date" value="{!SUBSTITUTE(approveDatePlus30String,'-','/')}" />
+                          <span class="input-group-btn">
+                              <button class="btn btn-default" type="button" style="padding: 9px;"><i class="fa fa-calendar"></i></button>
+                          </span> 
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                        <h4>Max Term(*)</h4>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-md-6" style="padding-left:0">
+                            <input type="text" class="form-control integer approve-term" id = "approve-term" value="{!platinumNum}" />
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <h4>Max Approval($)(*)</h4>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-md-8" style="padding-left:0">
+                            <input type="text" class="form-control approve-max" onkeyup="checkMaxApprove(this)" value="{!maxApproval}" />
+                        </div>
+                    </div>
+                </div>
+                <div class="sic-none" style="display:{!IF(creditReviewObj.Opportunity__r.Account.Sic != null && creditReviewObj.SIC_Code__c  != null,'block','none')}">
+                    <button class="mt10 first-approve Approve div3" type="button" onclick="saveReviewStatus('Approved');openConga();" style="width:100%" id="decision-approve" target="3">Approve</button>
+                    <button class="mt10 second-approve Approve div4" type="button" onclick="saveReviewStatus('Approved');openConga();" style="width:100%; display:none" target="4">Approve</button>
+                    <button class="btn-block secondReview Update div4" type="button" onclick="saveReviewStatus('Second Review')" id="decision-update" target="4">Send for Second Review</button>
+                </div>
+                <div class="sic-block"  style="display:{!IF(creditReviewObj.Opportunity__r.Account.Sic == null || creditReviewObj.SIC_Code__c == null,'block','none')}">
+                    <div class="row" >
+                        <div class="col-sm-12" style="margin-top:15px">
+                            <button class="mt10 Approve btn-block pull-right" onclick="isSICNull()" style="width: auto; margin-right: 10px" type="button">
+                                <i class="glyphicon glyphicon-refresh"></i>
+                            </button>
+                            <div class="alert alert-warning" role="alert"><strong>SIC Missing on Account:</strong> Please enter the SIC code on the Account in order to approve this Credit Review. When you have entered the SIC code, hit the reload button above to approve.</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <button class="mt10 Approve" onclick="alert('Please enter the SIC code on the Account in order to approve this Credit Review.')" style="width:100%" type="button" disabled="disabled">Approve</button>
+                            <button class="btn-block Update" type="button" onclick="alert('Please enter the SIC code on the Account in order to approve this Credit Review.')"  disabled="disabled">Send for Second Review</button>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <!-- div3 Branch -->
+            <div class="top-decision top-decision-div3 decisionbox">
+                <div  class="gray-box">
+                    <h4 style=" background-color:#009e0f; color:#FFF; padding: 20px;
+                               font-size: 30px; margin-top:0px; "><i class="fa fa-check-circle"></i> Approved</h4>
+                    <div class="col-md-12">
+                        <h4 class="reviewType">{!creditReviewObj.Review_Type__c}</h4>
+                        Approved by <span class="approved-by">
+                        
+                        </span>
+                        <br/>
+                        Approved On <span class="submitted-date"></span>
+                        <h4> Policy Exceptions</h4>
+                        <div class="policyExceptions">
+                            
+                        </div>
+                        <h4> Allowable Exceptions</h4>
+                        <div class="allowableExceptions">
+                            
+                        </div>
+                        <h4> Strong Mitigating Factors</h4>
+                        <div class="strongMitigatingFactors">
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <b>High Risk Transaction</b>
+                        <div class="risk-output">{!If(creditReviewObj.High_Risk_Transaction__c,'Yes','No')}</div>
+                    </div>
+                    <div class="col-md-12">
+                        <b>SOS Active Complete</b>
+                        <div class="sos-output">{!If(creditReviewObj.SOS_Active_Complete__c,'Yes','No')}</div>
+                    </div>
+                    <div class="col-md-12">
+                        <b>Competitor Review Complete</b>
+                        <div class="competitor-output">{!If(creditReviewObj.Competitor_Review_Complete__c,'Yes','No')}</div>
+                    </div>
+                    <div class="col-md-12">
+                        <b>Blanket UCC Filed</b>
+                        <div class="ucc-output">{!If(creditReviewObj.Blanket_UCC_Filed__c,'Yes','No')}</div>
+                    </div>
+                    <div class="col-md-12">
+                        <b>Paynet</b>
+                        <div class="paynet-output">{!creditReviewObj.Paynet__c}
+                            <apex:outputPanel layout="none" rendered="{!creditReviewObj.Paynet__c == null}">
+                                <p style="color:#888">Not Applicable</p>
+                            </apex:outputPanel>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <b>Bank Acct #</b>
+                        <div class="acct-output">{!bankLastFour}
+                            <apex:outputPanel layout="none" rendered="{!bankLastFour == null}">
+                                <p style="color:#888">Not Applicable</p>
+                            </apex:outputPanel>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <b>Bank Name</b>
+                        <div class="bank_name-output">{!bankName}
+                            <apex:outputPanel layout="none" rendered="{!bankName == null}">
+                                <p style="color:#888">Not Applicable</p>
+                            </apex:outputPanel>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <h4>Date of approval Expiration(*)</h4>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-md-9 approvalDateView"> 
+                            <apex:outputText value="{0, date,MM/dd/yyyy}">
+                                <apex:param value="{!approveDatePlus30}" /> 
+                            </apex:outputText>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <h4>Max Term(*)</h4>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-md-4 maxTermView"> {!platinumNum} </div>
+                    </div>
+                    <div class="col-md-12">
+                        <h4>Max Approval($)(*)</h4>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-md-8 maxApprovalView"> ${!maxApproval}</div>
+                    </div>
+                </div>
+                <button class="Tier btn-block changeApproval changeApproval-first div2" type="button" target="2">Change Approval</button>
+                <button class="btn-block withdraw div6" type="button" target="6">Withdraw</button>
+                <!--<button type="button"  Class="btn btn-block Approve" style="display:{!IF(creditReviewObj.Status__c = 'Approved' && $Permission.FullBalanceSheetView, 'block', 'none')}"  onclick="openCongaFull()"> Business Loan Approval</button>-->
+                <button type="button"  Class="btn btn-block Approve businessLoanApproval" onclick="openCongaFull()"> Business Loan Approval</button>
+            </div>
+
+            <!-- div4 Branch -->
+            <div class="top-decision top-decision-div4 decisionbox">
+                <div  class="gray-box">
+                    <h4 style=" background-color:#ff9900; color:#FFF; padding:16px;
+                               font-size: 18px; margin-top:0px; text-transform:uppercase; ">
+                        <span class="fa-stack fa-sm">
+                            <i class="fa fa-circle fa-stack-1x"></i>
+                            <i class="fa fa-inverse fa-stack-1x" style=" color:#ff9900; font-size:7px; text-transform:lowercase">2nd</i>
+                        </span>
+                        Second Review </h4>
+                    <div class="col-md-12">
+                        <h4 class="reviewType">{!creditReviewObj.Review_Type__c}</h4>
+                        Approval Recommended by
+                        <span class="approvedRecommended-by">
+                            <i>Not Recommended</i>
+                        </span>
+                        <br/>
+                        Recommendation Submitted on <span class="submittedRecommended-date"> N/A </span><br/>
+                        <!--Approved by <span class="approved-by"> </span> <br/>
+                            Approved On <span class="submitted-date"></span>-->
+                        <h4> Policy Exceptions</h4>
+                        <div class="policyExceptions">
+                            
+                        </div>
+                        <h4> Allowable Exceptions</h4>
+                        <div class="allowableExceptions">
+                            
+                        </div>
+                        <h4> Strong Mitigating Factors</h4>
+                        <div class="strongMitigatingFactors">
+                            
+                        </div> 
+                    </div>
+                    <div class="col-md-12">
+                        <b>High Risk Transaction</b>
+                        <div class="risk-output">{!If(creditReviewObj.High_Risk_Transaction__c,'Yes','No')}</div>
+                    </div>
+                    <div class="col-md-12">
+                        <b>SOS Active Complete</b>
+                        <div class="sos-output">{!If(creditReviewObj.SOS_Active_Complete__c,'Yes','No')}</div>
+                    </div>
+                    <div class="col-md-12">
+                        <b>Competitor Review Complete</b>
+                        <div class="competitor-output">{!If(creditReviewObj.Competitor_Review_Complete__c,'Yes','No')}</div>
+                    </div>
+                    <div class="col-md-12">
+                        <b>Blanket UCC Filed</b>
+                        <div class="ucc-output">{!If(creditReviewObj.Blanket_UCC_Filed__c,'Yes','No')}</div>
+                    </div>
+                    <div class="col-md-12">
+                        <b>Paynet</b>
+                        <div class="paynet-output">{!creditReviewObj.Paynet__c}
+                            <apex:outputPanel layout="none" rendered="{!creditReviewObj.Paynet__c == null}">
+                                <p style="color:#888">Not Applicable</p>
+                            </apex:outputPanel>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <b>Bank Acct #</b>
+                        <div class="acct-output">{!bankLastFour}
+                            <apex:outputPanel layout="none" rendered="{!bankLastFour == null}">
+                                <p style="color:#888">Not Applicable</p>
+                            </apex:outputPanel>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <b>Bank Name</b>
+                        <div class="bank_name-output">{!bankName}
+                            <apex:outputPanel layout="none" rendered="{!bankName == null}">
+                                <p style="color:#888">Not Applicable</p>
+                            </apex:outputPanel>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <h4>Date of approval Expiration(*)</h4>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-md-9 approvalDateView">
+                            <apex:outputText value="{0, date,MM/dd/yyyy}">
+                                <apex:param value="{!approveDatePlus30}" /> 
+                            </apex:outputText>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <h4>Max Term(*)</h4>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-md-4 maxTermView"> {!platinumNum}
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <h4>Max Approval($)(*)</h4>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-md-8 maxApprovalView"> ${!maxApproval} </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <button class="btn-block Tier secondApproveChanage changeApproval div2" type="button" target="2">Change Approval</button>
+                <div class="sic-none" style="display:{!IF(creditReviewObj.Opportunity__r.Account.Sic != null && creditReviewObj.SIC_Code__c  != null,'block','none')}">
+                    <button class="btn-block Approve div3" id="decision-approve2" onclick="saveReviewStatus('Approved');openConga();" type="button" target="6">Approve</button>
+                </div>
+                <div class="sic-block"  style="display:{!IF(creditReviewObj.Opportunity__r.Account.Sic == null || creditReviewObj.SIC_Code__c  == null,'block','none')}">
+                    <div class="row" >
+                        <div class="col-sm-12" style="margin-top:15px">
+                            <button class="mt10 Approve btn-block pull-right" onclick="isSICNull()" style="width: auto; margin-right: 10px" type="button">
+                                <i class="glyphicon glyphicon-refresh"></i>
+                            </button>
+                            <div class="alert alert-warning" role="alert"><strong>SIC Missing on Account:</strong> Please enter the SIC code on the Account in order to approve this Credit Review. When you have entered the SIC code, hit the reload button above to approve.</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <button class="mt10 Approve" onclick="alert('Please enter the SIC code on the Account in order to approve this Credit Review.')" style="width:100%" type="button" disabled="disabled">Approve</button>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-block Tier div20" type="button" target="20">Change Tier</button>
+                <button class="btn-block Syndication syndication-approve div14" type="button" target="14">{!If(creditReviewObj.Opportunity__r.RecordType.Name =='Broker WC Oppty','Broker Full Decline','Send to Syndication')}</button>
+                
+            </div>
+
+            <!-- div16 Branch -->
+            <div class="top-decision top-decision-div16 decisionbox">
+                <div  class="gray-box">
+                    <h4 style=" background-color:#ff9900; color:#FFF; padding:16px;font-size: 18px; margin-top:0px; text-transform:uppercase; ">
+                        <span class="fa-stack fa-sm">
+                            <i class="fa fa-circle fa-stack-1x"></i>
+                            <i class="fa fa-inverse fa-stack-1x" style=" color:#ff9900; font-size:7px; text-transform:lowercase">2nd</i>
+                        </span> Second Review 
+                    </h4>
+                    <div class="col-md-12">
+                        <h4 class="reviewType">{!creditReviewObj.Review_Type__c}</h4>
+                        <!--<p> {!If(creditReviewObj.Opportunity__r.RecordType.Name =='Broker WC Oppty','Broker Full Decline','Send to Syndication')} Recommended by <span class="Syndication_rejected_by"> </span><br/>
+                            Recommendation Submitted <span class="Syndication_rejected_on"> </span><br/>
+                            </p>-->
+                        Recommended Action: <b>{!If(creditReviewObj.Opportunity__r.RecordType.Name =='Broker WC Oppty','Broker Full Decline','Send to Syndication')}</b><br/>
+                        Recommended by
+                        <span class="approvedRecommended-by">
+                            <i>Not Recommended</i>
+                        </span>
+                        <br/>
+                        Recommendation Submitted on <span class="submittedRecommended-date"> N/A </span><br/>
+                        Reason: <div class="syn_reason">
+                        
+                        <div style="display:{!If(creditReviewObj.Opportunity__r.RecordType.Name =='Broker WC Oppty' && creditReviewObj.Review_Type__c != 'Commercial Review','block','none')}">
+                            <apex:outputText escape="false" value="{!SUBSTITUTE(creditReviewObj.Broker_Decline_Reasons__c , ";", "<br/>")}" />
+                                <apex:outputText value=" ({!creditReviewObj.Broker_Decline_Other_Reason__c})" rendered="{!creditReviewObj.Broker_Decline_Other_Reason__c != null && creditReviewObj.Broker_Decline_Other_Reason__c != ''}" />
+                            </div>
+                            
+                            <div style="display:{!If(creditReviewObj.Opportunity__r.RecordType.Name !='Broker WC Oppty' && creditReviewObj.Review_Type__c != 'Commercial Review','block','none')}">
+                                <apex:outputText escape="false" value="{!SUBSTITUTE(creditReviewObj.Decline_Reasons__c , ";", "<br/>")}" />
+                                    <apex:outputText value=" ({!creditReviewObj.Decline_Other_Reason__c})" rendered="{!creditReviewObj.Decline_Other_Reason__c != null && creditReviewObj.Decline_Other_Reason__c != ''}" />
+                                </div>
+                                
+                                <div style="display:{!If(creditReviewObj.Review_Type__c == 'Commercial Review','block','none')}">
+                                    
+                                    <apex:outputText escape="false" value="{!SUBSTITUTE(creditReviewObj.Commercial_Decline_Reasons__c , ";", "<br/>")}" />
+                                        <apex:outputText value=" ({!creditReviewObj.Commercial_Decline_Other_Reason__c })" rendered="{!creditReviewObj.Commercial_Decline_Other_Reason__c != null && creditReviewObj.Commercial_Decline_Other_Reason__c != ''}" />
+                                        <br/>
+                                    </div>
+                                </div>   
+                            </div>
+                            
+                            <div class="clearfix"></div>
+                        </div>
+                        <button class="Syndication div15" onclick="sendToSyndication('first')" type="button" style="width:100%" target="15">{!If(creditReviewObj.Opportunity__r.RecordType.Name =='Broker WC Oppty','Broker Full Decline','Send to Syndication')}</button>
+                        <button class="btn-block secondReviewDecline Approve div2" type="button" target="2">Approve</button>
+                        <button class="btn-block Tier div17" type="button" target="17">Change Tier</button>
+                        </div>
+                        <!-- Copy div17 Branch -->
+                        <div class="top-decision top-decision-div17 decisionbox">
+                            <div  class="gray-box mt10">
+                                <h4 class="reviewType">{!creditReviewObj.Review_Type__c}</h4>
+                                <hr style="  border-top: 1px solid #222 !important;"/>
+                                <div class="col-md-12"> <a href="#" class="btn btn-default mb10 div16"><i class="fa fa-angle-left"></i> Go back</a>
+                                    <h4>Tier Decline</h4>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="activeTier">
+                                <button class="btn-block Diamond-box Tier div16" onclick="tierDeclineSave('Diamond')" type="button" target="16">Open Diamond Review</button>
+                                <button class="btn-block Platinum-box Tier div16" onclick="tierDeclineSave('Platinum')" type="button" target="16">Open Platinum Review</button>
+                                <button class="btn-block Gold-box Tier div16" onclick="tierDeclineSave('Gold')" type="button" target="16">Open Gold Review</button>
+                            </div>
+                        </div>
+                        <!-- div5 Branch -->
+                        <div class="top-decision top-decision-div5 decisionbox">
+                            <div  class="gray-box mt10">
+                                <h4 class="reviewType">{!creditReviewObj.Review_Type__c}</h4>
+                                <hr style="  border-top: 1px solid #222 !important;"/>
+                                <div class="col-md-12"> <a href="#" class="btn btn-default main-decision-call mb10"><i class="fa fa-angle-left"></i> Go back</a>
+                                    <h4>Approve</h4>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox"/>
+                                            FICO &#60; 500 <br/>
+                                            <input type="checkbox"/>
+                                            Restricted industry <br/>
+                                            <input type="checkbox"/>
+                                            Average Daily Balance <br/>
+                                            <input type="checkbox"/>
+                                            Overdraft <br/>
+                                            <input type="checkbox"/>
+                                            Directory Assistance not found <br/>
+                                            <input type="checkbox"/>
+                                            New Bank Account <br/>
+                                            <input type="checkbox"/>
+                                            UCC Filling by competitor <br/>
+                                            <input type="checkbox"/>
+                                            No instalment Loan on cbr <br/>
+                                        </label>
+                                    </div>
+                                    <h4>Allowable Exceptions</h4>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox"/>
+                                            FICO &#60; Program Parameters <br/>
+                                            <input type="checkbox"/>
+                                            No installment Loan on CBR <br/>
+                                            <input type="checkbox"/>
+                                            UCC Filing by competitor <br/>
+                                            <input type="checkbox"/>
+                                            Average Daily Balance &#60; $1000 <br/>
+                                            <input type="checkbox"/>
+                                            Overdraft (10 averaged over 6 months) <br/>
+                                            <input type="checkbox"/>
+                                            New Bank account (opened with in 60 days) <br/>
+                                            <input type="checkbox"/>
+                                            Restricted Industry <br/>
+                                            <input type="checkbox"/>
+                                            Directory Assistance Not Found <br/>
+                                            <input type="checkbox"/>
+                                            LL Verbal Unavailable <br/>
+                                            <input type="checkbox"/>
+                                            &#60; 50% ownership <br/>
+                                            <input type="checkbox"/>
+                                            Renewals (Netting less and funding early) <br/>
+                                            <input type="checkbox"/>
+                                            Absentee Owner(CA DEALS ONLY) <br/>
+                                        </label>
+                                    </div>
+                                    <h4>Strong Mitigating Factors</h4>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox"/>
+                                            100% ownership<br/>
+                                            <input type="checkbox"/>
+                                            Strong / Well Established Credit<br/>
+                                            <input type="checkbox"/>
+                                            Business has multiple locations<br/>
+                                            <input type="checkbox"/>
+                                            Business Verified by three other sources <br/>
+                                            <input type="checkbox"/>
+                                            Time in Business <br/>
+                                            <input type="checkbox"/>
+                                            Average daily Balance<br/>
+                                            <input type="checkbox"/>
+                                            Overdraft Protection <br/>
+                                            <input type="checkbox"/>
+                                            Additional Goggle search <br/>
+                                            <input type="checkbox"/>
+                                            MtD daily payment have Ceased <br/>
+                                            <input type="checkbox"/>
+                                            Strong Business Report <br/>
+                                            <input type="checkbox"/>
+                                            Site inspection <br/>
+                                            <input type="checkbox"/>
+                                            Previous Pay History <br/>
+                                            <input type="checkbox"/>
+                                            Verified Property Ownership &#60; 500 <br/>
+                                            <input type="checkbox"/>
+                                            Verified Lease Agreement <br/>
+                                            <input type="checkbox"/>
+                                            Industry Portfolio Performance<br/>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <h4>Date of approval Expiration(*)</h4>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="col-md-12">
+                                        <div class="input-group input-medium date date-picker" data-date-format="mm-dd-yyyy" data-date-start-date="+0d">
+                                            <input type="text" class="form-control" />
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-default" type="button" style="padding:9px;"><i class="fa fa-calendar"></i></button>
+                                            </span> </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <h4>Max Term(*)</h4>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <h4>Max Approval($)(*)</h4>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" placeholder="400000.00"/>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <button class="btn-block Approve div3" onclick="saveReviewStatus('Approved');openConga()" id="decision-approve3" type="button" target="6">Approve</button>
+                        </div>
+                        <!-- div6 Branch -->
+                        <div class="top-decision top-decision-div6 decisionbox">
+                            <div  class="gray-box mt10">
+                                <h4 class="reviewType">{!creditReviewObj.Review_Type__c}</h4>
+                                <hr style="  border-top: 1px solid #222 !important;"/>
+                                <div class="col-md-12"> <a href="javascript:void(0)" class="btn btn-default second-approve-back div4" style="display:none"><i class="fa fa-angle-left"></i> Go back</a>
+                                    <a href="javascript:void(0)" class="btn btn-default approve-back div3"><i class="fa fa-angle-left"></i> Go back</a>
+                                    <h4>Withdraw</h4>
+                                    <p> Are you Sure you wish to withdraw this approval? </p>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <button class="btn-block withdraw withdraw-btn div7" onclick="changeDecisionStatus('Withdrawn')" type="button" target="7">Withdraw</button>
+                        </div>
+                        <!-- div7 Branch -->
+                        <div class="top-decision top-decision-div7 decisionbox">
+                            <div  class="gray-box mt10">
+                                <h4 style=" background-color:#cf2a27; color:#FFF; padding: 20px;
+                                           font-size: 20px; margin-top:0px; "><i class="fa fa-exclamation-circle"></i> WITHDRAW</h4
+                                    >
+                                <hr style="  border-top: 1px solid #222 !important;"/>
+                                <div class="col-md-12">
+                                    <h4 class="reviewType">{!creditReviewObj.Review_Type__c}</h4>
+                                    <p>
+                                        Originally Approved by <span class="approved-by"></span>
+                                        <br/>
+                                        Approved On <span class="submitted-date"></span><br/>
+                                        withdrawn by <span class="withdram-by"></span><br/>
+                                        withdrawn on <span class="withdram-on"></span><br/>
+                                        <!--Reason: other(Incompatible Client) --></p>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <button class="btn-block Tier main-decision-call" type="button" onclick="changeDecisionStatus('Reactivated')" style="width:100%" target="72">Reactivate</button>
+                        </div>
+                        <!-- div8 Branch -->
+                        <div class="top-decision top-decision-div8 decisionbox">
+                            <div  class="gray-box mt10">
+                                <h4 class="reviewType">{!creditReviewObj.Review_Type__c}</h4>
+                                <hr style="  border-top: 1px solid #222 !important;"/>
+                                <div class="col-md-12"> <a href="#" class="btn btn-default main-decision-call mb10"><i class="fa fa-angle-left"></i> Go back</a>
+                                    <h4>Tier Decline</h4>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="activeTier">
+                                <button class="btn-block Tier Diamond-box  main-decision-call" onclick="tierDeclineSave('Diamond')" type="button" target="9">Open Diamond Review</button>
+                                <button class="btn-block Tier Platinum-box  main-decision-call" onclick="tierDeclineSave('Platinum')" type="button" target="9">Open Platinum Review</button>
+                                <button class="btn-block Tier Gold-box  main-decision-call" onclick="tierDeclineSave('Gold')" type="button" target="9">Open Gold Review</button>
+                            </div>
+                        </div>
+                        <!-- Copy div8 Branch -->
+                        <div class="top-decision top-decision-div20 decisionbox">
+                            <div  class="gray-box mt10">
+                                <h4 class="reviewType">{!creditReviewObj.Review_Type__c}</h4>
+                                <hr style="  border-top: 1px solid #222 !important;"/>
+                                <div class="col-md-12"> <a href="#" class="btn btn-default mb10 div4"><i class="fa fa-angle-left"></i> Go back</a>
+                                    <h4>Tier Decline</h4>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="activeTier">
+                                <button class="btn-block Diamond-box Tier div4" onclick="tierDeclineSave('Diamond')" type="button" target="4">Open Diamond Review</button>
+                                <button class="btn-block Platinum-box Tier div4" onclick="tierDeclineSave('Platinum')" type="button" target="4">Open Platinum Review</button>
+                                <button class="btn-block Gold-box Tier div4" onclick="tierDeclineSave('Gold')" type="button" target="4">Open Gold Review</button>
+                            </div>
+                        </div>
+                        
+                        <!-- div9 Branch -->
+                        <div class="top-decision top-decision-div9 decisionbox">
+                            <h4 class="reviewType">{!creditReviewObj.Review_Type__c}</h4>
+                            <button class="showButton Update" target="1">Update to Commercial</button>
+                            <hr style="  border-top: 1px solid #222 !important;" />
+                            <button  class="showButton Approve" type="button" target="72">Approve</button>
+                            <button class="showButton Tier" type="button" target="72">Tier Decline</button>
+                            <button class="showButton Syndication" type="button" target="72">
+                                {!If(creditReviewObj.Opportunity__r.RecordType.Name =='Broker WC Oppty','Broker Full Decline','Send to Syndication')}
+                            </button>
+                        </div>
+                        <!-- div14 Branch -->
+                        <div class="top-decision decisionbox top-decision-div14" id="top-decision-Syndication">
+                            <div  class="gray-box mt10">
+                                <h4 class="reviewType">{!creditReviewObj.Review_Type__c}</h4>
+                                <hr style="  border-top: 1px solid #222 !important;"/>
+                                <div class="col-md-12"> 
+                                    <a href="#" class="btn btn-default  main-decision-call mb10 div14first"><i class="fa fa-angle-left"></i> Go back</a>
+                                    <a href="#" class="btn btn-default mb10 div14second div4" style="display:none"><i class="fa fa-angle-left"></i> Go back</a>
+                                    <h4>{!If(creditReviewObj.Opportunity__r.RecordType.Name =='Broker WC Oppty','Broker Full Decline','Send to Syndication')}</h4>
+                                    <h5>Decline Reason</h5>
+                                    <apex:outputPanel id="declineArea"  styleclass="checkbox declineSyndicationOptions">
+                                        <apex:outputPanel layout="block" styleclass="brokerDeclineCheckbox" rendered="{!creditReviewObj.Opportunity__r.RecordType.Name =='Broker WC Oppty' && creditReviewObj.Review_Type__c != 'Commercial Review'}">
+                                            <apex:repeat value="{!DeclineReasonsBrokerOptions}" var="opt">
+                                                <label>
+                                                    <input type="checkbox" onclick="$('.inactive-send').hide();$('.active-send').show()" value="{!opt}" class="declineSyndicationOpt declineSyndicationOption" />
+                                                    {!opt}
+                                                </label>
+                                            </apex:repeat>
+                                        </apex:outputPanel>
+                                        <apex:outputPanel layout="block" styleclass="declineCheckbox"  rendered="{!creditReviewObj.Opportunity__r.RecordType.Name !='Broker WC Oppty' && creditReviewObj.Review_Type__c != 'Commercial Review'}">
+                                            <apex:repeat value="{!DeclineReasonsOptions}" var="opt">
+                                                <label>
+                                                    <input type="checkbox" onclick="$('.inactive-send').hide();$('.active-send').show()" value="{!opt}" class="declineSyndicationOpt declineSyndicationOption" />
+                                                    {!opt}
+                                                </label>
+                                            </apex:repeat>
+                                        </apex:outputPanel>
+                                        <apex:outputPanel layout="block"  styleclass="commercialDeclineCheckbox"  rendered="{!creditReviewObj.Review_Type__c == 'Commercial Review'}">
+                                            <apex:repeat value="{!DeclineReasonsCommercialOptions}" var="opt">
+                                                <label>
+                                                    <input type="checkbox" onclick="$('.inactive-send').hide();$('.active-send').show()" value="{!opt}" class="declineSyndicationOpt declineSyndicationOption" />
+                                                    {!opt}
+                                                </label>
+                                            </apex:repeat>
+                                        </apex:outputPanel>
+                                        <div class="brokerOther" style="display:none">
+                                            <input type="text" class="form-control" value="{!creditReviewObj.Broker_Decline_Other_Reason__c}" />
+                                        </div>
+                                        <div class="declineOther" style="display:none">
+                                            <input type="text" class="form-control" value="{!creditReviewObj.Decline_Other_Reason__c}" />
+                                        </div>
+                                        <div class="commercialOther" style="display:none">
+                                            <input type="text" class="form-control" value="{!creditReviewObj.Commercial_Decline_Other_Reason__c }" />
+                                        </div>
+                                    </apex:outputPanel>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <!--<div class="inactive-send">
+                                <button onclick="alert('Please select Decline Reason')" class="Syndication" type="button" style="width:100%" target="15">{!If(creditReviewObj.Opportunity__r.RecordType.Name =='Broker WC Oppty','Broker Full Decline','Send to Syndication')} </button>
+                                </div>-->
+                            <div class="active-send">
+                                <button class="Syndication syndication-send div15" onclick="sendToSyndication('first')" type="button" style="width:100%" target="15">{!If(creditReviewObj.Opportunity__r.RecordType.Name =='Broker WC Oppty','Broker Full Decline','Send to Syndication')}</button>
+                                <button class="Update syndication-send div16" onclick="sendToSyndication('second')" type="button" style="width:100%" target="16">Second Review</button>
+                            </div>
+                        </div>
+                        <!-- div15 Branch -->
+                        <div class="top-decision decisionbox top-decision-div15" id="top-decision-Syndication-sent">
+                            <div  class="gray-box mt10">
+                                <h4 style=" background-color:#cf2a27; color:#FFF; padding: 10px;
+                                           font-size: 20px; margin-top:0px; "><i class="fa fa-times-circle"></i> {!If(creditReviewObj.Opportunity__r.RecordType.Name =='Broker WC Oppty','Broker Full Decline','Send to Syndication')}</h4
+                                    >
+                                <hr style="  border-top: 1px solid #222 !important;" />
+                                <div class="col-md-12">
+                                    <h4 class="reviewType">{!creditReviewObj.Review_Type__c}</h4>
+                                    <p> Rejected by <span class="rejected_by"> </span><br/>
+                                        Rejected on <span class="rejected_on"> </span><br/>
+                                    </p>
+                                    Reason: <div class="syn_reason">
+                                    
+                                    <div  style="display:{!If(creditReviewObj.Opportunity__r.RecordType.Name =='Broker WC Oppty' && creditReviewObj.Review_Type__c != 'Commercial Review','block','none')}">
+                                        <apex:outputText escape="false" value="{!SUBSTITUTE(creditReviewObj.Broker_Decline_Reasons__c , ";", "<br/>")}" />
+                                            <apex:outputText value=" ({!creditReviewObj.Broker_Decline_Other_Reason__c})" rendered="{!creditReviewObj.Broker_Decline_Other_Reason__c != null && creditReviewObj.Broker_Decline_Other_Reason__c != ''}" />
+                                        </div>
+                                        <div style="display:{!If(creditReviewObj.Opportunity__r.RecordType.Name !='Broker WC Oppty' && creditReviewObj.Review_Type__c != 'Commercial Review','block','none')}">
+                                            <apex:outputText escape="false" value="{!SUBSTITUTE(creditReviewObj.Decline_Reasons__c , ";", "<br/>")}" />
+                                                <apex:outputText value=" ({!creditReviewObj.Decline_Other_Reason__c})" rendered="{!creditReviewObj.Decline_Other_Reason__c != null && creditReviewObj.Decline_Other_Reason__c != ''}" />
+                                            </div>
+                                            <div style="display:{!If(creditReviewObj.Review_Type__c == 'Commercial Review','block','none')}">
+                                                
+                                                <apex:outputText escape="false" value="{!SUBSTITUTE(creditReviewObj.Commercial_Decline_Reasons__c , ";", "<br/>")}" />
+                                                    <apex:outputText value=" ({!creditReviewObj.Commercial_Decline_Other_Reason__c })" rendered="{!creditReviewObj.Commercial_Decline_Other_Reason__c != null && creditReviewObj.Commercial_Decline_Other_Reason__c != ''}" />
+                                                    <br/>
+                                                </div>
+                                            </div>
+                                            <br/>
+                                            
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <button class="reactivate mt10 btn-block Tier main-decision-call" onclick="changeDecisionStatus('Reactivated')" type="button" target="53">Reactivate</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </apex:component>

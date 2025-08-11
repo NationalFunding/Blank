@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Annual_Revenue_125K__c</fullName>
+    <description>PD-5260, to capture additional information from the Moneyjet evaluation questions from the website</description>
+    <externalId>false</externalId>
+    <label>Annual Sales above $125K</label>
+    <length>20</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

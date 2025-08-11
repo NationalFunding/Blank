@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Response_Channel__c</fullName>
+    <description>The channel customer used to contact with FPC</description>
+    <inlineHelpText>Select the method contact was made with the account</inlineHelpText>
+    <label>Response Channel</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Email</fullName>
+                <default>false</default>
+                <label>Email</label>
+            </value>
+            <value>
+                <fullName>Fax</fullName>
+                <default>false</default>
+                <label>Fax</label>
+            </value>
+            <value>
+                <fullName>Inbound Call</fullName>
+                <default>false</default>
+                <label>Inbound Call</label>
+            </value>
+            <value>
+                <fullName>Internet</fullName>
+                <default>false</default>
+                <label>Internet</label>
+            </value>
+            <value>
+                <fullName>Internet Activation</fullName>
+                <default>false</default>
+                <label>Internet Activation</label>
+            </value>
+            <value>
+                <fullName>Internet Application</fullName>
+                <default>false</default>
+                <label>Internet Application</label>
+            </value>
+            <value>
+                <fullName>Internet- Lead Aggregator</fullName>
+                <default>false</default>
+                <label>Internet- Lead Aggregator</label>
+            </value>
+            <value>
+                <fullName>Outbound Call</fullName>
+                <default>false</default>
+                <label>Outbound Call</label>
+            </value>
+            <value>
+                <fullName>Overflow</fullName>
+                <default>false</default>
+                <label>Overflow</label>
+            </value>
+            <value>
+                <fullName>After Hours Voice Mail</fullName>
+                <default>false</default>
+                <label>After Hours Voice Mail</label>
+            </value>
+            <value>
+                <fullName>Facebook</fullName>
+                <default>false</default>
+                <label>Facebook</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

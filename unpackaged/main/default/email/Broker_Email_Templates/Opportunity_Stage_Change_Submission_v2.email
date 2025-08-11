@@ -1,0 +1,6 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="400" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[<b style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><font face="Arial, sans-serif">Your documents have been approved by the funding department. You will be contacted by your funder if any additional information is required.</font></b><br><font face="Arial, sans-serif"><b><br></b></font><b style="font-family: arial;"><font face="Arial, sans-serif">Business Name: {!Opportunity.Legal_Name__c}</font></b><br><b style="font-family: arial;"><font face="Arial, sans-serif">FWC Number:&nbsp;</font></b><font face="Arial, sans-serif"><b>{!Opportunity.Merchant_Number__c}</b></font><div><b style="font-family: Arial, sans-serif;"><br></b></div><div><b style="font-family: Arial, sans-serif;">Please contact&nbsp;</b><a href="mailto:NFfunding@nationalfunding.com" style="font-family: Arial, sans-serif;"><b>NFfunding@nationalfunding.com</b></a><b style="font-family: Arial, sans-serif;">&nbsp;for updates.</b></div>]]></td>
+</tr>
+</table>

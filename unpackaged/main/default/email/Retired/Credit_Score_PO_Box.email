@@ -1,0 +1,6 @@
+<table height="400" width="550" cellpadding="5" border="0" cellspacing="5" >
+<tr height="400" valign="top" >
+<td style=" color:#000000; font-size:12pt; background-color:#FFFFFF; font-family:arial; bLabel:main; bEditID:r3st1;" tEditID="c1r1" locked="0" aEditID="c1r1" >
+<![CDATA[Please correct the address on the record below, you have entered a PO Box as an address and attempted to run credit.&nbsp; You can submit the request for credit again once the address has been changed. Thank you. <br><br>{!Credit_Score__c.Link}]]></td>
+</tr>
+</table>

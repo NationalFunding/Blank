@@ -1,0 +1,6 @@
+<apex:page standardController="Opportunity" tabStyle="Opportunity" >
+    <flow:interview name="Opportunity_Run_ManualRelatedOpportunitySearch" finishLocation="{!$Page.gotoLastCreatedROS}">
+        <apex:param name="varInputOpptyID" value="{!Opportunity.Id}"/>
+        
+    </flow:interview>
+</apex:page>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lock_ACH_Payment_If_Rejected</fullName>
+    <active>true</active>
+    <description>Once an ACH Payment has been rejected. It may not be modified. Another ACH Payment request needs to be created.</description>
+    <errorConditionFormula>Lock_ACH_Record__c = True</errorConditionFormula>
+    <errorMessage>This ACH Payment has been rejected. DO NOT MODIFY THIS RECORD. Please create a new ACH Payment in order to process the payment. If you believe there is an error, please contact the Salesforce.com Administrator.</errorMessage>
+</ValidationRule>

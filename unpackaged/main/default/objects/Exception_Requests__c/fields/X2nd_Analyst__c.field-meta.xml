@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X2nd_Analyst__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>2nd Analyst</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Exception_Requests1</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

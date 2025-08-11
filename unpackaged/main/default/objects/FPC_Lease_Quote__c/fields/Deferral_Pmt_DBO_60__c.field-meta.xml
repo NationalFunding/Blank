@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Deferral_Pmt_DBO_60__c</fullName>
+    <description>Deferral Payment of a 60 month term DBO lease.</description>
+    <inlineHelpText>Deferral Payment of a 60 month term DBO lease.</inlineHelpText>
+    <label>Deferral Pmt DBO 60</label>
+    <precision>17</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

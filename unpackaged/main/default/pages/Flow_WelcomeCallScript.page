@@ -1,0 +1,5 @@
+<apex:page standardController="Opportunity" tabStyle="Opportunity" >
+    <flow:interview name="Welcome_Call_Script" finishLocation="{!$Page.gotoLastCreatedWC}">
+        <apex:param name="inputOpptyId" value="{!Opportunity.Id}"/>      
+    </flow:interview>
+</apex:page>

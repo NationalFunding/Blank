@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Clear_Stips</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Clear Stips</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>/flow/Stipulations_Clear_Stips?inputFundingId={!FPC_Funding_del__c.Id}&amp;retURL=/{!FPC_Funding_del__c.Id}</url>
+</WebLink>

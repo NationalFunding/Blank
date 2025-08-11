@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Route_to_Sales_Team__c</fullName>
+    <label>Route to Sales Team</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Marketing - Training Team</fullName>
+                <default>false</default>
+                <label>Marketing - Training Team</label>
+            </value>
+            <value>
+                <fullName>Marketing - Senior Team</fullName>
+                <default>false</default>
+                <label>Marketing - Senior Team</label>
+            </value>
+            <value>
+                <fullName>Marketing - PPC Team</fullName>
+                <default>false</default>
+                <label>Marketing - PPC Team</label>
+            </value>
+            <value>
+                <fullName>Marketing - Internet Mailer</fullName>
+                <default>false</default>
+                <label>Marketing - Internet Mailer</label>
+            </value>
+            <value>
+                <fullName>Marketing - Inbound Mailer Team</fullName>
+                <default>false</default>
+                <label>Marketing - Inbound Mailer Team</label>
+            </value>
+            <value>
+                <fullName>Marketing - Renewals</fullName>
+                <default>false</default>
+                <label>Marketing - Renewals</label>
+            </value>
+            <value>
+                <fullName>Marketing - Leasing</fullName>
+                <default>false</default>
+                <label>Marketing - Leasing</label>
+            </value>
+            <value>
+                <fullName>Commercial Team</fullName>
+                <default>false</default>
+                <label>Commercial Team</label>
+            </value>
+            <value>
+                <fullName>Standard Team</fullName>
+                <default>false</default>
+                <label>Standard Team</label>
+            </value>
+            <value>
+                <fullName>Inbound Mailer Call Team</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Inbound Mailer Call Team</label>
+            </value>
+            <value>
+                <fullName>Internet Mailer Team</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Internet Mailer Team</label>
+            </value>
+            <value>
+                <fullName>PPC/LT/Organic Team</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>PPC/LT/Organic Team</label>
+            </value>
+            <value>
+                <fullName>Renewals</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Renewals</label>
+            </value>
+            <value>
+                <fullName>Sr Team</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Sr Team</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

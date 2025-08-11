@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Actual_Residual_Ownership__c</fullName>
+    <description>This will be the field of record for end of term option for booked lease deals.</description>
+    <inlineHelpText>This will be the field of record for end of term option for booked lease deals.</inlineHelpText>
+    <label>Actual Residual Ownership</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>FMV</fullName>
+                <default>false</default>
+                <label>FMV</label>
+            </value>
+            <value>
+                <fullName>FMV - 10%</fullName>
+                <default>false</default>
+                <label>FMV - 10%</label>
+            </value>
+            <value>
+                <fullName>FMV - 15%</fullName>
+                <default>false</default>
+                <label>FMV - 15%</label>
+            </value>
+            <value>
+                <fullName>FMV - 20%</fullName>
+                <default>false</default>
+                <label>FMV - 20%</label>
+            </value>
+            <value>
+                <fullName>FMV - NR</fullName>
+                <default>false</default>
+                <label>FMV - NR</label>
+            </value>
+            <value>
+                <fullName>FMV - TRL</fullName>
+                <default>false</default>
+                <label>FMV - TRL</label>
+            </value>
+            <value>
+                <fullName>10% PUT</fullName>
+                <default>false</default>
+                <label>10% PUT</label>
+            </value>
+            <value>
+                <fullName>$1BO</fullName>
+                <default>false</default>
+                <label>$1BO</label>
+            </value>
+            <value>
+                <fullName>$101BO</fullName>
+                <default>false</default>
+                <label>$101BO</label>
+            </value>
+            <value>
+                <fullName>$125 BO</fullName>
+                <default>false</default>
+                <label>$125 BO</label>
+            </value>
+            <value>
+                <fullName>EFA</fullName>
+                <default>false</default>
+                <label>EFA</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,105 @@
+<apex:component layout="none">
+<apex:attribute type="Credit_Review__c" name="creditReviewObj" description="Credit Review"/>
+<!--Business Model Starts here-->
+  <div id="businessmodal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3 id="myModalLabel">Business Search</h3>
+        </div>
+        <div class="modal-body"> 
+          <!--Search Screen 1 and 2-->
+          <div class="row">
+            <div class="col-md-12">
+              <form class="form-horizontal">
+                <fieldset>
+                  <div class="form-group">
+                    <div class="col-md-offset-3 col-md-6" style="text-align:center;" id="main-search">
+                  <!-- Text input-->
+                  <label class="col-md-12 text-center" for="textinput">Name to Search:</label>
+                     <input style="margin-bottom: 10px;" id="searchfield" value="{!creditReviewObj.Opportunity__r.Account.Legal_Name__c}" name="textinput" type="text" placeholder="Enter a Business to Search For" class="form-control input-md" />
+                      
+                      <button id="clearresults" type="button" name="button1id" class="btn btn-success">Reset</button>
+                      <button id="searchagain" type="button" name="button1id" class="btn btn-success" onclick="callBussinessSearch($('#searchfield')); return false" >Search</button>
+                    </div>
+                    
+                    <!-- Button -->
+                    <div style="display:none;" id="search-process">
+                      <!--<div class="form-group col-md-12" style="margin-top:10px;" >
+                        <div class="text-center clearfix"> <a class="btn btn-primary">Search Business Name</a> </div>
+                      </div>-->
+                      <div class="dataloader text-center col-md-12">
+                        <p style="margin-top:15px; display:inline-block;">
+                            <apex:image url="{!URLFOR($Resource.CreditReviewScreen, 'images/dataloader.gif')}"/>
+                        </p>
+                      </div>
+                      
+                      <span class="col-md-12 text-center help-block">Searching for <strong class="searchvalue"></strong>... (this may take sometime)</span> </div>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+          </div>
+          <!--Search Screen 3-->
+          
+          <div class="row">
+             <div class="show-hide query" style="display:none"> 
+              <!-- Text input-->
+              <div class="form-group col-md-5" style="padding-right: 0px;">
+                <label style="padding-right:0px; margin-right:0px;" class="col-md-5 control-label" for="textinput">Name to Search </label>
+                <div class="col-md-7" style="margin-left:0px; padding-left:0px;">
+                  <input  name="textinput" type="text" placeholder="" id="searchAgainTextBox" class="form-control input-md searchvalue searchfield"/>
+                </div>
+              </div>
+              <div class="col-md-6" style="padding-left:0px;">
+                <button id="save_search_again" name="button1id" class="btn btn-success"  onclick="callBussinessSearch($('#searchAgainTextBox')); return false" >Add and Search Again</button>
+                <button id="searchAgain" name="button2id" class="btn btn-primary" onclick="callBussinessSearch($('#searchAgainTextBox')); return false" >Search Again</button>
+              </div>
+              <div class="row col-md-12" style="margin-top:0px;">
+              
+                <apex:outputPanel styleclass="col-md-12"  layout="block">
+                  <h4>Search Results:</h4>
+                  <div  style="overflow-y: scroll; max-height: 350px;display:none" id="reloadBusiness">
+                     <table class="table table-striped table-bordered table-hover ng-cloak" id="sample_8" width="90%">
+                        <thead>
+                          <tr>
+                            <th>Account Name</th>
+                            <th>Type</th>
+                          </tr>
+                        </thead>
+                        <tbody class="business-result">
+                        
+                        </tbody>
+                  </table>
+                  </div>
+                  <p id="no-record" style="display:none">No Records Found</p>
+                </apex:outputPanel>
+              </div>
+               
+            </div>
+            
+          </div>
+        </div>
+        <div class="modal-footer">
+            <div class="row bottom-button1">
+                <div align="center">
+                    <button class="btn btn-danger" data-dismiss="modal"  aria-hidden="true">Cancel Search</button>
+                </div>
+          </div>
+          <div class="row bottom-button2" style="display:none">
+            <div class="col-sm-12">
+                <div class="pull-left">
+                    <button class="btn btn-danger" data-dismiss="modal"  aria-hidden="true">Cancel Search</button>
+                </div>
+                <div class="pull-right">
+                    <button class="btn btn-success" data-dismiss="modal" aria-hidden="true" id="add_and_save">Add and Close</button>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Business modal ends here--> 
+</apex:component>

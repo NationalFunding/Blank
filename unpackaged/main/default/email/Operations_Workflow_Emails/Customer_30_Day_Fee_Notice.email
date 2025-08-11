@@ -1,0 +1,14 @@
+<table height="400" width="550" cellpadding="5" border="0" cellspacing="5" >
+<tr height="50" valign="top" >
+<td style=" color:#000000; font-size:12pt; background-color:#FFFFFF; font-family:arial; bLabel:main; bEditID:r3st1;" tEditID="c1r1" locked="0" aEditID="c1r1" >
+<![CDATA[]]></td>
+</tr>
+<tr height="300" valign="top" >
+<td style=" color:#000000; font-size:12pt; background-color:#FFFFFF; font-family:arial; bLabel:main; bEditID:r3st1;" tEditID="c1r2" locked="0" aEditID="c1r2" >
+<![CDATA[Hello,<div><br></div><div>Please keep in mind that if the title transfer is not completed with the DMV within the next 5 days, you will incur additional fees from the DMV as well as an un-obtained title fee from National Funding.</div><div><br></div><div>Should you require and additional information or documentation directly related to titling, please feel free to contact me directly at the number below.</div><div><br></div><div>Lease Number: &nbsp;{!Titling__c.Lease_Number__c}</div><div><br></div><div><span style="background-color: rgb(255, 255, 255);">Sincerely,</span><br style="background-color: rgb(255, 255, 255);"><font size="4" style="background-color: rgb(255, 255, 255);"><span style="font-family: 'Times New Roman', Times, serif; font-style: italic; font-weight: bold;">{!User.Name}</span></font><br style="background-color: rgb(255, 255, 255);"><br style="background-color: rgb(255, 255, 255);"><font size="4" style="background-color: rgb(255, 255, 255); font-family: Arial, sans-serif; font-weight: bold;"><span style="font-style: italic;"></span></font><span style="background-color: rgb(255, 255, 255); font-family: Arial, sans-serif; font-weight: bold;"></span><span style="background-color: rgb(255, 255, 255);">{!User.Name}</span><br style="background-color: rgb(255, 255, 255);"><span style="background-color: rgb(255, 255, 255);">{!User.Title}</span><br style="background-color: rgb(255, 255, 255);"><a href="http://www.nationalfunding.com/" style="background-color: rgb(255, 255, 255);">www.nationalfunding.com</a><br style="background-color: rgb(255, 255, 255);"><span style="background-color: rgb(255, 255, 255);">P: {!User.Phone} | F: {!User.Fax}</span><br style="background-color: rgb(255, 255, 255);"><span style="background-color: rgb(255, 255, 255);">Email: {!User.Email}</span></div>]]></td>
+</tr>
+<tr height="50" valign="top" >
+<td style=" color:#000000; font-size:12pt; background-color:#FFFFFF; font-family:arial; bLabel:main; bEditID:r3st1;" tEditID="c1r3" locked="0" aEditID="c1r3" >
+<![CDATA[]]></td>
+</tr>
+</table>

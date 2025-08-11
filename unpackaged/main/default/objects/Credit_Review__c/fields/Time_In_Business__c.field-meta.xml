@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Time_In_Business__c</fullName>
+    <description>This field will capture the amount of time that the company has been in business.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This field will capture the amount of time that the company has been in business.</inlineHelpText>
+    <label>Time In Business</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

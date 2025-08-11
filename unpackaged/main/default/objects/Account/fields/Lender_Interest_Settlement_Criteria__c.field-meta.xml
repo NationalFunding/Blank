@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lender_Interest_Settlement_Criteria__c</fullName>
+    <description>What criteria does the leasing lender use for computing an interest settlement?</description>
+    <inlineHelpText>What criteria does the leasing lender use for computing an interest settlement?</inlineHelpText>
+    <label>Lender Interest Settlement Criteria</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>None</fullName>
+                <default>false</default>
+                <label>None</label>
+            </value>
+            <value>
+                <fullName>Equipment Cost</fullName>
+                <default>false</default>
+                <label>Equipment Cost</label>
+            </value>
+            <value>
+                <fullName>Stream</fullName>
+                <default>false</default>
+                <label>Stream</label>
+            </value>
+            <value>
+                <fullName>Stream Minus Lost</fullName>
+                <default>false</default>
+                <label>Stream Minus Lost</label>
+            </value>
+            <value>
+                <fullName>Half of Interim Rent</fullName>
+                <default>false</default>
+                <label>Half of Interim Rent</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

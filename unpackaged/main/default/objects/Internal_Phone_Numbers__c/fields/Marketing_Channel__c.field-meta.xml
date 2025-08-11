@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Marketing_Channel__c</fullName>
+    <label>Marketing Channel</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Lease Funder Assigned Fax</fullName>
+                <default>false</default>
+                <label>Lease Funder Assigned Fax</label>
+            </value>
+            <value>
+                <fullName>Assigned House Mail</fullName>
+                <default>false</default>
+                <label>Assigned House Mail</label>
+            </value>
+            <value>
+                <fullName>Assigned House Email</fullName>
+                <default>false</default>
+                <label>Assigned House Email</label>
+            </value>
+            <value>
+                <fullName>Assigned House Fax</fullName>
+                <default>false</default>
+                <label>Assigned House Fax</label>
+            </value>
+            <value>
+                <fullName>Mailer Internet(Acq)</fullName>
+                <default>false</default>
+                <label>Mailer Internet(Acq)</label>
+            </value>
+            <value>
+                <fullName>Mailer Inbound Call(Acg)</fullName>
+                <default>false</default>
+                <label>Mailer Inbound Call(Acg)</label>
+            </value>
+            <value>
+                <fullName>Organic</fullName>
+                <default>false</default>
+                <label>Organic</label>
+            </value>
+            <value>
+                <fullName>PPC WC</fullName>
+                <default>false</default>
+                <label>PPC WC</label>
+            </value>
+            <value>
+                <fullName>Lead Aggregators(LT/Pilot)</fullName>
+                <default>false</default>
+                <label>Lead Aggregators(LT/Pilot)</label>
+            </value>
+            <value>
+                <fullName>PPC Leasing</fullName>
+                <default>false</default>
+                <label>PPC Leasing</label>
+            </value>
+            <value>
+                <fullName>Lease Q</fullName>
+                <default>false</default>
+                <label>Lease Q</label>
+            </value>
+            <value>
+                <fullName>Unassigned House Mail</fullName>
+                <default>false</default>
+                <label>Unassigned House Mail</label>
+            </value>
+            <value>
+                <fullName>Unassigned House Email</fullName>
+                <default>false</default>
+                <label>Unassigned House Email</label>
+            </value>
+            <value>
+                <fullName>Unassigned House Fax</fullName>
+                <default>false</default>
+                <label>Unassigned House Fax</label>
+            </value>
+            <value>
+                <fullName>Leasing Referrals</fullName>
+                <default>false</default>
+                <label>Leasing Referrals</label>
+            </value>
+            <value>
+                <fullName>Social / Radio / Non-Campaign / Older Activation</fullName>
+                <default>false</default>
+                <label>Social / Radio / Non-Campaign / Older Activation</label>
+            </value>
+            <value>
+                <fullName>WC Unassigned Hou</fullName>
+                <default>false</default>
+                <label>WC Unassigned Hou</label>
+            </value>
+            <value>
+                <fullName>Lease Unassigned Hou</fullName>
+                <default>false</default>
+                <label>Lease Unassigned Hou</label>
+            </value>
+            <value>
+                <fullName>Lending Tree</fullName>
+                <default>false</default>
+                <label>Lending Tree</label>
+            </value>
+            <value>
+                <fullName>Previous All Paid Search</fullName>
+                <default>false</default>
+                <label>Previous All Paid Search</label>
+            </value>
+            <value>
+                <fullName>eBridge Blast</fullName>
+                <default>false</default>
+                <label>eBridge Blast</label>
+            </value>
+            <value>
+                <fullName>Web Loans / MCA / Processing</fullName>
+                <default>false</default>
+                <label>Web Loans / MCA / Processing</label>
+            </value>
+            <value>
+                <fullName>Generic Unassigned Email</fullName>
+                <default>false</default>
+                <label>Generic Unassigned Email</label>
+            </value>
+            <value>
+                <fullName>Unassigned Fax</fullName>
+                <default>false</default>
+                <label>Unassigned Fax</label>
+            </value>
+            <value>
+                <fullName>Lease Acq</fullName>
+                <default>false</default>
+                <label>Lease Acq</label>
+            </value>
+            <value>
+                <fullName>WC Acq</fullName>
+                <default>false</default>
+                <label>WC Acq</label>
+            </value>
+            <value>
+                <fullName>Financing Landing Page</fullName>
+                <default>false</default>
+                <label>Financing Landing Page</label>
+            </value>
+            <value>
+                <fullName>Unknown - Can Reassign</fullName>
+                <default>false</default>
+                <label>Unknown - Can Reassign</label>
+            </value>
+            <value>
+                <fullName>Renewals</fullName>
+                <default>false</default>
+                <label>Renewals</label>
+            </value>
+            <value>
+                <fullName>Affiliate</fullName>
+                <default>false</default>
+                <label>Affiliate</label>
+            </value>
+            <value>
+                <fullName>Strategic Partner</fullName>
+                <default>false</default>
+                <label>Strategic Partner</label>
+            </value>
+            <value>
+                <fullName>Marketing - Inbound Mailer Team</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Marketing - Inbound Mailer Team</label>
+            </value>
+            <value>
+                <fullName>Marketing - Internet Mailer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Marketing - Internet Mailer</label>
+            </value>
+            <value>
+                <fullName>Marketing - PPC Team</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Marketing - PPC Team</label>
+            </value>
+            <value>
+                <fullName>Marketing - Renewals</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Marketing - Renewals</label>
+            </value>
+            <value>
+                <fullName>Marketing - Senior Team</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Marketing - Senior Team</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

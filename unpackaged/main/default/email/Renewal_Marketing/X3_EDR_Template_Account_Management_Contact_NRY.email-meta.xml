@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Naitonal_Funding_Standard_Letterhead_Stack</letterhead>
+    <name>3. EDR Template – Account Management (Contact - NRY)</name>
+    <style>freeForm</style>
+    <subject>Funding Update - ___% paid in</subject>
+    <textOnly>Hi {!Contact.FirstName},
+
+Thank you for your time today, it was a pleasure speaking with you.
+
+As we discussed, your business is still eligible for our Renewal Program when the need does arise in your business.
+
+Please save this email with my contact information and feel free to contact me with any questions regarding your account.
+
+Thank you,
+{!User.Name}
+
+{!User.Name}
+{!User.Title}
+www.nationalfunding.com
+P: {!User.Phone} | F: {!User.Fax}
+Email: {!User.Email}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Calculator_User_Type__c</fullName>
+    <description>This field will determine the user type
+For Jan 1 2019 release, renewals is using the Direct Calculator.  When we are ready to release renewal specific calc, update the RENEWAL value in If statement 2 to 'Renewal'</description>
+    <externalId>false</externalId>
+    <formula>IF(
+    /* Step 1, determine the user type for the online calculator when Lender is National Funding */
+    OR(
+        CONTAINS(Lender_ID__r.Name, 'National Funding'),
+        CONTAINS(Lender_ID__r.Name, 'Quick Bridge')
+    ), IF(
+        /* Step 2, determine if renewals */
+        CONTAINS(TEXT(Opportunity__r.Type), 'RENEWAL'), 'Renewal',
+        IF(
+            /* Step 3, determine if Broker */
+            OR(Opportunity__r.RecordType.DeveloperName = 'Broker_WC_Oppty', Opportunity__r.RecordType.DeveloperName = 'Broker_FRPSA'), 'Broker',
+            IF(
+                /* Step 3, determine if Direct */
+               OR(Opportunity__r.RecordType.DeveloperName = 'MCA_Oppty', Opportunity__r.RecordType.DeveloperName = 'FRPSA'), 'Direct', 'Error' 
+            )
+        )
+    ), 'External Lender'
+ )</formula>
+    <inlineHelpText>Renewal
+Direct</inlineHelpText>
+    <label>Calculator User Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

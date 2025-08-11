@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Balance_Paid_50_Percent_Date__c</fullName>
+    <description>This field will capture the date that the balance of an internal deal = 50% paid down. The field will be updated by work flow and will trigger an email to the customer. It is also used for a renewal letter mail merge.</description>
+    <inlineHelpText>This field will capture the date that the balance of an internal deal = 50% paid down. The field will be updated by work flow and will trigger an email to the customer. It is also used for a renewal letter mail merge.</inlineHelpText>
+    <label>BP @ 50% Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

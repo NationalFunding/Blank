@@ -1,0 +1,80 @@
+<apex:page id="pg" standardController="advpm__Matter__c" extensions="MatterAcceptExt" recordSetVar="matter"  >
+    <!-- include SLDS stylesheet: automatically apply css with 'slds-scope' class container -->
+    <apex:slds />
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+        <head>
+            <script>
+                function changeURL(){
+                    window.top.location = '{!referer}';
+                }
+            </script>
+        </head>
+        <body>  
+            <apex:form id="theForm" styleClass="intake-form">
+
+                <apex:outputPanel rendered="{!IF(errorMessage != null, true, false)}">
+                    <div class="slds-popover_container" style="padding-left: 1.5rem; padding-top: 6.375rem;">
+                        <a href="javascript:void(0);" class="slds-button" tabindex="-1">
+                            <svg aria-hidden="true" class="slds-icon slds-icon-text-error slds-icon--xx-large">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#warning"></use>
+                            </svg>
+                            <span class="slds-assistive-text">Review the Following Errors</span>
+                        </a>
+                        <div class="slds-popover slds-nubbin--bottom-left slds-theme--error" role="alert" aria-live="polite" style="width:100%;lposition: absolute; top: 0px; left: 1.3rem;">
+                            <div class="slds-popover__body slds-text-longform">
+                                <p class="slds-text-heading--small">Review the following errors</p>
+                                <ul>
+                                    <li>{!errorMessage}</li>                                
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </apex:outputPanel>
+                
+                <apex:outputPanel rendered="{!IF(errorMessage != null, false, true)}">
+                    <div class="slds-page-header">
+                        <div class="slds-media">
+                            <div class="slds-media__figure">
+                                <span class="slds-icon_container slds-icon_container--square slds-icon-action-description">
+                                    <svg aria-hidden="true" class="slds-icon slds-icon--medium">
+                                         <use xlink:href="{!URLFOR($Resource.SLDSNew,'assets/icons/custom-sprite/svg/symbols.svg#custom90')}"></use>
+                                   </svg>
+                                </span>
+                            </div>
+                            <div class="slds-media__body">
+                                <h1 class="slds-page-header__title slds-truncate slds-align-middle" title="Accept Matters">Accept Matters</h1>                   
+                            </div>
+                        </div>
+                    </div>
+                    <br/><br/>      
+                    <fieldset class="slds-form--compound slds-m-top--xx-small advpmPageBlockSection">
+
+                        
+                        <div class="sectionContainer" style="height: auto; overflow: hidden; transition: none;">
+                            <div class="form-container-align slds-grid">
+                                <div class="slds-col slds-m-right--xx-small">
+                                    <div class="slds-form-element__group new">
+                                        <div class="slds-col">
+                                            <div class="slds-form-element__row">
+                                                <div class="slds-form-element slds-size--1-of-1">
+                                                    <center><h1>Please confirm you want to accept the selected records?</h1></center>
+                                                    <br/><br/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>          
+                    </fieldset>
+                    
+                    
+                    <div class="slds-text-align--center">
+                        <apex:commandButton action="{!confirm}" oncomplete="changeURL()" value="Ok" styleClass="slds-button slds-button--brand"/>
+                        <apex:commandButton action="{!cancel}" value="Cancel" styleClass="slds-button slds-button--neutral" />
+                    </div>
+                </apex:outputPanel>
+            </apex:form>
+        </body>
+    </html>
+</apex:page>

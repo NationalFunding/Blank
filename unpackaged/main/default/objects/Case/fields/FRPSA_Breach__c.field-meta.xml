@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FRPSA_Breach__c</fullName>
+    <description>https://nationalfunding.atlassian.net/browse/SD-5654</description>
+    <label>FRPSA Breach</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>No Breach</fullName>
+                <default>false</default>
+                <label>No Breach</label>
+            </value>
+            <value>
+                <fullName>Stop Pay</fullName>
+                <default>false</default>
+                <label>Stop Pay</label>
+            </value>
+            <value>
+                <fullName>Failure to Provide Bank</fullName>
+                <default>false</default>
+                <label>Failure to Provide Bank</label>
+            </value>
+            <value>
+                <fullName>Account Closed or Frozen</fullName>
+                <default>false</default>
+                <label>Account Closed or Frozen</label>
+            </value>
+            <value>
+                <fullName>Took Additional Funding</fullName>
+                <default>false</default>
+                <label>Took Additional Funding</label>
+            </value>
+            <value>
+                <fullName>Diverted Funds</fullName>
+                <default>false</default>
+                <label>Diverted Funds</label>
+            </value>
+            <value>
+                <fullName>Transferred Sold Business</fullName>
+                <default>false</default>
+                <label>Transferred Sold Business</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

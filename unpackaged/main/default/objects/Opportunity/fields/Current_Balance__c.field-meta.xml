@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Current_Balance__c</fullName>
+    <description>This field will capture the customers current internal funding balance.  It will be updated daily from Lease Plus.</description>
+    <inlineHelpText>This field will capture the customers current internal funding balance.  Updated daily from lease plus.</inlineHelpText>
+    <label>Existing Loan Balance</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

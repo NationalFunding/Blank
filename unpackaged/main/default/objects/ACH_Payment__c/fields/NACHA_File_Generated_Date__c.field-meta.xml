@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NACHA_File_Generated_Date__c</fullName>
+    <formula>IF(
+ACH_File_Generated__c = TRUE,
+ACH_File_Generated_Date__c,
+NACHA_FileLog__r.File_Generated__c
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>NACHA File Generated Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PreQual_Date__c</fullName>
+    <description>This is a field that will be populated by a workflow.  The workflow will populate this field with the date that a stage changed to Prequal (MCA or ML)</description>
+    <inlineHelpText>Read only field.  This field should be populated by a workflow dependent a stage change to PreQual.</inlineHelpText>
+    <label>PreQual Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

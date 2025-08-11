@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reason_Closed__c</fullName>
+    <description>Reason for Closed-Lost</description>
+    <inlineHelpText>Pick the reason the opportunity was Closed-Lost.</inlineHelpText>
+    <label>Reason Closed</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>StageName</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Personal Loan</fullName>
+                <default>false</default>
+                <label>Personal Loan</label>
+            </value>
+            <value>
+                <fullName>Home Equity Line</fullName>
+                <default>false</default>
+                <label>Home Equity Line</label>
+            </value>
+            <value>
+                <fullName>Business Receivables</fullName>
+                <default>false</default>
+                <label>Business Receivables</label>
+            </value>
+            <value>
+                <fullName>Business LOC</fullName>
+                <default>false</default>
+                <label>Business LOC</label>
+            </value>
+            <value>
+                <fullName>SBA</fullName>
+                <default>false</default>
+                <label>SBA</label>
+            </value>
+            <value>
+                <fullName>Traditional Bank Loan</fullName>
+                <default>false</default>
+                <label>Traditional Bank Loan</label>
+            </value>
+            <value>
+                <fullName>Pricing Too High / Cost</fullName>
+                <default>false</default>
+                <label>Pricing Too High / Cost</label>
+            </value>
+            <value>
+                <fullName>Term Not Long Enough</fullName>
+                <default>false</default>
+                <label>Term Not Long Enough</label>
+            </value>
+            <value>
+                <fullName>Funding Amount Too Low</fullName>
+                <default>false</default>
+                <label>Funding Amount Too Low</label>
+            </value>
+            <value>
+                <fullName>Payment Frequency Daily</fullName>
+                <default>false</default>
+                <label>Payment Frequency Daily</label>
+            </value>
+            <value>
+                <fullName>Payment Frequency Weekly</fullName>
+                <default>false</default>
+                <label>Payment Frequency Weekly</label>
+            </value>
+            <value>
+                <fullName>Offer Changed After Double UW</fullName>
+                <default>false</default>
+                <label>Offer Changed After Double UW</label>
+            </value>
+            <value>
+                <fullName>Net Amount Not Enough</fullName>
+                <default>false</default>
+                <label>Net Amount Not Enough</label>
+            </value>
+            <value>
+                <fullName>No Longer Need Funding</fullName>
+                <default>false</default>
+                <label>No Longer Need Funding</label>
+            </value>
+            <value>
+                <fullName>Approval Expired</fullName>
+                <default>false</default>
+                <label>Approval Expired</label>
+            </value>
+            <value>
+                <fullName>Competition Won Deal</fullName>
+                <default>false</default>
+                <label>Competition Won Deal</label>
+            </value>
+            <value>
+                <fullName>Cost of Funds</fullName>
+                <default>false</default>
+                <label>Cost of Funds</label>
+            </value>
+            <value>
+                <fullName>Customer Lost Interest</fullName>
+                <default>false</default>
+                <label>Customer Lost Interest</label>
+            </value>
+            <value>
+                <fullName>Fraud</fullName>
+                <default>false</default>
+                <label>Fraud</label>
+            </value>
+            <value>
+                <fullName>Internal Pend Info</fullName>
+                <default>false</default>
+                <label>Internal Pend Info</label>
+            </value>
+            <value>
+                <fullName>Lender Pend Info</fullName>
+                <default>false</default>
+                <label>Lender Pend Info</label>
+            </value>
+            <value>
+                <fullName>Product Did Not Fit Need</fullName>
+                <default>false</default>
+                <label>Product Did Not Fit Need</label>
+            </value>
+            <value>
+                <fullName>NI- Alternate Funding Provided</fullName>
+                <default>false</default>
+                <label>NI- Alternate Funding Provided</label>
+            </value>
+            <value>
+                <fullName>NI- Cost</fullName>
+                <default>false</default>
+                <label>NI- Cost</label>
+            </value>
+            <value>
+                <fullName>NI- Customer Unresponsive</fullName>
+                <default>false</default>
+                <label>NI- Customer Unresponsive</label>
+            </value>
+            <value>
+                <fullName>NI- Funding Not Needed</fullName>
+                <default>false</default>
+                <label>NI- Funding Not Needed</label>
+            </value>
+            <value>
+                <fullName>NI- Insuffiecient Funding Available</fullName>
+                <default>false</default>
+                <label>NI- Insuffiecient Funding Available</label>
+            </value>
+            <value>
+                <fullName>NI- Payment Structure</fullName>
+                <default>false</default>
+                <label>NI- Payment Structure</label>
+            </value>
+            <value>
+                <fullName>NI- Retrieval Percentage</fullName>
+                <default>false</default>
+                <label>NI- Retrieval Percentage</label>
+            </value>
+            <value>
+                <fullName>NI- Refused to Switch Processors</fullName>
+                <default>false</default>
+                <label>NI- Refused to Switch Processors</label>
+            </value>
+            <value>
+                <fullName>NI- Term</fullName>
+                <default>false</default>
+                <label>NI- Term</label>
+            </value>
+            <value>
+                <fullName>NQ- Annual Gross Sales</fullName>
+                <default>false</default>
+                <label>NQ- Annual Gross Sales</label>
+            </value>
+            <value>
+                <fullName>NQ- Cash Advance Balance</fullName>
+                <default>false</default>
+                <label>NQ- Cash Advance Balance</label>
+            </value>
+            <value>
+                <fullName>NQ- Credit Parameters</fullName>
+                <default>false</default>
+                <label>NQ- Credit Parameters</label>
+            </value>
+            <value>
+                <fullName>NQ- Fraud</fullName>
+                <default>false</default>
+                <label>NQ- Fraud</label>
+            </value>
+            <value>
+                <fullName>NQ- Past Due on Rent</fullName>
+                <default>false</default>
+                <label>NQ- Past Due on Rent</label>
+            </value>
+            <value>
+                <fullName>NQ- Internal Decline</fullName>
+                <default>false</default>
+                <label>NQ- Internal Decline</label>
+            </value>
+            <value>
+                <fullName>NQ- Lender Decline</fullName>
+                <default>false</default>
+                <label>NQ- Lender Decline</label>
+            </value>
+            <value>
+                <fullName>Resubmit</fullName>
+                <default>false</default>
+                <label>Resubmit</label>
+            </value>
+            <value>
+                <fullName>Deal Unwind</fullName>
+                <default>false</default>
+                <label>Deal Unwind</label>
+            </value>
+            <value>
+                <fullName>Deal Unwind - Operational Error</fullName>
+                <default>false</default>
+                <label>Deal Unwind - Operational Error</label>
+            </value>
+            <value>
+                <fullName>Broker Error</fullName>
+                <default>false</default>
+                <label>Broker Error</label>
+            </value>
+            <value>
+                <fullName>Insufficient Documentation</fullName>
+                <default>false</default>
+                <label>Insufficient Documentation</label>
+            </value>
+            <value>
+                <fullName>Contract Received From Other Channel</fullName>
+                <default>false</default>
+                <label>Contract Received From Other Channel</label>
+            </value>
+            <value>
+                <fullName>Insufficient Time in Business</fullName>
+                <default>false</default>
+                <label>Insufficient Time in Business</label>
+            </value>
+            <value>
+                <fullName>Lack of Personal Guarantee</fullName>
+                <default>false</default>
+                <label>Lack of Personal Guarantee</label>
+            </value>
+            <value>
+                <fullName>Insufficient Bank History / Bank Balance</fullName>
+                <default>false</default>
+                <label>Insufficient Bank History / Bank Balance</label>
+            </value>
+            <value>
+                <fullName>Limited of Delinquent Credit Obligations</fullName>
+                <default>false</default>
+                <label>Limited of Delinquent Credit Obligations</label>
+            </value>
+            <value>
+                <fullName>Excessive Debt Obligations</fullName>
+                <default>false</default>
+                <label>Excessive Debt Obligations</label>
+            </value>
+            <value>
+                <fullName>Serious Derogatory Items</fullName>
+                <default>false</default>
+                <label>Serious Derogatory Items</label>
+            </value>
+            <value>
+                <fullName>Unconfirmed Documents</fullName>
+                <default>false</default>
+                <label>Unconfirmed Documents</label>
+            </value>
+            <value>
+                <fullName>Outside Concurrent Window</fullName>
+                <default>false</default>
+                <label>Outside Concurrent Window</label>
+            </value>
+            <value>
+                <fullName>Sent to LoanMe</fullName>
+                <default>false</default>
+                <label>Sent to LoanMe</label>
+            </value>
+            <value>
+                <fullName>Customer Service Issue</fullName>
+                <default>false</default>
+                <label>Customer Service Issue</label>
+            </value>
+            <value>
+                <fullName>Docs In Review – Decline</fullName>
+                <default>false</default>
+                <label>Docs In Review – Decline</label>
+            </value>
+            <value>
+                <fullName>Double Funding</fullName>
+                <default>false</default>
+                <label>Double Funding</label>
+            </value>
+            <value>
+                <fullName>Poor Pay History – Competitor</fullName>
+                <default>false</default>
+                <label>Poor Pay History – Competitor</label>
+            </value>
+            <value>
+                <fullName>Character Issues</fullName>
+                <default>false</default>
+                <label>Character Issues</label>
+            </value>
+            <value>
+                <fullName>IBV Issues</fullName>
+                <default>false</default>
+                <label>IBV Issues</label>
+            </value>
+            <value>
+                <fullName>Invalid Approval</fullName>
+                <default>false</default>
+                <label>Invalid Approval</label>
+            </value>
+            <value>
+                <fullName>Pacing</fullName>
+                <default>false</default>
+                <label>Pacing</label>
+            </value>
+            <value>
+                <fullName>WC Failed</fullName>
+                <default>false</default>
+                <label>WC Failed</label>
+            </value>
+            <value>
+                <fullName>Site Failed</fullName>
+                <default>false</default>
+                <label>Site Failed</label>
+            </value>
+            <value>
+                <fullName>Incomplete Stips</fullName>
+                <default>false</default>
+                <label>Incomplete Stips</label>
+            </value>
+            <value>
+                <fullName>Duplicate Submission</fullName>
+                <default>false</default>
+                <label>Duplicate Submission</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Offer(s) Not Accepted</controllingFieldValue>
+            <valueName>Personal Loan</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Offer(s) Not Accepted</controllingFieldValue>
+            <valueName>Home Equity Line</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Offer(s) Not Accepted</controllingFieldValue>
+            <valueName>Business Receivables</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Offer(s) Not Accepted</controllingFieldValue>
+            <valueName>Business LOC</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Offer(s) Not Accepted</controllingFieldValue>
+            <valueName>SBA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Offer(s) Not Accepted</controllingFieldValue>
+            <valueName>Traditional Bank Loan</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Offer(s) Not Accepted</controllingFieldValue>
+            <valueName>Pricing Too High / Cost</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Offer(s) Not Accepted</controllingFieldValue>
+            <valueName>Term Not Long Enough</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Offer(s) Not Accepted</controllingFieldValue>
+            <valueName>Funding Amount Too Low</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Offer(s) Not Accepted</controllingFieldValue>
+            <valueName>Payment Frequency Daily</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Offer(s) Not Accepted</controllingFieldValue>
+            <valueName>Payment Frequency Weekly</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Offer(s) Not Accepted</controllingFieldValue>
+            <valueName>Offer Changed After Double UW</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Offer(s) Not Accepted</controllingFieldValue>
+            <valueName>Net Amount Not Enough</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Offer(s) Not Accepted</controllingFieldValue>
+            <valueName>No Longer Need Funding</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Offer(s) Not Accepted</controllingFieldValue>
+            <valueName>Competition Won Deal</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Offer(s) Not Accepted</controllingFieldValue>
+            <valueName>Cost of Funds</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Offer(s) Not Accepted</controllingFieldValue>
+            <valueName>Customer Lost Interest</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Offer(s) Not Accepted</controllingFieldValue>
+            <controllingFieldValue>Declined</controllingFieldValue>
+            <controllingFieldValue>Internal Decline</controllingFieldValue>
+            <valueName>Fraud</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Offer(s) Not Accepted</controllingFieldValue>
+            <valueName>Product Did Not Fit Need</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Offer(s) Not Accepted</controllingFieldValue>
+            <valueName>NI- Alternate Funding Provided</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Offer(s) Not Accepted</controllingFieldValue>
+            <valueName>NI- Cost</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Offer(s) Not Accepted</controllingFieldValue>
+            <valueName>NI- Customer Unresponsive</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Offer(s) Not Accepted</controllingFieldValue>
+            <valueName>NI- Funding Not Needed</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Offer(s) Not Accepted</controllingFieldValue>
+            <valueName>NI- Insuffiecient Funding Available</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Offer(s) Not Accepted</controllingFieldValue>
+            <valueName>NI- Payment Structure</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Offer(s) Not Accepted</controllingFieldValue>
+            <valueName>NI- Retrieval Percentage</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Offer(s) Not Accepted</controllingFieldValue>
+            <valueName>NI- Refused to Switch Processors</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Offer(s) Not Accepted</controllingFieldValue>
+            <valueName>NI- Term</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Offer(s) Not Accepted</controllingFieldValue>
+            <controllingFieldValue>Declined</controllingFieldValue>
+            <controllingFieldValue>Internal Decline</controllingFieldValue>
+            <valueName>Deal Unwind</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Offer(s) Not Accepted</controllingFieldValue>
+            <valueName>Deal Unwind - Operational Error</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Offer(s) Not Accepted</controllingFieldValue>
+            <controllingFieldValue>Declined</controllingFieldValue>
+            <controllingFieldValue>Internal Decline</controllingFieldValue>
+            <valueName>Unconfirmed Documents</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Offer(s) Not Accepted</controllingFieldValue>
+            <controllingFieldValue>Declined</controllingFieldValue>
+            <controllingFieldValue>Internal Decline</controllingFieldValue>
+            <valueName>Customer Service Issue</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Offer(s) Not Accepted</controllingFieldValue>
+            <controllingFieldValue>Declined</controllingFieldValue>
+            <controllingFieldValue>Internal Decline</controllingFieldValue>
+            <valueName>Docs In Review – Decline</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Offer(s) Not Accepted</controllingFieldValue>
+            <controllingFieldValue>Declined</controllingFieldValue>
+            <controllingFieldValue>Internal Decline</controllingFieldValue>
+            <valueName>Double Funding</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Offer(s) Not Accepted</controllingFieldValue>
+            <controllingFieldValue>Declined</controllingFieldValue>
+            <controllingFieldValue>Internal Decline</controllingFieldValue>
+            <valueName>Poor Pay History – Competitor</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Offer(s) Not Accepted</controllingFieldValue>
+            <valueName>Character Issues</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Offer(s) Not Accepted</controllingFieldValue>
+            <valueName>IBV Issues</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Offer(s) Not Accepted</controllingFieldValue>
+            <valueName>Invalid Approval</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Offer(s) Not Accepted</controllingFieldValue>
+            <valueName>Pacing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Offer(s) Not Accepted</controllingFieldValue>
+            <valueName>WC Failed</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Offer(s) Not Accepted</controllingFieldValue>
+            <valueName>Site Failed</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Offer(s) Not Accepted</controllingFieldValue>
+            <valueName>Incomplete Stips</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Desktop Decline</controllingFieldValue>
+            <controllingFieldValue>Declined</controllingFieldValue>
+            <controllingFieldValue>Internal Decline</controllingFieldValue>
+            <valueName>NQ- Annual Gross Sales</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Desktop Decline</controllingFieldValue>
+            <controllingFieldValue>Declined</controllingFieldValue>
+            <controllingFieldValue>Internal Decline</controllingFieldValue>
+            <valueName>NQ- Cash Advance Balance</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Desktop Decline</controllingFieldValue>
+            <controllingFieldValue>Declined</controllingFieldValue>
+            <controllingFieldValue>Internal Decline</controllingFieldValue>
+            <valueName>NQ- Credit Parameters</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Desktop Decline</controllingFieldValue>
+            <controllingFieldValue>Declined</controllingFieldValue>
+            <controllingFieldValue>Internal Decline</controllingFieldValue>
+            <valueName>NQ- Fraud</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Desktop Decline</controllingFieldValue>
+            <controllingFieldValue>Declined</controllingFieldValue>
+            <controllingFieldValue>Internal Decline</controllingFieldValue>
+            <valueName>NQ- Past Due on Rent</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Desktop Decline</controllingFieldValue>
+            <valueName>NQ- Internal Decline</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Desktop Decline</controllingFieldValue>
+            <controllingFieldValue>Resubmit</controllingFieldValue>
+            <valueName>NQ- Lender Decline</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Withdrawn By Broker</controllingFieldValue>
+            <valueName>Broker Error</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Withdrawn By Broker</controllingFieldValue>
+            <controllingFieldValue>Declined</controllingFieldValue>
+            <controllingFieldValue>Internal Decline</controllingFieldValue>
+            <valueName>Insufficient Documentation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Withdrawn By Broker</controllingFieldValue>
+            <valueName>Duplicate Submission</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Declined</controllingFieldValue>
+            <controllingFieldValue>Internal Decline</controllingFieldValue>
+            <valueName>Insufficient Time in Business</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Declined</controllingFieldValue>
+            <controllingFieldValue>Internal Decline</controllingFieldValue>
+            <valueName>Lack of Personal Guarantee</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Declined</controllingFieldValue>
+            <controllingFieldValue>Internal Decline</controllingFieldValue>
+            <valueName>Insufficient Bank History / Bank Balance</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Declined</controllingFieldValue>
+            <controllingFieldValue>Internal Decline</controllingFieldValue>
+            <valueName>Limited of Delinquent Credit Obligations</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Declined</controllingFieldValue>
+            <controllingFieldValue>Internal Decline</controllingFieldValue>
+            <valueName>Excessive Debt Obligations</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Declined</controllingFieldValue>
+            <controllingFieldValue>Internal Decline</controllingFieldValue>
+            <valueName>Serious Derogatory Items</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Declined</controllingFieldValue>
+            <controllingFieldValue>Internal Decline</controllingFieldValue>
+            <valueName>Outside Concurrent Window</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Declined</controllingFieldValue>
+            <controllingFieldValue>Internal Decline</controllingFieldValue>
+            <valueName>Sent to LoanMe</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Resubmit</controllingFieldValue>
+            <valueName>Lender Pend Info</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

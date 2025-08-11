@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>Holds configurable values to be used in automation logic.</description>
+    <enableFeeds>false</enableFeeds>
+    <label>Automation Custom Settings</label>
+    <visibility>Public</visibility>
+</CustomObject>

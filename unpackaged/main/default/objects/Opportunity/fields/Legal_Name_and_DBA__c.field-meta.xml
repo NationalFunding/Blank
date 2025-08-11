@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Legal_Name_and_DBA__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(ISNULL( Company_DBA__c ), Account.Legal_Name__c ,Account.Legal_Name__c &amp;" DBA "&amp; Company_DBA__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Legal Name and DBA</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

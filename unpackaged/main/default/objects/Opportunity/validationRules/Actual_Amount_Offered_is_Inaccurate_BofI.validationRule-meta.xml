@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Actual_Amount_Offered_is_Inaccurate_BofI</fullName>
+    <active>true</active>
+    <description>updated on 4/20/15.</description>
+    <errorConditionFormula>ISPICKVAL(StageName, 'Funded') &amp;&amp;
+ISPICKVAL(BofI_Deal__c,'Yes') &amp;&amp; 
+(ISPICKVAL(Type,'RENEWAL') || 
+ISPICKVAL(Type,'CONCURRENT') || 
+ISPICKVAL(Type,'CONCURRENT RENEWAL')) &amp;&amp; 
+ACTUAL_AMT_OFFERED__c &lt;&gt; SUM_of_BofI_ACH_Payments__c &amp;&amp;
+ISBLANK(Fund_Date__c)</errorConditionFormula>
+    <errorMessage>'Actual Amount Offered' must be equal to the Sum of BofI ACH Payments</errorMessage>
+</ValidationRule>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NL_Concurrent_Opportunities</fullName>
+    <active>false</active>
+    <description>This rule will prevent the stages of Statements In - Approval being selected on Concurrent Deals.</description>
+    <errorConditionFormula>AND(
+RecordTypeId = "01280000000BZwl",
+ISPICKVAL(Type,"CONCURRENT"),
+OR( ISPICKVAL(StageName, "Statements In - MCA"), ISPICKVAL(StageName, "Pre-Qual MCA"), ISPICKVAL(StageName, "Approved - MCA")))</errorConditionFormula>
+    <errorMessage>A Concurrent deal does not need to be submitted to operations for approval.  If you are ready to send docs out, please change the Stage to Offer In.</errorMessage>
+</ValidationRule>

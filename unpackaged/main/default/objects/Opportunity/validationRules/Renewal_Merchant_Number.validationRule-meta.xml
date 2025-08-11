@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Renewal_Merchant_Number</fullName>
+    <active>false</active>
+    <description>This validation rule will check for a Merchant Number before a renewal's stage is changed to Statements In.</description>
+    <errorConditionFormula>AND(RecordTypeId  = "01280000000BZwl",  ISPICKVAL(Type, "RENEWAL"), ISPICKVAL(StageName, "Statements In - MCA"),  Merchant_Number__c="")</errorConditionFormula>
+    <errorMessage>Before changing the stage to Statements In, you must populate the Merchant Number field with the original Opportunity's Merchant Number.</errorMessage>
+</ValidationRule>

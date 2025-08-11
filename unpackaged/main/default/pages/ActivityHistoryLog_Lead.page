@@ -1,0 +1,23 @@
+<apex:page standardController="Lead" extensions="ActivityLogLead">
+<table>
+    <tr>
+        <td> 
+             <apex:outputText id="activitycount" value="{!actCount}"></apex:outputText>
+        </td>
+    </tr>
+</table> 
+  <!-- <script> 
+        
+        if(('{!$Profile.Name}' == 'FPC - MCA - Sales User') && ('{!Lead.FPC_Rep_MCA__c}' == '')) {
+            window.top.location.href = '/{!$Request.id}/e?retURL={!$Request.retURL}&CF00N80000004lTdD={!$User.Full_Name__c}&CF00N80000004lTdD_lkid={!$User.Id}&nooverride=0';
+        }
+        else if (('{!$Profile.Name}' == 'FPC - Lease - Sales User') && ('{!Lead.FPC_Rep_Lease__c}' == '')){
+          
+            window.top.location.href = '/{!$Request.id}/e?retURL={!$Request.retURL}&CF00N80000004lTdN={!$User.Full_Name__c}&CF00N80000004lTdN_lkid={!$User.Id}&nooverride=0';
+        }
+        else
+        {
+            window.top.location.href = '/{!$Request.id}/e?retURL={!$Request.retURL}&nooverride=0';
+        }
+    </script> -->
+</apex:page>

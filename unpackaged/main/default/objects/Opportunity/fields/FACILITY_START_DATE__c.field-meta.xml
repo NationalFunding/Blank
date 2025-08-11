@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FACILITY_START_DATE__c</fullName>
+    <description>The Date in which the merchant started to occupy the facility</description>
+    <inlineHelpText>Type in the date that the merchant first began occupying this facility.</inlineHelpText>
+    <label>FACILITY_START_DATE</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

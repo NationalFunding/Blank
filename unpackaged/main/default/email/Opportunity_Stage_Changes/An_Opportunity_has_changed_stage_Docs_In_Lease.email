@@ -1,0 +1,6 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="400" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; color:#000000; bEditID:r3st1; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[<font size="4" style="font-size: 12pt;">Hello {!Opportunity.OwnerFullName},<br><br>An Opportunity with your name on it has changed stages.<br><br>Account Name: {!Opportunity.Account}<br>Opportunity Name: {!Opportunity.Name}<br>{!Opportunity.Link}</font><div><font size="4"><br></font></div><div>New Salesforce Console: https://na29.salesforce.com/console#%2F{!Opportunity.Id}&nbsp;&nbsp;<font size="4"><br></font><br><span style="font-size: 12pt;">New Stage:&nbsp; </span><span style="font-size: 12pt; font-weight: bold; font-style: italic;">{!Opportunity.StageName}</span><br><br><b style="font-size: 12pt;">Please refer to the Lease Checklist for items that are outstanding.</b><br><br><font size="2" style="font-size: 12pt;">Sincerely,<br>Salesforce Automation</font><br></div>]]></td>
+</tr>
+</table>

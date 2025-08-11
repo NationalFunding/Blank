@@ -1,0 +1,9 @@
+Hi - 
+
+Automated processing for {!Opportunity.Name} has completed. 
+
+Click the Start button on the Opportunity to review the results. 
+
+{!Opportunity.Link}
+
+Thanks

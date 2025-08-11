@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Apex Configuration</label>
+    <pluralLabel>Apex Configurations</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,8 @@
+New Case created from Email Message
+
+{!Case.Link}
+
+Loan Number: {!Case.Merchant_Number__c}
+Legal Name: {!Case.Legal_Name__c}
+
+Description: {!Case.Description}

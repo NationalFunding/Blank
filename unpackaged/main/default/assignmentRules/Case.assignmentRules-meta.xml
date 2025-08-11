@@ -1,0 +1,630 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssignmentRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assignmentRule>
+        <fullName>National Funding Case Assignment</fullName>
+        <active>true</active>
+        <ruleEntry>
+            <assignedTo>aconley@nationalfunding.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>ACH Bounce,Portfolio Management</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Product__c</field>
+                <operation>equals</operation>
+                <value>Lease</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>lguzman@nationalfunding.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Portfolio Management</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Internal_Funding_Status__c</field>
+                <operation>equals</operation>
+                <value>Loan Write-off</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>jschmidt@nationalfunding.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>ACH Bounce</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Internal_Funding_Status__c</field>
+                <operation>equals</operation>
+                <value>Loan Write-off,Legal,Defaulted,Charge Off</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>aconley@nationalfunding.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>ACH Bounce</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Merchant_Number__c</field>
+                <operation>startsWith</operation>
+                <value>FL</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>ahoehn@nationalfunding.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Portfolio Management</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Type</field>
+                <operation>equals</operation>
+                <value>Broker Com. Ret</value>
+            </criteriaItems>
+            <template>Case_Emails/Case_Assignment_Notification</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>FRPSA_Charge_Off</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>ACH Bounce,Portfolio Management</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Account.Pending_Chargeoff__c</field>
+                <operation>equals</operation>
+                <value>Yes</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Product__c</field>
+                <operation>equals</operation>
+                <value>FRPSA</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>WC_Charge_Off</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>ACH Bounce,Portfolio Management</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Account.Pending_Chargeoff__c</field>
+                <operation>equals</operation>
+                <value>Yes</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Product__c</field>
+                <operation>notEqual</operation>
+                <value>FRPSA</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>FRPSA_Recon_Bounces</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <booleanFilter>1 AND 2 AND 3 AND (4 OR 5)</booleanFilter>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>ACH Bounce</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Product__c</field>
+                <operation>equals</operation>
+                <value>FRPSA</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Collections_Stage__c</field>
+                <operation>equals</operation>
+                <value>FRPSA - Paying</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Collections_Status_Account__c</field>
+                <operation>equals</operation>
+                <value>Active Recon</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Collections_Status_Account__c</field>
+                <operation>equals</operation>
+                <value>Active Concession</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>FRPSA_Bounces_Paying_Accts</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>ACH Bounce</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Product__c</field>
+                <operation>equals</operation>
+                <value>FRPSA</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Collections_Stage__c</field>
+                <operation>contains</operation>
+                <value>FRPSA</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Bounces_Mod_Accts</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>ACH Bounce</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Account.Collections_Stage__c</field>
+                <operation>contains</operation>
+                <value>Modification</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Product__c</field>
+                <operation>notEqual</operation>
+                <value>FRPSA</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Bounces_Charge_Off_Accts</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>ACH Bounce</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Account.Collections_Stage__c</field>
+                <operation>contains</operation>
+                <value>Charge Off</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Product__c</field>
+                <operation>notEqual</operation>
+                <value>FRPSA</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Bounces_Default_Accts</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>ACH Bounce</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Account.Collections_Stage__c</field>
+                <operation>contains</operation>
+                <value>Default</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Product__c</field>
+                <operation>notEqual</operation>
+                <value>FRPSA</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Bounces_Paying_Accts</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <booleanFilter>1 AND (2 OR 4) AND 3</booleanFilter>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>ACH Bounce</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Account.Collections_Stage__c</field>
+                <operation>contains</operation>
+                <value>Paying</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Product__c</field>
+                <operation>notEqual</operation>
+                <value>FRPSA</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Account.Collections_Stage__c</field>
+                <operation>equals</operation>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>FRPSA_Paying</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <booleanFilter>1 AND (2 OR (3 AND 4))</booleanFilter>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Portfolio Management</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Account.Collections_Stage__c</field>
+                <operation>equals</operation>
+                <value>FRPSA - Paying</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Account.Collections_Stage__c</field>
+                <operation>equals</operation>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Product__c</field>
+                <operation>equals</operation>
+                <value>FRPSA</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>FRPSA_Default</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Portfolio Management</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Account.Collections_Stage__c</field>
+                <operation>contains</operation>
+                <value>Default</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Product__c</field>
+                <operation>equals</operation>
+                <value>FRPSA</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Reconciliations</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Portfolio Management</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Account.Collections_Stage__c</field>
+                <operation>equals</operation>
+                <value>FRPSA - Recon</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>FRPSA_Charge_Off</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Portfolio Management</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Account.Collections_Stage__c</field>
+                <operation>contains</operation>
+                <value>Charge Off</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Product__c</field>
+                <operation>equals</operation>
+                <value>FRPSA</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>WC_Paying</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <booleanFilter>1 AND (2 OR 3) AND 4 AND 5</booleanFilter>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Portfolio Management</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Account.Collections_Stage__c</field>
+                <operation>contains</operation>
+                <value>Paying</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Account.Collections_Stage__c</field>
+                <operation>equals</operation>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Product__c</field>
+                <operation>notEqual</operation>
+                <value>FRPSA</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Origin</field>
+                <operation>notEqual</operation>
+                <value>Email - Renewals Customer Service</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>WC_Default</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Portfolio Management</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Account.Collections_Stage__c</field>
+                <operation>contains</operation>
+                <value>Default</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Product__c</field>
+                <operation>notEqual</operation>
+                <value>FRPSA</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Modifications</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Portfolio Management</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Account.Collections_Stage__c</field>
+                <operation>equals</operation>
+                <value>Modification</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Product__c</field>
+                <operation>notEqual</operation>
+                <value>FRPSA</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Origin</field>
+                <operation>notEqual</operation>
+                <value>Email - Renewals Customer Service</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>WC_Charge_Off</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Portfolio Management</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Account.Collections_Stage__c</field>
+                <operation>contains</operation>
+                <value>Charge Off</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Product__c</field>
+                <operation>notEqual</operation>
+                <value>FRPSA</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Case_Catch_All</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>ACH Bounce,Portfolio Management</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Product__c</field>
+                <operation>equals</operation>
+                <value>FRPSA</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Case_Catch_All</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <booleanFilter>1 AND ((2 OR 5) AND (3 OR 4))</booleanFilter>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>ACH Bounce,Portfolio Management</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Product__c</field>
+                <operation>equals</operation>
+                <value>FRPSA</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Type</field>
+                <operation>equals</operation>
+                <value>Pending Chargeoff</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Origin</field>
+                <operation>equals</operation>
+                <value>Email - Portfolio Management</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Funded_Amount__c</field>
+                <operation>notEqual</operation>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>ACH_Bounce</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>ACH Bounce</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Portfolio_Management</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <booleanFilter>1 OR 2</booleanFilter>
+            <criteriaItems>
+                <field>Case.Origin</field>
+                <operation>equals</operation>
+                <value>Email - Portfolio Management</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Portfolio Management</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>amorales@fairsquare.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Accounting</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Subject</field>
+                <operation>contains</operation>
+                <value>Working Capital</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Subject</field>
+                <operation>notContain</operation>
+                <value>Internal Funding</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Subject</field>
+                <operation>notContain</operation>
+                <value>Internal Renewal Funding</value>
+            </criteriaItems>
+            <template>Case_Emails/Case_Assignment_Notification</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>amorales@fairsquare.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Accounting</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Subject</field>
+                <operation>contains</operation>
+                <value>Loan Renewal</value>
+            </criteriaItems>
+            <template>Case_Emails/Case_Assignment_Notification</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>amorales@fairsquare.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <booleanFilter>1 AND (2 OR 3) AND 4</booleanFilter>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Accounting</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Subject</field>
+                <operation>contains</operation>
+                <value>Internal Funding</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Subject</field>
+                <operation>contains</operation>
+                <value>Internal Renewal Funding</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Subject</field>
+                <operation>notContain</operation>
+                <value>Lease</value>
+            </criteriaItems>
+            <template>Case_Emails/Case_Assignment_Notification</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>amorales@fairsquare.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <booleanFilter>1 AND (2 OR 3) AND 4</booleanFilter>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Accounting</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Subject</field>
+                <operation>contains</operation>
+                <value>Internal Funding</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Subject</field>
+                <operation>contains</operation>
+                <value>Internal Renewal Funding</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Subject</field>
+                <operation>contains</operation>
+                <value>Lease</value>
+            </criteriaItems>
+            <template>Case_Emails/Case_Assignment_Notification</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>amorales@fairsquare.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Accounting</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Subject</field>
+                <operation>contains</operation>
+                <value>Unapplied Cash</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Subject</field>
+                <operation>contains</operation>
+                <value>Unapplied Funds</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Subject</field>
+                <operation>contains</operation>
+                <value>Notification of Payment from Ascentium Capital</value>
+            </criteriaItems>
+            <template>Case_Emails/Case_Assignment_Notification</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Accounting</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <booleanFilter>1 OR 2</booleanFilter>
+            <criteriaItems>
+                <field>Case.Origin</field>
+                <operation>equals</operation>
+                <value>Email - Accounting</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Accounting</value>
+            </criteriaItems>
+            <template>Case_Emails/Case_Assignment_Notification</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Salesforce</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <booleanFilter>1 OR 2</booleanFilter>
+            <criteriaItems>
+                <field>Case.Origin</field>
+                <operation>equals</operation>
+                <value>Email - Salesforce</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Salesforce</value>
+            </criteriaItems>
+        </ruleEntry>
+    </assignmentRule>
+</AssignmentRules>

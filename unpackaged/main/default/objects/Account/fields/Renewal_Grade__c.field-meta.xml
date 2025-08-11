@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Renewal_Grade__c</fullName>
+    <description>A letter grade (AA, A, B, C, D, F) which is calculated outside of Salesforce using refreshed Experian data</description>
+    <externalId>false</externalId>
+    <label>Renewal Grade</label>
+    <length>25</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

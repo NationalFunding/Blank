@@ -1,0 +1,241 @@
+<apex:page standardController="advpm__Matter__c" extensions="AddCostsExtension" docType="html-5.0"  sidebar="false">
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <head>
+        <style>
+            .bPageTitle{
+            width:100%;
+            padding: 0% !important;
+            }
+            .slds-truncate{
+            text-align:left;
+            }
+            .Search-lookup-field{
+            color: #16325c;
+            border: 1px solid #d8dde6;
+            border-radius: .25rem;
+            width: 80%;
+            transition: border .1s linear,background-color .1s linear;
+            display: inline-block;
+            padding: 0 1rem 0 .75rem;
+            line-height: 1.875rem;
+            min-height: calc(1.875rem + (1px * 2));
+            }
+            
+            .required-symbol{
+            border-left:2px solid  red !important;
+            } 
+            .required-symbol1{
+            border-left:4px solid  red !important;
+            }
+            .requiredInput a{
+            border:none !important;
+            }
+            
+            .slds-scope a {
+            color: #0070d2;
+            text-decoration: none;
+            transition: color .1s linear;
+            border: none !important;
+            }
+            
+            .slds-table th{
+            background: #0070d2;
+            color: white;
+            }
+            
+            .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1; 
+            padding-top: 100px; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgb(0,0,0); 
+            background-color: rgba(0,0,0,0.4); 
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 50%;
+        }
+            .para_heading{
+            font-size: 1.7em;
+            font-weight: bold;
+            background: #deecf1;
+            padding: 0.4% !important;
+            border: 1px solid;
+            margin-bottom: 8px !important;
+            margin-top: 8px !important;
+            box-shadow: 5px 5px 5px #ccc;
+            }
+        </style>
+    </head>
+    
+    <style type="text/css">
+        .dateFormat {
+        padding: 0 2px;
+        display: none;
+        }
+        .datePicker{
+        z-index: 99999 ;
+        }
+    </style>
+    <script>
+        function validateAndSave(){
+            var flagSave = true;
+            $('.required-symbol').each(function (){
+                if(flagSave){
+                    if($(this).val() == '' || $(this).val() == null || $(this).val() == 'undefined'){
+                        $(this).css('border','1px solid red ');
+                        flagSave = false;
+                    }
+                }
+            });
+            if(flagSave){
+                saveData();
+            }
+        }
+        
+        function isNumberKey(evt, obj) {
+
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            var value = obj.value;
+            var dotcontains = value.indexOf(".") != -1;
+            if (dotcontains)
+                if (charCode == 46) return false;
+            if (charCode == 46) return true;
+            if (charCode > 31 && (charCode < 48 || charCode > 57))
+                return false;
+            return true;
+        }
+    </script>
+    <apex:slds />
+    <apex:form id="frm1">
+        <apex:pagemessages escape="false"></apex:pagemessages>
+        
+        <apex:actionStatus id="sts" style="align:center;">
+            <apex:facet name="start">
+                <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; opacity: 0.25; z-index: 99999; background-color: black;">
+                    &nbsp;
+                </div>
+                <div style="position: fixed; left: 0; top: 0; bottom: 0; right: 0; z-index: 99999; margin: 15% 50%">
+                    <div style="display: inline-block; padding: 2px; background-color: #fff; width: 125px;">
+                        <img src="/img/loading.gif" style="float: left; margin: 8px;" />
+                        <span style="display: inline-block; padding: 10px 0px;">Please Wait...</span>
+                    </div>
+                </div>
+            </apex:facet>
+        </apex:actionStatus>
+        <apex:actionFunction id="ch2" name="saveData" action="{!save}" reRender="frm1" status="sts"/>
+
+        <body class="slds-scope">
+            <div class="message errorM3" role="alert" id="errorMsg" style="display:none">
+                <table border="0" cellpadding="0" cellspacing="0" class="messageTable" style="padding:0px;margin:0px;">
+                    <tbody>
+                        <tr valign="top">
+                            <td>
+                                <img alt="ERROR" class="msgIcon" src="/s.gif" title="ERROR"/>
+                                
+                            </td>
+                            <td class="messageCell">
+                                <h4>Errors</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td id="dynamicError">
+                                <!--Please Fill all Required Fields.-->
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br/>
+            <p class="para_heading">Costs</p>
+            <apex:outputPanel id="frmpanelpaymain">
+                <table class="slds-table slds-table_bordered slds-table_cell-buffer" width="100%">
+                    <thead>
+                        <tr class="slds-text-title_caps">
+                            <th scope="col">
+                                <div class="slds-truncate" title="Action">Action</div>
+                            </th>
+                            <th scope="col">
+                                <div class="slds-truncate" title="Amount">Amount</div>
+                            </th>
+                            <th scope="col">
+                                <div class="slds-truncate" title="Type">Type</div>
+                            </th>
+                            <th scope="col">
+                                <div class="slds-truncate" title="Recoverable">Recoverable</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <apex:variable var="index" value="{!0}" />
+                        <apex:repeat value="{!wrapperList}" var="obj" id="dataTable">
+                            <tr>
+                                <td>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__control">
+                                            <apex:commandLink title="Remove line" action="{!removeRowAssignment}" status="sts" rerender="frmpanelpaymain"  immediate="true">
+                                                <b style="color:red;font-size:18px;">X</b>
+                                                <apex:param name="listIndex1" value="{!index}"/>
+                                            </apex:commandLink>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td scope="row">
+                                    <div class="slds-form-element__control">
+                                        <apex:inputField value="{!obj.cost.Amount__c}" styleClass="slds-input required-symbol" onkeypress="return isNumberKey(event,this)" />
+                                    </div>
+                                </td>
+                                <td scope="row">
+                                    <div class="slds-form-element__control">
+                                        <apex:inputField value="{!obj.cost.Type__c}" styleClass="slds-input required-symbol" />
+                                    </div>
+                                </td>
+                                <td scope="row">
+                                    <div class="slds-form-element__control">
+                                        <apex:inputField value="{!obj.cost.Recoverable__c}" styleClass="slds-input required-symbol" style="width:5%;" />
+                                    </div>
+                                </td>
+                            </tr>
+                            <apex:variable var="index" value="{!index + 1}" />
+                        </apex:repeat>
+                    </tbody>
+                </table>
+            </apex:outputPanel>
+            
+            <div class="slds-form-element__control">
+                <apex:commandLink title="Add line" action="{!addRowAssignment}" status="sts" rerender="frmpanelpaymain" >
+                    <div class="slds-media">
+                        <div class="slds-media__figure">
+                            <span class="slds-icon_container slds-icon_container--square slds-icon-action-new">
+                                <svg class="slds-button__icon" aria-hidden="true">
+                                    <use xlink:href="{!URLFOR($Resource.SLDSNew,'assets/icons/action-sprite/svg/symbols.svg#new')}"></use>
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </apex:commandLink>
+            </div>
+                                    
+            <br/>
+            <center>
+                <button type="button" class="slds-button slds-button_brand" id="submitButtonId" onclick="validateAndSave();">Save</button>
+                <apex:commandButton styleClass="slds-button slds-button_brand" action="{!cancel}" value="Cancel" immediate="true" status="sts"/>
+            </center>
+        </body>
+    </apex:form>
+    </html>
+</apex:page>

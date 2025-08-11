@@ -1,0 +1,23 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="true">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+    <script>
+        // Capture all clicks on <a> elements and change the URL for the whole window
+        // Some <a> elements are used for JavaScript function calls, so only capture them
+        //  when the URL starts with the / character.
+        jQuery(document).ready(function($) {
+            $('#chatter-container').contents().on('click', 'a', function(e) {
+                if($(this).attr('href').charAt(0) == '/') {
+                    e.preventDefault();
+                    top.window.location.href = $(this).attr('href');
+                }
+            });
+        });
+
+    </script>
+
+    <div id="chatter-container">
+        <chatter:feed entityId="{!$CurrentPage.parameters.id}"/>
+    </div>
+    
+</apex:page>

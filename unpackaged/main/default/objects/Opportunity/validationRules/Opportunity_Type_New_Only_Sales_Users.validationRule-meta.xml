@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opportunity_Type_New_Only_Sales_Users</fullName>
+    <active>true</active>
+    <description>This rule will not allow a Sales User to create a renewal opportunity.</description>
+    <errorConditionFormula>AND(
+OR(
+$User.ProfileId = "00e80000001C1Ht",
+$User.ProfileId = "00e80000001C7hs", 
+$User.ProfileId = "00e80000001CDTI",
+$User.ProfileId = "00e80000001C7hn",
+$User.ProfileId = "00e80000001CDTN",
+$User.ProfileId = "00e80000001CBZC"),
+ ISPICKVAL( Type , "Renewal"))</errorConditionFormula>
+    <errorMessage>If you are in Sales you cannot create a Renewal Opportunity.</errorMessage>
+</ValidationRule>

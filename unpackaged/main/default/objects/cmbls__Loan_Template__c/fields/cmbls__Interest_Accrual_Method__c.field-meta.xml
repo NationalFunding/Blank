@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cmbls__Interest_Accrual_Method__c</fullName>
+    <deprecated>false</deprecated>
+    <description>Days to Calculate Interest Accrual</description>
+    <inlineHelpText>Days to Calculate Interest Accrual</inlineHelpText>
+    <label>Interest Accrual Method</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>365/360</fullName>
+                <default>true</default>
+                <label>365/360</label>
+            </value>
+            <value>
+                <fullName>30/360</fullName>
+                <default>false</default>
+                <label>30/360</label>
+            </value>
+            <value>
+                <fullName>365/365</fullName>
+                <default>false</default>
+                <label>365/365</label>
+            </value>
+            <value>
+                <fullName>30/365</fullName>
+                <default>false</default>
+                <label>30/365</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

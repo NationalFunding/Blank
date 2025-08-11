@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BK__c</fullName>
+    <label>BK</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>BK Business</fullName>
+                <default>false</default>
+                <label>BK Business</label>
+            </value>
+            <value>
+                <fullName>BK PG</fullName>
+                <default>false</default>
+                <label>BK PG</label>
+            </value>
+            <value>
+                <fullName>BK Business/BK PG</fullName>
+                <default>false</default>
+                <label>BK Business/BK PG</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

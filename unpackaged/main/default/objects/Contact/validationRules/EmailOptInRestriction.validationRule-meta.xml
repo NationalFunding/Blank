@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EmailOptInRestriction</fullName>
+    <active>true</active>
+    <description>Restrict users from being able to opt in users to Email</description>
+    <errorConditionFormula>IF(
+    AND(
+        HasOptedOutOfEmail = FALSE,
+        ISCHANGED(HasOptedOutOfEmail),
+        OR(
+            $Profile.Name = "FPC - MCA - Sales User",
+            $Profile.Name = "FPC - WC - Renewal Sales",
+            $Profile.Name = "NF - Hybrid Sales",
+            $Profile.Name = "NF - Working Capital Users"
+        ),
+         $Setup.ValidationRules__c.Allow_Email_Opt_In__c = FALSE
+    ), TRUE, FALSE
+)</errorConditionFormula>
+    <errorMessage>You Cannot Opt this Contact into Emails - Please reach out to your manager or Marketing</errorMessage>
+</ValidationRule>

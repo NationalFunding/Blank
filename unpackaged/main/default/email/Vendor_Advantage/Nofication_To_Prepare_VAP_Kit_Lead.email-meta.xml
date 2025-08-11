@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Notification to marketing that a vendor has signed up for the VAP and to prepare a kit.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Naitonal_Funding_Standard_Letterhead_Stack</letterhead>
+    <name>Nofication To Prepare VAP Kit - Lead</name>
+    <style>freeForm</style>
+    <subject>{!Lead.Company} - VAP Sign Up</subject>
+    <textOnly>{!Lead.Company} has signed up for the Vendor Advantage Program.  Please prepare a VAP kit and send it to them.
+
+Please search for a duplicate account and merge the records if one exists.
+
+{!Lead.Link}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lease_or_Loan__c</fullName>
+    <description>This will indicate if the payments are being made for a lease or working capital transaction.</description>
+    <inlineHelpText>This will indicate if the payments are being made for a lease or working capital transaction.</inlineHelpText>
+    <label>Lease or Working Capital</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Lease</fullName>
+                <default>false</default>
+                <label>Lease</label>
+            </value>
+            <value>
+                <fullName>Working Capital</fullName>
+                <default>false</default>
+                <label>Working Capital</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

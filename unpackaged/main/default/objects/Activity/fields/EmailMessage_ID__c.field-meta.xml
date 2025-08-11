@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EmailMessage_ID__c</fullName>
+    <caseSensitive>true</caseSensitive>
+    <description>record Id of related Email Message</description>
+    <externalId>false</externalId>
+    <inlineHelpText>record Id of related Email Message</inlineHelpText>
+    <label>EmailMessage ID</label>
+    <length>18</length>
+    <required>false</required>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

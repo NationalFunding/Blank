@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Call_Send_to_Syndication_Orchestrator</name>
+        <label>Call Send to Syndication Orchestrator</label>
+        <locationX>50</locationX>
+        <locationY>839</locationY>
+        <actionName>SyndicationOrchestrator</actionName>
+        <actionType>apex</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>brand</name>
+            <value>
+                <elementReference>$Record.Opportunity__r.Brand_Experience__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>fundingId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>SyndicationOrchestrator</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <apiVersion>63.0</apiVersion>
+    <decisions>
+        <name>Check_Opportunity_Or_brand</name>
+        <label>Check Opportunity Or brand</label>
+        <locationX>182</locationX>
+        <locationY>731</locationY>
+        <defaultConnector>
+            <targetReference>Create_Log_Message_Record</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Exist_Opportunity</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Opportunity__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Opportunity__r.Brand_Experience__c</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Call_Send_to_Syndication_Orchestrator</targetReference>
+            </connector>
+            <label>Exist Opportunity</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Lender_is_External_and_PreQual_date_is_null</name>
+        <label>Lender is External and PreQual date is null</label>
+        <locationX>380</locationX>
+        <locationY>323</locationY>
+        <defaultConnector>
+            <targetReference>Send_to_Syndication_Orchestrator</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>False PreQual date is null</defaultConnectorLabel>
+        <rules>
+            <name>TRUE_PreQual_date_is_null</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Lender_ID__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Lender_ID__r.Name</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>National Funding - Platinum WC Funding</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Opportunity__r.PreQual_Date__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Opportunity_PreQual_Date</targetReference>
+            </connector>
+            <label>TRUE PreQual date is null</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Send_to_Syndication_Orchestrator</name>
+        <label>Send to Syndication Orchestrator</label>
+        <locationX>380</locationX>
+        <locationY>623</locationY>
+        <defaultConnectorLabel>FALSE Send to Syndication Orchestrator</defaultConnectorLabel>
+        <rules>
+            <name>TRUE_Send_to_Syndication_Orchestrator</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Send_Method__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Automated</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Send to Lender</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Lender_ID__r.API_Send_Enabled__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Check_Opportunity_Or_brand</targetReference>
+            </connector>
+            <label>TRUE Send to Syndication Orchestrator</label>
+        </rules>
+    </decisions>
+    <description>The &apos;Funding - On Create&apos; Process Builder has been converted into a Flow. #SPR-122</description>
+    <environments>Default</environments>
+    <interviewLabel>Funding - On Create {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Funding - On Create Flow</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <description>Create a Log Message Record if Opportunity or opportunity brand not exist</description>
+        <name>Create_Log_Message_Record</name>
+        <label>Create Log Message Record</label>
+        <locationX>314</locationX>
+        <locationY>839</locationY>
+        <inputAssignments>
+            <field>level__c</field>
+            <value>
+                <stringValue>Error</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>message__c</field>
+            <value>
+                <stringValue>Opportunity Brand Experince is Missing</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>tags__c</field>
+            <value>
+                <stringValue>Funding - On Create</stringValue>
+            </value>
+        </inputAssignments>
+        <object>LogMessage__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordUpdates>
+        <name>Update_Opportunity_PreQual_Date</name>
+        <label>Update Opportunity PreQual Date</label>
+        <locationX>248</locationX>
+        <locationY>431</locationY>
+        <connector>
+            <targetReference>Send_to_Syndication_Orchestrator</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>PreQual_Date__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.Opportunity__r</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>254</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Lender_is_External_and_PreQual_date_is_null</targetReference>
+        </connector>
+        <object>FPC_Funding_del__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

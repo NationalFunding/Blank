@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_Response_Journal__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>Lead Response Journal</label>
+    <referenceTo>Lead_Response_Journal__c</referenceTo>
+    <relationshipLabel>Referral Attributes</relationshipLabel>
+    <relationshipName>Referral_Attributes</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

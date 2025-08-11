@@ -1,0 +1,43 @@
+/* creditReviewScreen_LWC_BankRecord.css */
+
+.columnHeaderStyle {
+    color: red;
+    font-weight: bold;
+    background-color: black;
+  }
+
+  .columnIdentifier{
+    background-color: black;
+    padding: 10px;
+  }
+
+  .flex-container {
+    display: flex;
+  }
+  
+  .flex-container > div {
+    margin: 5px;
+    padding: 10px;
+  }
+
+  .tableMargin {
+    margin-right: 5px;
+  }
+
+  .tableColumn {
+    flex-direction: column;
+    padding: 0.25rem 0.5rem;
+    color: rgb(24, 24, 24);
+    text-align: right;
+  }
+
+  .dailyAverageHeader{
+    font-size: large;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; */
+    color: rgb(24, 24, 24);
+    /* min-width: 10px; */
+    min-height: 27px;
+  }

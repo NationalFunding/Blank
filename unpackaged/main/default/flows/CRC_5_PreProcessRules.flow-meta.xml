@@ -1,0 +1,1150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>50.0</apiVersion>
+    <assignments>
+        <name>Assign_AGS_Result_Fail</name>
+        <label>Assign AGS Result - Fail</label>
+        <locationX>953</locationX>
+        <locationY>809</locationY>
+        <assignmentItems>
+            <assignToReference>varAGSResult</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Fail</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Matched_SIC</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_AGS_Result_Pass</name>
+        <label>Assign AGS Result - Pass</label>
+        <locationX>948</locationX>
+        <locationY>612</locationY>
+        <assignmentItems>
+            <assignToReference>varAGSResult</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Pass</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Matched_SIC</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Broker_AGS_Variable</name>
+        <label>Assign Broker AGS Variable</label>
+        <locationX>949</locationX>
+        <locationY>225</locationY>
+        <assignmentItems>
+            <assignToReference>varCurrentAGSLimit</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Broker_AGS_Limits.AGS_Limit__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Assign_Variables</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Broker_AGS_Variable_0</name>
+        <label>Assign Default AGS Variable</label>
+        <locationX>844</locationX>
+        <locationY>126</locationY>
+        <assignmentItems>
+            <assignToReference>varCurrentAGSLimit</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Default_AGS_Limit.AGS_Limit__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Assign_Variables</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Exit_Path</name>
+        <label>Assign Exit Path</label>
+        <locationX>1977</locationX>
+        <locationY>702</locationY>
+        <assignmentItems>
+            <assignToReference>varExitPath</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formulaExitPath</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Assign_Results</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Failed_Broker_Eligibility_Result</name>
+        <label>Assign Failed Broker Eligibility Result</label>
+        <locationX>1979</locationX>
+        <locationY>370</locationY>
+        <assignmentItems>
+            <assignToReference>varBrokerEligibilityCheck</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Fail</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Assign_Exit_Path</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Results</name>
+        <label>Assign Results</label>
+        <locationX>2101</locationX>
+        <locationY>703</locationY>
+        <assignmentItems>
+            <assignToReference>varResult</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formulaResult</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varDeclineReasons</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formulaDeclineReasons</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varSyndicate</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formulaSyndicate</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_PreProcessing_Result</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Results_Manual_Review</name>
+        <label>Assign Results - Manual Review</label>
+        <locationX>2257</locationX>
+        <locationY>532</locationY>
+        <assignmentItems>
+            <assignToReference>varExitPath</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>PPR.Error1</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varResult</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Manual Review</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_PreProcessing_Result</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_SIC_Home_Base_Restricted_Result</name>
+        <label>Assign SIC Home Base Restricted Result</label>
+        <locationX>1887</locationX>
+        <locationY>839</locationY>
+        <assignmentItems>
+            <assignToReference>varSICHomeBasedResult</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Fail</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Assign_Exit_Path</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_SIC_Result_Fail</name>
+        <label>Assign SIC Result - Fail</label>
+        <locationX>1777</locationX>
+        <locationY>708</locationY>
+        <assignmentItems>
+            <assignToReference>varSICResult</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Fail</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Assign_Exit_Path</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_SIC_Result_Pass</name>
+        <label>Assign SIC Result - Pass</label>
+        <locationX>1526</locationX>
+        <locationY>610</locationY>
+        <assignmentItems>
+            <assignToReference>varSICResult</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Pass</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Assign_Exit_Path</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Variables</name>
+        <label>Assign Variables</label>
+        <locationX>738</locationX>
+        <locationY>225</locationY>
+        <assignmentItems>
+            <assignToReference>varSIC</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Credit_Review.SIC_Code__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varAGS</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Credit_Review.Annual_Revenue__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varHomeAddress</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formulaHomeAddress</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varPhysicalAddress</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formulaPhysicalAddress</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>CA_Broker_Addendum_Signed</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>AGS_Decision</name>
+        <label>AGS Decision</label>
+        <locationX>727</locationX>
+        <locationY>716</locationY>
+        <defaultConnector>
+            <targetReference>Assign_AGS_Result_Fail</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>AGS Below Limit</defaultConnectorLabel>
+        <rules>
+            <name>AGS_Above_Limit</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varAGS</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <elementReference>varCurrentAGSLimit</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_AGS_Result_Pass</targetReference>
+            </connector>
+            <label>AGS Above Limit</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>CA_Broker_Addendum_Signed</name>
+        <label>CA Broker Addendum Signed</label>
+        <locationX>726</locationX>
+        <locationY>369</locationY>
+        <defaultConnector>
+            <targetReference>Data_Validation</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Pass</defaultConnectorLabel>
+        <rules>
+            <name>Not_Signed</name>
+            <conditionLogic>(1 AND 2 AND 3) OR (1 AND 4 AND 5)</conditionLogic>
+            <conditions>
+                <leftValueReference>Credit_Review.Opportunity__r.Broker_Account__r.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Credit_Review.Opportunity__r.Addr_Bill1__r.State__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>CA</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Broker_AGS_Limits.CA_T_L_Addendum_Signed__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Credit_Review.Opportunity__r.Addr_Bill1__r.State__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>NY</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Broker_AGS_Limits.NY_T_L_Addendum_Signed__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Failed_Broker_Eligibility_Result</targetReference>
+            </connector>
+            <label>Not Signed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Data_Validation</name>
+        <label>Data Validation</label>
+        <locationX>723</locationX>
+        <locationY>528</locationY>
+        <defaultConnector>
+            <targetReference>AGS_Decision</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Data Validated</defaultConnectorLabel>
+        <rules>
+            <name>AGS_null</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varAGS</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Results_Manual_Review</targetReference>
+            </connector>
+            <label>AGS null</label>
+        </rules>
+        <rules>
+            <name>SIC_null</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varSIC</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Results_Manual_Review</targetReference>
+            </connector>
+            <label>SIC null</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Deal_Type</name>
+        <label>Deal Type</label>
+        <locationX>1237</locationX>
+        <locationY>891</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Direct</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Credit_Review.Deal_Origination__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>MCA_Oppty</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Direct_Bypass_SIC_Setting</targetReference>
+            </connector>
+            <label>Direct</label>
+        </rules>
+        <rules>
+            <name>Broker</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Credit_Review.Deal_Origination__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Broker_WC_Oppty</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SIC_Decision_0</targetReference>
+            </connector>
+            <label>Broker</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Direct_Deal_Bypass_SIC</name>
+        <label>Direct Deal Bypass SIC</label>
+        <locationX>1562</locationX>
+        <locationY>951</locationY>
+        <defaultConnector>
+            <targetReference>SIC_Decision</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Bypass Inactive</defaultConnectorLabel>
+        <rules>
+            <name>Bypass</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Direct_Bypass_SIC_Setting.Bypass_SIC_Direct__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_SIC_Result_Pass</targetReference>
+            </connector>
+            <label>Bypass</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Match_Found</name>
+        <label>Match Found</label>
+        <locationX>1235</locationX>
+        <locationY>609</locationY>
+        <defaultConnector>
+            <targetReference>Assign_SIC_Result_Pass</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Matched_SIC.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Deal_Type</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Matching_Broker</name>
+        <label>Matching Broker</label>
+        <locationX>953</locationX>
+        <locationY>27</locationY>
+        <defaultConnector>
+            <targetReference>Assign_Broker_AGS_Variable_0</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not Matching</defaultConnectorLabel>
+        <rules>
+            <name>Matching_Found</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Broker_AGS_Limits.Id</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue></stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Broker_AGS_Limits.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Broker_AGS_Variable</targetReference>
+            </connector>
+            <label>Matching Found</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Process_Step_is_PreProcessing_Rules</name>
+        <label>Process Step is PreProcessing Rules</label>
+        <locationX>231</locationX>
+        <locationY>217</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Correct_Step</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>inputProcessStep</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>PreProcessingRules</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Credit_Review</targetReference>
+            </connector>
+            <label>Correct Step</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>SIC_Decision</name>
+        <label>SIC Decision</label>
+        <locationX>1763</locationX>
+        <locationY>948</locationY>
+        <defaultConnector>
+            <targetReference>Assign_SIC_Result_Pass</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>SIC Not Restricted</defaultConnectorLabel>
+        <rules>
+            <name>SIC_Restricted</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Matched_SIC.Category__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Restricted</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_SIC_Result_Fail</targetReference>
+            </connector>
+            <label>SIC Restricted</label>
+        </rules>
+        <rules>
+            <name>SIC_Home_Based_Restricted1</name>
+            <conditionLogic>1 AND 2 AND 3 AND (4 OR 5 OR 6)</conditionLogic>
+            <conditions>
+                <leftValueReference>Matched_SIC.Home_Based_Restricted_Direct__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>varHomeAddress</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue></stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>varPhysicalAddress</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue></stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>varHomeAddress</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>varPhysicalAddress</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>varHomeAddress</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <elementReference>varPhysicalAddress</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>varPhysicalAddress</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <elementReference>varHomeAddress</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_SIC_Home_Base_Restricted_Result</targetReference>
+            </connector>
+            <label>SIC Home Based Restricted</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>SIC_Decision_0</name>
+        <label>SIC Decision</label>
+        <locationX>1414</locationX>
+        <locationY>768</locationY>
+        <defaultConnector>
+            <targetReference>Assign_SIC_Result_Pass</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>SIC Not Restricted</defaultConnectorLabel>
+        <rules>
+            <name>SIC_Restricted_0</name>
+            <conditionLogic>1 OR 2</conditionLogic>
+            <conditions>
+                <leftValueReference>Matched_SIC.Category__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Restricted</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Matched_SIC.Broker_Max_Tier__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Ineligible</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_SIC_Result_Fail</targetReference>
+            </connector>
+            <label>SIC Restricted</label>
+        </rules>
+        <rules>
+            <name>SIC_Home_Based_Restricted</name>
+            <conditionLogic>1 AND 2 AND 3 AND (4 OR 5 OR 6)</conditionLogic>
+            <conditions>
+                <leftValueReference>Matched_SIC.Home_Based_Restricted_Broker__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>varHomeAddress</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue></stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>varPhysicalAddress</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue></stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>varHomeAddress</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>varPhysicalAddress</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>varHomeAddress</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <elementReference>varPhysicalAddress</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>varPhysicalAddress</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <elementReference>varHomeAddress</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_SIC_Home_Base_Restricted_Result</targetReference>
+            </connector>
+            <label>SIC Home Based Restricted</label>
+        </rules>
+    </decisions>
+    <description>+ Broker Addendum signature check for Opportunities in NY PD-2162</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>formulaAGSLimit</name>
+        <dataType>Currency</dataType>
+        <expression>IF(
+{!varPreprocessingMdtAGS}&gt;0,{!varPreprocessingMdtAGS},
+{!Get_Default_AGS_Limit.AGS_Limit__c})</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>formulaDeclineReasons</name>
+        <dataType>String</dataType>
+        <expression>CASE(
+{!varExitPath},
+&apos;PPR.2&apos;,&apos;Banks - Low Deposits&apos;,
+&apos;PPR.3&apos;,&apos;Restricted Industry&apos;,
+&apos;PPR.4&apos;,&apos;Restricted Industry; Banks - Low Deposits&apos;,
+&apos;PPR.5&apos;,&apos;Other&apos;,
+&apos;PPR.6&apos;,&apos;Industry Parameters&apos;,
+null
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaExitPath</name>
+        <dataType>String</dataType>
+        <expression>IF(
+AND(
+{!varAGSResult}=&apos;Pass&apos;,
+{!varSICResult}=&apos;Pass&apos;
+),
+&apos;PPR.1&apos;,
+IF(
+AND(
+{!varAGSResult}=&apos;Fail&apos;,
+{!varSICResult}=&apos;Pass&apos;
+),
+&apos;PPR.2&apos;,
+IF(
+AND(
+{!varAGSResult}=&apos;Pass&apos;,
+{!varSICResult}=&apos;Fail&apos;
+),
+&apos;PPR.3&apos;,
+IF(
+AND(
+{!varAGSResult}=&apos;Fail&apos;,
+{!varSICResult}=&apos;Fail&apos;
+),
+&apos;PPR.4&apos;,
+IF(
+{!varBrokerEligibilityCheck} = &apos;Fail&apos;,
+&apos;PPR.5&apos;,
+IF(
+{!varSICHomeBasedResult} = &apos;Fail&apos;,
+&apos;PPR.6&apos;,
+null
+))))))</expression>
+    </formulas>
+    <formulas>
+        <name>formulaHomeAddress</name>
+        <dataType>String</dataType>
+        <expression>UPPER({!Credit_Review.PG1__r.OtherStreet})</expression>
+    </formulas>
+    <formulas>
+        <name>formulaPhysicalAddress</name>
+        <dataType>String</dataType>
+        <expression>UPPER({!Credit_Review.Opportunity__r.Addr_Bill1__r.Address_1__c})</expression>
+    </formulas>
+    <formulas>
+        <name>formulaResult</name>
+        <dataType>String</dataType>
+        <expression>CASE(
+{!varExitPath},
+&apos;PPR.1&apos;,&apos;Continue&apos;,
+&apos;PPR.2&apos;,&apos;Stop&apos;,
+&apos;PPR.3&apos;,&apos;Stop&apos;,
+&apos;PPR.4&apos;,&apos;Stop&apos;,
+&apos;PPR.5&apos;,&apos;Stop&apos;,
+&apos;PPR.6&apos;,&apos;Stop&apos;,
+&apos;PPR.Error1&apos;,&apos;Manual Review&apos;,
+&apos;Error&apos;)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaSyndicate</name>
+        <dataType>Boolean</dataType>
+        <expression>IF(
+AND(
+{!Credit_Review.Deal_Origination__c}=&apos;MCA_Oppty&apos;,
+OR(
+{!varExitPath}=&apos;PPR.2&apos;,
+{!varExitPath}=&apos;PPR.3&apos;,
+{!varExitPath}=&apos;PPR.4&apos;,
+{!varExitPath}=&apos;PPR.6&apos;
+)
+),
+TRUE,
+FALSE
+)</expression>
+    </formulas>
+    <interviewLabel>CRC.5.PreProcessRules {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>CRC.5.PreProcessRules</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Create_PreProcessing_Result</name>
+        <label>Create PreProcessing Result</label>
+        <locationX>2264</locationX>
+        <locationY>703</locationY>
+        <connector>
+            <targetReference>CRC_Post_Processing_Flow</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Credit_Review_Controller__c</field>
+            <value>
+                <elementReference>inputCRCId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Credit_Review__c</field>
+            <value>
+                <elementReference>inputCRId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Evaluated_AGS__c</field>
+            <value>
+                <elementReference>varAGS</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Evaluated_SIC__c</field>
+            <value>
+                <elementReference>varSIC</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Exit_Path__c</field>
+            <value>
+                <elementReference>varExitPath</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Result__c</field>
+            <value>
+                <elementReference>varResult</elementReference>
+            </value>
+        </inputAssignments>
+        <object>PreProcessing_Review__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordLookups>
+        <name>Credit_Review</name>
+        <label>Credit Review</label>
+        <locationX>429</locationX>
+        <locationY>214</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Credit_Review_Controller</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>inputCRId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Credit_Review__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Credit_Review_Controller</name>
+        <label>Credit Review Controller</label>
+        <locationX>556</locationX>
+        <locationY>214</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Default_AGS_Limit</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>inputCRCId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Credit_Review_Controller__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Broker_AGS_Limits</name>
+        <label>Get Broker AGS Limits</label>
+        <locationX>700</locationX>
+        <locationY>21</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Matching_Broker</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Active__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Label</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Credit_Review.Opportunity__r.Broker_Account__r.Name</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Broker</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Preprocessing_AGS_Limit__mdt</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Default_AGS_Limit</name>
+        <label>Get Default AGS Limit</label>
+        <locationX>555</locationX>
+        <locationY>17</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Broker_AGS_Limits</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Active__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Default</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Preprocessing_AGS_Limit__mdt</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Direct_Bypass_SIC_Setting</name>
+        <label>Get Direct Bypass SIC Setting</label>
+        <locationX>1409</locationX>
+        <locationY>950</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Direct_Deal_Bypass_SIC</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Bypass_SIC_Direct__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Underwriting_Automation_Settings__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Matched_SIC</name>
+        <label>Matched SIC</label>
+        <locationX>1107</locationX>
+        <locationY>722</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Match_Found</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>SIC_Code__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>varSIC</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>NF_SIC_4__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <runInMode>SystemModeWithoutSharing</runInMode>
+    <start>
+        <locationX>113</locationX>
+        <locationY>54</locationY>
+        <connector>
+            <targetReference>Process_Step_is_PreProcessing_Rules</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <name>CRC_Post_Processing_Flow</name>
+        <label>CRC Post Processing Flow</label>
+        <locationX>2262</locationX>
+        <locationY>893</locationY>
+        <flowName>CRC_6_CRCPostProcessingUpdates</flowName>
+        <inputAssignments>
+            <name>inputCRCId</name>
+            <value>
+                <elementReference>inputCRCId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>inputCRId</name>
+            <value>
+                <elementReference>inputCRId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>sObjectCreditReviewController</name>
+            <value>
+                <elementReference>Credit_Review_Controller</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>varDeclineReasons</name>
+            <value>
+                <elementReference>varDeclineReasons</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>varExitPath</name>
+            <value>
+                <elementReference>varExitPath</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>varResult</name>
+            <value>
+                <elementReference>varResult</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>varSyndicate</name>
+            <value>
+                <elementReference>varSyndicate</elementReference>
+            </value>
+        </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
+    <variables>
+        <name>inputCRCId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>inputCRId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>inputProcessStep</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varAGS</name>
+        <dataType>Currency</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>2</scale>
+    </variables>
+    <variables>
+        <name>varAGSResult</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varBrokerEligibilityCheck</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varCurrentAGSLimit</name>
+        <dataType>Currency</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+    </variables>
+    <variables>
+        <name>varDeclineReasons</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>varExitPath</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>varHomeAddress</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varPhysicalAddress</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varPreprocessingMdtAGS</name>
+        <dataType>Currency</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+    </variables>
+    <variables>
+        <name>varResult</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>varSIC</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varSICHomeBasedResult</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varSICResult</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varSyndicate</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

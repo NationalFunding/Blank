@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lease_Ins_Expiration_Date_Required</fullName>
+    <active>true</active>
+    <description>This rule will ensure that an expiration date is entered when the check box Insurance Certificate Received is Checked.</description>
+    <errorConditionFormula>AND( Insurance_Certificate_Recieved__c = True,ISBLANK( Insurance_Expiration_Date__c ))</errorConditionFormula>
+    <errorMessage>A date must be entered in the Insurance Expiration Date field when the Insurance Certificate Received field is checked.</errorMessage>
+</ValidationRule>

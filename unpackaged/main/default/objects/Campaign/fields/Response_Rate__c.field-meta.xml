@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Response_Rate__c</fullName>
+    <description>Response Rate for a Campaign - Number of Responses / Number Sent</description>
+    <formula>NumberOfResponses / NumberSent</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Response Rate for a Campaign - Number of Responses / Number Sent</inlineHelpText>
+    <label>Response Rate</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <type>Percent</type>
+</CustomField>

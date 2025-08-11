@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PG_Name_Search__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This box will indicate if the Credit Processor has searched the database for other WC transactions a customer has been / is involved in. The box will contain a check if the action has been completed regardless of the PG(s)' involvement.</description>
+    <inlineHelpText>Check the box to indicate that the PG Name Search has been completed (outcome regardless).</inlineHelpText>
+    <label>PG Name Search</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

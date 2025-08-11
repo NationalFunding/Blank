@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Created_By_Flow__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field will be used to trigger a workflow when a record is created by a flow.</description>
+    <inlineHelpText>This field will be used to trigger a workflow when a record is created by a flow.</inlineHelpText>
+    <label>Created By Flow</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

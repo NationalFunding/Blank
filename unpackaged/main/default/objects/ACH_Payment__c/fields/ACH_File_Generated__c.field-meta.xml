@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ACH_File_Generated__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field will indicate that an ACH file was generated for a specific customer and/or other ACH payment recipients.</description>
+    <inlineHelpText>This field will indicate that an ACH file was generated for a specific customer and/or other ACH payment recipients.</inlineHelpText>
+    <label>ACH File Generated</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

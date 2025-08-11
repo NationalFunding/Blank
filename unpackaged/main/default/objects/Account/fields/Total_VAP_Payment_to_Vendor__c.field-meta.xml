@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_VAP_Payment_to_Vendor__c</fullName>
+    <label>Total VAP Payment to Vendor</label>
+    <summarizedField>Vendor_Payment__c.Vendor_Payment_Amount__c</summarizedField>
+    <summaryForeignKey>Vendor_Payment__c.Account__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

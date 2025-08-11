@@ -1,0 +1,8 @@
+2nd Review Alert
+
+Customer: {!Credit_Review__c.Oppty_Legal_Name__c}
+Approval Amount: {!Credit_Review__c.Max_Approval_Amount__c}
+Approval Recommendation By: {!Credit_Review__c.Approval_Recomendation_By__c}
+Channel: {!IF(Credit_Review__c.Deal_Origination__c="Broker_WC_Oppty","Broker", "Direct")}
+
+{!Credit_Review__c.Link}

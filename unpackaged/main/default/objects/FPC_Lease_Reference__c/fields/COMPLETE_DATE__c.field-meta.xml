@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>COMPLETE_DATE__c</fullName>
+    <description>Date that the FPC Lease Loan was completed is recorded.</description>
+    <inlineHelpText>Date that the FPC Lease Loan was completed is recorded.</inlineHelpText>
+    <label>COMPLETE_DATE</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

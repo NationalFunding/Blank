@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>No Answer - LVM</fullName>
+        <default>false</default>
+        <label>No Answer - LVM</label>
+    </customValue>
+    <customValue>
+        <fullName>No Answer - No Voicemail</fullName>
+        <default>false</default>
+        <label>No Answer - No Voicemail</label>
+    </customValue>
+    <customValue>
+        <fullName>Not In Service</fullName>
+        <default>false</default>
+        <label>Not In Service</label>
+    </customValue>
+    <customValue>
+        <fullName>Hung Up</fullName>
+        <default>false</default>
+        <label>Hung Up</label>
+    </customValue>
+    <customValue>
+        <fullName>RPC - Interested Thinking</fullName>
+        <default>false</default>
+        <label>RPC - Interested Thinking</label>
+    </customValue>
+    <customValue>
+        <fullName>RPC - Does not Meet Criteria</fullName>
+        <default>false</default>
+        <label>RPC - Does not Meet Criteria</label>
+    </customValue>
+    <customValue>
+        <fullName>RPC - Needs to Complete App</fullName>
+        <default>false</default>
+        <label>RPC - Needs to Complete App</label>
+    </customValue>
+    <customValue>
+        <fullName>RPC - Needs to Complete Banks</fullName>
+        <default>false</default>
+        <label>RPC - Needs to Complete Banks</label>
+    </customValue>
+    <customValue>
+        <fullName>RPC - Not Interested General</fullName>
+        <default>false</default>
+        <label>RPC - Not Interested General</label>
+    </customValue>
+    <customValue>
+        <fullName>RPC - Offers Presented - Thinking</fullName>
+        <default>false</default>
+        <label>RPC - Offers Presented - Thinking</label>
+    </customValue>
+    <customValue>
+        <fullName>RPC - Gathering Docs (Stips)</fullName>
+        <default>false</default>
+        <label>RPC - Gathering Docs (Stips)</label>
+    </customValue>
+    <customValue>
+        <fullName>RPC - ONA - ACH Schedule</fullName>
+        <default>false</default>
+        <label>RPC - ONA - ACH Schedule</label>
+    </customValue>
+    <customValue>
+        <fullName>RPC - ONA - Price Too High</fullName>
+        <default>false</default>
+        <label>RPC - ONA - Price Too High</label>
+    </customValue>
+    <customValue>
+        <fullName>RPC - ONA - Took Competitor Offer</fullName>
+        <default>false</default>
+        <label>RPC - ONA - Took Competitor Offer</label>
+    </customValue>
+    <customValue>
+        <fullName>RPC - ONA - Payment Too High</fullName>
+        <default>false</default>
+        <label>RPC - ONA - Payment Too High</label>
+    </customValue>
+    <customValue>
+        <fullName>Contacted - Gatekeeper</fullName>
+        <default>false</default>
+        <label>Contacted - Gatekeeper</label>
+    </customValue>
+    <customValue>
+        <fullName>Transferred To 3rd Party</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Transferred To 3rd Party</label>
+    </customValue>
+    <customValue>
+        <fullName>No Disposition</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>No Disposition</label>
+    </customValue>
+    <customValue>
+        <fullName>Completed</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Completed</label>
+    </customValue>
+    <masterLabel>Vonage Call Dispositions</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

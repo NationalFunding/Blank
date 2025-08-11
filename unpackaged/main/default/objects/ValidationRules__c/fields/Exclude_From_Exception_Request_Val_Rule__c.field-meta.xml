@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Exclude_From_Exception_Request_Val_Rule__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Used in Exception Request Validation Rule Escalate_Exception_Request</description>
+    <inlineHelpText>Used in Exception Request Validation Rule Escalate_Exception_Request</inlineHelpText>
+    <label>Exclude From Exception Request Val Rule</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

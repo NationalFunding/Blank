@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank</letterhead>
+    <name>Past Due/Catch Up</name>
+    <style>freeForm</style>
+    <subject>{!Case.Merchant_Number__c} - {!Account.Legal_Name__c}</subject>
+    <textOnly>Hello,
+
+Your account is past due by {!Case.Payments_Behind__c} payments. Are you in the position to get any of these caught up at this time?
+
+We can run as a lump sum or split these up if needed and run them on days of your choice. Please let me know.
+
+Note, any payment ran past date of maturity carries an additional $10 per day fee.
+
+
+Thank you,
+
+{!User.Name} | {!User.Title}
+
+{!Case.Originating_Lender_formula__c}
+{!$Setup.Company_Information__c.Street__c}
+{!$Setup.Company_Information__c.City__c}, {!$Setup.Company_Information__c.State__c} {!$Setup.Company_Information__c.Zip__c}
+P: {!User.Phone} | F: {!User.Fax}
+E: {!User.Email}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

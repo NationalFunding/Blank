@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>LV_Email_to_Queue</fullName>
+        <ccEmails>lendvantage@nationalfunding.com</ccEmails>
+        <description>LV - Email to Queue</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>trover@nationalfunding.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Marketing_Templates_Event_Driven/LendVantage_Lead_In_The_Queue</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>LV_Update_Annual_Revenue</fullName>
+        <field>Annual_Revenue__c</field>
+        <formula>12 *  Gross_Monthly_Rev__c</formula>
+        <name>LV - Update Annual Revenue</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>LV_Update_Lead_Response_Channel</fullName>
+        <field>Lead_Response_Channel__c</field>
+        <formula>CASE(LV_Response_Channel__c, 
+'WEBSITE', 'Internet', 
+'CALL_CENTER', 'Inbound Call', 
+'Error')</formula>
+        <name>LV - Update Lead Response Channel</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <flowActions>
+        <fullName>LV_Lead_CM_Create</fullName>
+        <flow>LendVantage_Lead_Create</flow>
+        <flowInputs>
+            <name>inputLendVantageRecordId</name>
+            <value>{!Id}</value>
+        </flowInputs>
+        <label>LV - Lead &amp; CM Create</label>
+        <language>en_US</language>
+        <protected>false</protected>
+    </flowActions>
+    <rules>
+        <fullName>LV - Lead Accepted Internet</fullName>
+        <actions>
+            <name>LV_Email_to_Queue</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>LV_Lead_CM_Create</name>
+            <type>FlowAction</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>LendVantage_Input__c.Contactable__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>LendVantage_Input__c.Company_Phone__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>LendVantage_Input__c.Lead_Response_Channel__c</field>
+            <operation>equals</operation>
+            <value>Internet</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>LendVantage_Input__c.Test_Record__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>LV - Lead Accepted Phone</fullName>
+        <actions>
+            <name>LV_Lead_CM_Create</name>
+            <type>FlowAction</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>LendVantage_Input__c.Contactable__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>LendVantage_Input__c.Company_Phone__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>LendVantage_Input__c.Lead_Response_Channel__c</field>
+            <operation>equals</operation>
+            <value>Inbound Call</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>LendVantage_Input__c.Test_Record__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>LV - Update Input After Insert</fullName>
+        <actions>
+            <name>LV_Update_Annual_Revenue</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>LV_Update_Lead_Response_Channel</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>True</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+</Workflow>

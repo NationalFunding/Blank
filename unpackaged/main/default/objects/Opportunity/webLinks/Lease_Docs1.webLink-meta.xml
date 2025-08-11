@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lease_Docs1</fullName>
+    <availability>online</availability>
+    <description>Button will look at the related Lender Account in order to pull requested template groups.</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>600</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>Lease Docs</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>https://composer.congamerge.com
+?sessionId={!API.Session_ID}
+&amp;serverUrl={!API.Partner_Server_URL_290}
+&amp;id={!Opportunity.Id}
+&amp;TemplateGroup={!IF( CONTAINS( Opportunity.Lender_Account__c , "National Funding"), "NATLs",IF(CONTAINS( Opportunity.Lender_Account__c , "Pawnee"),"PWLs", IF(CONTAINS( Opportunity.Lender_Account__c , "Ascentium"), "ASCLs",IF(CONTAINS( Opportunity.Lender_Account__c , "Financial Pacific"), "FPLs", ""))))}
+&amp;QueryId=a068000000OH2X1,a068000000OH2Wm,a068000000OH2aZ,a068000000OH2Xq,a068000000OH2XH,a068000000OH2at,a068000000OH2b3,a068000000OH2cf,a068000000OH2cp,a068000000OH2d4,a068000000OH2dE,a068000000UVaz1,a068000000XMd5h,a068000000cugae,a068000000df06R,a068000000gckMi,a068000000lW7Rq,a068000000UVaEU 
+&amp;DS4=0
+&amp;DS7=0
+&amp;DS8={!IF( $Profile.Name = "System Administrator", 1,0)} 
+&amp;SelectTemplates=1
+&amp;DefaultPdf=1
+&amp;EC={!IF(Opportunity.Pawnee_Maine_Restriction__c="Yes","0","1")} 
+&amp;ECL=Pawnee+deals+in+Maine+cannot+use+NF+docs</url>
+</WebLink>

@@ -1,0 +1,1607 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <apiVersion>49.0</apiVersion>
+    <assignments>
+        <name>Add_Case_Contact_Role_to_Collection</name>
+        <label>Add Case Contact Role to Collection</label>
+        <locationX>828</locationX>
+        <locationY>381</locationY>
+        <assignmentItems>
+            <assignToReference>NewCaseContactRolesCollection</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>NewCaseContactRole</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Contact_Roles</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Add_Contact_Roles_to_Collection</name>
+        <label>Add Contact Roles to Collection</label>
+        <locationX>1015</locationX>
+        <locationY>49</locationY>
+        <assignmentItems>
+            <assignToReference>NewContactRolesCollection</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>NewContactRole</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Contacts</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Add_Contact_to_Collection</name>
+        <label>Add Contact to Collection</label>
+        <locationX>353</locationX>
+        <locationY>31</locationY>
+        <assignmentItems>
+            <assignToReference>NewContactsCollection</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>NewContact</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Add_More_Guarantors</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Case_Contact_Roles_Variables</name>
+        <label>Assign Case Contact Roles Variables</label>
+        <locationX>828</locationX>
+        <locationY>290</locationY>
+        <assignmentItems>
+            <assignToReference>NewCaseContactRole.CasesId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>varCaseId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>NewCaseContactRole.ContactId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>LoopVarContactRoles.ContactId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>NewCaseContactRole.Role</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>LoopVarContactRoles.Role</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Add_Case_Contact_Role_to_Collection</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Contact_Role_Variables</name>
+        <label>Assign Contact Role Variables</label>
+        <locationX>1180</locationX>
+        <locationY>47</locationY>
+        <assignmentItems>
+            <assignToReference>NewContactRole.ContactId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>LoopVarContacts.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>NewContactRole.OpportunityId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>varOpportunityId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>NewContactRole.IsPrimary</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formulaIsPrimary</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>NewContactRole.Role</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formulaContactRoleCounter</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varContactRoleCounter</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Add_Contact_Roles_to_Collection</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Contact_Variables</name>
+        <label>Assign Contact Variables</label>
+        <locationX>177</locationX>
+        <locationY>31</locationY>
+        <assignmentItems>
+            <assignToReference>NewContact.AccountId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>varAccountId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>NewContact.FirstName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>First_Name</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>NewContact.LastName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Last_Name</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>NewContact.SSN_Encrypted__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>SSN</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>NewContact.HomePhone</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Home_Phone</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>NewContact.MobilePhone</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Mobile_Phone</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>NewContact.OtherStreet</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Home_Address</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>NewContact.OtherCity</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Home_City</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>NewContact.OtherState</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Home_State</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>NewContact.OtherPostalCode</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Home_Zip</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>NewContact.RecordTypeId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>conContactRecordTypeId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>NewContact.Birthdate</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Birthdate</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>NewContact.Ownership_Percentage__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Ownership</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>NewContact.Donotsolicit__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Add_Contact_to_Collection</targetReference>
+        </connector>
+    </assignments>
+    <choices>
+        <name>No</name>
+        <choiceText>No</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>No</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Yes</name>
+        <choiceText>Yes</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Yes</stringValue>
+        </value>
+    </choices>
+    <constants>
+        <description>External Collections Customer Account Record Type</description>
+        <name>conAccountRecordType</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>01234000000kwBm</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>conAccountType</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>External Customer Account</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>conAddressLocationType</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Physical Address</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>conCaseRecordTypeId</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>01280000000BifJAAS</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <description>External Collections - Customer Contact Record Type</description>
+        <name>conContactRecordTypeId</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>01234000000kwBn</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <description>External Collections Opportunity Record Type</description>
+        <name>conOpptyRecordTypeId</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>01234000000kwBo</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <description>Quick Bridge Recovery user Id</description>
+        <name>conQBUserId</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>0053400000C4GPmAAN</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>conQuickBridge</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Quick Bridge</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>conSandraOteroUserId</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>00580000003edxLAAQ</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>conWorkingCapital</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Working Capital</stringValue>
+        </value>
+    </constants>
+    <decisions>
+        <name>Add_More_Guarantors</name>
+        <label>Add More Guarantors</label>
+        <locationX>353</locationX>
+        <locationY>144</locationY>
+        <defaultConnector>
+            <targetReference>Loan_Details</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes_add</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Add_Another_Guarantor</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>Yes</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Guarantor_Details</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <dynamicChoiceSets>
+        <name>LegalStatusPicklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Legal_Status__c</picklistField>
+        <picklistObject>Account</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>PaymentFrequencyPicklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Actual_Payment_Frequency__c</picklistField>
+        <picklistObject>Opportunity</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>StateofIncorporationPicklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>State_of_Incorporation__c</picklistField>
+        <picklistObject>Account</picklistObject>
+    </dynamicChoiceSets>
+    <formulas>
+        <name>formulaAdditionalLoanswithGuarantor</name>
+        <dataType>String</dataType>
+        <expression>IF({!Additional_Loans_Associated_with_Guarantor}=TRUE, &apos;Yes&apos;, &apos;No&apos;)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaCaseComments</name>
+        <dataType>String</dataType>
+        <expression>&quot;Concurrent: &quot; &amp; {!formulaConcurrent} &amp; SUBSTITUTE({!txtLineBreak}, &quot;~&quot;,&quot; &quot;) &amp;
+&quot;Cross Corp Guarantee: &quot; &amp; {!formulaCrossCorp} &amp; SUBSTITUTE({!txtLineBreak}, &quot;~&quot;,&quot; &quot;) &amp;
+&quot;Fraud: &quot; &amp; {!formulaFraud} &amp; SUBSTITUTE({!txtLineBreak}, &quot;~&quot;,&quot; &quot;) &amp;
+&quot;Rush: &quot; &amp; {!formulaRush} &amp; SUBSTITUTE({!txtLineBreak}, &quot;~&quot;,&quot; &quot;) &amp;
+&quot;Additional Loans with Guarantor: &quot; &amp; {!formulaAdditionalLoanswithGuarantor} &amp; SUBSTITUTE({!txtLineBreak}, &quot;~&quot;,&quot; &quot;) &amp;
+&quot;Additional Loans Details: &quot; &amp; {!If_yes_please_enter_details} &amp;  SUBSTITUTE({!txtLineBreak}, &quot;~&quot;,&quot; &quot;) &amp;
+&quot;Comments: &quot; &amp; {!Comments}</expression>
+    </formulas>
+    <formulas>
+        <name>formulaCaseLink</name>
+        <dataType>String</dataType>
+        <expression>&quot;https://nf.my.salesforce.com/&quot; &amp; {!varCaseId}</expression>
+    </formulas>
+    <formulas>
+        <name>formulaCaseSubject</name>
+        <dataType>String</dataType>
+        <expression>&quot;QuickBridge Loan - &quot; &amp; {!Legal_Company_Name}</expression>
+    </formulas>
+    <formulas>
+        <name>formulaConcurrent</name>
+        <dataType>String</dataType>
+        <expression>IF({!Concurrent} = TRUE, &apos;Yes&apos;, &apos;No&apos;)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaContactRoleCounter</name>
+        <dataType>String</dataType>
+        <expression>IF(
+{!varContactRoleCounter}=1,&apos;Signor&apos;,
+IF(
+{!varContactRoleCounter}=2,&apos;Guarantor 2&apos;,
+IF(
+{!varContactRoleCounter}=3,&apos;Guarantor 3&apos;,
+IF(
+{!varContactRoleCounter}=4,&apos;Guarantor 4&apos;,
+&apos;Signor&apos;
+))))</expression>
+    </formulas>
+    <formulas>
+        <name>formulaCrossCorp</name>
+        <dataType>String</dataType>
+        <expression>IF({!Cross_Corporate_Guarantee}= TRUE, &apos;Yes&apos;, &apos;No&apos;)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaFraud</name>
+        <dataType>String</dataType>
+        <expression>IF({!Fraud}= TRUE, &apos;Yes&apos;, &apos;No&apos;)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaIsPrimary</name>
+        <dataType>Boolean</dataType>
+        <expression>IF(
+{!varContactRoleCounter}=1,
+TRUE,
+FALSE)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaRush</name>
+        <dataType>String</dataType>
+        <expression>IF({!Rush} = TRUE, &apos;Yes&apos;, &apos;No&apos;)</expression>
+    </formulas>
+    <interviewLabel>External Loan - Input for Recovery {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>External Loan - Input for Recovery</label>
+    <loops>
+        <name>Loop_Contact_Roles</name>
+        <label>Loop Contact Roles</label>
+        <locationX>1016</locationX>
+        <locationY>383</locationY>
+        <assignNextValueToReference>LoopVarContactRoles</assignNextValueToReference>
+        <collectionReference>NewContactRolesCollection</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Assign_Case_Contact_Roles_Variables</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Create_Case_Contact_Roles</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <loops>
+        <name>Loop_Contacts</name>
+        <label>Loop Contacts</label>
+        <locationX>1180</locationX>
+        <locationY>148</locationY>
+        <assignNextValueToReference>LoopVarContacts</assignNextValueToReference>
+        <collectionReference>NewContactsCollection</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Assign_Contact_Role_Variables</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Create_Contact_Roles</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processType>Flow</processType>
+    <recordCreates>
+        <name>Create_Account</name>
+        <label>Create Account</label>
+        <locationX>171</locationX>
+        <locationY>234</locationY>
+        <assignRecordIdToReference>varAccountId</assignRecordIdToReference>
+        <connector>
+            <targetReference>Guarantor_Details</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Company_DBA__c</field>
+            <value>
+                <elementReference>DBA</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Date_Established__c</field>
+            <value>
+                <elementReference>Date_of_Incorporation</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Do_Not_Solicit__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Fed_Tax_ID__c</field>
+            <value>
+                <elementReference>Fed_Tax_Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Legal_Name__c</field>
+            <value>
+                <elementReference>Legal_Company_Name</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Legal_Status__c</field>
+            <value>
+                <elementReference>Legal_Status</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <elementReference>Legal_Company_Name</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>conQBUserId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Phone</field>
+            <value>
+                <elementReference>Business_Phone</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>RecordTypeId</field>
+            <value>
+                <elementReference>conAccountRecordType</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>State_of_Incorporation__c</field>
+            <value>
+                <elementReference>State_of_Incorporation</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Type</field>
+            <value>
+                <elementReference>conAccountType</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Account</object>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_Address</name>
+        <label>Create Address</label>
+        <locationX>712</locationX>
+        <locationY>144</locationY>
+        <assignRecordIdToReference>varAddressId</assignRecordIdToReference>
+        <connector>
+            <targetReference>Create_Opportunity</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Account__c</field>
+            <value>
+                <elementReference>varAccountId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Address_1__c</field>
+            <value>
+                <elementReference>Street_Address</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>City__c</field>
+            <value>
+                <elementReference>City</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Isprimary__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Location_Type__c</field>
+            <value>
+                <elementReference>conAddressLocationType</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>State__c</field>
+            <value>
+                <elementReference>PhysicalState</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Zip_Code__c</field>
+            <value>
+                <elementReference>Zip_Code</elementReference>
+            </value>
+        </inputAssignments>
+        <object>FPC_Address__c</object>
+    </recordCreates>
+    <recordCreates>
+        <description>Create Case. Assign case to Sandra.</description>
+        <name>Create_Case</name>
+        <label>Create Case</label>
+        <locationX>1017</locationX>
+        <locationY>286</locationY>
+        <assignRecordIdToReference>varCaseId</assignRecordIdToReference>
+        <connector>
+            <targetReference>Loop_Contact_Roles</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>AccountId</field>
+            <value>
+                <elementReference>varAccountId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Merchant_Number__c</field>
+            <value>
+                <elementReference>Loan_Number</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Opportunity__c</field>
+            <value>
+                <elementReference>varOpportunityId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Originating_Lender__c</field>
+            <value>
+                <elementReference>conQuickBridge</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>RecordTypeId</field>
+            <value>
+                <elementReference>conCaseRecordTypeId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Open</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Subject</field>
+            <value>
+                <elementReference>formulaCaseSubject</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Type</field>
+            <value>
+                <stringValue>External Legal</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Case</object>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_Case_Comment</name>
+        <label>Create Case Comment</label>
+        <locationX>829</locationX>
+        <locationY>500</locationY>
+        <connector>
+            <targetReference>Upload_Attachments</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>CommentBody</field>
+            <value>
+                <elementReference>formulaCaseComments</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>IsPublished</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ParentId</field>
+            <value>
+                <elementReference>varCaseId</elementReference>
+            </value>
+        </inputAssignments>
+        <object>CaseComment</object>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_Case_Contact_Roles</name>
+        <label>Create Case Contact Roles</label>
+        <locationX>1017</locationX>
+        <locationY>494</locationY>
+        <connector>
+            <targetReference>Create_Case_Comment</targetReference>
+        </connector>
+        <inputReference>NewCaseContactRolesCollection</inputReference>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_Contact_Roles</name>
+        <label>Create Contact Roles</label>
+        <locationX>1181</locationX>
+        <locationY>286</locationY>
+        <connector>
+            <targetReference>Create_Case</targetReference>
+        </connector>
+        <inputReference>NewContactRolesCollection</inputReference>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_Contacts</name>
+        <label>Create Contacts</label>
+        <locationX>1018</locationX>
+        <locationY>146</locationY>
+        <connector>
+            <targetReference>Loop_Contacts</targetReference>
+        </connector>
+        <inputReference>NewContactsCollection</inputReference>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_Opportunity</name>
+        <label>Create Opportunity</label>
+        <locationX>868</locationX>
+        <locationY>145</locationY>
+        <assignRecordIdToReference>varOpportunityId</assignRecordIdToReference>
+        <connector>
+            <targetReference>Create_Contacts</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>ACTUAL_AMT_COLLECTED__c</field>
+            <value>
+                <elementReference>Repayment_Amount</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ACTUAL_AMT_OFFERED__c</field>
+            <value>
+                <elementReference>Loan_Amount</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ACTUAL_MCA_TERM__c</field>
+            <value>
+                <elementReference>Loan_Term_of_Payments</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>AccountId</field>
+            <value>
+                <elementReference>varAccountId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Actual_Daily_Payment__c</field>
+            <value>
+                <elementReference>Payment_Amount</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Actual_Payment_Frequency__c</field>
+            <value>
+                <elementReference>Payment_Frequency</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Addr_Bill1__c</field>
+            <value>
+                <elementReference>varAddressId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Amount_Collected__c</field>
+            <value>
+                <elementReference>Repayment_Amount</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Balance_Paid__c</field>
+            <value>
+                <elementReference>Payments_Collected</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Balance_Remaining__c</field>
+            <value>
+                <elementReference>Balance_Remaining</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Bank_Account_Number__c</field>
+            <value>
+                <elementReference>Bank_Account_Number</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Bank_Name__c</field>
+            <value>
+                <elementReference>Bank_Name</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Bank_Routing_Number__c</field>
+            <value>
+                <elementReference>Bank_Routing_Number</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>CloseDate</field>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Docs_Monthly_Payment__c</field>
+            <value>
+                <elementReference>Payment_Amount</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Docs_Payment_Frequency__c</field>
+            <value>
+                <elementReference>Payment_Frequency</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Docs_Term__c</field>
+            <value>
+                <elementReference>Loan_Term_of_Payments</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Fund_Date__c</field>
+            <value>
+                <elementReference>Date_of_Loan</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Merchant_Number__c</field>
+            <value>
+                <elementReference>Loan_Number</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>conQBUserId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>RecordTypeId</field>
+            <value>
+                <elementReference>conOpptyRecordTypeId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>StageName</field>
+            <value>
+                <stringValue>External Collections</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Type</field>
+            <value>
+                <stringValue>NEW</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Use_of_Funds__c</field>
+            <value>
+                <elementReference>conWorkingCapital</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Opportunity</object>
+    </recordCreates>
+    <screens>
+        <name>Business_Details</name>
+        <label>Business Details (Step 1 of 4)</label>
+        <locationX>172</locationX>
+        <locationY>322</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Create_Account</targetReference>
+        </connector>
+        <fields>
+            <name>Screen1</name>
+            <fieldText>&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:16px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;B&gt;Business Details (Step 1 of 4)&lt;/B&gt;&lt;/FONT&gt;&lt;/DIV&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>BusinesssInfo</name>
+            <fieldText>&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:14px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;Enter the Company details for the Loan you are inputting.&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:14px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt; &lt;/FONT&gt;&lt;/DIV&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Legal_Company_Name</name>
+            <dataType>String</dataType>
+            <fieldText>Legal Company Name</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+            <validationRule>
+                <errorMessage>Value too long. Limit to 255 characters.</errorMessage>
+                <formulaExpression>LEN({!Legal_Company_Name}) &lt;=255</formulaExpression>
+            </validationRule>
+        </fields>
+        <fields>
+            <name>DBA</name>
+            <dataType>String</dataType>
+            <fieldText>DBA</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>false</isRequired>
+            <validationRule>
+                <errorMessage>Value too long. Limit to 255 characters.</errorMessage>
+                <formulaExpression>LEN({!DBA}) &lt;=255</formulaExpression>
+            </validationRule>
+        </fields>
+        <fields>
+            <name>Business_Phone</name>
+            <dataType>String</dataType>
+            <fieldText>Business Phone</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+            <validationRule>
+                <errorMessage>Value too long. Limit to 255 characters.</errorMessage>
+                <formulaExpression>LEN({!Business_Phone}) &lt;=255</formulaExpression>
+            </validationRule>
+        </fields>
+        <fields>
+            <name>Fed_Tax_Id</name>
+            <dataType>String</dataType>
+            <fieldText>Fed Tax Id</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>false</isRequired>
+            <validationRule>
+                <errorMessage>The entered Federal Tax Id number is incorrect. Please ensure the following formatting is followed: ######### and that there are 9 numeric digits.</errorMessage>
+                <formulaExpression>REGEX({!Fed_Tax_Id} ,&quot;[0-9]{9}&quot;)</formulaExpression>
+            </validationRule>
+        </fields>
+        <fields>
+            <name>State_of_Incorporation</name>
+            <choiceReferences>StateofIncorporationPicklist</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>State of Incorporation</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Date_of_Incorporation</name>
+            <dataType>Date</dataType>
+            <fieldText>Date of Incorporation</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Legal_Status</name>
+            <choiceReferences>LegalStatusPicklist</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Legal Status</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Address</name>
+            <fieldText>Physical Business Address</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Street_Address</name>
+            <dataType>String</dataType>
+            <fieldText>Street Address</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+            <validationRule>
+                <errorMessage>Value too long. Limit to 64 characters.</errorMessage>
+                <formulaExpression>LEN({!Street_Address}) &lt;=64</formulaExpression>
+            </validationRule>
+        </fields>
+        <fields>
+            <name>City</name>
+            <dataType>String</dataType>
+            <fieldText>City</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+            <validationRule>
+                <errorMessage>Value too long. Limit to 32 characters.</errorMessage>
+                <formulaExpression>LEN({!City}) &lt;=32</formulaExpression>
+            </validationRule>
+        </fields>
+        <fields>
+            <name>PhysicalState</name>
+            <choiceReferences>StateofIncorporationPicklist</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>State</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Zip_Code</name>
+            <dataType>String</dataType>
+            <fieldText>Zip Code</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+            <validationRule>
+                <errorMessage>Zip Code must be in ##### or #####-#### format.</errorMessage>
+                <formulaExpression>REGEX({!Zip_Code}, &quot;\\d{5}(-\\d{4})?&quot;)</formulaExpression>
+            </validationRule>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Guarantor_Details</name>
+        <label>Guarantor Details (Step 2 of 4)</label>
+        <locationX>174</locationX>
+        <locationY>142</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Assign_Contact_Variables</targetReference>
+        </connector>
+        <fields>
+            <name>Screen2</name>
+            <fieldText>&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:18px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;B&gt;Guarantor Details (Step 2 of 4)&lt;/B&gt;&lt;/FONT&gt;&lt;/DIV&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>GTitle</name>
+            <fieldText>&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:14px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;Enter the personal contact details for the Primary Guarantor below. If there are additional Guarantors to add please select Add Another Guarantor.&lt;/FONT&gt;&lt;/DIV&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>First_Name</name>
+            <dataType>String</dataType>
+            <fieldText>First Name</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Last_Name</name>
+            <dataType>String</dataType>
+            <fieldText>Last Name</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Ownership</name>
+            <dataType>Number</dataType>
+            <fieldText>Ownership %</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+            <scale>0</scale>
+            <validationRule>
+                <errorMessage>Ownership % must be a number between 0-100.</errorMessage>
+                <formulaExpression>AND(
+{!Ownership}&gt;=0,
+{!Ownership}&lt;=100
+)</formulaExpression>
+            </validationRule>
+        </fields>
+        <fields>
+            <name>SSN</name>
+            <dataType>String</dataType>
+            <fieldText>SSN</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+            <validationRule>
+                <errorMessage>SSN must be 9 digits with no spaces or dashes</errorMessage>
+                <formulaExpression>REGEX({!SSN}, &quot;[0-9]{9}&quot;)</formulaExpression>
+            </validationRule>
+        </fields>
+        <fields>
+            <name>Birthdate</name>
+            <dataType>Date</dataType>
+            <fieldText>Birthdate</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Home_Phone</name>
+            <dataType>String</dataType>
+            <fieldText>Home Phone</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Mobile_Phone</name>
+            <dataType>String</dataType>
+            <fieldText>Mobile Phone</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>HomeAddress</name>
+            <fieldText>Enter the Home Address for the Guarantor</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Home_Address</name>
+            <dataType>String</dataType>
+            <fieldText>Home Address</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+            <validationRule>
+                <errorMessage>The value you entered doesn&apos;t meet the validation criteria for this input field.</errorMessage>
+                <formulaExpression>LEN({!Home_Address}) &lt;=64</formulaExpression>
+            </validationRule>
+        </fields>
+        <fields>
+            <name>Home_City</name>
+            <dataType>String</dataType>
+            <fieldText>Home City</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+            <validationRule>
+                <errorMessage>Value too long. Limit to 32 characters.</errorMessage>
+                <formulaExpression>LEN({!Home_City}) &lt;=32</formulaExpression>
+            </validationRule>
+        </fields>
+        <fields>
+            <name>Home_State</name>
+            <choiceReferences>StateofIncorporationPicklist</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Home State</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Home_Zip</name>
+            <dataType>String</dataType>
+            <fieldText>Home Zip</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+            <validationRule>
+                <errorMessage>Zip Code must be in ##### or #####-#### format</errorMessage>
+                <formulaExpression>REGEX({!Home_Zip}, &quot;\\d{5}(-\\d{4})?&quot;)</formulaExpression>
+            </validationRule>
+        </fields>
+        <fields>
+            <name>space</name>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Add_Another_Guarantor</name>
+            <choiceReferences>Yes</choiceReferences>
+            <choiceReferences>No</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Add Another Guarantor</fieldText>
+            <fieldType>RadioButtons</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Loan_Details</name>
+        <label>Loan Details (Step 3 of 4)</label>
+        <locationX>520</locationX>
+        <locationY>145</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Create_Address</targetReference>
+        </connector>
+        <fields>
+            <name>Screen3</name>
+            <fieldText>&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:18px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;B&gt;Loan Details (Step 3 of 4) &lt;/B&gt;&lt;/FONT&gt;&lt;/DIV&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>BusinessDetails</name>
+            <fieldText>&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:14px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;Enter the details of this loan. Additional information can be entered in the comments. &lt;/FONT&gt;&lt;/DIV&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Loan_Number</name>
+            <dataType>String</dataType>
+            <fieldText>Loan Number</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+            <validationRule>
+                <errorMessage>Value too long. Limit to 32 characters.</errorMessage>
+                <formulaExpression>LEN({!Loan_Number}) &lt;=32</formulaExpression>
+            </validationRule>
+        </fields>
+        <fields>
+            <name>Loan_Amount</name>
+            <dataType>Currency</dataType>
+            <fieldText>Loan Amount</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+            <scale>2</scale>
+        </fields>
+        <fields>
+            <name>Repayment_Amount</name>
+            <dataType>Currency</dataType>
+            <fieldText>Repayment Amount</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+            <scale>2</scale>
+        </fields>
+        <fields>
+            <name>Date_of_Loan</name>
+            <dataType>Date</dataType>
+            <fieldText>Date of Loan</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Loan_Term_of_Payments</name>
+            <dataType>Number</dataType>
+            <fieldText>Loan Term (# of Payments)</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+            <scale>0</scale>
+        </fields>
+        <fields>
+            <name>Payment_Frequency</name>
+            <choiceReferences>PaymentFrequencyPicklist</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Payment Frequency</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Payment_Amount</name>
+            <dataType>Currency</dataType>
+            <fieldText>Payment Amount</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+            <scale>2</scale>
+        </fields>
+        <fields>
+            <name>Balance_Remaining</name>
+            <dataType>Currency</dataType>
+            <fieldText>Balance Remaining</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+            <scale>2</scale>
+        </fields>
+        <fields>
+            <name>Payments_Collected</name>
+            <dataType>Number</dataType>
+            <fieldText>Balance Collected</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+            <scale>0</scale>
+        </fields>
+        <fields>
+            <name>BankDetails</name>
+            <fieldText>Bank Details</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Bank_Name</name>
+            <dataType>String</dataType>
+            <fieldText>Bank Name</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+            <validationRule>
+                <errorMessage>Value too long. Limit to 32 characters.</errorMessage>
+                <formulaExpression>LEN({!Bank_Name}) &lt;=32</formulaExpression>
+            </validationRule>
+        </fields>
+        <fields>
+            <name>Bank_Account_Number</name>
+            <dataType>String</dataType>
+            <fieldText>Bank Account Number</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+            <validationRule>
+                <errorMessage>Value too long. Limit to 32 characters.</errorMessage>
+                <formulaExpression>LEN({!Bank_Account_Number}) &lt;=32</formulaExpression>
+            </validationRule>
+        </fields>
+        <fields>
+            <name>Bank_Routing_Number</name>
+            <dataType>String</dataType>
+            <fieldText>Bank Routing Number</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+            <validationRule>
+                <errorMessage>Bank Routing Number must be 9 digit</errorMessage>
+                <formulaExpression>REGEX({!Bank_Routing_Number}, &quot;[0-9]{9}&quot;)</formulaExpression>
+            </validationRule>
+        </fields>
+        <fields>
+            <name>AdditionalDetails</name>
+            <fieldText>Identify if the loan has any of the following:</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Concurrent</name>
+            <dataType>Boolean</dataType>
+            <fieldText>Concurrent</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Rush</name>
+            <dataType>Boolean</dataType>
+            <fieldText>Rush</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Fraud</name>
+            <dataType>Boolean</dataType>
+            <fieldText>Fraud</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Cross_Corporate_Guarantee</name>
+            <dataType>Boolean</dataType>
+            <fieldText>Cross-Corporate Guarantee</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Additional_Loans_Associated_with_Guarantor</name>
+            <dataType>Boolean</dataType>
+            <fieldText>Additional Loans Associated with Guarantor</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>If_yes_please_enter_details</name>
+            <fieldText>If additional loans with guarantor, please enter details</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>CommntsHeader</name>
+            <fieldText>Plase add any additional comments or remarks regarding this loan.</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Comments</name>
+            <fieldText>Comments</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Loan_Input_Complete</name>
+        <label>Loan Input Complete</label>
+        <locationX>663</locationX>
+        <locationY>593</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>Screen5</name>
+            <fieldText>&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:18px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;B&gt;Loan details have been sent to National Funding. &lt;/B&gt;&lt;/FONT&gt;&lt;/DIV&gt;&lt;BR&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Summary</name>
+            <fieldText>&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:14px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;B&gt;&lt;U&gt;Input Summary&lt;/U&gt;&lt;/B&gt;&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:14px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:14px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;Business: {!Legal_Company_Name}&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:14px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;Loan Number: {!Loan_Number}&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:14px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;Loan Amount: {!Loan_Amount}&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:14px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;Balance Remaining: {!Balance_Remaining}&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:14px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;1&quot;&gt;&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:14px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;1&quot;&gt;Link to Case: &lt;A HREF=&quot;{!formulaCaseLink}&quot; TARGET=&quot;_blank&quot;&gt;{!formulaCaseLink}&lt;/A&gt;&lt;/FONT&gt;&lt;/DIV&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>EnterMore</name>
+            <fieldText>&lt;BR&gt;&lt;BR&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:16px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;B&gt;To enter additional loans click Finish.&lt;/B&gt;&lt;/FONT&gt;&lt;/DIV&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Upload_Attachments</name>
+        <label>Upload Attachments (Step 4 of 4)</label>
+        <locationX>662</locationX>
+        <locationY>500</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Loan_Input_Complete</targetReference>
+        </connector>
+        <fields>
+            <name>Screen4</name>
+            <fieldText>&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:18px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;B&gt;Upload Documents (Step 4 of 4)&lt;/B&gt;&lt;/FONT&gt;&lt;/DIV&gt;&lt;BR&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>displaytxt</name>
+            <fieldText>&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:14px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;Upload the following documents: &lt;FONT STYLE=&quot;font-size:12px&quot;&gt;&lt;/FONT&gt;&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;{!txtTable}&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;/FONT&gt;&lt;/DIV&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>UploadAttachments</name>
+            <extensionName>forceContent:fileUpload</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>label</name>
+                <value>
+                    <stringValue>Upload Files</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>recordId</name>
+                <value>
+                    <elementReference>varCaseId</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>multiple</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>disabled</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </inputParameters>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Next</name>
+            <fieldText>&lt;BR&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:16px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;Click Next to Finish&lt;FONT STYLE=&quot;font-size:18px&quot;&gt;&lt;/FONT&gt;&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:18px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;/FONT&gt;&lt;/DIV&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <stages>
+        <name>Business_Details_Stage</name>
+        <isActive>true</isActive>
+        <label>Business Details</label>
+        <stageOrder>1</stageOrder>
+    </stages>
+    <stages>
+        <name>Contact_Details_Stage</name>
+        <isActive>true</isActive>
+        <label>Contact Details</label>
+        <stageOrder>2</stageOrder>
+    </stages>
+    <stages>
+        <name>Loan_Details_Stage</name>
+        <isActive>true</isActive>
+        <label>Loan Details</label>
+        <stageOrder>3</stageOrder>
+    </stages>
+    <stages>
+        <name>Upload_Files</name>
+        <isActive>true</isActive>
+        <label>Upload Files</label>
+        <stageOrder>4</stageOrder>
+    </stages>
+    <startElementReference>Business_Details</startElementReference>
+    <status>Active</status>
+    <textTemplates>
+        <name>txtLineBreak</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>~
+~</text>
+    </textTemplates>
+    <textTemplates>
+        <name>txtTable</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;table border=&quot;0&quot; cellpadding = &quot;10&quot;&gt;
+&lt;tr&gt;&lt;td&gt; &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt; &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;- Loan Agreement and Guaranties &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;- Pay History &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;- Drivers Licenses &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;- Secretary of State information Sheet &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;- Cross-Corporate guaranties, if any &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;- Pre Qual Application &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;- Demand Letter, if one &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt; &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt; &lt;/td&gt;&lt;/tr&gt; 
+&lt;/table&gt;</text>
+    </textTemplates>
+    <variables>
+        <name>LoopVarContactRoles</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>OpportunityContactRole</objectType>
+    </variables>
+    <variables>
+        <name>LoopVarContacts</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Contact</objectType>
+    </variables>
+    <variables>
+        <name>NewCaseContactRole</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>CaseContactRole</objectType>
+    </variables>
+    <variables>
+        <name>NewCaseContactRolesCollection</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>CaseContactRole</objectType>
+    </variables>
+    <variables>
+        <name>NewContact</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Contact</objectType>
+    </variables>
+    <variables>
+        <name>NewContactRole</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>OpportunityContactRole</objectType>
+    </variables>
+    <variables>
+        <name>NewContactRolesCollection</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>OpportunityContactRole</objectType>
+    </variables>
+    <variables>
+        <name>NewContactsCollection</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Contact</objectType>
+    </variables>
+    <variables>
+        <name>varAccountId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>varAddressId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>varCaseContactId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>varCaseDescription</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>varCaseId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>varContactRoleCounter</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>1.0</numberValue>
+        </value>
+    </variables>
+    <variables>
+        <name>varOpportunityId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lease_EVF_DocuSign</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>600</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>Lease EVF DocuSign</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>https://composer.congamerge.com/composer8/index.html
+?sessionId={!API.Session_ID}
+&amp;serverUrl={!API.Partner_Server_URL_80}
+&amp;id={!Lead.Id}
+&amp;QueryId=a068000000UdrXy
+&amp;FP0=1
+&amp;DS4=1
+&amp;DS8={!IF($Profile.Name = "System Administrator",1,0)}
+
+&amp;TemplateGroup=NF+-+Lease+DS+EVF+Forms(L)
+&amp;DocuSignVisible=1
+&amp;DocuSignR1Id={!Lead.Id}
+&amp;DocuSignR1Role=Signor
+&amp;DocuSignR1Type=Signer
+&amp;DocuSignR1RoutingOrder=1
+
+&amp;DocuSignSendReminders=1
+&amp;DocuSignRemindIn=3
+&amp;DocuSignRemindAgainIn=10
+&amp;DocuSignExpireIn=63
+&amp;DocuSignWarnIn=5
+
+&amp;DocuSignCustomField1=dsfs__Custom_Field_1_Name__c
+&amp;DocuSignCustomFieldValue1=Vault With eOriginal
+&amp;DocuSignCustomField2=dsfs__Custom_Field_1_Value__c
+&amp;DocuSignCustomFieldValue2=No</url>
+</WebLink>

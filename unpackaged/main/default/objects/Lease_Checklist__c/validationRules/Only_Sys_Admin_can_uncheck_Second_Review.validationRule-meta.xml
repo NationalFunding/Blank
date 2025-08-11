@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Only_Sys_Admin_can_uncheck_Second_Review</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISCHANGED(Second_Review__c) &amp;&amp; (Second_Review__c = FALSE) &amp;&amp; ($Profile.Name &lt;&gt; 'System Administrator')</errorConditionFormula>
+    <errorDisplayField>Second_Review__c</errorDisplayField>
+    <errorMessage>Please contact your system admin to update this field.</errorMessage>
+</ValidationRule>

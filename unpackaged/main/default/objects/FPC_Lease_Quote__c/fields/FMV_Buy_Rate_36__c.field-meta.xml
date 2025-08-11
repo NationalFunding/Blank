@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FMV_Buy_Rate_36__c</fullName>
+    <description>Buy Rate for a 36 month term FMV lease.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Buy Rate for a 36 month term FMV lease.</inlineHelpText>
+    <label>FMV Buy Rate 36</label>
+    <precision>8</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

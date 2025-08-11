@@ -1,0 +1,9 @@
+<apex:page standardController="Opportunity" extensions="ActivityLogOpportunity">
+<table>
+    <tr>
+        <td> 
+             <apex:outputText id="activitycount" value="{!actCount}"></apex:outputText>
+        </td>
+    </tr>
+</table> 
+  </apex:page>

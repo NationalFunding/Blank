@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cmbls__write_off_with_repayment_write_off</fullName>
+    <active>false</active>
+    <description>Prevents Payment with Sub Type = "Collections on Write-Off" from being created if Repayment Status does not equal Write Off.</description>
+    <errorConditionFormula>ISPICKVAL(cmbls__Sub_Type__c, "Collection on Write-Off") &amp;&amp;
+            NOT(ISPICKVAL(cmbls__Repayment__r.cmbls__Status__c, "Write Off"))</errorConditionFormula>
+    <errorMessage>Sub Type = "Collections on Write-Off" requires Repayment Status being Write Off.</errorMessage>
+</ValidationRule>

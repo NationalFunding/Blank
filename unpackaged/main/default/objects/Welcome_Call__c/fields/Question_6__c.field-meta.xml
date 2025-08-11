@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Question_6__c</fullName>
+    <defaultValue>"Do you understand that the day after funds are released you will see 2 ACH pulls? One for the origination fee of XXX.XX and the 2nd for the first day's payment."</defaultValue>
+    <externalId>false</externalId>
+    <label>2 ACH Pulls Confirmation Q</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

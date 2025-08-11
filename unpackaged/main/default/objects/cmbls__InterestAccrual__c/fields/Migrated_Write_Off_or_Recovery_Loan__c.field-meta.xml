@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Migrated_Write_Off_or_Recovery_Loan__c</fullName>
+    <formula>AND(
+            cmbls__Repayment__r.Migrated__c,
+			OR(
+                ISPICKVAL(cmbls__Repayment__r.cmbls__Status__c, 'Write Off'),
+				ISPICKVAL(cmbls__Repayment__r.cmbls__Status__c, 'Recovery')
+            )
+        )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Migrated Write Off or Recovery Loan</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

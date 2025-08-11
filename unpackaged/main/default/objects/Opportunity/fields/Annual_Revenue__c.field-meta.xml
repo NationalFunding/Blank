@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Annual_Revenue__c</fullName>
+    <description>This field will capture the Annual Revenue associated with the Opportunity.  It is a formula field.</description>
+    <formula>BLANKVALUE( Annual_Revenue_Multiple_Locations__c , Account.AnnualRevenue )</formula>
+    <inlineHelpText>This field will capture the Annual Revenue associated with the Opportunity.  It is a formula field.</inlineHelpText>
+    <label>Annual Revenue</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

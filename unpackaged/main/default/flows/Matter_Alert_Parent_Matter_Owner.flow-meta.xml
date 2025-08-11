@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>AlertParentMatterOwner</name>
+        <label>AlertParentMatterOwner</label>
+        <locationX>128</locationX>
+        <locationY>117</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>txtEmailBody</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>conEmailSubject</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>inputParentMatterOwnerEmail</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <apiVersion>49.0</apiVersion>
+    <constants>
+        <name>conAliaEmail</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>aburdick@nationalfunding.com</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>conEmailSubject</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Parent Matter Assigned</stringValue>
+        </value>
+    </constants>
+    <formulas>
+        <name>formulaEmailAddresses</name>
+        <dataType>String</dataType>
+        <expression>{!inputParentMatterOwnerEmail} &amp; &apos;,&apos; &amp; {!conAliaEmail}</expression>
+    </formulas>
+    <interviewLabel>Matter - Alert Parent Matter Owner {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Matter - Alert Parent Matter Owner</label>
+    <processType>AutoLaunchedFlow</processType>
+    <startElementReference>AlertParentMatterOwner</startElementReference>
+    <status>Active</status>
+    <textTemplates>
+        <name>EmailBody</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;A child Matter has been assigned to the following Matter: &lt;A HREF=&quot;https://nf.my.salesforce.com/{!inputParentMatterId}&quot; TARGET=&quot;_blank&quot;&gt;{!inputParentMatterName}&lt;/A&gt;&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;Child Matter: &lt;A HREF=&quot;https://nf.my.salesforce.com/{!inputChildMatterId}&quot; TARGET=&quot;_blank&quot;&gt;{!inputChildMatterName}&lt;/A&gt;&lt;/FONT&gt;&lt;/DIV&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>txtEmailBody</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>A child Matter has been assigned to the following Matter: {!inputParentMatterName}
+
+Child Matter: http://nf.my.salesforce.com/{!inputChildMatterId}</text>
+    </textTemplates>
+    <variables>
+        <name>inputChildMatterId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>inputChildMatterName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>inputParentMatterId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>inputParentMatterName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>inputParentMatterOwnerEmail</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

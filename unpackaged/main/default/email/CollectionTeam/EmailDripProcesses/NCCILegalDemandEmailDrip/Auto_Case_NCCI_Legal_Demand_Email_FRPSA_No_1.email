@@ -1,0 +1,7 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto; margin: 0; padding: 0;">We are reaching out to inform you that your account is at risk for being defaulted. If you are having difficulties making your current remittances, we can do an account reconciliation to ensure your remittances are in line with the business's actual receivables. Please get in touch with us as soon as you can to address this issue. You can reach out by replying to this email or by phone at <span style="background:white"><span style="color:black">{{{Sender.Phone}}}</span></span>.<br />
+<span style="display:none;">{{{Case.Thread_Id}}}</span></body>
+</html>

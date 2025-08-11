@@ -1,0 +1,120 @@
+<template>
+    <lightning-card title="Opportunity All Activity" icon-name="standard:task">
+        <div slot="actions">
+            <lightning-button-icon icon-name="action:refresh" alternative-text="Refresh" size="Medium"
+                onclick={refreshActivity} style="margin-right: 10px;">
+            </lightning-button-icon>
+
+            <lightning-button-icon icon-name="utility:add" alternative-text="Add" size="Medium"
+                onclick={addActivity}>
+            </lightning-button-icon>
+        </div>
+        <template if:true={haveActivityRecords}>
+            <div>
+                <div class="slds-m-around_medium">
+                    <!-- Loop Through data and display -->
+                    <lightning-datatable key-field="sId" hide-checkbox-column data={activityList}
+                        columns={activityColumns} onrowaction={handleRowAction}
+                        >
+                    </lightning-datatable>
+                </div>
+
+                <div class="slds-grid slds-grid_vertical-align-bottom slds-grid_align-spread"
+                    style="padding-left: 0.5em;">
+                    <!--RECORDS PER PAGE-->
+                    <div class="slds-col slds-p-horizontal_medium">
+                        <div class="slds-list_inline">
+                            <span style="padding-top: 6px;">Page Size&nbsp;</span>
+                            <div class="slds-select_container">
+                                <select class="slds-select" id="itemsPerPage" onchange={handleRecordsPerPage}>
+                                    <template for:each={pageSizeOptions} for:item="option">
+                                        <option key={option} value={option}>{option}</option>
+                                    </template>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slds-col slds-p-horizontal_medium">
+                        <lightning-button label="Previous" onclick={handlePrevious}
+                            disabled={isFirstPage}></lightning-button>
+                        <span>&nbsp;Page {currentPage} of {totalPages}&nbsp;</span>
+                        <lightning-button label="Next" onclick={handleNext} disabled={isLastPage}></lightning-button>
+                    </div>
+                </div>
+            </div>
+        </template>
+        <template if:false={haveActivityRecords}>
+            <p>No accounts to display</p>
+        </template>
+    </lightning-card>
+
+
+    <!-- Modal Create Activity' -->
+    <template if:true={activityModal}>
+
+        <div class="contact-edit" data-id="Activity-edit" style="height: 640px;">
+
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+
+                <div class="slds-modal__container">
+
+                    <header class="slds-modal__header">
+
+                        <!-- TITLE -->
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">
+                            New Activity
+                        </h2>
+
+                    </header>
+
+                    <!-- BODY -->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+
+                        <!-- Activity Create -->
+                        <lightning-card>
+
+                            <div class="slds-grid slds-wrap">
+
+                                <div class="slds-col">
+
+                                    <lightning-input label="Subject" type="text" onchange={handleSubjectChange}>
+                                    </lightning-input>
+
+                                    <lightning-textarea label="Description" onchange={handleDescriptionChange}>
+                                    </lightning-textarea>
+
+                                </div>
+
+                            </div>
+
+
+                        </lightning-card>
+                    </div>
+
+                    <!-- FOOTER -->
+                    <footer class="slds-modal__footer">
+                        <!-- Cancel Button -->
+                        <lightning-button label="Cancel" variant="neutral" onclick={closeActivity}></lightning-button>
+
+                        <!-- Spacing -->
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+
+                        <!-- Update/Save Button -->
+                        <lightning-button label="Create" variant="brand" onclick={activityCreate}>
+                        </lightning-button>
+
+                    </footer>
+
+                </div>
+
+            </section>
+            <!-- Create Shading for Modal -->
+            <div class="slds-backdrop slds-backdrop_open"></div>
+
+        </div>
+
+    </template>
+
+</template>

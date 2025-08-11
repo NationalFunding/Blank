@@ -1,0 +1,6 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="400" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; color:#000000; bEditID:r3st1; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[<font face="arial" style="font-size: 12pt;">{!Lead.Name} has been reassigned to you because the customer did not meet the minimum credit qualifications for a lease transaction.&nbsp; Please contact the customer promptly.</font><br><br><font face="arial" style="font-size: 12pt;">{!Lead.Link}</font><br><br><font face="Arial, sans-serif"><font>New Salesforce Console: https://na29.salesforce.com/console#%2F{!Lead.Id}</font>&nbsp;&nbsp;<br></font><br>]]></td>
+</tr>
+</table>

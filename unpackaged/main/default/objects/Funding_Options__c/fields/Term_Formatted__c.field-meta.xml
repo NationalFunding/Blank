@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Term_Formatted__c</fullName>
+    <description>If number of days exceeds 1 year, show in terms of years and months with days as decimal. If number of days is below 1 year, show in terms of days</description>
+    <externalId>false</externalId>
+    <formula>IF(
+	Funding__r.Opportunity__r.RecordType.DeveloperName = 'Direct_MLP',
+	"10 years",
+	IF(
+		ISPICKVAL(Payment_Frequency__c, 'Daily'),
+		IF(
+			ROUND(((Number_of_Payments__c / 5) * 7),0) &lt;= 365,
+			TEXT(ROUND(((Number_of_Payments__c / 5) * 7),0))&amp;" days",
+			IF(
+				ROUND(((Number_of_Payments__c / 5) * 7),0) &gt;= 730,
+				TEXT(FLOOR(ROUND(((Number_of_Payments__c / 5) * 7),0) / 365)) &amp; " years "
+				&amp; TEXT(ROUND(((ROUND(((Number_of_Payments__c / 5) * 7),0) - 730) / 30.4),2)) &amp; " months",
+				IF(	
+					ROUND(((Number_of_Payments__c / 5) * 7),0) &gt; 365,
+					TEXT(FLOOR(ROUND(((Number_of_Payments__c / 5) * 7),0) / 365)) &amp; " year " 
+					&amp; TEXT(ROUND(((ROUND(((Number_of_Payments__c / 5) * 7),0) - 365) / 30.4),2)) &amp; " months",
+					""
+					)
+				)
+			),
+		IF(
+			ISPICKVAL(Payment_Frequency__c, 'Weekly'),
+			IF(
+				ROUND((Number_of_Payments__c * 7),0) &lt;= 365,
+				TEXT(ROUND((Number_of_Payments__c * 7),0))&amp;" days",
+				IF(
+					ROUND((Number_of_Payments__c * 7),0) &gt;= 730,
+					TEXT(FLOOR(ROUND((Number_of_Payments__c * 7),0) / 365)) &amp; " years "
+					&amp; TEXT(ROUND(((ROUND((Number_of_Payments__c * 7),0) - 730)/ 30.4), 2)) &amp; " months",
+					IF(	
+						ROUND((Number_of_Payments__c * 7),0) &gt; 365,
+						TEXT(FLOOR(ROUND((Number_of_Payments__c * 7),0) / 365)) &amp; " year "
+						&amp; TEXT(ROUND(((ROUND((Number_of_Payments__c * 7),0) - 365)/ 30.4), 2)) &amp; " months",
+						""
+						)
+					)
+				),
+			""
+			)
+		)
+	)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Text formatted for use in TIL merge documents</inlineHelpText>
+    <label>Term (Formatted)</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

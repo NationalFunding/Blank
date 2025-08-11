@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SMS_Opt_Out_Validation</fullName>
+    <active>true</active>
+    <description>User(s) can only manually Opt Leads Manually. All other changes have to be systematic</description>
+    <errorConditionFormula>AND(
+	ISCHANGED(SMS_Opt_Out__c),
+	PRIORVALUE(SMS_Opt_Out__c)=TRUE,
+	SMS_Opt_Out__c = FALSE,
+	$User.ProfileId != '00e800000014YDt'
+)</errorConditionFormula>
+    <errorMessage>You cannot manually uncheck the SMS Opt Out field.</errorMessage>
+</ValidationRule>

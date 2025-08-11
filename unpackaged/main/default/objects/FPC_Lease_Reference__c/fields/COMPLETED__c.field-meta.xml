@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>COMPLETED__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Status of the customer's lease / loan references being checked.</description>
+    <inlineHelpText>Check box if the customer's lease / loan reference has been checked and completed.</inlineHelpText>
+    <label>COMPLETED</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

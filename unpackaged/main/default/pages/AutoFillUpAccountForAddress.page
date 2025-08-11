@@ -1,0 +1,51 @@
+<!--create by Ted on 2011-02-15 for 5 point number 15, auto pop up account name -->
+<apex:page standardController="FPC_Address__c" extensions="CreateNewAddressForContact">
+
+	<apex:form >
+		<apex:sectionHeader title="Address Edit" subtitle="New Address" />
+
+		<apex:pageBlock id="pageBlockId" title="Address Edit" mode="edit">
+		    <apex:pageBlockButtons >
+				<apex:commandButton value="Save" action="{!save}" rerender="pageBlockId" immediate="false"/>
+				<apex:commandButton value="Save&New" action="{!saveAndNew}" immediate="false"/>
+				<apex:commandButton value="Cancel" action="{!cancel}" immediate="true"/>
+			</apex:pageBlockButtons>
+	
+		<apex:pageBlockSection title="Information" columns="2">
+			<!-- line 1 -->
+                <apex:inputField value="{!theAddress.Account__c}"/>
+                <apex:inputField value="{!theAddress.Address_1__c}"/>
+			<!-- line 2 -->
+                <apex:inputField value="{!theAddress.Contact__c}"/>
+                <apex:inputField value="{!theAddress.City__c}"/>
+			<!-- line 3 -->
+                <apex:inputField value="{!theAddress.Location_Type__c}"/>
+                <apex:inputField value="{!theAddress.State__c}"/>
+			<!-- line 4 -->
+                <apex:inputField value="{!theAddress.Opportunity__c}"/>
+                <apex:inputField value="{!theAddress.Zip_Code__c}"/>
+            <!-- line 5 -->
+                <apex:inputField value="{!theAddress.MSA_Code__c}"/>
+                <apex:inputField value="{!theAddress.Isprimary__c}"/>
+			<!-- line 6 -->
+                <apex:inputField value="{!theAddress.Address_2__c}"/>
+                <apex:outputLabel />
+			<!-- line 7 -->
+                <apex:inputField value="{!theAddress.MSA_Name__c}"/>
+                <apex:outputLabel />
+			<!-- line 8 -->
+                <apex:inputField value="{!theAddress.Description__c}"/>
+                <apex:outputLabel />
+			<!-- line 9 -->
+                <apex:inputField value="{!theAddress.County__c}"/>
+                <apex:outputLabel />
+        </apex:pageBlockSection>
+
+	
+	
+		</apex:pageBlock>
+	</apex:form>
+
+
+
+</apex:page>

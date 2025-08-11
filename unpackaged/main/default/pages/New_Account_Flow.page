@@ -1,0 +1,6 @@
+<apex:page standardController="Account" sidebar="false">
+<apex:pageBlock title="Create A New Account"></apex:pageBlock>
+<flow:interview name="Vendor_Lender_Account_Create" finishLocation="{!$Page.gotoLastCreatedAccount}">  
+<apex:param name="varUserId" value="{!$User.Id}"/> 
+</flow:interview>
+</apex:page>

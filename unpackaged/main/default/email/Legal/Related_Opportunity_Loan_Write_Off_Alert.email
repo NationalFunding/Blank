@@ -1,0 +1,5 @@
+{!Related_Opportunity__c.Link}
+
+Click on the above link to open the Related Opportunity record. From there click on the Related Opportunity Search link to access the newly submitted Opportunity.
+
+Matched Opportunity: {!Related_Opportunity__c.Opportunity__c}

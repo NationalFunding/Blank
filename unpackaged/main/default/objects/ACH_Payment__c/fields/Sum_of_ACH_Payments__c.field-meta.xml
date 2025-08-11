@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sum_of_ACH_Payments__c</fullName>
+    <description>This field will be the total amount of payments set to be paid out associated with an opportunity.</description>
+    <externalId>false</externalId>
+    <formula>Opportunity__r.WC_ACH_Payments_Sum__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>This field will be the total amount of payments set to be paid out associated with an opportunity.</inlineHelpText>
+    <label>Sum of ACH Payments</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

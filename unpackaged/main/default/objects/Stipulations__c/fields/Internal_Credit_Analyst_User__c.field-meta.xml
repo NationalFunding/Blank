@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Internal_Credit_Analyst_User__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Populated by Process Builder Stipulation - Actions on Edit</description>
+    <label>Internal Credit Analyst User</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Stipulations5</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

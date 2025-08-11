@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MSA_Name__c</fullName>
+    <description>The Metropolitian Service Area (MSA) Name that this lead resides in.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The Metropolitian Service Area (MSA) Name that this lead resides in.</inlineHelpText>
+    <label>MSA Name</label>
+    <length>128</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

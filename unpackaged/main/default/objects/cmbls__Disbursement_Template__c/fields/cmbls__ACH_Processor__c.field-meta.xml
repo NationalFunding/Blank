@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cmbls__ACH_Processor__c</fullName>
+    <deprecated>false</deprecated>
+    <label>ACH Processor</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Wells Fargo - NF Funding</fullName>
+                <default>false</default>
+                <label>Wells Fargo - NF Funding</label>
+            </value>
+            <value>
+                <fullName>Wells Fargo - QBF Funding</fullName>
+                <default>false</default>
+                <label>Wells Fargo - QBF Funding</label>
+            </value>
+            <value>
+                <fullName>ACH Processing Co</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>ACH Processing Co</label>
+            </value>
+            <value>
+                <fullName>ACH.com</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>ACH.com</label>
+            </value>
+            <value>
+                <fullName>ACHWorks</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>ACHWorks</label>
+            </value>
+            <value>
+                <fullName>ACHeck21</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>ACHeck21</label>
+            </value>
+            <value>
+                <fullName>Forte</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Forte</label>
+            </value>
+            <value>
+                <fullName>PaySafe</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>PaySafe</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

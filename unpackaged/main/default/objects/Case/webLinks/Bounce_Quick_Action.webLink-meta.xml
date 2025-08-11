@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bounce_Quick_Action</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Bounce - Quick Action</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>/flow/Accounting_Instructions_Quick_Action?RecordId={!Case.Id}&amp;RetURL=/{!Case.Id}</url>
+</WebLink>

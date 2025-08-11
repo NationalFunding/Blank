@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lease_Sales_PDF_Docs</fullName>
+    <availability>online</availability>
+    <description>Lease Sales Docs- EVF, Invoice Instructions</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>600</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>Create Lease EVF</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>/apex/APXTConga4__Conga_Composer?serverUrl={!API.Partner_Server_URL_370}
+&amp;id={!Opportunity.Id}
+&amp;QueryId=a068000000OH2X1,a068000000OH2Wm,a068000000OH2aZ,a068000000OH2Xq,a068000000OH2XH,a068000000OH2at,a068000000OH2b3
+&amp;FP0={!IF( $Profile.Name = "System Administrator", 0,1)}
+&amp;DS4=0
+&amp;DS7=0
+&amp;DS8={!IF( $Profile.Name = "System Administrator", 1,0)}
+&amp;TemplateGroup=NF - Lease EVF(O)
+&amp;SelectTemplates=1
+&amp;DefaultPdf=1</url>
+    <width>900</width>
+</WebLink>

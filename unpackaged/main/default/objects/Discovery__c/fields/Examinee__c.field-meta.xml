@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Examinee__c</fullName>
+    <description>Judgment Debtor Exam Examinee</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Judgment Debtor Exam Examinee</inlineHelpText>
+    <label>Examinee</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

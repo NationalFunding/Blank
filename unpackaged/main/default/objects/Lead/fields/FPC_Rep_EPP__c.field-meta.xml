@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FPC_Rep_EPP__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>FPC Sales Rep for EPP</description>
+    <inlineHelpText>Select the Sales Rep for EPP</inlineHelpText>
+    <label>FPC Rep EPP</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Leads_RepEPP</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

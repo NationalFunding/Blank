@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Past_Rep_Short_Term__c</fullName>
+    <description>Field to specify short-term reassignments and who to return lead ownership to. Visible only to system admin profile.</description>
+    <label>Past Rep Short Term</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Michelle Lewis</fullName>
+                <default>false</default>
+                <label>Michelle Lewis</label>
+            </value>
+            <value>
+                <fullName>Tim Lewis</fullName>
+                <default>false</default>
+                <label>Tim Lewis</label>
+            </value>
+            <value>
+                <fullName>David Bass</fullName>
+                <default>false</default>
+                <label>David Bass</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

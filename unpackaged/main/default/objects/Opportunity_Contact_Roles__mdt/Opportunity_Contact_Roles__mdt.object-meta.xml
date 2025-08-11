@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Opportunity can only have one contact with any one of the roles listed here.  Duplicate roles are not allowed.</description>
+    <label>Opportunity Contact Roles</label>
+    <pluralLabel>Opportunity Contact Roles</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

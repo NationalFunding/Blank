@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Gift_Card_Program_del__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Gift card program- status</description>
+    <inlineHelpText>Check box if merchant has a gift card program.</inlineHelpText>
+    <label>Gift Card Program</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

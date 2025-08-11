@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Transaction_Depth__c</fullName>
+    <description>This field will capture the number of days of statements that we should expect to receive from Yodlee from the specific bank.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This field will capture the number of days of statements that we should expect to receive from Yodlee from the specific bank.</inlineHelpText>
+    <label>Max Days of Transactions</label>
+    <precision>4</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

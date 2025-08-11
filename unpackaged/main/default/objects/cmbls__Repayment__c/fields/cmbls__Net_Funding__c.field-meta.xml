@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cmbls__Net_Funding__c</fullName>
+    <deprecated>false</deprecated>
+    <description>Funding Amount minus the origination fee</description>
+    <formula>cmbls__Funding_Amount__c
+- IF(cmbls__Origination_Fee_Not_Netted__c, 0, cmbls__Origination_Fee__c)
+- cmbls__Additional_Fees__c
+- cmbls__Renewal_Payoff_Amount__c
+- cmbls__Starting_Draw_Reserve_Balance__c
+- cmbls__Additional_Net_Funding_Transactions__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>'Funding Amount' minus 'Origination Fee' 'Additional Fees' and 'Renewal Payoff Amount'</inlineHelpText>
+    <label>Net Funding</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+</CustomField>

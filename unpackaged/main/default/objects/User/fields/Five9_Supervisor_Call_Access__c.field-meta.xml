@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Five9_Supervisor_Call_Access__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field will be used to restrict/grant access to calls not made by the user.  If this check box is true on a user's record, the user will be able to listen to all Five9 Calls.</description>
+    <label>Five9 Supervisor Call Access</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Checkbox</type>
+</CustomField>

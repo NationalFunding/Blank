@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payoff_2_Amount__c</fullName>
+    <description>Payoff Amount #2</description>
+    <inlineHelpText>Type in the payoff amount.</inlineHelpText>
+    <label>Payoff 2 Amount</label>
+    <precision>17</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

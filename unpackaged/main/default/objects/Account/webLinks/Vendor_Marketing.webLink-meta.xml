@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Vendor_Marketing</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>450</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>Vendor Marketing</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>https://www.appextremes.com/apps/Conga/PointMerge.aspx
+?sessionId={!API.Session_ID}
+&amp;serverUrl={!API.Partner_Server_URL_80}
+&amp;id={!Account.Id}
+&amp;QueryId=a068000000Xpnt6,a068000000V8bm4,a068000000XM9qD
+&amp;TemplateGroup=Vendor</url>
+    <width>650</width>
+</WebLink>

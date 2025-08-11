@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Submit_Strategic_Partner_for_Approval__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Check this box when the Strategic Partner is ready to be submitted for approval. When field = true, workflow is triggered to send email alert and change the Account Status.</description>
+    <inlineHelpText>Check this box when the Strategic Partner is ready to be submitted for approval.</inlineHelpText>
+    <label>Submit Strategic Partner for Approval</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,14 @@
+Hi {!Contact.FirstName},
+
+I saw that you completed a form on our website indicating interest in obtaining financing for your business. I called a minute ago, but was unable to reach you, so following up with a quick note. Please call me at your soonest convenience at {!User.Phone}.
+
+Thanks for your interest--I look forward to speaking with you soon.
+
+Best regards,
+{!User.FirstName}
+
+{!User.FirstName} {!User.LastName}
+{!User.Title}
+{!User.CompanyName}
+{!User.Email}
+{!User.Phone}

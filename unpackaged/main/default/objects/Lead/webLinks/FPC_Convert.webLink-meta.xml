@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FPC_Convert</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>NF Convert</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
+{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
+{!REQUIRESCRIPT('//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js')} 
+{!REQUIRESCRIPT('//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js')} 
+
+$(document).ready(function(){ 
+var LeadId = '{!Lead.Id}'; 
+if (sforce.console.isInConsole()){ 
+var CMWindow = sforce.console.openPrimaryTab(undefined, '/apex/LeadConvert?retURL='+ LeadId +'&amp;id='+LeadId, true); 
+} 
+else{ 
+window.parent.location.href = '/apex/LeadConvert?retURL='+ LeadId +'&amp;id='+LeadId; 
+} 
+});
+
+//var LeadId = '{!Lead.Id}'; 
+
+//if( ('{!Lead.Date_Funds_Needed__c}' == '') || ('{!Lead.Amount__c}' == '') || ('{!Lead.Use_of_Funds__c}' == '')) 
+//{ 
+//alert('Date Funds, Amount fields and Use of Funds are Required '); 
+//} 
+//else 
+//{ 
+//window.parent.location.href = '/apex/LeadConvert?retURL='+ LeadId +'&amp;id='+LeadId; 
+
+//}</url>
+</WebLink>

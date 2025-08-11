@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Welcome Email - Web to NF 2018</name>
+    <style>none</style>
+    <subject>Welcome to National Funding</subject>
+    <textOnly>Thank you for applying
+
+
+Small Business Loans Over $4.5B funded since 1999
+
+Thank you for contacting National Funding, our goal is to fund your business in the most efficient way possible.
+
+What&apos;s next?
+
+Get an even quicker start with our digital funding process.
+
+
+Start Here
+
+A funding specialist will be contacting you promptly during business hours.
+
+National Funding
+{!$Setup.Company_Information__c.Street__c}, {!$Setup.Company_Information__c.City__c}, {!$Setup.Company_Information__c.State__c} {!$Setup.Company_Information__c.Zip__c}
+P (888) 733-2383 | F (888) 740-1151
+www.nationalfunding.com
+
+National Funding respects your privacy. Our commitment to your privacy is in our privacy policy, which is available on our website for your reference.
+© 2022 National Funding. All rights reserved.</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

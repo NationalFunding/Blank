@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Added this permission set to give user ability to move to Lightning experience</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Lightning Experience Users</label>
+    <license>Salesforce</license>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>LightningExperienceUser</name>
+    </userPermissions>
+</PermissionSet>

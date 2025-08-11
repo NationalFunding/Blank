@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Partner_Client_Id__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>Used to store the client ID for broker accounts participating in our Partner API PD-1364</description>
+    <externalId>false</externalId>
+    <label>Partner Client Id</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

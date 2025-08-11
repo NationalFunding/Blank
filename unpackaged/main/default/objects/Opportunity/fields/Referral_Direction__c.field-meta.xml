@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Referral_Direction__c</fullName>
+    <description>This field will be used to track referrals to and from outside partners.</description>
+    <inlineHelpText>This field will be used to track referrals to and from outside partners.</inlineHelpText>
+    <label>Referral</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Referral In</fullName>
+                <default>false</default>
+                <label>Referral In</label>
+            </value>
+            <value>
+                <fullName>Referral Out</fullName>
+                <default>false</default>
+                <label>Referral Out</label>
+            </value>
+            <value>
+                <fullName>VAP Referral</fullName>
+                <default>false</default>
+                <label>VAP Referral</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

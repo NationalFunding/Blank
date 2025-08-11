@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Loan_Mod_eSign</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>600</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>Loan Mod eSign - old</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>/apex/CM8ConsoleLauncher
+?sessionId={!API.Session_ID}
+&amp;serverUrl={!API.Partner_Server_URL_210}
+&amp;id={!Case.Id}
+&amp;TemplateGroup=CaseLoanModAgreement
+&amp;QueryId=[Opp]a062T00001JXSti,[Signor]a0634000016WUTa,[G2]a0634000018zqKF,
+&amp;DS4=0
+&amp;DS7=0
+&amp;DS8=1
+&amp;SelectTemplates=1
+&amp;DefaultPdf=1
+&amp;LG3=1
+&amp;LG0=0
+&amp;LG4=1
+&amp;PS0=1
+&amp;PS1=1
+&amp;PS2=0
+&amp;AttachmentParentId={!Case.Id}
+&amp;OFN=Modification - +{!Case.Merchant_Number__c}
+&amp;QVAR0ID=a062T00001JXSqj
+&amp;DV0={QVAR0}
+
+&amp;ESVisible=1
+&amp;ESSignatureType=2
+&amp;ESAgreementName=Modification - +{!Case.Merchant_Number__c}
+
+&amp;QVAR1ID=a062T00001Jnxk6
+&amp;QVAR2ID=a062T00001Jnxrf
+&amp;ESRecipient1={QVAR1}
+&amp;ESRecipient2=00580000003edxLAAQ
+
+&amp;ESCustomField1=echosign_dev1__Sender_User__c
+&amp;ESCustomFieldValue1=0053400000AMMhp</url>
+</WebLink>

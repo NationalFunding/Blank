@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This custom Metadata is used to store object and field information which is used in batch which runs after sandbox refresh to mask data</description>
+    <label>Data Masking Configuration</label>
+    <pluralLabel>Data Masking Configurations</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

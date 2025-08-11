@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ACCOUNT_OPENED__c</fullName>
+    <description>Date that the customer's bank account was opened.</description>
+    <inlineHelpText>Type in the date that the customer's bank account was opened.</inlineHelpText>
+    <label>ACCOUNT_OPENED</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

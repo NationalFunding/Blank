@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WellsFargo_Max_Number_Records_Per_Batch__c</fullName>
+    <defaultValue>300</defaultValue>
+    <description>The total number of records WellsFargo can process in a single batch. If the limit is reached, the remaining records of the batch will be processed later.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The total number of records WellsFargo can process in a single batch. If the limit is reached, the remaining records of the batch will be processed later.</inlineHelpText>
+    <label>WellsFargo Max N# Records Per Batch</label>
+    <precision>4</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

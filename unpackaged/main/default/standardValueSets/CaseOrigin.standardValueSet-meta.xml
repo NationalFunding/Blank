@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Internal</fullName>
+        <default>false</default>
+        <label>Internal</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Phone</fullName>
+        <default>false</default>
+        <label>Phone</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Email - Accounting</fullName>
+        <default>false</default>
+        <label>Email - Accounting</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Email - Portfolio Management</fullName>
+        <default>false</default>
+        <label>Email - Portfolio Management</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Email - Salesforce</fullName>
+        <default>false</default>
+        <label>Email - Salesforce</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Email - Renewals Customer Service</fullName>
+        <default>false</default>
+        <label>Email - Renewals Customer Service</label>
+    </standardValue>
+</StandardValueSet>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fraud_Status__c</fullName>
+    <label>Fraud Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Status</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Affidavit Sent</fullName>
+                <default>false</default>
+                <label>Affidavit Sent</label>
+            </value>
+            <value>
+                <fullName>Investigation Pending</fullName>
+                <default>false</default>
+                <label>Investigation Pending</label>
+            </value>
+            <value>
+                <fullName>Closed - Invalid Fraud</fullName>
+                <default>false</default>
+                <label>Closed - Invalid Fraud</label>
+            </value>
+            <value>
+                <fullName>Closed - Valid Fraud</fullName>
+                <default>false</default>
+                <label>Closed - Valid Fraud</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Closed</controllingFieldValue>
+            <valueName>Closed - Invalid Fraud</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed</controllingFieldValue>
+            <valueName>Closed - Valid Fraud</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Open</controllingFieldValue>
+            <valueName>Affidavit Sent</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Open</controllingFieldValue>
+            <valueName>Investigation Pending</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

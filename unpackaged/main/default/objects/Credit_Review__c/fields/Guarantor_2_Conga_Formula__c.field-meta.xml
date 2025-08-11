@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Guarantor_2_Conga_Formula__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(ISPICKVAL(Credit_Review_Version__c,
+'Version 2'),PG2__r.Full_Name__c,
+PG_2_Name__c)</formula>
+    <label>Guarantor 2 Conga Formula</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

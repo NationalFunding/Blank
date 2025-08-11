@@ -1,0 +1,229 @@
+<apex:page Controller="CardSearchController1_v2" action="{!fake05Submit}">
+         <apex:includeScript value="/support/console/31.0/integration.js"/>
+
+    <script type="text/javascript">
+    	function openNewTab(obj){
+            sforce.console.openPrimaryTab(null, '/' + obj, true);
+            };
+    </script>
+
+    <apex:form >        
+        <apex:pageBlock title="Card Search">
+            <apex:pageBlockSection columns="2" id="basicSearch">
+                <apex:pageBlockSectionItem >     
+                    <apex:outputLabel value="Card #" for="card"/>  
+                    <apex:inputText id="card" value="{!fake02String}" />                    
+                </apex:pageBlockSectionItem>  
+                <apex:pageBlockSectionItem >      
+                    <apex:outputLabel value="Name" for="nm"/>  
+                    <apex:inputText id="nm" value="{!fake03String}" />
+                </apex:pageBlockSectionItem>                     
+                <apex:pageBlockSectionItem >     
+                    <apex:outputLabel value="Phone" for="ph"/>  
+                    <apex:inputText id="ph" value="{!fake04String}" />
+                 </apex:pageBlockSectionItem>
+    
+        <apex:pageBlockSectionItem >   
+            <apex:outputLabel value="Fax" for="fx"/>  
+                    <apex:inputText id="fx" value="{!fax}" />
+        </apex:pageBlockSectionItem>
+                 
+                                                                              
+            </apex:pageBlockSection>   
+                                                                                    
+            <apex:commandButton action="{!Search1}" value="Search" reRender=""/>                
+                
+        </apex:pageBlock>
+        
+        <apex:pageBlock title="Campaign Members"  >                               
+                <apex:outputPanel rendered="{!isNull(CampaignMembers)}">No Campaign Members found.</apex:outputPanel>
+                <apex:pageBlockTable value="{!CampaignMembers}" var="cm" rendered="{!NOT(IsNull(CampaignMembers))}">
+                    <apex:column >
+                        <apex:commandLink value="Select" action="{!openCampaignMember}" rendered="{!AND((IsNull(cm.ContactId)),not(isNull(cm.LeadId)))}">
+                            <apex:param name="leadId" value="{!cm.LeadId}"/>
+                            <apex:param name="CampaignMemberId" value="{!cm.Id}"/>
+                        </apex:commandLink>
+                    </apex:column>
+                    <apex:column headerValue="Lead" rendered="{!isNull(cm.ContactId)}">
+                        <apex:commandLink value="{!cm.Lead.Name}" action="{!openCampaignMember}">
+                            <apex:param name="leadId" value="{!cm.LeadId}"/>
+                            <apex:param name="CampaignMemberId" value="{!cm.Id}"/>
+                        </apex:commandLink>
+                    </apex:column>
+                    <apex:column headerValue="Lead" value="{!cm.Lead.Name}" rendered="{!not(isNull(cm.ContactId))}" />
+                   
+                   <apex:column headerValue="Contact">
+                        <apex:commandLink value="{!cm.Contact.Name}" action="{!openCampaignMemberContacts}">
+                            <apex:param name="ContactId" value="{!cm.ContactId}"/>
+                            <apex:param name="CampaignMemberId" value="{!cm.Id}"/> 
+                        </apex:commandLink>
+                    </apex:column>
+                    
+                    
+                   <!--  <apex:column headerValue="Contact"><apex:outputLink value="/{!cm.ContactId}">{!cm.Contact.Name}</apex:outputLink></apex:column> -->         
+                    <apex:column headerValue="Company" > 
+                        <apex:outputText value="{!cm.lead.Company}" rendered="{!not(isNull(cm.lead.Company))}" />
+                    </apex:column>     
+                    <apex:column headerValue="Phone" >  
+                        <apex:outputText value="{!cm.lead.Phone}" rendered="{!(isNull(cm.contact.Phone))}" />
+                        <apex:outputText value="{!cm.contact.Phone}" />
+                    </apex:column>   
+                    <apex:column headerValue="Campaign"><apex:outputField value="{!cm.Campaign.Name}"></apex:outputField></apex:column> 
+                    
+                    <apex:column headerValue="Campaign Type"><apex:outputField value="{!cm.Campaign_Type__c}"></apex:outputField></apex:column> 
+                    
+                     <apex:column headerValue="Campaign Start Date"><apex:outputField value="{!cm.Campaign.StartDate}"></apex:outputField></apex:column> 
+                    <apex:column headerValue="Account Number"><apex:outputField value="{!cm.Short_Account_Number__c}"></apex:outputField></apex:column>                        
+                </apex:pageBlockTable>
+        </apex:pageBlock> 
+        
+        <apex:pageBlock title="Leads" > 
+            <apex:outputPanel rendered="{!isNull(lead_list)}">No Leads found.</apex:outputPanel>        
+                <apex:pageBlockTable value="{!Lead_list}" var="l" rendered="{!NOT(IsNull(lead_list))}">
+                    
+                    <!-- 
+                       <apex:column headerValue="Has Campaign Members">
+                            {!l.hasCampaignMembers}
+                        </apex:column>
+                     -->
+                    <apex:column headerValue="Name" value="{!l.lead.Name}" rendered="{!NOT(IsNull(l.campaign_members))}"/>
+                    <apex:column headerValue="Name" rendered="{!(IsNull(l.campaign_members))}">
+                       <apex:outputLink onclick="openNewTab('{!l.lead.Id}');">{!l.lead.Name}</apex:outputLink>  
+                    </apex:column>
+                     <apex:column headerValue="Phone" value="{!l.lead.Phone}" />
+                     <apex:column headerValue="Company"><apex:outputField value="{!l.lead.Company}"></apex:outputField></apex:column>
+                    <apex:column headerValue="Account Number"><apex:outputField value="{!l.lead.Account_Number__c}"></apex:outputField></apex:column> 
+                     
+                     
+                     
+                     <apex:column headerValue="Campaign Member(s)"> 
+                       <apex:dataTable value="{!l.campaign_members}" var="m">
+                           <apex:column headerValue="Lead" >
+                                 <!--apex:commandLink value="Select" action="{!openCampaignMember}" rendered="{!IF(m.campaign.StartDate <= Today(),True,False)}">
+                                    <apex:param name="leadId" value="{!m.leadid}"/>
+                                    <apex:param name="CampaignMemberId" value="{!m.id}"/>     
+                                 </apex:commandLink-->
+                           </apex:column>
+                           <apex:column headerValue="Campaign" value="{!m.campaign.name}"/>
+                           <apex:column headerValue="Start Date" value="{!m.campaign.StartDate}"/>
+                            <apex:column headerValue="Account Number" value="{!m.Account_Number__c}"/>
+                          <!-- <apex:column headerValue="Activation Code" value="{!m.Activation_Code__c}"/> --> 
+                           
+                           <apex:column headerValue="Campaign Type"><apex:outputField value="{!m.Campaign_Type__c}"></apex:outputField></apex:column> 
+                       </apex:dataTable>
+                    </apex:column>  
+                </apex:pageBlockTable>
+         </apex:pageBlock>
+         
+        
+<apex:pageBlock title="Accounts" >
+            <apex:outputPanel rendered="{!isNull(accounts)}">No Accounts found.</apex:outputPanel>  
+              <apex:pageBlockTable value="{!account_list}" var="a" rendered="{!NOT(IsNull(accounts))}"> campaign_type__c
+                           <!-- 
+                        <apex:column headerValue="Has Campaign Members">
+                            {!a.hasCampaignMembers}
+                        </apex:column>
+                           -->
+                        <apex:column headerValue="Name">
+                        
+                            <apex:outputLink onclick="openNewTab('{!a.account.Id}');" rendered="{!not(a.hasCampaignMembers)}">{!a.account.Name}</apex:outputLink>
+                        
+                        <!-- if no campaign_members then the account is a link , else just show the account name -->
+                            <apex:outputText value="{!a.account.Name}" rendered="{!a.hasCampaignMembers}" />
+                        
+                        </apex:column>
+                        
+                                                
+                        <apex:column headerValue="Account Number"><apex:outputField value="{!a.account.Account_Number__c}"></apex:outputField></apex:column>
+                        <apex:column headerValue="Contact">
+                            <apex:pageBlockTable value="{!a.lstGenWrapper}" var="l">
+                                
+                                 <!-- show contact link if there are no campaign members -->
+                                <apex:column headerValue="Name" value="{!l.contact.Name}" rendered="{!a.hasCampaignMembers}"/>
+                                 <apex:column headerValue="Name" rendered="{!not(a.hasCampaignMembers)}">
+                                   <apex:outputLink onclick="openNewTab('{!l.contact.Id}');">{!l.contact.Name}</apex:outputLink>  
+                                </apex:column>
+                                
+                                
+                                
+                                
+                                <apex:column headerValue="Phone" value="{!l.contact.Phone}" />                                
+                                 <apex:column headerValue="Campaign Member(s)"> 
+                                   <apex:dataTable value="{!l.campaign_members}" var="m">
+                                    
+                                   
+                                    
+                                    <apex:column headerValue="Contact" >
+                                            <apex:commandLink value="Select" action="{!openCampaignMemberContacts}" rendered="{!OR(IF(m.campaign.StartDate <= Today(),True,False), IsNull(m.campaign.StartDate))}">
+                                               <apex:param name="ContactId" value="{!m.ContactId}"/>
+                                               <apex:param name="CampaignMemberId" value="{!m.id}"/>     
+                                           </apex:commandLink>
+                                       </apex:column>
+
+                                       <apex:column headerValue="Campaign Type"><apex:outputField value="{!m.Campaign_Type__c}"></apex:outputField></apex:column> 
+                                       
+                                       <apex:column headerValue="Campaign" value="{!m.campaign.name}"/>
+                                       <apex:column headerValue="Start Date" value="{!m.campaign.StartDate}"/>
+                                        <apex:column headerValue="Account Number" value="{!m.Account_Number__c}"/>
+                                       <apex:column headerValue="Activation Code" value="{!m.Activation_Code__c}"/>
+                                   </apex:dataTable>
+                                </apex:column>
+                            </apex:pageBlockTable>                        
+                        </apex:column>                          
+                </apex:pageBlockTable>
+              
+               <!-- <apex:pageBlockTable value="{!Accounts}" var="a" rendered="{!NOT(IsNull(accounts))}">
+                        <apex:column headerValue="Name"><apex:outputLink value="/{!a.Id}">{!a.Name}</apex:outputLink></apex:column>                        
+                        <apex:column headerValue="Account Number"><apex:outputField value="{!a.Account_Number__c}"></apex:outputField></apex:column>
+               
+                </apex:pageBlockTable>  --> 
+        </apex:pageBlock> 
+
+
+        
+         <apex:pageBlock title="Contacts" >    
+               <apex:outputPanel rendered="{!isNull(contact_list)}">No Contacts found.</apex:outputPanel>  
+                <apex:pageBlockTable value="{!contact_list}" var="l" rendered="{!NOT(IsNull(contact_list))}">
+                <!-- 
+                   <apex:column headerValue="Has Campaign Members">
+                            {!l.hasCampaignMembers}
+                        </apex:column>
+                -->
+                
+                    <apex:column headerValue="Name" value="{!l.contact.Name}" rendered="{!NOT(IsNull(l.campaign_members))}"/>
+                     
+                      <!-- show contact link if there are no campaign members -->
+                                <apex:column headerValue="Name" value="{!l.contact.Name}" rendered="{!l.hasCampaignMembers}"/>
+                                 <apex:column headerValue="Name" rendered="{!not(l.hasCampaignMembers)}">
+                                   <apex:outputLink onclick="openNewTab('{!l.contact.Id}');">{!l.contact.Name}</apex:outputLink>  
+                                </apex:column>
+                     
+                     <!-- 
+                     <apex:column headerValue="Name" rendered="{!(IsNull(l.campaign_members))}">
+                       <apex:outputLink target="_blank" value="/{!l.contact.id}">{!l.contact.Name}</apex:outputLink>  
+                    </apex:column>
+                     -->
+                    
+                    
+                    <apex:column headerValue="Phone" value="{!l.contact.Phone}" />
+                    <apex:column headerValue="Account Name"><apex:outputField value="{!l.contact.account.name}"></apex:outputField></apex:column>  
+                     <apex:column headerValue="Campaign Member(s)"> 
+                       <apex:dataTable value="{!l.campaign_members}" var="m">
+                        <apex:column headerValue="Contact" >
+                                <apex:commandLink value="Select" action="{!openCampaignMemberContacts}" rendered="{!OR(IF(m.campaign.StartDate <= Today(),True,False), IsNull(m.campaign.StartDate))}">
+                                   <apex:param name="ContactId" value="{!m.ContactId}"/>
+                                   <apex:param name="CampaignMemberId" value="{!m.id}"/>     
+                               </apex:commandLink>
+                           </apex:column>
+                           <apex:column headerValue="Campaign Type"><apex:outputField value="{!m.Campaign_Type__c}"></apex:outputField></apex:column> 
+                           <apex:column headerValue="Campaign" value="{!m.campaign.name}"/>
+                           <apex:column headerValue="Start Date" value="{!m.campaign.StartDate}"/>
+                            <apex:column headerValue="Account Number" value="{!m.Account_Number__c}"/>
+                           <apex:column headerValue="Activation Code" value="{!m.Activation_Code__c}"/>
+                       </apex:dataTable>
+                    </apex:column>
+                </apex:pageBlockTable>
+         </apex:pageBlock>  
+             
+    </apex:form>            
+</apex:page>

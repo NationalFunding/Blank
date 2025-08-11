@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Post_Funded_Findings__c</fullName>
+    <label>Post-Funded Findings</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Error</fullName>
+                <default>false</default>
+                <label>Error</label>
+            </value>
+            <value>
+                <fullName>Exception</fullName>
+                <default>false</default>
+                <label>Exception</label>
+            </value>
+            <value>
+                <fullName>Critical Error</fullName>
+                <default>false</default>
+                <label>Critical Error</label>
+            </value>
+            <value>
+                <fullName>Notable</fullName>
+                <default>false</default>
+                <label>Notable</label>
+            </value>
+            <value>
+                <fullName>No Findings</fullName>
+                <default>false</default>
+                <label>No Findings</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

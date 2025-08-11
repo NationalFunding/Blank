@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Debit_Card__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Debit card acceptance - Status</description>
+    <inlineHelpText>Check box if the merchant accepts debit cards.</inlineHelpText>
+    <label>Debit Card</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

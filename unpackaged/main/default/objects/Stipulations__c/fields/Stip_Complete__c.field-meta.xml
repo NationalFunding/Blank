@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Stip_Complete__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Stipulation completd</description>
+    <inlineHelpText>Check when Stipulation has been completed</inlineHelpText>
+    <label>Stip Complete</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

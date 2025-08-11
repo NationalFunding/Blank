@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Internal_Analyst_List__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field will be used to sort the Internal Analysts in different selection processes for the Credit Review process.</description>
+    <inlineHelpText>If a user is responsible for making decisions on transactions approved by National Funding and in the credit department, please mark the box as True.</inlineHelpText>
+    <label>Internal Analyst List</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Checkbox</type>
+</CustomField>

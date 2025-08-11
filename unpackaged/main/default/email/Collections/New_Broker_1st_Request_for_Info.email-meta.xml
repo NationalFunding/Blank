@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>New Broker – 1st Request for Info</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank</letterhead>
+    <name>New Broker – 1st Request for Info</name>
+    <style>freeForm</style>
+    <subject>{!Case.Merchant_Number__c} - {!Case.Legal_Name__c}</subject>
+    <textOnly>Hello,
+
+
+
+We are in the process of review your recent application to partner with National Funding and Quick Bridge.  In reviewing the file, we need the following information to complete the review:
+
+
+
+INSERT
+
+
+
+If you could please provide that information to us at your earliest convenience we would appreciate it.
+
+We are excited about the opportunity to partner with you.   Please do not hesitate to contact us with any questions.
+
+
+Thank you,
+
+
+{!User.Name} | {!User.Title}
+
+{!Case.Email_Signature_Company__c}
+
+{!$Setup.Company_Information__c.Street__c}
+{!$Setup.Company_Information__c.City__c}, {!$Setup.Company_Information__c.State__c} {!$Setup.Company_Information__c.Zip__c}
+P: {!User.Phone} | F: {!User.Fax}
+E: {!User.Email}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

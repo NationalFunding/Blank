@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Two_Months_Ago__c</fullName>
+    <description>Displays name of month two months ago</description>
+    <externalId>false</externalId>
+    <formula>CASE(
+MONTH(DATEVALUE(NOW())),
+1, "November",
+2, "December",
+3, "January",
+4, "February",
+5, "March",
+6, "April",
+7, "May",
+8, "June",
+9, "July",
+10, "August",
+11, "September",
+12, "October",
+"None")</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Two Months Ago</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

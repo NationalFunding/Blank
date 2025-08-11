@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Failure to Provide Recon - Breach</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank</letterhead>
+    <name>Failure to Complete Recon- Breach</name>
+    <style>freeForm</style>
+    <subject>Failure to Provide Requested Bank Information - ({!Case.Legal_Name__c} - {!Case.Merchant_Number__c})</subject>
+    <textOnly>Hello {!Case.Contact},
+
+
+In accordance with the terms of the Agreement, we requested a reconciliation of your future receivables to make sure the remittance amount aligned with your actual receivables.  You were required to provide us with the last two months of bank statements for your designated account within 5 days of the request.  We have not received them within the time allotted and as a result, you are in breach of the terms of your Agreement.
+
+To remedy this breach, we need you to provide the requested bank statements.  If we dont receive those immediately the account will escalate.
+
+We look forward to hear from you.
+
+Thank you,
+
+{!Case.OwnerFullName} | {!Case.OwnerTitle}
+
+National Funding, Inc., the parent and servicing company of
+Quick Bridge Funding, LLC
+{!$Setup.Company_Information__c.Street__c}
+{!$Setup.Company_Information__c.City__c}, {!$Setup.Company_Information__c.State__c} {!$Setup.Company_Information__c.Zip__c}
+P: {!Case.OwnerPhone} F: {!User.Fax}
+E: {!Case.OwnerEmail}
+
+
+{!Case.Email_Thread_ID__c}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

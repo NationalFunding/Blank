@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Document_Comparison__c</fullName>
+    <description>selfies.analysis.document_comparison</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Information about the comparison between the selfie and the document</inlineHelpText>
+    <label>Document Comparison</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

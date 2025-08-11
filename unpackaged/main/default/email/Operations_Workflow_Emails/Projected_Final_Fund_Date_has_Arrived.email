@@ -1,0 +1,16 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="50" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; color:#000000; bEditID:r3st1; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[]]></td>
+</tr>
+<tr valign="top" height="300" >
+<td tEditID="c1r2" style=" background-color:#FFFFFF; color:#000000; bEditID:r3st1; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r2" locked="0" >
+<![CDATA[<font face="arial">Hello,</font><div style="font-size: 12pt;"><br></div><div style="font-size: 12pt;">This email is to inform you that the Projected final fund date for&nbsp;{!Opportunity.Name} has arrived.</div><div style="font-size: 12pt;"><br></div><div style="font-size: 12pt;">Below is a link to the Opportunity in Salesforce:</div><div><font face="arial">{!Opportunity.Link}</font></div><div><font face="arial"><br></font></div><div>New Salesforce Console: https://na29.salesforce.com/console#%2F{!Opportunity.Id}
+
+</div><div><font face="arial"><br></font></div><div><font face="arial">Thanks</font></div>]]></td>
+</tr>
+<tr valign="top" height="50" >
+<td tEditID="c1r3" style=" background-color:#FFFFFF; color:#000000; bEditID:r3st1; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r3" locked="0" >
+<![CDATA[]]></td>
+</tr>
+</table>

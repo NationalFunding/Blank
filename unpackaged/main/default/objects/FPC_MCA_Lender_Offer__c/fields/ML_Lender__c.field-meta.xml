@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ML_Lender__c</fullName>
+    <description>This is a list of lenders for the ML product.</description>
+    <inlineHelpText>Pick the ML lender that has approved the deal.</inlineHelpText>
+    <label>ML Lender</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>On Deck</fullName>
+                <default>false</default>
+                <label>On Deck</label>
+            </value>
+            <value>
+                <fullName>Rapid Financial Services</fullName>
+                <default>false</default>
+                <label>Rapid Financial Services</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

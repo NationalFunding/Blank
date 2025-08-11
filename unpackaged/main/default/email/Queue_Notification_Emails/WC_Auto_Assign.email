@@ -1,0 +1,6 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="400" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; color:#000000; bEditID:r3st1; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[<font face="arial" size="3" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;">{!Lead.Company} has activated their account online and has been automatically assigned to you. </font><br><br><font face="arial" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;">{!Lead.Link}</font><br><br><font face="Arial, sans-serif">New Salesforce Console:&nbsp;<span style="color: rgb(0, 0, 0);">https://na29.salesforce.com/console#%2F</span>{!Lead.Id}</font><div style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><br><font face="arial" size="3">Please call this lead ASAP!<br></font><span style="font-size: medium;"><br>Good luck.</span></div>]]></td>
+</tr>
+</table>

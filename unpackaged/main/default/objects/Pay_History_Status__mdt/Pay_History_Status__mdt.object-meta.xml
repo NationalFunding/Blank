@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>PD-1605</description>
+    <label>Pay History Status</label>
+    <pluralLabel>Pay History Statuses</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

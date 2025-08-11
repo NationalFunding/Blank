@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This metadata type is used in the Calculate Commissions flow. It lists Brokers with special commission rates.</description>
+    <label>Calculate Commissions - Broker</label>
+    <pluralLabel>Calculate Commissions - Broker</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

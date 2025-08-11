@@ -1,0 +1,53 @@
+<apex:page >
+        
+        <!--This page should automatically redirect to the appropriate search page based on campaign.
+				If for some reason it doesn't work, display the buttons to the user so they can manually redirect-->           
+    	<script type="text/javascript">
+    		var Campaign = "{!$CurrentPage.parameters.Campaign};"
+    		var ANI = "{!$CurrentPage.parameters.ANI}";
+        	window.onload = window.setTimeout(redirect(), 1000);
+                
+            function redirect()
+            {
+                if(Campaign=="Agent Direct")
+                {
+                    redirectToGenericSearch();
+                }
+                else
+                {
+                    redirectToCardSearch(); 
+                }
+            }
+    
+            function redirectToCardSearch()
+            {
+				window.location.href='/apex/cardSearchV2';
+            }
+            
+            function redirectToGenericSearch()
+            {
+                window.location.href="/_ui/search/ui/UnifiedSearchResults#!/str=" + ANI + "&initialViewMode=summary"; 
+            }
+
+        </script>
+    
+    
+    	<body>
+            
+            <H1>Five9 Screenpop - No Matchings Record Found</H1>
+            <p>
+                This Page Redirects to the Search Page for Direct Dial, and to the Card Search for non Direct Dial Calls.  
+                If you are not redirected automatically, please click a button below to choose the search page.
+            </p>
+        <form>
+            <input type="button" value="Redirect To Card Search" onclick="redirectToCardSearch();" />
+            <input type="button" value="Redirect To Generic Search" onclick="redirectToGenericSearch();" />
+        </form>
+            <p>Debug Info</p>
+            <p>DNIS: {!$CurrentPage.parameters.DNIS}</p>
+            <p>ANI: {!$CurrentPage.parameters.ANI}</p>
+            <p>Campaign: {!$CurrentPage.parameters.Campaign}</p>
+            
+        </body>      
+
+</apex:page>

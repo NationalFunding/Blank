@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SSN_Encrypted__c</fullName>
+    <description>This field will contain a customer's Social Security number in an encrypted format. Accessing the full visibility of this field will be determined by job role and permission set.</description>
+    <inlineHelpText>Encrypted Social Security Number - See your administrator if you have questions.</inlineHelpText>
+    <label>SSN Encrypted</label>
+    <length>11</length>
+    <maskChar>asterisk</maskChar>
+    <maskType>ssn</maskType>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <type>EncryptedText</type>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Internet_Response_Date__c</fullName>
+    <description>This field will capture the date in which the customer responded via an internet application or landing page.</description>
+    <inlineHelpText>This field will capture the date in which the customer responded via an internet application or landing page.</inlineHelpText>
+    <label>Internet Response Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

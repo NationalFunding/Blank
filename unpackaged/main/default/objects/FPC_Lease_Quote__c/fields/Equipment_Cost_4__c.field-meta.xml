@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Equipment_Cost_4__c</fullName>
+    <description>Equipment Piece 4 - Cost</description>
+    <inlineHelpText>Type in the cost of Equipment piece- 4.</inlineHelpText>
+    <label>Equipment Cost 4</label>
+    <precision>17</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

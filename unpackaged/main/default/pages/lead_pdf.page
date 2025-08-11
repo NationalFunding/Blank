@@ -1,0 +1,402 @@
+<apex:page showHeader="false"  renderAs="pdf" controller="LeadPdfController">
+<head>
+ <style type="text/css">
+  @page
+  {
+color:#000000;
+    /* Landscape orientation */
+   /* size:landscape;*/
+        margin-top: 0.0cm;
+
+    margin-bottom: 0.0cm;
+    font-size:11px;
+    /* Put page numbers in the bottom right corner of each
+    page in the pdf document. */
+    @bottom-right {
+     content: "Page " counter(page);
+    }
+  }
+
+  body {
+   font-family: Arial;
+   font-size:11px;
+  }
+
+
+  td {
+    font-size:11px;
+    font-family:Arial;
+  }
+
+  
+  </style>
+</head>
+<body>
+  <!-- Begin Default Content REMOVE THIS -->
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr><td width="50%"><apex:image value="{!$Resource.pdflogo}"/></td><td width="50%" align="right"><h1>Merchant<br/>  Pre-Qualification Form</h1></td></tr>
+<tr><td colspan="2" style="height:5px;background-color:#dcdcdc;"></td></tr>
+<tr><td colspan="2" style="height:10px;background-color:#ffffff;"></td></tr>
+<tr><td colspan="2">
+<table border="0" cellspacing="1" cellpadding="0" width="100%" style="background-color:#000000;">
+<tr><td colspan="2" style="background-color:#000000;height:5px;"></td></tr>
+<tr style="height:40px;"><td width="50%" style="background-color:#ffffff;border-right:solid 2px #dcdcdc;" valign="top">
+<span style="padding-top:5px;padding-left:10px;float:left;">Business Legal Name:<br/><span style="text-transform: uppercase; "><b>{!myContacts.Company}</b></span></span>
+</td><td valign="top" style="background-color:#ffffff;"><span style="padding-top:5px;padding-left:10px;float:left;">Business DBA Name:<br/><span style="text-transform: uppercase; "><b>{!myContacts.LastName} <span style="text-transform: uppercase; "><b>{!myContacts.FirstName}</b></span></b></span></span>
+</td></tr>
+
+<tr style="height:40px;"><td colspan="2" style="background-color:#ffffff;" valign="top">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20%" valign="top" align="right" style="border-right:solid 1px #000000;height:40px;">Type   of  Business  Entity<br/>(Select One)&nbsp;</td>
+<td width="15%" valign="top" align="center" style="border-right:solid 1px #000000;height:40px;">Corporation<br/><apex:image value="{!$Resource.pdfsquare}"/></td>
+<td width="15%" valign="top" style="border-right:solid 1px #000000;height:40px;text-align:center;border-right:solid 2px #dcdcdc;">&nbsp;Limited Liability Company<br/><apex:image value="{!$Resource.pdfsquare}"/></td>
+<td width="12%" valign="top" style="border-right:solid 1px #000000;height:40px;text-align:center;">&nbsp;Partnership<br/><apex:image value="{!$Resource.pdfsquare}"/></td>
+<td width="12%" valign="top" style="border-right:solid 1px #000000;height:40px;text-align:center;">&nbsp;Limited Partnership<br/><apex:image value="{!$Resource.pdfsquare}"/></td>
+<td width="12%" valign="top" style="border-right:solid 1px #000000;height:40px;text-align:center;">&nbsp;Limited Liability Partnership<br/><apex:image value="{!$Resource.pdfsquare}"/></td>
+<td width="14%" valign="top" style="height:40px;text-align:center;">&nbsp;Sole Proprietor<br/><apex:image value="{!$Resource.pdfsquare}"/></td>
+</tr>
+</table>
+</td></tr>
+
+<tr style="height:70px;"><td colspan="2" style="background-color:#ffffff;" valign="top">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="33%" valign="top"  style="border-right:solid 1px #000000;height:70px;text-align:left;"><span style="padding-left:10px;float:left;">Does the Merchant Have Any Other Businesses With
+Current AdvanceMe Or NewLogic Business Loans
+Contracts? (Select One)</span><br/><br/>
+<span style="text-align:center;float:left;padding-left:70px;">Yes<apex:image value="{!$Resource.pdfcircle}"/>&nbsp;&nbsp;No&nbsp;<apex:image value="{!$Resource.pdfcircle}"/>
+</span></td>
+<td width="33%" valign="top" align="left" style="border-right:solid 1px #000000;height:45px;">
+<span style="float:left;padding-left:10px;">State of Incorporation:</span>
+</td>
+<td width="33%" valign="top" style="height:45px;"><span style="float:left;padding-left:10px;">Use of Proceeds:</span></td>
+
+</tr>
+</table>
+</td></tr>
+
+<tr style="height:40px;"><td colspan="2" style="background-color:#ffffff;" valign="top">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="45%" valign="top"  style="border-right:solid 1px #000000;height:45px;"><span style="float:left;padding-left:10px;">Physical Street Address:</span>
+
+</td>
+<td width="25%" valign="top" align="left" style="border-right:solid 1px #000000;height:45px;"><span style="float:left;padding-left:10px;">City:</span> 
+</td>
+<td width="15%" valign="top" style="border-right:solid 1px #000000;height:45px;"><span style="float:left;padding-left:10px;">State:</span></td>
+<td width="15%" valign="top" style="height:45px;"><span style="float:left;padding-left:10px;">Zip Code:</span></td>
+</tr>
+</table>
+</td></tr>
+
+
+<tr style="height:40px;"><td colspan="2" style="background-color:#ffffff;" valign="top">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="45%" valign="top"  style="border-right:solid 1px #000000;height:45px;"><span style="float:left;padding-left:10px;">Billing Street Address: (If Different Than Above):</span>
+</td>
+<td width="25%" valign="top" align="left" style="border-right:solid 1px #000000;height:45px;"><span style="float:left;padding-left:10px;">City:</span> 
+</td>
+<td width="15%" valign="top" style="border-right:solid 1px #000000;height:45px;"><span style="float:left;padding-left:10px;">State:</span></td>
+<td width="15%" valign="top" style="height:45px;"><span style="float:left;padding-left:10px;">Zip Code:</span></td>
+</tr>
+</table>
+</td></tr>
+
+<tr style="height:40px;"><td colspan="2" style="background-color:#ffffff;" valign="top">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="33%" valign="top"  style="border-right:solid 1px #000000;height:45px;"><span style="float:left;padding-left:10px;">Physical Location Phone#:</span> 
+
+</td>
+<td width="33%" valign="top" align="left" style="border-right:solid 1px #000000;height:45px;"><span style="float:left;padding-left:10px;">Billing Location Phone#:</span> 
+
+</td>
+<td width="33%" valign="top" style="height:45px;"><span style="float:left;padding-left:10px;">Preferred Contact Phone#:</span> 
+</td>
+</tr>
+</table>
+</td></tr>
+<tr><td colspan="2" style="background-color:#000000;height:5px;"></td></tr>
+</table>
+
+</td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+
+  <!-- End Default Content REMOVE THIS -->
+       
+ 
+ 
+ 
+ 
+ 
+  <!-- Begin Default Content REMOVE THIS -->
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr><td colspan="2" style="background-color:#ffffff;height:15px;"></td></tr>
+<tr><td colspan="2">
+<table border="0" cellspacing="1" cellpadding="0" width="100%" style="background-color:#000000;">
+<tr><td colspan="2" style="background-color:#000000;height:5px;"></td></tr>
+<tr style="height:40px;"><td colspan="2" style="background-color:#ffffff;" valign="top">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="33%" valign="top"  style="border-right:solid 1px #000000;height:45px;text-align:left;">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="50%" valign="top"  style="border-right:solid 1px #000000;height:45px;"><span style="float:left;padding-left:10px;">
+Industry Type (SIC Code Or Description): 
+</span> 
+
+</td>
+<td width="50%" valign="top" align="left" style="border-right:solid 1px #000000;height:45px;"></td>
+
+</tr>
+</table>
+
+</td>
+<td width="33%" valign="top" align="left" style="border-right:solid 1px #000000;height:45px;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="33%" valign="top"  align="center" style="border-right:solid 1px #000000;height:45px;"><span style="float:left;padding-left:10px;">
+Rented
+</span> 
+</td>
+<td width="33%" valign="top" align="center" style="border-right:solid 1px #000000;height:45px;">Mortgaged
+</td>
+<td width="33%" valign="top" align="center" style="border-right:solid 1px #000000;height:45px;">Amount:
+</td>
+</tr>
+</table>
+
+</td>
+<td width="33%" valign="top" style="height:45px;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="100%" valign="top"  align="center" style="border-right:solid 1px #000000;height:45px;">
+<span style="float:left;padding-left:10px;">
+Rented
+</span> 
+</td>
+
+</tr>
+</table>
+
+</td>
+</tr>
+
+
+
+<tr>
+<td width="33%" valign="top"  style="border-top:solid 1px #000000;border-right:solid 1px #000000;height:45px;text-align:left;">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="100%" valign="top"  style="border-right:solid 1px #000000;height:45px;"><span style="float:left;padding-left:10px;">
+Gross Annual Sales (Previous Year Tax Return): 
+</span> 
+
+</td>
+
+
+</tr>
+</table>
+
+</td>
+<td width="33%" valign="top" align="left" style="border-top:solid 1px #000000;border-right:solid 1px #000000;height:45px;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="100%" valign="top"  align="center" style="border-right:solid 1px #000000;height:45px;"><span style="float:left;padding-left:10px;">
+Date the Business First Processed Credit Cards Under
+Current Ownership/Business:
+</span> 
+</td>
+
+</tr>
+</table>
+
+</td>
+<td width="33%" valign="top" style="height:45px;border-top:solid 1px #000000;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="100%" valign="top"  align="center" style="border-right:solid 1px #000000;height:45px;">
+<span style="float:left;padding-left:10px;">Average Monthly Credit Card Volume:
+
+</span> 
+</td>
+
+</tr>
+</table>
+
+</td>
+</tr>
+
+
+</table>
+</td></tr>
+<tr><td colspan="2">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color:#ffffff;">
+<tr>
+<td width="20%" valign="top"  alitn="center" style="border-right:solid 1px #000000;height:45px;text-align:left;">
+Total V/MC Processing Volumes From Previous Four Months:
+
+</td>
+
+<td width="20%" valign="top"  style="border-right:solid 1px #000000;height:45px;text-align:left;">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color:#ffffff;">
+<tr><td colspan="2" align="center" style="border-bottom:solid 1px #000000;">Last Month:</td></tr>
+<tr style="height:35px;"><td width="50%" align="center" style="height:35px;border-right:solid 1px #000000;"></td><td style="height:35px;" width="50%" align="center">#Tickets
+</td></tr>
+</table>
+
+</td>
+
+<td width="20%" valign="top"  style="border-right:solid 1px #000000;height:45px;text-align:left;">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color:#ffffff;">
+<tr><td colspan="2" align="center" style="border-bottom:solid 1px #000000;">Two Months Ago:</td></tr>
+<tr style="height:35px;"><td width="50%" align="center" style="height:35px;border-right:solid 1px #000000;"></td><td style="height:35px;" width="50%" align="center">#Tickets
+</td></tr>
+</table>
+</td>
+
+<td width="20%" valign="top"  style="height:45px;text-align:left;border-right:solid 1px #000000;">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color:#ffffff;">
+<tr><td colspan="2" align="center" style="border-bottom:solid 1px #000000;">Three Months Ago:</td></tr>
+<tr style="height:35px;"><td width="50%" align="center" style="border-right:solid 1px #000000;height:35px;"></td><td style="height:35px;" width="50%" 
+ align="center">#Tickets</td></tr>
+</table>
+</td>
+
+<td width="20%" valign="top"  style="height:45px;text-align:left;">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color:#ffffff;">
+<tr><td colspan="2" align="center" style="border-bottom:solid 1px #000000;">Four Months Ago:</td></tr>
+<tr style="height:35px;"><td style="height:35px;" width="50%" align="center" ></td><td style="border-left:solid 1px #000000;height:35px;" width="50%" align="center">#Tickets
+</td></tr>
+</table>
+</td>
+
+</tr></table>
+
+
+</td></tr>
+
+
+<tr><td colspan="2" style="background-color:#000000;height:5px;"></td></tr>
+
+
+</table>
+</td></tr>
+</table>
+
+
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr><td colspan="2">
+<table border="0" cellspacing="1" cellpadding="0" width="100%" style="background-color:#ffffff;margin-top:15px;">
+
+<tr>
+<td width="50%"><b>Owner/Officer</b></td>
+<td width="50%">
+<table border="0" cellspacing="0" cellpadding="0" width="100%" style="background-color:#ffffff;">
+<tr><td colspan="2" style="background-color:#000000;height:5px;"></td></tr>
+<tr><td width="25%" style="border-left:solid 1px #000000;border-bottom:solid 1px #000000;border-right:solid 1px #000000;"><span style="padding-top:5px;padding-left:10px;float:left;">Is 
+ Contact <br/><apex:image value="{!$Resource.pdfsquare}"/></span>
+</td><td width="75%" valign="top"  style="border-right:solid 1px #000000;border-bottom:solid 1px #000000;"><span style="padding-top:5px;padding-left:10px;float:left;">Job Title:</span></td></tr>
+</table>
+
+</td>
+</tr>
+
+<tr>
+<td width="50%">
+
+<table border="0" cellspacing="0" cellpadding="0" width="100%" style="background-color:#ffffff;">
+<tr style="height:40px;"><td valign="top" width="50%" style="border-top:solid 1px #000000; border-left:solid 1px #000000;border-bottom:solid 1px #000000;border-right:solid 1px #000000;"><span style="padding-top:5px;padding-left:10px;float:left;">Last Name:</span>
+</td><td width="50%" valign="top"  style="border-top:solid 1px #000000;border-right:solid 1px #000000;border-bottom:solid 1px #000000;"><span style="padding-top:5px;padding-left:10px;float:left;">First Name:</span></td></tr>
+</table>
+
+</td>
+<td width="50%">
+<table border="0" cellspacing="0" cellpadding="0" width="100%" style="background-color:#ffffff;">
+<tr style="height:40px;">
+<td width="33%" valign="top" style="border-left:solid 1px #000000;border-bottom:solid 1px #000000;border-right:solid 1px #000000;"><span style="padding-top:5px;padding-left:10px;float:left;">SS#: 
+</span>
+</td><td width="33%" valign="top"  style="border-right:solid 1px #000000;border-bottom:solid 1px #000000;"><span style="padding-top:5px;padding-left:10px;float:left;">Date of Birth:
+</span></td>
+
+<td width="34let%" valign="top" style="border-left:solid 1px #000000;border-bottom:solid 1px #000000;border-right:solid 1px #000000;"><span style="padding-top:5px;padding-left:10px;float:left;">Home Phone: </span>
+</td>
+</tr>
+
+
+
+
+</table>
+
+</td>
+</tr>
+
+
+</table>
+</td></tr></table>
+
+
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr style="height:40px;">
+<td width="35%" valign="top" style="border-left:solid 1px #000000;border-bottom:solid 1px #000000;" ><span style="padding-top:5px;padding-left:10px;float:left;">Street Address:</span></td>
+<td width="35%" valign="top" style="border-left:solid 1px #000000;border-bottom:solid 1px #000000;"><span style="padding-top:5px;padding-left:10px;float:left;">City:</span></td>
+<td width="15%" valign="top" style="border-left:solid 1px #000000;border-bottom:solid 1px #000000;"><span style="padding-top:5px;padding-left:10px;float:left;">State:</span></td>
+<td width="15%" valign="top" style="border-left:solid 1px #000000;border-bottom:solid 1px #000000;border-right:solid 1px #000000;"><span style="padding-top:5px;padding-left:10px;float:left;">Zipcode:</span></td>
+</tr></table>
+
+
+
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr><td colspan="2" style="background-color:#ffffff;padding-top:5px;text-align:left;">
+<hr style="height:5px;width:100%;background-color:#dcdcdc;color:#dcdcdc;" />
+<p style="width:100%;float:left;text-align:left;"><b>Authorizations:</b><br/>The Merchant and Owner(s)/Officer(s) identified above (individually, an “Applicant”) each represents, acknowledges and agrees that (1) all information and documents
+provided to Five Point Capital, Inc. (“FPC”) including credit card processor statements are true, accurate and complete, (2) Applicant will immediately notify FPC of any
+change in such information or financial condition, (3) Applicant authorizes FPC to disclose all information and documents that FPC may obtain including credit reports to other
+persons or entities (collectively, "Assignees") that may be involved with or acquire commercial loans having daily repayment features and/or Merchant Cash Advance
+transactions, including without limitation the application therefore (collectively, "Transactions") and each Assignee is authorized to use such information and documents, and
+share such information and documents with other Assignees, in connection with potential Transactions, (4) each Assignee will rely upon the accuracy and completeness of
+such information and documents, (5) FPC, Assignees, and each of their representatives, successors, assigns and designees (collectively, “Recipients”) are authorized to
+request and receive any investigative reports, credit reports, statements from creditors or financial institutions, verification of information, or any other information that a
+Recipient deems necessary, (6) Applicant waives and releases any claims against Recipients and any information-providers arising from any act or omission relating to the
+requesting, receiving or release of information, and (7) each Owner/Officer represents that he or she is authorized to sign this form on behalf of Merchant.<br/><br/><b>Owner/Officer Name
+:   ________________________________</b><br/><br/>
+<b>Owner/Officer Signature
+
+:   ________________________________</b>      <b>Date:  ________________________________</b></p>
+
+
+
+</td></tr>
+</table>
+
+  <!-- End Default Content REMOVE THIS -->
+  
+  
+ 
+  
+  
+</body>
+</apex:page>

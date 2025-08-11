@@ -1,0 +1,7 @@
+<apex:page standardController="Welcome_Call__c" tabStyle="Welcome_Call__c" sidebar="false">
+<apex:pageBlock title="Welcome Call - New Logic Script"></apex:pageBlock>
+<flow:interview name="Welcome_Call_New_Logic_Script" finishLocation="/{!Welcome_Call__c.Id}"> 
+   <apex:param name="inputWelcomeCallID" value="{!Welcome_Call__c.Id}"/>
+   <apex:param name="inputUserName" value="{!$User.Full_Name__c}"/>
+</flow:interview>  
+</apex:page>

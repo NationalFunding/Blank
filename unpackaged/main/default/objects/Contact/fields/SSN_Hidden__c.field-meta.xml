@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SSN_Hidden__c</fullName>
+    <description>Social Security Number - Not Editable</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Social Security Number - Not Editable</inlineHelpText>
+    <label>Social Security Number</label>
+    <length>16</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

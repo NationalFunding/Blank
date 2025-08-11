@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Partner_Sharing_Opt_Out_Date__c</fullName>
+    <description>Date/Time the customer requested their information not be shared with partners. Updated via workflow.</description>
+    <inlineHelpText>Date/Time the customer requested their information not be shared with partners. Updated via workflow.</inlineHelpText>
+    <label>Partner Sharing Opt Out Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

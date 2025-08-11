@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Vendor_Pmt_Amount__c</fullName>
+    <description>Vendor payment amount.</description>
+    <inlineHelpText>Type in the amount paid to the equipment vendor in consideration of the equipment purchased.</inlineHelpText>
+    <label>Vendor Pmt Amount</label>
+    <precision>17</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Allows users to edit the Statements In Date. Assigned to Operations users to manually process deals for soft pull lenders only.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Edit Statements In Date</label>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Statements_In_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+</PermissionSet>

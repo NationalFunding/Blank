@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Follow_Up_Piece_2_Cost__c</fullName>
+    <description>This field will indicate the cost of the follow pieces were sent to a direct mail campaign.</description>
+    <inlineHelpText>This field will indicate the cost of the follow pieces were sent to a direct mail campaign. Please enter an amount.</inlineHelpText>
+    <label>Follow Up Piece 2 Cost</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <type>Currency</type>
+</CustomField>

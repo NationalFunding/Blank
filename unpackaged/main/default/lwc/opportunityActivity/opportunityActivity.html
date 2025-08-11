@@ -1,0 +1,95 @@
+<template>
+    <lightning-card title="All Activity" icon-name="standard:task">
+        <div slot="actions">
+            <lightning-button-icon icon-name="action:refresh" alternative-text="Refresh" size="Medium"
+                onclick={refreshActivity} style="margin-right: 10px;">
+            </lightning-button-icon>
+
+            <lightning-button-icon icon-name="utility:add" alternative-text="Add" size="Medium"
+                onclick={addActivity}>
+            </lightning-button-icon>
+        </div>   
+        <div class="slds-m-around_medium" if:true={activityList}>
+            <!-- Loop Through data and display -->
+            <lightning-datatable 
+                key-field="sId" 
+                hide-checkbox-column 
+                data={activityList} 
+                columns={activityColumns}
+                onrowaction={handleRowAction}
+                >
+            </lightning-datatable>
+        </div>
+        <div class="slds-m-around_medium" if:true={error}>
+            <p>Sorry there was an error</p>
+        </div>
+    </lightning-card>
+
+    <!-- Modal Create Activity' -->
+    <template if:true={activityModal}>
+
+        <div class="contact-edit" data-id="Activity-edit" style="height: 640px;">
+
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+
+                <div class="slds-modal__container">
+
+                    <header class="slds-modal__header">
+
+                        <!-- TITLE -->
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">
+                            New Activity
+                        </h2>
+
+                    </header>
+
+                    <!-- BODY -->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+
+                        <!-- Activity Create -->
+                        <lightning-card>
+
+                            <div class="slds-grid slds-wrap">
+
+                                <div class="slds-col">
+
+                                    <lightning-input label="Subject" type="text" onchange={handleSubjectChange}>
+                                    </lightning-input>
+
+                                    <lightning-textarea label="Description" onchange={handleDescriptionChange}>
+                                    </lightning-textarea>
+
+                                </div>
+
+                            </div>
+
+
+                        </lightning-card>
+                    </div>
+
+                    <!-- FOOTER -->
+                    <footer class="slds-modal__footer">
+                        <!-- Cancel Button -->
+                        <lightning-button label="Cancel" variant="neutral" onclick={closeActivity}></lightning-button>
+
+                        <!-- Spacing -->
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+
+                        <!-- Update/Save Button -->
+                        <lightning-button label="Create" variant="brand" onclick={activityCreate}>
+                        </lightning-button>
+
+                    </footer>
+
+                </div>
+
+            </section>
+            <!-- Create Shading for Modal -->
+            <div class="slds-backdrop slds-backdrop_open"></div>
+
+        </div>
+
+    </template>
+
+</template>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lender_Account_Name_Validation</fullName>
+    <active>true</active>
+    <description>The Lender Account Name cannot be changed by anyone who does not have the Sys Admin profile</description>
+    <errorConditionFormula>ISCHANGED(Name) &amp;&amp; (RecordType.Name = 'Lender Acct') &amp;&amp; ($Profile.Name != 'System Administrator')</errorConditionFormula>
+    <errorMessage>Only a System Admin can change the name of a Lender Account.</errorMessage>
+</ValidationRule>

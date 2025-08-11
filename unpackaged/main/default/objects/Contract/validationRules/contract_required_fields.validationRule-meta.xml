@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>contract_required_fields</fullName>
+    <active>true</active>
+    <description>Fields required on create</description>
+    <errorConditionFormula>AND (
+     ISNEW(), 
+OR(
+     ISBLANK(Loan_Number__c),  
+     ISBLANK(Name),
+     ISPICKVAL(Originating_Lender__c,''),
+     ISBLANK(Business_Legal_Name__c),
+     ISNULL(Annual_Revenue__c),
+     ISNULL(Loan_Amount__c),
+     ISNULL(Payment_Amount__c),
+     ISBLANK(Payment_Frequency__c),
+     ISBLANK(Number_of_Payments__c),
+     ISNULL(Fund_Date__c),
+     ISBLANK(Deal_Type__c)
+),
+      $Setup.ValidationRules__c.Bypass_Contract_Required_Fields_Val_Rule__c = FALSE
+)</errorConditionFormula>
+    <errorMessage>Missing required field(s).</errorMessage>
+</ValidationRule>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Lease Low Credit Lead Reasignment Notification to New Owner</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Naitonal_Funding_Standard_Letterhead_Stack</letterhead>
+    <name>Lead Reasignment Notification to New Owner (Lease)</name>
+    <style>freeForm</style>
+    <subject>A Lead Has Been Assigned to You</subject>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

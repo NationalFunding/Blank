@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>used by Offer and Demand - Notification and Record update  SD5764
+use Org Default setting to manage recipient email(s)</description>
+    <enableFeeds>false</enableFeeds>
+    <label>Offer and Demand Notification Recipients</label>
+    <visibility>Public</visibility>
+</CustomObject>

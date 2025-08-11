@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PERSONALLY_GUARANTEED__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Personal gurantee status of customer's lease / loan reference.</description>
+    <inlineHelpText>Check the box if the customer's lease / loan reference was personally guaranteed.</inlineHelpText>
+    <label>PERSONALLY_GUARANTEED</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

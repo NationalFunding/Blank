@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Credit_Bank_Id_Type__c</fullName>
+    <defaultValue>"ABA"</defaultValue>
+    <description>The funding bank’s identification type. Valid value: ABA</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The funding bank’s identification type. Valid value: ABA</inlineHelpText>
+    <label>Credit Bank Id Type</label>
+    <length>3</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

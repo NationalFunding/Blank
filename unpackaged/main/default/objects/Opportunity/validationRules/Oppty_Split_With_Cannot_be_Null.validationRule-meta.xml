@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Oppty_Split_With_Cannot_be_Null</fullName>
+    <active>true</active>
+    <errorConditionFormula>Split_Opportunity__c = TRUE &amp;&amp; ISBLANK(Split_Opportunity_with__c)</errorConditionFormula>
+    <errorDisplayField>Split_Opportunity_with__c</errorDisplayField>
+    <errorMessage>You must indicate who the Opportunity is to be split with</errorMessage>
+</ValidationRule>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lease_Status_Reason_Required</fullName>
+    <active>true</active>
+    <description>This validation rule will require the field called Lease Status Reason to be populated if the Status Lease field contains a value of Not Interested, Not Qualified or Marketing Scrub.</description>
+    <errorConditionFormula>ISCHANGED( Status_Lease__c)
+&amp;&amp;
+ISPICKVAL(Lease_Status_Reason__c, "")
+&amp;&amp;
+(ISPICKVAL(Status_Lease__c, "Not Interested")
+||
+ISPICKVAL(Status_Lease__c, "Not Qualified")
+||
+ISPICKVAL(Status_Lease__c, "Marketing Scrub"))</errorConditionFormula>
+    <errorMessage>Please select a value from the Lease Status Reason field. Thank you.</errorMessage>
+</ValidationRule>

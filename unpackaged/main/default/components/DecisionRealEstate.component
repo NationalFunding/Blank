@@ -1,0 +1,69 @@
+<apex:component layout="none">
+<apex:attribute type="Business_Credit_Summary__c" name="BusinessCreditSummaryObj" description="Business_Credit_Summary__c"/>
+<apex:attribute type="Credit_Review__c" name="creditReviewObj" description="Credit Review"/>
+<div class="panel panel-default mt10">
+<div class="panel-heading  blue-panel"> Business Credit Results</div>
+<div class="panel-body">
+<apex:outputPanel layout="block" id="decisionbusiness">
+<apex:outputPanel layout="block" rendered="{!BusinessCreditSummaryObj.Account__r.name != null}" >
+ <h4>{!BusinessCreditSummaryObj.Account__r.name}</h4>
+ <hr/>
+ <div class="row">
+   <div class="col-md-6">
+     <div class="white-box">
+       <h5 class="text-center"></h5>
+       <table class="table"  width="100%">
+         <tr>
+           <td>Ownership:</td>
+           <td>{!BusinessCreditSummaryObj.Account__r.ownership}</td>
+         </tr>
+         <tr>
+           <td>Phone:</td>
+           <td>{!BusinessCreditSummaryObj.Account__r.phone}</td>
+         </tr>
+         <tr>
+           <td>Type:</td>
+           <td>{!BusinessCreditSummaryObj.Account__r.type}</td>
+         </tr>
+       </table>
+     </div>
+   </div>
+   <div class="col-md-6">
+     <div class="gray-box">
+       <h5 class="text-center">Experian Business</h5>
+       <table class="table"  width="100%">
+         <apex:repeat value="{!$ObjectType.Business_Credit_Summary__c.Fieldsets.Credit_Review_Experian_Fields}" var="fieldName">
+            <tr>
+               <td>{!fieldName.label}:</td>
+               <td align="right">
+                 <apex:outputText value="{0, date, MMM d','  yyyy}" rendered="{!fieldName.type =='date'}">
+                    <apex:param value="{!BusinessCreditSummaryObj[fieldName.FieldPath]}" /> 
+                </apex:outputText>
+                <apex:outputText value="{0,number,#,##0.##}" rendered="{!fieldName.type == 'double'}">
+                  <apex:param value="{!BusinessCreditSummaryObj[fieldName.FieldPath]}" />
+                </apex:outputText>
+                <apex:outputText value="{0,number,$#,##0.00}" rendered="{!fieldName.type == 'currency'}">
+                  <apex:param value="{!BusinessCreditSummaryObj[fieldName.FieldPath]}" />
+                </apex:outputText>
+                <apex:outputPanel rendered="{!fieldName.type !='date' && fieldName.type !='double' && fieldName.type !='currency'}">
+                  {!BusinessCreditSummaryObj[fieldName.FieldPath]}         
+                 </apex:outputPanel>
+                </td>
+               </tr>
+          </apex:repeat>
+       </table>
+       <div  style="text-align:center;">
+         <a href="{!creditReviewObj.EXP_Business_Summary__r.URL_for_View_Link__c}" target="_blank" class="btn  btn-default">View Details</a>
+         <a href="javascript:void(0)"  onclick="$('#guarantormodal').modal('show')" role="button" class="btn permissionDeny btn-default">Pull Credit</a> 
+       </div>
+     </div>
+   </div>
+ </div>
+ <hr/>
+ </apex:outputPanel>
+ </apex:outputPanel>
+ <h5> Related Corporate Credit Results</h5>
+ <div class="relatedCorporate"></div>
+</div>
+</div>
+</apex:component>

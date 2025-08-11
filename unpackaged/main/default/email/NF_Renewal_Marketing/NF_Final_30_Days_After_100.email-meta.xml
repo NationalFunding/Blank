@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Final Notice: You are eligible for more cash - but time is running out.</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>NF - Final (30 Days After 100%)</name>
+    <style>none</style>
+    <subject>Final Notice: You are eligible for more cash - but time is running out.</subject>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

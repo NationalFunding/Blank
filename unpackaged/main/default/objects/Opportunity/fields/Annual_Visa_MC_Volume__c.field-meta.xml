@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Annual_Visa_MC_Volume__c</fullName>
+    <description>Annuall Visa/MC total volume</description>
+    <inlineHelpText>Annuall Visa/MC total volume</inlineHelpText>
+    <label>Annual Visa/MC Volume</label>
+    <precision>17</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

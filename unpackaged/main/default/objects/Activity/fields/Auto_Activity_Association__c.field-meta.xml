@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Auto_Activity_Association__c</fullName>
+    <label>Auto Activity Association</label>
+    <required>false</required>
+    <type>TextArea</type>
+</CustomField>

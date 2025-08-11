@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Credit_Submittal_Date__c</fullName>
+    <description>This field will be populated by a workflow.  This field will be populated when an opportunity stage changes to Credit Submittal.</description>
+    <inlineHelpText>This field is read only.  This field will be populated when an opportunity stage changes to Credit Submittal.</inlineHelpText>
+    <label>Credit Submittal Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

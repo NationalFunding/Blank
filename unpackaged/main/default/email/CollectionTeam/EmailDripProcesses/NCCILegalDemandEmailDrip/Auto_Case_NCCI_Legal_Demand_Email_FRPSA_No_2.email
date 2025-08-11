@@ -1,0 +1,9 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto; margin: 0; padding: 0;">Please contact us immediately regarding your future receivables agreement. At this time, the account is in violation of the terms of the agreement. As stated in our previous email, reconciliations are available to help adjust your remittance amount in times of financial strain. We do require your prior two (2) months of bank statements to process the reconciliation. Please reach out to us as soon as possible by replying to this email or by phone at {{{Sender.Phone}}}.<br />
+<br />
+We look forward to hearing from you.<br />
+<span style="display:none;">{{{Case.Thread_Id}}}</span></body>
+</html>

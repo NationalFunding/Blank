@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NF_Prequal__c</fullName>
+    <description>Conga template id for National Funding Prequal form. Introduced as part of the QB migration into NF to be used for QB branded automation.</description>
+    <externalId>false</externalId>
+    <label>NF Prequal</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

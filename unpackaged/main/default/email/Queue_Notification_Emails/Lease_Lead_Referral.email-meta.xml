@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Notification for the Lease Rep&apos;s in order to handle the Lease Lead.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Naitonal_Funding_Standard_Letterhead_Stack</letterhead>
+    <name>Lease Lead Referral</name>
+    <style>freeForm</style>
+    <subject>{!Lead.Company} Has Been Referred To Leasing.</subject>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

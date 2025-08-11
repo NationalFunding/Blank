@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PG_1_EQF_Date__c</fullName>
+    <inlineHelpText>Date PG 1's Equifax Credit Score was pulled.</inlineHelpText>
+    <label>PG 1 - EQF Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

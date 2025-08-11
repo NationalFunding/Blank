@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BusinessProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FPC Lease Sales</fullName>
+    <description>FPC Lease Sales Stages</description>
+    <isActive>true</isActive>
+    <values>
+        <fullName>Approved - Lease</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Credit Review</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Credit Submittal</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Declined</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Desktop Decline</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Docs In</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Docs Out</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Funded</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Identified</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Internal Decline</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Internal Pend Info</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Invalid Submission</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Lender Pend Info</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Offer In - Lease</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Offer Out - Lease</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Offer%28s%29 Not Accepted</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Pre-Fund</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Resubmit</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Up for Funding</fullName>
+        <default>false</default>
+    </values>
+</BusinessProcess>

@@ -1,0 +1,6 @@
+Dear {!advpm__Matter__c.OwnerFullName},
+<br/><br/>
+This is to notify that the matter has been updated by Local counsel.
+<br/><br/>
+Please see the following matter:<br/>
+<a href="{!advpm__Matter__c.Link}">{!advpm__Matter__c.Name}</a>

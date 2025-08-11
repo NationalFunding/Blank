@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Misc_Fees_to_Customer__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This box will indicate if there are miscellaneous fees that will be charged to the customer.</description>
+    <inlineHelpText>This box will indicate if there are miscellaneous fees that will be charged to the customer.</inlineHelpText>
+    <label>Misc. Fees to Customer</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

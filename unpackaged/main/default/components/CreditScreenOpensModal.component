@@ -1,0 +1,23 @@
+<apex:component layout="none">
+<!--Credit Screen opens Modal Modal Starts here-->
+  <div id="firstmodel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 id="myModalLabel">Choose a Review Type</h3>
+        </div>
+        <div class="modal-body"> 
+            <button class="Tier btn-block" onclick="Platinum()" type="button">Platinum Review</button>
+            <button class="Tier btn-block" onclick="Gold()" type="button">Gold Review</button>
+            <button class="Tier btn-block" onclick="Diamond()" type="button">Diamond Review</button>
+            <apex:outputPanel rendered="{!$Permission.Credit_Review_Change_to_Commercial}">
+                <button class="Tier btn-block" onclick="Commercial()" type="button">Commercial Review</button>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!!$Permission.Credit_Review_Change_to_Commercial}">
+                <button class="Tier btn-block disabled" type="button" style="cursor: not-allowed;">Commercial Review</button>
+            </apex:outputPanel>
+        </div>
+      </div>
+    </div>
+  </div>
+</apex:component>

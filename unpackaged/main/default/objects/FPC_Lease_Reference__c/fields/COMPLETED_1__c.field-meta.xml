@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>COMPLETED_1__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Completed status of customer's bank reference 1</description>
+    <inlineHelpText>Check box if the customer's 1st bank reference has been completed.</inlineHelpText>
+    <label>COMPLETED_1</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ACH_QUALIFIED__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Customer is qualified for ACH if box is checked</description>
+    <inlineHelpText>Check box if customer has qualified for ACH.</inlineHelpText>
+    <label>ACH Qualified</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

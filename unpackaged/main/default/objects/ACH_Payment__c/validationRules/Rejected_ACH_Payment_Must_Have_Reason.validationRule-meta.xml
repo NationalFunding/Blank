@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rejected_ACH_Payment_Must_Have_Reason</fullName>
+    <active>true</active>
+    <description>This validation rule impose that a reason be entered when an ACH Payment is marked as rejected.</description>
+    <errorConditionFormula>(ACH_Rejected__c = True &amp;&amp; ISBLANK(TEXT(ACH_Rejected_Reason__c)))</errorConditionFormula>
+    <errorMessage>Please enter the Reason that the ACH Payment was rejected.</errorMessage>
+</ValidationRule>

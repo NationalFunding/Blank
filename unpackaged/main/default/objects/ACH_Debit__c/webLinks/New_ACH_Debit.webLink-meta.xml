@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_ACH_Debit</fullName>
+    <availability>online</availability>
+    <displayType>massActionButton</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>New ACH Debit</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>/a32/e?
+&amp;retURL=%2F{!Opportunity.Id}
+&amp;cancelURL=%2F{!Opportunity.Id}
+&amp;CF00N34000005Bgly={!Opportunity.Name}
+&amp;00N34000005Bgm1={!Opportunity.ACH_Debit_Amount__c}</url>
+</WebLink>

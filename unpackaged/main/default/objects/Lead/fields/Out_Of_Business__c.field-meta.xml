@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Out_Of_Business__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Check this box if this lead is Out Of Business</description>
+    <inlineHelpText>Check this box if this lead is Out Of Business</inlineHelpText>
+    <label>Out Of Business</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Donotmail__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Do Not Mail</description>
+    <inlineHelpText>Check box if customer opts not to receive mail solication.</inlineHelpText>
+    <label>Do Not Mail</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

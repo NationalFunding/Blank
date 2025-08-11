@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Interim_Rent__c</fullName>
+    <description>Interim Rent</description>
+    <inlineHelpText>Type in the interim rent amount resulting from a Closed-Won opportunity.</inlineHelpText>
+    <label>Interim Rent</label>
+    <precision>17</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

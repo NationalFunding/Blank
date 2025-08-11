@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>Unassigned Matter</name>
+    <queueMembers>
+        <users>
+            <user>jduty@nationalfunding.com</user>
+            <user>lwhitehead@nationalfunding.com</user>
+            <user>mspurrier@nationalfunding.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>advpm__Matter__c</sobjectType>
+    </queueSobject>
+</Queue>

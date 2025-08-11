@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Lease_Status__c</fullName>
+    <description>This is a formula field that will bring the account lease status into the Contact object for campaign lists.</description>
+    <externalId>false</externalId>
+    <formula>TEXT( Account.Status_Lease__c )</formula>
+    <inlineHelpText>This is a formula field that will bring the account lease status into the Contact object for campaign lists.</inlineHelpText>
+    <label>Account - Lease Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

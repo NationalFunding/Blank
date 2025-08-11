@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sr_Team_Max_Reached_Today_PPC__c</fullName>
+    <defaultValue>0</defaultValue>
+    <description>Updated by flow. Reflects the number of records each rep on the Sr team should have received from the Internet Mailer Distribution. Resets back to 0 after required number of records has been reached.</description>
+    <externalId>false</externalId>
+    <label>Sr Team - # Records Today - PPC</label>
+    <precision>2</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

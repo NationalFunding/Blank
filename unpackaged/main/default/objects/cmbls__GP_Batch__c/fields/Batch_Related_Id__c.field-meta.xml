@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Batch_Related_Id__c</fullName>
+    <description>Id of Apex batchable context that helps to recover the record created by a specific batch.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Id of Apex batchable context that helps to recover the record created by a specific batch.</inlineHelpText>
+    <label>Batch Related Id</label>
+    <length>18</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

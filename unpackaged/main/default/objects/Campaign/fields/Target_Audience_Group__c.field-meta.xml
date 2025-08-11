@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Target_Audience_Group__c</fullName>
+    <description>Target Audience Group of campaign.</description>
+    <inlineHelpText>Target Audience Group of campaign.</inlineHelpText>
+    <label>Target Audience Group</label>
+    <required>false</required>
+    <type>TextArea</type>
+</CustomField>

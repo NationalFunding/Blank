@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Net_to_Customer__c</fullName>
+    <description>This field will be populated by workflow from the Net to Customer field on the Opportunity.  This should only be populated when a renewal Welcome Call is created.</description>
+    <inlineHelpText>This field will be populated by workflow from the Net to Customer field on the Opportunity.  This should only be populated when a renewal Welcome Call is created.</inlineHelpText>
+    <label>Net to Customer</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

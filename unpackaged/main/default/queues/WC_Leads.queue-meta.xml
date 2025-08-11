@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <email>trover@fivepointcapital.com</email>
+    <name>WC Leads</name>
+    <queueMembers>
+        <users>
+            <user>fmorton@nationalfunding.com</user>
+            <user>lbergstrand@nationalfunding.com</user>
+            <user>nnaporlee@nationalfunding.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Lead</sobjectType>
+    </queueSobject>
+</Queue>

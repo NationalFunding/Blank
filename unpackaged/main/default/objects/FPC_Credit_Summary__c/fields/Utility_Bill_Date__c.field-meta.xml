@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Utility_Bill_Date__c</fullName>
+    <description>Date that the utility bill was accepted as complete is recorded.</description>
+    <inlineHelpText>Date that the utility bill was accepted as complete is recorded.</inlineHelpText>
+    <label>Utility Bill Date</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

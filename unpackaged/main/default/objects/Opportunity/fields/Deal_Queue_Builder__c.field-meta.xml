@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Deal_Queue_Builder__c</fullName>
+    <description>This field references the field Model Grade on the related WC Credit Decision record.</description>
+    <externalId>false</externalId>
+    <formula>IF(
+ Rush_Request__c = TRUE, '1',
+
+IF(
+OR(
+ ISPICKVAL(Owner.UserType,'Standard'),
+ CONTAINS(Broker_Account__r.Name, 'Quick Bridge')), '2',
+
+IF(
+ CONTAINS(Broker_Account__r.Name, 'Lendio'), '3',
+
+IF(
+ NOT(CONTAINS(Broker_Account__r.Name, 'Snap')), '4',
+
+IF(
+ CONTAINS(Broker_Account__r.Name, 'Snap'), '5',
+
+'NA'
+)))))</formula>
+    <inlineHelpText>This field references the field Model Grade on the related WC Credit Decision record.</inlineHelpText>
+    <label>Deal Queue Builder</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

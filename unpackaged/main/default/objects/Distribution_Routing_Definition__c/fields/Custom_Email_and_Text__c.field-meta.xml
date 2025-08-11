@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Custom_Email_and_Text__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field indicates if customized emails and texts should be send to the customer. Used in the Record Distribution Process flow.</description>
+    <inlineHelpText>Select only if a custom partner email/text should go out.</inlineHelpText>
+    <label>Custom Email and Text</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

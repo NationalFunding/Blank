@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Round_Robin_Flow__c</fullName>
+    <description>Identifies the flow that assigned this record to a rep.</description>
+    <inlineHelpText>Identifies the flow that assigned this record to a rep.</inlineHelpText>
+    <label>Round Robin Flow</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Edge Funding</fullName>
+                <default>false</default>
+                <label>Edge Funding</label>
+            </value>
+            <value>
+                <fullName>Internet Mailer</fullName>
+                <default>false</default>
+                <label>Internet Mailer</label>
+            </value>
+            <value>
+                <fullName>Lending Tree</fullName>
+                <default>false</default>
+                <label>Lending Tree</label>
+            </value>
+            <value>
+                <fullName>Lending Tree Tier 1</fullName>
+                <default>false</default>
+                <label>Lending Tree Tier 1</label>
+            </value>
+            <value>
+                <fullName>Lending Tree Tier 2</fullName>
+                <default>false</default>
+                <label>Lending Tree Tier 2</label>
+            </value>
+            <value>
+                <fullName>Lending Tree Tier 3</fullName>
+                <default>false</default>
+                <label>Lending Tree Tier 3</label>
+            </value>
+            <value>
+                <fullName>Organic</fullName>
+                <default>false</default>
+                <label>Organic</label>
+            </value>
+            <value>
+                <fullName>PPC</fullName>
+                <default>false</default>
+                <label>PPC</label>
+            </value>
+            <value>
+                <fullName>PPC Lease</fullName>
+                <default>false</default>
+                <label>PPC Lease</label>
+            </value>
+            <value>
+                <fullName>T1 Edge Funding</fullName>
+                <default>false</default>
+                <label>T1 Edge Funding</label>
+            </value>
+            <value>
+                <fullName>T1 Internet Mailer</fullName>
+                <default>false</default>
+                <label>T1 Internet Mailer</label>
+            </value>
+            <value>
+                <fullName>T1 Lending Tree</fullName>
+                <default>false</default>
+                <label>T1 Lending Tree</label>
+            </value>
+            <value>
+                <fullName>T1 Organic</fullName>
+                <default>false</default>
+                <label>T1 Organic</label>
+            </value>
+            <value>
+                <fullName>T1 PPC</fullName>
+                <default>false</default>
+                <label>T1 PPC</label>
+            </value>
+            <value>
+                <fullName>T1 PPC Lease</fullName>
+                <default>false</default>
+                <label>T1 PPC Lease</label>
+            </value>
+            <value>
+                <fullName>T2 Edge Funding</fullName>
+                <default>false</default>
+                <label>T2 Edge Funding</label>
+            </value>
+            <value>
+                <fullName>T2 Internet Mailer</fullName>
+                <default>false</default>
+                <label>T2 Internet Mailer</label>
+            </value>
+            <value>
+                <fullName>T2 Lending Tree</fullName>
+                <default>false</default>
+                <label>T2 Lending Tree</label>
+            </value>
+            <value>
+                <fullName>T2 Organic</fullName>
+                <default>false</default>
+                <label>T2 Organic</label>
+            </value>
+            <value>
+                <fullName>T2 PPC</fullName>
+                <default>false</default>
+                <label>T2 PPC</label>
+            </value>
+            <value>
+                <fullName>T2 PPC Lease</fullName>
+                <default>false</default>
+                <label>T2 PPC Lease</label>
+            </value>
+            <value>
+                <fullName>T3 Edge Funding</fullName>
+                <default>false</default>
+                <label>T3 Edge Funding</label>
+            </value>
+            <value>
+                <fullName>T3 Internet Mailer</fullName>
+                <default>false</default>
+                <label>T3 Internet Mailer</label>
+            </value>
+            <value>
+                <fullName>T3 Lending Tree</fullName>
+                <default>false</default>
+                <label>T3 Lending Tree</label>
+            </value>
+            <value>
+                <fullName>T3 Organic</fullName>
+                <default>false</default>
+                <label>T3 Organic</label>
+            </value>
+            <value>
+                <fullName>T3 PPC</fullName>
+                <default>false</default>
+                <label>T3 PPC</label>
+            </value>
+            <value>
+                <fullName>T3 PPC Lease</fullName>
+                <default>false</default>
+                <label>T3 PPC Lease</label>
+            </value>
+            <value>
+                <fullName>T1 Buyerzone</fullName>
+                <default>false</default>
+                <label>T1 Buyerzone</label>
+            </value>
+            <value>
+                <fullName>T2 Buyerzone</fullName>
+                <default>false</default>
+                <label>T2 Buyerzone</label>
+            </value>
+            <value>
+                <fullName>T3 Buyerzone</fullName>
+                <default>false</default>
+                <label>T3 Buyerzone</label>
+            </value>
+            <value>
+                <fullName>DLP Unassigned T1</fullName>
+                <default>false</default>
+                <label>DLP Unassigned T1</label>
+            </value>
+            <value>
+                <fullName>DLP Unassigned T2</fullName>
+                <default>false</default>
+                <label>DLP Unassigned T2</label>
+            </value>
+            <value>
+                <fullName>DLP Unassigned T3</fullName>
+                <default>false</default>
+                <label>DLP Unassigned T3</label>
+            </value>
+            <value>
+                <fullName>T1 Fundera</fullName>
+                <default>false</default>
+                <label>T1 Fundera</label>
+            </value>
+            <value>
+                <fullName>T2 Fundera</fullName>
+                <default>false</default>
+                <label>T2 Fundera</label>
+            </value>
+            <value>
+                <fullName>T3 Fundera</fullName>
+                <default>false</default>
+                <label>T3 Fundera</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

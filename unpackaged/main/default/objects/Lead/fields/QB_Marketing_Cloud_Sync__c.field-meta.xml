@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QB_Marketing_Cloud_Sync__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Controls if this lead is synced with the QB Marketing Cloud instance. Introduced to support the QB migration into NF. Originally will be populated by data engineering</description>
+    <label>QB Marketing Cloud Sync</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

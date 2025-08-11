@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Terminated_Status__c</fullName>
+    <formula>OR(
+            ISPICKVAL(cmbls__Status__c, "Complete"),
+			ISPICKVAL(cmbls__Status__c, "Write Off"),
+			ISPICKVAL(cmbls__Status__c, "Unwind")
+        )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Terminated Status</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

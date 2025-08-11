@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Compliance_Task_Complete_User_Validation</fullName>
+    <active>true</active>
+    <description>This validation rule will prevent unauthorized users from completing the Reg B letter task.</description>
+    <errorConditionFormula>Subject = 'Create and Send Reg B Letter' &amp;&amp;
+($UserRole.Name != 'Sales Operations' || $UserRole.Name != 'Executive/CEO')  &amp;&amp;
+ISPICKVAL(Status, 'Complete')</errorConditionFormula>
+    <errorMessage>This is a compliance task and must be completed by an Operations user.  If you are not sending a Regulation B Letter to this customer, please DO NOT CLOSE THIS TASK.</errorMessage>
+</ValidationRule>

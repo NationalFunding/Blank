@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer_Last_In_Touch_Date__c</fullName>
+    <description>Used by Collections Team (PD-2659)</description>
+    <inlineHelpText>Used by Collections Team</inlineHelpText>
+    <label>Customer Last In Touch Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

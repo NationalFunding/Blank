@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Available_Brands__c</fullName>
+    <description>Introduced as part of the Quick Bridge to National Funding migration project to capture which brands this user works for. Originally all users will have one available brand but this is being created as a multi select picklist with the possibility that reps can work under multiple brands in the future.</description>
+    <inlineHelpText>Which brand does this user work under?</inlineHelpText>
+    <label>Available Brands</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>National Funding</fullName>
+                <default>true</default>
+                <label>National Funding</label>
+            </value>
+            <value>
+                <fullName>Quick Bridge</fullName>
+                <default>false</default>
+                <label>Quick Bridge</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

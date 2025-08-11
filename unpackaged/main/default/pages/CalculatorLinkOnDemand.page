@@ -1,0 +1,6 @@
+<!--
+ - Created by oporter on 8/24/2018.
+ -->
+
+<apex:page id="CalculatorLinkOnDemand" controller="OnlineSalesCalculator" action="{!onlineCalculatorLinkGeneratorOnDemand}">
+</apex:page>

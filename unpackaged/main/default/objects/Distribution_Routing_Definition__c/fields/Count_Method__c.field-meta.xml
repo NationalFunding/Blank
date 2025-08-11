@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Count_Method__c</fullName>
+    <inlineHelpText>Total: Count against all distribution
+Skill: Count against within this distribution routing
+Channel: Count against all channels with the same campaign type</inlineHelpText>
+    <label>Count Method</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Total</fullName>
+                <default>false</default>
+                <label>Total</label>
+            </value>
+            <value>
+                <fullName>Channel</fullName>
+                <default>false</default>
+                <label>Channel</label>
+            </value>
+            <value>
+                <fullName>Skill</fullName>
+                <default>false</default>
+                <label>Skill</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

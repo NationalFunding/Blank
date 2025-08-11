@@ -1,0 +1,42 @@
+<apex:page StandardController="Opportunity" Extensions="ContactCreditCheckController" tabstyle="Opportunity">
+   <apex:sectionHeader title="Request Credit Reports" />
+   <apex:form id="theForm">
+       <apex:actionFunction action="{!requestReports}" name="sendRequests" reRender="listBlock" />
+       <apex:outputPanel id="listBlock">
+           <apex:pageMessages />
+           <apex:pageBlock title="{!accountName}">
+               <apex:pageBlockSection >
+                   <!--  script>alert('in listBlock');</script-->
+                   <apex:pageBlockTable value="{!contacts}" var="c">
+                       <apex:column >
+                           <!-- apex:facet name="header">
+                               <apex:inputCheckbox value="{!selectAll}">
+                                   <apex:actionSupport event="onchange" action="{!processSelectAll}" 
+                                    rerender="theForm" />
+                               </apex:inputCheckbox>
+                           </apex:facet-->
+                           <apex:inputCheckbox value="{!c.selected}">
+                               <!--  apex:actionSupport event="onchange" action="{!processSelectOne}" 
+                                rerender="theForm" /-->
+                           </apex:inputCheckbox>
+                       </apex:column>                     
+                       <apex:column headerValue="Name" ><apex:outputLink value="/{!c.ctct.id}">{!c.ctct.name}</apex:outputLink></apex:column>                                         
+                       <apex:column value="{!c.ctct.title}"/>                     
+                       <apex:column headerValue="Request Status" value="{!c.status}"/>                     
+                       <apex:column headerValue="Hit Code" value="{!c.hitCode}"/>                     
+                       <apex:column headerValue="Beacon Score" value="{!c.beaconScore}"/>                     
+                       <apex:column headerValue="Printable Report"><apex:outputLink target="_blank" value="{!c.URL}">{!c.linkName}</apex:outputLink></apex:column>                     
+                       <apex:column headerValue="XML Report"><apex:outputLink target="_blank" value="{!c.xmlURL}">{!c.xmlLinkName}</apex:outputLink></apex:column>
+                   </apex:pageBlockTable>               
+                   <script>{!continueScript}</script>
+               </apex:pageBlockSection>
+               <!--  apex:commandButton value="Request Reports" onclick="sendRequests(); return false;" rendered="{!renderRequestButton}" / -->
+               <apex:commandButton value="Request Reports" onclick="sendRequests(); return false;" />
+               <apex:commandButton value="Return To Opportunity" action="{!returnToOpportunity}" rendered="{!renderReturnButton}" />
+               <apex:commandButton value="Return To Contact" action="{!returnToContact}" rendered="{!renderContactReturnButton}" />
+               <apex:commandButton value="Return To Account" action="{!returnToAccount}" rendered="{!renderAccountReturnButton}" />
+               <!-- apex:commandButton value="Save Credit Review" action="{!saveCreditReview}" rendered="{!renderSaveCreditReview}"/ -->
+           </apex:pageBlock>
+       </apex:outputPanel>                     
+   </apex:form>
+</apex:page>

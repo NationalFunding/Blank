@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Digital_Sales_Experience_Indicator__c</fullName>
+    <description>References the Account field Digital Sales Experience Indicator. This value is used by Digital Sales process to determine what experience should be used. Blank means the default experience is used.</description>
+    <externalId>false</externalId>
+    <formula>Text(Opportunity__r.Broker_Account__r.Digital_Sales_Experience_Indicator__c)</formula>
+    <inlineHelpText>Opportunity/Broker Account/Digital Sales Experience Indicator</inlineHelpText>
+    <label>Digital Sales Experience Indicator</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

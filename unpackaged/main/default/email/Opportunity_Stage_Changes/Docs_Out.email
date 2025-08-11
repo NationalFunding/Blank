@@ -1,0 +1,10 @@
+Hi
+
+Docs have been sent Out for {!Opportunity.Name}.  Please proceed with the next step in processing for this deal with {!Opportunity.Account}.
+
+Click here to go directly to this deal {!Opportunity.Link}
+
+Thanks
+
+{!Opportunity.OwnerFullName}
+{!Opportunity.OwnerPhone}

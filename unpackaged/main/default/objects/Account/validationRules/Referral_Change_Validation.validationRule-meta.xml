@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Referral_Change_Validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(ISCHANGED(Refer_To__c), 
+ISPICKVAL(Refer_To__c, ''),
+NOW() - Referred_Date__c &lt; 30)</errorConditionFormula>
+    <errorMessage>You may not change the Refer To field to blank once the record has been referred.</errorMessage>
+</ValidationRule>

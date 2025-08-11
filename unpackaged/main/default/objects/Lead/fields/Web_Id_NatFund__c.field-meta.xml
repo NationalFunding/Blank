@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Web_Id_NatFund__c</fullName>
+    <description>This field will be the unique record identifier for leads that are created from nationalfunding.com.  This field will be populated on create and subsequently when the customer completes steps of the application. For de-duping, the field in the new lead should overwrite the existing value.</description>
+    <externalId>true</externalId>
+    <inlineHelpText>This field should not be edited.</inlineHelpText>
+    <label>Web Id NatFund</label>
+    <length>18</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

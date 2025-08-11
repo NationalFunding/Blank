@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NF_WC_Exposure__c</fullName>
+    <description>This field will calculate the total amount of Exposure that National Funding has funded for the customer.
+Last update: Include FRPSA/Broker WC/Broker FRPSA/External Collection RecordType FSRTB-88</description>
+    <inlineHelpText>This field will calculate the total amount of Exposure that National Funding has funded for the customer.</inlineHelpText>
+    <label>NF WC Exposure</label>
+    <summarizedField>Opportunity.Funded_Amount__c</summarizedField>
+    <summaryFilterItems>
+        <field>Opportunity.RecordTypeId</field>
+        <operation>equals</operation>
+        <value>Working Capital Oppty, Broker FRPSA, FRPSA, External Collections, Broker WC Oppty</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>Opportunity.StageName</field>
+        <operation>equals</operation>
+        <value>Funded</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>Opportunity.Internal_Funding_Status__c</field>
+        <operation>equals</operation>
+        <value>Funded, Re-Negotiated, Delinquent, Defaulted, Legal, Modified, Do Not Renew, Loan Write-off</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

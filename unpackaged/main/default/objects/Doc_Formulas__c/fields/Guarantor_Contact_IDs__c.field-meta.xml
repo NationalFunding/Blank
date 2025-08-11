@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Guarantor_Contact_IDs__c</fullName>
+    <externalId>false</externalId>
+    <formula>Primary_Contact_ID__c   &amp; "|" &amp; Guarantor_2_Contact_ID__c  &amp; "|" &amp; Guarantor_3_Contact_ID__c  &amp; "|" &amp; Guarantor_4_Contact_ID__c  &amp; "|" &amp; Guarantor_5_Contact_ID__c  &amp; "|" &amp; Guarantor_6_Contact_ID__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Guarantor Contact IDs</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

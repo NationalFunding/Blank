@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Projected_Final_Fund_Date__c</fullName>
+    <description>This field was requested by Portfolio Management. The field will indicate the projected final fund date of a lease transaction. A validation rule will be put in place that requires this field contain a value if the External or Internal prefund field is True.</description>
+    <inlineHelpText>This field must contain a date if the Internal or External prefunding check box has been marked True.</inlineHelpText>
+    <label>Projected Final Fund Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

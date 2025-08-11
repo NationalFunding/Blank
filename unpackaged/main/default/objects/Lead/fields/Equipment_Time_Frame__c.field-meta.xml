@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Equipment_Time_Frame__c</fullName>
+    <description>This field will indicate when the customer needs equipment.  Will be filled out from the web to lead form in most cases.</description>
+    <inlineHelpText>This field will indicate when the customer needs equipment.  Will be filled out from the web to lead form in most cases.</inlineHelpText>
+    <label>Equipment Time Frame</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>91+ Days</fullName>
+                <default>false</default>
+                <label>91+ Days</label>
+            </value>
+            <value>
+                <fullName>30 Days</fullName>
+                <default>false</default>
+                <label>30 Days</label>
+            </value>
+            <value>
+                <fullName>60-90 Days</fullName>
+                <default>false</default>
+                <label>60-90 Days</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

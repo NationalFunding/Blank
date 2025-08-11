@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Balance_Paid__c</fullName>
+    <description>Sum of all successful payments to date for an internal FPC deal.</description>
+    <inlineHelpText>Sum of all successful payments to date for an internal FPC deal.</inlineHelpText>
+    <label>Balance Paid</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

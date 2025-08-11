@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Steps__c</fullName>
+    <description>Total number of Steps assigned in the Credit Review Controller</description>
+    <externalId>false</externalId>
+    <formula>IF(
+AND(
+NOT(ISBLANK(Step_1__c)),
+ISBLANK(Step_2__c)),
+1,
+
+IF(
+AND(
+NOT(ISBLANK(Step_2__c)),
+ISBLANK(Step_3__c)),
+2,
+
+IF(
+AND(
+NOT(ISBLANK(Step_3__c)),
+ISBLANK(Step_4__c)),
+3,
+
+IF(
+AND(
+NOT(ISBLANK(Step_4__c)),
+ISBLANK(Step_5__c)),
+4,
+
+IF(
+AND(
+NOT(ISBLANK(Step_5__c)),
+ISBLANK(Step_6__c)),
+5,
+
+IF(
+AND(
+NOT(ISBLANK(Step_6__c)),
+ISBLANK(Step_7__c)),
+6,
+
+IF(
+AND(
+NOT(ISBLANK(Step_7__c)),
+ISBLANK(Step_8__c)),
+7,
+
+IF(
+AND(
+NOT(ISBLANK(Step_8__c)),
+ISBLANK(Step_9__c)),
+8,
+
+IF(
+AND(
+NOT(ISBLANK(Step_9__c)),
+ISBLANK(Step_10__c)),
+9,
+
+IF(
+AND(
+NOT(ISBLANK(Step_10__c)),
+ISBLANK(Step_11__c)),
+10,
+
+IF(
+AND(
+NOT(ISBLANK(Step_11__c)),
+ISBLANK(Step_12__c)),
+11,
+
+IF(
+AND(
+NOT(ISBLANK(Step_12__c)),
+ISBLANK(Step_13__c)),
+12,
+
+IF(
+AND(
+NOT(ISBLANK(Step_13__c)),
+ISBLANK(Step_14__c)),
+13,
+
+IF(
+AND(
+NOT(ISBLANK(Step_14__c)),
+ISBLANK(Step_15__c)),
+14,
+
+IF(
+AND(
+NOT(ISBLANK(Step_15__c)),
+ISBLANK(Step_16__c)),
+15,
+
+IF(
+NOT(ISBLANK(Step_16__c)),
+16,
+
+0
+))))))))))))))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Total Steps</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

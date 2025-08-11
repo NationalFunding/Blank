@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contract_Record_Locked</fullName>
+    <active>true</active>
+    <description>Unable to edit record if Locked checkbox is checked.</description>
+    <errorConditionFormula>AND (
+     NOT(ISNEW()), 
+     NOT(ISCHANGED(Locked__c)),
+     Locked__c = TRUE
+)</errorConditionFormula>
+    <errorMessage>This record is locked.</errorMessage>
+</ValidationRule>

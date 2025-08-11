@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <constants>
+        <name>varUser_NFAutomationUser</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>NF Automation User</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>varUser_NFCreditAPI</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>NF Credit API</stringValue>
+        </value>
+    </constants>
+    <decisions>
+        <description>DLP Opted - In SMS Messages</description>
+        <name>DLP_Opted_In_SMS_Messages</name>
+        <label>DLP Opted - In SMS Messages</label>
+        <locationX>248</locationX>
+        <locationY>539</locationY>
+        <defaultConnector>
+            <targetReference>Mobile_Phone_is_Changed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>FALSE_DLP Opted - In SMS Messages</defaultConnectorLabel>
+        <rules>
+            <name>TRUE_DLP_Opted_In_SMS_Messages</name>
+            <conditionLogic>(1 AND 2 AND 3 AND 4 AND (5 OR 6)) OR (2 AND 3 AND 4 AND 6 AND 7)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SMS_Opt_In__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SMS_Opt_In__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.MobilePhone</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SMS_Opt_Out__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.LastModifiedById</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>varUserId_NFCreditAPI</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.LastModifiedById</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>varUserId_NFAutomationUser</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Formula_LeadIsNew</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Opt_In_Date</targetReference>
+            </connector>
+            <label>TRUE DLP Opted - In SMS Messages</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Mobile Phone is Changed</description>
+        <name>Mobile_Phone_is_Changed</name>
+        <label>Mobile Phone is Changed</label>
+        <locationX>446</locationX>
+        <locationY>647</locationY>
+        <defaultConnectorLabel>FALSE_Mobile Phone is Changed</defaultConnectorLabel>
+        <rules>
+            <name>TRUE_Mobile_Phone_is_Changed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varMobileFormula</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Clear_SMS_Values</targetReference>
+            </connector>
+            <label>TRUE Mobile Phone is Changed</label>
+        </rules>
+    </decisions>
+    <description>Last Update: 6/1/2025 Removed subflow element and moved to the Customer Event - SMS Opt In flow
+4/28/2025, BAU-469, Added condition to check for new leads
+This flow is used to send Opt In message for lead whenever SMS -Opt In is changed from false to true</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>Formula_LeadIsNew</name>
+        <dataType>Boolean</dataType>
+        <expression>ISNEW()</expression>
+    </formulas>
+    <formulas>
+        <name>varMobileFormula</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+    SUBSTITUTE( SUBSTITUTE( SUBSTITUTE( SUBSTITUTE(PRIORVALUE({!$Record.MobilePhone}), &quot;(&quot;, &quot;&quot;), &quot;)&quot;, &quot;&quot;), &quot; &quot;, &quot;&quot;), &quot;-&quot;, &quot;&quot;) != SUBSTITUTE( SUBSTITUTE( SUBSTITUTE( SUBSTITUTE({!$Record.MobilePhone}, &quot;(&quot;, &quot;&quot;), &quot;)&quot;, &quot;&quot;), &quot; &quot;, &quot;&quot;), &quot;-&quot;, &quot;&quot;),
+    NOT(ISBLANK({!$Record.MobilePhone}))
+)</expression>
+    </formulas>
+    <interviewLabel>Lead - SMS Opt-Ins {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Lead - SMS Opt-Ins</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Get NF Credit API User</description>
+        <name>Get_NF_Automation_User</name>
+        <label>Get NF Automation User</label>
+        <locationX>248</locationX>
+        <locationY>431</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>DLP_Opted_In_SMS_Messages</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>varUser_NFAutomationUser</elementReference>
+            </value>
+        </filters>
+        <object>User</object>
+        <outputAssignments>
+            <assignToReference>varUserId_NFAutomationUser</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordLookups>
+        <description>Get NF Credit API User</description>
+        <name>Get_NF_Credit_API_User</name>
+        <label>Get NF Credit API User</label>
+        <locationX>248</locationX>
+        <locationY>323</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_NF_Automation_User</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>varUser_NFCreditAPI</elementReference>
+            </value>
+        </filters>
+        <object>User</object>
+        <outputAssignments>
+            <assignToReference>varUserId_NFCreditAPI</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordUpdates>
+        <description>Clear SMS Values</description>
+        <name>Clear_SMS_Values</name>
+        <label>Clear SMS Values</label>
+        <locationX>314</locationX>
+        <locationY>755</locationY>
+        <inputAssignments>
+            <field>Last_Opt_In_Message_Sent__c</field>
+        </inputAssignments>
+        <inputAssignments>
+            <field>SMS_Opt_In_Date_Time__c</field>
+        </inputAssignments>
+        <inputAssignments>
+            <field>SMS_Opt_In__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update Opt In Date</description>
+        <name>Update_Opt_In_Date</name>
+        <label>Update Opt In Date</label>
+        <locationX>50</locationX>
+        <locationY>647</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>SMS_Opt_In_Date_Time__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>SMS_Opt_In_Date_Time__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>122</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_NF_Credit_API_User</targetReference>
+        </connector>
+        <object>Lead</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>varUserId_NFAutomationUser</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varUserId_NFCreditAPI</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

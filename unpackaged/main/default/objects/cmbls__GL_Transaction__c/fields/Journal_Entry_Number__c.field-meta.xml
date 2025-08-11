@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Journal_Entry_Number__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+            NOT(ISBLANK(Journal_Entry_Override__c)), Journal_Entry_Override__c,
+            IF(
+                NOT(ISBLANK(Split_Batch__c)), Split_Batch__c,
+                IF(
+                    NOT(ISBLANK(ACH_Batch__c)), ACH_Batch__c,
+                    IF(
+                        NOT(ISBLANK(Check_Number__c)), Check_Number__c,
+                        IF(
+                            CONTAINS(Source_Record__c, 'Refund'), Source_Record__c,
+                            IF(NOT(ISBLANK(Disbursement_Batch__c)), Disbursement_Batch__c, Source_Record__c)
+                        )
+                    )
+                )
+            )
+        )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Journal Entry #</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

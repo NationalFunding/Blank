@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Allows visibility into the following fields: 
+- Model Approval Probability 
+- Model Charge Off Score</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>WC Credit Decision - fields for Operations</label>
+    <license>Salesforce</license>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>WC_Credit_Decision__c.Model_Approval_Probability__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>WC_Credit_Decision__c.Model_ChargeOff_Score__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+</PermissionSet>

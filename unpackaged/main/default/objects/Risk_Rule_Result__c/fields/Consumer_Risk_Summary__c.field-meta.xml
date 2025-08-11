@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Consumer_Risk_Summary__c</fullName>
+    <label>Consumer Risk Summary</label>
+    <referenceTo>Consumer_Risk_Summary__c</referenceTo>
+    <relationshipLabel>Risk Rule Results</relationshipLabel>
+    <relationshipName>Risk_Rule_Results</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Model_Grade__c</fullName>
+    <description>Displays PreQual Grade for sorting on Lead List Views.</description>
+    <externalId>false</externalId>
+    <formula>IF(
+				AND(
+								ISPICKVAL(Principal_Consumer_Risk_Summary__r.Model_Status__c, "Expired"),
+								NOT(ISPICKVAL(Principal_Consumer_Risk_Summary__r.Model_Status__c, ""))
+				),
+				Principal_Consumer_Risk_Summary__r.Grade__c + " - Expired",
+				Principal_Consumer_Risk_Summary__r.Grade__c
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Model Grade</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

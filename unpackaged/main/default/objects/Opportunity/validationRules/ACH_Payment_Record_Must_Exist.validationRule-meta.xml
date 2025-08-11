@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ACH_Payment_Record_Must_Exist</fullName>
+    <active>true</active>
+    <description>12/9/19 - removed ISPICKVAL(Funds_Released_By__c, 'ACH') - rule should trigger regardless of the way the funds are released.
+Previous Fund Date filter 2/23/2014</description>
+    <errorConditionFormula>AND(
+    Actuals_Audit_Complete__c = TRUE,
+    ACH_Payment_Record_Count__c = 0,
+    OR(
+        RecordType.Name = 'Working Capital Oppty',
+        RecordType.Name = 'Broker WC Oppty',
+        RecordType.Name = 'Direct MLP',
+        RecordType.Name = 'Broker FRPSA',
+        RecordType.Name = 'FRPSA'
+    ),
+    DATEVALUE(Fund_Date__c) &gt; DATE(2019,12,10),
+    CONTAINS(Lender_Account__r.Name, 'National Funding'),
+    $Setup.ValidationRules__c.Bypass_Opportunity_ACH_Validation__c = false
+)</errorConditionFormula>
+    <errorMessage>You must create an ACH Payment record before marking the 'Actuals Audit Complete' field as True.</errorMessage>
+</ValidationRule>

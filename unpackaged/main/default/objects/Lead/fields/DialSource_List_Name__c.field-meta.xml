@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DialSource_List_Name__c</fullName>
+    <description>This field will contain a value for Dial Source reports that can be used to segment records into lists.</description>
+    <inlineHelpText>This field will contain a value for Dial Source reports that can be used to segment records into lists.</inlineHelpText>
+    <label>DialSource List Name</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>D&amp;B Likely to Fund</fullName>
+                <default>false</default>
+                <label>D&amp;B Likely to Fund</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

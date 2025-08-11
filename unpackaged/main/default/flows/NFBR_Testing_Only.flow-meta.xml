@@ -1,0 +1,996 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apexPluginCalls>
+        <name>Call_Webservice</name>
+        <label>Call Webservice</label>
+        <locationX>878</locationX>
+        <locationY>300</locationY>
+        <apexClass>AutoStartFlowToWebservice</apexClass>
+        <inputParameters>
+            <name>varCRCId</name>
+            <value>
+                <elementReference>Credit_Review_Controller.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>varCreditReviewId</name>
+            <value>
+                <elementReference>varCRId</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>varProcessName</name>
+            <value>
+                <elementReference>varProcessStep</elementReference>
+            </value>
+        </inputParameters>
+    </apexPluginCalls>
+    <apiVersion>49.0</apiVersion>
+    <constants>
+        <name>conAnalystAssignment</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>AnalystAssignment</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>conAnalystDecision</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>AnalystDecision</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>conBrokerOpptyRecordType</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Broker_WC_Oppty</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>conBusinessBankReview</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>BusinessBankReview</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>conContinue</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Continue</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>conDeclined</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Declined</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>conEmailAddresses</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>aburdick@nationalfunding.com</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>coneNoahComplete</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>eNoahComplete</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>coneNoahStart</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>eNoahStart</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>conFinish</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Finish</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>conFlow</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Flow</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>conGetBusinessInformation</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>GetBusinessInformation</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>conInputBankData</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>InputBankData	</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>conInputBusinessData</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>InputBusinessData</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>conInternalDecline</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Internal Decline</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>conInternalPendInfo</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Internal Pend Info</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>conLenderPendInfo</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Lender Pend Info</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>conManualReview</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Manual Review</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>conNFAutomationUserDevName</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>NF_Automation_User</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>conNFDecline</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>NF Decline</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>conPersonalCreditPull</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>PersonalCreditPull</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>conPreProcessingRules</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>PreProcessingRules</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>conProcessBankStatements</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>ProcessBankStatements</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>conProcessStepTypeManual</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Manual</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>conProcessStepTypeWebservice</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Webservice</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>conRelatedOpportunitySearch1</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>RelatedOpportunitySearch1</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>conRelatedOpportunitySearch2</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>RelatedOpportunitySearch2</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>conReviewRelatedOpportunitySearch</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>ReviewRelatedOpportunitySearch</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>conRunCreditModels</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>RunCreditModels</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>conStageStatementsIn</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Statements In - MCA</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>conStop</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Stop</stringValue>
+        </value>
+    </constants>
+    <description>Use this flow only to test NFBR in the context of a Credit Review controller. Input the Credit Review Id and the ProcessStepName (NFBR Ruleset) to trigger.</description>
+    <formulas>
+        <name>fomulaExitPath</name>
+        <dataType>String</dataType>
+        <expression>IF(
+{!Credit_Review_Controller.Step_Number__c}=1, 
+{!Credit_Review_Controller.Step_1_Exit_Path__c},
+IF(
+{!Credit_Review_Controller.Step_Number__c}=2, 
+{!Credit_Review_Controller.Step_2_Exit_Path__c},
+IF(
+{!Credit_Review_Controller.Step_Number__c}=3, 
+{!Credit_Review_Controller.Step_3_Exit_Path__c},
+IF(
+{!Credit_Review_Controller.Step_Number__c}=4, 
+{!Credit_Review_Controller.Step_4_Exit_Path__c},
+IF(
+{!Credit_Review_Controller.Step_Number__c}=5, 
+{!Credit_Review_Controller.Step_5_Exit_Path__c},
+IF(
+{!Credit_Review_Controller.Step_Number__c}=6, 
+{!Credit_Review_Controller.Step_6_Exit_Path__c},
+IF(
+{!Credit_Review_Controller.Step_Number__c}=7, 
+{!Credit_Review_Controller.Step_7_Exit_Path__c},
+IF(
+{!Credit_Review_Controller.Step_Number__c}=8, 
+{!Credit_Review_Controller.Step_8_Exit_Path__c},
+IF(
+{!Credit_Review_Controller.Step_Number__c}=9, 
+{!Credit_Review_Controller.Step_9_Exit_Path__c},
+IF(
+{!Credit_Review_Controller.Step_Number__c}=10, 
+{!Credit_Review_Controller.Step_10_Exit_Path__c},
+IF(
+{!Credit_Review_Controller.Step_Number__c}=11, 
+{!Credit_Review_Controller.Step_11_Exit_Path__c},
+IF(
+{!Credit_Review_Controller.Step_Number__c}=12, 
+{!Credit_Review_Controller.Step_12_Exit_Path__c},
+IF(
+{!Credit_Review_Controller.Step_Number__c}=13, 
+{!Credit_Review_Controller.Step_13_Exit_Path__c},
+null
+)))))))))))))</expression>
+    </formulas>
+    <formulas>
+        <name>formulaCRStatus</name>
+        <dataType>String</dataType>
+        <expression>IF(
+{!varOpptyRecordType}=&apos;Broker_WC_Oppty&apos;,
+{!conNFDecline},
+{!conDeclined}
+)</expression>
+    </formulas>
+    <formulas>
+        <description>If the Opportunity Record Type is Broker, enter the date in this field. Working Capital direct deals will not have this field entered.</description>
+        <name>formulaDeclinedDate</name>
+        <dataType>DateTime</dataType>
+        <expression>IF(
+{!varOpptyRecordType}=&apos;Broker_WC_Oppty&apos;,
+{!$Flow.CurrentDateTime},
+null
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaDeclineReasonsBroker</name>
+        <dataType>String</dataType>
+        <expression>IF(
+{!varOpptyRecordType}=&apos;Broker_WC_Oppty&apos;,
+{!Credit_Review_Controller.Decline_Reasons__c},
+&apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaDeclineReasonsWC</name>
+        <dataType>String</dataType>
+        <expression>IF(
+{!varOpptyRecordType}=&apos;MCA_Oppty&apos;,
+{!Credit_Review_Controller.Decline_Reasons__c},
+&apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaInternalDeclineDate</name>
+        <dataType>DateTime</dataType>
+        <expression>IF(
+AND(
+{!varOpptyRecordType}=&apos;MCA_Oppty&apos;,
+{!formulaSendtoSyndication}=FALSE
+),
+{!$Flow.CurrentDateTime},
+null
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaLogMessageException</name>
+        <dataType>String</dataType>
+        <expression>&apos;ID: &apos; + {!Credit_Review_Controller.Id}</expression>
+    </formulas>
+    <formulas>
+        <name>formulaLogMessageMessage</name>
+        <dataType>String</dataType>
+        <expression>{!varProcessStep} + &apos; - &apos; + {!varProcessStepResult} + &apos; - &apos; +{!varExitPath}</expression>
+    </formulas>
+    <formulas>
+        <name>formulaMRNextStep</name>
+        <dataType>String</dataType>
+        <expression>IF(
+{!Credit_Review_Controller.Step_Number__c}=1, 
+{!Credit_Review_Controller.Step_2__c},
+IF(
+{!Credit_Review_Controller.Step_Number__c}=2, 
+{!Credit_Review_Controller.Step_3__c},
+IF(
+{!Credit_Review_Controller.Step_Number__c}=3, 
+{!Credit_Review_Controller.Step_4__c},
+IF(
+{!Credit_Review_Controller.Step_Number__c}=4, 
+{!Credit_Review_Controller.Step_5__c},
+IF(
+{!Credit_Review_Controller.Step_Number__c}=5, 
+{!Credit_Review_Controller.Step_6__c},
+IF(
+{!Credit_Review_Controller.Step_Number__c}=6, 
+{!Credit_Review_Controller.Step_7__c},
+IF(
+{!Credit_Review_Controller.Step_Number__c}=7, 
+{!Credit_Review_Controller.Step_8__c},
+IF(
+{!Credit_Review_Controller.Step_Number__c}=8, 
+{!Credit_Review_Controller.Step_9__c},
+IF(
+{!Credit_Review_Controller.Step_Number__c}=9, 
+{!Credit_Review_Controller.Step_10__c},
+IF(
+{!Credit_Review_Controller.Step_Number__c}=10, 
+{!Credit_Review_Controller.Step_11__c},
+IF(
+{!Credit_Review_Controller.Step_Number__c}=11, 
+{!Credit_Review_Controller.Step_12__c},
+IF(
+{!Credit_Review_Controller.Step_Number__c}=12, 
+{!Credit_Review_Controller.Step_13__c},
+null
+))))))))))))</expression>
+    </formulas>
+    <formulas>
+        <name>formulaMRNextStepType</name>
+        <dataType>String</dataType>
+        <expression>IF(
+{!Credit_Review_Controller.Step_Number__c}=1, 
+TEXT({!Credit_Review_Controller.Step_2_Type__c}),
+IF(
+{!Credit_Review_Controller.Step_Number__c}=2, 
+TEXT({!Credit_Review_Controller.Step_3_Type__c}),
+IF(
+{!Credit_Review_Controller.Step_Number__c}=3, 
+TEXT({!Credit_Review_Controller.Step_4_Type__c}),
+IF(
+{!Credit_Review_Controller.Step_Number__c}=4, 
+TEXT({!Credit_Review_Controller.Step_5_Type__c}),
+IF(
+{!Credit_Review_Controller.Step_Number__c}=5, 
+TEXT({!Credit_Review_Controller.Step_6_Type__c}),
+IF(
+{!Credit_Review_Controller.Step_Number__c}=6, 
+TEXT({!Credit_Review_Controller.Step_7_Type__c}),
+IF(
+{!Credit_Review_Controller.Step_Number__c}=7, 
+TEXT({!Credit_Review_Controller.Step_8_Type__c}),
+IF(
+{!Credit_Review_Controller.Step_Number__c}=8, 
+TEXT({!Credit_Review_Controller.Step_9_Type__c}),
+IF(
+{!Credit_Review_Controller.Step_Number__c}=9, 
+TEXT({!Credit_Review_Controller.Step_10_Type__c}),
+IF(
+{!Credit_Review_Controller.Step_Number__c}=10, 
+TEXT({!Credit_Review_Controller.Step_11_Type__c}),
+IF(
+{!Credit_Review_Controller.Step_Number__c}=11, 
+TEXT({!Credit_Review_Controller.Step_12_Type__c}),
+IF(
+{!Credit_Review_Controller.Step_Number__c}=12, 
+TEXT({!Credit_Review_Controller.Step_13_Type__c}),
+null
+))))))))))))</expression>
+    </formulas>
+    <formulas>
+        <name>formulaNFDeclineDate</name>
+        <dataType>DateTime</dataType>
+        <expression>IF(
+AND(
+{!varOpptyRecordType}=&apos;MCA_Oppty&apos;,
+{!formulaSendtoSyndication}=TRUE
+),
+{!$Flow.CurrentDateTime},
+null
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaOpptyPendStage</name>
+        <dataType>String</dataType>
+        <expression>IF(
+{!varOpptyRecordType}=&apos;MCA_Oppty&apos;,
+{!conInternalPendInfo},
+{!conLenderPendInfo}
+)</expression>
+    </formulas>
+    <formulas>
+        <description>If Broker Opportunity, update stage to Declined. If Working Capital, update stage to NF Decline.</description>
+        <name>formulaOpptyStage</name>
+        <dataType>String</dataType>
+        <expression>IF(
+{!varOpptyRecordType}=&apos;Broker_WC_Oppty&apos;,
+{!conDeclined},
+IF(
+AND(
+{!varOpptyRecordType}=&apos;MCA_Oppty&apos;,
+{!formulaSendtoSyndication}=TRUE),
+{!conNFDecline},
+{!conInternalDecline}
+))</expression>
+    </formulas>
+    <formulas>
+        <name>formulaProcessStep</name>
+        <dataType>String</dataType>
+        <expression>IF(
+AND(
+{!Credit_Review_Controller.Step_Number__c}=1, 
+{!Credit_Review_Controller.Step_1_Status__c}&lt;&gt;{!conContinue}),
+{!Credit_Review_Controller.Step_1__c},
+IF(
+AND(
+{!Credit_Review_Controller.Step_Number__c}=2, 
+{!Credit_Review_Controller.Step_2_Status__c}&lt;&gt;{!conContinue}),
+{!Credit_Review_Controller.Step_2__c},
+IF(
+AND(
+{!Credit_Review_Controller.Step_Number__c}=3, 
+{!Credit_Review_Controller.Step_3_Status__c}&lt;&gt;{!conContinue}),
+{!Credit_Review_Controller.Step_3__c},
+IF(
+AND(
+{!Credit_Review_Controller.Step_Number__c}=4, 
+{!Credit_Review_Controller.Step_4_Status__c}&lt;&gt;{!conContinue}),
+{!Credit_Review_Controller.Step_4__c},
+IF(
+AND(
+{!Credit_Review_Controller.Step_Number__c}=5, 
+{!Credit_Review_Controller.Step_5_Status__c}&lt;&gt;{!conContinue}),
+{!Credit_Review_Controller.Step_5__c},
+IF(
+AND(
+{!Credit_Review_Controller.Step_Number__c}=6, 
+{!Credit_Review_Controller.Step_6_Status__c}&lt;&gt;{!conContinue}),
+{!Credit_Review_Controller.Step_6__c},
+IF(
+AND(
+{!Credit_Review_Controller.Step_Number__c}=7, 
+{!Credit_Review_Controller.Step_7_Status__c}&lt;&gt;{!conContinue}),
+{!Credit_Review_Controller.Step_7__c},
+IF(
+AND(
+{!Credit_Review_Controller.Step_Number__c}=8, 
+{!Credit_Review_Controller.Step_8_Status__c}&lt;&gt;{!conContinue}),
+{!Credit_Review_Controller.Step_8__c},
+IF(
+AND(
+{!Credit_Review_Controller.Step_Number__c}=9, 
+{!Credit_Review_Controller.Step_9_Status__c}&lt;&gt;{!conContinue}),
+{!Credit_Review_Controller.Step_9__c},
+IF(
+AND(
+{!Credit_Review_Controller.Step_Number__c}=10, 
+{!Credit_Review_Controller.Step_10_Status__c}&lt;&gt;{!conContinue}),
+{!Credit_Review_Controller.Step_10__c},
+IF(
+AND(
+{!Credit_Review_Controller.Step_Number__c}=11, 
+{!Credit_Review_Controller.Step_11_Status__c}&lt;&gt;{!conContinue}),
+{!Credit_Review_Controller.Step_11__c},
+IF(
+AND(
+{!Credit_Review_Controller.Step_Number__c}=12, 
+{!Credit_Review_Controller.Step_12_Status__c}&lt;&gt;{!conContinue}),
+{!Credit_Review_Controller.Step_12__c},
+IF(
+AND(
+{!Credit_Review_Controller.Step_Number__c}=13, 
+{!Credit_Review_Controller.Step_13_Status__c}&lt;&gt;{!conContinue}),
+{!Credit_Review_Controller.Step_13__c},
+{!conFinish}
+)))))))))))))</expression>
+    </formulas>
+    <formulas>
+        <name>formulaProcessStepNumber</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+{!Credit_Review_Controller.Step_Number__c}&lt;{!Credit_Review_Controller.Total_Steps__c},
+({!Credit_Review_Controller.Step_Number__c}+1),
+{!Credit_Review_Controller.Step_Number__c}
+)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <description>Determines the status of the current step process.</description>
+        <name>formulaProcessStepResult</name>
+        <dataType>String</dataType>
+        <expression>IF(
+{!Credit_Review_Controller.Step_Number__c}=1,
+{!Credit_Review_Controller.Step_1_Status__c},
+IF(
+{!Credit_Review_Controller.Step_Number__c}=2,
+{!Credit_Review_Controller.Step_2_Status__c},
+IF(
+{!Credit_Review_Controller.Step_Number__c}=3,
+{!Credit_Review_Controller.Step_3_Status__c},
+IF(
+{!Credit_Review_Controller.Step_Number__c}=4,
+{!Credit_Review_Controller.Step_4_Status__c},
+IF(
+{!Credit_Review_Controller.Step_Number__c}=5,
+{!Credit_Review_Controller.Step_5_Status__c},
+IF(
+{!Credit_Review_Controller.Step_Number__c}=6,
+{!Credit_Review_Controller.Step_6_Status__c},
+IF(
+{!Credit_Review_Controller.Step_Number__c}=7,
+{!Credit_Review_Controller.Step_7_Status__c},
+IF(
+{!Credit_Review_Controller.Step_Number__c}=8,
+{!Credit_Review_Controller.Step_8_Status__c},
+IF(
+{!Credit_Review_Controller.Step_Number__c}=9,
+{!Credit_Review_Controller.Step_9_Status__c},
+IF(
+{!Credit_Review_Controller.Step_Number__c}=10,
+{!Credit_Review_Controller.Step_10_Status__c},
+IF(
+{!Credit_Review_Controller.Step_Number__c}=11,
+{!Credit_Review_Controller.Step_11_Status__c},
+IF(
+{!Credit_Review_Controller.Step_Number__c}=12,
+{!Credit_Review_Controller.Step_12_Status__c},
+IF(
+{!Credit_Review_Controller.Step_Number__c}=13,
+{!Credit_Review_Controller.Step_13_Status__c},
+{!conContinue}
+)))))))))))))</expression>
+    </formulas>
+    <formulas>
+        <name>formulaSendtoSyndication</name>
+        <dataType>Boolean</dataType>
+        <expression>{!Credit_Review_Controller.Syndicate__c}</expression>
+    </formulas>
+    <formulas>
+        <name>formulaStep10ResultContinue</name>
+        <dataType>String</dataType>
+        <expression>IF(
+{!Credit_Review_Controller.Step_Number__c}=10,
+&apos;Continue&apos;,
+{!Credit_Review_Controller.Step_10_Status__c}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaStep11ResultContinue</name>
+        <dataType>String</dataType>
+        <expression>IF(
+{!Credit_Review_Controller.Step_Number__c}=11,
+&apos;Continue&apos;,
+{!Credit_Review_Controller.Step_11_Status__c}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaStep12ResultContinue</name>
+        <dataType>String</dataType>
+        <expression>IF(
+{!Credit_Review_Controller.Step_Number__c}=12,
+&apos;Continue&apos;,
+{!Credit_Review_Controller.Step_12_Status__c}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaStep13ResultContinue</name>
+        <dataType>String</dataType>
+        <expression>IF(
+{!Credit_Review_Controller.Step_Number__c}=13,
+&apos;Continue&apos;,
+{!Credit_Review_Controller.Step_13_Status__c}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaStep1ResultContinue</name>
+        <dataType>String</dataType>
+        <expression>IF(
+{!Credit_Review_Controller.Step_Number__c}=1,
+&apos;Continue&apos;,
+{!Credit_Review_Controller.Step_1_Status__c}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaStep2ResultContinue</name>
+        <dataType>String</dataType>
+        <expression>IF(
+{!Credit_Review_Controller.Step_Number__c}=2,
+&apos;Continue&apos;,
+{!Credit_Review_Controller.Step_2_Status__c}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaStep3ResultContinue</name>
+        <dataType>String</dataType>
+        <expression>IF(
+{!Credit_Review_Controller.Step_Number__c}=3,
+&apos;Continue&apos;,
+{!Credit_Review_Controller.Step_3_Status__c}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaStep4ResultContinue</name>
+        <dataType>String</dataType>
+        <expression>IF(
+{!Credit_Review_Controller.Step_Number__c}=4,
+&apos;Continue&apos;,
+{!Credit_Review_Controller.Step_4_Status__c}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaStep5ResultContinue</name>
+        <dataType>String</dataType>
+        <expression>IF(
+{!Credit_Review_Controller.Step_Number__c}=5,
+&apos;Continue&apos;,
+{!Credit_Review_Controller.Step_5_Status__c}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaStep6ResultContinue</name>
+        <dataType>String</dataType>
+        <expression>IF(
+{!Credit_Review_Controller.Step_Number__c}=6,
+&apos;Continue&apos;,
+{!Credit_Review_Controller.Step_6_Status__c}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaStep7ResultContinue</name>
+        <dataType>String</dataType>
+        <expression>IF(
+{!Credit_Review_Controller.Step_Number__c}=7,
+&apos;Continue&apos;,
+{!Credit_Review_Controller.Step_7_Status__c}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaStep8ResultContinue</name>
+        <dataType>String</dataType>
+        <expression>IF(
+{!Credit_Review_Controller.Step_Number__c}=8,
+&apos;Continue&apos;,
+{!Credit_Review_Controller.Step_8_Status__c}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaStep9ResultContinue</name>
+        <dataType>String</dataType>
+        <expression>IF(
+{!Credit_Review_Controller.Step_Number__c}=9,
+&apos;Continue&apos;,
+{!Credit_Review_Controller.Step_9_Status__c}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaStepType</name>
+        <dataType>String</dataType>
+        <expression>IF(
+{!Credit_Review_Controller.Step_Number__c}=1, 
+TEXT({!Credit_Review_Controller.Step_1_Type__c}),
+IF(
+{!Credit_Review_Controller.Step_Number__c}=2, 
+TEXT({!Credit_Review_Controller.Step_2_Type__c}),
+IF(
+{!Credit_Review_Controller.Step_Number__c}=3, 
+TEXT({!Credit_Review_Controller.Step_3_Type__c}),
+IF(
+{!Credit_Review_Controller.Step_Number__c}=4, 
+TEXT({!Credit_Review_Controller.Step_4_Type__c}),
+IF(
+{!Credit_Review_Controller.Step_Number__c}=5, 
+TEXT({!Credit_Review_Controller.Step_5_Type__c}),
+IF(
+{!Credit_Review_Controller.Step_Number__c}=6, 
+TEXT({!Credit_Review_Controller.Step_6_Type__c}),
+IF(
+{!Credit_Review_Controller.Step_Number__c}=7, 
+TEXT({!Credit_Review_Controller.Step_7_Type__c}),
+IF(
+{!Credit_Review_Controller.Step_Number__c}=8, 
+TEXT({!Credit_Review_Controller.Step_8_Type__c}),
+IF(
+{!Credit_Review_Controller.Step_Number__c}=9, 
+TEXT({!Credit_Review_Controller.Step_9_Type__c}),
+IF(
+{!Credit_Review_Controller.Step_Number__c}=10, 
+TEXT({!Credit_Review_Controller.Step_10_Type__c}),
+IF(
+{!Credit_Review_Controller.Step_Number__c}=11, 
+TEXT({!Credit_Review_Controller.Step_11_Type__c}),
+IF(
+{!Credit_Review_Controller.Step_Number__c}=12, 
+TEXT({!Credit_Review_Controller.Step_12_Type__c}),
+IF(
+{!Credit_Review_Controller.Step_Number__c}=13, 
+TEXT({!Credit_Review_Controller.Step_13_Type__c}),
+null
+)))))))))))))</expression>
+    </formulas>
+    <formulas>
+        <name>formulaSyndicationDate</name>
+        <dataType>DateTime</dataType>
+        <expression>IF(
+AND(
+{!varOpptyRecordType}=&apos;MCA_Oppty&apos;,
+{!formulaSendtoSyndication}=TRUE
+),
+{!$Flow.CurrentDateTime},
+null
+)</expression>
+    </formulas>
+    <interviewLabel>NFBR Testing Only {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>NFBR Testing Only</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Lookup Credit Review Controller for CRId</description>
+        <name>Credit_Review_Controller</name>
+        <label>Credit Review Controller</label>
+        <locationX>721</locationX>
+        <locationY>299</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Call_Webservice</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Credit_Review__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>varCRId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Credit_Review_Controller__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <runInMode>SystemModeWithoutSharing</runInMode>
+    <start>
+        <locationX>339</locationX>
+        <locationY>282</locationY>
+        <connector>
+            <targetReference>Credit_Review_Controller</targetReference>
+        </connector>
+    </start>
+    <status>Draft</status>
+    <textTemplates>
+        <name>DebugEmail1Subject</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>Flow debug - 01: Flow Started</text>
+    </textTemplates>
+    <textTemplates>
+        <name>DebugEmail2Subject</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>Flow debug - 02: Process Step Determined</text>
+    </textTemplates>
+    <textTemplates>
+        <name>DebugEmail3Subject</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>Flow debug - 03: Decision = Webservice</text>
+    </textTemplates>
+    <textTemplates>
+        <name>DebugEmail4Subject</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>Flow debug - 04: Decision = Continue - PreQual</text>
+    </textTemplates>
+    <textTemplates>
+        <name>DebugEmail5Subject</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>Flow debug - 05: Decision = Analyst Assignment</text>
+    </textTemplates>
+    <textTemplates>
+        <name>debugEmail6Subject</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>Flow Debug - 06: Decision = ROS2</text>
+    </textTemplates>
+    <textTemplates>
+        <name>debugEmail7subject</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>Flow debug - 07: Decision = Decline</text>
+    </textTemplates>
+    <textTemplates>
+        <name>debugEmail8Subject</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>Flow debug - 08: ROS1 or PCP Manual Review</text>
+    </textTemplates>
+    <textTemplates>
+        <name>debugEmail9Subject</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>Flow debug - 09: eNoah Complete</text>
+    </textTemplates>
+    <variables>
+        <name>inputOpptyId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>inputOpptyStageName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>inputResumeFlowCRC</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Credit Review Id</description>
+        <name>varCRId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>vareNoahCompleteDate</name>
+        <dataType>DateTime</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>varExitPath</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>varInputBankData</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varInputBusinessData</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varManualAnalystAssignment</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>varManualAnalystDecision</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>varManualeNoahComplete</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>varManualeNoahStart</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>varManualPreProcessing</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varOpptyRecord</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Opportunity</objectType>
+    </variables>
+    <variables>
+        <name>varOpptyRecordType</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>varProcessStep</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>varProcessStepResult</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>varProcessStepType</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

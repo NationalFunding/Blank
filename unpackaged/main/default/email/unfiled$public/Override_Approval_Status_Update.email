@@ -1,0 +1,7 @@
+Your override request has been {!Override__c.Status__c}
+
+Program: {!Override__c.Program__c}
+Status: {!Override__c.Status__c}
+
+Opportunity: {!Override__c.Opportunity__c}
+Opportunity Link: {!$Setup.Instance_Settings__c.Salesforce_URL__c}{!Override__c.OpportunityId__c}

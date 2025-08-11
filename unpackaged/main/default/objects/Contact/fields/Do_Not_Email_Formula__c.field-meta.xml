@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Do_Not_Email_Formula__c</fullName>
+    <description>This is a formula field to feed a workflow from Account to Contact.  This will update the Email Opt Out field on the Contact if the Account "Do Not Email" field is True.</description>
+    <externalId>false</externalId>
+    <formula>IF( Account.Do_Not_E_Mail__c = True, "Yes", "No")</formula>
+    <inlineHelpText>This is a formula field to feed a workflow from Account to Contact.  This will update the Email Opt Out field on the Contact if the Account "Do Not Email" field is True.</inlineHelpText>
+    <label>Do Not Email - Formula</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

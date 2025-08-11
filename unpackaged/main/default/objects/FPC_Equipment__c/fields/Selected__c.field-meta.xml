@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Selected__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field will indicate if a piece of equipment has been selected by the customer and will merge the equipment into the documents.</description>
+    <inlineHelpText>Check this box if the piece of equipment will be included in the documentation of the transaction.</inlineHelpText>
+    <label>Selected</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

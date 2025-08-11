@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NF_MLP_eSign</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>600</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>NF MLP eSign</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>/apex/APXTConga4__Conga_Composer
+?serverUrl={!API.Partner_Server_URL_370}
+&amp;id={!Opportunity.Id}
+&amp;TemplateGroup="DirectNFMLP,AdobeNFWC"
+&amp;TemplateId={!IF(Opportunity.Physical_Address_State__c="CA","a0S3n00000jN8vCEAS,","")}{!IF(OR(Opportunity.Physical_Address_State__c="UT",Opportunity.Physical_Address_State__c="FL",Opportunity.Physical_Address_State__c="GA"),"a0SPV000000IgIX2A0","")}{!IF(Opportunity.CCPA_Notice_Required__c = TRUE,"a0S3n00000hNDpZ","")}
+&amp;QueryId=[AInfo]a063400001BhgVg,[SG2]a063400001Bhgei,[G3G4]a063400001BhggA,[CRInfo]a063400001BhghI,[AT]a063400001BhhHu,[SPFInt]a063n00002EyPXMAA3,[SPFExt]a063n00002EyPXRAA3, [FO]a063n00002EyPXWAA3,[Funding]a06PV000004JBrvYAG
+&amp;DS4=0
+&amp;DS7=0
+&amp;DS8=1
+&amp;SelectTemplates=1
+&amp;DefaultPdf=1
+&amp;LG3=1
+&amp;LG0=0
+&amp;LG4=1
+&amp;PS0=1
+&amp;PS1=1
+&amp;PS2=0
+&amp;AttachmentParentId={!Opportunity.Id}
+&amp;OFN={!Opportunity.Name}+-+{Template.Label}
+&amp;QVAR0ID=a063400001BhhMQ
+&amp;DV0={QVAR0}
+
+&amp;ESVisible=1
+&amp;ESAgreementTemplateId=a0c2T00000DlmENQAZ</url>
+</WebLink>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sum_of_Visa_MC_equals_100</fullName>
+    <active>true</active>
+    <description>The sum of the Visa_MC processing methods cannot exceed 100%</description>
+    <errorConditionFormula>Visa_MC_Internet__c +
+Visa_MC_Keyed__c  +
+Visa_MC_Phone_Mail_Order__c +
+Visa_MC_Swiped__c &gt; 1</errorConditionFormula>
+    <errorMessage>The sum of the Visa_MC processing methods cannot exceed 100%.  Please check the following field and correct
+Visa_MC_Internet
+Visa_MC_Keyed
+Visa_MC_Phone Mail Order
+Visa_MC_Swiped</errorMessage>
+</ValidationRule>

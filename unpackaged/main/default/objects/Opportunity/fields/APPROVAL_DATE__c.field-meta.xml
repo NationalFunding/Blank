@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>APPROVAL_DATE__c</fullName>
+    <description>Approval date of an opportunity</description>
+    <inlineHelpText>Type in the approval date associated with an opprotunity. (MM/DD/YYYY)</inlineHelpText>
+    <label>Approval Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

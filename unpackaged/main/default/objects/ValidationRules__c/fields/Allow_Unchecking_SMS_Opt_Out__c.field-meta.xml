@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Allow_Unchecking_SMS_Opt_Out__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>BAU-7, used in Contact Validation Rule SMS_Opt_Out_Validation</description>
+    <inlineHelpText>Used in Contact Validation Rule SMS_Opt_Out_Validation</inlineHelpText>
+    <label>Allow Unchecking SMS Opt Out</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sum_of_Default_ACH_Payments__c</fullName>
+    <description>Sum of all of the ACH Payments that have a record type of 'Default'</description>
+    <label>Sum of Default ACH Payments</label>
+    <summarizedField>ACH_Payment__c.Amount__c</summarizedField>
+    <summaryFilterItems>
+        <field>ACH_Payment__c.RecordTypeId</field>
+        <operation>equals</operation>
+        <value>Default</value>
+    </summaryFilterItems>
+    <summaryForeignKey>ACH_Payment__c.Opportunity__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

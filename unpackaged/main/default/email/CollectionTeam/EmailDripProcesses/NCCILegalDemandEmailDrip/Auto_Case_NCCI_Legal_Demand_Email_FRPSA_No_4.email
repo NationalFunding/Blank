@@ -1,0 +1,7 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto; margin: 0; padding: 0;">Please contact us immediately as your account is in default and we have not heard from you. There is still time left to resolve your account. Please reach out immediately by replying to this email or by phone at {{{Sender.Phone}}}.<br />
+<span style="display:none;">{{{Case.Thread_Id}}}</span></body>
+</html>

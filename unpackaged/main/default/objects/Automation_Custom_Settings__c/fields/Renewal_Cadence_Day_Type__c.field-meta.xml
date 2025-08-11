@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Renewal_Cadence_Day_Type__c</fullName>
+    <description>The value can be "Business Days" or "Calendar Days".
+Used in Flow: Opportunity - Renewal Update (Cadence, Milestone, Oppo Creation)</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Business Days are defined as Mon-Friday and Calendar Days would be 7 days a week.</inlineHelpText>
+    <label>Renewal Cadence Day Type</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

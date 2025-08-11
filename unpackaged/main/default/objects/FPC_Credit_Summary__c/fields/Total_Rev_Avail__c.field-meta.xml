@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Rev_Avail__c</fullName>
+    <description>Contact's Total Revolving Credit Available.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Contact's Total Revolving Credit Available.</inlineHelpText>
+    <label>Total Rev Avail</label>
+    <precision>4</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

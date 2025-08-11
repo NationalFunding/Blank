@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Send_Notification_Email</name>
+        <label>Send Notification Email</label>
+        <locationX>1070</locationX>
+        <locationY>372</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>templateEmailBody</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddressesArray</name>
+            <value>
+                <elementReference>varEmailRecipientsCleaned</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>An Exception Request is Awaiting Review</stringValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <apiVersion>53.0</apiVersion>
+    <assignments>
+        <name>Add_Internal_Emails</name>
+        <label>Add Internal Emails</label>
+        <locationX>789</locationX>
+        <locationY>557</locationY>
+        <assignmentItems>
+            <assignToReference>varEmailRecipientsCleaned</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Check_Internal_or_External_Email</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Check_Internal_or_External_Email</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Email_Recipients</name>
+        <label>Assign Email Recipients</label>
+        <locationX>691</locationX>
+        <locationY>447</locationY>
+        <assignmentItems>
+            <assignToReference>varEmailRecipients</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>conSupervisorEmail</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varEmailRecipients</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>$Record.Opportunity__r.Owner.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Check_Internal_or_External_Email</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Email_Recipients_0</name>
+        <label>Assign Email Recipients</label>
+        <locationX>688</locationX>
+        <locationY>286</locationY>
+        <assignmentItems>
+            <assignToReference>varEmailRecipients</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>conSupervisorEmail</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varEmailRecipients</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>$Record.Opportunity__r.Broker_Account__r.Owner.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Check_Internal_or_External_Email</targetReference>
+        </connector>
+    </assignments>
+    <constants>
+        <name>conSupervisorEmail</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>btimmons@nationalfunding.com</stringValue>
+        </value>
+    </constants>
+    <decisions>
+        <name>Deal_Type</name>
+        <label>Deal Type</label>
+        <locationX>495</locationX>
+        <locationY>375</locationY>
+        <defaultConnectorLabel>Renewal</defaultConnectorLabel>
+        <rules>
+            <name>Direct</name>
+            <conditionLogic>(1 OR 2) AND (3 OR 4)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Opportunity__r.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>MCA_Oppty</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Opportunity__r.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FRPSA</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Opportunity__r.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>NEW</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Opportunity__r.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>CONCURRENT</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Email_Recipients</targetReference>
+            </connector>
+            <label>Direct</label>
+        </rules>
+        <rules>
+            <name>Broker</name>
+            <conditionLogic>(1 OR 2) AND (3 OR 4)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Opportunity__r.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Broker_WC_Oppty</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Opportunity__r.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Broker_FRPSA</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Opportunity__r.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>NEW</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Opportunity__r.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>CONCURRENT</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Email_Recipients_0</targetReference>
+            </connector>
+            <label>Broker</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Exception_Cleared</name>
+        <label>Exception Cleared?</label>
+        <locationX>313</locationX>
+        <locationY>376</locationY>
+        <defaultConnector>
+            <targetReference>Deal_Type</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not Cleared</defaultConnectorLabel>
+        <rules>
+            <name>Cleared</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Rejected Level 1</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Approved</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Rejected Final</stringValue>
+                </rightValue>
+            </conditions>
+            <label>Cleared</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Internal_or_External_Email_Address</name>
+        <label>Internal or External Email Address?</label>
+        <locationX>954</locationX>
+        <locationY>558</locationY>
+        <defaultConnector>
+            <targetReference>Check_Internal_or_External_Email</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>External</defaultConnectorLabel>
+        <rules>
+            <name>Internal</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>Check_Internal_or_External_Email</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>@nationalfunding.com</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Check_Internal_or_External_Email</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>@quickbridge.com</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Add_Internal_Emails</targetReference>
+            </connector>
+            <label>Internal</label>
+        </rules>
+    </decisions>
+    <description>Notifies Bryan Timmons and the assigned approver of an Exception Request that is not cleared after 55minutes post-submission.
+
+Request from Sandra Otero: https://nationalfunding.atlassian.net/browse/SD-4633</description>
+    <formulas>
+        <name>formulaDealType</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    AND(
+        OR(
+            {!$Record.Opportunity__r.RecordType.DeveloperName} = &quot;MCA_Oppty&quot;,
+            {!$Record.Opportunity__r.RecordType.DeveloperName} = &quot;FRPSA&quot;
+        ),
+        OR(
+            ISPICKVAL({!$Record.Opportunity__r.Type}, &quot;Concurrent&quot;),
+            ISPICKVAL({!$Record.Opportunity__r.Type}, &quot;New&quot;)
+        )
+    ),
+        &quot;Direct&quot;,
+        IF(
+            AND(
+                OR(
+                    {!$Record.Opportunity__r.RecordType.DeveloperName} = &quot;Broker_FRPSA&quot;,
+                    {!$Record.Opportunity__r.RecordType.DeveloperName} = &quot;Broker_WC_Oppty&quot;
+                ),
+                OR(
+                    ISPICKVAL({!$Record.Opportunity__r.Type}, &quot;Concurrent&quot;),
+                    ISPICKVAL({!$Record.Opportunity__r.Type}, &quot;New&quot;)
+                )
+            ), 
+        &quot;Broker&quot;,
+        IF(
+            OR(
+                NOT(ISPICKVAL({!$Record.Opportunity__r.Type}, &quot;Concurrent&quot;)),
+                NOT(ISPICKVAL({!$Record.Opportunity__r.Type}, &quot;New&quot;))
+            ),
+        &quot;Renewal&quot;, null
+        )
+    )
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaExceptionCleared</name>
+        <dataType>Boolean</dataType>
+        <expression>OR (
+ISPICKVAL({!$Record.Status__c}, &quot;Approved&quot;),
+ISPICKVAL({!$Record.Status__c}, &quot;Rejected Level 1&quot;),
+ISPICKVAL({!$Record.Status__c}, &quot;Rejected Final&quot;)
+)</expression>
+    </formulas>
+    <interviewLabel>Exception Request - Notification Email after 55minutes {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Exception Request - Notification Email after 55minutes</label>
+    <loops>
+        <name>Check_Internal_or_External_Email</name>
+        <label>Check Internal or External Email</label>
+        <locationX>882</locationX>
+        <locationY>365</locationY>
+        <collectionReference>varEmailRecipients</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Internal_or_External_Email_Address</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Send_Notification_Email</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>194</locationX>
+        <locationY>50</locationY>
+        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Submitted</stringValue>
+            </value>
+        </filters>
+        <object>Exception_Requests__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <scheduledPaths>
+            <name>X55min_after_submission</name>
+            <connector>
+                <targetReference>Exception_Cleared</targetReference>
+            </connector>
+            <label>55min after submission</label>
+            <offsetNumber>55</offsetNumber>
+            <offsetUnit>Minutes</offsetUnit>
+            <timeSource>RecordTriggerEvent</timeSource>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <name>templateEmailBody</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>An Exception Request has not cleared after 55 minutes post-submission
+
+Opportunity: {!$Record.Opportunity__r.Name}
+
+Credit Review: https://nf.lightning.force.com/{!$Record.Credit_Review__c}
+Assigned Approver: {!$Record.Assigned_Approver__r.Full_Name__c}
+Type: {!$Record.Type__c}
+Reason: {!$Record.Reason__c}</text>
+    </textTemplates>
+    <variables>
+        <name>varEmailRecipients</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varEmailRecipientsCleaned</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

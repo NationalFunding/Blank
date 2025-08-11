@@ -1,0 +1,1794 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <actionCalls>
+        <name>Open_Google_Search_Tab</name>
+        <label>Open Google Search Tab</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>c:fsc_openUrl</actionName>
+        <actionType>component</actionType>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Object_Brand_Needs_Update</targetReference>
+        </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Assign_Fault_Error</targetReference>
+        </faultConnector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>mode</name>
+            <value>
+                <stringValue>newTab</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>url</name>
+            <value>
+                <stringValue>https://www.google.com/search?q={!var_recipientCompanyName}</stringValue>
+            </value>
+        </inputParameters>
+        <nameSegment>c:fsc_openUrl</nameSegment>
+        <offset>0</offset>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <actionCalls>
+        <name>Send_Account_DLP_Request_Email_NF</name>
+        <label>Send Account - DLP Request Email (NF)</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>Object_Brand_Needs_Update</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Assign_Fault_Error</targetReference>
+        </faultConnector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailTemplateId</name>
+            <value>
+                <elementReference>Get_Email_Template_Account_DLP_Request.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recipientId</name>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>Send_Account_DLP_Request_QB_Email</name>
+        <label>Send Account - DLP Request (QB) Email</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Object_Brand_Needs_Update</targetReference>
+        </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Assign_Fault_Error</targetReference>
+        </faultConnector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailTemplateId</name>
+            <value>
+                <elementReference>Get_Email_Template_Account_DLP_Request_QB.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recipientId</name>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>Send_DFP_Text</name>
+        <label>Send DFP Text</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>TwilioSF__TwilioSendSMS</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Object_Brand_Needs_Update</targetReference>
+        </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Assign_Fault_Error</targetReference>
+        </faultConnector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>fromNumber</name>
+            <value>
+                <elementReference>$User.TwilioSF__Twilio_Personal_Number__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>message</name>
+            <value>
+                <elementReference>tt_send_dfp_text_message</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recordId</name>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>toNumber</name>
+            <value>
+                <elementReference>var_recipientNumber</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>TwilioSF__TwilioSendSMS</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>Send_Lead_DLP_Email_NF</name>
+        <label>Send Lead - DLP Email (NF)</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Object_Brand_Needs_Update</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Assign_Unsupported_Brand_Error</targetReference>
+        </faultConnector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailTemplateId</name>
+            <value>
+                <elementReference>Get_Email_Template_Lead_DLP_Email.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recipientId</name>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>Send_Lead_DLP_Email_QB_Email</name>
+        <label>Send Lead - DLP Email (QB) Email</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Object_Brand_Needs_Update</targetReference>
+        </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Assign_Unsupported_Brand_Error</targetReference>
+        </faultConnector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailTemplateId</name>
+            <value>
+                <elementReference>Get_Email_Template_Lead_DLP_Email_QB.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recipientId</name>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <apiVersion>64.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Assign_Action_Fail_Error</name>
+        <label>Assign Action Fail Error</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>var_error</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formula_ErrorMessage_UnableToPerform</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Fallback_Screen</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Available_Brand_1</name>
+        <label>Assign Available Brand</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>var_brand</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Select_Brand_Experience_to_Send</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>var_wasBrandOriginallyBlank</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Button_Selected</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Brand</name>
+        <label>Assign Brand</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>var_brand</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formula_Brand</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>var_wasBrandOriginallyBlank</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Button_Selected</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Common_Data</name>
+        <label>Assign Common Data</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>var_brand</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formula_Brand</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>var_recipientNumber</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formula_recipientMobilePhone</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>var_recipientEmail</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formula_recipientEmail</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>var_recipientCompanyName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formula_recipientCompanyName</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>var_recipientSMSOptOut</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formula_recipientSMSOptOut</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>var_recipientEmailOptOut</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formula_recipientEmailOptOut</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Brand_Missing</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Contact_Variables</name>
+        <label>Assign Contact Variables</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>recordId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Selected_Contact.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>var_recipientId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Selected_Contact.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Assign_Common_Data</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_DFP_Text_Tokenizer_Error</name>
+        <label>Assign DFP Text Tokenizer Error</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>var_error</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Generate_and_Save_Token_DFP_Text.var_error</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Fallback_Screen</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Error_0</name>
+        <label>Assign Error</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>var_error</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>The input object type is not supported by this flow. Record ID {!recordId}</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Fallback_Screen</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Fault_Error</name>
+        <label>Assign Fault Error</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>var_error</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Flow.FaultMessage</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Fallback_Screen</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_flow_variables</name>
+        <label>Assign flow variables</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>recordPageId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Contextual_Buttons_Screen</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Lead_Variables</name>
+        <label>Assign Lead Variables</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>recordId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Lead.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>var_recipientId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Lead.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Assign_Common_Data</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Unsupported_Brand_Error</name>
+        <label>Assign Unsupported Brand Error</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>var_error</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>The {!var_brand} brand is not supported by the DFP Process</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Fallback_Screen</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Unsupported_Object_Error</name>
+        <label>Assign Unsupported Object Error</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>var_error</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Error: Unsupported Object. DFP Communications can only be send from Leads or Opportunities</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Fallback_Screen</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Reassign_recordId_to_Account_ID</name>
+        <label>Reassign recordId to Account ID</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>recordId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Opportunity.AccountId</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Get_Contacts</targetReference>
+        </connector>
+    </assignments>
+    <constants>
+        <name>c_National_Funding</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>National Funding</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>c_Quick_Bridge</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Quick Bridge</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>c_Send_DFP_Email</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Send DFP Email</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>c_Send_DFP_Text</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Send DFP Text</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>c_Send_Opt_In_Text</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Send Opt-In Text</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>c_Web_Search</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Web Search</stringValue>
+        </value>
+    </constants>
+    <decisions>
+        <name>Brand_Missing</name>
+        <label>Brand Missing?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Assign_Brand</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>formula_Brand</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Error</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Select_Brand_Screen</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Combined Send DFP Test + Send DFP Email into one path, since we need to call Tokenizer for both</description>
+        <name>Button_Selected</name>
+        <label>Button Selected?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Assign_Action_Fail_Error</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Other</defaultConnectorLabel>
+        <rules>
+            <name>Send_Opt_In_Text_Success</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>buttons_contextual.value</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>c_Send_Opt_In_Text</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>var_recipientNumber</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Error</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>var_recipientSMSOptOut</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Invoke_Twilio_Messaging_Subflow</targetReference>
+            </connector>
+            <label>Send Opt-In Text (Success)</label>
+        </rules>
+        <rules>
+            <name>DFP_Text_Success</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>buttons_contextual.value</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>c_Send_DFP_Text</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>var_recipientNumber</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Error</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>var_recipientSMSOptOut</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Generate_and_Save_Token_DFP_Text</targetReference>
+            </connector>
+            <label>DFP Text (Success)</label>
+        </rules>
+        <rules>
+            <name>DFP_Email_Success</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>buttons_contextual.value</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>c_Send_DFP_Email</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>var_recipientEmail</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Error</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>var_recipientEmailOptOut</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <isGoTo>true</isGoTo>
+                <targetReference>Generate_and_Save_Token_DFP_Text</targetReference>
+            </connector>
+            <label>DFP Email (Success)</label>
+        </rules>
+        <rules>
+            <name>Web_Search</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>buttons_contextual.value</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>c_Web_Search</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Open_Google_Search_Tab</targetReference>
+            </connector>
+            <label>Web Search</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Error_Thrown_1</name>
+        <label>Error Thrown?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Send_DFP_Text</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Error_Thrown_1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Generate_and_Save_Token_DFP_Text.var_error</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_DFP_Text_Tokenizer_Error</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Needed this decision to be here to prevent pending commit from preventing DFP Texts / Emails</description>
+        <name>Object_Brand_Needs_Update</name>
+        <label>Object.Brand Needs Update?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>ObjLead</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>recordPageId</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>00Q</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>var_wasBrandOriginallyBlank</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Lead_Brand</targetReference>
+            </connector>
+            <label>Lead</label>
+        </rules>
+        <rules>
+            <name>ObjOppty</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>recordPageId</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>006</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>var_wasBrandOriginallyBlank</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Oppty_Brand</targetReference>
+            </connector>
+            <label>Opportunity</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Reference Object Prefix + Brands__c Custom Setting to determine Which Object &amp; Brand Email template to Use</description>
+        <name>Object_Brand_Type_for_Email_Template</name>
+        <label>Object &amp; Brand Type for Email Template?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Assign_Unsupported_Object_Error</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Other</defaultConnectorLabel>
+        <rules>
+            <name>NF_Lead</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>recordPageId</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>00Q</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>var_brand</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>c_National_Funding</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Email_Template_Lead_DLP_Email</targetReference>
+            </connector>
+            <label>NF Lead</label>
+        </rules>
+        <rules>
+            <name>QB_Lead</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>recordPageId</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>00Q</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>var_brand</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>c_Quick_Bridge</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Email_Template_Lead_DLP_Email_QB</targetReference>
+            </connector>
+            <label>QB Lead</label>
+        </rules>
+        <rules>
+            <name>NF_Opportunity</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>recordPageId</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>006</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>var_brand</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>c_National_Funding</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Email_Template_Account_DLP_Request</targetReference>
+            </connector>
+            <label>NF Opportunity</label>
+        </rules>
+        <rules>
+            <name>QB_Opportunity</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>recordPageId</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>006</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>var_brand</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>c_Quick_Bridge</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Email_Template_Account_DLP_Request_QB</targetReference>
+            </connector>
+            <label>QB Opportunity</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Object_Type</name>
+        <label>Object Type?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Assign_Error_0</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Other</defaultConnectorLabel>
+        <rules>
+            <name>Lead_Object_Type</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>recordId</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>00Q</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Lead</targetReference>
+            </connector>
+            <label>Lead</label>
+        </rules>
+        <rules>
+            <name>Account_Object_Type</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>recordId</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>001</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <isGoTo>true</isGoTo>
+                <targetReference>Get_Contacts</targetReference>
+            </connector>
+            <label>Account</label>
+        </rules>
+        <rules>
+            <name>Opportunity_Object_Type</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>recordId</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>006</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Opportunity</targetReference>
+            </connector>
+            <label>Opportunity</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Which_DFP_Action</name>
+        <label>Which DFP Action?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Other</defaultConnectorLabel>
+        <rules>
+            <name>Send_DFP_Email_Button_Selected_0</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>buttons_contextual.value</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Send DFP Email</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Object_Brand_Type_for_Email_Template</targetReference>
+            </connector>
+            <label>Send DFP Email</label>
+        </rules>
+        <rules>
+            <name>Send_DFP_Text_Button_Selected_0</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>buttons_contextual.value</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Send DFP Text</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Error_Thrown_1</targetReference>
+            </connector>
+            <label>Send DFP Text</label>
+        </rules>
+    </decisions>
+    <description>Updated version for QA - Fixed Email Template Glitch</description>
+    <dynamicChoiceSets>
+        <name>choice_brands</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Brand_Experience__c</picklistField>
+        <picklistObject>Opportunity</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>choices_contacts_from_account</name>
+        <collectionReference>Get_Contacts</collectionReference>
+        <dataType>String</dataType>
+        <displayField>Name</displayField>
+        <object>Contact</object>
+        <valueField>Id</valueField>
+    </dynamicChoiceSets>
+    <environments>Default</environments>
+    <formulas>
+        <name>formula_Brand</name>
+        <dataType>String</dataType>
+        <expression>IF(
+AND(LEFT({!var_recipientId}, 3) = &apos;00Q&apos;, NOT(ISBLANK(TEXT({!Get_Lead.Originating_Brand__c})))),
+TEXT({!Get_Lead.Originating_Brand__c}),
+IF(NOT(ISBLANK(TEXT({!Get_Opportunity.Brand_Experience__c}))),
+TEXT({!Get_Opportunity.Brand_Experience__c}),
+&quot;Error&quot;
+)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formula_dfp_url</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    {!var_brand} = &apos;Quick Bridge&apos;,
+    {!$Setup.Instance_Settings__c.QB_Base_URL__c},
+    {!$Setup.Instance_Settings__c.Base_URL__c}
+)</expression>
+    </formulas>
+    <formulas>
+        <description>Used to determine the error message when a User is unable to perform an Action they&apos;re trying to do</description>
+        <name>formula_ErrorMessage_UnableToPerform</name>
+        <dataType>String</dataType>
+        <expression>/* 1: Opt-In Text - recipient Missing Mobile &amp; SMS Opt Out */
+IF(
+AND({!buttons_contextual.value} = {!c_Send_Opt_In_Text}, {!var_recipientNumber} = &quot;Error&quot;, {!var_recipientSMSOptOut} = true
+),
+&quot;🚫Error. Unable to send Opt-In Text due to reason: Missing Customer Phone Number &amp; Customer has Opted out from SMS&quot;,
+
+/* 2: Opt-In Text - recipient Missing Mobile */
+IF(
+AND({!buttons_contextual.value} = {!c_Send_Opt_In_Text}, {!var_recipientNumber} = &quot;Error&quot;
+),
+&quot;🚫Error. Unable to send Opt-In Text due to reason: Missing Customer Phone Number&quot;,
+
+/* 3: Opt-In Text - recipient Opted out of SMS */
+IF(
+AND({!buttons_contextual.value} = {!c_Send_Opt_In_Text}, {!var_recipientSMSOptOut} = true),
+&quot;🚫Error. Unable to send Opt-In Text due to reason: Customer has Opted Out of SMS&quot;,
+
+/* 4: Send DFP Email - recipient Missing Email &amp; Email Opted Out */
+IF(
+AND({!buttons_contextual.value} = {!c_Send_DFP_Email}, {!var_recipientEmail} = &quot;Error&quot;, {!var_recipientEmailOptOut} = true),
+&quot;🚫Error. Unable to send DFP Email due to reason: Missing Customer Email &amp; Customer has Opted out from Email&quot;,
+
+/* 5: Send DFP Email - recipient Missing Email */
+IF(
+AND({!buttons_contextual.value} = {!c_Send_DFP_Email}, {!var_recipientEmail} = &quot;Error&quot;),
+&quot;🚫Error. Unable to send DFP Email due to reason: Missing Customer Email&quot;,
+
+/* 6: Send DFP Email - recipient Opted out of Email */
+IF(
+AND({!buttons_contextual.value} = {!c_Send_DFP_Email}, {!var_recipientEmailOptOut} = true),
+&quot;🚫Error. Unable to send DFP Email due to reason: Customer has Opted Out of Email&quot;,
+
+/* 7: Send DFP Text - Missing Both Customer Mobile &amp; Customer Opted Out */
+IF(
+AND({!buttons_contextual.value} = {!c_Send_DFP_Text}, {!var_recipientNumber} = &quot;Error&quot;, {!var_recipientSMSOptOut} = true),
+&quot;🚫Error. Unable to send DFP Text due to reason: Missing Customer Phone Number &amp; Customer has Opted Out from SMS&quot;,
+
+/* 8: Send DFP Text - recipient Missing Mobile */
+IF(
+AND({!buttons_contextual.value} = {!c_Send_DFP_Text}, {!var_recipientNumber} = &quot;Error&quot;),
+&quot;🚫Error. Unable to send DFP Text due to reason: Missing Customer Phone Number&quot;,
+
+/* 9: Send DFP Text - recipient Opted out of SMS */
+IF(
+AND({!buttons_contextual.value} = {!c_Send_DFP_Text}, {!var_recipientSMSOptOut} = true),
+&quot;🚫Error. Unable to send DFP Text due to reason: Customer has Opted Out of SMS&quot;,
+
+/* 10: No issues — validation passed */
+&quot;Success&quot;
+)
+)
+)
+)
+)
+)
+)
+)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formula_ObjectName</name>
+        <dataType>String</dataType>
+        <expression>IF(
+LEFT({!recordPageId},3) = &apos;00Q&apos;, 
+&apos;Lead&apos;,
+IF(
+LEFT({!recordPageId},3) = &apos;001&apos;, 
+&apos;Account&apos;,
+IF(
+LEFT({!recordPageId},3) = &apos;006&apos;,
+&apos;Opportunity&apos;,
+&apos;Unknown&apos;
+)
+)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formula_recipientCompanyName</name>
+        <dataType>String</dataType>
+        <expression>IF(
+AND(LEFT({!var_recipientId}, 3) = &apos;00Q&apos;, NOT(ISBLANK({!Get_Lead.Company}))),
+{!Get_Lead.Company},
+IF(
+AND(LEFT({!var_recipientId}, 3) = &apos;003&apos;, NOT(ISBLANK({!Get_Selected_Contact.Account_Name_Formula__c}))),
+{!Get_Selected_Contact.Account_Name_Formula__c},
+&quot;Error&quot;
+)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formula_recipientEmail</name>
+        <dataType>String</dataType>
+        <expression>IF(
+AND(LEFT({!var_recipientId}, 3) = &apos;00Q&apos;, NOT(ISBLANK({!Get_Lead.Email}))),
+{!Get_Lead.Email},
+IF(
+AND(LEFT({!var_recipientId}, 3) = &apos;003&apos;, NOT(ISBLANK({!Get_Selected_Contact.Email}))),
+{!Get_Selected_Contact.Email},
+&quot;Error&quot;
+)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formula_recipientEmailOptOut</name>
+        <dataType>Boolean</dataType>
+        <expression>IF(
+AND(LEFT({!var_recipientId}, 3) = &apos;00Q&apos;, {!Get_Lead.HasOptedOutOfEmail} = true),
+true,
+IF(
+AND(LEFT({!var_recipientId}, 3) = &apos;003&apos;, {!Get_Selected_Contact.HasOptedOutOfEmail} = true),
+true,
+false
+)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formula_recipientMobilePhone</name>
+        <dataType>String</dataType>
+        <expression>IF(
+AND(LEFT({!var_recipientId}, 3) = &apos;00Q&apos;, NOT(ISBLANK({!Get_Lead.MobilePhone}))),
+{!Get_Lead.MobilePhone},
+IF(
+AND(LEFT({!var_recipientId}, 3) = &apos;003&apos;, NOT(ISBLANK({!Get_Selected_Contact.MobilePhone}))),
+{!Get_Selected_Contact.MobilePhone},
+&quot;Error&quot;
+)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formula_recipientOptedOutEmail</name>
+        <dataType>Boolean</dataType>
+        <expression>IF(
+  OR(
+    AND(LEFT({!var_recipientId}, 3) = &apos;00Q&apos;, {!Get_Lead.HasOptedOutOfEmail} = true),
+    AND(LEFT({!var_recipientId}, 3) = &apos;003&apos;, {!Get_Selected_Contact.HasOptedOutOfEmail} = true)
+  ),
+  true,
+  false
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formula_recipientOptedOutSMS</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(
+    AND(LEFT({!var_recipientId}, 3) = &apos;00Q&apos;, {!Get_Lead.SMS_Opt_Out__c} = true),
+    AND(LEFT({!var_recipientId}, 3) = &apos;003&apos;, {!Get_Selected_Contact.SMS_Opt_Out__c} = true)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formula_recipientSMSOptOut</name>
+        <dataType>Boolean</dataType>
+        <expression>IF(
+AND(LEFT({!var_recipientId}, 3) = &apos;00Q&apos;, {!Get_Lead.SMS_Opt_Out__c} = true),
+true,
+IF(
+AND(LEFT({!var_recipientId}, 3) = &apos;003&apos;, {!Get_Selected_Contact.SMS_Opt_Out__c} = true),
+true,
+false
+)
+)</expression>
+    </formulas>
+    <interviewLabel>Contextual Buttons Screenflow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Contextual Buttons Screenflow</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordLookups>
+        <name>Get_Contacts</name>
+        <label>Get Contacts</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Select_Contact_Screen</targetReference>
+        </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Assign_Fault_Error</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>AccountId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Contact</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Name</queriedFields>
+        <sortField>LastModifiedDate</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Email_Template_Account_DLP_Request</name>
+        <label>Get Email Template: Account_DLP_Request</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Send_Account_DLP_Request_Email_NF</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Account_DLP_Request</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>EmailTemplate</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Email_Template_Account_DLP_Request_QB</name>
+        <label>Get Email Template: Account - DLP Request (QB)</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Send_Account_DLP_Request_QB_Email</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Account_DLP_Request_QB</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>EmailTemplate</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Email_Template_Lead_DLP_Email</name>
+        <label>Get Email Template: Lead - DLP Email</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Send_Lead_DLP_Email_NF</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Lead_DLP_Email</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>EmailTemplate</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Email_Template_Lead_DLP_Email_QB</name>
+        <label>Get Email Template: Lead - DLP Email (QB)</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Send_Lead_DLP_Email_QB_Email</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Lead_DLP_Email_QB</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>EmailTemplate</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Lead</name>
+        <label>Get Lead</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assign_Lead_Variables</targetReference>
+        </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Assign_Fault_Error</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Lead</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Web_Id_NatFund__c</queriedFields>
+        <queriedFields>National_Funding_WebId__c</queriedFields>
+        <queriedFields>Encrypted_Email_String__c</queriedFields>
+        <queriedFields>MobilePhone</queriedFields>
+        <queriedFields>Company</queriedFields>
+        <queriedFields>Originating_Brand__c</queriedFields>
+        <queriedFields>Email</queriedFields>
+        <queriedFields>SMS_Opt_Out__c</queriedFields>
+        <queriedFields>HasOptedOutOfEmail</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Opportunity</name>
+        <label>Get Opportunity</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Reassign_recordId_to_Account_ID</targetReference>
+        </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Assign_Fault_Error</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Opportunity</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>AccountId</queriedFields>
+        <queriedFields>Brand_Experience__c</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Selected_Contact</name>
+        <label>Get Selected Contact</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assign_Contact_Variables</targetReference>
+        </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Assign_Fault_Error</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Select_a_Contact</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Contact</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Name</queriedFields>
+        <queriedFields>AccountId</queriedFields>
+        <queriedFields>Encrypted_Email_String__c</queriedFields>
+        <queriedFields>MobilePhone</queriedFields>
+        <queriedFields>Account_Name_Formula__c</queriedFields>
+        <queriedFields>Email</queriedFields>
+        <queriedFields>SMS_Opt_Out__c</queriedFields>
+        <queriedFields>HasOptedOutOfEmail</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Lead_Brand</name>
+        <label>Update Lead Brand</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordPageId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Originating_Brand__c</field>
+            <value>
+                <elementReference>var_brand</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Lead</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Oppty_Brand</name>
+        <label>Update Oppty Brand</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordPageId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Brand_Experience__c</field>
+            <value>
+                <elementReference>var_brand</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Opportunity</object>
+    </recordUpdates>
+    <screens>
+        <name>Contextual_Buttons_Screen</name>
+        <label>Contextual Buttons Screen</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Object_Type</targetReference>
+        </connector>
+        <fields>
+            <name>buttons_contextual</name>
+            <extensionName>c:fsc_flowButtonBar</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>alignment</name>
+                <value>
+                    <stringValue>center</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>orientation</name>
+                <value>
+                    <stringValue>horizontal</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>showLines</name>
+                <value>
+                    <stringValue>neither</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>actionMode</name>
+                <value>
+                    <stringValue>navigation</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>buttons</name>
+                <value>
+                    <stringValue>[{&quot;label&quot;:&quot;Send Opt-In Text&quot;,&quot;value&quot;:&quot;Send Opt-In Text&quot;,&quot;iconPosition&quot;:&quot;left&quot;,&quot;variant&quot;:&quot;brand&quot;,&quot;iconName&quot;:&quot;utility:sms&quot;,&quot;index&quot;:0},{&quot;label&quot;:&quot;Send DFP Email&quot;,&quot;value&quot;:&quot;Send DFP Email&quot;,&quot;iconPosition&quot;:&quot;left&quot;,&quot;variant&quot;:&quot;brand&quot;,&quot;index&quot;:1,&quot;iconName&quot;:&quot;utility:email&quot;},{&quot;label&quot;:&quot;Send DFP Text&quot;,&quot;value&quot;:&quot;Send DFP Text&quot;,&quot;iconPosition&quot;:&quot;left&quot;,&quot;variant&quot;:&quot;brand&quot;,&quot;iconName&quot;:&quot;utility:quick_text&quot;,&quot;index&quot;:2},{&quot;label&quot;:&quot;Web Search&quot;,&quot;value&quot;:&quot;Web Search&quot;,&quot;iconPosition&quot;:&quot;left&quot;,&quot;variant&quot;:&quot;brand&quot;,&quot;iconName&quot;:&quot;utility:search&quot;,&quot;index&quot;:3}]</stringValue>
+                </value>
+            </inputParameters>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
+        </fields>
+        <showFooter>false</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>Fallback_Screen</name>
+        <label>Fallback Screen</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>text_screen_error_text</name>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;font-size: 16px; color: rgb(0, 0, 0);&quot;&gt;Sorry! This component encountered an error. &lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;font-size: 16px; color: rgb(0, 0, 0);&quot;&gt;Please try again or submit this error message to helpdesk for support: &lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;text-align: center;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;font-size: 16px; color: rgb(234, 0, 0);&quot;&gt;﻿{!var_error}&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>Select_Brand_Screen</name>
+        <label>Select Brand Screen</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Assign_Available_Brand_1</targetReference>
+        </connector>
+        <fields>
+            <name>Select_Brand_Screen_Section1</name>
+            <fieldType>RegionContainer</fieldType>
+            <fields>
+                <name>Select_Brand_Screen_Section1_Column1</name>
+                <fieldType>Region</fieldType>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>4</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <fields>
+                <name>Select_Brand_Screen_Section1_Column2</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>Select_Brand_Experience_to_Send</name>
+                    <choiceReferences>choice_brands</choiceReferences>
+                    <dataType>String</dataType>
+                    <fieldText>Select Brand Experience to Send</fieldText>
+                    <fieldType>RadioButtons</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>4</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <fields>
+                <name>Select_Brand_Screen_Section1_Column3</name>
+                <fieldType>Region</fieldType>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>4</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <isRequired>false</isRequired>
+            <regionContainerType>SectionWithoutHeader</regionContainerType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>Select_Contact_Screen</name>
+        <label>Select Contact Screen</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Get_Selected_Contact</targetReference>
+        </connector>
+        <fields>
+            <name>Select_Contact_Screen_Section1</name>
+            <fieldType>RegionContainer</fieldType>
+            <fields>
+                <name>Select_Contact_Screen_Section1_Column1</name>
+                <fieldType>Region</fieldType>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>4</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <fields>
+                <name>Select_Contact_Screen_Section1_Column2</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>Select_a_Contact</name>
+                    <choiceReferences>choices_contacts_from_account</choiceReferences>
+                    <dataType>String</dataType>
+                    <fieldText>Select a Contact</fieldText>
+                    <fieldType>RadioButtons</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>4</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <fields>
+                <name>Select_Contact_Screen_Section1_Column3</name>
+                <fieldType>Region</fieldType>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>4</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <isRequired>false</isRequired>
+            <regionContainerType>SectionWithoutHeader</regionContainerType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Assign_flow_variables</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <name>Generate_and_Save_Token_DFP_Text</name>
+        <label>Generate and Save Token</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Which_DFP_Action</targetReference>
+        </connector>
+        <flowName>Tokenizer_Generate_Token</flowName>
+        <inputAssignments>
+            <name>var_brand</name>
+            <value>
+                <elementReference>var_brand</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>var_contact</name>
+            <value>
+                <elementReference>Get_Selected_Contact</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>var_lead</name>
+            <value>
+                <elementReference>Get_Lead</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>var_save_token</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
+    <subflows>
+        <name>Invoke_Twilio_Messaging_Subflow</name>
+        <label>Invoke Twilio Messaging Subflow</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Object_Brand_Needs_Update</targetReference>
+        </connector>
+        <flowName>Twilio_Messaging</flowName>
+        <inputAssignments>
+            <name>var_brand</name>
+            <value>
+                <elementReference>var_brand</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_FromNumber</name>
+            <value>
+                <elementReference>$User.TwilioSF__Twilio_Personal_Number__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_MessageType</name>
+            <value>
+                <stringValue>SendOptIn</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_RecordId</name>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_ToNumber</name>
+            <value>
+                <elementReference>var_recipientNumber</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_UserId</name>
+            <value>
+                <elementReference>$User.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
+    <textTemplates>
+        <name>tt_send_dfp_text_message</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>{!formula_dfp_url}?source={!$Setup.DLPTextConfig__c.DLP_Text_Source__c}&amp;payload={!Generate_and_Save_Token_DFP_Text.var_token}</text>
+    </textTemplates>
+    <variables>
+        <name>recordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>recordPageId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <elementReference>recordId</elementReference>
+        </value>
+    </variables>
+    <variables>
+        <name>var_brand</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>var_error</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>var_header</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>var_recipientCompanyName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>var_recipientEmail</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>var_recipientEmailOptOut</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>var_recipientId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>var_recipientNumber</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>var_recipientSMSOptOut</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>var_SenderPhoneNumber</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>var_token</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>var_wasBrandOriginallyBlank</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

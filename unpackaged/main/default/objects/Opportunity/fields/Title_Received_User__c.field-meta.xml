@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Title_Received_User__c</fullName>
+    <description>User that logged the title as received is recorde in this field.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Type in user that logged title as received.</inlineHelpText>
+    <label>Title Received User</label>
+    <length>12</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

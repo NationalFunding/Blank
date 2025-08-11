@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <description>Status of funding</description>
+    <inlineHelpText>Pick the funding status of the opportunity.</inlineHelpText>
+    <label>Status</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Submitted</fullName>
+                <default>false</default>
+                <label>Submitted</label>
+            </value>
+            <value>
+                <fullName>Approved</fullName>
+                <default>false</default>
+                <label>Approved</label>
+            </value>
+            <value>
+                <fullName>Declined</fullName>
+                <default>false</default>
+                <label>Declined</label>
+            </value>
+            <value>
+                <fullName>Older Approval</fullName>
+                <default>false</default>
+                <label>Older Approval</label>
+            </value>
+            <value>
+                <fullName>Lender Pend Info</fullName>
+                <default>false</default>
+                <label>Lender Pend Info</label>
+            </value>
+            <value>
+                <fullName>Lender Approved</fullName>
+                <default>false</default>
+                <label>Lender Approved</label>
+            </value>
+            <value>
+                <fullName>Send to Lender</fullName>
+                <default>false</default>
+                <label>Send to Lender</label>
+            </value>
+            <value>
+                <fullName>Hold</fullName>
+                <default>false</default>
+                <label>Hold</label>
+            </value>
+            <value>
+                <fullName>Not Eligible</fullName>
+                <default>false</default>
+                <label>Not Eligible</label>
+            </value>
+            <value>
+                <fullName>Error</fullName>
+                <default>false</default>
+                <label>Error</label>
+            </value>
+            <value>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+                <label>Withdrawn</label>
+            </value>
+            <value>
+                <fullName>Auto Submitting</fullName>
+                <default>false</default>
+                <label>Auto Submitting</label>
+            </value>
+            <value>
+                <fullName>Submission in Progress</fullName>
+                <default>false</default>
+                <label>Submission in Progress</label>
+            </value>
+            <value>
+                <fullName>Referred</fullName>
+                <default>false</default>
+                <label>Referred</label>
+            </value>
+            <value>
+                <fullName>Processing</fullName>
+                <default>false</default>
+                <label>Processing</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

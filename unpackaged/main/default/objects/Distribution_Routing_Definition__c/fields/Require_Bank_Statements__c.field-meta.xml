@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Require_Bank_Statements__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Requires bank statements to be attached to the record before this routing definition can be matched</description>
+    <label>Require Bank Statements</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

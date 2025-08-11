@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Past_Rep__c</fullName>
+    <description>This field will indicate the past rep that the account was owned by.</description>
+    <label>Past Rep</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>John McKenzie</fullName>
+                <default>false</default>
+                <label>John McKenzie</label>
+            </value>
+            <value>
+                <fullName>Brent Park</fullName>
+                <default>false</default>
+                <label>Brent Park</label>
+            </value>
+            <value>
+                <fullName>Phil Netro</fullName>
+                <default>false</default>
+                <label>Phil Netro</label>
+            </value>
+            <value>
+                <fullName>Chad DeGange</fullName>
+                <default>false</default>
+                <label>Chad DeGange</label>
+            </value>
+            <value>
+                <fullName>2013.0116 Funded Reassign</fullName>
+                <default>false</default>
+                <label>2013.0116 Funded Reassign</label>
+            </value>
+            <value>
+                <fullName>2013.0130 Funded Reasign - Kevin Emmert</fullName>
+                <default>false</default>
+                <label>2013.0130 Funded Reasign - Kevin Emmert</label>
+            </value>
+            <value>
+                <fullName>Christopher Roman</fullName>
+                <default>false</default>
+                <label>Christopher Roman</label>
+            </value>
+            <value>
+                <fullName>Andrea Seals</fullName>
+                <default>false</default>
+                <label>Andrea Seals</label>
+            </value>
+            <value>
+                <fullName>Jordan Keezell</fullName>
+                <default>false</default>
+                <label>Jordan Keezell</label>
+            </value>
+            <value>
+                <fullName>2013.0819 Funded Reassign</fullName>
+                <default>false</default>
+                <label>2013.0819 Funded Reassign</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

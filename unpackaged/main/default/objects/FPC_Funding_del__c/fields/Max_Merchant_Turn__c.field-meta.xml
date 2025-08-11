@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Max_Merchant_Turn__c</fullName>
+    <description>The term approved by the lender. It is not enforce whether that is entered in days/weeks/months but, usually it is entered as a numeric value indicating the months approved.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The term approved by the lender. It is not enforce whether that is entered in days/weeks/months but, usually it is entered as a numeric value indicating the months approved.</inlineHelpText>
+    <label>Max Merchant Turn</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

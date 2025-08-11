@@ -1,0 +1,3 @@
+<apex:page controller="vf_gotoLastCreatedLead" action="{!goToLastLead}">
+  <p>Forwarding you to your last created lead...</p>
+</apex:page>

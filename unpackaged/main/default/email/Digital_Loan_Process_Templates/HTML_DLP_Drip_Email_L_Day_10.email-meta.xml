@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>HTML DLP Drip Email (L) - Day 10  Source = RepDL4</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>HTML DLP Drip Email (L) - Day 10</name>
+    <style>none</style>
+    <subject>National Funding Call w {!User.FirstName}</subject>
+    <textOnly>Thank you for applying
+
+For {!relatedTo.Company}, it should be easy to help you get working capital.  We typically look at cash-flow and not personal credit so that’s why we’re able to say yes, when others say no.  We have an easy online process that only takes a few minutes and my contact info is below if you have any questions or need help.
+
+Respectfully,
+{!User.FirstName}
+
+We are here to help:
+
+Fast Track your funding in only 5 minutes
+It&apos;s really that easy!  Answer a few questions, provide 3 months bank statements, and your loan specialist will get to you shortly.
+
+Start Here
+
+Call {!User.FirstName} {!User.LastName} at {!User.Phone}
+{!User.FirstName} {!User.LastName} is your dedicated loan specialist and he is available to answer any questions and help you get the money you need.
+
+Over $1.5B funded since 1999
+
+National Funding
+{!$Setup.Company_Information__c.Street__c}, {!$Setup.Company_Information__c.City__c}, {!$Setup.Company_Information__c.State__c} {!$Setup.Company_Information__c.Zip__c}
+P {!User.Phone}
+www.nationalfunding.com
+
+National Funding respects your privacy. Our commitment to your privacy is in our privacy policy, which is available on our website for your reference.
+© 2017 National Funding. All rights reserved.</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

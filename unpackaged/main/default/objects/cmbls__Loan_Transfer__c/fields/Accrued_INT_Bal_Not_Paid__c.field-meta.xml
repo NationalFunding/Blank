@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Accrued_INT_Bal_Not_Paid__c</fullName>
+    <formula>AND(
+        cmbls__Previous_Fund__r.Name = "National Funding",
+        OR(cmbls__New_Fund__r.Name  = "NFAS2",
+        cmbls__New_Fund__r.Name  = "NFAS3")
+        )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Accrued INT Bal Not Paid</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

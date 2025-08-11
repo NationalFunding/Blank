@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Beneficial_Ownership_Compete</fullName>
+    <active>false</active>
+    <description>This rule will validate that the Beneficial Ownership task was marked as completed prior to the funder acknowledging the checklist if Beneficial Ownership information is required.</description>
+    <errorConditionFormula>AND(
+ Merchant_Checklist_Acknowledged__c = TRUE,
+ Beneficial_Ownership_N__c = TRUE,  
+ Beneficial_Ownership_C__c = FALSE
+   )</errorConditionFormula>
+    <errorMessage>Before acknowledging that this Merchant Checklist is complete the Beneficial Ownership step must be completed.</errorMessage>
+</ValidationRule>

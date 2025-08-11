@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>A_Existing_Loan_Balance__c</fullName>
+    <description>Answer to existing loan balance question (if required)</description>
+    <inlineHelpText>Answer to existing loan balance question (if required)</inlineHelpText>
+    <label>A: Existing Loan Balance</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Yes_No</valueSetName>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,24 @@
+<apex:page standardController="Credit_Review__c" extensions="vf_CreateCreditReview">
+  <apex:sectionHeader title="Credit Review" subtitle="Create New Credit Review"/>
+  <p>What is the ending date of the monthly statements you are processing?</p>
+  <apex:form >
+      <apex:selectList size="1" value="{!month}">
+          <apex:selectOption itemValue="1" itemLabel="January"></apex:selectOption>
+          <apex:selectOption itemValue="2" itemLabel="February"></apex:selectOption>
+          <apex:selectOption itemValue="3" itemLabel="March"></apex:selectOption>
+          <apex:selectOption itemValue="4" itemLabel="April"></apex:selectOption>
+          <apex:selectOption itemValue="5" itemLabel="May"></apex:selectOption>
+          <apex:selectOption itemValue="6" itemLabel="June"></apex:selectOption>
+          <apex:selectOption itemValue="7" itemLabel="July"></apex:selectOption>
+          <apex:selectOption itemValue="8" itemLabel="August"></apex:selectOption>
+          <apex:selectOption itemValue="9" itemLabel="September"></apex:selectOption>
+          <apex:selectOption itemValue="10" itemLabel="October"></apex:selectOption>
+          <apex:selectOption itemValue="11" itemLabel="November"></apex:selectOption>
+          <apex:selectOption itemValue="12" itemLabel="December"></apex:selectOption>
+      </apex:selectList>&nbsp;<apex:inputText maxlength="4" style="width: 30px; text-align: center" value="{!Year}" />&nbsp;&nbsp;
+      <apex:commandButton value="Start Diamond Credit Review" action="{!createReviewDiamond}" rendered="{!IF(OpptyRT != 'Broker WC Oppty',true, false)}" /> 
+      <apex:commandButton value="Start Platinum Credit Review" action="{!createReviewPlatinum}" /> 
+      <apex:commandButton value="Start Gold Credit Review" action="{!createReviewGold}" rendered="{!IF($Permission.FullBalanceSheetView,true,false)}" />
+      <apex:commandButton value="Start Commercial Credit Review" action="{!createReviewCommercial}" rendered="{!IF($Permission.CommercialCreditReview,true,false)}" />
+  </apex:form>
+</apex:page>

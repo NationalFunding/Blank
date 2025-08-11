@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Check_Bounce_Reason_Cannot_be_Null</fullName>
+    <active>true</active>
+    <errorConditionFormula>Lease_Deposit_Check_Bounced__c = TRUE &amp;&amp;  ISPICKVAL(Lease_Deposit_Check_Bounced_Reason__c, '') &amp;&amp; (RecordType.Name = 'Lease Oppty')</errorConditionFormula>
+    <errorDisplayField>Lease_Deposit_Check_Bounced_Reason__c</errorDisplayField>
+    <errorMessage>Please provide a reason the check bounced before saving.</errorMessage>
+</ValidationRule>

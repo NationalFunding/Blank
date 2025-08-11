@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Right_Party_Contact_is_null</fullName>
+    <active>false</active>
+    <description>Right Party Contact must be indicated when the Case Status is Sent to Accounting. Applies to Bounce cases only. Not applicable to Lease Opportunities. Lease Opportunity Record Type = 01280000000BZvi</description>
+    <errorConditionFormula>AND(
+RecordType.DeveloperName = 'ACH_Bounce',
+NOT(Opportunity__r.RecordTypeId='01280000000BZvi'),
+ISCHANGED(Status), 
+ISPICKVAL(Status,'Sent to Accounting'), 
+ISBLANK(TEXT(RPC__c))
+)</errorConditionFormula>
+    <errorMessage>RPC must be indicated before the Case can be Sent to Accounting.</errorMessage>
+</ValidationRule>

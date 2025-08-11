@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PG_1_EXP_Score__c</fullName>
+    <description>This field will capture PG #1's credit score from the Experian Bureau.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Please enter theExperian score the PG #1.</inlineHelpText>
+    <label>PG #1 EXP Score</label>
+    <length>3</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

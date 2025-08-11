@@ -1,0 +1,26 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto;">{{{Consumer_Risk_Summary__c.Today__c}}}<br />
+<br />
+QuickBridge Funding, LLC<br />
+{{{Consumer_Risk_Summary__c.QB_Brand_Address__c}}}<br />
+<br />
+Dear {{{Consumer_Risk_Summary__c.Recipient_Business_Name__c}}}:<br />
+<br />
+Thank you for choosing QuickBridge for your business needs. &nbsp;We are unable to consider your financing request for the following reasons:
+<ul>
+	<li>Incompleteness – {{{Consumer_Risk_Summary__c.Decline_Email_Reason__c}}}</li>
+</ul>
+We have reached out to you to obtain this information. If you do not provide it, your application will expire tomorrow, and your financing request will be deemed withdrawn.<br />
+<br />
+We hope to work with you and encourage you to complete your financing request. If you have any questions, please contact us at {{{Consumer_Risk_Summary__c.QB_Brand_Address_Inline__c}}}, or by calling 888-233-9085.<br />
+<br />
+<br />
+Sincerely,<br />
+<br />
+<br />
+Customer Service<br />
+QuickBridge Funding, LLC</body>
+</html>

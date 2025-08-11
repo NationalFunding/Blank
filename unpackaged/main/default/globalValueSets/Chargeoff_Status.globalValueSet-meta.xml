@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Confirmed Chargeoff</fullName>
+        <default>false</default>
+        <label>Confirmed Chargeoff</label>
+    </customValue>
+    <customValue>
+        <fullName>Probable Chargeoff</fullName>
+        <default>false</default>
+        <label>Probable Chargeoff</label>
+    </customValue>
+    <customValue>
+        <fullName>Negotiating</fullName>
+        <default>false</default>
+        <label>Negotiating</label>
+    </customValue>
+    <customValue>
+        <fullName>Monitoring</fullName>
+        <default>false</default>
+        <label>Monitoring</label>
+    </customValue>
+    <customValue>
+        <fullName>Excluded from Chargeoff</fullName>
+        <default>false</default>
+        <label>Excluded from Chargeoff</label>
+    </customValue>
+    <masterLabel>Chargeoff Status</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

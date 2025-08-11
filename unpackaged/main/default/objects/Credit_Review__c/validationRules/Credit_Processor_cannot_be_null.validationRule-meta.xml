@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Credit_Processor_cannot_be_null</fullName>
+    <active>true</active>
+    <description>Prohibits a Credit Review from being changed to Status EP Review Done if Credit Processor on Opportunity is null. Only applies to outsource processors.</description>
+    <errorConditionFormula>ISBLANK(Opportunity__r.Credit_Processor__c) 
+&amp;&amp; 
+ISPICKVAL(Status__c, 'EP Review Done') 
+&amp;&amp; 
+$Profile.Name = 'NF - Outsource Processor - WC'</errorConditionFormula>
+    <errorMessage>The Credit Processor field on the Opportunity must be entered before you can Complete Processing. You may need to refresh the page to enable the Complete Processing button.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>invalid_phone_number_format</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+OR(
+ $Profile.Name = 'FPC - WC - Renewal Sales',
+ $Profile.Name = 'NF - Hybrid Sales',
+ $Profile.Name = 'NF - WC Sales Manager',
+ $Profile.Name = 'NF - Working Capital Users',
+ $Profile.Name = 'NF Renewal Manager Profile'
+),
+NOT(REGEX(Phone, "^(\\(\\d{3}\\)\\s?\\d{3}\\-\\d{4})?$")),
+NOT(REGEX(Phone, "^(\\d{3}\\-\\d{3}\\-\\d{4})?$")),
+NOT(REGEX(Phone,"^(\\d{10})?$")),
+$Setup.ValidationRules__c.Bypass_Invalid_Phone_Format_Val_Rule__c =FALSE
+)</errorConditionFormula>
+    <errorMessage>Invalid Phone number format.</errorMessage>
+</ValidationRule>

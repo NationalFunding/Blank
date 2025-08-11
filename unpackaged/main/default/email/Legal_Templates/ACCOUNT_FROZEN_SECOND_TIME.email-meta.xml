@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank</letterhead>
+    <name>ACCOUNT FROZEN - SECOND TIME</name>
+    <style>freeForm</style>
+    <subject>{!advpm__Matter__c.Loan_Number__c} - {!advpm__Matter__c.Name_of_Borrower__c}</subject>
+    <textOnly>The last payment on your settlement agreement was returned as the account has been frozen. We scheduled it to re-run for a second time but the payment was again returned.   Please contact me as soon as possible as you are in default of your settlement agreement. If we do not hear from you we will move forward with enforcing the terms of the settlement agreement and seek to recover our attorney’s fees and costs for such efforts.    
+
+I look forward to hearing from you.
+
+Best Regards,
+
+{!User.Name} | {!User.Title}
+{!advpm__Matter__c.Email_Signature_Company__c}
+
+{!$Setup.Company_Information__c.Street__c}
+{!$Setup.Company_Information__c.City__c}, {!$Setup.Company_Information__c.State__c} {!$Setup.Company_Information__c.Zip__c}
+P: {!User.Phone} | F: {!User.Fax}
+E: {!User.Email}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

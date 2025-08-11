@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Model_Input</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Model Input</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+var result = sforce.apex.execute("YhatQuery","getInput",{yhat_id:"{!
+ WC_Credit_Decision__c.YHat_Id__c}"});
+
+if (result[0] == "Error") {
+    result = []
+    result[0] = '{"Error" : "Could not get model input"}';
+}
+var obj = JSON.parse(result[0]);
+//obj['lender_accts'] = null;
+var json = JSON.stringify(obj, undefined, 4);
+
+var z = json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+        var cls = 'number';
+        if (/^"/.test(match)) {
+            if (/:$/.test(match)) {
+                cls = 'key';
+            } else {
+                cls = 'string';
+            }
+        } else if (/true|false/.test(match)) {
+            cls = 'boolean';
+        } else if (/null/.test(match)) {
+            cls = 'null';
+        }
+        return '&lt;span class="' + cls + '"&gt;' + match + '&lt;/span&gt;';
+    });
+var x = window.open();
+x.document.body.appendChild(document.createElement('pre')).innerHTML=z;
+var style = x.document.createElement('style');
+style.type = 'text/css';
+
+var css = "pre {padding: 5px; margin: 5px; }.string { color: green; }.number { color: darkorange; }.boolean { color: blue; }.null { color: magenta; }.key { color: red; }";
+
+style.appendChild(document.createTextNode(css));
+
+x.document.head.appendChild(style);</url>
+</WebLink>

@@ -1,0 +1,15 @@
+<apex:component controller="DCS_GoogleAppAuth_OP" allowDml="true">
+        <apex:form >
+        <apex:pageBlock >
+            <apex:commandButton value="Authenticate" action="{!DCSAuth}"/>
+            <apex:commandButton value="Commit" action="{!Commit1}"/>
+            <apex:pageBlockTable value="{!resultMap}" var="f">
+                <apex:column headerValue="id" value="{!resultMap[f]}"></apex:column>
+                <!--hide this column--> 
+                <!--<apex:repeat value="{!repeatMe}" var="string" id="theRepeat">-->
+                    <apex:column headerValue="Done" rendered="{!showBlock}">Success</apex:column>
+                <!--</apex:repeat>-->
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:component>

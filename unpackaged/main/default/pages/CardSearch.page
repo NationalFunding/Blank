@@ -1,0 +1,76 @@
+<apex:page Controller="CardSearchController1" >
+    <apex:form >        
+        <apex:pageBlock title="Card Search">
+            <apex:pageBlockSection columns="2" id="basicSearch">
+                <apex:pageBlockSectionItem >     
+                    <apex:outputLabel value="Card #" for="card"/>  
+                    <apex:inputText id="card" value="{!Card}" />                    
+                </apex:pageBlockSectionItem>  
+                <apex:pageBlockSectionItem >      
+                    <apex:outputLabel value="Name" for="nm"/>  
+                    <apex:inputText id="nm" value="{!Name}" />
+                </apex:pageBlockSectionItem>                     
+                <apex:pageBlockSectionItem >     
+                    <apex:outputLabel value="Phone" for="ph"/>  
+                    <apex:inputText id="ph" value="{!Phone}" />                    
+                </apex:pageBlockSectionItem>                                                              
+            </apex:pageBlockSection>   
+                                                                                    
+            <apex:commandButton action="{!Search}" value="Search" reRender=""/>                
+                
+        </apex:pageBlock>
+        
+        <apex:pageBlock title="Leads" rendered="{!NOT(IsNull(Name))}">                
+                <apex:pageBlockTable value="{!Leads}" var="l">
+                    <apex:column >
+                        <apex:commandLink value="Select" action="{!openLead}">
+                            <apex:param name="leadId" value="{!l.id}"/>
+                        </apex:commandLink>
+                    </apex:column>    
+                    <apex:column headerValue="Name">
+                        <apex:commandLink value="{!l.Name}" action="{!openLead}">
+                            <apex:param name="leadId" value="{!l.id}"/>
+                        </apex:commandLink>
+                    </apex:column>
+                    <apex:column headerValue="Company"><apex:outputField value="{!l.Company}"></apex:outputField></apex:column>
+                    <apex:column headerValue="Account Number"><apex:outputField value="{!l.Account_Number__c}"></apex:outputField></apex:column>                        
+                </apex:pageBlockTable>
+        </apex:pageBlock> 
+             
+        <apex:pageBlock title="CampaignMembers" rendered="{!NOT(IsNull(Name))}">                
+                <apex:pageBlockTable value="{!CampaignMembers}" var="cm">
+                    <apex:column >
+                        <apex:commandLink value="Select" action="{!openCampaignMember}">
+                            <apex:param name="leadId" value="{!cm.LeadId}"/>
+                            <apex:param name="CampaignMemberId" value="{!cm.Id}"/>
+                        </apex:commandLink>
+                    </apex:column>
+                    <apex:column headerValue="Lead">
+                        <apex:commandLink value="{!cm.Lead.Name}" action="{!openCampaignMember}">
+                            <apex:param name="leadId" value="{!cm.LeadId}"/>
+                            <apex:param name="CampaignMemberId" value="{!cm.Id}"/>
+                        </apex:commandLink>
+                    </apex:column>
+                    <apex:column headerValue="Contact"><apex:outputLink value="/{!cm.ContactId}">{!cm.Contact.Name}</apex:outputLink></apex:column>                    
+                    <apex:column headerValue="Account Number"><apex:outputField value="{!cm.Short_Account_Number__c}"></apex:outputField></apex:column>                        
+                </apex:pageBlockTable>
+        </apex:pageBlock> 
+                        
+        <apex:pageBlock title="Accounts" rendered="{!NOT(IsNull(Name))}">
+                <apex:pageBlockTable value="{!Accounts}" var="a">
+                        <apex:column headerValue="Name"><apex:outputLink value="/{!a.Id}">{!a.Name}</apex:outputLink></apex:column>                        
+                        <apex:column headerValue="Account Number"><apex:outputField value="{!a.Account_Number__c}"></apex:outputField></apex:column>
+                </apex:pageBlockTable>
+        </apex:pageBlock>   
+                
+        <apex:pageBlock title="Contacts" rendered="{!NOT(IsNull(Name))}">
+                <apex:pageBlockTable value="{!Contacts}" var="c">
+                       <apex:column headerValue="Name"><apex:outputLink value="/{!c.Id}">{!c.Name}</apex:outputLink></apex:column>
+                       <apex:column headerValue="Account"><apex:outputLink value="/{!c.AccountId}">{!c.Account.Name}</apex:outputLink></apex:column>
+                                               
+                </apex:pageBlockTable>
+        </apex:pageBlock>            
+                
+                        
+    </apex:form>            
+</apex:page>

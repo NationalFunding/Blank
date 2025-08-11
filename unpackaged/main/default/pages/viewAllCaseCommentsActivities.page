@@ -1,0 +1,241 @@
+<!--
+ - Created by oporter on 4/11/2017.
+ -->
+
+<apex:page id="viewAllCaseCommentsActivities" controller="viewAllCaseCommentsActivitiesController" tabStyle="Case" showHeader="false" sideBar="false">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <apex:stylesheet value="{!$Resource.bootstrapbootstrap2}"/>
+    <apex:stylesheet value="{!$Resource.bootstrapbootstrapmin}"/>
+    <apex:stylesheet value="{!$Resource.bootstrapbootstraptheme}"/>
+    <apex:stylesheet value="{!$Resource.bootstrapbootstrapthememin}"/>
+    <style>
+
+    thead{background-color:#f2f3f3;border-bottom: 2px solid #ccc;}
+
+    #casenumber{background-color:#e5f3f8;border-bottom: 2px solid #cbe8f1;}
+
+    #fourth {
+        width: 45%;
+        margin-left: 45.4%;
+        border: 1px solid #ddd;
+        font-size: 15px;
+        background-color: #ddd;
+        padding: 5px;
+    }
+
+    #third {
+        margin-right:8%;
+        padding-top: 0%;
+    }
+
+    .taskAndCommentHeader{
+        font-weight: bold;
+    }
+
+    .bPageBlock .pbHeader {
+        border-bottom: 1px solid #eaeaea;
+    }
+
+    #activityHistory{
+        margin: 5px;
+        padding:5px;
+        font-weight:bold;
+    }
+
+    body {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    h6 {
+        margin: 5px;
+        font-weight: normal;
+        position: relative;
+        text-shadow: 0 -1px rgba(0,0,0,0.6);
+        font-size: 18px;
+        line-height: 40px;
+        background: #355681;
+        background: rgba(53,86,129, 0.8);
+        border: 1px solid #fff;
+        padding: 5px 15px;
+        color: white;
+        border-radius: 0 10px 0 10px;
+        box-shadow: inset 0 0 5px rgba(53,86,129, 0.5);
+        font-family: 'Muli', sans-serif;
+    }
+
+    .bootstrap .col-md-6 {
+        width: 50%;
+    }
+    @media (min-width: 992px) {
+        .bootstrap .col-md-6, .bootstrap .container-fluid .col-lg-1  {
+            float: left;
+        }
+    }
+    .bootstrap .col-md-6, .bootstrap .container-fluid .col-lg-1 {
+        width: 50%;
+    }
+</style>
+
+    <div class="pbHeader">
+        <table border="0" cellpadding="0" cellspacing="0">
+            <tbody >
+            <tr class="demo-2">
+                <h6 id="activityHistory">View Activity History: {!strAccountName}</h6>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <table class="bootstrap col-md-6 table table-bordered table-hover" id="fourth">
+        <tbody>
+        <td><strong>SUM NOTE:</strong> {!sumNote}</td>
+        </tbody>
+    </table>
+
+    <br></br>
+    <br></br>
+    <div class="bootstrap container-fluid col-lg-1">
+        <table class="bootstrap col-md-6 table table-bordered table-hover" id="first" style="width: 45%; margin-right: 4px;">
+            <tbody>
+            <thead>
+            <th>TASK HISTORY</th>
+            <tr>
+                <th>Subject</th>
+                <th>Comments</th>
+                <th>Owner</th>
+                <th>Case/Merchant Number</th>
+                <th>Date Activity Logged</th>
+            </tr>
+            </thead>
+            <apex:repeat value="{!keys}" var="key">
+                <th colspan="5" id="casenumber">{!key}</th>
+                <apex:repeat value="{!dateHeader[key]}" var="td">
+                    <tr>
+                        <td>{!td.taskData.Subject}</td>
+                        <td>{!td.taskData.Comments__c}</td>
+                        <td>{!td.taskData.Owner.Name}</td>
+                        <td>{!td.caseNumber.CaseNumber} -{!td.caseNumber.Merchant_Number__c}</td>
+                        <td>
+                            <apex:outputText value="{0,time, hh:mm a}">
+                                <apex:param value="{!td.taskData.Date_Activity_Logged__c -7/24}" />
+                            </apex:outputText>
+                        </td>
+                    </tr>
+                </apex:repeat>
+            </apex:repeat>
+
+            </tbody>
+        </table>
+
+        <table class="bootstrap col-md-6 table table-bordered table-hover" id="second" style="width: 45%; margin-left: 4px;">
+            <tbody>
+            <thead>
+            <th>CASE COMMENT HISTORY</th>
+            <tr>
+                <th scope="row">Comment</th>
+                <th scope="row">Created By </th>
+                <th scope="row">Case/Merchant Number</th>
+                <th scope="row">Created Time</th>
+            </tr>
+            </thead>
+            <apex:repeat value="{!keysComment}" var="key">
+                <th colspan="5" id="casenumber">{!key}</th>
+                <apex:repeat value="{!dateHeaderComments[key]}" var="td">
+                    <tr>
+                        <td>{!td.commentData.CommentBody}</td>
+                        <td>{!td.commentData.CreatedBy.Name}</td>
+                        <td>{!td.caseNumber.CaseNumber} - {!td.caseNumber.Merchant_Number__c}</td>
+                        <td>
+                            <apex:outputText value="{0,time, hh:mm a}">
+                                <apex:param value="{!td.commentData.CreatedDate -7/24}" />
+                            </apex:outputText>
+                        </td>
+                    </tr>
+                </apex:repeat>
+            </apex:repeat>
+
+            </tbody>
+        </table>
+
+        <table class="bootstrap col-md-6 table table-bordered table-hover" id="first" style="width: 100%; margin-right: 4px;">
+            <tbody>
+            <thead>
+            <th>MESSAGES</th>
+            <tr>
+                <th scope="row">Date</th>
+                <th scope="row">Time</th>
+                <th scope="row">Direction</th>
+                <th scope="row">From</th>
+                <th scope="row">To</th>
+                <th scope="row">Message</th>
+                <th scope="row">Record Owner</th>
+            </tr>
+            </thead>
+            <apex:repeat value="{!correctlySortedContactIdList}" var="key">
+                <th colspan="7" id="casenumber">{!contactNameMap[key]}</th>
+                <apex:repeat value="{!messageMap[key]}" var="td">
+                    <tr>
+                        <td><!--DATE-->
+                            <apex:outputText value="{0, date, MMMM d','  yyyy}">
+                                <apex:param value="{!td.TwilioSF__Date_Created__c+ offset}" />
+                            </apex:outputText>
+                        </td>
+                        <td><!--TIME-->
+                            <apex:outputText value=" {0, Time, HH:mm a}">
+                                <apex:param value="{!td.TwilioSF__Date_Created__c + offset}" />
+                            </apex:outputText>
+                        </td>
+                        <td style="display:{!IF(td.TwilioSF__Direction__c != 'inbound' , 'None', '')}">Inbound</td>
+                        <td style="display:{!IF(td.TwilioSF__Direction__c == 'inbound' , 'None', '')}">Outbound</td>
+                        <td>{!td.TwilioSF__From_Number_Unformatted__c}</td>
+                        <td>{!td.TwilioSF__To_Number_Unformatted__c}</td>
+                        <td>{!td.TwilioSF__Body__c}</td>
+                        <td>{!td.Owner.Name}</td>
+                    </tr>
+                </apex:repeat>
+            </apex:repeat>
+
+            </tbody>
+        </table>
+    </div>
+
+    <div class="bootstrap container-fluid col-lg-1" id="third">
+        <table class="table table-bordered table-hover" id="caseDiv3">
+            <tbody>
+            <thead>
+            <th>ACCOUNTING INSTRUCTIONS HISTORY </th>
+            <tr>
+                <th scope="row">Created Date</th>
+                <th scope="row">Type</th>
+                <th scope="row">Action</th>
+                <th scope="row">Comments</th>
+                <th scope="row">Amount</th>
+                <th scope="row">Rerun ACH Data</th>
+                <th scope="row">Resume ACH Data</th>
+                <th scope="row">Owner</th>
+            </tr>
+            </thead>
+            <apex:repeat value="{!orderedAccountingInstructions}" var="caseNum">
+                <th colspan="8" id="casenumber">{!caseNum.CaseNumber} - {!caseNum.Merchant_Number__c}</th>
+                <apex:repeat value="{!caseNum.Accounting_Instructions__r}" var="num">
+                    <tr>
+                        <td>
+                            <apex:outputText value="{0, date, MMMM d','  yyyy}">
+                                <apex:param value="{!num.CreatedDate}" />
+                            </apex:outputText>
+                        </td>
+                        <td>{!num.Type__c}</td>
+                        <td>{!num.Action__c}</td>
+                        <td>{!num.Other_Comments__c}</td>
+                        <td>{!num.Amount__c}</td>
+                        <td>{!num.Rerun_ACH_Date__c}</td>
+                        <td>{!num.Resume_ACH_Date__c}</td>
+                        <td>{!num.Owner.Name}</td>
+                    </tr>
+                </apex:repeat>
+            </apex:repeat>
+            </tbody>
+        </table>
+    </div>
+</apex:page>

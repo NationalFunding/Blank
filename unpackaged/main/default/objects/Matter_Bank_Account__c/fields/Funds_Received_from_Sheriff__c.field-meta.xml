@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Funds_Received_from_Sheriff__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Checkbox to track if funds have been received from Sheriff</description>
+    <label>Funds Received from Sheriff</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

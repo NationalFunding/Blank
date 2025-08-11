@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Send_LogMessage_Email__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Used in LogMessage - Email Notification flow to add additional recipients</description>
+    <label>Send LogMessage Email</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

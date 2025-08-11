@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Average_of_Average_Daily_Balance__c</fullName>
+    <formula>IF(TEXT(Credit_Review_Version__c) = 'Version 2',  Sum_of_Average_Daily_Balance_v2__c / Number_of_Months_Reviewed_v2__c, 
+Sum_of_Average_Daily_Balance__c / Number_of_Months_Reviewed__c)</formula>
+    <label>Avg of Avg Daily Balance</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

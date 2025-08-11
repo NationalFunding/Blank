@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Owns_Rents__c</fullName>
+    <description>Indicates whether this company owns or rents it's location.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Indicates whether this company owns or rents it's location.</inlineHelpText>
+    <label>Owns Rents</label>
+    <length>8</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cmbls__Record_Types__c</fullName>
+    <deprecated>false</deprecated>
+    <description>Record Type(s) for which this Template is valid</description>
+    <inlineHelpText>Record Type(s) for which this Template is valid</inlineHelpText>
+    <label>Record Types</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>ACH One-Time</fullName>
+                <default>false</default>
+                <label>ACH One-Time</label>
+            </value>
+            <value>
+                <fullName>ACH Recurring</fullName>
+                <default>false</default>
+                <label>ACH Recurring</label>
+            </value>
+            <value>
+                <fullName>Interest Based</fullName>
+                <default>false</default>
+                <label>Interest Based</label>
+            </value>
+            <value>
+                <fullName>Splits</fullName>
+                <default>false</default>
+                <label>Splits</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

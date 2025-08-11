@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Approval_Has_Expired_Do_Not_Doc</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(Approval_Expiration_Date__c &lt; TODAY(),
+OR(
+AND(ISCHANGED(StageName),ISPICKVAL( StageName , "Offer In - MCA")), 
+AND(ISCHANGED(StageName),ISPICKVAL(StageName, "Offer In - Lease"))))</errorConditionFormula>
+    <errorMessage>Your customer's approval has expired.  Please email your credit analyst to re-approve the deal.</errorMessage>
+</ValidationRule>

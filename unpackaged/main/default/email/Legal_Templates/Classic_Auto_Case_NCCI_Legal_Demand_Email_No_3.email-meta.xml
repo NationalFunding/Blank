@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Deprecated 6/30/25 - Has been converted to Lightning Template Auto_Case_NCCI_Legal_Demand_Email_No_3</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank</letterhead>
+    <name>Auto - Case NCCI/Legal Demand Email No. 3</name>
+    <style>freeForm</style>
+    <subject>Notice of Legal Escalation - ({!Case.Legal_Name__c} - {!Case.Merchant_Number__c})</subject>
+    <textOnly>Hello {!Contact.FirstName},
+
+We have been attempting to reach you regarding your account that has moved into default for non-payment. There is still time to resolve your account. We have modification programs available to assist you if you are having difficulty making your payments. If we do not hear from you this week, we will have to refer the file to our General Counsel for further handling.
+Please contact us to make arrangements.
+
+Thank you,
+
+{!Case.OwnerFullName} | {!Case.OwnerTitle}
+
+National Funding, Inc., the parent and servicing company of
+Quick Bridge Funding, LLC
+
+{!$Setup.Company_Information__c.Street__c}
+{!$Setup.Company_Information__c.City__c}, {!$Setup.Company_Information__c.State__c} {!$Setup.Company_Information__c.Zip__c}
+P: {!Case.OwnerPhone} | F: {!User.Fax}
+E: {!Case.OwnerEmail}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

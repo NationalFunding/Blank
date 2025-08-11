@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Check_Request</fullName>
+    <availability>online</availability>
+    <displayType>massActionButton</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>New Check Request</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>/a2d/e?&amp;
+retURL=%2F{!Case.Id}&amp;
+cancelURL=%2F{!Case.Id}&amp;
+RecordType=01280000000BifY&amp;
+CF00N80000005AMpd={!Case.Opportunity__c}&amp;
+CF00N80000005AMrt={!Case.CaseNumber}</url>
+</WebLink>

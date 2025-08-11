@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Existing_Payment__c</fullName>
+    <description>This field will capture the value of an existing loan payment(s) that we need to consider in creating loan funding options for the customer.</description>
+    <inlineHelpText>This field will capture the value of an existing loan payment(s) that we need to consider in creating loan funding options for the customer.</inlineHelpText>
+    <label>Existing Payment</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

@@ -1,0 +1,634 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Advecor</fullName>
+        <default>false</default>
+        <label>Advecor</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Advertisement</fullName>
+        <default>false</default>
+        <label>Advertisement</label>
+    </standardValue>
+    <standardValue>
+        <fullName>BuyerZone</fullName>
+        <default>false</default>
+        <label>BuyerZone</label>
+    </standardValue>
+    <standardValue>
+        <fullName>BuyerZone - Business Cash Advance</fullName>
+        <default>false</default>
+        <label>BuyerZone - Business Cash Advance</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Company With Same Ownership</fullName>
+        <default>false</default>
+        <label>Company With Same Ownership</label>
+    </standardValue>
+    <standardValue>
+        <fullName>CTA Emails</fullName>
+        <default>false</default>
+        <label>CTA Emails</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Customer Referral</fullName>
+        <default>false</default>
+        <label>Customer Referral</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Direct Mail</fullName>
+        <default>false</default>
+        <label>Direct Mail</label>
+    </standardValue>
+    <standardValue>
+        <fullName>eBridge Interactive</fullName>
+        <default>false</default>
+        <label>eBridge Interactive</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Email</fullName>
+        <default>false</default>
+        <label>Email</label>
+    </standardValue>
+    <standardValue>
+        <fullName>email signature</fullName>
+        <default>false</default>
+        <label>email signature</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Employee Referral</fullName>
+        <default>false</default>
+        <label>Employee Referral</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Equipment Vendor</fullName>
+        <default>false</default>
+        <label>Equipment Vendor</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Vendor Widget</fullName>
+        <default>false</default>
+        <label>Vendor Widget</label>
+    </standardValue>
+    <standardValue>
+        <fullName>External Referral</fullName>
+        <default>false</default>
+        <label>External Referral</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Facebook</fullName>
+        <default>false</default>
+        <label>Facebook</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Facebook / LinkedIn</fullName>
+        <default>false</default>
+        <label>Facebook / LinkedIn</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Fax</fullName>
+        <default>false</default>
+        <label>Fax</label>
+    </standardValue>
+    <standardValue>
+        <fullName>ForwardLine</fullName>
+        <default>false</default>
+        <label>ForwardLine</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Google</fullName>
+        <default>false</default>
+        <label>Google</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Google Plus</fullName>
+        <default>false</default>
+        <label>Google Plus</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Internet Paid Search</fullName>
+        <default>false</default>
+        <label>Internet Paid Search</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Internet Search</fullName>
+        <default>false</default>
+        <label>Internet Search</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Lead Aggregator</fullName>
+        <default>false</default>
+        <label>Lead Aggregator</label>
+    </standardValue>
+    <standardValue>
+        <fullName>LeaseQ</fullName>
+        <default>false</default>
+        <label>LeaseQ</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Lender Referral</fullName>
+        <default>false</default>
+        <label>Lender Referral</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Lendio</fullName>
+        <default>false</default>
+        <label>Lendio</label>
+    </standardValue>
+    <standardValue>
+        <fullName>LendVantage</fullName>
+        <default>false</default>
+        <label>LendVantage</label>
+    </standardValue>
+    <standardValue>
+        <fullName>LinkedIn</fullName>
+        <default>false</default>
+        <label>LinkedIn</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Local Search</fullName>
+        <default>false</default>
+        <label>Local Search</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Need-A-Lender</fullName>
+        <default>false</default>
+        <label>Need-A-Lender</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Newsletter Signup</fullName>
+        <default>false</default>
+        <label>Newsletter Signup</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Partner</fullName>
+        <default>false</default>
+        <label>Partner</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Partner Referral</fullName>
+        <default>false</default>
+        <label>Partner Referral</label>
+    </standardValue>
+    <standardValue>
+        <fullName>PPC Phone</fullName>
+        <default>false</default>
+        <label>PPC Phone</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Public Relations</fullName>
+        <default>false</default>
+        <label>Public Relations</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Reachlocal</fullName>
+        <default>false</default>
+        <label>Reachlocal</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Referral</fullName>
+        <default>false</default>
+        <label>Referral</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Re-Marketing C1</fullName>
+        <default>false</default>
+        <label>Re-Marketing C1</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Renewal Drip</fullName>
+        <default>false</default>
+        <label>Renewal Drip</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Rep Created</fullName>
+        <default>false</default>
+        <label>Rep Created</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Seminar - Internal</fullName>
+        <default>false</default>
+        <label>Seminar - Internal</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Seminar - Partner</fullName>
+        <default>false</default>
+        <label>Seminar - Partner</label>
+    </standardValue>
+    <standardValue>
+        <fullName>SF Emails</fullName>
+        <default>false</default>
+        <label>SF Emails</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Stenocall</fullName>
+        <default>false</default>
+        <label>Stenocall</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Telemarketing</fullName>
+        <default>false</default>
+        <label>Telemarketing</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Trade Show</fullName>
+        <default>false</default>
+        <label>Trade Show</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Twitter</fullName>
+        <default>false</default>
+        <label>Twitter</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Web</fullName>
+        <default>false</default>
+        <label>Web</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Word of mouth</fullName>
+        <default>false</default>
+        <label>Word of mouth</label>
+    </standardValue>
+    <standardValue>
+        <fullName>LendingTree</fullName>
+        <default>false</default>
+        <label>LendingTree</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Regents Leasing</fullName>
+        <default>false</default>
+        <label>Regents Leasing</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Seek Capital</fullName>
+        <default>false</default>
+        <label>Seek Capital</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Alliance Funding Group</fullName>
+        <default>false</default>
+        <label>Alliance Funding Group</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Quick Bridge Funding LLC</fullName>
+        <default>false</default>
+        <label>Quick Bridge Funding LLC</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Fundwise Capital LLC</fullName>
+        <default>false</default>
+        <label>Fundwise Capital LLC</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Hopson Communications &amp; Coaching, LLC</fullName>
+        <default>false</default>
+        <label>Hopson Communications &amp; Coaching, LLC</label>
+    </standardValue>
+    <standardValue>
+        <fullName>I Fund Daily</fullName>
+        <default>false</default>
+        <label>I Fund Daily</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Bravo 1 Financing</fullName>
+        <default>false</default>
+        <label>Bravo 1 Financing</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Flexibility Capital</fullName>
+        <default>false</default>
+        <label>Flexibility Capital</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Hardwick Investors</fullName>
+        <default>false</default>
+        <label>Hardwick Investors</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Melko Financial LLC</fullName>
+        <default>false</default>
+        <label>Melko Financial LLC</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Verdant Funding</fullName>
+        <default>false</default>
+        <label>Verdant Funding</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Fluid Business Resources</fullName>
+        <default>false</default>
+        <label>Fluid Business Resources</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Bluevine Capital</fullName>
+        <default>false</default>
+        <label>Bluevine Capital</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Big Think Capital Inc.</fullName>
+        <default>false</default>
+        <label>Big Think Capital Inc.</label>
+    </standardValue>
+    <standardValue>
+        <fullName>CNC Rich Group</fullName>
+        <default>false</default>
+        <label>CNC Rich Group</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Westward Funding</fullName>
+        <default>false</default>
+        <label>Westward Funding</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Fundera</fullName>
+        <default>false</default>
+        <label>Fundera</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Businessloans.com</fullName>
+        <default>false</default>
+        <label>BusinessLoans.com</label>
+    </standardValue>
+    <standardValue>
+        <fullName>FunderaAPI</fullName>
+        <default>false</default>
+        <label>FunderaAPI</label>
+    </standardValue>
+    <standardValue>
+        <fullName>BusinessLoanAnalyst.com</fullName>
+        <default>false</default>
+        <label>BusinessLoanAnalyst.com</label>
+    </standardValue>
+    <standardValue>
+        <fullName>SmallBusinessLoans.com</fullName>
+        <default>false</default>
+        <label>SmallBusinessLoans.com</label>
+    </standardValue>
+    <standardValue>
+        <fullName>AmOne</fullName>
+        <default>false</default>
+        <label>AmOne</label>
+    </standardValue>
+    <standardValue>
+        <fullName>GuideToLenders</fullName>
+        <default>false</default>
+        <label>GuideToLenders</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Seek - Experian</fullName>
+        <default>false</default>
+        <label>Seek - Experian</label>
+    </standardValue>
+    <standardValue>
+        <fullName>BusinessLoans.com_FF</fullName>
+        <default>false</default>
+        <label>BusinessLoans.com_FF</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Business.com</fullName>
+        <default>false</default>
+        <label>Business.com</label>
+    </standardValue>
+    <standardValue>
+        <fullName>CHALLAS GROUP INC</fullName>
+        <default>false</default>
+        <label>CHALLAS GROUP INC</label>
+    </standardValue>
+    <standardValue>
+        <fullName>APOGEE PAYMENT SYSTEMS</fullName>
+        <default>false</default>
+        <label>APOGEE PAYMENT SYSTEMS</label>
+    </standardValue>
+    <standardValue>
+        <fullName>CLEAR PAYMENTS LLC</fullName>
+        <default>false</default>
+        <label>CLEAR PAYMENTS LLC</label>
+    </standardValue>
+    <standardValue>
+        <fullName>VizyPay LLC</fullName>
+        <default>false</default>
+        <label>VizyPay LLC</label>
+    </standardValue>
+    <standardValue>
+        <fullName>CHARGE TODAY</fullName>
+        <default>false</default>
+        <label>CHARGE TODAY</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Aurora - MSC</fullName>
+        <default>false</default>
+        <label>Aurora - MSC</label>
+    </standardValue>
+    <standardValue>
+        <fullName>VITAPAY</fullName>
+        <default>false</default>
+        <label>VITAPAY</label>
+    </standardValue>
+    <standardValue>
+        <fullName>J9 Holdings</fullName>
+        <default>false</default>
+        <label>J9 Holdings</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Centech Global Solutions LLC</fullName>
+        <default>false</default>
+        <label>Centech Global Solutions LLC</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Premier Financial, LLC</fullName>
+        <default>false</default>
+        <label>Premier Financial, LLC</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Trident1, LLC</fullName>
+        <default>false</default>
+        <label>Trident1, LLC</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Bonita Financial</fullName>
+        <default>false</default>
+        <label>Bonita Financial</label>
+    </standardValue>
+    <standardValue>
+        <fullName>PRIVATE CLIENT PAYMENT CORPORATION</fullName>
+        <default>false</default>
+        <label>PRIVATE CLIENT PAYMENT CORPORATION</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Coastal Pay International LLC</fullName>
+        <default>false</default>
+        <label>Coastal Pay International LLC</label>
+    </standardValue>
+    <standardValue>
+        <fullName>GLOBAL PROCESSING SYSTEMS, INC</fullName>
+        <default>false</default>
+        <label>GLOBAL PROCESSING SYSTEMS, INC</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Gloebel Enterprises LLC</fullName>
+        <default>false</default>
+        <label>Gloebel Enterprises LLC</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Merchant Innovative Consulting Solutions</fullName>
+        <default>false</default>
+        <label>Merchant Innovative Consulting Solutions</label>
+    </standardValue>
+    <standardValue>
+        <fullName>GAJM LLC</fullName>
+        <default>false</default>
+        <label>GAJM LLC</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Card &amp; Beyond, Inc</fullName>
+        <default>false</default>
+        <label>Card &amp; Beyond, Inc</label>
+    </standardValue>
+    <standardValue>
+        <fullName>ENHANCED PAYMENT SYSTEMS LLC</fullName>
+        <default>false</default>
+        <label>ENHANCED PAYMENT SYSTEMS LLC</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Dun &amp; Bradstreet Inc</fullName>
+        <default>false</default>
+        <label>Dun &amp; Bradstreet Inc</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Velocity Business Solutions, LLC</fullName>
+        <default>false</default>
+        <label>Velocity Business Solutions, LLC</label>
+    </standardValue>
+    <standardValue>
+        <fullName>VN-Systems</fullName>
+        <default>false</default>
+        <label>VN-Systems</label>
+    </standardValue>
+    <standardValue>
+        <fullName>iPos Internet Point of Sale LLC</fullName>
+        <default>false</default>
+        <label>iPos Internet Point of Sale LLC</label>
+    </standardValue>
+    <standardValue>
+        <fullName>AurumPay LLC</fullName>
+        <default>false</default>
+        <label>AurumPay LLC</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Defyne Holdings LLC</fullName>
+        <default>false</default>
+        <label>Defyne Holdings LLC</label>
+    </standardValue>
+    <standardValue>
+        <fullName>UNIVERSUM</fullName>
+        <default>false</default>
+        <label>UNIVERSUM</label>
+    </standardValue>
+    <standardValue>
+        <fullName>CPCS CORP</fullName>
+        <default>false</default>
+        <label>CPCS CORP</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Orange Pay</fullName>
+        <default>false</default>
+        <label>Orange Pay</label>
+    </standardValue>
+    <standardValue>
+        <fullName>BLDSJS LLC</fullName>
+        <default>false</default>
+        <label>BLDSJS LLC</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Harmony Payment System</fullName>
+        <default>false</default>
+        <label>Harmony Payment System</label>
+    </standardValue>
+    <standardValue>
+        <fullName>MenuSifu, Inc.</fullName>
+        <default>false</default>
+        <label>MenuSifu, Inc.</label>
+    </standardValue>
+    <standardValue>
+        <fullName>STX</fullName>
+        <default>false</default>
+        <label>STX</label>
+    </standardValue>
+    <standardValue>
+        <fullName>MERCHANT PRO LLC</fullName>
+        <default>false</default>
+        <label>MERCHANT PRO LLC</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Aurora Payments LLC</fullName>
+        <default>false</default>
+        <label>Aurora Payments LLC</label>
+    </standardValue>
+    <standardValue>
+        <fullName>OPTIX MERCHANT GROUP, LLC</fullName>
+        <default>false</default>
+        <label>OPTIX MERCHANT GROUP, LLC</label>
+    </standardValue>
+    <standardValue>
+        <fullName>RIVERSIDE PAYMENTS INC</fullName>
+        <default>false</default>
+        <label>RIVERSIDE PAYMENTS INC</label>
+    </standardValue>
+    <standardValue>
+        <fullName>SMARTERSWIPE</fullName>
+        <default>false</default>
+        <label>SMARTERSWIPE</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Finova Capital LLC</fullName>
+        <default>false</default>
+        <label>Finova Capital LLC</label>
+    </standardValue>
+    <standardValue>
+        <fullName>D. Alcazar Enterprises LLC</fullName>
+        <default>false</default>
+        <label>D. Alcazar Enterprises LLC</label>
+    </standardValue>
+    <standardValue>
+        <fullName>J&amp;R Dynasty Corporation</fullName>
+        <default>false</default>
+        <label>J&amp;R Dynasty Corporation</label>
+    </standardValue>
+    <standardValue>
+        <fullName>iMerchant Direct Inc.</fullName>
+        <default>false</default>
+        <label>iMerchant Direct Inc.</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Simple8 LLC</fullName>
+        <default>false</default>
+        <label>Simple8 LLC</label>
+    </standardValue>
+    <standardValue>
+        <fullName>PDOGA</fullName>
+        <default>false</default>
+        <label>PDOGA</label>
+    </standardValue>
+    <standardValue>
+        <fullName>TFLI</fullName>
+        <default>false</default>
+        <label>TFLI</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Forbes</fullName>
+        <default>false</default>
+        <label>Forbes</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Affiliate</fullName>
+        <default>false</default>
+        <label>Affiliate</label>
+    </standardValue>
+</StandardValueSet>

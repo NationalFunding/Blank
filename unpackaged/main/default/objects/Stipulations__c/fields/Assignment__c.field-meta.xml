@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Assignment__c</fullName>
+    <description>a0U?fcf=00B2T000009X3gv -&gt; Credit - All Stipulations 
+a0U?fcf=00B2T000009LRpQ -&gt; Credit - Direct Queue
+a0U?fcf=00B2T000009LRpP -&gt; Credit - Broker Queue
+a0U?fcf=00B2T000009LRpR -&gt; Funding</description>
+    <externalId>false</externalId>
+    <formula>IF(
+ISPICKVAL(Stip_Type__c , 'Credit'),
+HYPERLINK("/flow/Stipulations_Assign_To_Flow?inputStipId=" + Id + '&amp;retURL=a0U?fcf=00B2T000009X3gv', "Assign to User", '_self'),
+IF(
+ISPICKVAL(Stip_Type__c , 'Funding'),
+HYPERLINK("/flow/Stipulations_Assign_To_Flow?inputStipId=" + Id + '&amp;retURL=a0U?fcf=00B2T000009LRpR', "Assign to User", '_self'),
+HYPERLINK("/flow/Stipulations_Assign_To_Flow?inputStipId=" + Id + '&amp;retURL=a0U/o', "Assign to User", '_self')
+)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Assignment</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

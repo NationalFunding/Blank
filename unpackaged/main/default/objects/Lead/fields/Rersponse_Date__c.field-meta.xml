@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rersponse_Date__c</fullName>
+    <description>Date that the lead initially responds to marketing materials</description>
+    <inlineHelpText>Date that the lead initially responds to marketing materials</inlineHelpText>
+    <label>Response Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

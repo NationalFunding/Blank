@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_Update_Declined_to_EP_Review_Done</fullName>
+    <active>true</active>
+    <description>Restrict users from updating Declined status to EP Review Done</description>
+    <errorConditionFormula>AND
+(ISCHANGED( Status__c ),
+ OR(TEXT(PRIORVALUE(Status__c))="Declined",
+    TEXT(PRIORVALUE(Status__c))="NF Decline"),
+ TEXT(Status__c)="EP Review Done",
+ $Setup.ValidationRules__c.Update_Declined_CR_Status__c  =FALSE)</errorConditionFormula>
+    <errorMessage>User do not have access to update Credit Review status from Declined to EP Review Done.</errorMessage>
+</ValidationRule>

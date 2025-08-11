@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pawnee_Maine_Restriction__c</fullName>
+    <description>This checks to see if the Lender Account is one of the Pawnee Accounts, and if the Physical State is Maine.  If both are true and 'Yes' is returned, the Lease doc buttons will not be use-able.</description>
+    <externalId>false</externalId>
+    <formula>IF((Physical_Address_State__c = 'ME' ||
+Physical_Address_State__c = 'Maine') &amp;&amp; 
+(Lender_Account__r.Name = 'Pawnee Leasing Corporation - Broker Account' || 
+Lender_Account__r.Name = 'Pawnee Leasing Corporation - Discounter Account'),'Yes','No')</formula>
+    <label>Pawnee Maine Restriction</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

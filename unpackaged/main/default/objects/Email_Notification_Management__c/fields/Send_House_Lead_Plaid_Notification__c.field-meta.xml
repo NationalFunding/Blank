@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Send_House_Lead_Plaid_Notification__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>send notification to user for qualifying Plaid data with House owned Lead (PD-1402)</description>
+    <inlineHelpText>send notification to user for qualifying Plaid data with House owned Lead</inlineHelpText>
+    <label>Send House Lead Plaid Notification</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

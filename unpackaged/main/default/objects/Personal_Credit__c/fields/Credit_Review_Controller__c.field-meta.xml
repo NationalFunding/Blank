@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Credit_Review_Controller__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>Credit Review Controller</label>
+    <referenceTo>Credit_Review_Controller__c</referenceTo>
+    <relationshipLabel>Personal Credit</relationshipLabel>
+    <relationshipName>Personal_Credit</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

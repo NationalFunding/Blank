@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RETRIEVAL_RATE__c</fullName>
+    <description>Retrieval rate - a percentage of credit card sales withheld</description>
+    <inlineHelpText>Type in the retrieval rate that will be collected.</inlineHelpText>
+    <label>RETRIEVAL RATE</label>
+    <precision>3</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

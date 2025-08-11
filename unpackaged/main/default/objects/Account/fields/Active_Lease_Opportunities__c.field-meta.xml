@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Active_Lease_Opportunities__c</fullName>
+    <description>This field will count the number of active lease opportunities associated with an account.</description>
+    <inlineHelpText>This field will count the number of active lease opportunities associated with an account.</inlineHelpText>
+    <label>Active Lease Opportunities</label>
+    <summaryFilterItems>
+        <field>Opportunity.RecordTypeId</field>
+        <operation>equals</operation>
+        <value>Lease Oppty</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>Opportunity.Type</field>
+        <operation>equals</operation>
+        <value>NEW</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>Opportunity.StageName</field>
+        <operation>equals</operation>
+        <value>Credit Submittal, Credit Review, Approved - Lease, Offer Out - Lease, Offer In - Lease, Docs Out, Docs In, Up for Funding, Pre-Fund, Internal Pend Info, Lender Pend Info</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

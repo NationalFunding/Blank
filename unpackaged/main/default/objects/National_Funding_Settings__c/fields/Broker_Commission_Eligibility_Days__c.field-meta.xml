@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Broker_Commission_Eligibility_Days__c</fullName>
+    <description>Broker is eligible for commission if new deal was submitted within the last X days (PD-2601)</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Broker is eligible for commission if new deal was submitted within the last X days</inlineHelpText>
+    <label>Broker Commission Eligibility Days</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

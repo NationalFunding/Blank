@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Annual_Sales__c</fullName>
+    <description>Used to capture a customer's reported annual sales through a web form.</description>
+    <inlineHelpText>Annual Sales as reported by customer on web form.</inlineHelpText>
+    <label>Annual Sales (new)</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>$500,000+</fullName>
+                <default>false</default>
+                <label>$500,000+</label>
+            </value>
+            <value>
+                <fullName>$200,000-$500,000</fullName>
+                <default>false</default>
+                <label>$200,000-$500,000</label>
+            </value>
+            <value>
+                <fullName>$100,000-$200,000</fullName>
+                <default>false</default>
+                <label>$100,000-$200,000</label>
+            </value>
+            <value>
+                <fullName>$50,000-$100,000</fullName>
+                <default>false</default>
+                <label>$50,000-$100,000</label>
+            </value>
+            <value>
+                <fullName>$25,000-$50,000</fullName>
+                <default>false</default>
+                <label>$25,000-$50,000</label>
+            </value>
+            <value>
+                <fullName>$5,000-$25,000</fullName>
+                <default>false</default>
+                <label>$5,000-$25,000</label>
+            </value>
+            <value>
+                <fullName>Tier 1</fullName>
+                <default>false</default>
+                <label>Tier 1</label>
+            </value>
+            <value>
+                <fullName>Tier 2</fullName>
+                <default>false</default>
+                <label>Tier 2</label>
+            </value>
+            <value>
+                <fullName>Tier 3</fullName>
+                <default>false</default>
+                <label>Tier 3</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

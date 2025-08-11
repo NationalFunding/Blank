@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Adverse_Action_Letter_Sent__c</fullName>
+    <description>This field will capture the date that an Adverse Action letter was sent to the customer.  This will be updated by workflow and should not be edited by any user.</description>
+    <inlineHelpText>This field will capture the date that an Adverse Action letter was sent to the customer.  This will be updated by workflow and should not be edited by any user.</inlineHelpText>
+    <label>Adverse Action Letter Sent</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

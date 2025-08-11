@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Model_Decision__c</fullName>
+    <description>Pass or NF Auto Decline based on model recommendation</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Model based NF Auto Decline threshold</inlineHelpText>
+    <label>Model Decision</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

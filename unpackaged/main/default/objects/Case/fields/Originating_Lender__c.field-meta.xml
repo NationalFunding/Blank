@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Originating_Lender__c</fullName>
+    <label>Originating Lender Picklist</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>National Funding</fullName>
+                <default>true</default>
+                <label>National Funding</label>
+            </value>
+            <value>
+                <fullName>Quick Bridge</fullName>
+                <default>false</default>
+                <label>Quick Bridge</label>
+            </value>
+            <value>
+                <fullName>Quick Bridge Funding</fullName>
+                <default>false</default>
+                <label>Quick Bridge Funding</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

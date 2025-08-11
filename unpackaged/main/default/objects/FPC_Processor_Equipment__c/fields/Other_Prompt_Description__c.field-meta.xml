@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Other_Prompt_Description__c</fullName>
+    <description>Description of other prompts</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Type in a description of other prompts the merchant has.</inlineHelpText>
+    <label>Other Prompt Description</label>
+    <length>64</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

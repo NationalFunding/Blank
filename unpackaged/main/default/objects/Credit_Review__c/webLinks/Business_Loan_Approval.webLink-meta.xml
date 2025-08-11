@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Business_Loan_Approval</fullName>
+    <availability>online</availability>
+    <displayType>link</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>600</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>Business Loan Approval</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>https://composer.congamerge.com/composer8/index.html
+?sessionId={!API.Session_ID}
+&amp;serverUrl={!API.Partner_Server_URL_210}
+&amp;id={!Credit_Review__c.Id}
+&amp;TemplateGroup=Working+Capital+Credit+Review
+&amp;TemplateId={!Credit_Review__c.Business_Loan_Approval_Template_Id__c}
+&amp;QueryId=a068000000pkwcQ,a0634000015OFkD,a063400001BG4us,a063400001BG4uO
+&amp;ReportId=[CompetitorReview]00O80000005feGI,
+[BlanketUCC]00O80000005feGD,
+[Stip1]00O80000005feGN,
+[Stip2]00O80000005feGS,
+[Stip3]00O80000005feGX,
+[Comment1]00O80000005feFj,
+[Comment2]00O80000005feFo,
+[Comment3]00O80000005feFy,
+[Exception1]00O80000005feHQ,
+[Exception2]00O80000005feHa,
+[Exception3]00O80000005feHp,
+[Factor1]00O80000005feGw,
+[Factor2]00O80000005feHB,
+[Factor3]00O80000005feHG,
+[Guarantor2]00O80000005feMG,
+[CRStip1]00O80000005gXGe,
+[CRStip2]00O80000005gXGj,
+[CRStip3]00O80000005gXGt,
+[CRStipOther]00O80000005gXIB,
+[CRStip1Reason]00O80000005gXH8,
+[CRStip2Reason]00O80000005gXHD,
+[CRStip3Reason]00O80000005gXH3,
+[CRStipOtherReason]00O34000005lwjt,
+[FundReq1]00O80000005gXHI,
+[FundReq2]00O80000005gXHN,
+[FundReq3]00O80000005gXHh,
+[FundReqOther]00O80000005gXI6,
+[FundReq1Reason]00O80000005gXHS,
+[FundReq2Reason]00O80000005gXHc,
+[FundReq3Reason]00O80000005gXHm,
+[FundReqOtherReason]00O34000005lwkS
+&amp;SelectTemplates=1
+&amp;OFN={Template.Label}+-+{!Credit_Review__c.Oppty_Legal_Name__c}</url>
+    <width>900</width>
+</WebLink>

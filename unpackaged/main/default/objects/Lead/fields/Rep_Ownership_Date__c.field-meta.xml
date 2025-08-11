@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rep_Ownership_Date__c</fullName>
+    <description>This field will indicate the date that a rep took ownership of the lead.</description>
+    <inlineHelpText>This field will indicate the date that a rep took ownership of the lead.</inlineHelpText>
+    <label>Rep Ownership Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Partner_Account_Id__c</fullName>
+    <description>User Contact -&gt; Contact -&gt; Account Id</description>
+    <externalId>false</externalId>
+    <formula>Contact.Account.AccountID18__c</formula>
+    <inlineHelpText>User Contact -&gt; Contact -&gt; Account Id</inlineHelpText>
+    <label>Partner Account Id</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

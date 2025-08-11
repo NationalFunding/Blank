@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WC_Docs_Out_Date_not_Populated</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISBLANK(Docs_Out_Date__c) &amp;&amp; ISPICKVAL(StageName, 'Docs In - MCA') &amp;&amp; ISCHANGED(StageName)</errorConditionFormula>
+    <errorDisplayField>Docs_Out_Date__c</errorDisplayField>
+    <errorMessage>Docs Out Date must be populated before the stage can be updated to 'Docs In - MCA'.</errorMessage>
+</ValidationRule>

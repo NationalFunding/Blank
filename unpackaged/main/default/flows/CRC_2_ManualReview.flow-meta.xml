@@ -1,0 +1,638 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>49.0</apiVersion>
+    <assignments>
+        <name>Assign_Row_Data</name>
+        <label>Assign Row Data</label>
+        <locationX>398</locationX>
+        <locationY>615</locationY>
+        <assignmentItems>
+            <assignToReference>varRowText</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>txtRowText</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Related_Opportunities</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Screen_Choice</name>
+        <label>Assign Screen Choice</label>
+        <locationX>771</locationX>
+        <locationY>473</locationY>
+        <assignmentItems>
+            <assignToReference>varManualReviewResult</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Choose_Action</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Credit_Review_Contoller</targetReference>
+        </connector>
+    </assignments>
+    <choices>
+        <name>Continue</name>
+        <choiceText>Continue</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Manual Review - Continue</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Decline</name>
+        <choiceText>Decline</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Manual Review - Decline</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Exit</name>
+        <choiceText>Exit</choiceText>
+        <dataType>String</dataType>
+    </choices>
+    <constants>
+        <name>conBrokerWCRecordTypeId</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>01280000000BkKuAAK</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>conBrokerWorkingCapital</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Broker</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>conLease</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Lease</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>conRelatedOpportunitySearch1</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>RelatedOpportunitySearch1</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>conRelatedOpportunitySearch2</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>RelatedOpportunitySearch2</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>conWCRecordTypeId</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>01280000000BZwlAAG</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>conWorkingCapital</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Working Capital</stringValue>
+        </value>
+    </constants>
+    <decisions>
+        <name>Continue_or_Exit</name>
+        <label>Continue or Exit</label>
+        <locationX>586</locationX>
+        <locationY>470</locationY>
+        <defaultConnector>
+            <targetReference>Assign_Screen_Choice</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Continue</defaultConnectorLabel>
+        <rules>
+            <name>Exit_toUI</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Choose_Action</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>Exit</elementReference>
+                </rightValue>
+            </conditions>
+            <label>Exit</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_varROS_null</name>
+        <label>Is varROS null?</label>
+        <locationX>64</locationX>
+        <locationY>239</locationY>
+        <defaultConnector>
+            <targetReference>Lookup_All_Related_Opportunities</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varROSId</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue></stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Lookup_ROS_record</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Which_Manual_Review_Process_to_Run</name>
+        <label>Which Manual Review Process to Run?</label>
+        <locationX>64</locationX>
+        <locationY>80</locationY>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
+        <rules>
+            <name>Related_Opportunity_Search</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>varProcessStep</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>conRelatedOpportunitySearch1</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>varProcessStep</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>conRelatedOpportunitySearch2</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Is_varROS_null</targetReference>
+            </connector>
+            <label>Related Opportunity Search</label>
+        </rules>
+    </decisions>
+    <description>Credit Review Controller - Manual Review</description>
+    <formulas>
+        <name>formulaDateSubbed</name>
+        <dataType>DateTime</dataType>
+        <expression>IF(
+OR(
+{!varOpptyRecordTypeId}={!conBrokerWCRecordTypeId},
+{!varOpptyRecordTypeId}={!conWCRecordTypeId}
+),
+{!varOpptyStmtsInDate},
+{!varOpptyCreditSubDate}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaMRStep1Result</name>
+        <dataType>String</dataType>
+        <expression>IF(
+{!varProcessStepNumber}=1,
+{!varManualReviewResult},
+{!varStep1Status}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaMRStep2Result</name>
+        <dataType>String</dataType>
+        <expression>IF(
+{!varProcessStepNumber}=2,
+{!varManualReviewResult},
+{!varStep2Status}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaOpptyLink</name>
+        <dataType>String</dataType>
+        <expression>&quot;https://nf.my.salesforce.com/&quot; &amp; {!varOpptyId}</expression>
+    </formulas>
+    <formulas>
+        <name>formulaProcessStepNumber</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+{!varProcessStepNumber}&lt;{!varTotalSteps},
+({!varProcessStepNumber}+1),
+{!varProcessStepNumber}
+)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>formulaRecordTypeName</name>
+        <dataType>String</dataType>
+        <expression>CASE({!varOpptyRecordTypeId},
+{!conBrokerWCRecordTypeId},{!conBrokerWorkingCapital},
+{!conWCRecordTypeId},{!conWorkingCapital},
+{!conLease}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaROSIdIsBlank</name>
+        <dataType>Boolean</dataType>
+        <expression>IF(
+ISNULL({!varROSId}),
+TRUE,
+FALSE
+)</expression>
+    </formulas>
+    <interviewLabel>CRC {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>CRC.2.ManualReview</label>
+    <loops>
+        <name>Loop_Related_Opportunities</name>
+        <label>Loop Related Opportunities</label>
+        <locationX>65</locationX>
+        <locationY>466</locationY>
+        <assignNextValueToReference>colvarRelatedOpptys</assignNextValueToReference>
+        <collectionReference>collectionvarRelatedOpptys</collectionReference>
+        <iterationOrder>Desc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Lookup_Related_Opportunity</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Related_Oppty_Manual_Review_Screen</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processType>Flow</processType>
+    <recordLookups>
+        <name>Lookup_All_Related_Opportunities</name>
+        <label>Lookup All Related Opportunities</label>
+        <locationX>65</locationX>
+        <locationY>350</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_Related_Opportunities</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Related_Opportunity_Search__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>varROSId</elementReference>
+            </value>
+        </filters>
+        <object>Related_Opportunity__c</object>
+        <outputReference>collectionvarRelatedOpptys</outputReference>
+        <queriedFields>Opportunity__c</queriedFields>
+    </recordLookups>
+    <recordLookups>
+        <name>Lookup_Lender_Account_Name</name>
+        <label>Lookup Lender Account Name</label>
+        <locationX>229</locationX>
+        <locationY>614</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assign_Row_Data</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>varOpptyLenderAccountId</elementReference>
+            </value>
+        </filters>
+        <object>Account</object>
+        <outputAssignments>
+            <assignToReference>varLenderAccountName</assignToReference>
+            <field>Name</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordLookups>
+        <name>Lookup_Related_Opportunity</name>
+        <label>Lookup Related Opportunity</label>
+        <locationX>63</locationX>
+        <locationY>614</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Lookup_Lender_Account_Name</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>colvarRelatedOpptys.Opportunity__c</elementReference>
+            </value>
+        </filters>
+        <object>Opportunity</object>
+        <outputAssignments>
+            <assignToReference>varOpptyAccountId</assignToReference>
+            <field>AccountId</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>varOpptyCreditSubDate</assignToReference>
+            <field>Credit_Submittal_Date__c</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>varOpptyId</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>varOpptyLenderAccountId</assignToReference>
+            <field>Lender_Account__c</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>varOpptyName</assignToReference>
+            <field>Name</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>varOpptyRecordTypeId</assignToReference>
+            <field>RecordTypeId</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>varOpptyStageName</assignToReference>
+            <field>StageName</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>varOpptyStmtsInDate</assignToReference>
+            <field>Statements_In_Date__c</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>varOpptyType</assignToReference>
+            <field>Type</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordLookups>
+        <name>Lookup_ROS_record</name>
+        <label>Lookup ROS record</label>
+        <locationX>320</locationX>
+        <locationY>239</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Lookup_All_Related_Opportunities</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Credit_Review_Controller__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>varCRCId</elementReference>
+            </value>
+        </filters>
+        <object>Related_Opportunity_Search__c</object>
+        <outputAssignments>
+            <assignToReference>varROSId</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
+        <sortField>CreatedDate</sortField>
+        <sortOrder>Desc</sortOrder>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Credit_Review_Contoller</name>
+        <label>Update Credit Review Contoller</label>
+        <locationX>928</locationX>
+        <locationY>473</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>varCRCId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Step_1_Status__c</field>
+            <value>
+                <elementReference>formulaMRStep1Result</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Step_2_Status__c</field>
+            <value>
+                <elementReference>formulaMRStep2Result</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Step_Number__c</field>
+            <value>
+                <elementReference>formulaProcessStepNumber</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Credit_Review_Controller__c</object>
+    </recordUpdates>
+    <screens>
+        <name>Related_Oppty_Manual_Review_Screen</name>
+        <label>Related Oppty Manual Review Screen</label>
+        <locationX>265</locationX>
+        <locationY>469</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Continue_or_Exit</targetReference>
+        </connector>
+        <fields>
+            <name>RelatedOpptyDisplayText1</name>
+            <fieldText>&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:18px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;Review the deals below to decide if this Credit Review should continue or be declined.&lt;/FONT&gt;&lt;/DIV&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>OpptyTable</name>
+            <fieldText>&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:18px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;{!txtTable}&lt;/FONT&gt;&lt;/DIV&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Choose_Action</name>
+            <choiceReferences>Continue</choiceReferences>
+            <choiceReferences>Decline</choiceReferences>
+            <choiceReferences>Exit</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:18px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;Choose Action&lt;/FONT&gt;&lt;/DIV&gt;</fieldText>
+            <fieldType>RadioButtons</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <startElementReference>Which_Manual_Review_Process_to_Run</startElementReference>
+    <status>Active</status>
+    <textTemplates>
+        <name>txtRowText</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;tr&gt;
+&lt;td&gt;{!varOpptyName}&lt;/td&gt;
+&lt;td&gt;{!varOpptyStageName}&lt;/td&gt;
+&lt;td&gt;{!formulaDateSubbed}&lt;/td&gt;
+&lt;td&gt;{!formulaRecordTypeName}&lt;/td&gt;
+&lt;td&gt;{!varOpptyType}&lt;/td&gt;
+&lt;td&gt;{!varLenderAccountName}&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;{!formulaOpptyLink}&quot;&gt;Link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>txtTable</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;table border=&quot;1&quot;&gt;
+&lt;tr&gt;
+&lt;th&gt;Opportunity&lt;/th&gt;
+&lt;th&gt;Stage&lt;/th&gt;
+&lt;th&gt;Date Submitted&lt;/th&gt;
+&lt;th&gt;Record Type&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Lender&lt;/th&gt;
+&lt;th&gt;Link&lt;/th&gt;
+{!varRowText}
+&lt;/table&gt;</text>
+    </textTemplates>
+    <variables>
+        <name>collectionvarRelatedOpptys</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Related_Opportunity__c</objectType>
+    </variables>
+    <variables>
+        <name>colvarRelatedOpptys</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Related_Opportunity__c</objectType>
+    </variables>
+    <variables>
+        <name>varCRCId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>varLenderAccountName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>varManualReviewResult</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>varOpptyAccountId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>varOpptyCreditSubDate</name>
+        <dataType>DateTime</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>varOpptyId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>varOpptyLenderAccountId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>varOpptyName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>varOpptyRecordTypeId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>varOpptyStageName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>varOpptyStmtsInDate</name>
+        <dataType>DateTime</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>varOpptyType</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>Name of the process that will be used in Manual Review</description>
+        <name>varProcessStep</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>varProcessStepNumber</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <scale>0</scale>
+    </variables>
+    <variables>
+        <description>Related Opportunity Search Id</description>
+        <name>varROSId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>varRowText</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>varStep1Status</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>varStep2Status</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>varTotalSteps</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <scale>0</scale>
+    </variables>
+</Flow>

@@ -1,0 +1,8 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="400" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; color:#000000; bEditID:r3st1; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[<font face="arial"><span style="font-size: 12pt;">Hello,</span></font><div style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><br></div><div style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;">An Opportunity Split has been requested for {!Opportunity.Name}. &nbsp;If this split is acceptable, update the Manager Split Approval field to 'Approved'.</div><div style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><br></div><div style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;">Owner:&nbsp;{!Opportunity.OwnerFullName}</div><div style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;">Split Rep:&nbsp;<span style="font-size: 12pt;">{!Opportunity.Split_Opportunity_with__c}</span></div><div style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><span style="font-size: 12pt;"><br></span></div><div><font face="arial">{!Opportunity.Link}</font></div><div><font face="arial"><br></font></div><div>New Salesforce Console: https://na29.salesforce.com/console#%2F{!Opportunity.Id}
+
+</div><div><font face="arial"><br></font></div><div><font face="arial">Thank you</font></div>]]></td>
+</tr>
+</table>

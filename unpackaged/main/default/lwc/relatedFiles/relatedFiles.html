@@ -1,0 +1,59 @@
+<template>
+    <lightning-card  title="Files" icon-name="standard:relationship">
+        <div slot="actions">
+            <lightning-button-icon icon-name="action:refresh" alternative-text="Refresh" size="Medium"
+                onclick={refresh}>
+            </lightning-button-icon>
+        </div>   
+        <div>
+            <template if:true={filesData}>
+
+                <table class="slds-table slds-table_bordered slds-table_cell-buffer table_truncate">
+                    <thead>
+                        <tr class="slds-text-title_caps">
+                            <th scope="col" class="th_truncate">
+                                <div title="Key">File Name</div>
+                            </th>
+                            <th scope="col">
+                                <div title="Value">File Extension</div>
+                            </th>
+                            <th scope="col">
+                                <div title="Date">Uploaded Date</div>
+                            </th>
+                            <th scope="col">
+                                <div title="Button">Action</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={filesData} for:item="file">
+                            <tr key={file.Id}>
+                                <th scope="col" class="th_truncate">
+                                    <div>{file.Title}</div>
+                                </th>
+                                <th scope="col">
+                                    <div>{file.FileType}</div>
+                                </th>
+                                <th scope="col">
+                                    <div>{file.CreatedDate}</div>
+                                </th>
+                                <th scope="col">    
+                                    <!-- Using Dataset Property to get ContentDocumentId -->
+                                    <lightning-button 
+                                        data-id={file.ContentDocumentId} 
+                                        label="Preview" 
+                                        variant="brand" 
+                                        value="file preview" 
+                                        onclick={filePreview}>
+                                    </lightning-button>
+                                </th>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+
+            </template>
+
+        </div>
+    </lightning-card>
+</template>

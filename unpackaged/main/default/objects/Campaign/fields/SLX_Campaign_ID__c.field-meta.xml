@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SLX_Campaign_ID__c</fullName>
+    <description>ID for campaign in a Saleslogix lookup.</description>
+    <externalId>true</externalId>
+    <inlineHelpText>ID for campaign in a Saleslogix lookup.</inlineHelpText>
+    <label>SLX Campaign ID</label>
+    <length>12</length>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

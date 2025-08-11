@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X2013_05_DB_Recallibration__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field will be used as an indicator that leads were reassigned to the house for cleaning and then assigned to a new rep.</description>
+    <label>2013.05 DB Recallibration</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

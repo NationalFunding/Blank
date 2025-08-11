@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SIC_Name__c</fullName>
+    <description>The Description of this SIC Code</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The Description of this SIC Code</inlineHelpText>
+    <label>SIC Name</label>
+    <length>64</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

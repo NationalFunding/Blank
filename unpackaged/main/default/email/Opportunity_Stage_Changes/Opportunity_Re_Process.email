@@ -1,0 +1,7 @@
+Hi
+
+Please re-process the following Opportunity: {!Opportunity.Name}.  
+
+Click here to go directly to this deal {!Opportunity.Link}
+
+Thanks

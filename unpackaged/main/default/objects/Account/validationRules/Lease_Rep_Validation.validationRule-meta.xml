@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lease_Rep_Validation</fullName>
+    <active>false</active>
+    <errorConditionFormula>$Profile.Name  = "FPC - Lease - Sales User"  &amp;&amp;  (ISPICKVAL( Refer_To__c , "Lease"))</errorConditionFormula>
+    <errorDisplayField>Refer_To__c</errorDisplayField>
+    <errorMessage>Lease Rep's Cannot Refer to Lease.</errorMessage>
+</ValidationRule>

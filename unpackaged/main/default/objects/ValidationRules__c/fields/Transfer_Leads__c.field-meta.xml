@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Transfer_Leads__c</fullName>
+    <defaultValue>false</defaultValue>
+    <label>Transfer Leads</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sales_Deep_Dive_Record_Already_Exists</fullName>
+    <active>true</active>
+    <description>Based on the Opportunity Total Sales Deep Dive Records roll-up summary, if there is already a Sales Deep Dive record associated to the Opportunity, it will not let the user save/create the record.  Reason can only be that the wrong Oppty was selected.</description>
+    <errorConditionFormula>(Opportunity__r.Total_Sales_Deep_Dive_Records__c &gt; 0) &amp;&amp; 
+ISNEW()</errorConditionFormula>
+    <errorMessage>Please select a different Opportunity, a Sales Deep Dive record already exists for this one.</errorMessage>
+</ValidationRule>

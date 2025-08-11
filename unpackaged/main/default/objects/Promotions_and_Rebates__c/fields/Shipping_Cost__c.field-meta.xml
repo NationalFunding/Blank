@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Shipping_Cost__c</fullName>
+    <description>This field will capture the shipping cost for the rebate or promotion.  It will be used in a total cost calculation.</description>
+    <inlineHelpText>This field will capture the shipping cost for the rebate or promotion.  It will be used in a total cost calculation.</inlineHelpText>
+    <label>Shipping Cost</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

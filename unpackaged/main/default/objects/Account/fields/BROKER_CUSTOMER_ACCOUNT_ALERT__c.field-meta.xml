@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BROKER_CUSTOMER_ACCOUNT_ALERT__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(Funded_WC_Broker_Opptys__c  &gt;= 1, "THIS IS A RENEWAL BROKER CUSTOMER ACCOUNT, PLEASE SEND TO LAUREN MARTIN", "THIS IS A BROKER CUSTOMER ACCOUNT, PLEASE SEND TO BOB ANTHONY")</formula>
+    <label>BROKER CUSTOMER ACCOUNT ALERT</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

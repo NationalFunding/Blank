@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cmbls__Installment_Amount__c</fullName>
+    <deprecated>false</deprecated>
+    <inlineHelpText>Note: If the remaining balance is less than the scheduled payment, the system will create a payment for the lesser amount</inlineHelpText>
+    <label>Transaction Amount</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

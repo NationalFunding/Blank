@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Marketing_Scrub_Status__c</fullName>
+    <description>This field will be used to capture if a marketing scrub has taken place.</description>
+    <inlineHelpText>This field will be used to capture if a marketing scrub has taken place.</inlineHelpText>
+    <label>Marketing Scrub Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Complete - Record Updated</fullName>
+                <default>false</default>
+                <label>Complete - Record Updated</label>
+            </value>
+            <value>
+                <fullName>Complete - Retire Record</fullName>
+                <default>false</default>
+                <label>Complete - Retire Record</label>
+            </value>
+            <value>
+                <fullName>Attempted</fullName>
+                <default>false</default>
+                <label>Attempted</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

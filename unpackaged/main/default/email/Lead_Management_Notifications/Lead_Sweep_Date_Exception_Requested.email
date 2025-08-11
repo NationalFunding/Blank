@@ -1,0 +1,5 @@
+{!Lead.Link}
+
+New Salesforce Console: https://nf.my.salesforce.com/console#%2F{!Lead.Id}
+
+Please Accept or Decline a sweep date exception for  {!Lead.OwnerFullName}.

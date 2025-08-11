@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Document_Type__c</fullName>
+    <description>The document type that the Document Review record is related to</description>
+    <label>Document Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Bank Statement</fullName>
+                <default>false</default>
+                <label>Bank Statement</label>
+            </value>
+            <value>
+                <fullName>Driver’s License</fullName>
+                <default>false</default>
+                <label>Driver’s License</label>
+            </value>
+            <value>
+                <fullName>K1</fullName>
+                <default>false</default>
+                <label>K1</label>
+            </value>
+            <value>
+                <fullName>State Issued ID</fullName>
+                <default>false</default>
+                <label>State Issued ID</label>
+            </value>
+            <value>
+                <fullName>U.S. Passport</fullName>
+                <default>false</default>
+                <label>U.S. Passport</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

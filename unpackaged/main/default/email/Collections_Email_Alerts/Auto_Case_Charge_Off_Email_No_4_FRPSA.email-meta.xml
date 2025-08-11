@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank</letterhead>
+    <name>Auto - Case Charge Off Email No.4 FRPSA</name>
+    <style>freeForm</style>
+    <subject>Notice of Charge Off - Agreement No. {!Case.Merchant_Number__c} {!Case.Legal_Name__c}</subject>
+    <textOnly>{!Contact.FirstName},
+
+Please contact National Funding regarding your account that is currently being prepped for our litigation team’s review as we have processed your account for charge off.
+
+Thank you,
+
+{!Case.Case_Email_Signature_Name_Formula__c}
+
+National Funding, Inc., the parent and servicing company of
+Quick Bridge Funding, LLC
+
+{!$Setup.Company_Information__c.Street__c}
+{!$Setup.Company_Information__c.City__c}, {!$Setup.Company_Information__c.State__c} {!$Setup.Company_Information__c.Zip__c}
+P: {!Case.OwnerPhone}
+
+
+
+
+
+{!Case.Email_Thread_ID__c}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,523 @@
+<apex:component layout="none" controller="Exception_ApprovalProcess" >
+    <!-- Other JS -->
+    <apex:includeScript value="{!URLFOR($Resource.tcrmMaterialSkin,'third-party/bootstrap/dist/js/bootstrap.min.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.tcrmMaterialSkin,'third-party/angular-animate/angular-animate.min.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.tcrmMaterialSkin,'js/App.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.tcrmMaterialSkin,'js/AppCard.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.tcrmMaterialSkin,'js/AppForm.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.tcrmMaterialSkin,'js/AppNavigation.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.tcrmMaterialSkin,'js/AppNavSearch.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.tcrmMaterialSkin,'js/AppOffcanvas.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.tcrmMaterialSkin,'js/AppVendor.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.tcrmMaterialSkin,'third-party/ng-dialog/js/ngDialog.min.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.tcrmMaterialSkin,'third-party/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.tcrmCreditLeadTabs,'third-party/angular-ui-mask/dist/mask.min.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.tcrmCreditLeadTabs,'third-party/moment/min/moment.min.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.tcrmCreditLeadTabs,'third-party/angular-moment/angular-moment.min.js')}" />
+    <!--apex:includeScript value="{!URLFOR($Resource.tcrmCreditLeadTabs,'third-party/sweetalert/dist/sweetalert.min.js')}" /-->
+    <!--apex:includeScript value="{!URLFOR($Resource.tcrmCreditLeadTabs,'third-party/ngSweetAlert/SweetAlert.min.js')}" /-->
+    <apex:includeScript value="{!URLFOR($Resource.tcrmCreditLeadTabs,'third-party/angular-validation/dist/angular-validation.min.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.tcrmCreditLeadTabs,'third-party/angular-validation/dist/angular-validation-rule.min.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.tcrmCreditLeadTabs,'js/src/ang.app.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.tcrmCreditLeadTabs,'js/ang.templates.min.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.tcrmCreditLeadTabs,'js/fix.min.js')}" />
+    <apex:includeScript value="https://cdn.jsdelivr.net/sweetalert2/6.0.0/sweetalert2.min.js"/>
+    <apex:stylesheet value="{!URLFOR($Resource.tcrmMaterialSkin,'third-party/font-awesome/css/font-awesome.min.css')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.tcrmMaterialSkin,'third-party/material-design-iconic-font/dist/css/material-design-iconic-font.min.css')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.tcrmMaterialSkin,'third-party/animate.css/animate.min.css')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.tcrmMaterialSkin,'third-party/ng-dialog/css/ngDialog.min.css')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.tcrmMaterialSkin,'third-party/ng-dialog/css/ngDialog-theme-default.min.css')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.tcrmMaterialSkin,'third-party/bootstrap-datepicker/dist/css/bootstrap-datepicker3.standalone.min.css')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.tcrmMaterialSkin,'css/materialadmin.min.css')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.tcrmMaterialSkin,'css/thrive-utilities.min.css')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.tcrmMaterialSkin,'css/ngdialog.theme.min.css')}" />
+    <apex:stylesheet value="https://cdn.jsdelivr.net/sweetalert2/6.0.0/sweetalert2.min.css" />
+    <apex:stylesheet value="{!URLFOR($Resource.tcrmCreditLeadTabs,'css/adjustments.min.css')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.barnCSS,'barn.css')}" />
+    <!-- JS -->
+    <apex:includeScript value="{!URLFOR($Resource.tcrmMaterialSkin,'third-party/jquery/dist/jquery.min.js')}" />
+
+    <script>
+    function formatDollar(num) {
+        if(num){
+            var p = num.toFixed(2).split(".");
+            return "$" + p[0].split("").reverse().reduce(function(acc, num, i, orig) {
+                return  num + (i && !(i % 3) ? "," : "") + acc;
+            }, "") + "." + p[1];
+        }
+        if(!num){
+            return '-';
+        }
+    }
+    function formatTerm(num) {
+        if(num){
+            return num + ' Months';
+            }
+        if(!num){
+            return '-'
+            }
+        }
+    function formatEdit(data){
+        if(data)
+            {
+                return data
+                }
+        if(!data)
+            {
+                return ''
+                }
+        }
+    function formatNA(data){
+        if(data)
+            { 
+                return data
+                }
+        if(!data)
+            {
+                return '-'
+                }
+        }
+    function formatBlank(data){
+        if(data)
+            {
+                return data
+            }
+        if(!data)
+            {
+                return '-'
+            }
+        }
+        function formatClear(data){
+        if(data)
+            {
+                return data
+            }
+        if(!data)
+            {
+                return '-'
+            }
+        }
+    function formatDate(data){
+        if(data)
+            {
+                var date = new Date(data);
+                   var year = date.getFullYear(),
+        month = date.getMonth() + 1, // months are zero indexed
+        day = date.getDate(),
+        hour = date.getHours(),
+        minute = date.getMinutes(),
+        second = date.getSeconds(),
+        hourFormatted = hour % 12 || 12, // hour returned in 24 hour format
+        minuteFormatted = minute < 10 ? "0" + minute : minute,
+        morning = hour < 12 ? "am" : "pm";
+
+    return month + "/" + day + "/" + year;
+                }
+        if(!data){
+            return 'N/A'
+            }}
+    </script>
+
+
+<script type="text/javascript">
+        function uploadFile1(parentId)
+        {
+            var input = document.getElementById("file-input");
+            var filesToUpload = input.files;
+            $("#loading-div-background").show();
+            for(var i = 0, f; f = filesToUpload[i]; i++)
+            {
+                var reader = new FileReader();
+
+                // Keep a reference to the File in the FileReader so it can be accessed in callbacks
+                reader.file = f;
+
+                reader.onload = function(e)
+                {
+                    var att = new sforce.SObject("Attachment");
+                    att.Name = '[Exception] ' + this.file.name;
+                    att.ContentType = this.file.type;
+                    att.ParentId = parentId;
+
+                    var binary = "";
+                    var bytes = new Uint8Array(e.target.result);
+                    var length = bytes.byteLength;
+
+                    for (var i = 0; i < length; i++)
+                    {
+                        binary += String.fromCharCode(bytes[i]);
+                    }
+
+                    att.Body = (new sforce.Base64Binary(binary)).toString();
+
+                    sforce.connection.create([att],
+                    {
+                        onSuccess : function(result, source)
+                        {
+                            if (result[0].getBoolean("success"))
+                            {
+                                alert("Your File Has Been Uploaded!");
+                                console.log("new attachment created with id " + result[0].id);
+                                     
+                                $("#attachmentText").append(att.Name);
+                                $( "#decision-tab" ).click();
+                                $("#loading-div-background").hide();
+                            }
+                            else
+                            {
+                                console.log("failed to create attachment " + result[0]);
+                            }
+                        },
+                        onFailure : function(error, source)
+                        {
+                            console.log("an error has occurred " + error);
+                        }
+                    });
+                };
+                
+               $("#file-input").val("");
+                reader.readAsArrayBuffer(f);
+                
+            }
+        }
+</script>
+<script>
+    $(".apexp").ready(
+        
+        setTimeout(
+            function() {
+                if('{!$Profile.Name}' === 'FPC - Operations User'){
+                console.log('click');
+                $( "#decision-tab" ).click();
+            }
+        }, 1500));
+    </script>
+    <script type="text/javascript">
+    $(document).ready( function() {
+        $( "#decision-tab" ).on("click", function(e, data){
+
+            $("#remoteAcctId").empty();
+            console.log('im ready freddy');
+            var recordid='{!$CurrentPage.parameters.id}';
+            if(!data){
+                Visualforce.remoting.Manager.invokeAction(
+                    '{!$RemoteAction.Exception_ApprovalProcess.listExceptions}',
+                    recordid,
+                    function(result, event){
+                        if (event.status) {
+                            // Get DOM IDs for HTML and Visualforce elements like this
+                            console.log('heres a result ' + result);
+                            for (var i = 0; i < result.length; i++){
+                                var parent = result[i];
+                                var hiddenDiv = result[i].Competition__r  ? 'inline':'none';
+                                var hiddenDiv1 = result[i].Early_Renewals__r ? 'inline':'none';
+                                var hiddenDiv3 = result[i].Payoff_Net_Rules__r ? 'inline':'none';
+                                let competition1 = '';
+                                if(result[i].Competition__r){
+                                    for (var j = 0; j < result[i].Competition__r.length; j++){
+                                        competition1 += '<tr><td>' + result[i].Competition__r[j].Competitor__c + '</td><td>' + formatDollar(result[i].Competition__r[j].Funding_Amount__c) + '</td><td>' + formatBlank(result[i].Competition__r[j].Term__c) + '</td></tr>'
+                                    }
+                                }
+                                
+                                let earlyrenewals1 = '';
+                                if(result[i].Early_Renewals__r){
+                                    for (var j = 0; j < result[i].Early_Renewals__r.length; j++){
+                                        earlyrenewals1 += '<tr><td>' + formatDate(result[i].Early_Renewals__r[j].Requested_Fund_Date__c) + '</td><td>' + formatClear(result[i].Early_Renewals__r[j].Paid_In__c) + '</td><td>' + formatClear(result[i].Early_Renewals__r[j].Net__c) +'</td><td>' + formatClear(result[i].Early_Renewals__r[j].TMF__c) + '</td></tr>'
+                                    }
+                                }
+                                let payoffnetrules1 = '';
+                                if(result[i].Payoff_Net_Rules__r){
+                                    for (var j = 0; j < result[i].Payoff_Net_Rules__r.length; j++){
+                                        payoffnetrules1 += '<tr><td>' + formatClear(result[i].Payoff_Net_Rules__r[j].Competitor__c) + '</td><td>' + formatDollar(result[i].Payoff_Net_Rules__r[j].Competitor_Balance__c) + '</td><td>' + formatClear(result[i].Payoff_Net_Rules__r[j].Net__c) +'</td></tr>'
+                                    }
+                                }
+
+                                console.log(hiddenDiv);
+                                console.log(hiddenDiv1);
+                                console.log(hiddenDiv3);
+                                var table8 = '<h4 class="pull-left"><span>Exception Awaiting Action Detail:</span></h4><br/><table style="width:800px; margin-left:10px" class="list table  table-striped table-bordered" id="j_id0:mainForm:j_id544:j_id545:j_id596:j_id597:j_id663:blockSection:j_id672" style="padding: auto;table-layout:fixed; height: 100%; width:650px;" cellspacing="0" cellpadding="0" border="0"><colgroup span="4"></colgroup><thead class=""><tr class="headerRow"><th class="headerRow" scope="col" colspan="1" id="j_id0:mainForm:j_id544:j_id545:j_id596:j_id597:j_id663:blockSection:j_id672:j_id673header"><div id="j_id0:mainForm:j_id544:j_id545:j_id596:j_id597:j_id663:blockSection:j_id672:j_id673header:sortDiv">Requested Term (months)</div></th><th class="headerRow" scope="col" colspan="1" id="j_id0:mainForm:j_id544:j_id545:j_id596:j_id597:j_id663:blockSection:j_id672:j_id674header"><div id="j_id0:mainForm:j_id544:j_id545:j_id596:j_id597:j_id663:blockSection:j_id672:j_id674header:sortDiv">Requested Amount ($)</div></th><th class="headerRow" scope="col" colspan="1" id="j_id0:mainForm:j_id544:j_id545:j_id596:j_id597:j_id663:blockSection:j_id672:j_id675header"><div id="j_id0:mainForm:j_id544:j_id545:j_id596:j_id597:j_id663:blockSection:j_id672:j_id675header:sortDiv">Type</div></th><th class="headerRow" scope="col" colspan="1" id="j_id0:mainForm:j_id544:j_id545:j_id596:j_id597:j_id663:blockSection:j_id672:j_id676header"><div id="j_id0:mainForm:j_id544:j_id545:j_id596:j_id597:j_id663:blockSection:j_id672:j_id675header:sortDiv">Reason</div><th class="headerRow" scope="col" colspan="1" id="j_id0:mainForm:j_id544:j_id545:j_id596:j_id597:j_id663:blockSection:j_id672:j_id675header"><div id="j_id0:mainForm:j_id544:j_id545:j_id596:j_id597:j_id663:blockSection:j_id672:j_id676header:sortDiv">Update Exception</div></th><th class="headerRow" scope="col" colspan="1"><div>Action</div></th></tr></thead><tbody id="j_id0:mainForm:j_id544:j_id545:j_id596:j_id597:j_id663:blockSection:j_id672:tb"><tr class="dataRow even  first  last" onmouseover="if (window.hiOn){hiOn(this);} " onmouseout="if (window.hiOff){hiOff(this);} " onblur="if (window.hiOff){hiOff(this);}" onfocus="if (window.hiOn){hiOn(this);}"><td class="dataCell  " id="j_id0:mainForm:j_id544:j_id545:j_id596:j_id597:j_id663:blockSection:j_id672:0:j_id673" colspan="1" style="width:125px !important"><span id="j_id0:mainForm:j_id544:j_id545:j_id596:j_id597:j_id663:blockSection:j_id672:0:j_id874">' + formatTerm(result[i].Months_Requested__c) + '</span></td><td class="dataCell  " id="j_id0:mainForm:j_id544:j_id545:j_id596:j_id597:j_id663:blockSection:j_id672:0:j_id674" colspan="1" style="width:115px !important"><span id="j_id0:mainForm:j_id544:j_id545:j_id596:j_id597:j_id663:blockSection:j_id672:0:j_id875">'+ formatDollar(result[i].Amount_Requested__c) + '</span></td><td class="dataCell  " id="j_id0:mainForm:j_id544:j_id545:j_id596:j_id597:j_id663:blockSection:j_id672:0:j_id675" colspan="1" style="width:70px !important"><span id="j_id0:mainForm:j_id544:j_id545:j_id596:j_id597:j_id663:blockSection:j_id672:0:j_id876">' + result[i].Type__c+'</span></td><td>' + formatBlank(result[i].Reason__c) + '</td><td class="dataCell  " id="j_id0:mainForm:j_id544:j_id545:j_id596:j_id597:j_id663:blockSection:j_id672:0:j_id676" colspan="1" style="width:115px !important"><button class="Tier btn-block withdraw  changeApproval-first div2" target="2" type="button" onclick="editFields(\'' + result[i].Id + '\')">Edit</button></td><td class="dataCell  " id="j_id0:mainForm:j_id544:j_id545:j_id596:j_id597:j_id663:blockSection:j_id672:0:j_id676" colspan="1" style="width:115px !important"><button class="Tier btn-block Approve  changeApproval-first div2" target="2" type="button" onclick="takeAction(\'' + result[i].Id + '\')">Take Action</button></td></tr></tbody></table>'
+                                var table7 = '<div id="competition" style="display: ' + hiddenDiv + ';" ><br/><h4 class="pull-left"><span>Competition:</span></h4><br/><table class="table table-hover" style="padding:auto"> <thead> <tr> <th>Competitor</th> <th>Funding Amount</th><th>Term</th> </tr> </thead> <tbody>' + competition1 + '</tbody> </table></div>'
+                                var table12 = ' <div id="earlyrenewal" style="display: ' + hiddenDiv1 + ';" ><br/><h4 class="pull-left"><span>Opportunity to Renew:</span></h4><br/><table class="table table-hover" style="padding:auto"> <thead> <tr> <th>Requested Fund Date </th> <th>% Paid In </th><th>Net % </th> <th>TMF</th></tr> </thead> <tbody> '+ earlyrenewals1 + ' </tbody> </table></div>'
+                                var table13 = '    <div id="payoffnet" style="display: ' + hiddenDiv3 + ';" ><br/><h4 class="pull-left"><span>Payoff Net Rules</span></h4><br/><table class="table table-hover" style="padding:auto"> <thead> <tr> <th>Competitor </th> <th>Competitor Balance </th><th>Net % </th> </tr> </thead> <tbody>' + payoffnetrules1 + '</tbody> </table></div>'
+                                var table9 = ' <iframe id="chatter-iframe1" src="/apex/ChatterPage?id=' + result[i].Id  + '" width="100%" height="300px" style="margin-left:15px" scrolling="true" frameborder="0"/><br/><hr/>'
+                                $("#remoteAcctId").append(table8 + table7 + table12 + table13 + table9);
+                            }
+                        } else if (event.type === 'exception') {
+                            document.getElementById("responseErrors").innerHTML =
+                                event.message + "<br/>\n<pre>" + event.where + "</pre>";
+                        } else {
+                            document.getElementById("responseErrors").innerHTML = event.message;
+                        }
+                    },
+                    {escape: true}
+                );
+            }else{
+                window.location = $(this).attr('href');
+            }
+        });
+
+        console.log('im done sohn');
+    })
+    </script>
+    <script>
+   function takeAction(data) {
+        
+        if(data){
+            Visualforce.remoting.Manager.invokeAction(
+                '{!$RemoteAction.Exception_ApprovalProcess.returnExceptions}',
+                data,
+                function(result, event){
+
+                    swal.resetDefaults();
+                    let id = result[0].Id;
+                    swal({
+                        title: 'Are you sure?',
+                        input: 'textarea',
+                        html:'<p style="line-height: 110%;"><b>Id:</b>' + result[0].Id + '<br/>' + ' <b>Step Approval Type:</b> '+ ' <b>Status:</b> ' + result[0].StepsAndWorkitems[1].StepStatus  +'</p>',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Approve Request',
+                        cancelButtonText: 'Deny Request'
+                    }).then( function(isConfirm) {
+                        console.log(isConfirm);
+
+                                var test = '';
+                                if($('.swal2-textarea').val()){
+                                    test = $('.swal2-textarea').val();
+                                    console.log(test);
+                                }
+                                setApproval(result[0].TargetObjectId, test);
+                                $("#remoteAcctId").empty();
+                                $("#blockSection1").empty();
+                                
+                                swal(
+                                    'Approved!',
+                                    'Your request has been approved.',
+                                    'success'
+                                );
+                        console.log('start rerender');
+                                rerenderTopBlock();
+
+ 
+                        },
+                         function(dismiss){
+                            var test = '';
+                            if(dismiss === 'cancel'){
+                                    test = $('.swal2-textarea').val();
+                                    console.log(id + ' ' + test + '' + result[0].TargetObjectId);
+                                    
+                                    setDenial(result[0].TargetObjectId, test);
+                                    $("#remoteAcctId").empty();
+
+                                    swal(
+                                        'Cancelled',
+                                        'Your request is denied :(',
+                                        'error'
+                                    );
+                                //    $( "#decision-tab" ).click();
+                                rerenderTopBlock();
+                                }
+                             }
+                    )
+                    
+                }
+            )
+        }
+                               
+    }
+    </script>
+    <script>
+    function editFields(data) {
+        var data1='{!$CurrentPage.parameters.id}';
+        Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.Exception_ApprovalProcess.getlistException4}',
+            data,
+            function(result, event){
+                console.log('here we go' + result[0].Id);
+                swal.resetDefaults();
+                var table3 = '<h1 class="text-center">Edit Fields</h1> <legend>Edit Exception</legend> <div class="form-group" >'
+                table3 +=' <label htmlfor="">Amount Requested <input type="text" style="width: 22%; display: inline !important; background: #F9F9F9; font-family: Arial, Helvetica, sans-serif; font-size: 1.1em; line-height: .5; padding: 6px; margin-top: 11px;  -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;" id="amount" placeholder="'
+                table3 += formatEdit(result[0].Amount_Requested__c) +'" value="' + formatEdit(result[0].Amount_Requested__c) + '"></label> <br/><label htmlFor="">Months Requested  <input type="text" style="width: 22%; display: inline !important; background: #F9F9F9; font-family: Arial, Helvetica, sans-serif; font-size: 1.1em; line-height: .5; padding: 6px; margin-top: 11px;  -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;" id="months" placeholder="' + formatEdit(result[0].Months_Requested__c) + '" value="' + formatEdit(result[0].Months_Requested__c) + '"/></label>';
+                if(result[0].Type__c === "Early Renewal"){
+                    renewalnet = '';
+                    paidin = '';
+                    tmf = '';
+                    if(result[0].Early_Renewals__r){
+                     renewalnet = result[0].Early_Renewals__r[0].Net__c;
+                     paidin = result[0].Early_Renewals__r[0].Paid_In__c;
+                     tmf = result[0].Early_Renewals__r[0].TMF__c;
+                        var table3 = '<h1 class="text-center">Edit Fields</h1> <legend>Edit Exception</legend> <div class="form-group"> <label htmlfor="">Amount Requested <input type="text" style="width: 30%; display: inline !important; background: #F9F9F9; font-family: Arial, Helvetica, sans-serif; font-size: 1.1em; line-height: .5; padding: 6px; margin-top: 11px;  -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;" id="amount" placeholder="' + formatEdit(result[0].Amount_Requested__c) +'" value="' + formatEdit(result[0].Amount_Requested__c) + '"> </label> <br/><label htmlFor="">Months Requested   <input type="text" style="width: 30%; display: inline !important; background: #F9F9F9; font-family: Arial, Helvetica, sans-serif; font-size: 1.1em; line-height: .5; padding: 6px; margin-top: 11px;  -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;" id="months" placeholder="' + formatEdit(result[0].Months_Requested__c) + '" value="' + formatEdit(result[0].Months_Requested__c) + '"/><br/></label><label htmlFor="">Net %  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="net" type="text" style="width: 22%; display: inline !important; background: #F9F9F9; font-family: Arial, Helvetica, sans-serif; font-size: 1.1em; line-height: .5; padding: 6px; margin-top: 11px;  -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;" placeholder="' + formatEdit(renewalnet )+ '" value="' + formatEdit(renewalnet )+ '"/></label> <br/><label htmlFor="">TMF  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="tmf" type="text" style="width: 22%; display: inline !important; background: #F9F9F9; font-family: Arial, Helvetica, sans-serif; font-size: 1.1em; line-height: .5; padding: 6px; margin-top: 11px;  -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;" placeholder="' + formatEdit(tmf )+ '" value="' + formatEdit(tmf )+ '"/></label> <br/><label htmlFor="">Paid In &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="paid" type="text" style="width: 22%; display: inline !important; background: #F9F9F9; font-family: Arial, Helvetica, sans-serif; font-size: 1.1em; line-height: .5; padding: 6px; margin-top: 11px;  -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;" placeholder="' + formatEdit(paidin )+ '" value="' + formatEdit(paidin )+ '"/></label> </div>'
+                    var selection = '<option value="Payroll">Payroll</option> <option value=" Lower Daily Payment"> Lower Daily Payment</option> <option value="Payoff Net Rules">Payoff Net Rules</option> <option value="Inventory">Inventory</option> <Option value="Competition">Competition</option><option value=" Other"> Other</option> </select>';
+                }
+                }
+                if(result[0].Type__c === "Payoff Net Rules"){
+                var selection1 = '<select name="" id="" style="margin-left:100px"> <option value="Longer Term Only">Longer Term Only</option> <option value="Increase in Funding">Increase in Funding</option> <option value="Payoff Net Rules">Payoff Net Rules</option> <option value="Self-Site">Self-Site</option> <option value=" Other"> Other</option> </select>';
+                    var table3= '<h1 class="textcenter">Edit Fields</h1> <form action="" method="POST" role="form"></form> <legend>Edit Exception</legend> <form class="form-horizontal"><div class="form-group"> <label htmlFor="">Amount Requested</label> <input type="text" style="width: 33%; display: inline !important; background: #F9F9F9; font-family: Arial, Helvetica, sans-serif; font-size: 1.1em; line-height: .5; padding: 6px; margin-top: 11px;  -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;" id="amount" placeholder="' + formatEdit(result[0].Amount_Requested__c) + '" value="' + formatEdit(result[0].Amount_Requested__c) + '"/><br/> <label htmlFor="">Months Requested</label> <input type="text" style="width: 33%; display: inline !important; background: #F9F9F9; font-family: Arial, Helvetica, sans-serif; font-size: 1.1em; line-height: .5; padding: 6px; margin-top: 11px;  -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;" id="months" placeholder="' + formatEdit(result[0].Months_Requested__c) + '" value="' + formatEdit(result[0].Months_Requested__c) + '"/> <br/><label htmlFor="">Net % &nbsp;&nbsp;</label> <input type="text" style="width: 22%; display: inline !important; background: #F9F9F9; font-family: Arial, Helvetica, sans-serif; font-size: 1.1em; line-height: .5; padding: 6px; margin-top: 11px;  -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;" id="net2" placeholder="' + formatEdit(result[0].Payoff_Net_Rules__r[0].Net__c) + '" value="' + formatEdit(result[0].Payoff_Net_Rules__r[0].Net__c) + '"/></div></form>'
+                }
+                swal({
+                    
+                    html: table3,
+                    type: 'question',
+                    width: 800,
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ok',
+                    cancelButtonText: 'Cancel'
+                }).then(function() {
+                    
+                    console.log('iam data ' + data );
+
+                    
+                    var myId = result[0].Id;
+                    console.log('lets get some vals ' + $('#months').val());
+                    var v1 = $('#months').val();
+                    var v2 = $('#amount').val();
+                    var v3 = '';
+                    if($('#net').val()){
+                    var v3 = $('#net').val();
+                        }
+                    console.log(v3);
+                    var v4 = '';
+                    if($('#paid').val()){
+                    var v4 = $('#paid').val();
+                        }
+                    var v5 = '';
+                    if($('#tmf').val()){
+                    var v5 = $('#tmf').val();
+                        }
+                    
+                    var v6 = '';                    
+                    if($('#net2').val()){
+                    var v6 = $('#net2').val();
+                        }
+                    Visualforce.remoting.Manager.invokeAction(
+                        '{!$RemoteAction.Exception_ApprovalProcess.submitException}',
+                        myId, v1, v2, v3, v4, v5, v6,
+                        function(result, event){
+                            console.log('iam event status: ' + event.status);
+                                if(event.status){
+                                swal(
+                       
+                        'Updated!',
+                        'The Exception has been updated.',
+                        'success'
+                    );
+                                                                    $("#remoteAcctId").empty();
+                                $("#blockSection1").empty();
+                                    $( "#decision-tab" ).click();
+                                    console.log('v3 ' + v3 + ' v4 ' + v4 + ' v5 ' + v5 + ' v6 ' + v6);
+                                    
+                    }
+                    });
+                });
+            })};
+    </script>
+    <script type="text/javascript">
+    function setApproval(data, comment) {
+        
+        Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.Exception_ApprovalProcess.approveRecord}',
+            data, comment,
+            function(result, event){
+                if (event.status) {
+                    console.log('test succeeded heres data' + data);
+                    rerenderTopBlock();
+                } else if (event.type === 'exception') {
+                    document.getElementById("responseErrors").innerHTML =
+                        event.message + "<br/>\n<pre>" + event.where + "</pre>";
+                } else {
+                    document.getElementById("responseErrors").innerHTML = event.message;
+                }
+            },
+            {escape: true}
+        );
+    }
+    </script>
+            <script type="text/javascript">
+    function setDenial(data, comment) {
+
+        Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.Exception_ApprovalProcess.rejectRecord}',
+            data, comment,
+            function(result, event){
+                if (event.status) {
+                    console.log('test succeeded heres data' + data);
+                    rerenderTopBlock();
+                } else if (event.type === 'exception') {
+                    document.getElementById("responseErrors").innerHTML =
+                        event.message + "<br/>\n<pre>" + event.where + "</pre>";
+                } else {
+                    document.getElementById("responseErrors").innerHTML = event.message;
+                }
+            },
+            {escape: true}
+        );
+    }
+    </script>
+        <apex:attribute type="Credit_Review__c" name="creditReviewObj" description="Credit Review"/>
+
+        <div class="panel panel-default mt10"  >
+            <div class="panel-heading" style="background-color: #AEA7FF; height:54px;">
+                <!--button class="escalation btn-primary btn  disabled-event"  style="margin-left:440px; display:{!IF(($Profile.Name = "NF - Sales VP"), 'inline;', 'none;')}">Create Escalation</button>
+                <button class="delete btn-primary pull-right btn  disabled-event" >Create Exceptions</button-->
+                <h3 class="panel-title pull-left" style="margin:10px 0px 5px;font-size:14px">
+                    Exceptions
+                </h3>
+            </div>
+
+            <apex:pageBlock id="block">
+                <apex:pagemessages />
+            <apex:actionFunction name="rerenderTopBlock" rerender="topBlock1" />
+
+                <apex:pageBlockSection id="blockSection" columns="2">
+                        <apex:pageBlockSectionItem id="firstItem">
+                        <span id="remoteAcctId"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem id="secondItem">
+                        <apex:outputText id="sfcompleted"/>
+                    </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                   
+            </apex:pageBlock>
+            <div><h4>Exception Completed:</h4><br/></div>
+<apex:actionFunction name="rerenderTopPanel" rerender="pbSubsection" />
+            <apex:pageBlock id="block1">
+                <apex:pagemessages />
+                                <apex:outputPanel id="topBlock1">
+
+                <apex:pageBlockSection id="blockSection1" columns="2">
+
+                    <apex:pageBlockSectionItem id="firstItem1">
+
+                        <apex:pageblocktable styleclass="table  table-striped table-bordered" style="table-layout:fixed; height: 100%; width:95%; margin-left:10px" value="{!listException3}" var="r"> <apex:column headervalue="Requested Term (months)" value="{!r.Months_Requested__c}" style="width:155px !important" /> <apex:column headervalue="Requested Amount ($)" value="{!r.Amount_Requested__c}" style="width:155px !important" /> <apex:column headervalue="Type" value="{!r.Type__c}" style="width:105px !important" /> <apex:column headervalue="Status" value="{!r.Status__c}" /><apex:column headervalue="Link"><apex:outputLink value="/{!r.Id}"> <apex:outputText value="Link to Exception"> </apex:outputText> </apex:outputLink></apex:column> </apex:pageblocktable>
+                        <span id="remoteAcctId1"/>
+                    </apex:pageBlockSectionItem>
+                
+                </apex:pageBlockSection>
+</apex:outputPanel>
+            </apex:pageBlock>
+            <div>
+                <br/>
+                <hr/>
+                <br/>
+                <h4><u>Upload A File</u>
+                </h4>
+                <br/>
+            </div>
+            <apex:outputText id="sfattachments1"/>
+            
+            
+            
+            <div id="sfattachments2" style="display: inline-block" >
+                <div id="attachmentText" style="margin-right:350px"/><div style="border-left: thin solid #000000; margin-left:350px;">
+                <input id="file-input" type="file" class="btn btn-lg" style="padding: 2px; margin-left: 30px; width: 400px; border: 1px solid ; border-radius: 3px; font-weight: 700; font-size: 15pt;" /><br/><input id="upload-button" type="button" value="Upload" class="btn btn-primary btn-lg" style="padding: 12px; margin-left: 30px;border: 1px solid lightgray; border-radius: 3px; font-weight: 700; width: 400px; font-size: 12pt;" onclick="uploadFile1('{!$currentPage.parameters.id}')" />
+                </div>
+            </div>
+    </div>
+    
+    <div id="loading-div-background" style="display:none; position:fixed; top:0; left:0; background:black; width:100%; height:100%; opacity:0.2;">
+        <img src="/img/loading32.gif" style="position: absolute; left: 0; top: 50%; left: 50%; width: 2%; text-align: center; font-size: 18px;"/>
+    </div>
+</apex:component>

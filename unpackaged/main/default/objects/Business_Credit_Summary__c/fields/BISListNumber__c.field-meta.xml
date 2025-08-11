@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BISListNumber__c</fullName>
+    <description>Creates Experian BISListNumber from the File Number and Sequence Number returned from a List of Similars request</description>
+    <externalId>false</externalId>
+    <formula>Business_Credit_Id__c +  Sequence_Number__c</formula>
+    <label>BISListNumber</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

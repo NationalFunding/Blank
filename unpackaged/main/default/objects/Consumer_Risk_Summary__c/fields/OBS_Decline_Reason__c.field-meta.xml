@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OBS_Decline_Reason__c</fullName>
+    <description>The prioritized decline reason from the list returned in the Oscilar output. Should use bureau decline reason first, then use NF/QB decline reason if bureau was not declined. NFXPRS, Waterfall, and SBL decline reasons will not appear here.</description>
+    <externalId>false</externalId>
+    <label>OBS Decline Reason</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Statements_In_Date__c</fullName>
+    <description>This field will be populated from a workflow rule.  This rule will populate the date and time of an opportunity stage being changed to Statements In.</description>
+    <inlineHelpText>This is a read only field that will be populated by a workflow.  This field captures the date of an opportunity stage change to Statements in.</inlineHelpText>
+    <label>Statements In Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

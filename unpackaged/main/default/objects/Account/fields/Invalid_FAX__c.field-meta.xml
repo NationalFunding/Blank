@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Invalid_FAX__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Invalid FAX number</description>
+    <inlineHelpText>Check if the FAX number for the customer is invalid</inlineHelpText>
+    <label>Invalid FAX</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,8 @@
+Dear {!Lead.OwnerFullName}
+
+This lead is over 180 days old and has not been succesfully qualified and converted.  It has reverted to the House.
+
+{!Lead.Company}
+This lead had {!Lead.Call_Count__c} calls with a Last Disposition of {!Lead.Last_Call_Disposition__c}.  
+
+{!Lead.Link}

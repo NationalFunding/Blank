@@ -1,0 +1,2 @@
+<apex:page standardController="Lead" extensions="popLeadConvertPage" action="{!doConvert}">
+</apex:page>

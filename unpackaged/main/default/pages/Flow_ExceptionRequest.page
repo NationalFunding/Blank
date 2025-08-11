@@ -1,0 +1,6 @@
+<apex:page standardController="Opportunity" tabStyle="Opportunity" >
+    <flow:interview name="Create_an_Exception_Request" finishLocation="/{!Opportunity.Id}">
+        <apex:param name="inputOpptyId" value="{!Opportunity.Id}"/>
+        
+    </flow:interview>
+</apex:page>

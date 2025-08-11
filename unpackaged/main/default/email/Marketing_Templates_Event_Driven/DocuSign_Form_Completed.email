@@ -1,0 +1,5 @@
+Your customer has completed a DocuSigned application.  Please follow up with your customer ASAP.  
+
+{!Lead.Link}
+
+New Salesforce Console: https://na29.salesforce.com/console?tsid=02u34000000c44e#{!Lead.Id}

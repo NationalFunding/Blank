@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rep_Exempt_Fees__c</fullName>
+    <description>This field will contain any fees that should not be charged to the rep in the rep's commission calculations.</description>
+    <inlineHelpText>This field will contain any fees that should not be charged to the rep in the rep's commission calculations.  Please enter the amount of fees that should not be charged to the rep.</inlineHelpText>
+    <label>Rep Exempt Fees</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Chargent_Transaction_Recovery_Recipient__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>used in the Chargent Transaction - After Save Actions flow</description>
+    <label>Chargent Transaction Recovery Recipient</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NF_Renewal_100_30_Campaign_Flow__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This checkbox will automatically be marked when a deal is 100% paid, plus 30 days, to add the Contact Roles to a Campaign via flow</description>
+    <label>NF Renewal 100% +30 Campaign Flow</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

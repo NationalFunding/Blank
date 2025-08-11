@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Funding_Status_Email_Alert</name>
+        <label>Funding Status Email Alert</label>
+        <locationX>101</locationX>
+        <locationY>102</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>txtEmailBody</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>txtEmailSubject</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>inputRecipientEmail</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <apiVersion>49.0</apiVersion>
+    <constants>
+        <name>conAliaEmail</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>aburdick@nationalfunding.com</stringValue>
+        </value>
+    </constants>
+    <formulas>
+        <name>emailAddresses</name>
+        <dataType>String</dataType>
+        <expression>{!inputRecipientEmail}&amp; &quot;,&quot; &amp; {!conAliaEmail}</expression>
+    </formulas>
+    <interviewLabel>Funding Status Update Alert {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Funding Status Update Alert</label>
+    <processType>AutoLaunchedFlow</processType>
+    <startElementReference>Funding_Status_Email_Alert</startElementReference>
+    <status>Active</status>
+    <textTemplates>
+        <name>txtEmailBody</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>{!inputLender} has returned a decision for {!inputAccountName}
+
+Lender: {!inputLender}
+Status: {!inputFundingStatus}
+
+Opportunity Link: https://nf.my.salesforce.com/{!inputOpptyId}
+
+Details on this status change can be found under Notes &amp; Attachments on the Opportunity.</text>
+    </textTemplates>
+    <textTemplates>
+        <name>txtEmailSubject</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>External Lender Status Update - {!inputAccountName}</text>
+    </textTemplates>
+    <variables>
+        <name>inputAccountName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>inputFundingId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>inputFundingStatus</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>inputLender</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>inputOpptyId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>inputRecipientEmail</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

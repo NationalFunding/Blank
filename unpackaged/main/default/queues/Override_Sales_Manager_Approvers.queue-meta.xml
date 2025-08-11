@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <name>Override - Sales Manager Approvers</name>
+    <queueMembers>
+        <publicGroups>
+            <publicGroup>Override_Sales_Manager_Approvers_Group</publicGroup>
+        </publicGroups>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Override__c</sobjectType>
+    </queueSobject>
+</Queue>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_Or_Payoff__c</fullName>
+    <formula>OR(
+            ISPICKVAL(cmbls__Transaction_Type__c, "Payment"),
+			ISPICKVAL(cmbls__Transaction_Type__c, "Payoff")
+        )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Payment or Payoff</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

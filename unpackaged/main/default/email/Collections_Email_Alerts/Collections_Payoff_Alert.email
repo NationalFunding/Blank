@@ -1,0 +1,15 @@
+Payoff has been received for: 
+
+{!Case.Legal_Name__c}
+{!Case.Merchant_Number__c}
+
+Payoff Details: 
+
+Date: {!Case.Wire_Date__c}
+Amount: {!Case.Amount__c}
+From: {!Case.Payoff_From__c}
+Notes: {!Case.Payoff_Notes__c}
+
+{!Case.Link}
+
+Renewal Rep: {!Case.NF_Renewal_Rep__c}

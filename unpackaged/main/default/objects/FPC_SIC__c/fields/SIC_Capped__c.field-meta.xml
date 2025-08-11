@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SIC_Capped__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field will indicate if the SIC Code/Industry has a capped term or amount.</description>
+    <inlineHelpText>This field will indicate if the SIC Code/Industry has a capped term or amount.</inlineHelpText>
+    <label>SIC Capped</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

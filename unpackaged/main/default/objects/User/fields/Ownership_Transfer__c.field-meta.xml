@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ownership_Transfer__c</fullName>
+    <defaultValue>false</defaultValue>
+    <inlineHelpText>If a lead or account is pulled up via Card Search and this box is checked for the original owner of that lead, the lead will be automatically transferred to the searching user.</inlineHelpText>
+    <label>Card Search Ownership Transfer</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Isprimary__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Is this the Primary (Physical) Address</description>
+    <inlineHelpText>Is this the Primary (Physical) Address</inlineHelpText>
+    <label>Isprimary</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

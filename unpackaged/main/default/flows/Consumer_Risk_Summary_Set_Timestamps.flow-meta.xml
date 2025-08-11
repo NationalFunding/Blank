@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <assignments>
+        <description>If manually updated, this will override the CurrentDateTime assignment.</description>
+        <name>Set_Completed_Date_Time</name>
+        <label>Set Completed Date/Time</label>
+        <locationX>314</locationX>
+        <locationY>395</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Completed_Date_Time__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>form_Completed_Date</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Set_Expiration_Date</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>If manually updated, this will override the DateTime calculation.</description>
+        <name>Set_Expiration_Date</name>
+        <label>Set Expiration Date</label>
+        <locationX>314</locationX>
+        <locationY>503</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Expiration_Date__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>form_Expiration_Date</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Set_Failed_Date_Time</name>
+        <label>Set Failed Date/Time</label>
+        <locationX>578</locationX>
+        <locationY>395</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Error_Date_Time__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Set_Started_Date_Time</name>
+        <label>Set Started Date/Time</label>
+        <locationX>50</locationX>
+        <locationY>395</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Started_Date_Time__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <name>Which_Field_to_Timestamp</name>
+        <label>Which Field to Timestamp?</label>
+        <locationX>446</locationX>
+        <locationY>287</locationY>
+        <defaultConnectorLabel>None</defaultConnectorLabel>
+        <rules>
+            <name>Started_Date_Time</name>
+            <conditionLogic>(1 AND 2) OR (1 AND 3)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Model_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Processing</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Id</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Model_Status__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Started_Date_Time</targetReference>
+            </connector>
+            <label>Started Date/Time</label>
+        </rules>
+        <rules>
+            <name>Success_Date_Time</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Model_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Success</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Completed_Date_Time</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Success Date/Time</label>
+        </rules>
+        <rules>
+            <name>Error_Date_Time</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Model_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Error</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Failed_Date_Time</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Error Date/Time</label>
+        </rules>
+    </decisions>
+    <description>CRD-180
+Populates various date &amp; date/time fields on the Consumer Risk Summary based on the status of the record.</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>form_Completed_Date</name>
+        <dataType>DateTime</dataType>
+        <expression>IF(
+	NOT(ISCHANGED({!$Record.Completed_Date_Time__c})),
+	{!$Flow.CurrentDateTime},
+	{!$Record.Completed_Date_Time__c}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>form_Expiration_Date</name>
+        <dataType>Date</dataType>
+        <expression>IF(
+	NOT(ISCHANGED({!$Record.Expiration_Date__c})),
+	DATEVALUE({!$Record.Completed_Date_Time__c} + {!$Setup.Automation_Custom_Settings__c.PreQual_Expiration_Days__c}),
+	{!$Record.Expiration_Date__c}
+)</expression>
+    </formulas>
+    <interviewLabel>Consumer Risk Summary - Set Timestamps {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Consumer Risk Summary - Set Timestamps</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>320</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Which_Field_to_Timestamp</targetReference>
+        </connector>
+        <filterFormula>OR(
+	ISNEW() &amp;&amp; ISPICKVAL({!$Record.Model_Status__c} , &quot;Processing&quot;),
+	ISCHANGED({!$Record.Model_Status__c}) &amp;&amp; 
+	(
+		ISPICKVAL({!$Record.Model_Status__c} , &quot;Processing&quot;) || 
+		ISPICKVAL({!$Record.Model_Status__c} , &quot;Success&quot;) || 
+		ISPICKVAL({!$Record.Model_Status__c} ,  &quot;Error&quot;)
+	)
+)</filterFormula>
+        <object>Consumer_Risk_Summary__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

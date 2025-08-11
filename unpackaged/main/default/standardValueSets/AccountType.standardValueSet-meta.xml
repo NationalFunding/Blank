@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>ALT</fullName>
+        <default>false</default>
+        <label>ALT</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Competitor</fullName>
+        <default>false</default>
+        <label>Competitor</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Customer</fullName>
+        <default>false</default>
+        <label>Customer</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Customer of Broker</fullName>
+        <default>false</default>
+        <label>Customer of Broker</label>
+    </standardValue>
+    <standardValue>
+        <fullName>FPC</fullName>
+        <default>false</default>
+        <label>FPC</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Lease</fullName>
+        <default>false</default>
+        <label>Lease</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Lender - Alt</fullName>
+        <default>false</default>
+        <label>Lender - Alt</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Lender - Lease</fullName>
+        <default>false</default>
+        <label>Lender - Lease</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Lender - MCA</fullName>
+        <default>false</default>
+        <label>Lender - MCA</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Merchant</fullName>
+        <default>false</default>
+        <label>Merchant</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Private Party</fullName>
+        <default>false</default>
+        <label>Private Party</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Processing</fullName>
+        <default>false</default>
+        <label>Processing</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Prospect</fullName>
+        <default>false</default>
+        <label>Prospect</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Vendor - Bank</fullName>
+        <default>false</default>
+        <label>Vendor - Bank</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Vendor - EPP</fullName>
+        <default>false</default>
+        <label>Vendor - EPP</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Vendor - FPC</fullName>
+        <default>false</default>
+        <label>Vendor - FPC</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Vendor - Lease Eq</fullName>
+        <default>false</default>
+        <label>Vendor - Lease Eq</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Vendor - VAP</fullName>
+        <default>false</default>
+        <label>Vendor - VAP</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Broker</fullName>
+        <default>false</default>
+        <label>Broker</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Strategic Partner</fullName>
+        <default>false</default>
+        <label>Strategic Partner</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Customer of Strategic Partner</fullName>
+        <default>false</default>
+        <label>Customer of Strategic Partner</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Referral Partner</fullName>
+        <default>false</default>
+        <label>Referral Partner</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Legal Venue</fullName>
+        <default>false</default>
+        <label>Legal Venue</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Process Server</fullName>
+        <default>false</default>
+        <label>Process Server</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Local Counsel</fullName>
+        <default>false</default>
+        <label>Local Counsel</label>
+    </standardValue>
+    <standardValue>
+        <fullName>External Customer Account</fullName>
+        <default>false</default>
+        <label>External Customer Account</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Test Record</fullName>
+        <default>false</default>
+        <label>Test Record</label>
+    </standardValue>
+</StandardValueSet>

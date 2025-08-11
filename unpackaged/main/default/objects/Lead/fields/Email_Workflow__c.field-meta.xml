@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Email_Workflow__c</fullName>
+    <description>This field will capture the email address of the primary contact.  When the lead is converted the email will be populated in the account.  The email address will be on file in the Opportunity for stage driven emails.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This field will capture the email address of the primary contact.  When the lead is converted the email will be populated in the account.  The email address will be on file in the Opportunity for stage driven emails.</inlineHelpText>
+    <label>Email - Workflow</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Email</type>
+    <unique>false</unique>
+</CustomField>

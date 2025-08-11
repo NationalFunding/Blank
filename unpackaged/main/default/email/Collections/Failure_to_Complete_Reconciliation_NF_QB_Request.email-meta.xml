@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Failure to Complete Reconciliation –NF/QB Request</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank</letterhead>
+    <name>Failure to Complete Reconciliation –NF/QB Request</name>
+    <style>freeForm</style>
+    <subject>{!Case.Merchant_Number__c} - {!Account.Legal_Name__c}</subject>
+    <textOnly>Hello,
+
+In accordance with the terms of the Agreement, we requested a reconciliation of your future receivables to make sure the remittance amount aligned with your actual receivables.
+
+
+To complete the request, you required to provide us with the last two months of bank statements for your designated account within 5 days of the request.  We have not received them within the time allotted and as a result, your remittance amount will return to the Initial Remittance amount of {!Case.Payment_Amount__c}, as specified in the agreement.
+
+
+The remit will be returned to the Initial Remittance amount effective immediately.
+
+
+Please don’t hesitate to contact us with any questions.
+
+
+
+
+Thank you,
+
+{!User.Name} | {!User.Title}
+
+{!Case.Email_Signature_Company__c}
+
+{!$Setup.Company_Information__c.Street__c}
+{!$Setup.Company_Information__c.City__c}, {!$Setup.Company_Information__c.State__c} {!$Setup.Company_Information__c.Zip__c}
+P: {!User.Phone} | F: {!User.Fax}
+E: {!User.Email}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

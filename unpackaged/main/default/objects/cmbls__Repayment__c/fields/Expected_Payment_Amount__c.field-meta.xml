@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Expected_Payment_Amount__c</fullName>
+    <defaultValue>0</defaultValue>
+    <description>SUM of Amortization Schdules Payment Amount up to today's date. Used in the balance refresh process. Populated nightly by an apex job.</description>
+    <inlineHelpText>SUM of Amortization Schdules Payment Amount up to today's date. Used in the balance refresh process. Populated nightly by an apex job.</inlineHelpText>
+    <label>Expected Payment Amount</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+</CustomField>

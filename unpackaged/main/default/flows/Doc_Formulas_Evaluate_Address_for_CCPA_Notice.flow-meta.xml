@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>49.0</apiVersion>
+    <assignments>
+        <name>Set_PG_State_in_CA_Field</name>
+        <label>Set PG State in CA Field</label>
+        <locationX>850</locationX>
+        <locationY>167</locationY>
+        <assignmentItems>
+            <assignToReference>Doc_Formula.PG_State_In_CA__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formulaPGAddressInCA</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Doc_Formula_Record</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Doc_Formula_Exists</name>
+        <label>Doc Formula Exists</label>
+        <locationX>694</locationX>
+        <locationY>166</locationY>
+        <defaultConnectorLabel>Does Not Exist</defaultConnectorLabel>
+        <rules>
+            <name>Exists</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Doc_Formula</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Doc_Formula.Id</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue></stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Doc_Formula.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_PG_State_in_CA_Field</targetReference>
+            </connector>
+            <label>Exists</label>
+        </rules>
+    </decisions>
+    <description>Update Not Null Filter.</description>
+    <formulas>
+        <name>formulaPGAddressInCA</name>
+        <dataType>Boolean</dataType>
+        <expression>IF(
+OR(
+{!Doc_Formula.Signor_State__c}=&apos;CA&apos;,
+{!Doc_Formula.Guarantor_2_State__c}=&apos;CA&apos;,
+{!Doc_Formula.Guarantor_3_State__c}=&apos;CA&apos;,
+{!Doc_Formula.Guarantor_4_State__c}=&apos;CA&apos;
+),
+TRUE,
+FALSE
+)</expression>
+    </formulas>
+    <interviewLabel>Doc Formulas - Evaluate Address for CCPA Notice {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Doc Formulas - Evaluate Address for CCPA Notice</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Doc_Formula</name>
+        <label>Doc Formula</label>
+        <locationX>577</locationX>
+        <locationY>165</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Doc_Formula_Exists</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Opportunity_Name__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>inputOpportunityId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Doc_Formulas__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Doc_Formula_Record</name>
+        <label>Update Doc Formula Record</label>
+        <locationX>978</locationX>
+        <locationY>167</locationY>
+        <inputReference>Doc_Formula</inputReference>
+    </recordUpdates>
+    <runInMode>SystemModeWithoutSharing</runInMode>
+    <start>
+        <locationX>451</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Doc_Formula</targetReference>
+        </connector>
+    </start>
+    <status>Obsolete</status>
+    <variables>
+        <name>inputOpportunityId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

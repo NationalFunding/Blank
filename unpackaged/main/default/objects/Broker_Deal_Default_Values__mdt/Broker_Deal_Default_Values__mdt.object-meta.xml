@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Will store default values for fields that should be populated on broker deals before generating docs</description>
+    <label>Broker Deal Default Value</label>
+    <pluralLabel>Broker Deal Default Values</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

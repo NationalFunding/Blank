@@ -1,0 +1,5 @@
+The sweep date exception for {!Lead.Company} has been declined.  The sweep date for this lead will remain as {!Lead.Sweep_Date__c}. 
+
+{!Lead.Link}
+
+New Salesforce Console: https://nf.my.salesforce.com/console#%2F{!Lead.Id}

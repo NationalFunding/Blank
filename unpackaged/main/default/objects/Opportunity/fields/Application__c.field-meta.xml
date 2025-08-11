@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Application__c</fullName>
+    <description>The Application value corresponds to the Application Id that is generated in the UW org upon submission. This value should be unique and correspond to an Application record in the UW (Application_Id__c).  This value is populated upon successful submission to UW. This value is used by Partner API to identify the correct deal.</description>
+    <externalId>true</externalId>
+    <inlineHelpText>The Application value corresponds to the Application Id that is generated in the UW org upon submission. This value should be unique and correspond to an Application record in the UW (Application_Id__c).  This value is populated upon successful submission to UW. This value is used by Partner API to identify the correct deal.</inlineHelpText>
+    <label>Application</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

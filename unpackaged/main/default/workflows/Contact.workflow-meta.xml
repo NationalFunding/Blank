@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Approval_Recycling_Program_External</fullName>
+        <description>Approval Recycling Program - External</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Approval_Recycling_Program_External</template>
+    </alerts>
+    <alerts>
+        <fullName>Approval_Recycling_Program_External_QB</fullName>
+        <description>Approval Recycling Program - External QB</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@quickbridge.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Quick_Bridge_DFP_Emails/Approval_Recycling_Program_External_QB</template>
+    </alerts>
+    <alerts>
+        <fullName>DLP_Contact_Alert_Lauren_of_Renewal_Form_Submit</fullName>
+        <description>DLP Contact - Alert Lauren of Renewal Form Submit</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>haccount@fivepointcapital.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Digital_Loan_Process_Templates/DLP_Form_Submitted</template>
+    </alerts>
+    <alerts>
+        <fullName>DLP_Contact_Alert_Owner_of_Form_Submit</fullName>
+        <description>DLP Contact - Alert Owner of Form Submit</description>
+        <protected>false</protected>
+        <recipients>
+            <type>accountOwner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Digital_Loan_Process_Templates/DLP_Form_Submitted</template>
+    </alerts>
+    <alerts>
+        <fullName>DLP_Drip_Email_Alert_C_Day_1</fullName>
+        <description>DLP Drip Email Alert (C) - Day (1)</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Digital_Loan_Process_Templates/HTML_Contact_DLP_Email_Drip_Day_1</template>
+    </alerts>
+    <alerts>
+        <fullName>DLP_Drip_Email_Alert_C_Day_10</fullName>
+        <description>DLP Drip Email Alert (C) - Day (10)</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Digital_Loan_Process_Templates/HTML_DLP_Drip_Email_C_Day_10</template>
+    </alerts>
+    <alerts>
+        <fullName>DLP_Drip_Email_Alert_C_Day_17</fullName>
+        <description>DLP Drip Email Alert (C) - Day (17)</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Digital_Loan_Process_Templates/HTML_DLP_Drip_Email_C_Day_17</template>
+    </alerts>
+    <alerts>
+        <fullName>DLP_Drip_Email_Alert_C_Day_25</fullName>
+        <description>DLP Drip Email Alert (C) - Day (25)</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Digital_Loan_Process_Templates/HTML_DLP_Drip_Email_C_Day_25</template>
+    </alerts>
+    <alerts>
+        <fullName>DLP_Drip_Email_Alert_C_Day_3</fullName>
+        <description>DLP Drip Email Alert (C) - Day (3)</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Digital_Loan_Process_Templates/HTML_DLP_Drip_Email_C_Day_3</template>
+    </alerts>
+    <alerts>
+        <fullName>DLP_Drip_Email_Alert_C_Day_36</fullName>
+        <description>DLP Drip Email Alert (C) - Day (36)</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Digital_Loan_Process_Templates/HTML_DLP_Drip_Email_C_Day_36</template>
+    </alerts>
+    <alerts>
+        <fullName>DLP_Drip_Email_Alert_C_Day_5</fullName>
+        <description>DLP Drip Email Alert (C) - Day (5)</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Digital_Loan_Process_Templates/HTML_DLP_Drip_Email_C_Day_5</template>
+    </alerts>
+    <alerts>
+        <fullName>Email_1_to_VAP_Vendor_Follow_Up_Get_Paid</fullName>
+        <description>Email(1) to VAP Vendor - Follow Up Get Paid</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>NF_Vendor_Advantage/NF_Follow_Up_Get_Paid</template>
+    </alerts>
+    <alerts>
+        <fullName>Email_1_to_Vendor_VAP</fullName>
+        <description>Email(1) to Vendor - VAP</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>NF_Vendor_Advantage/NF_Vendor_Advantage</template>
+    </alerts>
+    <alerts>
+        <fullName>Email_2_to_Vendor_VAP_Sign_Up</fullName>
+        <description>Email(2) to Vendor - VAP Sign Up</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>NF_Vendor_Advantage/NF_Follow_Up_Sign_Up</template>
+    </alerts>
+    <alerts>
+        <fullName>Lending_Tree_Review_Request_v2</fullName>
+        <description>Lending Tree Review Request v2</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Marketing_Templates_Event_Driven/Lending_Tree_Review_Request</template>
+    </alerts>
+    <alerts>
+        <fullName>LoanMe_Customer_Notification</fullName>
+        <description>LoanMe - Customer Notification</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>LoanMe_Customer_Notifications/LoanMe_Customer_Notification</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>ContactID18_Populate</fullName>
+        <field>ContactID18__c</field>
+        <formula>Id&amp;
+CASE(
+IF(CONTAINS("ABCDEFGHIJKLMNOPQRSTUVWXYZ",RIGHT(LEFT(Id,1),1)),1,0)+
+IF(CONTAINS("ABCDEFGHIJKLMNOPQRSTUVWXYZ",RIGHT(LEFT(Id,2),1)),2,0)+
+IF(CONTAINS("ABCDEFGHIJKLMNOPQRSTUVWXYZ",RIGHT(LEFT(Id,3),1)),4,0)+
+IF(CONTAINS("ABCDEFGHIJKLMNOPQRSTUVWXYZ",RIGHT(LEFT(Id,4),1)),8,0)+
+IF(CONTAINS("ABCDEFGHIJKLMNOPQRSTUVWXYZ",RIGHT(LEFT(Id,5),1)),16,0),
+0,"A",1,"B",2,"C",3,"D",4,"E",5,"F",6,"G",7,"H",8,"I",
+9,"J",10,"K",11,"L",12,"M",13,"N",14,"O",15,"P",16,"Q",17,"R",
+18,"S",19,"T",20,"U",21,"V",22,"W",23,"X",24,"Y",25,"Z",26,"0",
+27,"1",28,"2",29,"3",30,"4",31,"5","0")&amp;
+CASE(
+IF(CONTAINS("ABCDEFGHIJKLMNOPQRSTUVWXYZ",RIGHT(LEFT(Id,6),1)),1,0)+
+IF(CONTAINS("ABCDEFGHIJKLMNOPQRSTUVWXYZ",RIGHT(LEFT(Id,7),1)),2,0)+
+IF(CONTAINS("ABCDEFGHIJKLMNOPQRSTUVWXYZ",RIGHT(LEFT(Id,8),1)),4,0)+
+IF(CONTAINS("ABCDEFGHIJKLMNOPQRSTUVWXYZ",RIGHT(LEFT(Id,9),1)),8,0)+
+IF(CONTAINS("ABCDEFGHIJKLMNOPQRSTUVWXYZ",RIGHT(LEFT(Id,10),1)),16,0),
+0,"A",1,"B",2,"C",3,"D",4,"E",5,"F",6,"G",7,"H",8,"I",
+9,"J",10,"K",11,"L",12,"M",13,"N",14,"O",15,"P",16,"Q",17,"R",
+18,"S",19,"T",20,"U",21,"V",22,"W",23,"X",24,"Y",25,"Z",26,"0",
+27,"1",28,"2",29,"3",30,"4",31,"5","0")&amp;
+CASE(
+IF(CONTAINS("ABCDEFGHIJKLMNOPQRSTUVWXYZ",RIGHT(LEFT(Id,11),1)),1,0)+
+IF(CONTAINS("ABCDEFGHIJKLMNOPQRSTUVWXYZ",RIGHT(LEFT(Id,12),1)),2,0)+
+IF(CONTAINS("ABCDEFGHIJKLMNOPQRSTUVWXYZ",RIGHT(LEFT(Id,13),1)),4,0)+
+IF(CONTAINS("ABCDEFGHIJKLMNOPQRSTUVWXYZ",RIGHT(LEFT(Id,14),1)),8,0)+
+IF(CONTAINS("ABCDEFGHIJKLMNOPQRSTUVWXYZ",RIGHT(LEFT(Id,15),1)),16,0),
+0,"A",1,"B",2,"C",3,"D",4,"E",5,"F",6,"G",7,"H",8,"I",
+9,"J",10,"K",11,"L",12,"M",13,"N",14,"O",15,"P",16,"Q",17,"R",
+18,"S",19,"T",20,"U",21,"V",22,"W",23,"X",24,"Y",25,"Z",26,"0",
+27,"1",28,"2",29,"3",30,"4",31,"5","0")</formula>
+        <name>ContactID18 Populate</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Contact_Assistant_Email_Update</fullName>
+        <field>Assistant_Email__c</field>
+        <formula>Account.Assistant_Email_Workflow__c</formula>
+        <name>Contact - Assistant Email Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Contact_Assistant_Name_Update</fullName>
+        <field>AssistantName</field>
+        <formula>Account.Assistant_Name_Workflow__c</formula>
+        <name>Contact - Assistant Name Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Contact_Assistant_Phone_Update</fullName>
+        <field>AssistantPhone</field>
+        <formula>Account.Assistant_Phone_Workflow__c</formula>
+        <name>Contact - Assistant Phone Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Do_Not_Solicit_Contact</fullName>
+        <description>When all Do Not " " fields are selected the Do Not Solicit field will be selected.</description>
+        <field>Donotsolicit__c</field>
+        <literalValue>1</literalValue>
+        <name>Do Not Solicit - Contact</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Populate_Old_Credit_Score</fullName>
+        <field>OLD_CREDIT_SCORE__c</field>
+        <formula>TEXT(PRIORVALUE(FICO_Score__c))</formula>
+        <name>Populate Old Credit Score</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Populate_Ownership_DS</fullName>
+        <field>Ownership_DS__c</field>
+        <formula>Ownership_Percentage__c * 100</formula>
+        <name>Populate Ownership DS</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>TwilioSF__Clear_Last_Message_Status</fullName>
+        <field>TwilioSF__Last_Message_Status__c</field>
+        <name>Clear Last Message Status</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>TwilioSF__Clear_Last_Message_Status_Date</fullName>
+        <field>TwilioSF__Last_Message_Status_Date__c</field>
+        <name>Clear Last Message Status Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_DLP_Email_Status_to_Deactivated</fullName>
+        <field>DLP_Email_Status__c</field>
+        <literalValue>DLP Drip Deactivated</literalValue>
+        <name>Update DLP Email Status to Deactivated</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Sync_with_Marketo_Contact_field</fullName>
+        <field>Sync_With_Marketo__c</field>
+        <literalValue>1</literalValue>
+        <name>Update Sync with Marketo Contact field</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <flowActions>
+        <fullName>Broker_Contact_Create_Account</fullName>
+        <flow>Create_Broker_Account_From_Contact</flow>
+        <flowInputs>
+            <name>inputContactId</name>
+            <value>{!Id}</value>
+        </flowInputs>
+        <label>Broker Contact - Create Account</label>
+        <language>en_US</language>
+        <protected>false</protected>
+    </flowActions>
+    <rules>
+        <fullName>Broker Contact - Create Account from Web Form</fullName>
+        <actions>
+            <name>Broker_Contact_Create_Account</name>
+            <type>FlowAction</type>
+        </actions>
+        <active>true</active>
+        <formula>AND( NOT(ISBLANK(Broker_Company_Name__c)), NOT(ISBLANK(Broker_Phone__c)))</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Contact - Assistant Workflow</fullName>
+        <actions>
+            <name>Contact_Assistant_Email_Update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Contact_Assistant_Name_Update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Contact_Assistant_Phone_Update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 OR 2 OR 3</booleanFilter>
+        <criteriaItems>
+            <field>Account.Assistant_Name_Workflow__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Assistant_Phone_Workflow__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Assistant_Email_Workflow__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Contact - FICO Score has Changed</fullName>
+        <actions>
+            <name>Populate_Old_Credit_Score</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Rule fires when a Contact's 'FICO Score' has changed.  The 'Old Credit Score' field will be updated with the previous 'FICO Score' field value.</description>
+        <formula>ISCHANGED(FICO_Score__c)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Contact - Update Sync with Marketo</fullName>
+        <actions>
+            <name>Update_Sync_with_Marketo_Contact_field</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6</booleanFilter>
+        <criteriaItems>
+            <field>Contact.Email</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.HasOptedOutOfEmail</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Do_Not_Solicit__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Out_of_Business__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Do_Not_E_Mail__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>New Customer Acct</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Do Not Solicit - Contacts</fullName>
+        <actions>
+            <name>Do_Not_Solicit_Contact</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Contact.DoNotCall</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.Donotmail__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.HasOptedOutOfFax</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.HasOptedOutOfEmail</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <description>If all other Do Not " " fields are marked as true, the Do Not Solicit field will be marked true.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Email Opt Out - Update DLP Email Status</fullName>
+        <actions>
+            <name>Update_DLP_Email_Status_to_Deactivated</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Contact.HasOptedOutOfEmail</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.DLP_Email_Status__c</field>
+            <operation>equals</operation>
+            <value>Drip Campaign Started,DLP Drip Activated</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Ownership Formatting - DocuSign</fullName>
+        <actions>
+            <name>Populate_Ownership_DS</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Contact.Ownership_Percentage__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Populate ContactID18</fullName>
+        <actions>
+            <name>ContactID18_Populate</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>TRUE</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>TwilioSF__Clear Last Message Status%2FDate</fullName>
+        <actions>
+            <name>TwilioSF__Clear_Last_Message_Status</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>TwilioSF__Clear_Last_Message_Status_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <formula>1!=1</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Vendor Contact - Email VAP Info</fullName>
+        <actions>
+            <name>Email_1_to_Vendor_VAP</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6 AND 7</booleanFilter>
+        <criteriaItems>
+            <field>Contact.Email</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Type</field>
+            <operation>equals</operation>
+            <value>Vendor - Lease Eq</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Do_Not_E_Mail__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.HasOptedOutOfEmail</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Do_Not_Solicit__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Out_of_Business__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Status__c</field>
+            <operation>notEqual</operation>
+            <value>Remove From List,Fraud,Inactive</value>
+        </criteriaItems>
+        <description>Email reminder for Non-VAP vendors to sign up for the program.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Email_2_to_Vendor_VAP_Sign_Up</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>7</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Vendor VAP - Email VAP Follow Up</fullName>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6 AND 7</booleanFilter>
+        <criteriaItems>
+            <field>Contact.Email</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Type</field>
+            <operation>equals</operation>
+            <value>Vendor - VAP</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Do_Not_E_Mail__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.HasOptedOutOfEmail</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Do_Not_Solicit__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Out_of_Business__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Status__c</field>
+            <operation>notEqual</operation>
+            <value>Fraud,Remove From List,Inactive</value>
+        </criteriaItems>
+        <description>Email reminder for VAP vendors about cash offer for referred deals.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Email_1_to_VAP_Vendor_Follow_Up_Get_Paid</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>5</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+</Workflow>

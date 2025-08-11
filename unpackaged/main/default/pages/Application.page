@@ -1,0 +1,486 @@
+<apex:page standardController="Opportunity" extensions="ApplicationController" standardStylesheets="false" >
+                <!--script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script-->
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+function copyAddress()
+{
+    if(document.getElementById('{!$Component.frmApp.frmAppBlock.pnlAddShow0.checkSameAddress.chkSameAdd}').checked)
+    {
+        document.getElementById('{!$Component.frmApp.frmAppBlock.pnlAddShow0.mailAddr.mailAdd1}').value = document.getElementById('{!$Component.frmApp.frmAppBlock.pnlAddShow0.phyAddr.phyAdd1}').value;
+        document.getElementById('{!$Component.frmApp.frmAppBlock.pnlAddShow0.mailCity}').value = document.getElementById('{!$Component.frmApp.frmAppBlock.pnlAddShow0.phyCity}').value;
+        document.getElementById('{!$Component.frmApp.frmAppBlock.pnlAddShow0.mailState}').value = document.getElementById('{!$Component.frmApp.frmAppBlock.pnlAddShow0.phyState}').value;
+        document.getElementById('{!$Component.frmApp.frmAppBlock.pnlAddShow0.mailZip}').value = document.getElementById('{!$Component.frmApp.frmAppBlock.pnlAddShow0.phyZip}').value;       
+    }
+}
+</script>                
+                <apex:stylesheet value="{!URLFOR($Resource.CreditReviewScreen, 'css/font-awesome/css/font-awesome.css')}"/>
+                    
+                    
+                    <apex:form id="frmApp">
+                        <apex:pageBlock id="frmAppBlock" title="National Funding Application">
+                            <apex:pageMessages />
+                                <!-- <apex:outputText value="{!assignMessage}" style="color:red;font-weight: bold"></apex:outputText> -->
+                                
+                                <!--  *************Account Info ************-->
+                                    <apex:pageBlockSection title="Account Info" columns="3" collapsible="true" id="pbSec">                
+                                        <apex:inputField value="{!act.Name}"></apex:inputField>
+                                        <apex:inputField value="{!act.Legal_Name__c}"></apex:inputField>
+                                        <apex:inputField value="{!act.Company_DBA__c}"></apex:inputField>
+                                        
+                                        <apex:inputField value="{!act.Fed_Tax_ID__c}"></apex:inputField>
+                                        <apex:inputField value="{!act.Legal_Status__c}"></apex:inputField> 
+                                        <apex:inputField value="{!act.State_of_Incorporation__c}"></apex:inputField>
+                                        
+                                        <apex:inputField value="{!act.AnnualRevenue}" rendered="{!OR(bProcessApplication,bMCAApplication)}"></apex:inputField>
+                                        <apex:inputField value="{!act.Date_Established__c}"></apex:inputField> 
+                                        <apex:inputField value="{!act.Yrs_in_Business__c}" rendered="{!bLeaseApplication}"></apex:inputField>
+                                        <apex:pageBlockSectionItem rendered="{!bLeaseApplication}">
+                                            <apex:outputText >Number Of Employees</apex:outputText>
+                                            <apex:inputField value="{!act.NumberOfEmployees}"></apex:inputField>
+                                            </apex:pageBlockSectionItem>
+                                            <apex:pageBlockSectionItem rendered="{!bLeaseApplication}">
+                                                <apex:outputText >Previous Bankruptcy</apex:outputText>
+                                                <apex:inputField value="{!act.Previous_BK__c}"></apex:inputField>
+                                                </apex:pageBlockSectionItem>
+                                                <apex:inputField value="{!act.Accepts_Credit_Cards__c}" rendered="{!OR(bProcessApplication,bMCAApplication)}"></apex:inputField>
+                                                
+                                                <apex:inputField value="{!act.Sic}" ></apex:inputField>  
+                                                <apex:outputField value="{!act.SIC_Name__c}" ></apex:outputField>
+                                                <apex:inputField value="{!act.Website}"></apex:inputField>
+                                                
+                                                <apex:inputField value="{!act.Time_Zone__c}"></apex:inputField>
+                                                <apex:inputField value="{!opp.Amount}"></apex:inputField>
+                                                <apex:pageBlockSectionItem rendered="{!OR(bProcessApplication,bMCAApplication)}">
+                                                    <apex:outputText >Use of Funds</apex:outputText>
+                                                    <apex:inputField value="{!opp.Use_of_Funds__c}"/>
+                                                        </apex:pageBlockSectionItem>
+                                                    
+                                                    <apex:pageBlockSectionItem rendered="{!OR(bProcessApplication,bMCAApplication)}">
+                                                        <apex:outputText >First Card Date As Owner</apex:outputText>
+                                                        <apex:inputField value="{!opp.First_Card_Date_As_Owner__c}"></apex:inputField>
+                                                        </apex:pageBlockSectionItem>
+                                                        <apex:pageBlockSectionItem rendered="{!OR(bProcessApplication,bMCAApplication)}"></apex:pageBlockSectionItem>
+                                                        <apex:pageBlockSectionItem rendered="{!OR(bProcessApplication,bMCAApplication)}"/>
+                                                            
+                                                            <!--apex:pageBlockSectionItem rendered="{!OR(bProcessApplication,bMCAApplication)}">
+                                                                <apex:outputText id="location" label="Location Phone">
+                                                                            <apex:inputField id="l2" style="width:100px; inline:block;" label="Preferred Contact Phon" value="{!act.Phone}" >            <apex:outputLabel style="display: inline-block;"><support:clickToDial id="p1" number="{!act.Phone_2__c}" entityId="{!act.Id}" /></apex:outputLabel>   </apex:inputField>
+                                                                                
+                                                                                </apex:outputText>
+                                                                </apex:pageBlockSectionItem-->
+                                                                <!--apex:pageBlockSectionItem rendered="{!OR(bProcessApplication,bMCAApplication)}">
+                                                                    <apex:outputText id="preferred1" label="Preferred Contact Phone">
+                                                                            <apex:inputField id="l1" style="width:100px; inline:block;" label="Preferred Contact Phon" value="{!act.Phone_2__c}" >            <apex:outputLabel style="display: inline-block;"><support:clickToDial id="p1" number="{!act.Phone_2__c}" entityId="{!act.Id}" /></apex:outputLabel>   </apex:inputField>
+                                                                                
+                                                                                </apex:outputText>
+                                                                    </apex:pageBlockSectionItem-->
+                                                                    <!--apex:pageBlockSectionItem rendered="{!bLeaseApplication}">
+                                                                        <apex:outputText >Main Phone#</apex:outputText>
+                                                                        <apex:inputField value="{!act.Phone}"></apex:inputField>
+                                                                        </apex:pageBlockSectionItem-->
+                                                                        
+                                                                        
+                                                                        <apex:outputText id="preferred" label="Preferred Contact Phone">
+                                                                            <apex:inputField id="p2" style="width:100px; inline:block;" label="Preferred Contact Phon" value="{!act.Phone_2__c}" >            <apex:outputLabel style="display: inline-block;"><support:clickToDial id="p1" number="{!act.Phone_2__c}" entityId="{!act.Id}" /></apex:outputLabel>   </apex:inputField>
+                                                                                
+                                                                                </apex:outputText>
+                                                                            
+                                                                            <apex:outputText id="m" label="Main Phone#">
+                                                                                <apex:inputField id="m2" style="width:100px; inline:block;" label="MobilePhone" value="{!act.Phone}" >            <apex:outputLabel style="display: inline-block;"><support:clickToDial id="m1" number="{!act.Phone}" entityId="{!act.Id}" /></apex:outputLabel>   </apex:inputField>
+                                                                                    
+                                                                                    </apex:outputText>
+                                                                                <apex:pageBlockSectionItem rendered="{!bLeaseApplication}">
+                                                                                    <apex:outputText >Mobile Phone#</apex:outputText>
+                                                                                    <apex:inputField value="{!act.Phone_2__c}"></apex:inputField>
+                                                                                    </apex:pageBlockSectionItem>
+                                                                                    <apex:inputField value="{!act.Fax}"></apex:inputField>
+                                                                                    
+                                                                                    
+                                                                                    <!--
+                                                                                        <apex:pageblockSectionItem >
+                                                                                            <apex:outputText >Annual Revenue</apex:outputText>
+                                                                                            <apex:inputField value="{!act.AnnualRevenue}"/>
+                                                                                                </apex:pageblockSectionItem>
+                                                                                            <apex:pageblockSectionItem >
+                                                                                                <apex:outputText >Phone Number</apex:outputText>
+                                                                                                <apex:inputField value="{!act.Phone_2__c}"/>
+                                                                                                    </apex:pageblockSectionItem>
+                                                                                                
+                                                                                                <apex:pageblockSectionItem >
+                                                                                                    <apex:outputText >Date Established</apex:outputText>
+                                                                                                    <apex:inputField value="{!act.Date_Established__c}"/>
+                                                                                                        </apex:pageblockSectionItem>
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    <apex:pageBlockSectionItem rendered="{!OR(bProcessApplication,bLeaseApplication)}"></apex:pageBlockSectionItem>
+                                                                                                    <apex:inputField value="{!act.Industry}" rendered="{!bShowSameAsPhysical}"></apex:inputField> 
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    -->
+                                                                                                        
+                                                                                                        
+                                                                                                        
+                                                                                                        <apex:pageBlockSectionItem rendered="{!bProcessApplication}"></apex:pageBlockSectionItem>
+                                                                                                        
+                                                                                                        <apex:pageBlockSectionItem rendered="{!bMCAApplication}"></apex:pageBlockSectionItem>
+                                                                                                        <apex:pageBlockSectionItem rendered="{!OR(bProcessApplication,bLeaseApplication)}"/>
+                                                                                                            <apex:pageBlockSectionItem rendered="{!OR(bProcessApplication,bLeaseApplication)}"/>
+                                                                                                                </apex:pageBlockSection>
+                                                                                                            <apex:pageBlockSection title="Address" collapsible="true"  showHeader="true" columns="3" id="pnlAddShow0">
+                                                                                                                
+                                                                                                                <apex:pageBlockSectionItem id="phyAddr">
+                                                                                                                    <apex:outputText >Physical Address</apex:outputText>                                
+                                                                                                                    <apex:inputField required="false" id="phyAdd1" value="{!physical.Address_1__c}"></apex:inputField>
+                                                                                                                    </apex:pageBlockSectionItem>
+                                                                                                                    <apex:inputField required="false" id="phyCity" value="{!physical.City__c}"></apex:inputField>
+                                                                                                                    <apex:inputField id="phyState" value="{!physical.State__c}"></apex:inputField>
+                                                                                                                    <apex:inputField id="phyZip" value="{!physical.Zip_Code__c}"></apex:inputField>
+                                                                                                                    <apex:pageBlockSectionItem >
+                                                                                                                        <apex:outputPanel >
+                                                                                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <apex:commandButton value="Create New Physical Address" immediate="true" action="{!showNewAddressPnl}"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                <apex:commandButton value="Associate Address" action="{!showAssoAddressPnl}" immediate="true"/>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>                                
+                <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+                
+                
+                <apex:pageBlockSectionItem id="mailAddr">
+                    <apex:outputText >Mailing Address</apex:outputText>
+                    <apex:inputField id="mailAdd1" required="false" value="{!mailing.Address_1__c}"></apex:inputField>
+                    </apex:pageBlockSectionItem>
+                    <apex:inputField id="mailCity" required="false" value="{!mailing.City__c}"></apex:inputField>
+                    <apex:inputField id="mailState" value="{!mailing.State__c}"></apex:inputField>
+                    <apex:inputField id="mailZip" value="{!mailing.Zip_Code__c}"></apex:inputField>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputPanel >
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <apex:commandButton value="Create New Mailing Address" immediate="true" action="{!showNewMailingAddressPnl}"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                <apex:commandButton value="Associate Address" action="{!showAssoMailingAddressPnl}" immediate="true"/>
+                    <!-- &nbsp;&nbsp;&nbsp;&nbsp;
+                <apex:commandButton value="Copy Physical Address" action="{!copyPhys}"/> -->
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem id="checkSameAddress">
+                    <apex:outputLabel for="chkSameAdd" value="SAME AS Physical"/>
+                        <apex:inputCheckBox id="chkSameAdd" onClick="copyAddress()"/>
+                        </apex:pageBlockSectionItem>
+                        
+                        </apex:pageBlockSection>
+                        
+                        <apex:pageBlockSection title="Address" showHeader="false" columns="1" collapsible="false" id="pnlAddShow">
+                        <apex:pageBlockSectionItem >
+                        <apex:outputPanel id="pnlNewAdd">
+                        <apex:pageBlock title="New {!strShowAddressHeader} Address" rendered="{!bShowPhysical}">
+                        <apex:pageBlockButtons >
+                        <apex:commandButton value="Save Address" action="{!saveNewAddress}"/>
+                        <apex:commandButton value="Cancel" immediate="true" action="{!cancelAddress}"/>
+                        </apex:pageBlockButtons>
+                        <apex:pageBlockSection title="New Address" columns="2" collapsible="false" showHeader="false">
+                        <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!strShowAddressHeader} Address" for="add1"/><apex:inputText id="add1" value="{!strAddressStreet}"></apex:inputText>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="City" for="add2"/><apex:inputText id="add2" value="{!strAddressCity}"></apex:inputText>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="State" for="add3"/><apex:inputText id="add3" value="{!strAddressState}"></apex:inputText>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Zip" for="add4"/><apex:inputText id="add4" value="{!strAddressZip}"></apex:inputText>
+                        </apex:pageBlockSectionItem>
+                        </apex:pageBlockSection>
+                        </apex:pageBlock>
+                        <apex:pageBlockSection title="Associate {!strShowAddressHeader} Address" columns="2" collapsible="false" rendered="{!bShowAssociate}">
+                        <apex:pageBlockSectionItem >
+                        <apex:selectRadio layout="PageDirection" value="{!associateSelectedAddress}">
+                        <apex:actionSupport action="{!associateAddress}" event="onclick"/>
+                        <apex:selectOptions value="{!AddressList}"/>
+                        </apex:selectRadio> 
+                        </apex:pageBlockSectionItem>
+                        </apex:pageBlockSection>
+                        </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                        </apex:pageBlockSection>
+                        
+                        <!--  *************Owners ************-->
+                        <apex:pageBlockSection title="Owners" columns="1" collapsible="true"> 
+                        <apex:repeat value="{!cRole}" var="c">
+                        <apex:outputPanel >  
+                        <apex:pageBlockSection columns="2" collapsible="true"  >          
+                        <apex:outputField value="{!c.Contact.Name}"></apex:outputField>
+                        <apex:outputField value="{!c.Role}"></apex:outputField>
+                        <apex:outputField value="{!c.Contact.Drivers_License_State__c}" rendered="{!bProcessApplication}"/>
+                        <apex:outputField value="{!c.Contact.Drivers_License_Number__c}" rendered="{!bProcessApplication}"/>
+                        </apex:pageBlockSection>                                        
+                        </apex:outputPanel> 
+                        </apex:repeat>                           
+                        <apex:commandButton value="Add Contact Role" action="{!addOwner}"/>              
+                        </apex:pageBlockSection>                      
+                        
+                        
+                        <!--  *************Contacts ************-->
+                        <apex:pageBlockSection title="Contacts" columns="1" collapsible="true">
+                        <apex:outputText value="More than 4 contacts cannot be added." rendered="{!bContactMsgShow}" style="color:red"></apex:outputText>                                                                      
+                        <apex:repeat value="{!contactList}" var="rc">
+                        <apex:outputPanel >  
+                        <apex:pageBlockSection columns="4" collapsible="true"  >          
+                        <apex:inputField value="{!rc.record.FirstName}"></apex:inputField>
+                        <apex:inputField value="{!rc.record.LastName}"></apex:inputField>
+                        <!-- <apex:inputField value="{!rc.record.SSN__c}"/>-->
+                        <apex:inputField value="{!rc.record.SSN_Encrypted__c}"/>
+                        <apex:inputField value="{!rc.record.Ownership_Percentage__c}"></apex:inputField>
+
+                        <apex:outputText id="mobile" label="MobilePhone">
+                        <apex:inputField id="test1" style="width:90px;" label="MobilePhone" value="{!rc.record.MobilePhone}" >            <apex:outputLabel style="display: inline-block;"><support:clickToDial id="c2d" number="{!rc.record.MobilePhone}" entityId="{!rc.record.AccountId}" /></apex:outputLabel>   </apex:inputField>
+                        
+                        </apex:outputText>
+                                                <apex:outputText id="home" label="HomePhone">
+                        <apex:inputField id="test2" style="width:90px;" label="HomePhone" value="{!rc.record.HomePhone}" >            <apex:outputLabel style="display: inline-block;"><support:clickToDial id="c2d1" number="{!rc.record.HomePhone}" entityId="{!rc.record.AccountId}" /></apex:outputLabel>   </apex:inputField>
+                        
+                        </apex:outputText>
+                                                <apex:inputField value="{!rc.record.FICO_Score__c}" rendered="{!bLeaseApplication}"></apex:inputField>
+
+                                                <apex:inputField value="{!rc.record.Title}"></apex:inputField> 
+                        <apex:inputField value="{!rc.record.Birthdate}"></apex:inputField>                             
+
+                <apex:inputField value="{!rc.record.Email}"></apex:inputField>
+                <apex:inputField required="false" value="{!rc.Addy.Address_1__c}"></apex:inputField>
+                <apex:inputField required="false" value="{!rc.Addy.City__c}"></apex:inputField>
+                <apex:inputField value="{!rc.Addy.State__c}"></apex:inputField>
+                <apex:inputField value="{!rc.Addy.Zip_Code__c}"></apex:inputField>  
+                <apex:inputField value="{!rc.record.Drivers_License_State__c}" rendered="{!bProcessApplication}"></apex:inputField>
+                <apex:inputField value="{!rc.record.Drivers_License_Number__c}" rendered="{!bProcessApplication}"></apex:inputField>                                  
+            </apex:pageBlockSection>                                        
+            </apex:outputPanel>
+            <hr/>
+            </apex:repeat>
+            <apex:commandButton value="Add Contact" action="{!addContact}"/>
+            </apex:pageBlockSection>
+            
+            <!--  *************References - Banks************-->
+            
+            <apex:pageBlockSection title="Banks" columns="4" collapsible="true">   
+                <apex:inputField value="{!opp.Bank_Name__c}"></apex:inputField>
+                <apex:inputField value="{!opp.Bank_Account_Number__c}"></apex:inputField>
+                <apex:inputField value="{!opp.Bank_Routing_Number__c}"></apex:inputField>
+                <apex:inputField value="{!opp.Bank_Phone__c}"></apex:inputField>
+                
+                <apex:inputField value="{!opp.BANK_CITY__c}"></apex:inputField>
+                <apex:inputField value="{!opp.Bank_State__c}"></apex:inputField>
+                <apex:inputField value="{!opp.BANK_ZIPCODE__c}"></apex:inputField>
+                <apex:inputField value="{!opp.Bank_Contact__c}"></apex:inputField>
+            </apex:pageBlockSection>
+            
+            <!--<apex:commandButton value="Add Reference" action="{!addRef}"/>
+            
+            <apex:pageBlockSection columns="1"  id="references" collapsible="true">                                                                      
+            <apex:repeat value="{!ref}" var="r">
+            <apex:outputPanel >  
+            <apex:pageBlockSection columns="4" collapsible="true"  >          
+            <apex:inputField value="{!r.Ref_Contact__c}"></apex:inputField>
+            <apex:inputField value="{!r.Ref_Name__c}"></apex:inputField>
+            <apex:inputField value="{!r.Ref_Phone__c}"></apex:inputField>                             
+            <apex:inputField value="{!r.Ref_Type__c}"></apex:inputField>                                     
+            </apex:pageBlockSection>                                        
+            </apex:outputPanel>
+            <hr/>
+            </apex:repeat>                     
+            
+            </apex:pageBlockSection>-->
+            
+            <!--  *************Facility Detail ************-->
+            <!--<apex:pageBlockSection title="Facility Details" columns="3" >
+            <apex:inputField value="{!opp.FACILITY_COMPANY__c}"></apex:inputField>
+            <apex:inputField value="{!opp.FACILITY_CONTACT__c}"></apex:inputField>
+            <apex:inputField value="{!opp.FACILITY_PHONE__c}"></apex:inputField>
+            <apex:inputField value="{!opp.FACILITY_FAX__c}"></apex:inputField>
+            <apex:inputField value="{!opp.FACILITY_MONTHLY_AMOUNT__c}"></apex:inputField>
+            <apex:inputField value="{!opp.FACILITY_TERM__c}"></apex:inputField>
+            <apex:inputField value="{!opp.FACILITY_START_DATE__c}"></apex:inputField>
+            
+            </apex:pageBlockSection>-->
+            
+            <!--  *************EPP Info ************-->
+            <!--<apex:pageBlockSection title="EPP Info" columns="3" collapsible="true" rendered="{!IF(opp.RecordType.Name == 'EPP Oppty',true,false)}"> 
+            <apex:inputField value="{!opp.Visa_MC_Swiped__c}"></apex:inputField>
+            <apex:inputField value="{!opp.Visa_MC_Keyed__c}"></apex:inputField>
+            <apex:inputField value="{!opp.Visa_MC_Phone_Mail_Order__c}"></apex:inputField>              
+            
+            <apex:inputField value="{!opp.Visa_MC_Internet__c}"></apex:inputField>
+            <apex:inputField value="{!opp.Monthly_Gross_CC_Volume__c}"></apex:inputField>
+            <apex:inputField value="{!opp.Average_Ticket__c}"></apex:inputField>
+            
+            <apex:inputField value="{!opp.Highest_Ticket_Size__c}"></apex:inputField>
+            <apex:inputField value="{!opp.TMF__c}"></apex:inputField>
+            <apex:inputField value="{!opp.Type_of_Goods_Offered__c}"></apex:inputField>
+            
+            <apex:inputField value="{!opp.MERCHANT_RETURN_POLICY__c}"></apex:inputField>
+            <apex:inputField value="{!opp.Deposit_Policy__c}"></apex:inputField>
+            <apex:inputField value="{!opp.Next_Day_Funding__c}"></apex:inputField>
+            
+            <!-- <apex:inputField value="{!opp.EBT_Cards__c}"></apex:inputField> 
+            <apex:inputField value="{!opp.American_Express__c}"></apex:inputField>
+            <apex:inputField value="{!opp.Amex_Account_Number__c}"></apex:inputField>
+            
+            <apex:inputField value="{!opp.Checkcard_Program__c}"></apex:inputField>
+            <!-- <apex:inputField value="{!opp.Diners_Club_Card_Blanche__c}"></apex:inputField>
+            <apex:inputField value="{!opp.DC_Acct_Number__c}"></apex:inputField>
+            
+            <apex:inputField value="{!opp.Debit_Cards__c}"></apex:inputField>
+            <apex:inputField value="{!opp.JCB_CREDIT_CARD__c}"></apex:inputField>
+            <apex:inputField value="{!opp.JCB_Acct_Number__c}"></apex:inputField>
+            
+            <apex:inputHidden ></apex:inputHidden>
+            <apex:inputField value="{!opp.Giftcard_Program__c}"></apex:inputField>
+            <apex:inputField value="{!opp.Gift_Card_Provider__c}"></apex:inputField>
+            
+            <apex:inputField value="{!opp.PRINTER_MAKE_MODEL__c}"></apex:inputField>
+            <!-- <apex:inputField value="{!opp.SOFTWARE_POS_CONTACT__c}"></apex:inputField> 
+            <apex:inputField value="{!opp.TERMINAL_MAKE_MODEL__c}"></apex:inputField>
+            <!-- <apex:inputField value="{!opp.Pin_Pad_Type__c}"></apex:inputField>
+            <apex:inputField value="{!opp.Check_Reader_Type__c}"></apex:inputField>
+            <apex:inputField value="{!opp.PhoneLineType__c}"></apex:inputField>
+            
+            <apex:inputField value="{!opp.Term_Setup_Options__c}"></apex:inputField>
+            <apex:inputField value="{!opp.Term_Auto_Close_Time__c}"></apex:inputField>                                                                     
+            
+            </apex:pageBlockSection>-->  
+            
+            <!--  *************MCA Info ************-->
+            
+            <!--<apex:pageBlockSection title="MCA Info" columns="3" collapsible="true"  rendered="{!bProcessApplication}"> 
+            <apex:inputField value="{!opp.Visa_MC_Swiped__c}"></apex:inputField>
+            <apex:inputField value="{!opp.Visa_MC_Keyed__c}"></apex:inputField>
+            <apex:inputField value="{!opp.Visa_MC_Phone_Mail_Order__c}"></apex:inputField>              
+            
+            <apex:inputField value="{!opp.Visa_MC_Internet__c}"></apex:inputField>
+            <apex:inputField value="{!opp.First_Card_Date_As_Owner__c}"></apex:inputField>
+            <apex:inputHidden ></apex:inputHidden>      
+            
+            <apex:inputField value="{!opp.Average_Ticket__c}"></apex:inputField>
+            <apex:inputField value="{!opp.Monthly_Gross_CC_Volume__c}"></apex:inputField>
+            <apex:inputHidden ></apex:inputHidden>
+            
+            <apex:inputField value="{!opp.TERMINAL_MAKE_MODEL__c}"></apex:inputField>
+            <apex:inputField value="{!opp.Number_of_Credit_Card_Terminals__c}"></apex:inputField>
+            <apex:inputField value="{!opp.SOFTWARE_POS_CONTACT__c}"></apex:inputField>
+            
+            <apex:inputField value="{!opp.Annual_Visa_MC_Volume__c}"></apex:inputField>
+            <apex:inputField value="{!opp.Annual_Sales_Last_Year__c}"></apex:inputField>
+            
+            <apex:inputField value="{!opp.Checkcard_Program__c}"></apex:inputField>
+            <apex:inputField value="{!opp.Giftcard_Program__c}"></apex:inputField>
+            <apex:inputField value="{!opp.Debit_Cards__c}"></apex:inputField>
+            <apex:inputField value="{!opp.Pin_Pad_Type__c}"></apex:inputField>
+            <apex:inputField value="{!opp.Discover_Card__c}"></apex:inputField>
+            <apex:inputField value="{!opp.Discover_Card_Account_Number__c}"></apex:inputField>
+            <apex:inputField value="{!opp.American_Express__c}"></apex:inputField>
+            <apex:inputField value="{!opp.Amex_Account_Number__c}"></apex:inputField>
+            <apex:inputField value="{!opp.Diners_Club_Card_Blanche__c}"></apex:inputField>
+            <apex:inputField value="{!opp.DC_Acct_Number__c}"></apex:inputField>
+            <apex:inputField value="{!opp.JCB_CREDIT_CARD__c}"></apex:inputField>
+            <apex:inputField value="{!opp.JCB_Acct_Number__c}"></apex:inputField>
+            <apex:inputField value="{!opp.PRINTER_MAKE_MODEL__c}"></apex:inputField>
+            <apex:inputField value="{!opp.TERMINAL_HD_SOFT_COMMENTS__c}"></apex:inputField>
+            </apex:pageBlockSection>   -->
+            
+            <!--  *************Lease Info ************-->         
+            <apex:pageBlockSection title="Lease Info" columns="3" collapsible="true" rendered="{!IF(opp.RecordType.Name == 'Lease Oppty',true,false)}">  
+                <apex:inputField value="{!opp.Eq_What__c}"></apex:inputField>   
+                <apex:inputField value="{!opp.Eq_New__c}"></apex:inputField>
+                <apex:inputField value="{!opp.Eq_Amount__c}"></apex:inputField>
+                
+                <apex:inputField value="{!opp.Eq_Has_Quote__c}"></apex:inputField>
+                <apex:inputField value="{!opp.Eq_When__c}"></apex:inputField>
+                <apex:inputField value="{!opp.Eq_Why__c}"></apex:inputField>
+                <apex:inputField value="{!opp.Eq_Used__c}"></apex:inputField>
+                <apex:inputField value="{!opp.Eq_Num_Vendors__c}"></apex:inputField>
+                <!-- <apex:inputField value="{!opp.Declared_BK__c}"></apex:inputField>-->
+                <apex:inputField value="{!opp.Eq_Leased_Before__c}"></apex:inputField>
+                <apex:inputField value="{!opp.Eq_With_Whom__c}"></apex:inputField>
+                <apex:inputField value="{!opp.Eq_Term__c}"></apex:inputField>
+                <apex:inputField value="{!opp.Eq_Experience__c}"></apex:inputField>
+                <apex:inputField value="{!opp.Eq_Amt_Leased__c}"></apex:inputField>                
+                
+            </apex:pageBlockSection>
+            
+            <!--  *************MCA Faclility Info ************-->
+            <apex:pageBlockSection title="MCA Facility Info" columns="3" collapsible="false">   
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Facility Owned" for="ltoFacility"/>
+                    <apex:inputCheckBox id="ltoFacility" value="{!opp.FACILITY_OWNED_LEASED__c}"/>
+                </apex:pageBlockSectionItem>
+                <apex:inputField value="{!opp.FACILITY_MONTHLY_AMOUNT__c}" />
+                <apex:inputField value="{!opp.FACILITY_TERM__c}" />
+                
+                <apex:inputField value="{!opp.FACILITY_START_DATE__c}"/>
+                <apex:inputField value="{!opp.FACILITY_COMPANY__c}"/>
+                <apex:inputField value="{!opp.FACILITY_CONTACT__c}" />
+                
+                <apex:inputField value="{!opp.FACILITY_PHONE__c}"/>
+                <apex:inputField value="{!opp.FACILITY_FAX__c}"/>
+                
+            </apex:pageBlockSection>
+            
+            <!--  *************ML Info ************-->
+            <!--<apex:pageBlockSection title="ML Info" columns="3" collapsible="true" rendered="{!IF(opp.RecordType.Name == 'ML Oppty',true,false)}">  
+            <apex:inputField value="{!opp.Average_Ticket__c}"></apex:inputField>
+            <apex:inputField value="{!opp.Monthly_Gross_CC_Volume__c}"></apex:inputField>
+            <apex:inputField value="{!opp.Avr_Number_of_Deposits__c}"></apex:inputField>
+            
+            <apex:inputField value="{!opp.Avr_Daily_Bal__c}"></apex:inputField>
+            <apex:inputField value="{!opp.Avr_Monthly_End_Bal__c}"></apex:inputField>
+            <apex:inputField value="{!opp.NSF_Qty__c}"></apex:inputField>
+            
+            <apex:inputField value="{!opp.Negative_Day_Qty__c}"></apex:inputField>
+            <apex:inputField value="{!opp.Use_of_Proceeds__c}"></apex:inputField>
+            
+            </apex:pageBlockSection>-->
+            
+            <!--  *************ML Facility Info ************-->
+            <!--<apex:pageBlockSection title="ML Facility Info" columns="3" collapsible="true" rendered="{!IF(opp.RecordType.Name == 'ML Oppty',true,false)}">    
+            <apex:inputField value="{!opp.FACILITY_OWNED_LEASED__c}"></apex:inputField> 
+            <apex:inputField value="{!opp.FACILITY_MONTHLY_AMOUNT__c}"></apex:inputField>
+            <apex:inputField value="{!opp.FACILITY_TERM__c}"></apex:inputField>
+            
+            
+            <apex:inputField value="{!opp.FACILITY_START_DATE__c}"></apex:inputField>
+            <apex:inputField value="{!opp.FACILITY_COMPANY__c}"></apex:inputField>
+            <apex:inputField value="{!opp.FACILITY_CONTACT__c}"></apex:inputField>
+            
+            <apex:inputField value="{!opp.FACILITY_PHONE__c}"></apex:inputField>
+            <apex:inputField value="{!opp.FACILITY_FAX__c}"></apex:inputField>
+            
+            </apex:pageBlockSection> -->           
+            
+            
+            <!--  *************Follow up Activity ************-->
+            <!--<apex:pageBlockSection title="Followup Activity" columns="3" collapsible="true" rendered="{!IF(opp.RecordType.Name == 'Lease Oppty',true,false)}">  
+            <apex:inputField value="{!oTask.Subject}"></apex:inputField> 
+            <apex:outputField value="{!oTask.WhatId}"/>
+            <apex:inputField value="{!oTask.WhoId}"/>
+            <apex:inputField value="{!oTask.Priority}" required="false"></apex:inputField>
+            <apex:inputField value="{!oTask.ActivityDate}"></apex:inputField>
+            </apex:pageBlockSection> -->
+            <!--  *************Note ************-->
+            <apex:pageBlockSection title="Note" columns="1" collapsible="true">  
+                <!-- <apex:inputField id="newNoteTitle" value="{!oNote.Title}"/> -->
+                <apex:inputTextarea id="newNote" rows="10" cols="200" value="{!oNote.Body}"/> 
+            </apex:pageBlockSection>                                                
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Save" action="{!save}"/>
+                <apex:commandButton value="Cancel" action="{!Cancel}"/>
+            </apex:pageBlockButtons>
+            </apex:pageBlock>  
+            
+            
+            </apex:form>      
+            </apex:page>

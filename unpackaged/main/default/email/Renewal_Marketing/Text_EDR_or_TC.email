@@ -1,0 +1,16 @@
+Hi {!Contact.FirstName},
+
+How are you?  We worked with you back in _____ to secure working capital funding for your business.  I have some good news:  ** Your business may be eligible for additional funding – with a possible increase in funding amount & longer terms! **
+
+If you have any needs, feel free to contact me to go over National Funding’s special renewal program.
+
+Have a good day,
+{!User.Name}
+
+
+
+{!User.Name}
+{!User.Title}
+www.nationalfunding.com
+P: {!User.Phone} | F: {!User.Fax}
+Email: {!User.Email}

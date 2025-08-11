@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Update_Merch_Checklist_Acknowledged_By</fullName>
+        <field>Merchant_Checklist_Acknowledged_By__c</field>
+        <formula>$User.Full_Name__c</formula>
+        <name>Update Merch Checklist Acknowledged By</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Merch_Checklist_Acknowledged_Date</fullName>
+        <field>Merchant_Checklist_Acknowledged_Date__c</field>
+        <formula>NOW()</formula>
+        <name>Update Merch Checklist Acknowledged Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Oppty_Merch_Checklist_Acknowledge</fullName>
+        <field>Merchant_Checklist_Acknowledged__c</field>
+        <literalValue>1</literalValue>
+        <name>Update Oppty Merch Checklist Acknowledge</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+        <targetObject>Opportunity__c</targetObject>
+    </fieldUpdates>
+    <flowActions>
+        <fullName>Insert_Credit_Stips_Into_Merchant_Checklist</fullName>
+        <flow>Merchant_Checklist_Update_V1</flow>
+        <flowInputs>
+            <name>InputWcChecklistId</name>
+            <value>{!Id}</value>
+        </flowInputs>
+        <label>Insert Credit Stips Into Merchant Checklist</label>
+        <language>en_US</language>
+        <protected>false</protected>
+    </flowActions>
+    <rules>
+        <fullName>Merchant Checklist Acknowledged</fullName>
+        <actions>
+            <name>Update_Merch_Checklist_Acknowledged_By</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Merch_Checklist_Acknowledged_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Oppty_Merch_Checklist_Acknowledge</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Merchant_Checklist__c.Merchant_Checklist_Acknowledged__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>WC Checklist - Update Stips from Credit Review</fullName>
+        <actions>
+            <name>Insert_Credit_Stips_Into_Merchant_Checklist</name>
+            <type>FlowAction</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(OR(Opportunity__r.Lender_Account__r.Name = 'National Funding - Platinum WC Funding', Opportunity__r.Lender_Account__r.Name = 'National Funding - Diamond WC Funding', Opportunity__r.Lender_Account__r.Name = 'National Funding - Gold WC Funding'), Auto_Generated__c = False)</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+</Workflow>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <accessType>Shared</accessType>
+    <name>Digital Loan Process Templates</name>
+    <publicFolderAccess>ReadOnly</publicFolderAccess>
+    <sharedTo>
+        <group>Credit_Portfolio_Management</group>
+        <group>Hybrid_Reps</group>
+        <group>Lease_Sales_Manager</group>
+        <group>Marketing</group>
+        <group>Marketing_Assistant</group>
+        <group>Merchant_Sales_Manager</group>
+        <group>Renewal_Sales</group>
+        <group>Renewal_Sales_Manger</group>
+        <group>SalesLease</group>
+        <group>SalesMCA</group>
+        <group>System_Administrators</group>
+    </sharedTo>
+</EmailFolder>

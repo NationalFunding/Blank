@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Will allow users with the permission set to bypass the limitation of one ER summary record per deal</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Exception Requests - Override ER Summary Limitation</label>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>Exception_Requests_Override_ER_Summary_Limitation</name>
+    </customPermissions>
+</PermissionSet>

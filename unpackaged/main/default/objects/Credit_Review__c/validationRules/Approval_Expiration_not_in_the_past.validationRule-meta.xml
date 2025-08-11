@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Approval_Expiration_not_in_the_past</fullName>
+    <active>false</active>
+    <description>Prohibits user from inputting an Approval Expiration Date that is in the past or the same day.</description>
+    <errorConditionFormula>Approval_Expiration_Date__c &lt;= TODAY()</errorConditionFormula>
+    <errorDisplayField>Accepts_CC__c</errorDisplayField>
+    <errorMessage>Approval Expiration Date must be greater than today. Please click the Change Approval button and edit the Approval Expiration Date to save the record.</errorMessage>
+</ValidationRule>

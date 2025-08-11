@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SSN_Capture_After_Activation__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field will indicate if a SSN number is captured after the day that a lead was activated by the initial rep who took the call.  It will be populated by workflow.</description>
+    <inlineHelpText>This field will indicate if a SSN number is captured after the day that a lead was activated by the initial rep who took the call.  It will be populated by workflow.</inlineHelpText>
+    <label>SSN Capture After Activation</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

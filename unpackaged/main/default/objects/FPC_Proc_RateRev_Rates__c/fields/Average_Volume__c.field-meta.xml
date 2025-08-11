@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Average_Volume__c</fullName>
+    <description>Average credit card volume associated with Processing Rate Review Rates.</description>
+    <inlineHelpText>Type the average volume of credit card sales associated with the FPC Processing Rate Review Rates.</inlineHelpText>
+    <label>Average Volume</label>
+    <precision>17</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

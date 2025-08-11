@@ -1,0 +1,27 @@
+<apex:page showHeader="false" standardStyleSheets="false">
+    
+     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    
+     <script>
+          $(document).ready(function(){
+            
+               var CongaURL = 'https://composer.congamerge.com?'
+            
+               var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+   
+               $.each( hashes, function( key, value ) {
+                    CongaURL += value + '&';
+               });
+            
+               var CMWindow = window.open(CongaURL, "_blank", "width=700, height=550, menubar=0, scrollbars=yes, resizable=yes" );
+            
+               /*
+               * The below closes the original popup
+               *   if you leave it commented out, it becomes the parent window that is redirected by the Output mode selected in CM
+               */            
+               //var closeFirstWindow = window.open('','_self').close();            
+        
+          });        
+     </script> 
+
+</apex:page>

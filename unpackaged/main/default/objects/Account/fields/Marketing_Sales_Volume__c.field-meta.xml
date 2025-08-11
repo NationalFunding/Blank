@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Marketing_Sales_Volume__c</fullName>
+    <description>Marketing Field Only - Captures Sales Volume Provided By Lead Vendor for Data and Statistical Modeling.</description>
+    <inlineHelpText>Marketing Field Only - Captures Sales Volume Provided By Lead Vendor for Data and Statistical Modeling.</inlineHelpText>
+    <label>Marketing - Sales Volume</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+</CustomField>

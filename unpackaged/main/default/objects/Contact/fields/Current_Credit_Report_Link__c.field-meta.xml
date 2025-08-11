@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Current_Credit_Report_Link__c</fullName>
+    <description>This field will be updated when new credit reports have been pulled.  This field is used in a formula field to the doc formulas so that credit can link to</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This field will be updated when new credit reports have been pulled.</inlineHelpText>
+    <label>Current Credit Report Link</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

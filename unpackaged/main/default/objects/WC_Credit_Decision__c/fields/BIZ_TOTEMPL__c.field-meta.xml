@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BIZ_TOTEMPL__c</fullName>
+    <defaultValue>0</defaultValue>
+    <description>Indicates the number of employees of the business in ranges. 1, 2 (2-4), 3 (5-9), 4 (10-24), 5 (25-49), 6 (50-99), 7 (100-249), 8 (250-499), 9 (500-999), 10 (1000-2499), 11 (2500-4999), 12 (5000-9999), 13 (10000-14999), 14 (15000-19999), 15 (20000+)</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Number of employees range</inlineHelpText>
+    <label>Number of employees range</label>
+    <precision>16</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

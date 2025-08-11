@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>49.0</apiVersion>
+    <interviewLabel>Insert Second Review Analyst {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Insert Second Review Analyst</label>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Credit_Review_with_Second_Review_Analyst</name>
+        <label>Update Credit Review with Second Review Analyst</label>
+        <locationX>46</locationX>
+        <locationY>42</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>inputCreditReviewId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Second_Review_Analyst__c</field>
+            <value>
+                <elementReference>varUserId</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Credit_Review__c</object>
+    </recordUpdates>
+    <startElementReference>Update_Credit_Review_with_Second_Review_Analyst</startElementReference>
+    <status>Active</status>
+    <variables>
+        <name>inputCreditReviewId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>varUserId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

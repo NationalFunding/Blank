@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Broker_Opportunities_Funded__c</fullName>
+    <description>This field will capture funded deals that are of the record type of Broker.</description>
+    <inlineHelpText>This field will capture funded deals that are of the record type of Broker.  It will be auto calculated.</inlineHelpText>
+    <label>Broker Opportunities Funded</label>
+    <summaryFilterItems>
+        <field>Opportunity.RecordTypeId</field>
+        <operation>equals</operation>
+        <value>Broker WC Oppty</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>Opportunity.IsWon</field>
+        <operation>equals</operation>
+        <value>True</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

@@ -1,0 +1,212 @@
+<!--- 
+Created by oporter on 8/15/2018.
+Modified by Mhandler on 6/10/2021           
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+* TITLE: BrokerApprovalEmailTemplate
+* DESCRIPTION: Component is referenced in Approved Credit Review email template
+*
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+-->
+
+<apex:component id="BrokerApprovalEmailTemplate" controller="BrokerApprovalEmailTemplate" access="global">
+    <apex:attribute name="opptyId" description="This is the value for the component." type="Id"
+        assignTo="{!controllerValue}" />
+
+    <style type="text/css">
+        p {
+            font-size: 15px;
+            font-family: "Arial", Times, serif;
+            color: #141516;
+        }
+
+        #title {
+            text-decoration: underline;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .displayinline {
+            display: inline-block;
+        }
+
+        .floatRight {
+            float: right;
+        }
+
+        .floatLeft {
+            float: left;
+        }
+
+        .fundingConditions {
+            margin-left: 15px;
+        }
+    </style>
+
+    {!LoadData}
+
+
+
+    <div>
+        <div>
+            <p>
+                <strong>Customer:</strong> {!cr.Opportunity__r.Legal_Name__c}
+                &nbsp;&nbsp;
+                <strong>DBA:</strong> {!cr.Opportunity__r.Company_DBA__c}
+            </p>
+        </div>
+        <div>
+            <p>
+                <strong>Approved Date: </strong>
+                <apex:outputText value="{0,date,MM/dd/yy}">
+                    <apex:param value="{!cr.Approved_Date__c}" />
+                </apex:outputText>
+                &nbsp;&nbsp;
+                <strong>Expires: </strong>
+                <apex:outputText value="{0,date,MM/dd/yy}">
+                    <apex:param value="{!cr.Opportunity__r.Approval_Expiration_Date__c}" />
+                </apex:outputText>
+                &nbsp;&nbsp;
+                <p><strong>Approved Bank:</strong> {!cr.Bank_Name__c} {!IF(cr.Bank_Acct_Last_4__c != null, '/', '')}
+                    {!cr.Bank_Acct_Last_4__c}</p>
+                <p><strong>{!IF(creditReviewBankSummary.Primary_Account__c == 'Dual', 'Dual ACH: ', '')}</strong>
+                    {!IF(creditReviewBankSummary.Primary_Account__c == 'Dual',
+                    creditReviewBankSummary.Related_Bank_Data__r.Bank_Name__c + ' / ' +
+                    creditReviewBankSummary.Dual_Bank_Acct_Last_Four__c, '')}
+                </p>
+            </p>
+        </div>
+
+        <div>
+
+            <p>
+
+                <p><strong>Calculator Link: </strong>
+                    <apex:outputLink value="{!htmlSubString}" id="calculatorLink3"> {!htmlSubString}</apex:outputLink>
+                </p>
+
+                <p>
+                    Please refer to the online calculator for product and approval details
+                </p>
+
+            </p>
+
+            <h5 class="floatLeft">
+                Please send contract request to: nffunding@nationalfunding.com
+                *** Please include: funding size, repay, term, daily payment, points, buyrate, sellrate, DL and VC.
+            </h5>
+
+        </div>
+
+        <br></br>
+        <hr>
+        </hr>
+
+        <div>
+
+            <p>
+                <strong>Required Guarantor(s):</strong> {!cr.PG1__r.Name} {!cr.PG2__r.Name}
+            </p>
+
+            <p>
+                <strong>Needed:</strong>
+                <ul>
+                    <li style="display: {!IF(cr.Credit_Stip1__c != null, 'block', 'none')}">
+                        <strong>{!IF(cr.Credit_Stip1__c != null , cr.Credit_Stip1__c, null)}</strong></li>
+                    <strong id="note1">{!IF(cr.Credit_Stip1__c != null , 'Note: ' + cr.Credit_Stip_1_Reason__c,
+                        null)}</strong>
+
+                    <li style="display: {!IF(cr.Credit_Stip2__c != null , 'block', 'none')}">
+                        <strong>{!IF(cr.Credit_Stip2__c != null , cr.Credit_Stip2__c, null)}</strong></li>
+                    <strong id="note2">{!IF(cr.Credit_Stip2__c != null , 'Note: ' + cr.Credit_Stip_2_Reason__c,
+                        null)}</strong>
+
+                    <li style="display: {!IF(cr.Credit_Stip3__c != null , 'block', 'none')}">
+                        <strong>{!IF(cr.Credit_Stip3__c != null , cr.Credit_Stip3__c, null)}</strong></li>
+                    <strong id="note3">{!IF(cr.Credit_Stip3__c != null , 'Note: ' + cr.Credit_Stip_3_Reason__c,
+                        null)}</strong>
+
+                    <li style="display: {!IF(cr.Credit_Stips_Other__c != null , 'block', 'none')}">
+                        <strong>{!IF(cr.Credit_Stips_Other__c != null , cr.Credit_Stips_Other__c, null)}</strong></li>
+                    <strong id="note4">{!IF(cr.Credit_Stips_Other__c != null , 'Note: ' +
+                        cr.Credit_Stips_Other_Reason__c, null)}</strong>
+
+                    <li style="display: {!IF(cr.Credit_Stip_Funding_Requirement_1__c != null
+                    && cr.Credit_Stip_Funding_Requirement_1__c != 'Dual ACH'
+                    && cr.Credit_Stip_Funding_Requirement_1__c != 'Main Signor Clarification'
+                    && cr.Credit_Stip_Funding_Requirement_1__c != 'Funding Layering Question'
+                    && cr.Credit_Stip_Funding_Requirement_1__c != 'Fraud Alert Verification', 'block', 'none')}">
+                        <strong>{!IF(cr.Credit_Stip_Funding_Requirement_1__c != null
+                            && cr.Credit_Stip_Funding_Requirement_1__c != 'Dual ACH'
+                            && cr.Credit_Stip_Funding_Requirement_1__c != 'Main Signor Clarification'
+                            && cr.Credit_Stip_Funding_Requirement_1__c != 'Funding Layering Question'
+                            && cr.Credit_Stip_Funding_Requirement_1__c != 'Fraud Alert Verification',
+                            cr.Credit_Stip_Funding_Requirement_1__c, null)}</strong></li>
+                    <strong id="note5">{!IF(cr.Credit_Stip_Funding_Requirement_1__c != null
+                        && cr.Credit_Stip_Funding_Requirement_1__c != 'Dual ACH'
+                        && cr.Credit_Stip_Funding_Requirement_1__c != 'Main Signor Clarification'
+                        && cr.Credit_Stip_Funding_Requirement_1__c != 'Funding Layering Question'
+                        && cr.Credit_Stip_Funding_Requirement_1__c != 'Fraud Alert Verification', 'Note: ' +
+                        cr.Credit_Stip_Funding_Requirement_1_Reason__c, null)}</strong>
+
+                    <li style="display: {!IF(cr.Credit_Stip_Funding_Requirement_2__c != null
+                    && cr.Credit_Stip_Funding_Requirement_2__c != 'Dual ACH'
+                    && cr.Credit_Stip_Funding_Requirement_2__c != 'Main Signor Clarification'
+                    && cr.Credit_Stip_Funding_Requirement_2__c != 'Funding Layering Question'
+                    && cr.Credit_Stip_Funding_Requirement_2__c != 'Fraud Alert Verification', 'block', 'none')}">
+                        <strong>{!IF(cr.Credit_Stip_Funding_Requirement_2__c != null
+                            && cr.Credit_Stip_Funding_Requirement_2__c != 'Dual ACH'
+                            && cr.Credit_Stip_Funding_Requirement_2__c != 'Main Signor Clarification'
+                            && cr.Credit_Stip_Funding_Requirement_2__c != 'Funding Layering Question'
+                            && cr.Credit_Stip_Funding_Requirement_2__c != 'Fraud Alert Verification',
+                            cr.Credit_Stip_Funding_Requirement_2__c, null)}</strong></li>
+                    <strong id="note6">{!IF(cr.Credit_Stip_Funding_Requirement_2__c != null
+                        && cr.Credit_Stip_Funding_Requirement_2__c != 'Dual ACH'
+                        && cr.Credit_Stip_Funding_Requirement_2__c != 'Main Signor Clarification'
+                        && cr.Credit_Stip_Funding_Requirement_2__c != 'Funding Layering Question'
+                        && cr.Credit_Stip_Funding_Requirement_2__c != 'Fraud Alert Verification', 'Note: ' +
+                        cr.Credit_Stip_Funding_Requirement_2_Reason__c, null)}</strong>
+
+                    <li style="display: {!IF(cr.Credit_Stip_Funding_Requirement_3__c != null
+                    && cr.Credit_Stip_Funding_Requirement_3__c != 'Dual ACH'
+                    && cr.Credit_Stip_Funding_Requirement_3__c != 'Main Signor Clarification'
+                    && cr.Credit_Stip_Funding_Requirement_3__c != 'Funding Layering Question'
+                    && cr.Credit_Stip_Funding_Requirement_3__c != 'Fraud Alert Verification', 'block', 'none')}">
+                        <strong>{!IF(cr.Credit_Stip_Funding_Requirement_3__c != null
+                            && cr.Credit_Stip_Funding_Requirement_3__c != 'Dual ACH'
+                            && cr.Credit_Stip_Funding_Requirement_3__c != 'Main Signor Clarification'
+                            && cr.Credit_Stip_Funding_Requirement_3__c != 'Funding Layering Question'
+                            && cr.Credit_Stip_Funding_Requirement_3__c != 'Fraud Alert Verification',
+                            cr.Credit_Stip_Funding_Requirement_3__c, null)}</strong></li>
+                    <strong id="note7">{!IF(cr.Credit_Stip_Funding_Requirement_3__c != null
+                        && cr.Credit_Stip_Funding_Requirement_3__c != 'Dual ACH'
+                        && cr.Credit_Stip_Funding_Requirement_3__c != 'Main Signor Clarification'
+                        && cr.Credit_Stip_Funding_Requirement_3__c != 'Funding Layering Question'
+                        && cr.Credit_Stip_Funding_Requirement_3__c != 'Fraud Alert Verification', 'Note: ' +
+                        cr.Credit_Stip_Funding_Requirement_3_Reason__c, null)}</strong>
+
+                    <li style="display: {!IF(cr.Credit_Stip_Funding_Requirement_Other__c != null , 'block', 'none')}">
+                        <strong>{!IF(cr.Credit_Stip_Funding_Requirement_Other__c != null ,
+                            cr.Credit_Stip_Funding_Requirement_Other__c, null)}</strong>
+                    </li>
+                    <strong id="note8">{!IF(cr.Credit_Stip_Funding_Requirement_Other__c != null , 'Note: ' +
+                        cr.Stip_Funding_Requirement_Other_Reason__c, null)}</strong>
+                </ul>
+            </p>
+
+        </div>
+
+        <br></br>
+
+        <div>
+
+            <p>
+                Note: National Funding has specific funding restrictions in certain states and will not issue working capital loans lower than the dollar amounts indicated: Kentucky - $17,000, Maryland - $17,000, New Hampshire - $12,000, New Mexico - $12,000, Washington, D.C. - $28,000. In Nebraska, National Funding does not offer working capital loans to individuals or sole proprietorships.
+            </p>
+
+        </div>
+
+    </div>
+
+</apex:component>

@@ -1,0 +1,6 @@
+<apex:page standardController="Opportunity" tabStyle="Opportunity" >
+    <flow:interview name="Update_Case_with_Account_and_Contacts" finishLocation="{!$Page.gotoLastCreatedCase}">
+        <apex:param name="inputOpptyId" value="{!Opportunity.Id}"/>
+        
+    </flow:interview>
+</apex:page>

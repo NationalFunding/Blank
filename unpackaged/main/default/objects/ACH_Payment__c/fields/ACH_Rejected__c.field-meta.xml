@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ACH_Rejected__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field will indicate if an ACH payment is rejected and needs to be re-processed by creating a New ACH Payment.</description>
+    <inlineHelpText>This field will indicate if an ACH payment is rejected and needs to be re-processed by creating a New ACH Payment.</inlineHelpText>
+    <label>ACH Rejected</label>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

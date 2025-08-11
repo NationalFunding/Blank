@@ -1,0 +1,7 @@
+Hi
+
+Statements are In for {!Opportunity.Name}.  Please proceed with the next step in processing this deal.
+
+Click here to go directly to this deal {!Opportunity.Link}
+
+Thanks

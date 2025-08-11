@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>A Deal of yours has changed stage</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Naitonal_Funding_Standard_Letterhead_Stack</letterhead>
+    <name>An Opportunity has changed stage - Docs In Lease</name>
+    <style>freeForm</style>
+    <subject>An Opportunity of yours has changed its&apos; stage</subject>
+    <textOnly>Hello {!Opportunity.OwnerFullName},
+
+An Opportunity with your name on it has changed stages.
+
+Account Name: {!Opportunity.Account}
+Opportunity Name: {!Opportunity.Name}
+{!Opportunity.Link}
+
+New Stage: {!Opportunity.StageName}
+
+Please refer to the Lease Checklist for items that are outstanding.
+
+Sincerely,
+Salesforce Automation</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

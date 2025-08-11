@@ -1,0 +1,153 @@
+<template>
+    <template if:true={ready}>
+        <lightning-card id="mainForm">
+            <lightning-card ng-app="app" ng-controller="MainController as main" class="mb30">
+                <div class="container dropbox dropboxdiv" id="dropbox1">
+                    <div class="row">
+                        <div class="col-md-12 main-nav-tabs">
+                            <div class="col-md-12 tab-content">
+                                <div class="tab-pane fade" id="bank">
+                                    <div class="row bank-info">
+                                        <div class="tab-content bankTabContent">
+                                            <div class="tab-pane active" id="Summary">
+                                                <div class="slds-grid slds-scrollable_x">
+                                                        <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-border_right" style="width:0;min-width:25%;">
+                                                            <thead>
+                                                                <tr style="font-weight:bold;">
+                                                                    <th >Month</th>
+                                                                    <th> Average</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody style="font-weight:bold;">
+                                                                <tr >
+                                                                    <th style="font-weight:bold;">Beginning Balance($)</th>
+                                                                    <td format-style="currency" >${colDATA.BMA.Column1}</td>
+                                                                </tr>
+                                                                <tr >
+                                                                    <th style="font-weight:bold;">Deposits(#)</th>                                                                  
+                                                                    <td>{colDATA.BMA.Column2}</td>
+                                                                </tr>
+                                                                <tr >
+                                                                    <th style="font-weight:bold;">Counter Deposits($)</th>
+                                                                    <td format-style="currency">${colDATA.BMA.Column3}</td>
+                                                                </tr>
+                                                                <tr >
+                                                                    <th style="font-weight:bold;">Other Deposits($)</th>
+                                                                    <td format-style="currency">${colDATA.BMA.Column4}</td>
+                                                                </tr>
+                                                                <tr >
+                                                                    <th style="font-weight:bold;">Withdrawals($)</th>
+                                                                    <td format-style="currency">${colDATA.BMA.Column5}</td>
+                                                                </tr>
+                                                                <tr >
+                                                                    <th style="font-weight:bold;">Ending Balance($)</th>
+                                                                    <td format-style="currency">${colDATA.BMA.Column6}</td>
+                                                                </tr>
+                                                                <tr >
+                                                                    <th style="font-weight:bold;">Negative Days(#)</th>
+                                                                    <td>{colDATA.BMA.Column7}</td>
+                                                                </tr>
+                                                                <tr >
+                                                                    <th style="font-weight:bold;">NSFs(#)</th>
+                                                                    <td>{colDATA.BMA.Column8}</td>
+                                                                </tr>
+                                                                <tr >
+                                                                    <th style="font-weight:bold;">Avg Daily Balance($)</th>
+                                                                    <td format-style="currency">
+                                                                        ${colDATA.BMA.Column9}
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+
+                                                        <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                                                            <thead id="summaryHeader">
+                                                                <tr>
+                                                                    <template for:each={colDATA.SummaryMonths} for:item="month">
+                                                                        <th key={month} style="white-space: nowrap; text-align: center;">
+                                                                            {month.MonthName} {month.Year}</th>
+                                                                    </template>
+                                                                </tr>
+                                                            </thead>
+
+                                                            <tbody id="summaryBody">
+                                                                <tr >
+                                                                    <template for:each={colDATA.SummaryMonths} for:item="month">
+                                                                        <td style="text-align: center" key={month}>
+                                                                            <lightning-formatted-number value={month.Column1} format-style="currency" currency-code="USD"></lightning-formatted-number>
+                                                                        </td>
+                                                                    </template>
+                                                                </tr>
+                                                                <tr >
+                                                                    <template for:each={colDATA.SummaryMonths}
+                                                                    for:item="month">
+                                                                    <td key={month} style="text-align: center">
+                                                                        {month.Column2}
+                                                                    </td>
+                                                                </template>
+                                                                </tr>
+                                                                <tr >
+                                                                    <template for:each={colDATA.SummaryMonths} for:item="month">
+                                                                    <td key={month} style="text-align: center">
+                                                                        <lightning-formatted-number value={month.Column3} format-style="currency" currency-code="USD"></lightning-formatted-number>
+                                                                    </td>
+                                                                </template>
+                                                                </tr>
+                                                                <tr >
+                                                                    <template for:each={colDATA.SummaryMonths} for:item="month">
+                                                                    <td key={month} style="text-align: center">
+                                                                        <lightning-formatted-number value={month.Column4} format-style="currency" currency-code="USD"></lightning-formatted-number>
+                                                                    </td>
+                                                                </template>
+                                                                </tr>
+                                                                <tr >
+                                                                    <template for:each={colDATA.SummaryMonths} for:item="month">
+                                                                    <td key={month} style="text-align: center">
+                                                                        <lightning-formatted-number value={month.Column5} format-style="currency" currency-code="USD"></lightning-formatted-number>
+                                                                    </td>
+                                                                </template>
+                                                                </tr>
+                                                                <tr >
+                                                                    <template for:each={colDATA.SummaryMonths} for:item="month">
+                                                                    <td key={month} style="text-align: center">
+                                                                        <lightning-formatted-number value={month.Column6} format-style="currency" currency-code="USD"></lightning-formatted-number>
+                                                                    </td>
+                                                                </template>
+                                                                </tr>
+                                                                <tr >
+                                                                    <template for:each={colDATA.SummaryMonths} for:item="month">
+                                                                        <td key={month} style="text-align: center">
+                                                                            {month.Column7}
+                                                                        </td>
+                                                                    </template>
+                                                                    </tr>
+                                                                    <tr >
+                                                                        <template for:each={colDATA.SummaryMonths} for:item="month">
+                                                                        <td key={month} style="text-align: center">
+                                                                            {month.Column8}
+                                                                        </td>
+                                                                    </template>
+                                                                    </tr>
+                                                                    <tr >
+                                                                        <template for:each={colDATA.SummaryMonths} for:item="month">
+                                                                        <td key={month} style="text-align: center">
+                                                                            <lightning-formatted-number value={month.Column9} format-style="currency" currency-code="USD"></lightning-formatted-number>
+                                                                        </td>
+                                                                    </template>
+                                                                    </tr>
+                                                            </tbody>
+
+                                                        </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </lightning-card>
+        </lightning-card>
+    </template>
+</template>

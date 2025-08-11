@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Broker Refresh- 1st request for Info</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank</letterhead>
+    <name>Broker Refresh- 1st request for Info</name>
+    <style>freeForm</style>
+    <subject>Broker Refresh: {!Case.Account}</subject>
+    <textOnly>Hello,
+
+
+
+As part of our compliance procedures, we are in the process of reviewing and updating the account information we have for  {!Case.Account}.  In doing so we noticed that we need the following information to complete our review:
+
+
+
+INSERT INFO NEEDED
+
+
+If you could please provide that information to us at your earliest convenience we would appreciate it.
+
+
+
+We appreciate your continued partnership and attention to this matter.   Please do not hesitate to contact us with any questions.
+
+
+Thank you,
+
+
+{!User.Name} | {!User.Title}
+
+{!Case.Email_Signature_Company__c}
+
+{!$Setup.Company_Information__c.Street__c}
+{!$Setup.Company_Information__c.City__c}, {!$Setup.Company_Information__c.State__c} {!$Setup.Company_Information__c.Zip__c}
+P: {!User.Phone} | F: {!User.Fax}
+E: {!User.Email}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>
