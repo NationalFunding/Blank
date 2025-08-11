@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>y_coord__c</fullName>
+    <externalId>false</externalId>
+    <formula>MID( SSN_Hidden__c ,3,1) &amp; IF(ISBLANK(SSN_Hidden__c)," ","-") &amp; MID( SSN_Hidden__c ,4,2) &amp;  IF(ISBLANK(SSN_Hidden__c)," ","-") &amp; MID( SSN_Hidden__c ,6,1)</formula>
+    <label>y coord</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

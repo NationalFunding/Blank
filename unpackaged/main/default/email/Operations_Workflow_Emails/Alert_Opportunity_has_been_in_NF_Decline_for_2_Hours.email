@@ -1,0 +1,5 @@
+Opportunity: {!Credit_Review__c.Opportunity_Hyperlink__c}
+
+{!Credit_Review__c.Oppty_Legal_Name__c}
+
+Verify this Opportunity is being mini-processed by eNoah. When they are complete the stage should be changed to Syndication.

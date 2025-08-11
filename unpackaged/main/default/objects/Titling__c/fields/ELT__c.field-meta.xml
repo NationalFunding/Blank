@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ELT__c</fullName>
+    <description>Presents the ELT number based on the selected state.</description>
+    <externalId>false</externalId>
+    <formula>CASE
+(
+State__c , 
+"AZ", "954724281", 
+"CA", "DBE",
+"CO", "E9447242810001",
+"FL", "0234913297",
+"GA","001103194449",
+"IA","95472428100",
+"LA","ESNH",
+"MA","C 40704",
+"NE","27434568",
+"NY","76257",
+"NC","000039796028",
+"PA","95472428101",
+"TX","95472428100",
+""
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>ELT</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

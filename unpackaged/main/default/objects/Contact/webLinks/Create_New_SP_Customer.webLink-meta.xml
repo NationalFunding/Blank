@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Create_New_SP_Customer</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <height>600</height>
+    <linkType>page</linkType>
+    <masterLabel>Create New SP Customer</masterLabel>
+    <openType>sidebar</openType>
+    <page>flow_CreateNewSPAccount</page>
+    <protected>false</protected>
+</WebLink>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Time_Zone__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(ISPICKVAL(Account.Time_Zone__c,"01 Eastern"),"01 Eastern",IF(ISPICKVAL(Account.Time_Zone__c,"02 Indiana"),"02 Indiana",IF(ISPICKVAL(Account.Time_Zone__c,"03 Central"),"03 Central",IF(ISPICKVAL(Account.Time_Zone__c,"04 Mountain"),"04 Mountain",IF(ISPICKVAL(Account.Time_Zone__c,"05 Arizona"),"05 Arizona",IF(ISPICKVAL(Account.Time_Zone__c,"06 Pacific"),"06 Pacific",IF(ISPICKVAL(Account.Time_Zone__c,"07 Alaska"),"07 Alaska",IF(ISPICKVAL(Account.Time_Zone__c,"08 Hawaii"),"08 Hawaii","09 Unknown"))))))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Time Zone</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

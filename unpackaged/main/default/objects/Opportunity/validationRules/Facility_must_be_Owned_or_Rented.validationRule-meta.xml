@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Facility_must_be_Owned_or_Rented</fullName>
+    <active>false</active>
+    <description>Deactivated 1/17/18</description>
+    <errorConditionFormula>(FACILITY_OWNED_LEASED__c = FALSE) &amp;&amp;
+ISBLANK(FACILITY_MONTHLY_AMOUNT__c) &amp;&amp;
+(ISPICKVAL(StageName, 'Statements In - MCA')) &amp;&amp;
+RecordType.Name = 'Working Capital Oppty' &amp;&amp;
+ISPICKVAL(Type,'New')</errorConditionFormula>
+    <errorMessage>Indicate either that the Facility is owned, or what the monthly rent is, before updating the stage to 'Statements In - MCA'</errorMessage>
+</ValidationRule>

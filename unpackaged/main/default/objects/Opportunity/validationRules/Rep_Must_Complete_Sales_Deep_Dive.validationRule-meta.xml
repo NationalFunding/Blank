@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rep_Must_Complete_Sales_Deep_Dive</fullName>
+    <active>false</active>
+    <description>Per JT, Q3 no Deep Dive is required.</description>
+    <errorConditionFormula>ISPICKVAL(StageName,'Statements In - MCA') &amp;&amp; 
+ISPICKVAL(Type,'NEW') &amp;&amp; 
+RecordType.Name = 'Working Capital Oppty' &amp;&amp; 
+Total_Sales_Deep_Dive_Records__c = 0 &amp;&amp; 
+$User.Sales_Deep_Dive_Exception__c = FALSE</errorConditionFormula>
+    <errorDisplayField>First_Due_Lender_For_Actual__c</errorDisplayField>
+    <errorMessage>You must create a Sales Deep Dive record before moving the stage to 'Statements In'</errorMessage>
+</ValidationRule>

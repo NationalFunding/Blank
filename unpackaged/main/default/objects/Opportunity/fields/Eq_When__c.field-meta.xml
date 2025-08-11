@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Eq_When__c</fullName>
+    <description>Range when equipment will be purchased</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Pick the date range that best describes when the lessee will be purchasing the equipment.</inlineHelpText>
+    <label>Eq When</label>
+    <length>128</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

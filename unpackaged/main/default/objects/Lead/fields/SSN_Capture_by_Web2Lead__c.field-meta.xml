@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SSN_Capture_by_Web2Lead__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field will be updated by a workflow if a SSN was captured on a web to lead form.</description>
+    <inlineHelpText>This field will be updated by a workflow if a SSN was captured on a web to lead form.</inlineHelpText>
+    <label>SSN Capture by Web2Lead</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

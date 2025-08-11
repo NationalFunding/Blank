@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank</letterhead>
+    <name>NACHA FileLog Generation</name>
+    <style>freeForm</style>
+    <subject>NACHA Generation Alert: {!NACHA_FileLog__c.File_Type__c} - {!NACHA_FileLog__c.Target_Date__c}</subject>
+    <textOnly>NACHA Generation Process has completed.
+
+File Type: {!NACHA_FileLog__c.File_Type__c}
+
+Status: {!NACHA_FileLog__c.Status__c}
+
+Create ACH File Date: {!NACHA_FileLog__c.Target_Date__c}
+
+File Generated: {!NACHA_FileLog__c.File_Generated__c}
+
+
+Total Transactions in File: {!NACHA_FileLog__c.Total_Transactions__c}
+
+Total Amount of Transactions in File: {!NACHA_FileLog__c.Total_Amount__c}
+
+
+To retrieve file download from the SFTP folder.</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

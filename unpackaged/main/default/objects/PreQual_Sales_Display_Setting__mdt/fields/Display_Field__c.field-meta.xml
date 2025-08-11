@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Display_Field__c</fullName>
+    <description>If populated, this field's value will be used in place of the Final Routing on the PreQual Sales Display.</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <inlineHelpText>If none selected, the Override Text will be used. If Override Text is blank, then the Consumer Risk Summary's Final Routing value will be used.</inlineHelpText>
+    <label>Display Field</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Final Routing</fullName>
+                <default>false</default>
+                <label>Final Routing</label>
+            </value>
+            <value>
+                <fullName>Decline Email Reason</fullName>
+                <default>true</default>
+                <label>Decline Email Reason</label>
+            </value>
+            <value>
+                <fullName>OBS Decline Reason</fullName>
+                <default>false</default>
+                <label>OBS Decline Reason</label>
+            </value>
+            <value>
+                <fullName>Oscilar Rule Name</fullName>
+                <default>false</default>
+                <label>Oscilar Rule Name</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

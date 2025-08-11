@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WF_Production_URL__c</fullName>
+    <defaultValue>"https://api.wellsfargo.com"</defaultValue>
+    <description>https://api.wellsfargo.com is the Production Base URL. In Production, change the base sandbox URL https://api-sandbox.wellsfargo.com to this one https://api.wellsfargo.com.</description>
+    <inlineHelpText>https://api.wellsfargo.com is the Production Base URL. In Production, change the base sandbox URL https://api-sandbox.wellsfargo.com to this one https://api.wellsfargo.com.</inlineHelpText>
+    <label>WF Production URL</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

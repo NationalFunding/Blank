@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CAN_Exclusivity_Relinquished__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This is an indicator that we received notice from CAN that their exclusivity period is now over with a funded customer.</description>
+    <inlineHelpText>This is an indicator that we received notice from CAN that their exclusivity period is now over with a funded customer.</inlineHelpText>
+    <label>CAN Exclusivity Relinquished</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

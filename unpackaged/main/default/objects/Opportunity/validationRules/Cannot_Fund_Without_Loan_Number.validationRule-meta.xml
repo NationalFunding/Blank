@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_Fund_Without_Loan_Number</fullName>
+    <active>true</active>
+    <description>PD-5379, require loan number to be populated before an opportunity stage can be changed to Funded.</description>
+    <errorConditionFormula>AND(
+    Record_Type_Name__c &lt;&gt; 'Lease Oppty',
+    ISBLANK(Merchant_Number__c),  
+    ISPICKVAL(StageName, 'Funded'),
+    OR(
+								CONTAINS(Lender_Account__r.Name, 'National Funding'),
+			     CONTAINS(Lender_Account__r.Name, 'Quick Bridge'),
+								Lender_Account__r.Name = 'MLP'
+				)
+)</errorConditionFormula>
+    <errorMessage>An opportunity with lender of NF or QB cannot be in 'Funded' stage without a Merchant Number.</errorMessage>
+</ValidationRule>

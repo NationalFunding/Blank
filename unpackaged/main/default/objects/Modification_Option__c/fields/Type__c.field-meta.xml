@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type__c</fullName>
+    <label>Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Standard PM</fullName>
+                <default>false</default>
+                <label>Standard PM</label>
+            </value>
+            <value>
+                <fullName>FRPSA Settlement</fullName>
+                <default>false</default>
+                <label>FRPSA Settlement</label>
+            </value>
+            <value>
+                <fullName>Business Closed PM</fullName>
+                <default>false</default>
+                <label>Business Closed PM</label>
+            </value>
+            <value>
+                <fullName>Debt Settlement</fullName>
+                <default>false</default>
+                <label>Debt Settlement</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

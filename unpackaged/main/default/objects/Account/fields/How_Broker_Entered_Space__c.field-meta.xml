@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>How_Broker_Entered_Space__c</fullName>
+    <description>Captures how the Broker entered space. Merged onto Broker Approval email.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>How the Broker entered the space.</inlineHelpText>
+    <label>How Broker Entered Space</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

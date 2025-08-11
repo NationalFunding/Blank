@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <accessType>Shared</accessType>
+    <name>Marketing Templates</name>
+    <publicFolderAccess>ReadOnly</publicFolderAccess>
+    <sharedTo>
+        <role>Broker_Relations_Manager</role>
+        <role>DirMarketing</role>
+        <role>ExecutiveCEO</role>
+        <role>Lease_Sales_Team_Manager</role>
+        <role>Lease_Sales_User</role>
+        <role>Marketing_Manager</role>
+        <role>MktgCoordinator</role>
+        <role>Renewal_Sales</role>
+        <role>Renewal_Sales_Manager</role>
+        <role>Salesforce_Admin</role>
+        <role>VP_Sales</role>
+        <role>Vendor_Sales</role>
+        <role>Vendor_Sales_Manager</role>
+        <role>WCSalesTeamMgr</role>
+        <role>WC_Sales_User</role>
+    </sharedTo>
+</EmailFolder>

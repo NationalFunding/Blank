@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Collection_Sum_Note_update</fullName>
+    <active>false</active>
+    <description>Rule will not apply to Portfolio Management
+00580000004QkkA = Amber Conley 
+00580000006OfoO = Jacqueline Schmidt
+00E80000001jt0B = Users with Accounting Role
+0053400000ALqtt = Gabriela Marquez
+00580000003edxL = SO
+//Deactivated 1/23/23 - AB</description>
+    <errorConditionFormula>AND(
+/* Record type is constant */
+  RecordType.DeveloperName = 'ACH_Bounce',
+/* Not applicable to Portfolio Management Users Amber Conley and Jackie Schmidt or users with accounting role*/
+  NOT(OR( 
+    $User.Id='00580000004QkkA', 
+    $User.Id='00580000006OfoO',
+    $User.Id='0053400000ALqtt', 
+    $User.Id='00580000003edxL',
+    $User.Id='00534000008caXs',
+    $User.UserRoleId='00E80000001jt0B')),
+/* Or conditions */
+ OR(
+/* Condition One - Collections Stage and Status are changed, but Sum Note is not. */ 
+  AND(
+   NOT(ISCHANGED( New_Sum_Note__c )), 
+    OR(
+     ISCHANGED(New_Collections_Status__c),
+     ISCHANGED(New_Collections_Stage__c))),
+
+/* Condition Two - Collections Stage and Status are changed but Sum Note is blank. */
+   AND(
+    OR(
+      ISCHANGED(New_Collections_Status__c),
+      ISCHANGED(New_Collections_Stage__c)),
+    ISBLANK(New_Sum_Note__c)),
+
+/* Condition Three - When New Collections Stage or Status &lt;&gt; Blank and New Sum Note is blank. */
+ 
+    AND(
+      ISBLANK(New_Sum_Note__c),
+        OR(
+           NOT(ISBLANK(TEXT(New_Collections_Status__c))),
+           NOT(ISBLANK(TEXT(New_Collections_Stage__c)))))
+     )
+)</errorConditionFormula>
+    <errorMessage>The Sum Note field must be updated when either the New Collection Stage and Status fields are changed.  Additionally, if there are values in the New Collection fields the Sum Note cannot be blank.</errorMessage>
+</ValidationRule>

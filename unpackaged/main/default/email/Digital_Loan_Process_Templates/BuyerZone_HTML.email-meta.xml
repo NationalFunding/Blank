@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>HTML Version of BuyerZone Email Template</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>BuyerZone HTML</name>
+    <style>none</style>
+    <subject>Welcome to the National Funding Digital Loan Process</subject>
+    <textOnly>Thank you for applying
+
+Over $1.5B funded since 1999
+
+Preferred Partner
+
+
+You’ve done your homework with Buyer Zone and now you’ve made the right choice in choosing National Funding for your financial needs.
+
+What&apos;s next?
+
+Get an even quicker start with our digital loan process
+
+Get Started
+
+Your loan specialist, {!User.FirstName} {!User.LastName}, will be contacting you promptly during business hours.
+
+National Funding
+9530 Towne Centre Dr., Suite 120, San Diego, CA 92121
+P  {!User.Phone} | F (888) 740-1151
+www.nationalfunding.com
+
+National Funding respects your privacy. Our commitment to your privacy is in our privacy policy, which is available on our website for your reference.
+© 2017 National Funding. All rights reserved.</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

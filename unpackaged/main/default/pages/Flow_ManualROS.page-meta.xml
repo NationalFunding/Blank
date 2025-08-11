@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <availableInTouch>false</availableInTouch>
+    <confirmationTokenRequired>false</confirmationTokenRequired>
+    <description>Used to redirect the user to the last related opp search record created from the Opportunity_Run_ManualRelatedOpportunitySearch flow</description>
+    <label>Flow_ManualROS</label>
+</ApexPage>

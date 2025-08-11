@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BIZ_charge_off_amount_fin_24m__c</fullName>
+    <defaultValue>0</defaultValue>
+    <description>Sum of financial charge-off amount for charge-off accounts with the last 24 months</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Total financial charge-off amount in last 24 months</inlineHelpText>
+    <label>Financial charge-off amount</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

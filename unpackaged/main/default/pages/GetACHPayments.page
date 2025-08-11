@@ -1,0 +1,4 @@
+<apex:page title="ACH File Generation Status" standardController="ACH_Payment__c" extensions="ACHPaymentProcessController" recordSetVar="ACH Payments" action="{!processACHPayments}">
+  <apex:sectionHeader title="ACH File Generation Status " rendered="true" />
+     <apex:pageMessages rendered="true" escape="false"/>
+</apex:page>

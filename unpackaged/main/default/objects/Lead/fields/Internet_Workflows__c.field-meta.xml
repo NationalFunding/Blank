@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Internet_Workflows__c</fullName>
+    <label>Internet Workflows</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>To Be Processed - New</fullName>
+                <default>false</default>
+                <label>To Be Processed - New</label>
+            </value>
+            <value>
+                <fullName>Processed</fullName>
+                <default>false</default>
+                <label>Processed</label>
+            </value>
+            <value>
+                <fullName>To Be Processed - Merged</fullName>
+                <default>false</default>
+                <label>To Be Processed - Merged</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Clawback_Requested__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Indicates if Clawback was requested from Broker</description>
+    <inlineHelpText>Indicates if Clawback was requested from Broker</inlineHelpText>
+    <label>Clawback Requested</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

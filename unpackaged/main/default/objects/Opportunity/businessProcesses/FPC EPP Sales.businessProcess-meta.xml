@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BusinessProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FPC EPP Sales</fullName>
+    <description>FPC EPP Sales Stages</description>
+    <isActive>true</isActive>
+    <values>
+        <fullName>Active</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Application In</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Application Out</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Approved - MP</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Deployment</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Desktop Decline</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Download</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Identified</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Internal Decline</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Internal Pend Info</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Invalid Submission</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Lender Pend Info</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Offer In - MP</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Offer Out - MP</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Offer%28s%29 Not Accepted</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Rate Review</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Resubmit</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Statement In - MP</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Submission - MP</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Terminated</fullName>
+        <default>false</default>
+    </values>
+</BusinessProcess>

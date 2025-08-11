@@ -1,0 +1,43 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto;">{{{Consumer_Risk_Summary__c.Today__c}}}<br />
+<br />
+{{{Recipient.Name}}}<br />
+{{{Consumer_Risk_Summary__c.Recipient_Business_Name__c}}}<br />
+{{{Consumer_Risk_Summary__c.Decline_Email_Mailing_Address_Formula__c}}}<br />
+<br />
+Dear {{{Consumer_Risk_Summary__c.Recipient_Business_Name__c}}},<br />
+<br />
+Thank you for choosing National Funding for your business needs. &nbsp;We have carefully reviewed your request and are sorry that we are unable to approve it at this time. &nbsp;Please note, the decision whether to grant or deny applications is solely and exclusively ours. &nbsp;Your request was given careful consideration and unfortunately, we were unable to approve you at this time for the following reasons:
+<ul>
+	<li>{{{Consumer_Risk_Summary__c.Decline_Email_Reason__c}}}</li>
+</ul>
+If we obtained information from a consumer reporting agency as part of our consideration of your application, its name, address, and toll-free telephone number is shown below. The reporting agency played no part in our decision and is unable to supply specific reasons why we have denied financing to you. You have a right to a free copy of your report from the reporting agency, if you request it no later than 60 days after you receive this notice. In addition, if you find that any information contained in the report you received is inaccurate or incomplete, you have the right to dispute the matter with the reporting agency. You can find out about the information contained in your file (if one was used) by contacting:&nbsp;<br />
+<br />
+Experian<br />
+P.O. Box 2002<br />
+Allen, TX 75013<br />
+888-397-3742<br />
+<br />
+We also obtained your credit score from the consumer reporting agency and used it in making our financing decision. Your credit score is a number that reflects the information in your consumer report. Your credit score can change, depending on how the information in your consumer report changes.<br />
+<br />
+<strong>Your credit score:</strong><br />
+{{{Consumer_Risk_Summary__c.FICO_Score__c}}}<br />
+<br />
+<strong>Date:</strong><br />
+{{{Consumer_Risk_Summary__c.FICO_Report_Date__c}}}<br />
+<br />
+Scores range from a low of 300 to a high of 850.<br />
+<br />
+Key factors that adversely affected your credit score:<br />
+{{{Consumer_Risk_Summary__c.Adverse_Credit_Factors__c}}}If you have any questions regarding your credit score, you should contact Experian at P.O. Box 2002, Allen, TX 75013 or by calling 888-397-3742.<br />
+<br />
+We hope to work with you in the future and encourage you to reapply for financing if your circumstances change. &nbsp;If you have any questions, please contact us at 4380 La Jolla Village Drive, San Diego, CA 92122 or by calling 888-733-2383.<br />
+<br />
+Sincerely,<br />
+<br />
+Customer Service<br />
+National Funding, Inc.</body>
+</html>

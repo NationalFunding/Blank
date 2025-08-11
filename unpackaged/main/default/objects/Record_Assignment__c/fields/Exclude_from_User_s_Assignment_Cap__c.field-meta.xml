@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Exclude_from_User_s_Assignment_Cap__c</fullName>
+    <formula>Distribution_Routing_Definition__r.Exclude_from_User_s_Assignment_Cap__c</formula>
+    <label>Exclude from User's Assignment Cap</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

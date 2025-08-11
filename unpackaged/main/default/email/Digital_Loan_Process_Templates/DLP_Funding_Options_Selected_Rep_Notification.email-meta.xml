@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>This email template will be used to notify the Opportunity owner that their customer has selected a funding option via the DLP.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>DLP Funding Options Selected Rep Notification</name>
+    <style>none</style>
+    <subject>{!Opportunity.Account}: Funding Options Selected</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

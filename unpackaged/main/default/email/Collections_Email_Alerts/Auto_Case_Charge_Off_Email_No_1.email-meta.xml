@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank</letterhead>
+    <name>Auto - Case Charge Off Email No.1</name>
+    <style>freeForm</style>
+    <subject>Risk of Legal Default - ({!Case.Legal_Name__c} - {!Case.Merchant_Number__c})</subject>
+    <textOnly>Hello {!Contact.FirstName},
+
+As you are aware, we have issued a legal demand on the account due to non-payment. We have been attempting to come to a resolution regarding your account. If payments do not resume the account will be reported to business credit as a defaulted account and the file will be sent to our litigation team for review.
+
+To help avoid that outcome, we would like to offer you some options to lower the payments and extend out the repayment period.
+
+Please contact us as soon as possible so we can work together to resolve the delinquency on the account.  We look forward to hearing from you.
+
+Thank you,
+
+{!Case.Case_Email_Signature_Name_Formula__c}
+
+National Funding, Inc., the parent and servicing company of
+Quick Bridge Funding, LLC
+
+{!$Setup.Company_Information__c.Street__c}
+{!$Setup.Company_Information__c.City__c}, {!$Setup.Company_Information__c.State__c} {!$Setup.Company_Information__c.Zip__c}
+P: {!Case.OwnerPhone}
+
+
+
+
+{!Case.Email_Thread_ID__c}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

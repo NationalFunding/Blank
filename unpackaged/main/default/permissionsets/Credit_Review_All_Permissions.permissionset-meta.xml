@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Credit Review All Permissions</label>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>Credit_Review_Can_Access_Checklist</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>Credit_Review_Can_Access_Decision_Tab</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>Credit_Review_Can_Make_Decision</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>Credit_Review_Can_Submit_Credit_Review_for_Processing</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>Credit_Review_Change_to_Commercial</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>Credit_Review_Pull_Credit</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>Credit_Reviews_Can_Complete_Post_Audit</name>
+    </customPermissions>
+</PermissionSet>

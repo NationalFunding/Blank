@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Renewal_Question_3__c</fullName>
+    <defaultValue>"The funding amount per your new contract is $XXXX.XX; however  the payoff balance on your existing loan is $XXX.XX.  You will net the difference of $XXXX.XX. If the funding occurs today, however if we miss the funding cut off these numbers will change.  Do you understand?"</defaultValue>
+    <description>"The funding amount per your new contract is $XXXX.XX; however  the payoff balance on your existing loan is $XXX.XX.  You will net the difference of $XXXX.XX. If the funding occurs today, however if we miss the funding cut off these numbers will change.  Do you understand?"</description>
+    <inlineHelpText>Ask this question only when this is a welcome call for a renewal.</inlineHelpText>
+    <label>Renewal Net Diff Confirmation Q</label>
+    <length>500</length>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+</CustomField>

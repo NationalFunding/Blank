@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Broker_Declined__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Captures if the Broker was declined after review.</description>
+    <inlineHelpText>Check this box to decline this Broker after review.</inlineHelpText>
+    <label>Broker Declined</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

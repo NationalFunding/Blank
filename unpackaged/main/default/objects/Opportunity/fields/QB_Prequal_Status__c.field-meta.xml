@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QB_Prequal_Status__c</fullName>
+    <label>QB Prequal Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Send to Quick Bridge</fullName>
+                <default>false</default>
+                <label>Send to Quick Bridge</label>
+            </value>
+            <value>
+                <fullName>Processed by Quick Bridge</fullName>
+                <default>false</default>
+                <label>Processed by Quick Bridge</label>
+            </value>
+            <value>
+                <fullName>Completed by Quick Bridge</fullName>
+                <default>false</default>
+                <label>Completed by Quick Bridge</label>
+            </value>
+            <value>
+                <fullName>Error</fullName>
+                <default>false</default>
+                <label>Error</label>
+            </value>
+            <value>
+                <fullName>Testing</fullName>
+                <default>false</default>
+                <label>Testing</label>
+            </value>
+            <value>
+                <fullName>Approved by QuickBridge</fullName>
+                <default>false</default>
+                <label>Approved by QuickBridge</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

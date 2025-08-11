@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cmbls_Repayment_Schedules__c</fullName>
+    <label># of Repayment Schedules</label>
+    <summaryForeignKey>cmbls__Repayment_Schedule__c.cmbls__Repayment__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

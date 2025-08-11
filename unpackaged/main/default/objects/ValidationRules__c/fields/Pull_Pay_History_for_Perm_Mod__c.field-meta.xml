@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pull_Pay_History_for_Perm_Mod__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Allows users to pull the Pay History if there is an active related Payment Agreement for Permanent Modification.</description>
+    <inlineHelpText>Allows users to pull the Pay History if there is an active related Payment Agreement for Permanent Modification.</inlineHelpText>
+    <label>Pull Pay History for Perm Mod</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

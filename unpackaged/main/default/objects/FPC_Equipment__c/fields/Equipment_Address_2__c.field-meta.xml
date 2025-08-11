@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Equipment_Address_2__c</fullName>
+    <description>Equipment Address Line 2</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Continue typing in the address where the equipment will be located, if necessary.</inlineHelpText>
+    <label>Equipment Address 2</label>
+    <length>64</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

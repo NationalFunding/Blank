@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Origination_Fee__c</fullName>
+    <description>This field will capture the Origination Fee on the Merchant Offer Level.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Type in the Origination Fee for the transaction.  Use whole numbers only, do not add a % or a decimal.</inlineHelpText>
+    <label>Origination Fee</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>1</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

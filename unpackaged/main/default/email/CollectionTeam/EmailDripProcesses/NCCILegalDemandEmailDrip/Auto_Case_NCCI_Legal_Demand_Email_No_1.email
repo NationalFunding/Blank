@@ -1,0 +1,7 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto; margin: 0; padding: 0;">We are reaching out to inform you that your account is past due. If you are having difficulties making payments currently, we offer temporary modification programs to bring your account back into good standing. Please get in touch with us as soon as you can to address the overdue payments. You can reach out by replying to this email, using our SMS correspondence, or by phone via my direct line at the bottom of this email.<br />
+<span style="display:none;">{{{Case.Thread_Id}}}</span></body>
+</html>

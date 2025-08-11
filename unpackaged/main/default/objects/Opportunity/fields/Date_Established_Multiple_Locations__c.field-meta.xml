@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Date_Established_Multiple_Locations__c</fullName>
+    <description>If an account has multiple locations, use this field to enter the date that corresponds to when this location was established.</description>
+    <inlineHelpText>If an account has multiple locations, use this field to enter the date that corresponds to when this location was established.</inlineHelpText>
+    <label>Date Established (Multiple Locations)</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

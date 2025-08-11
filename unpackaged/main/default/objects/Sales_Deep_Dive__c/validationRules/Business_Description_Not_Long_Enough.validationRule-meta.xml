@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Business_Description_Not_Long_Enough</fullName>
+    <active>true</active>
+    <description>The 'What does the business do?' field must have more than 50 characters in it</description>
+    <errorConditionFormula>LEN(KNOW_YOUR_CUSTOMER_What_do_they_do__c) &lt; 50</errorConditionFormula>
+    <errorDisplayField>KNOW_YOUR_CUSTOMER_What_do_they_do__c</errorDisplayField>
+    <errorMessage>The description of the business must be longer.</errorMessage>
+</ValidationRule>

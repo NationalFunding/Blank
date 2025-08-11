@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>achtrn_origbnk_im_orig_name__c</fullName>
+    <description>achtrn_origbnk_im_orig_name</description>
+    <externalDeveloperName>achtrn_origbnk_im_orig_name</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>achtrn_origbnk_im_orig_name</label>
+    <length>128</length>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

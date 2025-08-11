@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Customer Service</fullName>
+        <default>false</default>
+        <label>Customer Service</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Problem</fullName>
+        <default>false</default>
+        <label>Problem</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Feature Request</fullName>
+        <default>false</default>
+        <label>Feature Request</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Question</fullName>
+        <default>false</default>
+        <label>Question</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Funded Loan</fullName>
+        <default>false</default>
+        <label>Funded Loan</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Final Fund</fullName>
+        <default>false</default>
+        <label>Final Fund</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Loan Renewal</fullName>
+        <default>false</default>
+        <label>Loan Renewal</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Loan Payoff</fullName>
+        <default>false</default>
+        <label>Loan Payoff</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Loan Modification</fullName>
+        <default>false</default>
+        <label>Loan Modification</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Wire Request</fullName>
+        <default>false</default>
+        <label>Wire Request</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Check Request</fullName>
+        <default>false</default>
+        <label>Check Request</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Equipment Sale</fullName>
+        <default>false</default>
+        <label>Equipment Sale</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Close Form</fullName>
+        <default>false</default>
+        <label>Close Form</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Extension Rent</fullName>
+        <default>false</default>
+        <label>Extension Rent</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Commission Question</fullName>
+        <default>false</default>
+        <label>Commission Question</label>
+    </standardValue>
+    <standardValue>
+        <fullName>CC Payment Confirmations</fullName>
+        <default>false</default>
+        <label>CC Payment Confirmations</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Credit Memos</fullName>
+        <default>false</default>
+        <label>Credit Memos</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Check by Fax</fullName>
+        <default>false</default>
+        <label>Check by Fax</label>
+    </standardValue>
+    <standardValue>
+        <fullName>ACH</fullName>
+        <default>false</default>
+        <label>ACH</label>
+    </standardValue>
+    <standardValue>
+        <fullName>ACH Debit</fullName>
+        <default>false</default>
+        <label>ACH Debit</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Reapply Funds</fullName>
+        <default>false</default>
+        <label>Reapply Funds</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Commission Statement</fullName>
+        <default>false</default>
+        <label>Commission Statement</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Miscellaneous</fullName>
+        <default>false</default>
+        <label>Miscellaneous</label>
+    </standardValue>
+    <standardValue>
+        <fullName>DocuSign</fullName>
+        <default>false</default>
+        <label>DocuSign</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Conga</fullName>
+        <default>false</default>
+        <label>Conga</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Route to IT</fullName>
+        <default>false</default>
+        <label>Route to IT</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Unapplied Cash/Funds</fullName>
+        <default>false</default>
+        <label>Unapplied Cash/Funds</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Funded Loan - WC</fullName>
+        <default>false</default>
+        <label>Funded Loan - WC</label>
+    </standardValue>
+    <standardValue>
+        <fullName>ACH Bounce</fullName>
+        <default>false</default>
+        <label>ACH Bounce</label>
+    </standardValue>
+    <standardValue>
+        <fullName>NCCI</fullName>
+        <default>false</default>
+        <label>NCCI</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Legal Demand</fullName>
+        <default>false</default>
+        <label>Legal Demand</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Bank Change</fullName>
+        <default>false</default>
+        <label>Bank Change</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Customer Service Req</fullName>
+        <default>false</default>
+        <label>Customer Service Req</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Bankruptcy</fullName>
+        <default>false</default>
+        <label>Bankruptcy</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Pay History</fullName>
+        <default>false</default>
+        <label>Pay History</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Paid in Full</fullName>
+        <default>false</default>
+        <label>Paid in Full</label>
+    </standardValue>
+    <standardValue>
+        <fullName>LPD</fullName>
+        <default>false</default>
+        <label>LPD</label>
+    </standardValue>
+    <standardValue>
+        <fullName>General</fullName>
+        <default>false</default>
+        <label>General</label>
+    </standardValue>
+    <standardValue>
+        <fullName>DMV</fullName>
+        <default>false</default>
+        <label>DMV</label>
+    </standardValue>
+    <standardValue>
+        <fullName>MOD Req</fullName>
+        <default>false</default>
+        <label>MOD Req</label>
+    </standardValue>
+    <standardValue>
+        <fullName>POQ</fullName>
+        <default>false</default>
+        <label>POQ</label>
+    </standardValue>
+    <standardValue>
+        <fullName>POQ-M</fullName>
+        <default>false</default>
+        <label>POQ-M</label>
+    </standardValue>
+    <standardValue>
+        <fullName>LglPrep</fullName>
+        <default>false</default>
+        <label>LglPrep</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Urgent</fullName>
+        <default>false</default>
+        <label>Urgent</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Catchup</fullName>
+        <default>false</default>
+        <label>Catchup</label>
+    </standardValue>
+    <standardValue>
+        <fullName>BK-Filed</fullName>
+        <default>false</default>
+        <label>BK-Filed</label>
+    </standardValue>
+    <standardValue>
+        <fullName>BK</fullName>
+        <default>false</default>
+        <label>BK</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Judgment</fullName>
+        <default>false</default>
+        <label>Judgment</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Settlement</fullName>
+        <default>false</default>
+        <label>Settlement</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Szabo</fullName>
+        <default>false</default>
+        <label>Szabo</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Primecore</fullName>
+        <default>false</default>
+        <label>Primecore</label>
+    </standardValue>
+    <standardValue>
+        <fullName>ARS</fullName>
+        <default>false</default>
+        <label>ARS</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Barr</fullName>
+        <default>false</default>
+        <label>Barr</label>
+    </standardValue>
+    <standardValue>
+        <fullName>External Legal</fullName>
+        <default>false</default>
+        <label>External Legal</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Pending Chargeoff</fullName>
+        <default>false</default>
+        <label>Pending Chargeoff</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Reconciliation</fullName>
+        <default>false</default>
+        <label>Reconciliation</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Broker Com. Ret</fullName>
+        <default>false</default>
+        <label>Broker Com. Ret</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Broker Refresh</fullName>
+        <default>false</default>
+        <label>Broker Refresh</label>
+    </standardValue>
+    <standardValue>
+        <fullName>New Broker</fullName>
+        <default>false</default>
+        <label>New Broker</label>
+    </standardValue>
+    <standardValue>
+        <fullName>MOD</fullName>
+        <default>false</default>
+        <label>MOD</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Lease</fullName>
+        <default>false</default>
+        <label>Lease</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Fraud</fullName>
+        <default>false</default>
+        <label>Fraud</label>
+    </standardValue>
+</StandardValueSet>

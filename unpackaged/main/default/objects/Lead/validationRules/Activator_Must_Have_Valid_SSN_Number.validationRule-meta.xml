@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Activator_Must_Have_Valid_SSN_Number</fullName>
+    <active>false</active>
+    <errorConditionFormula>OR( 
+AND(ISPICKVAL(Status, "Activator"),SSN_Encrypted__c = ''), 
+AND(ISPICKVAL(Status, "Activator"),OR(LEN(SSN_Encrypted__c) &lt;&gt; 9, LEN(SSN_Encrypted__c) &lt;&gt; 11)), 
+AND(ISPICKVAL(Status, "Activator"),SSN_Encrypted__c = "123456789"), 
+AND(ISPICKVAL(Status, "Activator"),SSN_Encrypted__c = "987654321"), 
+AND(ISPICKVAL(Status, "Activator"),SSN_Encrypted__c = "111111111"), 
+AND(ISPICKVAL(Status, "Activator"),SSN_Encrypted__c = "222222222"), 
+AND(ISPICKVAL(Status, "Activator"),SSN_Encrypted__c = "333333333"), 
+AND(ISPICKVAL(Status, "Activator"),SSN_Encrypted__c = "444444444"), 
+AND(ISPICKVAL(Status, "Activator"),SSN_Encrypted__c = "555555555"), 
+AND(ISPICKVAL(Status, "Activator"),SSN_Encrypted__c = "666666666"), 
+AND(ISPICKVAL(Status, "Activator"),SSN_Encrypted__c = "777777777"), 
+AND(ISPICKVAL(Status, "Activator"),SSN_Encrypted__c = "888888888"), 
+AND(ISPICKVAL(Status, "Activator"),SSN_Encrypted__c = "999999999"))</errorConditionFormula>
+    <errorMessage>Social Security Number Denied. You must enter a real social security number prior to making the lead an activator.</errorMessage>
+</ValidationRule>

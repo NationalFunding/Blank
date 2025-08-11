@@ -1,0 +1,7 @@
+<apex:page >
+
+    <apex:sectionHeader title="Five Point Credit Preferences" subtitle="Preferences"/>
+    <apex:pageMessages />
+    <apex:listViews type="Five_Point_Credit_Preferences__c"/>
+
+</apex:page>

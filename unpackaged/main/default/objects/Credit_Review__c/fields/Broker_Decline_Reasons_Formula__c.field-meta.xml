@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Broker_Decline_Reasons_Formula__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(INCLUDES(Broker_Decline_Reasons__c, "Credit - No Open Trade Lines"),"Credit profile, No Open Trade Lines" &amp; BR(), "") &amp;
+IF(INCLUDES(Broker_Decline_Reasons__c, "Credit - Derogatory Trade Lines"),"Credit Profile, Excessive Derogatory Trade Lines" &amp; BR(), "") &amp;
+IF(INCLUDES(Broker_Decline_Reasons__c, "Credit - Fico Below Minimum"),"Credit profile, Fico Below Minimum Threshold" &amp; BR(), "") &amp;
+IF(INCLUDES(Broker_Decline_Reasons__c, "Credit - Insufficient History"),"Credit Profile, Insufficient History" &amp; BR(), "") &amp;
+IF(INCLUDES(Broker_Decline_Reasons__c, "Banks - Excessive NSF"),"Business Bank Statements, Excessive NSF’s or Negative Ending Days" &amp; BR(), "") &amp;
+IF(INCLUDES(Broker_Decline_Reasons__c, "Banks - Volatile Revenue"),"Business Bank Statements, Volatile Revenue Stream" &amp; BR(), "") &amp;
+IF(INCLUDES(Broker_Decline_Reasons__c, "Banks - Low Balances"),"Business Bank Statements, Excessive Low Balances" &amp; BR(), "") &amp;
+IF(INCLUDES(Broker_Decline_Reasons__c, "Banks - Low Deposits"),"Business Bank Statements, Low Deposits" &amp; BR(), "") &amp;
+IF(INCLUDES(Broker_Decline_Reasons__c, "Banks - Irregular Bank Activity"),"Business Bank Statements, Irregular Bank Activity" &amp; BR(), "") &amp;
+IF(INCLUDES(Broker_Decline_Reasons__c, "Excessive Bankruptcies"),"Excessive Bankruptcies" &amp; BR(), "") &amp;
+IF(INCLUDES(Broker_Decline_Reasons__c, "Excessive Judgments/Liens"),"Excessive Judgments/Liens" &amp; BR(), "") &amp;
+IF(INCLUDES(Broker_Decline_Reasons__c, "Restricted Industry"),"Restricted Industry" &amp; BR(), "") &amp;
+IF(INCLUDES(Broker_Decline_Reasons__c, "Industry Parameters"),"Industry Parameters" &amp; BR(), "") &amp;
+IF(INCLUDES(Broker_Decline_Reasons__c, "Insufficient Time In Business"),"Insufficient Time In Business" &amp; BR(), "") &amp;
+IF(INCLUDES(Broker_Decline_Reasons__c, "Unconfirmed Documents"),"Unconfirmed Documents" &amp; BR(), "") &amp;
+IF(INCLUDES(Broker_Decline_Reasons__c, "Lack of Personal Guarantees"),"Lack of Personal Guarantees" &amp; BR(), "") &amp;
+IF(INCLUDES(Broker_Decline_Reasons__c, "History of Daily/Weekly Loan Payments"),"History of Multiple Daily/Weekly Loan Payments" &amp; BR(), "") &amp;
+IF(INCLUDES(Broker_Decline_Reasons__c, "Competitor Payoff Exceeds Limit"),"Competitor Payoff Exceeds Limit" &amp; BR(), "") &amp;
+IF(INCLUDES(Broker_Decline_Reasons__c, "Existing Customer/Signed Contract"),"Existing Customer/Signed Contract" &amp; BR(), "") &amp;
+IF(INCLUDES(Broker_Decline_Reasons__c, "Absentee Ownership"),"Absentee Ownership" &amp; BR(), "") &amp;
+IF(INCLUDES(Broker_Decline_Reasons__c, "Lack of Business History"),"Lack of Business History" &amp; BR(), "") &amp;
+IF(INCLUDES(Broker_Decline_Reasons__c, "No Business Bank Account"),"No Business Bank Account" &amp; BR(), "") &amp;
+IF(INCLUDES(Broker_Decline_Reasons__c, "Incomplete Application"),"Incomplete Application" &amp; BR(), "") &amp;
+IF(INCLUDES(Broker_Decline_Reasons__c, "Previous Poor Pay History with National Funding"),"Previous Poor Pay History with National Funding" &amp; BR(), "") &amp;
+IF(INCLUDES(Broker_Decline_Reasons__c, "Poor Pay History w/Competitor"),"Poor Pay History with Competitor" &amp; BR(), "") &amp;
+IF(INCLUDES(Broker_Decline_Reasons__c, "Insufficient Financials"),"Insufficient Financials" &amp; BR(), "") &amp;
+IF(INCLUDES(Broker_Decline_Reasons__c, "Existing Customer/ Max Exposure"),"Existing Customer/ Max Exposure" &amp; BR(), "") &amp;
+IF(INCLUDES(Broker_Decline_Reasons__c, "Character Issues"),"Character Issues" &amp; BR(), "") &amp;
+IF(INCLUDES(Broker_Decline_Reasons__c, "Other"),"National Funding does not grant loans to applicants on the terms and conditions requested." &amp; BR(), "")</formula>
+    <label>Broker Decline Reasons Formula</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

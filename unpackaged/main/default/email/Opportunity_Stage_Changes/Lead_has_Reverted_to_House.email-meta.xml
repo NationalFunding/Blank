@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Lead Has reverted to House - over 180 days old</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Lead has Reverted to House</name>
+    <style>none</style>
+    <subject>Unconverted Lead has reverted to House</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Time_in_Business__c</fullName>
+    <description>Used to capture a customer's time in business as submitted through a web form.</description>
+    <inlineHelpText>How long the company has been in business as reported by customer on web form.</inlineHelpText>
+    <label>Time in Business (new)</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>10 years or longer</fullName>
+                <default>false</default>
+                <label>10 years or longer</label>
+            </value>
+            <value>
+                <fullName>5-9 years</fullName>
+                <default>false</default>
+                <label>5-9 years</label>
+            </value>
+            <value>
+                <fullName>2-4 years</fullName>
+                <default>false</default>
+                <label>2-4 years</label>
+            </value>
+            <value>
+                <fullName>6 months – 1 year</fullName>
+                <default>false</default>
+                <label>6 months – 1 year</label>
+            </value>
+            <value>
+                <fullName>Less than 6 months</fullName>
+                <default>false</default>
+                <label>Less than 6 months</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

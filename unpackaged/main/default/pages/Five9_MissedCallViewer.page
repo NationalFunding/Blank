@@ -1,0 +1,166 @@
+<apex:page standardController="Account" standardStylesheets="false" lightningStylesheets="true" docType="html-5.0" applyBodyTag="false">
+    <apex:sectionHeader title="Missed Calls"/>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
+    <script src="../../soap/ajax/37.0/connection.js" type="text/javascript"></script>
+    <script src="../../soap/ajax/37.0/apex.js" type="text/javascript"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <apex:includeScript value="{!$Resource.xml2json}"/>
+    
+    <script>
+    //Load the User
+    sforce.connection.sessionId = "{!$Api.Session_ID}";
+    console.log(sforce.connection.getUserInfo().userId);
+    let b1 = '';
+    var user = (sforce.connection.getUserInfo().userId);
+    var d = new Date();
+    d.setHours(d.getDay() - 24);
+    d = d.toISOString();
+
+    
+    console.log('date date date' + d);
+    Eresult = sforce.connection.query("Select Email From User WHERE Id='" + user + "'");
+    
+    var blob = ('apiuser@National Funding1' + ':' + 'lvtFQu0RJfAvalHL');
+
+    authorizationHeader = 'BASIC ' + window.btoa(blob);
+    
+    //Use Online String Builder to create the xml payload and use the documentation to retrieve the correct report while filtering on the user
+    var xmlBody =   '   <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v2="http://service.admin.ws.five9.com/v2/">  '  +
+        '      <soapenv:Header/>  '  +
+        '      <soapenv:Body>  '  +
+        '         <v2:runReport>  '  +
+        '            <!--Optional:-->  '  +
+        '            <folderName>Shared Reports</folderName>  '  +
+        '            <!--Optional:-->  '  +
+        '            <reportName>Agent Missed Calls - Do Not Change</reportName>  '  +
+        '            <!--Optional:-->  '  +
+        '            <criteria>  '  +
+        '               <!--Zero or more repetitions:-->  '  +
+        '               <!--Optional:-->  '  +
+        '               <time>  '  +
+        '                  <!--Optional:-->  '  +
+        '                  <end>?</end>  '  +
+        '                  <!--Optional:-->  '  +
+        '                  <start>' + d + '</start>  '  +
+        '               </time>  '  +
+        '            </criteria>  '  +
+        '         </v2:runReport>  '  +
+        '      </soapenv:Body>  '  +
+        '  </soapenv:Envelope>  ' ;
+    
+    
+    
+    try{      sforce.connection.remoteFunction({
+        url : "https://api.five9.com/wsadmin/v2/AdminWebService",
+        requestHeaders: {"Content-Type":"text/xml",
+                         "Connection":"Keep-Alive", 
+                         "Authorization": authorizationHeader},
+        requestData: xmlBody,
+        method: "POST",
+        onSuccess : function(response) {
+            var n = new window.DOMParser;
+            var xmlDoc = n.parseFromString(response,"text/xml");
+            var remoteAcctId = xmlDoc.getElementsByTagName("return")[0].childNodes[0].nodeValue;
+            getMissedCalls(remoteAcctId);
+            
+            // alert("Success!" + remoteAcctId);
+        },
+        onFailure : function(response) {
+            alert("There is an error " + response)
+        }
+    });
+       }
+    catch(e){
+    };
+    
+    console.log('on exit' + b1);
+    
+    
+    function getMissedCalls(b1){
+        try{
+            xmlBody2 =  '   <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v2="http://service.admin.ws.five9.com/v2/">  '  +
+                '      <soapenv:Header/>  '  +
+                '      <soapenv:Body>  '  +
+                '         <v2:getReportResult>  '  +
+                '            <!--Optional:-->  '  +
+                '            <identifier>'+ b1 +'</identifier>  '  +
+                '         </v2:getReportResult>  '  +
+                '      </soapenv:Body>  '  +
+                '  </soapenv:Envelope>  ' ;
+            console.log('in gMC func ' + b1);
+            sforce.connection.remoteFunction({
+                url : "https://api.five9.com/wsadmin/v2/AdminWebService",
+                requestHeaders: {"Content-Type":"text/xml",
+                                 "Connection":"Keep-Alive",
+                                 "Authorization": authorizationHeader},
+                requestData: xmlBody2,
+                method: "POST",
+                onSuccess : function(response) {
+                    var json = xml2json(response);
+                    console.dir(json);
+                    if(json){
+                        records = json['env:Envelope']['env:Body']['ns2:getReportResultResponse']['return']['records'];
+                        var i, len;
+                        
+                        for (i = 0, len = records.length; i< len; i++) {
+                            var record = records[i].values.data;
+                            if (record[0] == Eresult.records.Email) {
+                                $('<tr></tr').html('<th class="dateformat">' + record[1] + '</th><td>').appendTo('#Content1');
+                                $('<tr ></tr').html('<th class="numberformat">' + record[2] + '</th><td>').appendTo('#Content2');
+                                $('<tr></tr').html('<th>' + record[0] + '</th><td>').appendTo('#Content3');
+                            }
+                            
+                            //$record.reverse();
+                             
+                            $('.numberformat').text(function(i, text) {
+                                return text.replace(/(\d\d\d)(\d\d\d)(\d\d\d\d)/, '$1-$2-$3');
+                            });
+                            
+
+                        } 
+                    }
+                    else{
+                        $('<tr></tr').html('<th>'+ 'No Records Found' + '</th><td>').appendTo('#Content1');
+                    }
+                },
+                onFailure : function(response) {
+                    alert("The Report Server is Currently Busy, Please Try Again Later. Please refresh your browser to view the data.")
+
+                }
+            });
+        }
+        catch(e){ 
+        }
+    }
+    
+    </script>
+    
+    <style>
+        tr.dataRow { 
+        background-color:white; 
+        }
+        
+        mainheader {
+        text-align: center;
+        }
+        
+    </style>
+    
+    
+    <div class="panel-heading"><h1 class="mainheader">You have missed the following incoming calls:</h1> </div>
+    <table class="table list">
+        <thead class="headerRow">
+            <th>Time Of Missed Call</th>
+            <th pattern="(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}">Phone Number</th>
+            <th>Agent's Email</th>
+        </thead>
+        <tbody>
+            <tr class="dataRow">
+                <td class= "dataCell1" id = 'Content1'></td>
+                <td class= "dataCell2" id = 'Content2'></td>
+                <td class= "dataCell3" id = 'Content3'></td>
+            </tr>
+        </tbody>
+    </table>
+    
+</apex:page>

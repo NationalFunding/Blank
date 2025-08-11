@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Post_Funding_Audit_Notes__c</fullName>
+    <description>This field will capture any notes regarding a deal once the transaction has been closed.  Mainly for auditing a deal when it goes bad.  This record should not be deleted.</description>
+    <inlineHelpText>This field will capture any notes regarding a deal once the transaction has been closed.  Mainly for auditing a deal when it goes bad.  This record should not be deleted.</inlineHelpText>
+    <label>Post Funding Audit Notes</label>
+    <length>32768</length>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

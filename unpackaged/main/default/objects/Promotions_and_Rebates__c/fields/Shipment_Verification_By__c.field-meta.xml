@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Shipment_Verification_By__c</fullName>
+    <description>This field will indicate who verified that the promotion/rebate was shipped to the customer.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This field will indicate who verified that the promotion/rebate was shipped to the customer.</inlineHelpText>
+    <label>Shipment Verification By</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

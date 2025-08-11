@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Average_Daily_Sales__c</fullName>
+    <description>This field will calculate Average Daily Sales based on a 12 month year and 22 business days.  Formula:
+Average Daily Sales = (Annual Revenue / 12) / 22</description>
+    <formula>( Annual_Revenue__c / 12 ) / 22</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>This field will calculate Average Daily Sales based on a 12 month year and 22 business days.  Formula:
+Average Daily Sales = (Annual Revenue / 12) / 22</inlineHelpText>
+    <label>Average Daily Sales</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

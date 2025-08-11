@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Doc_Fee_Collected__c</fullName>
+    <defaultValue>0</defaultValue>
+    <description>Doc Fee Collected for actuals</description>
+    <inlineHelpText>Doc Fee Collected for actuals</inlineHelpText>
+    <label>Doc Fee Collected</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

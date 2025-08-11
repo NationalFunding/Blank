@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DLP_Milestone__c</fullName>
+    <description>This field will be used to indicate what 'milestone' is associated with the customer's file on upload.</description>
+    <inlineHelpText>This field will be used to indicate what 'milestone' is associated with the customer's file on upload.</inlineHelpText>
+    <label>DLP Milestone</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Prequal DocuSign Complete</fullName>
+                <default>false</default>
+                <label>Prequal DocuSign Complete</label>
+            </value>
+            <value>
+                <fullName>Prequal Bank Statements Uploaded</fullName>
+                <default>false</default>
+                <label>Prequal Bank Statements Uploaded</label>
+            </value>
+            <value>
+                <fullName>Automated Bank Statement</fullName>
+                <default>false</default>
+                <label>Automated Bank Statement</label>
+            </value>
+            <value>
+                <fullName>Driver's License Uploaded</fullName>
+                <default>false</default>
+                <label>Driver's License Uploaded</label>
+            </value>
+            <value>
+                <fullName>Voided Check Uploaded</fullName>
+                <default>false</default>
+                <label>Voided Check Uploaded</label>
+            </value>
+            <value>
+                <fullName>Prequal Application Signing Complete</fullName>
+                <default>false</default>
+                <label>Prequal Application Signing Complete</label>
+            </value>
+            <value>
+                <fullName>LM Automated Bank Statement</fullName>
+                <default>false</default>
+                <label>LM Automated Bank Statement</label>
+            </value>
+            <value>
+                <fullName>LM Bank Statements Uploaded</fullName>
+                <default>false</default>
+                <label>LM Bank Statements Uploaded</label>
+            </value>
+            <value>
+                <fullName>Loan Modification Questionnaire</fullName>
+                <default>false</default>
+                <label>Loan Modification Questionnaire</label>
+            </value>
+            <value>
+                <fullName>Email Link Clicked</fullName>
+                <default>false</default>
+                <label>Email Link Clicked</label>
+            </value>
+            <value>
+                <fullName>Plaid - Process Started</fullName>
+                <default>false</default>
+                <label>Plaid - Process Started</label>
+            </value>
+            <value>
+                <fullName>Plaid - Upload Error</fullName>
+                <default>false</default>
+                <label>Plaid - Upload Error</label>
+            </value>
+            <value>
+                <fullName>Plaid - Upload Success</fullName>
+                <default>false</default>
+                <label>Plaid - Upload Success</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

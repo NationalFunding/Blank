@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MLP_Interest_Rate__c</fullName>
+    <description>MLP rate to be referenced by Funding Option creation and MLP documents</description>
+    <formula>IF( 
+  OR(Opportunity__r.Physical_Address_State__c ="CO",
+      Opportunity__r.Physical_Address_State__c ="OK"), 
+  0.319,
+  0.53)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>MLP rate to be referenced by Funding Option creation and MLP documents</inlineHelpText>
+    <label>MLP Interest Rate</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>3</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

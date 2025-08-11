@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Credit_Refresh_Call_List__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field will indicate that the record was part of the most recent credit refresh.</description>
+    <inlineHelpText>This field will indicate that the record was part of the most recent credit refresh.</inlineHelpText>
+    <label>Credit Refresh Call List</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

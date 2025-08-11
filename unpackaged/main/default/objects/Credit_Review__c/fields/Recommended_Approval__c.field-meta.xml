@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Recommended_Approval__c</fullName>
+    <description>This field will display the recommended approval amount for the Credit Tier that is being reviewed.</description>
+    <formula>CASE( Review_Type__c, 
+'Diamond Review',  Diamond_Recommended_Approval__c, 
+'Platinum Review', Platinum_Recommended_Approval__c, 
+'Gold Review', Gold_Recommended_Approval__c, 
+Null)</formula>
+    <inlineHelpText>This field will display the recommended approval amount for the Credit Tier that is being reviewed.</inlineHelpText>
+    <label>Recommended Approval</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

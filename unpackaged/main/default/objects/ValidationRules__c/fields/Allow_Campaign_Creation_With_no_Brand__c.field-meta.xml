@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Allow_Campaign_Creation_With_no_Brand__c</fullName>
+    <defaultValue>false</defaultValue>
+    <label>Allow Campaign Creation With no Brand</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

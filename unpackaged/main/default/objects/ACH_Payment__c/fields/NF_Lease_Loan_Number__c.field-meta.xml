@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NF_Lease_Loan_Number__c</fullName>
+    <description>This field will correspond to CCD Entry Detail Record Field 7 (Company Discretionary Data) in the NACHA File.  It will contain the Lease or Loan Number that the ACH payment is being generated for.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Please enter the associated customer's Lease or Loan Number.</inlineHelpText>
+    <label>NF Lease/Loan Number</label>
+    <length>20</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Decline_Email_Sent_Date_Time__c</fullName>
+    <description>If populated, this is the timestamp that a Reg B notice or a Notice of Incomplete Application was sent for this Consumer Risk Summary. If blank, this Consumer Risk Summary has not received a notice of either type. Corresponds with the Decline Email Template field value.</description>
+    <inlineHelpText>When the Reg B Notice or Notice of Incomplete Application was sent.</inlineHelpText>
+    <label>Decline Email Sent Date/Time</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

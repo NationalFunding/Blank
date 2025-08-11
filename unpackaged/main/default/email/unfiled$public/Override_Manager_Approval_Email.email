@@ -1,0 +1,14 @@
+You have received a new Manager Override Request: 
+
+
+Program: {!Override__c.Program__c}
+Comments: {!Override__c.Comments__c}
+Requester: {!Override__c.CreatedBy}
+Approve/Decline Link: {!$Setup.Instance_Settings__c.Salesforce_URL__c}{!Override__c.Id}
+
+
+Deal Info: 
+
+Opportunity Name: {!Override__c.Opportunity__c}
+Opportunity Link: {!$Setup.Instance_Settings__c.Salesforce_URL__c}{!Override__c.OpportunityId__c}
+Funding Link: {!$Setup.Instance_Settings__c.Salesforce_URL__c}{!Override__c.FundingId__c}

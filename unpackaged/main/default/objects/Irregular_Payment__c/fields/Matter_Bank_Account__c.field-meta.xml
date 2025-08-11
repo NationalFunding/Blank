@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Matter_Bank_Account__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Results filtered so only related Matter Bank Accounts display in results</description>
+    <label>Matter Bank Account</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>Matter_Bank_Account__c.Matter__c</field>
+            <operation>equals</operation>
+            <valueField>$Source.Matter__c</valueField>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Matter_Bank_Account__c</referenceTo>
+    <relationshipLabel>Irregular Payments</relationshipLabel>
+    <relationshipName>Irregular_Payments</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

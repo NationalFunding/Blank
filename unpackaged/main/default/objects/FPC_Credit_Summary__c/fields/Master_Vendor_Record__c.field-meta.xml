@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Master_Vendor_Record__c</fullName>
+    <description>Master Vendor Record</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Master Vendor Record</inlineHelpText>
+    <label>Master Vendor Record</label>
+    <length>1</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

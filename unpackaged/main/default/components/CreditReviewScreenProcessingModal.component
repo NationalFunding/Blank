@@ -1,0 +1,23 @@
+<apex:component layout="none">
+  <!--Processing Model Starts here-->
+  <div id="processing" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"  data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>-->
+          <h3 id="myModalLabel">Processing....</h3>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12">
+              <center>
+                Please Wait... <apex:image url="{!URLFOR($Resource.CreditReviewScreen, 'images/dataloader.gif')}"/>
+             </center> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Processing Model Ends here--> 
+</apex:component>

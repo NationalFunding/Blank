@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Send_QB_Welcome_Email</name>
+        <label>Send QB Welcome Email</label>
+        <locationX>525</locationX>
+        <locationY>1144</locationY>
+        <actionName>Lead.QB_Welcome_Email</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Lead__r.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Lead.QB_Welcome_Email</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>Send_Welcome_Email</name>
+        <label>Send Welcome Email</label>
+        <locationX>733</locationX>
+        <locationY>1143</locationY>
+        <actionName>Lead.Welcome_Email_from_Website_to_SF</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Lead__r.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Lead.Welcome_Email_from_Website_to_SF</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Brand</name>
+        <label>Brand?</label>
+        <locationX>625</locationX>
+        <locationY>1004</locationY>
+        <defaultConnector>
+            <targetReference>Send_Welcome_Email</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>National Funding</defaultConnectorLabel>
+        <rules>
+            <name>Quick_Bridge</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Originating_Brand__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Quick Bridge</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_QB_Welcome_Email</targetReference>
+            </connector>
+            <label>Quick Bridge</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Partner_Evaluation_Status</name>
+        <label>Partner Evaluation Status</label>
+        <locationX>720</locationX>
+        <locationY>416</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>In_Progress</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Partner_Evaluation__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>In Progress</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_LogMessage_0_0</targetReference>
+            </connector>
+            <label>In Progress</label>
+        </rules>
+        <rules>
+            <name>Completed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Partner_Evaluation__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Completed</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Partner_Submission</targetReference>
+            </connector>
+            <label>Completed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Prtner_Submission_Found</name>
+        <label>Prtner Submission Found?</label>
+        <locationX>721</locationX>
+        <locationY>708</locationY>
+        <defaultConnector>
+            <targetReference>Create_LogMessage_0</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not Found or Status= Error</defaultConnectorLabel>
+        <rules>
+            <name>Found_and_Status_Success</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Partner_Submission</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Partner_Submission.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Success</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_LogMessage</targetReference>
+            </connector>
+            <label>Found and Status Success</label>
+        </rules>
+    </decisions>
+    <description>Last Update: 05/08/2025 SPR-312 Added QB welcome email
++ Add Welcome email delay for partner evaluation PD-5174</description>
+    <environments>Default</environments>
+    <interviewLabel>Lead Response Journal - Actions on Create {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Lead Response Journal - Actions on Create</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Create_LogMessage</name>
+        <label>Create LogMessage</label>
+        <locationX>608</locationX>
+        <locationY>829</locationY>
+        <inputAssignments>
+            <field>Process_Name__c</field>
+            <value>
+                <stringValue>Lead Response Journal - Actions on Create</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>level__c</field>
+            <value>
+                <stringValue>Info</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>message__c</field>
+            <value>
+                <stringValue>No Welcome Email. Partner Submission is successful. Record Id: {!$Record.Id}</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>tags__c</field>
+            <value>
+                <stringValue>welcome email</stringValue>
+            </value>
+        </inputAssignments>
+        <object>LogMessage__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_LogMessage_0</name>
+        <label>Create LogMessage</label>
+        <locationX>858</locationX>
+        <locationY>819</locationY>
+        <connector>
+            <targetReference>Brand</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Process_Name__c</field>
+            <value>
+                <stringValue>Lead Response Journal - Actions on Create</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>level__c</field>
+            <value>
+                <stringValue>Info</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>message__c</field>
+            <value>
+                <stringValue>Welcome Email sent. No Partner Submission or Status = Error. Record Id: {!$Record.Id}</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>tags__c</field>
+            <value>
+                <stringValue>welcome email</stringValue>
+            </value>
+        </inputAssignments>
+        <object>LogMessage__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_LogMessage_0_0</name>
+        <label>Create LogMessage</label>
+        <locationX>438</locationX>
+        <locationY>834</locationY>
+        <connector>
+            <targetReference>Brand</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Process_Name__c</field>
+            <value>
+                <stringValue>Lead Response Journal - Actions on Create</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>level__c</field>
+            <value>
+                <stringValue>Info</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>message__c</field>
+            <value>
+                <stringValue>Welcome Email sent. Partner Evaluation passed configured wait time.</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>tags__c</field>
+            <value>
+                <stringValue>welcome email</stringValue>
+            </value>
+        </inputAssignments>
+        <object>LogMessage__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordLookups>
+        <name>Get_Partner_Submission</name>
+        <label>Get Partner Submission</label>
+        <locationX>729</locationX>
+        <locationY>564</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Prtner_Submission_Found</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Lead_Response_Journal__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Partner_Submission__c</object>
+        <sortField>CreatedDate</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>599</locationX>
+        <locationY>47</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Lead__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Distribution_Tier__c</field>
+            <operator>StartsWith</operator>
+            <value>
+                <stringValue>Tier</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Distribution_Tier__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Tier 1</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Email__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>Lead_Response_Journal__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <scheduledPaths>
+            <name>X_Min_After_Creation</name>
+            <connector>
+                <targetReference>Partner_Evaluation_Status</targetReference>
+            </connector>
+            <label>X Min After Creation</label>
+            <offsetNumber>0</offsetNumber>
+            <offsetUnit>Minutes</offsetUnit>
+            <recordField>X_Mins_After_Creation__c</recordField>
+            <timeSource>RecordField</timeSource>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

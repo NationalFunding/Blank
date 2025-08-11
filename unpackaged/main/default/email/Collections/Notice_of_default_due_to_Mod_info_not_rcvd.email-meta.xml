@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank</letterhead>
+    <name>Notice of default due to Mod info not rcvd</name>
+    <style>freeForm</style>
+    <subject>{!Case.Merchant_Number__c} - {!Account.Legal_Name__c}</subject>
+    <textOnly>Hello,
+
+Your account has now moved into default as the information required to set up a Temporary Modification was not been received. In order to move the account out of a default and into a Modification, please send the statements that were previously requested. If you are unsure of what is required, please let us know.
+
+
+
+Thank you,
+
+{!User.Name} | {!User.Title}
+
+{!Case.Email_Signature_Company__c}
+
+{!$Setup.Company_Information__c.Street__c}
+{!$Setup.Company_Information__c.City__c}, {!$Setup.Company_Information__c.State__c} {!$Setup.Company_Information__c.Zip__c}
+P: {!User.Phone} | F: {!User.Fax}
+E: {!User.Email}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

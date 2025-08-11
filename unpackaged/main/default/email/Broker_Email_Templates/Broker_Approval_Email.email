@@ -1,0 +1,95 @@
+<messaging:emailTemplate subject="Congratulations Deal Approved: {!relatedTo.Opportunity__r.Legal_Name__c} - {!relatedTo.Opportunity__r.Merchant_Number__c}" recipientType="Contact" relatedToType="Credit_Review__c">
+    <messaging:plainTextEmailBody >
+        National Funding
+        {!$Setup.Company_Information__c.Street__c}, {!$Setup.Company_Information__c.City__c}, {!$Setup.Company_Information__c.State__c} {!$Setup.Company_Information__c.Zip__c}
+        P (888) 733-2383
+        www.nationalfunding.com
+    </messaging:plainTextEmailBody>
+    <messaging:htmlEmailBody >
+        <html>
+        <head>
+            <title>Business Loan Approval</title>
+            <style media="all" type="text/css">
+        @media only screen and (max-width: 620px) {
+          table[class=body] h1,
+          table[class=body] h2,
+          table[class=body] h3,
+          table[class=body] h4 {
+            font-weight: 600 !important;
+          }
+          table[class=body] h1 {
+            font-size: 22px !important;
+          }
+          table[class=body] h2 {
+            font-size: 18px !important;
+          }
+          table[class=body] h3 {
+            font-size: 16px !important;
+          }
+          table[class=body] .content,
+          table[class=body] .wrapper {
+            padding: 10px !important;
+          }
+          table[class=body] .container {
+            padding: 0 !important;
+            width: 100% !important;
+          }
+          table[class=body] .btn table,
+          table[class=body] .btn a {
+            width: 100% !important;
+          }
+        }
+        </style>
+        </head>
+
+        <body style="margin: 0; font-family: Helvetica, Arial, sans-serif; font-size: 14px; height: 100% !important; line-height: 1.6em; -webkit-font-smoothing: antialiased; padding: 0; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; width: 100% !important; background-color: #f6f6f6;">
+
+        <table class="body" style="box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; background-color: #f6f6f6;" width="100%" bgcolor="#f6f6f6">
+            <tr>
+                <td style="box-sizing: border-box; font-family: Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top;" valign="top"></td>
+                <td class="container" style="box-sizing: border-box; font-family: Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top; display: block; Margin: 0 auto !important; max-width: 580px; width: 580px;" width="580" valign="top">
+                    <div class="content" style="box-sizing: border-box; display: block; margin: 0 auto; max-width: 580px;">
+                        <table class="main" style="box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; background: #ffffff; border: 1px solid #e9e9e9; border-radius: 3px;" width="100%">
+                            <tr>
+                                <td class="wrapper" style="box-sizing: border-box; font-family: Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top; padding: 20px;" valign="top">
+                                    <table style="box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;" width="100%">
+                                        <tr>
+                                            <td style="box-sizing: border-box; font-family: Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top;" valign="top">
+                                               
+                                                <p style="font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 15px;">
+                                                <c:BrokerApprovalEmailTemplate opptyId="{!relatedTo.Id}"/>                                    
+                                                </p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr class="grey" style="margin-bottom: 5px; margin-top: 0px; width: 100%; background-color: #d3d3d3; font-size: 12px;" bgcolor="#d3d3d3">
+                                <td class="sidewrap small" style="box-sizing: border-box; font-family: Helvetica, Arial, 'Lucida Grande', sans-serif; vertical-align: top; padding: 20px 20px 0 20px; font-size: 12px; line-height: 15px; color: grey;" valign="top">
+                                    <p style="font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: normal; margin: 0; margin-bottom: 15px; font-size: 12px;">National Funding<br/>
+                                        {!$Setup.Company_Information__c.Street__c}, {!$Setup.Company_Information__c.City__c}, {!$Setup.Company_Information__c.State__c} {!$Setup.Company_Information__c.Zip__c}&nbsp;<br/>
+                                         {!relatedTo.Opportunity__r.Broker_Account__r.Owner.Phone} <br/>
+                                        <a href="http://www.nationalfunding.com" style="box-sizing: border-box; color: #f78d2c; font-style: normal; text-decoration: none; font-weight: 700;" target="_blank">www.nationalfunding.com</a><br/>
+                                    <hr/>
+
+                                    <div style="box-sizing: border-box; text-align: center;">
+                                        National Funding respects your privacy. Our commitment to your privacy is in our privacy policy, which is available on our website for your reference.<br/>
+                                        © 2023 National Funding. All rights reserved.
+                                    </div>
+
+                                    </p></td>
+                            </tr>
+                        </table>
+
+
+                    </div>
+                </td>
+                <td style="box-sizing: border-box; font-family: Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top;" valign="top"></td>
+            </tr>
+        </table>
+
+        </body>
+        </html>
+
+    </messaging:htmlEmailBody>
+</messaging:emailTemplate>

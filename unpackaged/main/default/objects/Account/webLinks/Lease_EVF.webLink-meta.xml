@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lease_EVF</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>450</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>Lease EVF</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>/apex/APXTConga4__Conga_Composer?serverUrl={!API.Partner_Server_URL_370}
+&amp;id={!Account.Id}
+&amp;QueryId=a068000000V7xwi,a068000000V8bm4,a068000000XM9qD
+&amp;TemplateGroup=NF - Lease EVF(A)
+&amp;SelectTemplates=1
+&amp;FP0=1
+&amp;OFN={!Account.Name}+Verification+Form
+&amp;PS0=1
+&amp;PS1=1
+&amp;DS7=3
+&amp;BML=Document+is+Downloading</url>
+    <width>650</width>
+</WebLink>

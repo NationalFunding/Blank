@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Strategic_Partner_Approved_Date__c</fullName>
+    <inlineHelpText>Populated via workflow when the Strategic Partner Approved checkbox is marked True</inlineHelpText>
+    <label>Strategic Partner Approved Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

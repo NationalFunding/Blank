@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Document_Review</fullName>
+    <availability>online</availability>
+    <description>Launches the Document Review - Create flow</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Document Review</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>/flow/Document_Review_Create?RecordId={!Opportunity.Id}&amp;RetURL=/{!Opportunity.Id}</url>
+</WebLink>

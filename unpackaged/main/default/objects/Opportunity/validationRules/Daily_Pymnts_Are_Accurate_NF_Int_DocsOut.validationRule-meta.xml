@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Daily_Pymnts_Are_Accurate_NF_Int_DocsOut</fullName>
+    <active>true</active>
+    <errorConditionFormula>Amount_Collected__c &lt;&gt; Docs_Monthly_Payment__c * VALUE(Docs_Term__c) &amp;&amp; 
+(RecordType.Name = 'Working Capital Oppty') &amp;&amp; 
+(Lender_Account__r.Name = 'National Funding - Gold WC Funding' || 
+Lender_Account__r.Name = 'National Funding - Diamond WC Funding' || 
+Lender_Account__r.Name = 'National Funding - Platinum WC Funding' || 
+Lender_Account__r.Name = 'National Funding - Commercial WC Funding') &amp;&amp; 
+(ISPICKVAL(StageName, "Docs Out - MCA")) &amp;&amp;
+DATEVALUE(Fund_Date__c) &gt;= DATE(2014,10,28)</errorConditionFormula>
+    <errorMessage>The Amount Collected must be equal to the Docs Payment multiplied by Docs Term</errorMessage>
+</ValidationRule>

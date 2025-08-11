@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Legal_Stat_LLC__c</fullName>
+    <description>Mark an X if Legal Status is LLC</description>
+    <externalId>false</externalId>
+    <formula>if (Contains(Text( Opportunity_Name__r.Account.Legal_Status__c  ),"LLC") , "X" ," ")</formula>
+    <inlineHelpText>Mark an X if Legal Status is LLC</inlineHelpText>
+    <label>Legal Stat LLC</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

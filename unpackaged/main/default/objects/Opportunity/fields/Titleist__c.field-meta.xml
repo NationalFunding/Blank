@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Titleist__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>This will be the FPC user who is responsible for proper titling and checking it off.</description>
+    <inlineHelpText>This will be the FPC user who is responsible for proper titling and checking it off.</inlineHelpText>
+    <label>Titleist</label>
+    <lookupFilter>
+        <active>true</active>
+        <booleanFilter>1 OR 2</booleanFilter>
+        <filterItems>
+            <field>User.Profile.Id</field>
+            <operation>equals</operation>
+            <value>00e80000001C1Hy</value>
+        </filterItems>
+        <filterItems>
+            <field>User.Profile.Id</field>
+            <operation>equals</operation>
+            <value>00e80000001C1MU</value>
+        </filterItems>
+        <isOptional>true</isOptional>
+    </lookupFilter>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Opportunities2</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

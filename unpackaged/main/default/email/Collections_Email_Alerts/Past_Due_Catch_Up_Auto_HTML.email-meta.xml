@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Past Due/Catch Up - Auto HTML</name>
+    <style>none</style>
+    <subject>CU {!Case.Merchant_Number__c} - {!Case.Legal_Name__c}</subject>
+    <textOnly>Hello,
+
+Your account is past due by {!IF (AND(Case.Originating_Lender_formula__c=&quot;Quick Bridge Funding&quot;, Case.Payment_Frequency__c=&quot;Weekly&quot;), (Case.Payments_Behind__c/5),Case.Payments_Behind__c)} payments. Are you in the position to get any of these caught up at this time?
+
+We can run as a lump sum or split these up if needed and run them on days of your choice. Please let me know.
+
+Note: Please respond directly to this email and do not remove any of the contents. Any payment ran past date of maturity carries an additional $10 per day fee. **Fee will be waived if your modification was due to the hurricanes**
+
+Thank you,
+
+{!Case.Case_Email_Signature_Name_Formula__c}
+
+{!Case.Originating_Lender_formula__c}
+{!$Setup.Company_Information__c.Street__c},
+{!$Setup.Company_Information__c.City__c}, {!$Setup.Company_Information__c.State__c} {!$Setup.Company_Information__c.Zip__c}
+P: {!Case.OwnerPhone}
+
+
+
+{!Case.Email_Thread_ID__c}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

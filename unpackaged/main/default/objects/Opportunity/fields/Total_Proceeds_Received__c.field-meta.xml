@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Proceeds_Received__c</fullName>
+    <description>This field will calculate the total proceeds received.</description>
+    <formula>Actual_Proceeds_For_Actual__c +  Proceeds_Amount__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>This field will calculate the total proceeds received.</inlineHelpText>
+    <label>Total Proceeds Received</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

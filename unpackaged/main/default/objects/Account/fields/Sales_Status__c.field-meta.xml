@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sales_Status__c</fullName>
+    <label>Sales Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>0: Contact</fullName>
+                <default>false</default>
+                <label>0: Contact</label>
+            </value>
+            <value>
+                <fullName>1: Submit</fullName>
+                <default>false</default>
+                <label>1: Submit</label>
+            </value>
+            <value>
+                <fullName>2: Underwrite</fullName>
+                <default>false</default>
+                <label>2: Underwrite</label>
+            </value>
+            <value>
+                <fullName>3: Sell</fullName>
+                <default>false</default>
+                <label>3: Sell</label>
+            </value>
+            <value>
+                <fullName>4: Fund</fullName>
+                <default>false</default>
+                <label>4: Fund</label>
+            </value>
+            <value>
+                <fullName>Closed Won</fullName>
+                <default>false</default>
+                <label>Closed Won</label>
+            </value>
+            <value>
+                <fullName>Closed Lost</fullName>
+                <default>false</default>
+                <label>Closed Lost</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

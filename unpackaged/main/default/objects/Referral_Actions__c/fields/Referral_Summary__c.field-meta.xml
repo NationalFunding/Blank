@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Referral_Summary__c</fullName>
+    <description>This field will serve as the association / relationship to the referral summary associated with the specific referral from a source.</description>
+    <label>Referral Summary</label>
+    <referenceTo>Referral_Summary__c</referenceTo>
+    <relationshipLabel>Referral Actions</relationshipLabel>
+    <relationshipName>Referral_Actions</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

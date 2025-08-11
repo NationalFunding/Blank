@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Exception_Request_Approved</fullName>
+        <description>Exception Request Approved</description>
+        <protected>false</protected>
+        <recipients>
+            <type>creator</type>
+        </recipients>
+        <recipients>
+            <field>Funder__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Exception_Requests/Exception_Request_Approved</template>
+    </alerts>
+    <alerts>
+        <fullName>Exception_Request_Approved_L2</fullName>
+        <description>Exception Request Approved L2</description>
+        <protected>false</protected>
+        <recipients>
+            <type>creator</type>
+        </recipients>
+        <recipients>
+            <field>Sales_Manager__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Exception_Requests/Exception_Request_Approved</template>
+    </alerts>
+    <alerts>
+        <fullName>Exception_Request_Email_Notification_to_Department_Managers</fullName>
+        <description>Exception Request - Email Notification to Department Managers</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Credit_Escalated_Exception_Request</recipient>
+            <type>group</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Exception_Requests/Exception_Request_Alert_Level_2</template>
+    </alerts>
+    <alerts>
+        <fullName>Exception_Request_Email_Notification_to_Team_Leads</fullName>
+        <ccEmails>secondreview@nationalfunding.com</ccEmails>
+        <description>Exception Request - Email Notification to Team Leads</description>
+        <protected>false</protected>
+        <senderType>CurrentUser</senderType>
+        <template>Exception_Requests/Exception_Request_Alert_Level_1</template>
+    </alerts>
+    <alerts>
+        <fullName>Exception_Request_Escalated</fullName>
+        <description>Exception Request Escalated</description>
+        <protected>false</protected>
+        <recipients>
+            <type>creator</type>
+        </recipients>
+        <recipients>
+            <field>Sales_Manager__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Exception_Requests/Exception_Request_Escalated_by_Manager</template>
+    </alerts>
+    <alerts>
+        <fullName>Exception_Request_Rejected</fullName>
+        <description>Exception Request Rejected</description>
+        <protected>false</protected>
+        <recipients>
+            <type>creator</type>
+        </recipients>
+        <recipients>
+            <field>Funder__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Exception_Requests/Exception_Request_Rejected</template>
+    </alerts>
+    <alerts>
+        <fullName>Exception_Request_Rejected_L2</fullName>
+        <description>Exception Request Rejected L2</description>
+        <protected>false</protected>
+        <recipients>
+            <type>creator</type>
+        </recipients>
+        <recipients>
+            <field>Sales_Manager__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Exception_Requests/Exception_Request_Rejected</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Status_Approved</fullName>
+        <description>On Exception Request, update the field "Status" to "Approved"</description>
+        <field>Status__c</field>
+        <literalValue>Approved</literalValue>
+        <name>Status = Approved</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Status_Rejected_Final</fullName>
+        <description>On Exception Request, update the field "Status" to "Rejected Final"</description>
+        <field>Status__c</field>
+        <literalValue>Rejected Final</literalValue>
+        <name>Status = Rejected Final</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Status_Rejected_Level_1</fullName>
+        <description>On Exception Request, update the field "Status" to "Rejected Level 1"</description>
+        <field>Status__c</field>
+        <literalValue>Rejected Level 1</literalValue>
+        <name>Status = Rejected Level 1</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+</Workflow>

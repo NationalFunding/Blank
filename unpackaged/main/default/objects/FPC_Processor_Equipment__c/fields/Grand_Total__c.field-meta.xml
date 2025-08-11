@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Grand_Total__c</fullName>
+    <description>Grand total of costs related to the processing equipment.</description>
+    <inlineHelpText>Type in the grand total of all costs associated with the processing equipment.</inlineHelpText>
+    <label>Grand Total</label>
+    <precision>17</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

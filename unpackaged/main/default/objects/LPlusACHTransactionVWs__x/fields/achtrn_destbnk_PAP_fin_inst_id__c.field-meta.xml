@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>achtrn_destbnk_PAP_fin_inst_id__c</fullName>
+    <description>achtrn_destbnk_PAP_fin_inst_id</description>
+    <externalDeveloperName>achtrn_destbnk_PAP_fin_inst_id</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>achtrn_destbnk_PAP_fin_inst_id</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

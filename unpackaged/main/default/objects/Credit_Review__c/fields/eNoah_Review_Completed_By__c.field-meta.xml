@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>eNoah_Review_Completed_By__c</fullName>
+    <description>This field will capture the name of the user that clicked the EP Review Done button for the first time.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This field will capture the name of the user that clicked the EP Review Done button for the first time.</inlineHelpText>
+    <label>eNoah Review Completed By</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

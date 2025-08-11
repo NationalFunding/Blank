@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Invalid_Mobile_Phone__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This box will be checked in the contacts Mobile phone is invalid.</description>
+    <inlineHelpText>Check this box if the contacts Mobile phone is invalid.</inlineHelpText>
+    <label>Invalid Mobile Phone</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Credit_Status__c</fullName>
+    <description>IF(Related_Credit_Score__c == null,IF(Original_Credit_Score_ID__c == null,'Credit Not Ran',HYPERLINK('file://s29/CreditRpts/'+Original_Credit_Score_ID__c+'.txt','View Full Report','_blank')),HYPERLINK('file://s29/CreditRpts/'+CASESAFEID(Related_Credit_Score__c)+'.txt','View Full Report','_blank'))</description>
+    <externalId>false</externalId>
+    <formula>IF(Related_Credit_Score__c == null,IF(Original_Credit_Score_ID__c == null,'Credit Not Ran',HYPERLINK('file://s29/CreditRpts/'+Original_Credit_Score_ID__c+"-"+"1"+'.txt','View Full Report','_blank')),HYPERLINK('file://s29/CreditRpts/'+CASESAFEID(Related_Credit_Score__c)+'.txt','View Full Report','_blank'))</formula>
+    <inlineHelpText>Jody's old formula above</inlineHelpText>
+    <label>Credit Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

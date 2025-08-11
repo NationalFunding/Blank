@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EFX_Business_Summary__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Link to the Equifax Commercial Business Credit Summary for the Credit Review</description>
+    <label>EFX_Business_Summary</label>
+    <referenceTo>Business_Credit_Summary__c</referenceTo>
+    <relationshipLabel>Credit Reviews (EFX_Business_Summary)</relationshipLabel>
+    <relationshipName>Credit_Reviews_EFX_Business</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

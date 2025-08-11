@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Exception Requests by Renewals - Alert Renewal Director</name>
+    <style>none</style>
+    <subject>Exception Request by Renewals</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

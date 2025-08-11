@@ -1,0 +1,14 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="50" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[<b>A Stipulation has been added to your Approval.</b>]]></td>
+</tr>
+<tr valign="top" height="300" >
+<td tEditID="c1r2" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r2" locked="0" >
+<![CDATA[<div style=""><span style="font-family: Arial, sans-serif; background-color: rgb(255, 255, 255); font-size: 12pt;">Navigate to the Funding record to see the details of the Stip and submit any documentation or comments.</span></div><font face="Arial, sans-serif" style=""><span style="background-color: rgb(255, 255, 255);"><div><span style="background-color: rgb(255, 255, 255);"><br></span></div><b>Opportunity</b>: {!FPC_Funding_del__c.Opportunity__c}&nbsp;</span><br style=""><br style=""><span style="background-color: rgb(255, 255, 255);"><b>Lender</b>: {!FPC_Funding_del__c.Lender_ID__c}&nbsp;</span><br style=""><br style=""><span style="background-color: rgb(255, 255, 255);"><b>Funding Record</b>: {!FPC_Funding_del__c.Link}&nbsp;</span><br style=""></font><br style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;"><br>]]></td>
+</tr>
+<tr valign="top" height="50" >
+<td tEditID="c1r3" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r3" locked="0" >
+<![CDATA[]]></td>
+</tr>
+</table>

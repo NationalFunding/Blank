@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sub_2_Analyst</fullName>
+    <availability>online</availability>
+    <description>This button will mark the field "Submit to Analyst" as true.  This will trigger an email alert that is sent to the lease decisions for further processing.</description>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Sub 2 Analyst</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+
+var s = new sforce.SObject("Lease_Credit_Review__c"); 
+s.id = "{!Lease_Credit_Review__c.Id}"; 
+s.Submit_to_Analyst__c = true; 
+result = sforce.connection.update([s]); 
+
+window.location.reload();</url>
+</WebLink>

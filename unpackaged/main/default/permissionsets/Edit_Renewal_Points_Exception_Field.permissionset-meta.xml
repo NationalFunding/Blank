@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Allows assigned user to edit the field "Renewal Points Exception" on Opportunities. Read only for other users.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Edit Renewal Points Exception Field</label>
+    <license>Salesforce</license>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Renewal_Points_Exception__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+</PermissionSet>

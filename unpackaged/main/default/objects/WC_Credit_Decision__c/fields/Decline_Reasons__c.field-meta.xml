@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Decline_Reasons__c</fullName>
+    <description>List of reasons why a decision recommendation was NF Auto Decline or Auto Decline</description>
+    <label>Decline Reasons</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>FICO</fullName>
+                <default>false</default>
+                <label>FICO</label>
+            </value>
+            <value>
+                <fullName>Bankruptcy</fullName>
+                <default>false</default>
+                <label>Bankruptcy</label>
+            </value>
+            <value>
+                <fullName>Public Records</fullName>
+                <default>false</default>
+                <label>Public Records</label>
+            </value>
+            <value>
+                <fullName>SIC</fullName>
+                <default>false</default>
+                <label>SIC</label>
+            </value>
+            <value>
+                <fullName>AGS</fullName>
+                <default>false</default>
+                <label>AGS</label>
+            </value>
+            <value>
+                <fullName>ADB</fullName>
+                <default>false</default>
+                <label>ADB</label>
+            </value>
+            <value>
+                <fullName>NSFs</fullName>
+                <default>false</default>
+                <label>NSFs</label>
+            </value>
+            <value>
+                <fullName>NDs</fullName>
+                <default>false</default>
+                <label>NDs</label>
+            </value>
+            <value>
+                <fullName>LA Brunch</fullName>
+                <default>false</default>
+                <label>LA Brunch</label>
+            </value>
+            <value>
+                <fullName>TIB</fullName>
+                <default>false</default>
+                <label>TIB</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

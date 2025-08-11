@@ -1,0 +1,67 @@
+<apex:page standardController="Lead" extensions="SendDLPRequestLead">
+    <apex:sectionHeader title="{!lead.Name}" subtitle="Send Digital Request" />
+    <apex:pageMessages />
+    <apex:form >
+        <apex:commandLink action="{!cancel}" value="<< Go Back"/>
+        <apex:pageblock >
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Send Email" action="{!SendEmail}"/>
+            </apex:pageBlockButtons>
+            <apex:pageblockSection title="Leads" collapsible="false" >                
+                <apex:pageblockTable value="{!Leads}" var="con">
+                    <apex:facet name="header">Choose which leads to send the Digital request email:</apex:facet>
+                    <apex:column ><apex:inputCheckbox id="looped" value="{!con.IsSelected}" onclick="uncheckOthers(this)"/></apex:column> <!--onclick="enableDisable(this)"-->
+                    <apex:column value="{!con.Lead.Name}" />
+                    <apex:column headerValue="Email">
+                        <apex:outputPanel styleClass="requiredInput" layout="block" rendered="{!con.Lead.Email==NULL}">
+                        <apex:outputPanel styleClass="requiredBlock" layout="block"/>
+                        <apex:inputField value="{!con.Lead.Email}"
+                             styleClass="requiredInput" />
+                        </apex:outputPanel>    
+                        <apex:outputField value="{!con.Lead.Email}" rendered="{!con.Lead.Email!=NULL}"/>
+                    </apex:column>
+                </apex:pageblockTable>
+            </apex:pageblockSection>
+            
+            <!--<apex:pageblockSection title="Accounts" collapsible="false">
+                <apex:pageblockTable value="{!BankAccounts}" var="bd" captionStyle="align:right;">
+                    <apex:facet name="header">Choose which accounts you would like bank data reported on:</apex:facet>
+                       <apex:column >  
+                        <apex:inputCheckbox value="{!bd.BankData.Request_Bank__c}" onclick="uncheckOthers(this)"/>                   
+                        <!--<apex:selectRadio ><apex:selectOption itemValue="{!bd.BankData.BD_Process__c}"/></apex:selectRadio>--
+                      </apex:column> 
+                    <!--<apex:column onclick="uncheckOthers(this)" value="{!bd.BankData.Bank_Name__c}"/>--   
+                    <apex:column value="{!bd.BankData.Bank_Name__c}"/>     
+                </apex:pageblockTable>
+            </apex:pageblockSection>-->
+            
+
+
+        </apex:pageblock>
+    </apex:form>
+
+<script type="text/javascript">
+   function uncheckOthers(radio) {
+     var name = radio.name.substring(radio.name.lastIndexOf(':'));
+     var elements = radio.form.elements;
+     for (var i = 0; i < elements.length; i++) {
+        if (elements[i].name.substring(elements[i].name.lastIndexOf(':')) == name) {
+            elements[i].checked = false;
+        }
+      }
+        radio.checked = true;
+    }
+
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript" >
+        j$ = jQuery.noConflict();
+
+        function validateLead(e) {
+            if(j$("#looped:checked").length == 0){
+                e.preventDefault();
+                alert('Select one at least');
+            }
+        }
+    </script>    
+</apex:page>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Syndicate_Deal__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This permission is checked in the flow "Opportunity - Syndicate Deal Screen Flow" to determine if they have permissions to click the button "Syndicate Deal" on the opportunity.</description>
+    <label>Syndicate Deal</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

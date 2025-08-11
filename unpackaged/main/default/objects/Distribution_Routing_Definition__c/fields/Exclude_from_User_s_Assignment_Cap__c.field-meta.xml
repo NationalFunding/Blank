@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Exclude_from_User_s_Assignment_Cap__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Check if the Record Assignments from this Routing Definition should not be counted towards the users daily cap during record distribution</description>
+    <inlineHelpText>Check if the Record Assignments from this Routing Definition should not be counted towards the users daily cap during record distribution. Change will apply retroactively for the day when the field is updated.</inlineHelpText>
+    <label>Exclude from User's Assignment Cap</label>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

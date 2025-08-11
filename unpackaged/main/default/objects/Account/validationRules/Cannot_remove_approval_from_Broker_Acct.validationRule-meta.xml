@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_remove_approval_from_Broker_Acct</fullName>
+    <active>true</active>
+    <description>Once a Broker Account has been approved, the Broker Approved checkbox cannot be unchecked. Instructs user to check the Broker Declined box.</description>
+    <errorConditionFormula>ISCHANGED( Broker_Approved__c ) &amp;&amp;
+Broker_Approved__c = FALSE</errorConditionFormula>
+    <errorMessage>Once a Broker Account has been approved, the Broker Approved checkbox cannot be unchecked. Please check the Broker Declined box and add the reason for decline in the Broker Decline Reason field.</errorMessage>
+</ValidationRule>

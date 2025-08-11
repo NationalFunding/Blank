@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <assignments>
+        <description>Use existing Principal Consumer Risk Summary</description>
+        <name>Use_Existing_PCRS</name>
+        <label>Use Existing PCRS</label>
+        <locationX>270</locationX>
+        <locationY>566</locationY>
+        <assignmentItems>
+            <assignToReference>Principal_Consumer_Risk_Summary</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Existing_Principal_Consumer_Risk_Summary</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <description>Use triggering Consumer Risk Summary</description>
+        <name>Use_Triggering_CRS</name>
+        <label>Use Triggering CRS</label>
+        <locationX>292</locationX>
+        <locationY>1034</locationY>
+        <assignmentItems>
+            <assignToReference>Principal_Consumer_Risk_Summary</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Triggering_Consumer_Risk_Summary</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <description>Is the existing Principal Consumer Risk Summary expired?</description>
+        <name>Existing_PCRS_Expired</name>
+        <label>Existing PCRS Expired?</label>
+        <locationX>50</locationX>
+        <locationY>350</locationY>
+        <defaultConnector>
+            <targetReference>Triggering_CRS_Completed_Date_PCRS_Completed_Date</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Existing_PCRS_Expired</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Existing_Principal_Consumer_Risk_Summary.Expiration_Date__c</leftValueReference>
+                <operator>LessThan</operator>
+                <rightValue>
+                    <elementReference>$Flow.CurrentDate</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Use_Triggering_CRS</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Is the Principal Consumer Risk Summary populated for the Lead or Contact associated with the triggering Consumer Risk Summary?</description>
+        <name>PCRS_Populated</name>
+        <label>PCRS Populated?</label>
+        <locationX>292</locationX>
+        <locationY>134</locationY>
+        <defaultConnector>
+            <targetReference>Use_Triggering_CRS</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes_PCRS_Populated</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Existing_Principal_Consumer_Risk_Summary</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Existing_Principal_Consumer_Risk_Summary</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Is the Completed Date/Time of the triggering Consumer Risk Summary more recent than the Completed Date/Time of the existing Consumer Risk Summary?</description>
+        <name>Triggering_CRS_Completed_Date_PCRS_Completed_Date</name>
+        <label>Triggering CRS Completed Date &gt; PCRS Completed Date?</label>
+        <locationX>182</locationX>
+        <locationY>458</locationY>
+        <defaultConnector>
+            <targetReference>Use_Existing_PCRS</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Triggering_CRS_Completed_Date_PCRS_Completed_Date</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Triggering_Consumer_Risk_Summary.Completed_Date_Time__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <elementReference>Triggering_Consumer_Risk_Summary.Success_Date_Time__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Use_Triggering_CRS</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <description>Invoked by Consumer Risk Summary - Set Principal Consumer Risk Summary. Determines which Consumer Risk Summary to associate with the respective Lead or Contact.
+CRD-186</description>
+    <environments>Default</environments>
+    <interviewLabel>Consumer Risk Summary - Determine Principal Consumer Risk Summary {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Consumer Risk Summary - Determine Principal Consumer Risk Summary</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Get existing Principal Consumer Risk Summary from either the Lead or Contact.</description>
+        <name>Get_Existing_Principal_Consumer_Risk_Summary</name>
+        <label>Get Existing Principal Consumer Risk Summary</label>
+        <locationX>50</locationX>
+        <locationY>242</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Existing_PCRS_Expired</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Existing_Principal_Consumer_Risk_Summary.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Consumer_Risk_Summary__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>166</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>PCRS_Populated</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>If checked, the Existing Consumer Risk Summary is associated with a Contact.</description>
+        <name>Contact_Input</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>Existing_Principal_Consumer_Risk_Summary</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Consumer_Risk_Summary__c</objectType>
+    </variables>
+    <variables>
+        <description>If checked, the Existing Consumer Risk Summary is associated with a Lead.</description>
+        <name>Lead_Input</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>Principal_Consumer_Risk_Summary</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Consumer_Risk_Summary__c</objectType>
+    </variables>
+    <variables>
+        <name>Triggering_Consumer_Risk_Summary</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Consumer_Risk_Summary__c</objectType>
+    </variables>
+</Flow>

@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>56.0</apiVersion>
+    <assignments>
+        <name>Set_Validation_Status_to_Eligible</name>
+        <label>Set Validation Status to Eligible</label>
+        <locationX>666</locationX>
+        <locationY>734</locationY>
+        <assignmentItems>
+            <assignToReference>varValidationStatus</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Eligible</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Set_Validation_Status_to_Ineligible</name>
+        <label>Set Validation Status to Ineligible</label>
+        <locationX>138</locationX>
+        <locationY>350</locationY>
+        <assignmentItems>
+            <assignToReference>varValidationStatus</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>NotEligible</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <name>CatchUpDrip_Status_Check</name>
+        <label>Catch Up Drip Status Check</label>
+        <locationX>490</locationX>
+        <locationY>242</locationY>
+        <defaultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Set_Validation_Status_to_Ineligible</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>CU_Eligible</name>
+            <conditionLogic>NOT 1 AND NOT 2 AND NOT 3 AND NOT 4 AND (5 OR 6) AND NOT 7</conditionLogic>
+            <conditions>
+                <leftValueReference>inputCaseRecord.Account.Collections_Stage__c</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Default</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>inputCaseRecord.Account.Collections_Stage__c</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Charge Off</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>inputCaseRecord.Account.Collections_Stage__c</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Modification</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>inputCaseRecord.Account.Collections_Status__c</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>CU Scheduled</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>inputCaseRecord.Catch_Up_Drip_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Eligible</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>inputCaseRecord.Catch_Up_Drip_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>In Progress</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>inputCaseRecord.Account.Collections_Stage__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FRPSA - Recon</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Validation_Status_to_Eligible</targetReference>
+            </connector>
+            <label>CU Eligible</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Charge_Off_Drip_Status_Check</name>
+        <label>Charge Off Drip Status Check</label>
+        <locationX>930</locationX>
+        <locationY>242</locationY>
+        <defaultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Set_Validation_Status_to_Ineligible</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Eligible_Charge_Off</name>
+            <conditionLogic>(1 OR 2) AND 3 AND 4 AND 5</conditionLogic>
+            <conditions>
+                <leftValueReference>inputCaseRecord.Charge_Off_Drip_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Eligible</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>inputCaseRecord.Charge_Off_Drip_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>In Progress</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>inputCaseRecord.Collections_Stage__c</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Charge Off</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>inputCaseRecord.Opportunity__r.Termination_Date__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>inputCaseRecord.Third_Party_Debt_Collector__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Validation_Status_to_Eligible</targetReference>
+            </connector>
+            <label>Eligible</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Drip_Status_Check</name>
+        <label>Drip Status Check</label>
+        <locationX>50</locationX>
+        <locationY>242</locationY>
+        <defaultConnector>
+            <targetReference>Set_Validation_Status_to_Ineligible</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Eligible</name>
+            <conditionLogic>(1 OR 2) AND 3 AND 4 AND 5 AND 6</conditionLogic>
+            <conditions>
+                <leftValueReference>inputCaseRecord.NCCI_Legal_Demand_Drip_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Eligible</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>inputCaseRecord.NCCI_Legal_Demand_Drip_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>In Progress</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>formula_FRPSA_Default_or_Non_FRPSA</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>inputCaseRecord.Collections_Stage__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Charge Off</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>inputCaseRecord.Collections_Stage__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Paying</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>inputCaseRecord.Collections_Stage__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Modification</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Validation_Status_to_Eligible</targetReference>
+            </connector>
+            <label>Eligible</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Input_Drip</name>
+        <label>Input Drip</label>
+        <locationX>666</locationX>
+        <locationY>134</locationY>
+        <defaultConnector>
+            <targetReference>Log</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>NCCI</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>inputDrip</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>NCCI</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Drip_Status_Check</targetReference>
+            </connector>
+            <label>NCCI</label>
+        </rules>
+        <rules>
+            <name>Catch_Up</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>inputDrip</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Catch_Up</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>CatchUpDrip_Status_Check</targetReference>
+            </connector>
+            <label>Catch Up</label>
+        </rules>
+        <rules>
+            <name>Charge_Off</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>inputDrip</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Charge_Off</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Charge_Off_Drip_Status_Check</targetReference>
+            </connector>
+            <label>Charge Off</label>
+        </rules>
+    </decisions>
+    <description>+ BAU-427 3rd Party Debt Collector Check
++ BAU-15 FRPSA Product
++allow FRPSA for CU Drip
++fix - FRPSA Recon not eligible for CU drip</description>
+    <environments>Default</environments>
+    <formulas>
+        <description>FRPSA cases must be in FRPSA - Default.</description>
+        <name>formula_FRPSA_Default_or_Non_FRPSA</name>
+        <dataType>Boolean</dataType>
+        <expression>({!inputCaseRecord.Product__c} = &apos;FRPSA&apos; &amp;&amp; {!inputCaseRecord.Collections_Stage__c} = &apos;FRPSA - Default&apos;) || 
+{!inputCaseRecord.Product__c} &lt;&gt; &apos;FRPSA&apos;</expression>
+    </formulas>
+    <interviewLabel>Case - Automated Email Drip Validation {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Case - Automated Email Drip Validation</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Log</name>
+        <label>Log</label>
+        <locationX>1282</locationX>
+        <locationY>242</locationY>
+        <inputAssignments>
+            <field>exception__c</field>
+            <value>
+                <elementReference>inputCaseRecord.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>level__c</field>
+            <value>
+                <stringValue>Alert</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>message__c</field>
+            <value>
+                <stringValue>Default Path Taken</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>tags__c</field>
+            <value>
+                <stringValue>Case Drip Eligibility Check</stringValue>
+            </value>
+        </inputAssignments>
+        <object>LogMessage__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <runInMode>SystemModeWithoutSharing</runInMode>
+    <start>
+        <locationX>540</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Input_Drip</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>inputCaseRecord</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Case</objectType>
+    </variables>
+    <variables>
+        <name>inputDrip</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varValidationStatus</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

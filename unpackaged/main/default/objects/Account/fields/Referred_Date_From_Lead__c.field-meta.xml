@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Referred_Date_From_Lead__c</fullName>
+    <description>This field will capture referral data from the lead, specifically when the lead was referred.  It will be used in a formula field and a validation rule.</description>
+    <inlineHelpText>This field will capture referral data from the lead, specifically when the lead was referred.  It will be used in a formula field and a validation rule.</inlineHelpText>
+    <label>Referred Date - From Lead</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

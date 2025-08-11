@@ -1,0 +1,5 @@
+Deal Review Alert 
+
+Approval Amount: {!Credit_Review__c.Max_Approval_Amount__c}
+
+{!Credit_Review__c.Link}

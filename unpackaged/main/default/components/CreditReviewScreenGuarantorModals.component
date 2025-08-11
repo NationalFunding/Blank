@@ -1,0 +1,283 @@
+<apex:component layout="none">
+<apex:attribute name="contacts" type="contact[]" description="contacts"/>
+<script type="text/javascript">
+  function callSaveGuarantorInfo(con_id,field){   
+      Visualforce.remoting.Manager.invokeAction(
+       'CreditreViewScreenController.saveGuarantorInfo', 
+           parentId,
+           con_id,
+           field,
+           saveGuarantorInfoCallback(field),
+           {escape:true}
+       )
+  }
+
+  function saveGuarantorInfoCallback(pg_number) {
+    return function(result, event) {
+      reloadGuarantor();
+      // var AF_experian_name = 'updatePG' + pg_number + 'ExperianPanel';
+      // window[AF_experian_name]();
+
+      // var AF_equifax_name = 'updatePG' + pg_number + 'EquifaxPanel';
+      // window[AF_equifax_name]();
+    }
+  }
+
+  function removePg(obj,type,prifix){
+    var r = confirm('Are you Sure!');
+    if(r){
+    //olivia additions
+    if(type == 'PG1__c'){
+        $(obj).remove();
+        $('#'+prifix+'-ssn').attr('disabled','disabled');
+        $('#'+prifix+'-ssn').next('button').attr('disabled','disabled');
+        $('#'+prifix+'-ssn').next('button').attr('disabled','disabled');
+        $('#'+prifix+'-ssn').find('i').hide()
+         Visualforce.remoting.Manager.invokeAction(
+           'CreditreViewScreenController.deletePG',
+               parentId,
+               type,
+               function(result, event) {
+                fetchNotesAndAttachments()
+               },{escape:true}
+          );
+        setTimeout(function(){reloadGuarantor();},1000);
+       removeCRSRelation1();
+        removeCreditReviewRelation1();
+    }
+    if(type == 'PG2__c'){
+        $(obj).remove();
+        $('#'+prifix+'-ssn').attr('disabled','disabled');
+        $('#'+prifix+'-ssn').next('button').attr('disabled','disabled');
+        $('#'+prifix+'-ssn').next('button').attr('disabled','disabled');
+        $('#'+prifix+'-ssn').find('i').hide()
+         Visualforce.remoting.Manager.invokeAction(
+           'CreditreViewScreenController.deletePG',
+               parentId,
+               type,
+               function(result, event) {
+                fetchNotesAndAttachments()
+               },{escape:true}
+          );
+        setTimeout(function(){
+           reloadGuarantor();
+        },1000);
+       removeCRSRelation2();
+        removeCreditReviewRelation2();
+    }
+    if(type == 'PG3__c'){
+        $(obj).remove();
+        $('#'+prifix+'-ssn').attr('disabled','disabled');
+        $('#'+prifix+'-ssn').next('button').attr('disabled','disabled');
+        $('#'+prifix+'-ssn').next('button').attr('disabled','disabled');
+        $('#'+prifix+'-ssn').find('i').hide()
+         Visualforce.remoting.Manager.invokeAction(
+           'CreditreViewScreenController.deletePG',
+               parentId,
+               type,
+               function(result, event) {
+                fetchNotesAndAttachments()
+               },{escape:true}
+          );
+        setTimeout(function(){
+           reloadGuarantor();
+        },1000);
+        removeCRSRelation3();
+        removeCreditReviewRelation3();
+    }
+  }
+else{
+
+    }
+ }
+  function fillContacts(prefix){
+    Visualforce.remoting.Manager.invokeAction(
+       'CreditreViewScreenController.getSSNContacts', 
+           parentId,
+           function(result, event) {
+             var table='';
+              if(result.length > 0){
+                table ='<table class="table table-striped table-bordered table-hover">';
+                  table +='<thead>';
+                    table +='<tr>';
+                      table +='<th>#</th>';
+                      table +='<th>Name</th>';
+                      table +='<th>Title</th>';
+                      table +='<th>Ownership %</th>';
+                      table +='<th>Email</th>';
+                      table +='<th>Phone</th>';
+                    table +='</tr>';
+                  table +='</thead>';
+                  table +='<tbody>';
+                  for(var i=0; i < result.length ; i++){
+                    var ssn = result[i].SSN_Encrypted__c !== undefined ? result[i].SSN_Encrypted__c:'N/A';
+                    var title = result[i].Title !== undefined ?result[i].Title:'N/A';
+                    var email = result[i].Email !== undefined ?result[i].Email:'N/A';
+                    var phone = result[i].Phone !== undefined ?result[i].Phone:'N/A';
+                    var percentage = result[i].Ownership_Percentage__c !==undefined ?result[i].Ownership_Percentage__c:'N/A';
+                    table +='<tr>';
+                      table +='<td>';
+                        table +='<input type="hidden" class="ssn" value="'+ssn+'" />';
+                        table +='<input  type="radio" value="'+result[i].Id+'" class="'+prefix+'-radio" name="'+prefix+'-radio" style="margin:0px" />';
+                      table +='</td>';
+                      table +='<td class="contact_name">'+result[i].Name+'</td>';
+                      table +='<td>'+title+'</td>';
+                      table +='<td class="contact_ownership">'+percentage+'</td>';
+                      table +='<td>'+email+'</td>';
+                      table +='<td>'+phone+'</td>';
+                    table +='</tr>';
+                  }
+                  table +='</tbody>';
+                table +='</table>';
+              }else{
+                table+='<center> No Record </center>';
+              }
+              $('#'+prefix+'-box').html(table);
+           },{escape:true}
+       )
+  }
+  </script>
+  <!--Signor Modal Starts here-->
+  <div id="signor-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3 id="myModalLabel">Signor</h3>
+        </div>
+        <div class="modal-body">
+            <div style="max-height:350px;overflow-y:scroll" id="signor-box"> 
+            </div>
+        </div>
+        <div class="modal-footer" style="text-align:center;">
+          <button class="btn btn-primary" onClick="setSignorValue()" type="button">Save</button>
+          <!-- <button class="btn btn-primary" onclick="$('.con-firstname,.con-lastname,.con-ssn-encrpted,.con-ownership-percentage,.con-title,.con-phone').val('');$('.area').val('signor');$('#newcontact').modal('show');$('#signor-modal').modal('hide')" type="button">New Contact</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function addRemoveButton(id,field,type){
+     if(!$('#'+id).next('.delete-btn').length > 0){
+        $('#'+id).after('<span class="input-group-addon delete-btn" onclick="removePg(this,\''+field+'\',\''+type+'\')" style="cursor:pointer"> <i class="glyphicon glyphicon-remove-sign"></i> </span>');
+      } 
+    }
+    function setSignorValue(){
+      if($('#signor-box').text().indexOf('No Record') != 1){
+        if($('.signor-radio:checked').length < 1 ){
+            alert('Please Select Row');
+        }else{
+            var obj = $('.signor-radio:checked');
+            $('#signor-contact_id').val($(obj).val());
+            $('#signor-contact_name').val($(obj).closest('tr').find('.contact_name').text());
+            addRemoveButton('signor-contact_name','PG1__c','signor');
+            var Ownership = $(obj).closest('tr').find('.contact_ownership').text() != 'N/A'?$(obj).closest('tr').find('.contact_ownership').text():'';
+            $('#signor-ownership').val(Ownership);
+            $('#signor-contact_ssn').val($(obj).closest('tr').find('.ssn').val());
+            //$('#signor-ssn,#signor-ownership').removeAttr('disabled');
+            if(pullCreditPermission =='true')
+            $('.pull1').removeAttr('disabled'); 
+            callSaveGuarantorInfo($(obj).val(),'1');
+            $('#signor-modal').modal('hide');
+            getGuarantorInfo();
+           
+        }
+       }else{
+        $('#signor-modal').modal('hide');
+       } 
+    }
+  </script>
+  <!--Signor Modal Ends here-->
+  <!--Guarantor #2 Modal Starts here-->
+  <div id="guarantor2-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3 id="myModalLabel">Guarantor #2</h3>
+        </div>
+        <div class="modal-body">
+            <div style="max-height:350px;overflow-y:scroll" id="guarantor2-box"> 
+            </div>
+        </div>
+        <div class="modal-footer" style="text-align:center;">
+          <button class="btn btn-primary" onClick="setGuarantor2Value()" type="button">Save</button>
+          <!-- <button class="btn btn-primary" onclick="$('.con-firstname,.con-lastname,.con-ssn-encrpted,.con-ownership-percentage,.con-title,.con-phone').val('');$('.area').val('guarantor2');$('#newcontact').modal('show');$('#guarantor2-modal').modal('hide')" type="button">New Contact</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function setGuarantor2Value(){
+     if($('#guarantor2-box').text().indexOf('No Record') != 1){
+        if($('.guarantor2-radio:checked').length < 1 ){
+            alert('Please Select Row');
+        }else{
+            var obj = $('.guarantor2-radio:checked');
+            $('#guarantor2-contact_id').val($(obj).val());
+            $('#guarantor2-contact_name').val($(obj).closest('tr').find('.contact_name').text());
+            addRemoveButton('guarantor2-contact_name','PG2__c','gua2');
+            var Ownership = $(obj).closest('tr').find('.contact_ownership').text() != 'N/A'?$(obj).closest('tr').find('.contact_ownership').text():'';
+            $('#guarantor2-ownership').val(Ownership); 
+            $('#guarantor2-contact_ssn').val($(obj).closest('tr').find('.ssn').val());
+            $('#guarantor2-modal').modal('hide');
+            $('#gua2-ssn,#guarantor2-ownership').removeAttr('disabled');
+            if(pullCreditPermission =='true')
+            $('.pull2').removeAttr('disabled'); 
+            callSaveGuarantorInfo($(obj).val(),'2'); 
+            getGuarantorInfo();
+        }
+     }else{
+      $('#guarantor2-modal').modal('hide');
+     }
+    }
+  </script>
+  <!--Guarantor #2 Modal Ends here--> 
+  <!--Guarantor #3 Modal Starts here-->
+  <div id="guarantor3-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3 id="myModalLabel">Guarantor #3</h3>
+        </div>
+        <div class="modal-body">
+            <div style="max-height:350px;overflow-y:scroll" id="guarantor3-box">
+            </div>
+        </div>
+        <div class="modal-footer" style="text-align:center;">
+          <button class="btn btn-primary" onClick="setGuarantor3Value()" type="button">Save</button>
+          <!-- <button class="btn btn-primary" onclick="$('.con-firstname,.con-lastname,.con-ssn-encrpted,.con-ownership-percentage,.con-title,.con-phone').val('');$('.area').val('guarantor3');$('#newcontact').modal('show');$('#guarantor3-modal').modal('hide')" type="button">New Contact</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function setGuarantor3Value(){
+      if($('#guarantor3-box').text().indexOf('No Record') != 1){  
+        if($('.guarantor3-radio:checked').length < 1 ){
+            alert('Please Select Row!');
+        }
+        else{
+            var obj = $('.guarantor3-radio:checked');
+            $('#guarantor3-contact_id').val($(obj).val());
+            $('#guarantor3-contact_name').val($(obj).closest('tr').find('.contact_name').text());
+            addRemoveButton('guarantor3-contact_name','PG3__c','gua3');
+            var Ownership = $(obj).closest('tr').find('.contact_ownership').text() != 'N/A'?$(obj).closest('tr').find('.contact_ownership').text():'';
+            $('#guarantor3-ownership').val(Ownership);
+            $('#guarantor3-contact_ssn').val($(obj).closest('tr').find('.ssn').val());  
+            $('#guarantor3-modal').modal('hide');
+            $('#gua3-ssn,#guarantor3-ownership').removeAttr('disabled');
+            if(pullCreditPermission =='true')
+            $('.pull3').removeAttr('disabled');
+            callSaveGuarantorInfo($(obj).val(),'3');
+            getGuarantorInfo();
+        }
+      }
+      else{
+         $('#guarantor3-modal').modal('hide');
+      }
+  }
+  </script>
+  <!--Guarantor #3 Modal Ends here--> 
+</apex:component>

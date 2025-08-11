@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Audit_Complete_Record_Cant_be_Edited</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISPICKVAL(StageName, "Funded") &amp;&amp; 
+Actuals_Audit_Complete__c = True &amp;&amp; 
+Booking_Started__c = True &amp;&amp; 
+NOT(ISCHANGED(Internal_Prefund__c)) &amp;&amp; 
+NOT(ISCHANGED(External_Prefund__c)) &amp;&amp; 
+NOT(ISCHANGED(Notes__c)) &amp;&amp; 
+NOT(ISCHANGED(Projected_Final_Fund_Date__c)) &amp;&amp; 
+NOT(ISCHANGED(Titleist__c)) &amp;&amp; 
+NOT(ISCHANGED(Received_Title__c)) &amp;&amp; 
+NOT(ISCHANGED(Title_Received_Date__c)) &amp;&amp; 
+NOT(ISCHANGED(Title_Received_User__c)) &amp;&amp; 
+NOT(ISCHANGED(Title_Tracking_Number__c)) &amp;&amp; 
+NOT(ISCHANGED(Title_Perfected__c)) &amp;&amp; 
+NOT(ISCHANGED(Title_Perfected_Date__c)) &amp;&amp; 
+NOT(ISCHANGED(Title_Perfected_User__c)) &amp;&amp; 
+NOT(ISCHANGED(Sales_Rep_Manager_Email__c)) &amp;&amp; 
+NOT(ISCHANGED(Sum_of_Payment_Request_Amounts__c)) &amp;&amp; 
+$Profile.Name &lt;&gt; 'FPC - Accounting User' &amp;&amp; 
+$Profile.Name &lt;&gt; 'System Administrator' &amp;&amp; 
+$Profile.Name &lt;&gt; 'Services Profile' &amp;&amp; 
+$Profile.Name &lt;&gt; 'FPC - Marketing User' &amp;&amp;
+RecordType.Name = 'Lease Oppty'</errorConditionFormula>
+    <errorMessage>This record has been marked as Audit Complete and can only be edited by Accounting, please contact AccountingSupport@nationalfunding.com or your System Administrator for assistance.</errorMessage>
+</ValidationRule>

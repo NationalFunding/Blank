@@ -1,0 +1,6 @@
+Loan Number: {!Accounting_Instructions__c.Loan_Number__c}
+Legal Name: {!Accounting_Instructions__c.Legal_Name__c}
+
+{!Accounting_Instructions__c.Amount__c}
+
+{!Accounting_Instructions__c.Other_Comments__c}

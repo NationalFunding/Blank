@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Vehicle_or_Trailer__c</fullName>
+    <description>This field will indicate if a titled piece of equipment is a vehicle or trailer.</description>
+    <inlineHelpText>This field will indicate if a titled piece of equipment is a vehicle or trailer.</inlineHelpText>
+    <label>Vehicle or Trailer</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Titled__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Vehicle</fullName>
+                <default>false</default>
+                <label>Vehicle</label>
+            </value>
+            <value>
+                <fullName>Trailer</fullName>
+                <default>false</default>
+                <label>Trailer</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Yes</controllingFieldValue>
+            <valueName>Vehicle</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Yes</controllingFieldValue>
+            <valueName>Trailer</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

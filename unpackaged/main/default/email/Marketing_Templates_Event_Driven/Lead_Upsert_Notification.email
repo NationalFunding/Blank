@@ -1,0 +1,6 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="400" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[<div><font face="arial">Hi -&nbsp;</font></div><div><font face="arial"><br></font></div><div><font face="arial">A lead that you own has updated their information on the marketing website.&nbsp; Please follow up with the customer.&nbsp;&nbsp;</font></div><font face="arial"><div><font face="arial"><br></font></div>{!Lead.Link}</font><div><font face="arial"><br></font></div><div><font face="arial" size="1"><br></font></div><div><font face="arial" size="1">***This notification does not mean they signed an application.&nbsp; This notice indicates they have interacted with a form where they can input information.&nbsp;&nbsp;</font></div>]]></td>
+</tr>
+</table>

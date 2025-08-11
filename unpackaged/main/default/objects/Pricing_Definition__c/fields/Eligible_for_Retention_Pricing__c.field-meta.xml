@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Eligible_for_Retention_Pricing__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Retention Pricing Eligibility referenced in Override Retention Pricing Request flow (PD-1719)</description>
+    <inlineHelpText>Retention Pricing Eligibility</inlineHelpText>
+    <label>Eligible for Retention Pricing</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

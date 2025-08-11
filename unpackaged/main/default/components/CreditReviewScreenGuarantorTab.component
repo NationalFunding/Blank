@@ -1,0 +1,865 @@
+<apex:component layout="none" allowDML="true" controller="IDAnalyticsController">
+<!--<apex:attribute type="Consumer_Risk_Summary__c" name="ConsumerRiskSummaryObj1" description="Consumer_Risk_Summary__c"/>-->
+<!--<apex:attribute type="Consumer_Risk_Summary__c" name="consumerRiskObj1" description="Consumer_Risk_Summary__c"/>-->
+<!--<apex:attribute type="Credit_Review__c" name="consumerRiskObj" description="Credit Review"/>-->
+
+<apex:attribute type="Credit_Review__c" name="creditReviewObj" description="Credit Review"/>
+
+<apex:attribute type="Consumer_Credit_Summary__c" name="signorCCS" description="Consumer Credit Summary"/>
+<apex:attribute type="Consumer_Credit_Summary__c" name="g2CCS" description="Consumer Credit Summary"/>
+<apex:attribute type="Consumer_Credit_Summary__c" name="g3CCS" description="Consumer Credit Summary"/>
+<apex:attribute type="Boolean" name="signorHasNoCCS" description="Tells us if there are any CCS records for the guarantor"/>
+
+<!--<apex:attribute type="Credit_Review_Related_Contact__c[]" name="associatedContactsObj" description="Associated Contact"/>-->
+<!--<apex:attribute type="map" name="associatedContactsObjMap" description="Associated Contact Map"/>-->
+
+<apex:attribute type="string" name="table" description="Associated Contact Map"/>
+<apex:attribute type="Consumer_Credit_Summary__c" name="CreditSummaryObj1" description="Consumer_Credit_Summary__c"/>
+<apex:attribute type="Consumer_Credit_Summary__c" name="CreditSummaryObj2" description="Consumer_Credit_Summary__c"/>
+<apex:attribute type="Consumer_Credit_Summary__c" name="CreditSummaryObj3" description="Consumer_Credit_Summary__c"/>
+<apex:attribute type="Consumer_Credit_Summary__c" name="CreditSummaryObj4" description="Consumer_Credit_Summary__c"/>
+<apex:attribute type="Consumer_Credit_Summary__c" name="CreditSummaryObj5" description="Consumer_Credit_Summary__c"/>
+<apex:attribute type="Consumer_Credit_Summary__c" name="CreditSummaryObj6" description="Consumer_Credit_Summary__c"/>
+<!--<apex:includeScript value="{!$Resource.idAnalyticsJavaScript}"/>-->
+
+    <div class="row guarantor-info">
+
+    <h3>Guarantor Information</h3>
+     
+     <div class="col-md-12">
+          <div class="row" style="margin-bottom:15px;border-bottom:1px solid #ccc">
+             <div class="col-md-5" style="position:relative">
+              <div class="disabledByZ-index"></div>
+               <h4>Signor</h4>
+               <form class="form-horizontal">
+                 <fieldset>
+               <!-- Form Name --> 
+               <!-- Appended checkbox -->
+              <apex:outputPanel id="pg1_left">
+               <div class="form-group">
+                <label class="col-md-4 control-label" for="">Signor</label>
+                <div class="col-md-6">
+                  <div class="input-group">
+                    <input id="signor-contact_name" name="" disabled="disabled" class="form-control" type="text" style="color:black;background:white;" value="{!creditReviewObj.PG1__r.Name}" />
+                    <apex:outputPanel layout="none" rendered="{!creditReviewObj.PG1__c != null}">
+                      <span class="input-group-addon delete-btn" onclick="removePg(this,'PG1__c','signor');" style="cursor:pointer"> <i class="glyphicon glyphicon-remove-sign"></i> </span>
+                    </apex:outputPanel>
+                    <span class="input-group-addon" onclick="$('#signor-modal').modal('show');fillContacts('signor')"> <i class="glyphicon glyphicon-search"></i> </span> 
+                  </div>
+                 </div>
+                </div>
+                <!-- Text input-->
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="textinput">Ownership%</label>
+                  <div class="col-md-6">
+                    <input id="signor-ownership" style="color:black;background:white;" disabled="disabled" name="textinput" type="text" value="{!creditReviewObj.PG1__r.Ownership_Percentage__c}" class="form-control input-md"/>
+                  </div>
+                </div>
+
+                <input id="signor-contact_id" name="" disabled="disabled" class="form-control" type="text" style="display:none" value="{!creditReviewObj.PG1__c}" />
+                <input id="signor-contact_ssn" name="" disabled="disabled" class="form-control" type="text" style="display:none" value="{!creditReviewObj.PG1__r.SSN_Encrypted__c}" />
+               <!-- Text input-->
+               <div class="form-group">
+                 <label class="col-md-4 control-label" for="textinput">PG #1 Credit Score</label>
+                 <div class="col-md-6">
+                   <apex:inputField value="{!creditReviewObj.PG_1_EQF_Score__c}" styleClass="pg1Guarantor1 onlyInteger form-control" />
+                 </div>
+               </div>
+               <!-- Text input-->
+               <div class="form-group">
+                 <label class="col-md-4 control-label" for="textinput">PG #1 Credit Date</label>
+                 <div class="col-md-6">
+                   <apex:inputField value="{!creditReviewObj.PG_1_EQF_Date__c}" styleClass="pg1Guarantor2 form-control" />
+                 </div>
+               </div>
+               <!-- Text input-->
+               <div class="form-group">
+                 <label class="col-md-4 control-label" for="textinput">PG #1 Alt Credit Score</label>
+                 <div class="col-md-6">
+                   <apex:inputField value="{!creditReviewObj.PG_1_EXP_Score__c}" styleClass="pg1Guarantor3 onlyInteger form-control" />
+                 </div>
+               </div>
+               <!-- Text input-->
+               <div class="form-group">
+                 <label class="col-md-4 control-label" for="textinput">PG #1 Previous BK</label>
+                 <div class="col-md-6">
+                   <apex:inputField value="{!creditReviewObj.PG_1_Previous_BK__c}" styleClass="pg1Guarantor4 form-control" />
+                 </div>
+               </div>
+               <!-- Text input-->
+               <div class="form-group">
+                 <label class="col-md-4 control-label" for="textinput">PG #1 BK Discharge Date</label>
+                 <div class="col-md-6">
+                   <apex:inputField value="{!creditReviewObj.PG_1_BK_Discharge_Date__c}" styleClass="pg1Guarantor5 form-control" />
+                 </div>
+               </div>
+               <!-- Text input-->
+               <div class="form-group">
+                 <label class="col-md-4 control-label" for="textinput">PG #1 Open Public Records (#)</label>
+                 <div class="col-md-6">
+                   <apex:inputField value="{!creditReviewObj.PG_1_Open_Public_Records__c}" styleClass="pg1Guarantor6 onlyInteger form-control" />
+                 </div>
+               </div>
+               <!-- Text input-->
+               <div class="form-group">
+                 <label class="col-md-4 control-label" for="textinput">PG #1 Open Public Record Balance ($)</label>
+                 <div class="col-md-6">
+                   <apex:inputField value="{!creditReviewObj.PG_1_Open_Public_Record_Balance__c}" styleClass="pg1Guarantor7 onlyInteger form-control" />
+                 </div>
+               </div>
+              </apex:outputPanel>
+
+
+                   <!-- Button (Double) -->
+                   <div class="form-group">
+                     <div class="col-md-4"> 
+                        <button class="btn btn-block btn-primary" disabled="disabled" id="signor-ssn" type="button" onclick="$('#G-SSNsearchmodal').modal('show');searchContactSSN($('#signor-ssn'),$('#signor-contact_id').val(),'{!creditReviewObj.PG1Search__c}')">
+                        <apex:outputPanel layout="none" rendered="{!creditReviewObj.PG1Search__c}">
+                          <i class="fa fa-check-circle"></i>
+                        </apex:outputPanel> SSN Search</button>
+                      </div>
+                      <div class="col-md-3"> 
+                          <button class="btn btn-block btn-primary" onclick="savePgCreditResult('pg1')"  type="button">Save</button> 
+                     </div>
+                    </div>
+                    <br/>
+                    
+                 </fieldset>
+               </form>
+             </div>
+             <div class="col-md-7">
+                <div class="row">
+<!--1***************************************************************************************************************************************-->
+                    <!-- Start Equifax Signor Panel -->
+                    <div class="col-md-6">
+
+                        <!-- Start Panel for Missing Fields -->
+                        <div class="panel panel-danger equifax1_error" style="display:none">
+                            <div class="panel-heading">Credit Report</div>
+                            <div class="panel-body" align="left">
+                                The following fields are required (but not present) for an Equifax credit report pull:
+
+                                <div class="error_area"></div>
+
+                                Please fill these in before processing a credit report.<br/><br/>
+                                <center><button type="button" class="btn btn-default" disabled="true">Pull Credit</button></center>
+                            </div>
+                        </div>
+                        <!-- End Panel for Missing Fields -->
+
+                        <!-- Start Main Dynamic Panel -->
+                        <apex:outputPanel id="pg1_credit_equifax">
+                            <!--TODO:: Figure out if I actually need signorHasNoCCS to stop the page from erroring out if there is no CCS-->
+                            <div class="panel {!If(signorHasNoCCS = false && signorCCS.Status__c =='Error' ,'panel-danger ','panel-default')} {!If( signorHasNoCCS = false && signorCCS.Status__c !='Error' && signorCCS.Status__c !='Completed' && signorCCS != NULL ,'panel-warning ','panel-default')} equifax1">
+
+                                <!-- Start Header row -->
+                                <div class="panel-heading {!If(signorHasNoCCS = false && signorCCS.Status__c =='Error' ,'',If(signorHasNoCCS = false && signorCCS.Status__c !='Error' &&  signorCCS.Status__c !='Completed' && signorCCS != NULL ,'','green-panel'))}">
+                                    Credit Report
+
+                                    <!-- Corner Glyphs -->
+                                    <div class="pull-right glyph-warn" style="display:{!If(signorHasNoCCS = false && signorCCS.Status__c =='Error','block','none')}"><i class="glyphicon glyphicon-warning-sign"></i></div>
+
+                                    <div class="pull-right glyph-ok" style="display:{!If(signorHasNoCCS = false && signorCCS.Status__c =='Completed' && signorCCS.FICO__c != 0,'block','none')};"><i class="glyphicon glyphicon-ok"></i> </div>
+                                </div>
+                                <!-- End Header Row -->
+
+                                <!-- Start Panel Body -->
+                                <div class="panel-body">
+                                    <!-- Start Success panel -->
+                                    <apex:outputPanel rendered="{!signorCCS.Status__c =='Completed'}" layout="none" >
+                                        <div class="">
+                                            <div class="form-group ">
+                                                <table width="100%" border="0">
+                                                    <apex:outputPanel rendered="{!signorCCS.FICO__c != 0}" layout="none" >
+                                                        <apex:repeat value="{!$ObjectType.Consumer_Credit_Summary__c.Fieldsets.Credit_Review_Equifax_Fields}" var="fieldName">
+                                                            <tr>
+                                                                <td>{!fieldName.label}:</td>
+                                                                <td align="right">
+                                                                    <apex:outputText value="{0, date, MMM d','  yyyy}" rendered="{!fieldName.type =='date'}">
+                                                                        <apex:param value="{!signorCCS[fieldName.FieldPath]}" />
+                                                                    </apex:outputText>
+                                                                    <apex:outputText value="{0,number,#,##0.##}" rendered="{!fieldName.type == 'double'}">
+                                                                        <apex:param value="{!signorCCS[fieldName.FieldPath]}" />
+                                                                    </apex:outputText>
+                                                                    <apex:outputText value="{0,number,$#,##0.00}" rendered="{!fieldName.type == 'currency'}">
+                                                                        <apex:param value="{!signorCCS[fieldName.FieldPath]}" />
+                                                                    </apex:outputText>
+                                                                    <apex:outputPanel rendered="{!fieldName.type !='date' && fieldName.type !='double' && fieldName.type !='currency'}">
+                                                                            {!signorCCS[fieldName.FieldPath]}
+                                                                    </apex:outputPanel>
+                                                                </td>
+                                                            </tr>
+                                                        </apex:repeat>
+                                                    </apex:outputPanel>
+                                                    <apex:outputPanel rendered="{!signorCCS.FICO__c == 0}" layout="none" >
+                                                        <tr>
+                                                            <td align="center" colspan="2"><i>No Record Found. See report for details.</i></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Transaction Date</td>
+                                                            <td align="right">
+                                                                <apex:outputText value="{0, date, MMM d','  yyyy}">
+                                                                    <apex:param value="{!signorCCS.Transaction_Date__c}" />
+                                                                </apex:outputText>
+                                                            </td>
+                                                        </tr>
+                                                    </apex:outputPanel>
+                                                    <tr>
+                                                        <td>Full Report:</td>
+                                                        <td align="right"><a href="{!signorCCS.URL_for_View_Link__c}" target="_blank">View Details</a></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </apex:outputPanel>
+                                    <!-- End Success panel -->
+
+                                    <!-- Loading Spinner -->
+                                    <div class="pg-credit-loading-icon" align="center" style="display:{!If(signorHasNoCCS = false && signorCCS.Status__c !='Completed' && signorCCS.Status__c !='Error' && signorCCS !=null ,'block','none')};margin-right:5px;height:178px">
+                                        <span style='display: inline-block;height: 100%;vertical-align: middle;'></span>
+                                        <img src="{!URLFOR($Resource.loadingspinner)}" style="height:100px" />
+                                    </div>
+
+                                    <!-- AJAX Error -->
+                                    <div class="pg-credit-error" align="left" style="display:none;margin-right:5px;">
+                                        <span style='display:inline-block;height: 100%;vertical-align: middle;' class='error-area'></span>
+                                    </div>
+
+                                    <!-- Start panel for no credit -->
+                                    <apex:outputPanel rendered="{!signorCCS == NULL && creditReviewObj.PG1__c != NULL}"  layout="none">
+                                        <div class="text-center">
+                                            <p>Credit has not been pulled.</p>
+                                        </div>
+                                    </apex:outputPanel>
+                                    <!-- End Panel for no credit -->
+
+                                    <!-- Start panel for no PG -->
+                                    <apex:outputPanel rendered="{!creditReviewObj.PG1__c == NULL}"  layout="none">
+                                        <div class="text-center">
+                                            <p>No Signor Selected</p>
+                                        </div>
+                                    </apex:outputPanel>
+                                    <!-- End Panel for no PG -->
+
+                                    <!-- Start panel for credit pull error -->
+                                    <apex:outputPanel rendered="{!signorHasNoCCS = false && signorCCS.Status__c =='Error'}"  layout="none">
+                                        <div class="form-group ">
+                                            <table width="100%" border="0">
+                                                <tr>
+                                                    <td align="center" colspan="2">
+                                                        <i>{!signorCCS.Error_Message__c}</i>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Transaction Date</td>
+                                                    <td align="right">
+                                                        <apex:outputText value="{0, date, MMM d','  yyyy}">
+                                                            <apex:param value="{!signorCCS.Transaction_Date__c}" />
+                                                        </apex:outputText>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Error Details:</td>
+                                                    <td align="right"><a href="/{!signorCCS}" target="_blank">View</a></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </apex:outputPanel>
+                                    <!-- End panel for credit pull error -->
+
+                                    <!-- Start Pull Credit Button -->
+                                    <apex:outputPanel rendered="{!creditReviewObj.PG1__c != NULL}"  layout="none">
+                                        <div class="form-group pull-credit-button" >
+                                            <label class="col-md-3 control-label" for="singlebutton"></label>
+                                            <div class="col-md-8" style="position:relative">
+                                                <div class="disabledByZ-index"></div>
+                                                <a href="javascript:void(0)" onclick="getCreditPullandReRender('Signor', 'Equifax')" role="button" class="btn permissionDeny btn-default">Pull Credit</a>
+                                            </div>
+                                        </div>
+                                    </apex:outputPanel>
+                                    <!-- End Pull Credit Button -->
+
+                                </div>
+                                <!-- End Panel Body -->
+                            </div>
+                        </apex:outputPanel>
+                        <!-- End Main Dynamic Panel -->
+                    </div>
+                    <!-- End Equifax Signor Panel -->
+
+
+
+                </div>
+             </div>
+           </div>
+           <div class="row" style="margin-bottom:15px;border-bottom:1px solid #ccc">
+              <div class="col-md-5" style="position:relative">
+              <div class="disabledByZ-index"></div>
+                 <h4>Guarantor #2</h4>
+                 <form class="form-horizontal">
+                   <fieldset>
+                     
+                     <!-- Form Name --> 
+                     <!-- Appended checkbox -->
+                      <apex:outputPanel id="pg2_left">
+                       <div class="form-group">
+                        <label class="col-md-4 control-label" for="">Guarantor #2</label>
+                        <div class="col-md-6">
+                          <div class="input-group">
+                            <input id="guarantor2-contact_name" name="" disabled="disabled" class="form-control" type="text" style="color:black;background:white;" value="{!creditReviewObj.PG2__r.Name}" />
+                            <apex:outputPanel layout="none" rendered="{!creditReviewObj.PG2__c != null}">
+                              <span class="input-group-addon delete-btn" onclick="removePg(this,'PG2__c','guarantor2');" style="cursor:pointer"> <i class="glyphicon glyphicon-remove-sign"></i> </span>
+                            </apex:outputPanel>
+                            <span class="input-group-addon" onclick="$('#guarantor2-modal').modal('show');fillContacts('guarantor2')"> <i class="glyphicon glyphicon-search"></i> </span> 
+                          </div>
+                         </div>
+                        </div>
+                        <!-- Text input-->
+                        <div class="form-group">
+                          <label class="col-md-4 control-label" for="textinput">Ownership%</label>
+                          <div class="col-md-6">
+                            <input id="guarantor2-ownership" style="color:black;background:white;" disabled="disabled" name="textinput" type="text" value="{!creditReviewObj.PG2__r.Ownership_Percentage__c}" class="form-control input-md"/>
+                          </div>
+                        </div>
+
+                      <input id="guarantor2-contact_id" name="" disabled="disabled" class="form-control" type="text" style="display:none" value="{!creditReviewObj.PG2__c}" />
+                      <input id="guarantor2-contact_ssn" name="" disabled="disabled" class="form-control" type="text" style="display:none" value="{!creditReviewObj.PG2__r.SSN_Encrypted__c}" />
+
+                     <!-- Text input-->
+                       <div class="form-group">
+                         <label class="col-md-4 control-label" for="textinput">PG #2 Credit Score</label>
+                         <div class="col-md-6">
+                           <apex:inputField value="{!creditReviewObj.PG_2_EQF_Score__c}" styleClass="pg2Guarantor1 onlyInteger form-control" />
+                         </div>
+                       </div>
+                       <!-- Text input-->
+                       <div class="form-group">
+                         <label class="col-md-4 control-label" for="textinput">PG #2 Credit Date</label>
+                         <div class="col-md-6">
+                           <apex:inputField value="{!creditReviewObj.PG_2_EQF_Date__c}" styleClass="pg2Guarantor2 form-control" />
+                         </div>
+                       </div>
+                       <!-- Text input-->
+                       <div class="form-group">
+                         <label class="col-md-4 control-label" for="textinput">PG #2 Alt Credit Score</label>
+                         <div class="col-md-6">
+                           <apex:inputField value="{!creditReviewObj.PG_2_EXP_Score__c}" styleClass="pg2Guarantor3 onlyInteger form-control" />
+                         </div>
+                       </div>
+                       <!-- Text input-->
+                       <div class="form-group">
+                         <label class="col-md-4 control-label" for="textinput">PG #2 Previous BK</label>
+                         <div class="col-md-6">
+                           <apex:inputField value="{!creditReviewObj.PG_2_Previous_BK__c}" styleClass="pg2Guarantor4 form-control" />
+                         </div>
+                       </div>
+                       <!-- Text input-->
+                       <div class="form-group">
+                         <label class="col-md-4 control-label" for="textinput">PG #2 BK Discharge Date</label>
+                         <div class="col-md-6">
+                           <apex:inputField value="{!creditReviewObj.PG_2_BK_Discharge_Date__c}" styleClass="pg2Guarantor5 form-control" />
+                         </div>
+                       </div>
+                       <!-- Text input-->
+                       <div class="form-group">
+                         <label class="col-md-4 control-label" for="textinput">PG #2 Open Public Records (#)</label>
+                         <div class="col-md-6">
+                           <apex:inputField value="{!creditReviewObj.PG_2_Open_Public_Records__c}" styleClass="pg2Guarantor6 onlyInteger form-control" />
+                         </div>
+                       </div>
+                       <!-- Text input-->
+                       <div class="form-group">
+                         <label class="col-md-4 control-label" for="textinput">PG #2 Open Public Record Balance ($)</label>
+                         <div class="col-md-6">
+                           <apex:inputField value="{!creditReviewObj.PG_2_Open_Public_Record_Balance__c}" styleClass="pg2Guarantor7 onlyInteger form-control" />
+                         </div>
+                       </div>
+                      </apex:outputPanel>
+                     <!-- Button (Double) -->
+                     <div class="form-group">
+                        <div class="col-md-4"> 
+                              <button disabled="disabled" class="btn btn-block btn-primary" id="gua2-ssn"  onclick="$('#G-SSNsearchmodal').modal('show');searchContactSSN($('#gua2-ssn'),$('#guarantor2-contact_id').val(),'{!creditReviewObj.PG2Search__c}')" type="button">
+                              <apex:outputPanel layout="none" rendered="{!creditReviewObj.PG2Search__c}">
+                              <i class="fa fa-check-circle"></i>
+                            </apex:outputPanel>
+                            SSN Search</button> 
+                          </div>
+                          <div class="col-md-3"> 
+                              <button class="btn btn-block btn-primary" onclick="savePgCreditResult('pg2')"  type="button">Save</button> 
+                         </div>
+                     </div><br/>
+                     
+                   </fieldset>
+                 </form>
+              </div>
+              <div class="col-md-7">
+                  <div class="row">
+
+
+<!--2***************************************************************************************************************-->
+                      <!-- Start Equifax Guarantor 2 Panel -->
+                      <div class="col-md-6">
+
+                          <!-- Start Panel for Missing Fields -->
+                          <div class="panel panel-danger equifax2_error" style="display:none">
+                              <div class="panel-heading">Credit Report</div>
+                              <div class="panel-body" align="left">
+                                  The following fields are required (but not present) for an Equifax credit report pull:
+
+                                  <div class="error_area"></div>
+
+                                  Please fill these in before processing a credit report.<br/><br/>
+                                  <center><button type="button" class="btn btn-default" disabled="true">Pull Credit</button></center>
+                              </div>
+                          </div>
+                          <!-- End Panel for Missing Fields -->
+
+                          <!-- Start Main Dynamic Panel -->
+                          <!--TODO:: Figure out if I need g2HasNoCCS = false in here or if it will not error out without skipping that part of the conditional-->
+                          <apex:outputPanel id="pg2_credit_equifax">
+                              <div class="panel {!If(g2CCS.Status__c =='Error' ,'panel-danger ','panel-default')} {!If(g2CCS.Status__c !='Error' && g2CCS.Status__c !='Completed' && g2CCS != NULL ,'panel-warning ','panel-default')} equifax2">
+
+                                  <!-- Start Header row -->
+                                  <div class="panel-heading {!If(g2CCS.Status__c =='Error' ,'',If(g2CCS.Status__c !='Error' && g2CCS.Status__c !='Completed' && g2CCS != NULL ,'','green-panel'))}">
+                                      Credit Report
+
+                                      <!-- Corner Glyphs -->
+                                      <div class="pull-right glyph-warn" style="display:{!If(g2CCS.Status__c =='Error','block','none')}"><i class="glyphicon glyphicon-warning-sign"></i></div>
+
+                                      <div class="pull-right glyph-ok" style="display:{!If(g2CCS.Status__c =='Completed' && g2CCS.FICO__c != 0,'block','none')};"><i class="glyphicon glyphicon-ok"></i> </div>
+                                  </div>
+                                  <!-- End Header Row -->
+
+                                  <!-- Start Panel Body -->
+                                  <div class="panel-body">
+                                      <!-- Start Success panel -->
+                                      <apex:outputPanel rendered="{!g2CCS != NULL && g2CCS.Status__c =='Completed'}" layout="none" >
+                                          <div class="">
+                                              <div class="form-group ">
+                                                  <table width="100%" border="0">
+                                                      <apex:outputPanel rendered="{!g2CCS.FICO__c != 0}" layout="none" >
+                                                          <apex:repeat value="{!$ObjectType.Consumer_Credit_Summary__c.Fieldsets.Credit_Review_Equifax_Fields}" var="fieldName">
+                                                              <tr>
+                                                                  <td>{!fieldName.label}:</td>
+                                                                  <td align="right">
+                                                                      <apex:outputText value="{0, date, MMM d','  yyyy}" rendered="{!fieldName.type =='date'}">
+                                                                          <apex:param value="{!g2CCS[fieldName.FieldPath]}" />
+                                                                      </apex:outputText>
+                                                                      <apex:outputText value="{0,number,#,##0.##}" rendered="{!fieldName.type == 'double'}">
+                                                                          <apex:param value="{!g2CCS[fieldName.FieldPath]}" />
+                                                                      </apex:outputText>
+                                                                      <apex:outputText value="{0,number,$#,##0.00}" rendered="{!fieldName.type == 'currency'}">
+                                                                          <apex:param value="{!g2CCS[fieldName.FieldPath]}" />
+                                                                      </apex:outputText>
+                                                                      <apex:outputPanel rendered="{!fieldName.type !='date' && fieldName.type !='double' && fieldName.type !='currency'}">
+                                                                              {!g2CCS[fieldName.FieldPath]}
+                                                                      </apex:outputPanel>
+                                                                  </td>
+                                                              </tr>
+                                                          </apex:repeat>
+                                                      </apex:outputPanel>
+                                                      <apex:outputPanel rendered="{!g2CCS.FICO__c == 0}" layout="none" >
+                                                          <tr>
+                                                              <td align="center" colspan="2"><i>No Record Found. See report for details.</i></td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td>Transaction Date</td>
+                                                              <td align="right">
+                                                                  <apex:outputText value="{0, date, MMM d','  yyyy}">
+                                                                      <apex:param value="{!g2CCS.Transaction_Date__c}" />
+                                                                  </apex:outputText>
+                                                              </td>
+                                                          </tr>
+                                                      </apex:outputPanel>
+                                                      <tr>
+                                                          <td>Full Report:</td>
+                                                          <td align="right"><a href="{!g2CCS.URL_for_View_Link__c}" target="_blank">View Details</a></td>
+                                                      </tr>
+                                                  </table>
+                                              </div>
+                                          </div>
+                                      </apex:outputPanel>
+                                      <!-- End Success panel -->
+
+                                      <!-- Loading Spinner -->
+                                      <div class="pg-credit-loading-icon" align="center" style="display:{!If(g2CCS.Status__c !='Completed' && g2CCS.Status__c !='Error' && g2CCS !=null ,'block','none')};margin-right:5px;height:178px">
+                                          <span style='display: inline-block;height: 100%;vertical-align: middle;'></span>
+                                          <img src="{!URLFOR($Resource.loadingspinner)}" style="height:100px" />
+                                      </div>
+
+                                      <!-- AJAX Error -->
+                                      <div class="pg-credit-error" align="left" style="display:none;margin-right:5px;">
+                                          <span style='display:inline-block;height: 100%;vertical-align: middle;' class='error-area'></span>
+                                      </div>
+
+                                      <!-- Start panel for no credit -->
+                                      <apex:outputPanel rendered="{!g2CCS == NULL && creditReviewObj.PG2__c != NULL}"  layout="none">
+                                          <div class="text-center">
+                                              <p>Credit has not been pulled.</p>
+                                          </div>
+                                      </apex:outputPanel>
+                                      <!-- End Panel for no credit -->
+
+                                      <!-- Start panel for no PG -->
+                                      <apex:outputPanel rendered="{!creditReviewObj.PG2__c == NULL}"  layout="none">
+                                          <div class="text-center">
+                                              <p>No Guarantor Selected</p>
+                                          </div>
+                                      </apex:outputPanel>
+                                      <!-- End Panel for no PG -->
+
+                                      <!--TODO:: Check that this section is working-->
+                                      <!-- Start panel for credit pull error -->
+                                      <apex:outputPanel rendered="{!g2CCS.Status__c =='Error'}"  layout="none">
+                                          <div class="form-group ">
+                                              <table width="100%" border="0">
+                                                  <tr>
+                                                      <td align="center" colspan="2">
+                                                          <i>{!g2CCS.Error_Message__c}</i>
+                                                      </td>
+                                                  </tr>
+                                                  <tr>
+                                                      <td>Transaction Date</td>
+                                                      <td align="right">
+                                                          <apex:outputText value="{0, date, MMM d','  yyyy}">
+                                                              <apex:param value="{!g2CCS.Transaction_Date__c}" />
+                                                          </apex:outputText>
+                                                      </td>
+                                                  </tr>
+                                                  <tr>
+                                                      <td>Error Details:</td>
+                                                      <td align="right"><a href="/{!g2CCS}" target="_blank">View</a></td>
+                                                  </tr>
+                                              </table>
+                                          </div>
+                                      </apex:outputPanel>
+                                      <!-- End panel for credit pull error -->
+
+                                      <!-- Start Pull Credit Button -->
+                                      <apex:outputPanel rendered="{!creditReviewObj.PG2__c != NULL}"  layout="none">
+                                          <div class="form-group pull-credit-button">
+                                              <label class="col-md-3 control-label" for="singlebutton"></label>
+                                              <div class="col-md-8" style="position:relative">
+                                                  <div class="disabledByZ-index"></div>
+                                                  <a href="javascript:void(0)" onclick="getCreditPullandReRender('Guarantor 2', 'Equifax')" role="button" class="btn permissionDeny btn-default">Pull Credit</a>
+                                              </div>
+                                          </div>
+                                      </apex:outputPanel>
+                                      <!-- End Pull Credit Button -->
+                                  </div>
+                                  <!-- End Panel Body -->
+                              </div>
+                          </apex:outputPanel>
+                          <!-- End Main Dynamic Panel -->
+                      </div>
+                      <!-- End Equifax Guarantor 2 Panel -->
+<!--2*******************************************************************************************************************-->
+
+               </div>
+              </div>
+           </div>
+           <div class="row"  style="margin-bottom:15px;border-bottom:1px solid #ccc">
+              <div class="col-md-5" style="position:relative">
+              <div class="disabledByZ-index"></div>
+                  <h4>Guarantor #3</h4>
+                   <form class="form-horizontal">
+                     <fieldset>
+                       
+                       <!-- Form Name --> 
+                       <!-- Appended checkbox -->
+                      <apex:outputPanel id="pg3_left">
+                       <div class="form-group">
+                        <label class="col-md-4 control-label" for="">Guarantor #3</label>
+                        <div class="col-md-6">
+                          <div class="input-group">
+                            <input id="guarantor3-contact_name" name="" disabled="disabled" class="form-control" type="text" style="color:black;background:white;" value="{!creditReviewObj.PG3__r.Name}" />
+                            <apex:outputPanel layout="none" rendered="{!creditReviewObj.PG3__c != null}">
+                              <span class="input-group-addon delete-btn" onclick="removePg(this,'PG3__c','guarantor3');" style="cursor:pointer"> <i class="glyphicon glyphicon-remove-sign"></i> </span>
+                            </apex:outputPanel>
+                            <span class="input-group-addon" onclick="$('#guarantor3-modal').modal('show');fillContacts('guarantor3')"> <i class="glyphicon glyphicon-search"></i> </span> 
+                          </div>
+                         </div>
+                        </div>
+                        <!-- Text input-->
+                        <div class="form-group">
+                          <label class="col-md-4 control-label" for="textinput">Ownership%</label>
+                          <div class="col-md-6">
+                            <input id="guarantor3-ownership" style="color:black;background:white;" disabled="disabled" name="textinput" type="text" value="{!creditReviewObj.PG3__r.Ownership_Percentage__c}" class="form-control input-md"/>
+                          </div>
+                        </div>
+                      <input id="guarantor3-contact_id" name="" disabled="disabled" class="form-control" type="text" style="display:none" value="{!creditReviewObj.PG3__c}" />
+                      <input id="guarantor3-contact_ssn" name="" disabled="disabled" class="form-control" type="text" style="display:none" value="{!creditReviewObj.PG3__r.SSN_Encrypted__c}" />
+
+                       <!-- Text input-->
+                       <div class="form-group">
+                         <label class="col-md-4 control-label" for="textinput">PG #3 Credit Score</label>
+                         <div class="col-md-6">
+                           <apex:inputField value="{!creditReviewObj.PG_3_EQF_Score__c}" styleClass="pg3Guarantor1 onlyInteger  form-control" />
+                         </div>
+                       </div>
+                       <!-- Text input-->
+                       <div class="form-group">
+                         <label class="col-md-4 control-label" for="textinput">PG #3 Credit Date</label>
+                         <div class="col-md-6">
+                           <apex:inputField value="{!creditReviewObj.PG_3_EQF_Date__c}" styleClass="pg3Guarantor2 form-control" />
+                         </div>
+                       </div>
+                       <!-- Text input-->
+                       <div class="form-group">
+                         <label class="col-md-4 control-label" for="textinput">PG #2 Alt Credit Score</label>
+                         <div class="col-md-6">
+                           <apex:inputField value="{!creditReviewObj.PG_3_EXP_Score__c}" styleClass="pg3Guarantor3 onlyInteger form-control" />
+                         </div>
+                       </div>
+                       <!-- Text input-->
+                       <div class="form-group">
+                         <label class="col-md-4 control-label" for="textinput">PG #3 Previous BK</label>
+                         <div class="col-md-6">
+                           <apex:inputField value="{!creditReviewObj.PG_3_Previous_BK__c}" styleClass="pg3Guarantor4 form-control" />
+                         </div>
+                       </div>
+                       <!-- Text input-->
+                       <div class="form-group">
+                         <label class="col-md-4 control-label" for="textinput">PG #3 BK Discharge Date</label>
+                         <div class="col-md-6">
+                           <apex:inputField value="{!creditReviewObj.PG_3_BK_Discharge_Date__c}" styleClass="pg3Guarantor5 form-control" />
+                         </div>
+                       </div>
+                       <!-- Text input-->
+                       <div class="form-group">
+                         <label class="col-md-4 control-label" for="textinput">PG #3 Open Public Records (#)</label>
+                         <div class="col-md-6">
+                           <apex:inputField value="{!creditReviewObj.PG_3_Open_Public_Records__c}" styleClass="pg3Guarantor6 onlyInteger form-control" />
+                         </div>
+                       </div>
+                       <!-- Text input-->
+                       <div class="form-group">
+                         <label class="col-md-4 control-label" for="textinput">PG #3 Open Public Record Balance ($)</label>
+                         <div class="col-md-6">
+                           <apex:inputField value="{!creditReviewObj.PG_3_Open_Public_Record_Balance__c}" styleClass="pg3Guarantor7 onlyInteger form-control" />
+                         </div>
+                       </div>
+                      </apex:outputPanel>
+                       <!-- Button (Double) -->
+                       <div class="form-group">
+                          <div class="col-md-4"> 
+                              <button disabled="disabled" class="btn btn-block btn-primary" id="gua3-ssn" onclick="$('#G-SSNsearchmodal').modal('show');searchContactSSN($('#gua3-ssn'),$('#guarantor3-contact_id').val(),'{!creditReviewObj.PG3Search__c}')" type="button">
+                            <apex:outputPanel layout="none" rendered="{!creditReviewObj.PG3Search__c}">
+                              <i class="fa fa-check-circle"></i>
+                            </apex:outputPanel>
+                            SSN Search</button>
+                          </div>
+                          <div class="col-md-3"> 
+                             <button class="btn btn-block btn-primary" onclick="savePgCreditResult('pg3')"  type="button">Save</button>  
+                         </div>
+                       </div><br/>
+                       
+                     </fieldset>
+                   </form>
+              </div>
+              <div class="col-md-7">
+                  <!--- 3 -->
+                   <div class="row">
+
+                              
+<!--3****************************************************************************************************-->
+                  <!-- Start Equifax Guarantor 3 Panel -->
+                  <div class="col-md-6">
+
+                    <!-- Start Panel for Missing Fields -->
+                    <div class="panel panel-danger equifax3_error" style="display:none">
+                      <div class="panel-heading">Credit Report</div>
+                      <div class="panel-body" align="left">
+                        The following fields are required (but not present) for an Equifax credit report pull:
+
+                        <div class="error_area"></div>
+
+                        Please fill these in before processing a credit report.<br/><br/>
+                        <center><button type="button" class="btn btn-default" disabled="true">Pull Credit</button></center>
+                      </div>
+                    </div>
+                    <!-- End Panel for Missing Fields -->
+
+                    <!-- Start Main Dynamic Panel -->
+                    <apex:outputPanel id="pg3_credit_equifax">
+                        <!--TODO::Figure out if i need g3HasNoCCS so the div doesn't error out if there is no CCS-->
+                      <div class="panel {!If(g3CCS.Status__c =='Error' ,'panel-danger ','panel-default')} {!If(g3CCS.Status__c !='Error' && g3CCS.Status__c !='Completed' && g3CCS != NULL ,'panel-warning ','panel-default')} equifax3">
+
+                         <!-- Start Header row -->
+                        <div class="panel-heading {!If(g3CCS.Status__c =='Error' ,'',If(g3CCS.Status__c !='Error' &&  g3CCS.Status__c !='Completed' && g3CCS != NULL ,'','green-panel'))}">
+                          Credit Report
+
+                          <!-- Corner Glyphs -->
+                           <div class="pull-right glyph-warn" style="display:{!If(g3CCS.Status__c =='Error','block','none')}"><i class="glyphicon glyphicon-warning-sign"></i></div>
+
+                          <div class="pull-right glyph-ok" style="display:{!If(g3CCS.Status__c =='Completed' && g3CCS.FICO__c != 0,'block','none')};"><i class="glyphicon glyphicon-ok"></i> </div>
+                        </div>
+                        <!-- End Header Row -->
+
+                        <!-- Start Panel Body -->
+                        <div class="panel-body">
+                          <!-- Start Success panel -->
+                          <apex:outputPanel rendered="{!g3CCS != NULL && g3CCS.Status__c =='Completed'}" layout="none" >
+                            <div class="">
+                              <div class="form-group "> 
+                                <table width="100%" border="0">
+                                  <apex:outputPanel rendered="{!g3CCS.FICO__c != 0}" layout="none" >
+                                    <apex:repeat value="{!$ObjectType.Consumer_Credit_Summary__c.Fieldsets.Credit_Review_Equifax_Fields}" var="fieldName">
+                                      <tr>
+                                        <td>{!fieldName.label}:</td>
+                                        <td align="right">
+                                          <apex:outputText value="{0, date, MMM d','  yyyy}" rendered="{!fieldName.type =='date'}">
+                                            <apex:param value="{!g3CCS[fieldName.FieldPath]}" />
+                                          </apex:outputText>
+                                          <apex:outputText value="{0,number,#,##0.##}" rendered="{!fieldName.type == 'double'}">
+                                            <apex:param value="{!g3CCS[fieldName.FieldPath]}" />
+                                          </apex:outputText>
+                                          <apex:outputText value="{0,number,$#,##0.00}" rendered="{!fieldName.type == 'currency'}">
+                                            <apex:param value="{!g3CCS[fieldName.FieldPath]}" />
+                                          </apex:outputText>
+                                          <apex:outputPanel rendered="{!fieldName.type !='date' && fieldName.type !='double' && fieldName.type !='currency'}">
+                                                {!g3CCS[fieldName.FieldPath]}
+                                           </apex:outputPanel>
+                                        </td>
+                                      </tr>
+                                    </apex:repeat>
+                                  </apex:outputPanel>
+                                  <apex:outputPanel rendered="{!g3CCS.FICO__c == 0}" layout="none" >
+                                    <tr>
+                                      <td align="center" colspan="2"><i>No Record Found. See report for details.</i></td>
+                                    </tr>
+                                    <tr>
+                                      <td>Transaction Date</td>
+                                      <td align="right">
+                                        <apex:outputText value="{0, date, MMM d','  yyyy}">
+                                          <apex:param value="{!g3CCS.Transaction_Date__c}" />
+                                        </apex:outputText>
+                                      </td>
+                                    </tr>
+                                  </apex:outputPanel>
+                                  <tr>
+                                    <td>Full Report:</td>
+                                    <td align="right"><a href="{!g3CCS.URL_for_View_Link__c}" target="_blank">View Details</a></td>
+                                  </tr>
+                                </table>
+                              </div>
+                            </div>
+                          </apex:outputPanel>
+                          <!-- End Success panel -->
+
+                          <!-- Loading Spinner -->
+                          <div class="pg-credit-loading-icon" align="center" style="display:{!If(g3CCS.Status__c !='Completed' && g3CCS.Status__c !='Error' && g3CCS !=null ,'block','none')};margin-right:5px;height:178px">
+                            <span style='display: inline-block;height: 100%;vertical-align: middle;'></span>
+                            <img src="{!URLFOR($Resource.loadingspinner)}" style="height:100px" />
+                          </div>
+
+                          <!-- AJAX Error -->
+                          <div class="pg-credit-error" align="left" style="display:none;margin-right:5px;">
+                            <span style='display:inline-block;height: 100%;vertical-align: middle;' class='error-area'></span>
+                          </div>
+
+                          <!-- Start panel for no credit -->
+                          <apex:outputPanel rendered="{!g3CCS == NULL && creditReviewObj.PG3__c != NULL}"  layout="none">
+                            <div class="text-center">
+                              <p>Credit has not been pulled.</p>
+                            </div>
+                          </apex:outputPanel>
+                          <!-- End Panel for no credit -->
+
+                          <!-- Start panel for no PG -->
+                          <apex:outputPanel rendered="{!creditReviewObj.PG3__c == NULL}" layout="none">
+                            <div class="text-center">
+                              <p>No Guarantor Selected</p>
+                            </div>
+                          </apex:outputPanel>
+                          <!-- End Panel for no PG -->
+
+                          <!-- Start panel for credit pull error -->
+                            <!--TODO:::check that this section is working-->
+                          <apex:outputPanel rendered="{!g3CCS.Status__c =='Error'}"  layout="none">
+                            <div class="form-group "> 
+                              <table width="100%" border="0">
+                                <tr>
+                                  <td align="center" colspan="2">
+                                      <i>{!g3CCS.Error_Message__c}</i>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>Transaction Date</td>
+                                  <td align="right">
+                                    <apex:outputText value="{0, date, MMM d','  yyyy}">
+                                      <apex:param value="{!g3CCS.Transaction_Date__c}" />
+                                    </apex:outputText>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>Error Details:</td>
+                                  <td align="right"><a href="/{!g3CCS}" target="_blank">View</a></td>
+                                </tr>
+                              </table>
+                            </div>
+                          </apex:outputPanel>
+                          <!-- End panel for credit pull error -->
+
+                          <!-- Start Pull Credit Button -->
+                          <apex:outputPanel rendered="{!creditReviewObj.PG3__c != NULL}"  layout="none">
+                            <div class="form-group pull-credit-button">
+                              <label class="col-md-3 control-label" for="singlebutton"></label>
+                              <div class="col-md-8" style="position:relative">
+                                <div class="disabledByZ-index"></div>
+                                  <a href="javascript:void(0)" onclick="getCreditPullandReRender('Guarantor 3', 'Equifax')" role="button" class="btn permissionDeny btn-default">Pull Credit</a>
+                              </div>
+                            </div>
+                          </apex:outputPanel>
+                          <!-- End Pull Credit Button -->
+
+                        </div>
+                        <!-- End Panel Body -->
+                      </div>
+                    </apex:outputPanel>
+                    <!-- End Main Dynamic Panel -->
+                  </div>
+                  <!-- End Equifax Guarantor 3 Panel -->
+<!--3************************************************************************************************************-->
+
+
+
+                   </div>
+              </div>
+           </div>
+       
+     </div>
+     <div class="clearfix"></div>
+     <div class="row">
+       <div class="col-md-6">
+         <h3>Associated Contacts(SSN Search)</h3>
+       </div>
+     </div>
+     <!--Data Table-->
+     <apex:outputPanel styleClass="row" layout="block" rendered="{!table != ''}">
+       <div class="col-md-12" id="associatedContacts">
+         <table class="table table-striped table-bordered table-hover" id="sample_7">
+           <thead>
+             <tr>
+               <th> Name </th>
+               <th> Title </th>
+               <th class="hidden-xs"> Account </th>
+               <th class="hidden-xs"> Action </th>
+             </tr>
+           </thead>
+           <tbody>
+            <apex:outputText escape="false" value="{!table}" />
+             
+           </tbody>
+         </table>
+       </div>
+     </apex:outputPanel>
+     <apex:outputPanel styleClass="row" layout="block" rendered="{!table == ''}">
+      <div class="col-md-12" id="associatedContacts">
+        <center>No Record</center>
+      </div>
+     </apex:outputPanel>
+     <!--Data Table--> 
+
+</div>
+</apex:component>

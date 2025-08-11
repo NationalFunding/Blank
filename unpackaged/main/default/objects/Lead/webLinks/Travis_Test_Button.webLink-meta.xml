@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Travis_Test_Button</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>450</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>Travis Test Button</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>https://www.appextremes.com/apps/Conga/PointMerge.aspx
+?sessionId={!API.Session_ID}
+&amp;serverUrl={!API.Partner_Server_URL_80}
+&amp;id={!Lead.Id}
+&amp;TemplateID=a0S8000000EH1vF
+&amp;QueryId=a068000000WA8Ge,a068000000UdrXy
+&amp;DS8={!IF( $Profile.Name = "System Administrator", 1,0)}
+&amp;DS4={!IF( $Profile.Name = "System Administrator", 1,0)}
+&amp;FP0={!IF( $Profile.Name = "System Administrator", 0,1)}
+&amp;FP0=1
+&amp;PS0=1
+&amp;PS1=1</url>
+    <width>650</width>
+</WebLink>

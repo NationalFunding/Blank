@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Autobatch__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Autobatch - Status</description>
+    <inlineHelpText>Check box if merchant has autobatch.</inlineHelpText>
+    <label>Autobatch</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

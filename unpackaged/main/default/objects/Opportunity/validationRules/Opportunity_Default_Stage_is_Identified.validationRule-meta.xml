@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opportunity_Default_Stage_is_Identified</fullName>
+    <active>true</active>
+    <description>This rule enforces that Opportunity Stage must begin in Identified. If a rep puts an Opportunity directly in Statements In it bypasses the other validation rules around that Stage name.</description>
+    <errorConditionFormula>AND(
+$UserRole.DeveloperName&lt;&gt;'ExecutiveCEO', 
+$UserRole.DeveloperName&lt;&gt;'PermissionsRole', 
+$UserRole.DeveloperName&lt;&gt;'Salesforce_Admin', 
+$Profile.Name&lt;&gt;'NF Partner - Brokers', 
+ISNEW(),
+RecordType.Name = 'Working Capital Oppty',
+NOT(ISPICKVAL( StageName, 'Identified')) 
+)</errorConditionFormula>
+    <errorMessage>The Opportunity Stage must be set to Identified before setting the Stage to Statements In.</errorMessage>
+</ValidationRule>

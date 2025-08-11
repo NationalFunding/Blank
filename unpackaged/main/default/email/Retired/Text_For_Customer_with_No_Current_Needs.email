@@ -1,0 +1,16 @@
+Hi {!Contact.FirstName},
+
+It was great speaking with you today!  Please find my contact info below. If you ever need more working capital, we can look into National Funding’s special renewal program - there is a possibility you may qualify for more funds & longer terms!
+
+You’ve been a good customer, and we’d like to work with you again when you need working capital to grow or improve your business!
+
+Have a good day,
+{!User.Name}
+
+
+
+{!User.Name}
+{!User.Title}
+www.nationalfunding.com
+P: {!User.Phone} | F: {!User.Fax}
+Email: {!User.Email}

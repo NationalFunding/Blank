@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Post_Funded_Finding_Details__c</fullName>
+    <label>Post-Funded Finding Details</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <controllingField>Post_Funded_Findings__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Failure to address Customer concern</fullName>
+                <default>false</default>
+                <label>Failure to address Customer concern</label>
+            </value>
+            <value>
+                <fullName>NCCI – not sent</fullName>
+                <default>false</default>
+                <label>NCCI – not sent</label>
+            </value>
+            <value>
+                <fullName>NCCI – sent to wrong address</fullName>
+                <default>false</default>
+                <label>NCCI – sent to wrong address</label>
+            </value>
+            <value>
+                <fullName>NCCI – not reviewed results when came back</fullName>
+                <default>false</default>
+                <label>NCCI – not reviewed results when came back</label>
+            </value>
+            <value>
+                <fullName>Failure to contact – Bounce</fullName>
+                <default>false</default>
+                <label>Failure to contact – Bounce</label>
+            </value>
+            <value>
+                <fullName>Failure to contact – follow up post ACH stopped</fullName>
+                <default>false</default>
+                <label>Failure to contact – follow up post ACH stopped</label>
+            </value>
+            <value>
+                <fullName>Missed Dual ACH on file</fullName>
+                <default>false</default>
+                <label>Missed Dual ACH on file</label>
+            </value>
+            <value>
+                <fullName>Insufficient due diligence</fullName>
+                <default>false</default>
+                <label>Insufficient due diligence</label>
+            </value>
+            <value>
+                <fullName>Did not call all numbers listed in SFDC</fullName>
+                <default>false</default>
+                <label>Did not call all numbers listed in SFDC</label>
+            </value>
+            <value>
+                <fullName>Did not utilize texting</fullName>
+                <default>false</default>
+                <label>Did not utilize texting</label>
+            </value>
+            <value>
+                <fullName>Failure to request recon (FRSPA)</fullName>
+                <default>false</default>
+                <label>Failure to request recon (FRSPA)</label>
+            </value>
+            <value>
+                <fullName>Notice of BK not handled correctly</fullName>
+                <default>false</default>
+                <label>Notice of BK not handled correctly</label>
+            </value>
+            <value>
+                <fullName>Concurrent accounts not handled correctly</fullName>
+                <default>false</default>
+                <label>Concurrent accounts not handled correctly</label>
+            </value>
+            <value>
+                <fullName>Failure to try to resume</fullName>
+                <default>false</default>
+                <label>Failure to try to resume</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Error</controllingFieldValue>
+            <controllingFieldValue>Exception</controllingFieldValue>
+            <controllingFieldValue>Critical Error</controllingFieldValue>
+            <controllingFieldValue>Notable</controllingFieldValue>
+            <valueName>Failure to address Customer concern</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Error</controllingFieldValue>
+            <controllingFieldValue>Exception</controllingFieldValue>
+            <controllingFieldValue>Critical Error</controllingFieldValue>
+            <controllingFieldValue>Notable</controllingFieldValue>
+            <valueName>NCCI – not sent</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Error</controllingFieldValue>
+            <controllingFieldValue>Exception</controllingFieldValue>
+            <controllingFieldValue>Critical Error</controllingFieldValue>
+            <controllingFieldValue>Notable</controllingFieldValue>
+            <valueName>NCCI – sent to wrong address</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Error</controllingFieldValue>
+            <controllingFieldValue>Exception</controllingFieldValue>
+            <controllingFieldValue>Critical Error</controllingFieldValue>
+            <controllingFieldValue>Notable</controllingFieldValue>
+            <valueName>NCCI – not reviewed results when came back</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Error</controllingFieldValue>
+            <controllingFieldValue>Exception</controllingFieldValue>
+            <controllingFieldValue>Critical Error</controllingFieldValue>
+            <controllingFieldValue>Notable</controllingFieldValue>
+            <valueName>Failure to contact – Bounce</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Error</controllingFieldValue>
+            <controllingFieldValue>Exception</controllingFieldValue>
+            <controllingFieldValue>Critical Error</controllingFieldValue>
+            <controllingFieldValue>Notable</controllingFieldValue>
+            <valueName>Failure to contact – follow up post ACH stopped</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Error</controllingFieldValue>
+            <controllingFieldValue>Exception</controllingFieldValue>
+            <controllingFieldValue>Critical Error</controllingFieldValue>
+            <controllingFieldValue>Notable</controllingFieldValue>
+            <valueName>Missed Dual ACH on file</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Error</controllingFieldValue>
+            <controllingFieldValue>Exception</controllingFieldValue>
+            <controllingFieldValue>Critical Error</controllingFieldValue>
+            <controllingFieldValue>Notable</controllingFieldValue>
+            <valueName>Insufficient due diligence</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Error</controllingFieldValue>
+            <controllingFieldValue>Exception</controllingFieldValue>
+            <controllingFieldValue>Critical Error</controllingFieldValue>
+            <controllingFieldValue>Notable</controllingFieldValue>
+            <valueName>Did not call all numbers listed in SFDC</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Error</controllingFieldValue>
+            <controllingFieldValue>Exception</controllingFieldValue>
+            <controllingFieldValue>Critical Error</controllingFieldValue>
+            <controllingFieldValue>Notable</controllingFieldValue>
+            <valueName>Did not utilize texting</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Error</controllingFieldValue>
+            <controllingFieldValue>Exception</controllingFieldValue>
+            <controllingFieldValue>Critical Error</controllingFieldValue>
+            <controllingFieldValue>Notable</controllingFieldValue>
+            <valueName>Failure to request recon (FRSPA)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Error</controllingFieldValue>
+            <controllingFieldValue>Exception</controllingFieldValue>
+            <controllingFieldValue>Critical Error</controllingFieldValue>
+            <controllingFieldValue>Notable</controllingFieldValue>
+            <valueName>Notice of BK not handled correctly</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Error</controllingFieldValue>
+            <controllingFieldValue>Exception</controllingFieldValue>
+            <controllingFieldValue>Critical Error</controllingFieldValue>
+            <controllingFieldValue>Notable</controllingFieldValue>
+            <valueName>Concurrent accounts not handled correctly</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Error</controllingFieldValue>
+            <controllingFieldValue>Exception</controllingFieldValue>
+            <controllingFieldValue>Critical Error</controllingFieldValue>
+            <controllingFieldValue>Notable</controllingFieldValue>
+            <valueName>Failure to try to resume</valueName>
+        </valueSettings>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

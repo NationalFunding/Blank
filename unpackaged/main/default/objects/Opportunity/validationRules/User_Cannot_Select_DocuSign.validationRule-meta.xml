@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>User_Cannot_Select_DocuSign</fullName>
+    <active>false</active>
+    <description>Made inactive as DocuSign use has been expanded to new reps.</description>
+    <errorConditionFormula>ISPICKVAL(Document_Delivery_Method__c, 'DocuSign') &amp;&amp;  (($User.ProfileId = '00e80000001C1Ht') || ($User.ProfileId = '00e80000001C7hn')||($User.ProfileId = '00e80000001CDTN') || ($User.ProfileId = '00e80000001CBZC') || ($User.ProfileId = '00e80000001CErm') || ($User.ProfileId = '00e80000001CFIL') ||($User.ProfileId = '00e80000001CErr'))</errorConditionFormula>
+    <errorDisplayField>Document_Delivery_Method__c</errorDisplayField>
+    <errorMessage>You do not have the permissions to select 'DocuSign', please select another Delivery Method.</errorMessage>
+</ValidationRule>

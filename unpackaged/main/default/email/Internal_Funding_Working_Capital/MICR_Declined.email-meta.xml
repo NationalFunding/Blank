@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email to notify Merch Ops that a deal is declined internally</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Naitonal_Funding_Standard_Letterhead_Stack</letterhead>
+    <name>MICR - Declined</name>
+    <style>freeForm</style>
+    <subject>{!Credit_Review__c.Opportunity__c} - Continue for External Review</subject>
+    <textOnly>{!Credit_Review__c.Opportunity__c} should be reviewed for External Approval.
+
+Please copy and paste the following ID into your browser behind https://salesforce.com to access the opportunity: {!Credit_Review__c.OpportunityId__c}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Facility_Is_Current__c</fullName>
+    <defaultValue>true</defaultValue>
+    <description>This field is captures if the customer is current on their payment.  Default = True</description>
+    <inlineHelpText>This field is captures if the customer is current on their payment.  Default = True or Current</inlineHelpText>
+    <label>Facility Is Current</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Source__c</fullName>
+    <label>Source</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Wage Garnishment</fullName>
+                <default>false</default>
+                <label>Wage Garnishment</label>
+            </value>
+            <value>
+                <fullName>Property Sales</fullName>
+                <default>false</default>
+                <label>Property Sales</label>
+            </value>
+            <value>
+                <fullName>Bankruptcy</fullName>
+                <default>false</default>
+                <label>Bankruptcy</label>
+            </value>
+            <value>
+                <fullName>Lump Sum</fullName>
+                <default>false</default>
+                <label>Lump Sum</label>
+            </value>
+            <value>
+                <fullName>Levy</fullName>
+                <default>false</default>
+                <label>Levy</label>
+            </value>
+            <value>
+                <fullName>Abeyance</fullName>
+                <default>false</default>
+                <label>Abeyance</label>
+            </value>
+            <value>
+                <fullName>UCC Lien</fullName>
+                <default>false</default>
+                <label>UCC Lien</label>
+            </value>
+            <value>
+                <fullName>Agency</fullName>
+                <default>false</default>
+                <label>Agency</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

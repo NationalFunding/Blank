@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Notification_Alert</name>
+        <label>Notification Alert</label>
+        <locationX>512</locationX>
+        <locationY>1260</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>varNotificationBody</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddressesArray</name>
+            <value>
+                <elementReference>varEmailRecipient</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <stringValue>info@nationalfunding.com</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>TT_AlertSubject</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <apiVersion>53.0</apiVersion>
+    <assignments>
+        <name>Add_Email</name>
+        <label>Add Email</label>
+        <locationX>600</locationX>
+        <locationY>1068</locationY>
+        <assignmentItems>
+            <assignToReference>varEmailRecipient</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Loop_Custom_Setting_Recipients.Email__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Custom_Setting_Recipients</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Email_Variables</name>
+        <label>Assign Email Variables</label>
+        <locationX>50</locationX>
+        <locationY>576</locationY>
+        <assignmentItems>
+            <assignToReference>varNotificationType</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Recon Alert</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varNotificationBody</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>TT_ReconReqBodyFRPSA</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varEmailRecipient</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>$Record.Owner:User.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Get_Custom_Setting</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Email_Variables_0</name>
+        <label>Assign Email Variables</label>
+        <locationX>578</locationX>
+        <locationY>360</locationY>
+        <assignmentItems>
+            <assignToReference>varNotificationType</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>NCCI Alert</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varNotificationBody</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>TT_NCCI_EmailAlert</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varEmailRecipient</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>$Record.Owner:User.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Get_Custom_Setting</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Email_Variables_1</name>
+        <label>Assign Email Variables</label>
+        <locationX>314</locationX>
+        <locationY>468</locationY>
+        <assignmentItems>
+            <assignToReference>varNotificationType</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Recon Alert </stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varNotificationBody</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>TT_ReconReqBody</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varEmailRecipient</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>$Record.Owner:User.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Get_Custom_Setting</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Notification_Type</name>
+        <label>Notification Type</label>
+        <locationX>512</locationX>
+        <locationY>252</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Recon_Expired</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Recon_Request_Expires__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>$Flow.CurrentDate</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Recon_Request_Expires__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Recon_Request_Expires__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Run_Additional_Recon_Actions</targetReference>
+            </connector>
+            <label>Recon Expired</label>
+        </rules>
+        <rules>
+            <name>NCCI</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>formulaNCCI15days</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>$Flow.CurrentDate</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.NCCI_Sent__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Chargeoff_Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Confirmed Chargeoff</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Email_Variables_0</targetReference>
+            </connector>
+            <label>NCCI</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Run_Additional_Recon_Actions</name>
+        <label>Run Additional Recon Actions?</label>
+        <locationX>182</locationX>
+        <locationY>360</locationY>
+        <defaultConnector>
+            <targetReference>Assign_Email_Variables_1</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes_run_recon_actions</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Account.Collections_Stage__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FRPSA - Recon</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account.Collections_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Requested - Bouncing</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Expired_Recon_Actions</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <description>Daily scheduled flow to check if case meets the criteria to send notification to user
+
+Last Update: Removing Legal Demand Notification BAU-41</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>formulaNCCI15days</name>
+        <dataType>Date</dataType>
+        <expression>{!$Record.NCCI_Sent__c}+15</expression>
+    </formulas>
+    <interviewLabel>Case - Email Notifications {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Case - Daily Email Notification Check</label>
+    <loops>
+        <name>Loop_Custom_Setting_Recipients</name>
+        <label>Loop Custom Setting Recipients</label>
+        <locationX>512</locationX>
+        <locationY>960</locationY>
+        <collectionReference>Get_Custom_Setting</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Add_Email</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Notification_Alert</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Custom_Setting</name>
+        <label>Get Recipients Custom Setting</label>
+        <locationX>512</locationX>
+        <locationY>852</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_Custom_Setting_Recipients</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Active__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Case_Notification_Recipients__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>386</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Notification_Type</targetReference>
+        </connector>
+        <filterLogic>1 OR 2</filterLogic>
+        <filters>
+            <field>NCCI_Sent__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Recon_Request_Expires__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>Case</object>
+        <schedule>
+            <frequency>Daily</frequency>
+            <startDate>2022-01-12</startDate>
+            <startTime>12:45:00.000Z</startTime>
+        </schedule>
+        <triggerType>Scheduled</triggerType>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <name>Expired_Recon_Actions</name>
+        <label>Expired Recon Actions</label>
+        <locationX>50</locationX>
+        <locationY>468</locationY>
+        <connector>
+            <targetReference>Assign_Email_Variables</targetReference>
+        </connector>
+        <flowName>Case_Expired_Reconciliation_Actions</flowName>
+        <inputAssignments>
+            <name>input_Case</name>
+            <value>
+                <elementReference>$Record</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <textTemplates>
+        <name>TT_AlertSubject</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>{!varNotificationType} - {!$Record.Subject}</text>
+    </textTemplates>
+    <textTemplates>
+        <name>TT_LegalDemand_Body</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Hello,
+
+
+Legal Demand has expired for {!$Record.Subject} on {!$Record.Legal_Demand_Expiration__c}.
+Please switch over account to monitoring.
+Case link: {!$Setup.Instance_Settings__c.Salesforce_URL__c}{!$Record.Id}</text>
+    </textTemplates>
+    <textTemplates>
+        <name>TT_NCCI_EmailAlert</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Hello,
+
+NCCI sent 15 days ago. Please create Legal Demand case and issue legal demand.
+Case link: {!$Setup.Instance_Settings__c.Salesforce_URL__c}{!$Record.Id}</text>
+    </textTemplates>
+    <textTemplates>
+        <name>TT_ReconReqBody</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Hello,
+
+Reconciliation request sent 5 days ago. Please send NCCI or close the case.
+Case Link: {!$Setup.Instance_Settings__c.Salesforce_URL__c}{!$Record.Id}</text>
+    </textTemplates>
+    <textTemplates>
+        <name>TT_ReconReqBodyFRPSA</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Hello,
+
+The following case has been closed due to customer failure to complete the reconciliation request. They have been emailed about the breach in agreement and the account has moved to an NCCI status.
+Case Link: {!$Setup.Instance_Settings__c.Salesforce_URL__c}{!$Record.Id}</text>
+    </textTemplates>
+    <variables>
+        <name>varEmailRecipient</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varNotificationBody</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varNotificationType</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Buy_Rate_48__c</fullName>
+    <description>Buy rate at a 48 month term.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Buy rate at a 48 month term.</inlineHelpText>
+    <label>Buy Rate 48</label>
+    <precision>8</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

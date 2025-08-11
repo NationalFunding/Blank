@@ -1,0 +1,21 @@
+Hi {!Contact.FirstName},
+
+It was great speaking with you today!  I have attached an updated copy of the verification form.  Please sign & date and send back with:
+ 
+The last 6 months of business bank account statements
+The page of your 2013 business tax return that lists gross revenue
+ 
+Through National Funding’s special renewal program you could be eligible for more funds and longer terms!
+ 
+We look forward to working with you again!
+ 
+Have a good day,
+{!User.Name}
+
+
+
+{!User.Name}
+{!User.Title}
+www.nationalfunding.com
+P: {!User.Phone} | F: {!User.Fax}
+Email: {!User.Email}

@@ -1,0 +1,906 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Audit_Notes_have_Changed</fullName>
+        <description>Audit Notes have Changed</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Titleist__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Operations_Workflow_Emails/Audit_Notes_have_Changed</template>
+    </alerts>
+    <alerts>
+        <fullName>Audit_Submitted_Notification</fullName>
+        <description>Audit Submitted Notification</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>aconley@nationalfunding.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <field>Sales_Rep__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Operations_Workflow_Emails/Titling_Audit_Submitted_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>Customer_Notification_Email_of_Fee_After_30_Days</fullName>
+        <description>Customer Notification Email of Fee After 30 Days</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Customer_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Operations_Workflow_Emails/Customer_30_Day_Fee_Notice</template>
+    </alerts>
+    <alerts>
+        <fullName>Email_New_Titling_Notes_to_Sales_Rep_and_Funder</fullName>
+        <description>Email New Titling Notes to Sales Rep and Funder</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Funder__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <recipients>
+            <field>Sales_Rep__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Operations_Workflow_Emails/New_Titling_Notes</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_Titling_Audit_Complete_Email</fullName>
+        <description>Send Titling Audit Complete Email</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Funder__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <recipients>
+            <field>Sales_Rep__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Operations_Workflow_Emails/Titling_Audit_Complete</template>
+    </alerts>
+    <alerts>
+        <fullName>Titling_Status_is_Title_Perfected</fullName>
+        <description>Titling Status is Title Perfected</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Funder__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Operations_Workflow_Emails/Title_Status_is_Title_Perfected</template>
+    </alerts>
+    <alerts>
+        <fullName>Titling_Status_is_Titling_Instructions</fullName>
+        <description>Titling Status is Titling Instructions</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Sales_Rep__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Operations_Workflow_Emails/Titling_Status_is_Titling_Instructions</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Code_Type_is_Secured_Party_Code</fullName>
+        <field>Title_Instruction_Code_Type__c</field>
+        <literalValue>Secured Party Code</literalValue>
+        <name>Code Type is Secured Party Code</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Populate_Customer_Email</fullName>
+        <field>Customer_Email__c</field>
+        <formula>Opportunity__r.Email_for_Opportunity_Events__c</formula>
+        <name>Populate Customer Email</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Populate_EFA_Lien_Holder</fullName>
+        <field>Lienholder__c</field>
+        <formula>"National Funding Titling Trust" &amp; BR() &amp; 
+"9820 Towne Centre Drive" &amp; BR() &amp; 
+"San Diego, CA 92121"</formula>
+        <name>Populate EFA Lien Holder</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Populate_EFA_Owner</fullName>
+        <field>Owner__c</field>
+        <formula>IF(Opportunity__r.Company_DBA__c = '',  Opportunity__r.Legal_Name__c, Opportunity__r.Legal_Name__c &amp; " DBA " &amp; Opportunity__r.Company_DBA__c) &amp; BR() &amp;
+Opportunity__r.Physical_Address_1__c &amp; BR() &amp;
+Opportunity__r.Physical_Address_City__c &amp; ", " &amp;  Opportunity__r.Physical_Address_State__c &amp; " " &amp;  Opportunity__r.Physical_Address_Zip__c</formula>
+        <name>Populate EFA Owner</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Populate_FMV_Lien_Holder</fullName>
+        <field>Lienholder__c</field>
+        <formula>"National Funding Titling Trust" &amp; BR() &amp; 
+"9820 Towne Centre Drive" &amp; BR() &amp; 
+"San Diego, CA 92121"</formula>
+        <name>Populate FMV Lien Holder</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Populate_FMV_Owner_AL_AK</fullName>
+        <field>Owner__c</field>
+        <formula>"National Funding, Inc. (Lessor)" &amp; BR() &amp;
+"9820 Towne Centre Drive" &amp; BR() &amp;
+"San Diego, CA 92121" &amp; BR() &amp;
+IF(Opportunity__r.Company_DBA__c = '', Opportunity__r.Legal_Name__c, Opportunity__r.Legal_Name__c &amp; " DBA " &amp; Opportunity__r.Company_DBA__c)&amp;" (Lessee)"&amp;BR()&amp;
+Opportunity__r.Physical_Address_1__c &amp; BR() &amp; 
+Opportunity__r.Physical_Address_City__c &amp; ", " &amp; Opportunity__r.Physical_Address_State__c &amp; " " &amp; Opportunity__r.Physical_Address_Zip__c</formula>
+        <name>Populate FMV Owner - AL, AK</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Populate_FMV_Owner_AZ_to_WY</fullName>
+        <description>Populates the Owner for the following states: AZ, AR, CT, FL, HI, ID, IL, KS, MI, MT, NV, NJ, NM, OR, SD, UT, VT, VA, WA, WI, WY</description>
+        <field>Owner__c</field>
+        <formula>"National Funding, Inc. (Lessor)" &amp; BR() &amp;
+IF(Opportunity__r.Company_DBA__c = '', Opportunity__r.Legal_Name__c, Opportunity__r.Legal_Name__c &amp; " DBA " &amp; Opportunity__r.Company_DBA__c)&amp;" (Lessee)"&amp;BR()&amp;
+Opportunity__r.Physical_Address_1__c &amp; BR() &amp; 
+Opportunity__r.Physical_Address_City__c &amp; ", " &amp; Opportunity__r.Physical_Address_State__c &amp; " " &amp; Opportunity__r.Physical_Address_Zip__c</formula>
+        <name>Populate FMV Owner - AZ to WY</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Populate_FMV_Owner_CO_to_TN</fullName>
+        <description>Populates the FMV Owner for the following states:  CO, GA, IA, KY, ME, MA, MN,NE, NY, OH, PA, RI, TN</description>
+        <field>Owner__c</field>
+        <formula>"National Funding, Inc." &amp; BR() &amp;
+"9820 Towne Centre Drive" &amp; BR() &amp;
+"San Diego, CA 92121"</formula>
+        <name>Populate FMV Owner - CO to TN</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Populate_FMV_Owner_DE_to_WV</fullName>
+        <description>Populates the FMV Owner for the following States:  DE, MD, MS, MO, SC, TX, WV</description>
+        <field>Owner__c</field>
+        <formula>"National Funding, Inc." &amp; BR() &amp;
+"c/o " &amp; IF(Opportunity__r.Company_DBA__c = '', Opportunity__r.Legal_Name__c, Opportunity__r.Legal_Name__c &amp; " DBA " &amp; Opportunity__r.Company_DBA__c)&amp;BR()&amp;
+Opportunity__r.Physical_Address_1__c &amp; BR() &amp; 
+Opportunity__r.Physical_Address_City__c &amp; ", " &amp; Opportunity__r.Physical_Address_State__c &amp; " " &amp; Opportunity__r.Physical_Address_Zip__c</formula>
+        <name>Populate FMV Owner - DE to WV</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Populate_FMV_Owner_NH_NC_ND_OK</fullName>
+        <description>Populates the FMV Owner for the following states: NH, NC, ND, OK</description>
+        <field>Owner__c</field>
+        <formula>"National Funding, Inc. (Lessor)" &amp; BR() &amp;
+"9820 Towne Centre Drive" &amp; BR() &amp;
+"San Diego, CA 92121"</formula>
+        <name>Populate FMV Owner - NH, NC, ND, OK</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Populate_Lienholder_LA</fullName>
+        <field>Lienholder__c</field>
+        <formula>"National Funding, Inc." &amp; BR() &amp; 
+"9820 Towne Centre Drive" &amp; BR() &amp; 
+"San Diego, CA 92121"</formula>
+        <name>Populate Lienholder - LA</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_EIN</fullName>
+        <field>Title_Instruction_Code__c</field>
+        <formula>"954724281"</formula>
+        <name>Set EIN #</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_ELT_AZ</fullName>
+        <field>Title_Instruction_Code__c</field>
+        <formula>"954724281"</formula>
+        <name>Set ELT # - AZ</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_ELT_CA</fullName>
+        <field>Title_Instruction_Code__c</field>
+        <formula>"DBE"</formula>
+        <name>Set ELT # - CA</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_ELT_FL</fullName>
+        <field>Title_Instruction_Code__c</field>
+        <formula>"0234913297"</formula>
+        <name>Set ELT # - FL</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_ELT_GA</fullName>
+        <field>Title_Instruction_Code__c</field>
+        <formula>"001103194449"</formula>
+        <name>Set ELT # - GA</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_ELT_LA</fullName>
+        <field>Title_Instruction_Code__c</field>
+        <formula>"ESNH"</formula>
+        <name>Set ELT # - LA</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_ELT_PA</fullName>
+        <field>Title_Instruction_Code__c</field>
+        <formula>"95472428101"</formula>
+        <name>Set ELT # - PA</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Lienholder_Code</fullName>
+        <field>Title_Instruction_Code__c</field>
+        <formula>"C40704"</formula>
+        <name>Set Lienholder Code</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_NJ_Corp_Code</fullName>
+        <field>Title_Instruction_Code__c</field>
+        <formula>"596 379 460 921 210"</formula>
+        <name>Set NJ Corp Code</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Secured_Party_Code_WI</fullName>
+        <field>Title_Instruction_Code__c</field>
+        <formula>"123074"</formula>
+        <name>Set Secured Party Code - WI</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Title_Instruction_Code_Type_to_Lienh</fullName>
+        <field>Title_Instruction_Code_Type__c</field>
+        <literalValue>Lienholder Code</literalValue>
+        <name>Set Title Instruction Code Type to Lienh</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Title_Pkg_Out_Date</fullName>
+        <field>Title_Pkg_Out_Date__c</field>
+        <formula>Today()</formula>
+        <name>Set Title Pkg Out Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Title_Instruction_Code_Type_is_EIN</fullName>
+        <field>Title_Instruction_Code_Type__c</field>
+        <literalValue>EIN#</literalValue>
+        <name>Title Instruction Code Type is EIN #</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Title_Instruction_Code_Type_is_ELT</fullName>
+        <field>Title_Instruction_Code_Type__c</field>
+        <literalValue>ELT #</literalValue>
+        <name>Title Instruction Code Type is ELT #</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Title_Instruction_Code_Type_is_NJ_Corp</fullName>
+        <field>Title_Instruction_Code_Type__c</field>
+        <literalValue>NJ Corp Code</literalValue>
+        <name>Title Instruction Code Type is NJ Corp</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Audit Notes have Changed</fullName>
+        <actions>
+            <name>Audit_Notes_have_Changed</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>ISCHANGED(Audit_Notes__c)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Residual Ownership is EFA - LA</fullName>
+        <actions>
+            <name>Populate_EFA_Owner</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Populate_Lienholder_LA</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Titling__c.Residual_Ownership_Type__c</field>
+            <operation>equals</operation>
+            <value>EFA</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Titling__c.State__c</field>
+            <operation>equals</operation>
+            <value>LA</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Residual Ownership is EFA - not LA</fullName>
+        <actions>
+            <name>Populate_EFA_Lien_Holder</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Populate_EFA_Owner</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Titling__c.Residual_Ownership_Type__c</field>
+            <operation>equals</operation>
+            <value>EFA</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Titling__c.State__c</field>
+            <operation>notEqual</operation>
+            <value>LA</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Residual Ownership is FMV - AL%2C AK</fullName>
+        <actions>
+            <name>Populate_FMV_Lien_Holder</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Populate_FMV_Owner_AL_AK</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Titling__c.Residual_Ownership_Type__c</field>
+            <operation>equals</operation>
+            <value>FMV</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Titling__c.State__c</field>
+            <operation>equals</operation>
+            <value>AL,AK</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Residual Ownership is FMV - AZ%2C AR%2C CA%2C CT%2C FL%2C HI%2C ID%2C IL%2C KS%2C MI%2C MT%2C NV%2C NJ%2C NM%2C OR%2C SD%2C UT%2C VT%2C VA%2C WA%2C WI%2C WY</fullName>
+        <actions>
+            <name>Populate_FMV_Lien_Holder</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Populate_FMV_Owner_AZ_to_WY</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Titling__c.Residual_Ownership_Type__c</field>
+            <operation>equals</operation>
+            <value>FMV</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Titling__c.State__c</field>
+            <operation>equals</operation>
+            <value>AZ,AR,CA,CT,FL,HI,ID,IL,KS,MI,MT,NV,NJ,NM,OR,SD,UT,VT,VA,WA,WI,WY</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Residual Ownership is FMV - CO%2C GA%2C IA%2C KY%2C ME%2C MA%2C MN%2CNE%2C NY%2C OH%2C PA%2C RI%2C TN</fullName>
+        <actions>
+            <name>Populate_FMV_Lien_Holder</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Populate_FMV_Owner_CO_to_TN</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Titling__c.Residual_Ownership_Type__c</field>
+            <operation>equals</operation>
+            <value>FMV</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Titling__c.State__c</field>
+            <operation>equals</operation>
+            <value>CO,GA,IA,KY,ME,MA,MN,NE,NY,OH,PA,RI,TN</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Residual Ownership is FMV - DE%2C MD%2C MS%2C MO%2C SC%2C TX%2C WV</fullName>
+        <actions>
+            <name>Populate_FMV_Lien_Holder</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Populate_FMV_Owner_DE_to_WV</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Titling__c.Residual_Ownership_Type__c</field>
+            <operation>equals</operation>
+            <value>FMV</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Titling__c.State__c</field>
+            <operation>equals</operation>
+            <value>DE,MD,MS,MO,SC,TX,WV</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Residual Ownership is FMV - LA</fullName>
+        <actions>
+            <name>Populate_FMV_Owner_CO_to_TN</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Populate_Lienholder_LA</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Titling__c.Residual_Ownership_Type__c</field>
+            <operation>equals</operation>
+            <value>FMV</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Titling__c.State__c</field>
+            <operation>equals</operation>
+            <value>LA</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Residual Ownership is FMV - NH%2C NC%2C ND%2C OK</fullName>
+        <actions>
+            <name>Populate_FMV_Lien_Holder</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Populate_FMV_Owner_NH_NC_ND_OK</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Titling__c.Residual_Ownership_Type__c</field>
+            <operation>equals</operation>
+            <value>FMV</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Titling__c.State__c</field>
+            <operation>equals</operation>
+            <value>NH,NC,ND,OK</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Stage is Title Pkg Out</fullName>
+        <actions>
+            <name>Set_Title_Pkg_Out_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>ISCHANGED(Title_Status__c) &amp;&amp; ISPICKVAL(Title_Status__c, 'Title Pkg Out')</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>State is AZ</fullName>
+        <actions>
+            <name>Set_ELT_AZ</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Title_Instruction_Code_Type_is_ELT</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Titling__c.State__c</field>
+            <operation>equals</operation>
+            <value>AZ</value>
+        </criteriaItems>
+        <description>When the state is equal to AZ, the Title Instruction Code Type will be changed to 'ELT #', and the Title Instruction Code will be set to '954724281'</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>State is CA</fullName>
+        <actions>
+            <name>Set_ELT_CA</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Title_Instruction_Code_Type_is_ELT</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Titling__c.State__c</field>
+            <operation>equals</operation>
+            <value>CA</value>
+        </criteriaItems>
+        <description>When the state is equal to CA, the Title Instruction Code Type will be changed to 'ELT #', and the Title Instruction Code will be set to 'DBE'</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>State is FL</fullName>
+        <actions>
+            <name>Set_ELT_FL</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Title_Instruction_Code_Type_is_ELT</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Titling__c.State__c</field>
+            <operation>equals</operation>
+            <value>FL</value>
+        </criteriaItems>
+        <description>When the state is equal to FL, the Title Instruction Code Type will be changed to 'ELT #', and the Title Instruction Code will be set to '0234913297'</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>State is GA</fullName>
+        <actions>
+            <name>Set_ELT_GA</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Title_Instruction_Code_Type_is_ELT</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Titling__c.State__c</field>
+            <operation>equals</operation>
+            <value>GA</value>
+        </criteriaItems>
+        <description>When the state is equal to GA, the Title Instruction Code Type will be changed to 'ELT #', and the Title Instruction Code will be set to '001103194449'</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>State is LA</fullName>
+        <actions>
+            <name>Set_ELT_LA</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Title_Instruction_Code_Type_is_ELT</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Titling__c.State__c</field>
+            <operation>equals</operation>
+            <value>LA</value>
+        </criteriaItems>
+        <description>When the state is equal to LA, the Title Instruction Code Type will be changed to 'ELT #', and the Title Instruction Code will be set to 'ESNH'</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>State is MA</fullName>
+        <actions>
+            <name>Set_Lienholder_Code</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Set_Title_Instruction_Code_Type_to_Lienh</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Titling__c.State__c</field>
+            <operation>equals</operation>
+            <value>MA</value>
+        </criteriaItems>
+        <description>When the state is equal to MA, the Title Instruction Code Type will be changed to 'Lienholder Code', and the Title Instruction Code will be set to 'C40704'</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>State is NJ</fullName>
+        <actions>
+            <name>Set_NJ_Corp_Code</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Title_Instruction_Code_Type_is_NJ_Corp</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Titling__c.State__c</field>
+            <operation>equals</operation>
+            <value>NJ</value>
+        </criteriaItems>
+        <description>When the state is equal to NJ, the Title Instruction Code Type will be changed to 'NJ Corp Code', and the Title Instruction Code will be set to '596 379 460 921 210'</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>State is PA</fullName>
+        <actions>
+            <name>Set_ELT_PA</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Title_Instruction_Code_Type_is_ELT</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Titling__c.State__c</field>
+            <operation>equals</operation>
+            <value>PA</value>
+        </criteriaItems>
+        <description>When the state is equal to PA, the Title Instruction Code Type will be changed to 'ELT #', and the Title Instruction Code will be set to '95472428101'</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>State is WI</fullName>
+        <actions>
+            <name>Code_Type_is_Secured_Party_Code</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Set_Secured_Party_Code_WI</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Titling__c.State__c</field>
+            <operation>equals</operation>
+            <value>WI</value>
+        </criteriaItems>
+        <description>When the state is equal to WI, the Title Instruction Code Type will be changed to 'Secured Party Code', and the Title Instruction Code will be set to '123074'</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>State is not AZ%2CCA%2CFL%2CGA%2CLA%2CPA%2CNJ%2CMA%2CWI</fullName>
+        <actions>
+            <name>Set_EIN</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Title_Instruction_Code_Type_is_EIN</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Titling__c.State__c</field>
+            <operation>notEqual</operation>
+            <value>AZ,CA,FL,GA,LA,MA,NJ,PA,WI</value>
+        </criteriaItems>
+        <description>When the state is not equal to AZ, CA, FL, GA, LA, PA, NJ, MA, or WI the Title Instruction Code Type will be changed to 'EIN #', and the Title Instruction Code will be set to '954724281'</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Status is Audit Complete</fullName>
+        <actions>
+            <name>Send_Titling_Audit_Complete_Email</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Titling__c.Title_Status__c</field>
+            <operation>equals</operation>
+            <value>Audit Complete</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Status is Audit Submitted</fullName>
+        <actions>
+            <name>Audit_Submitted_Notification</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Titling__c.Title_Status__c</field>
+            <operation>equals</operation>
+            <value>Audit Submitted</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Status is Title Perfected</fullName>
+        <actions>
+            <name>Titling_Status_is_Title_Perfected</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Titling__c.Title_Status__c</field>
+            <operation>equals</operation>
+            <value>Title Perfected</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Status is Title Pkg Out</fullName>
+        <active>true</active>
+        <formula>ISPICKVAL(Title_Status__c, "Title Pkg Out") &amp;&amp;  $User.Full_Name__c != 'Amber Conley'</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>DMV_Follow_Up</name>
+                <type>Task</type>
+            </actions>
+            <timeLength>14</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Follow_Up_Call_on_Titling</name>
+                <type>Task</type>
+            </actions>
+            <timeLength>3</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Customer_Notification_Email_of_Fee_After_30_Days</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>25</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Status is Titling Instructions</fullName>
+        <actions>
+            <name>Titling_Status_is_Titling_Instructions</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Titling__c.Title_Status__c</field>
+            <operation>equals</operation>
+            <value>Titling Instructions</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Titling Is Created</fullName>
+        <actions>
+            <name>Populate_Customer_Email</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Titling__c.Name</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <description>Whenever a Titling record is created, populate the Customer Email field.</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Titling Notes Have Changed</fullName>
+        <actions>
+            <name>Email_New_Titling_Notes_to_Sales_Rep_and_Funder</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>When the Titling Notes fields is updated, the new value will be emailed to the Funder and Sales Rep</description>
+        <formula>ISCHANGED(Titling_Notes__c)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <tasks>
+        <fullName>DMV_Follow_Up</fullName>
+        <assignedTo>aconley@nationalfunding.com</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>Follow up with the Customer to see if they have been able to go to the DMV yet</description>
+        <dueDateOffset>2</dueDateOffset>
+        <notifyAssignee>true</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>DMV Follow Up</subject>
+    </tasks>
+    <tasks>
+        <fullName>Follow_Up_Call_on_Titling</fullName>
+        <assignedToType>owner</assignedToType>
+        <dueDateOffset>3</dueDateOffset>
+        <notifyAssignee>true</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>Follow Up Call on Titling</subject>
+    </tasks>
+</Workflow>

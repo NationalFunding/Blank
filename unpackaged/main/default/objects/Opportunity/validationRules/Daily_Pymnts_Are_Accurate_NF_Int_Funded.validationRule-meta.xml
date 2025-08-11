@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Daily_Pymnts_Are_Accurate_NF_Int_Funded</fullName>
+    <active>false</active>
+    <errorConditionFormula>ACTUAL_AMT_COLLECTED__c  &lt;&gt; Actual_Daily_Payment__c * VALUE(ACTUAL_MCA_TERM__c) &amp;&amp; 
+(RecordType.Name = 'Working Capital Oppty') &amp;&amp;   
+(Lender_Account__r.Name = 'National Funding - Gold WC Funding' || 
+Lender_Account__r.Name = 'National Funding - Diamond WC Funding' || 
+Lender_Account__r.Name = 'National Funding - Platinum WC Funding' || 
+Lender_Account__r.Name = 'National Funding - Commercial WC Funding') &amp;&amp; 
+(ISPICKVAL(StageName, "Funded")) &amp;&amp;
+DATEVALUE(Fund_Date__c) &gt;= DATE(2014,10,28) &amp;&amp;
+$Profile.Name &lt;&gt; 'Services Profile'</errorConditionFormula>
+    <errorDisplayField>First_Due_Lender_For_Actual__c</errorDisplayField>
+    <errorMessage>The Actual Amount Collected must be equal to the Actual Daily Payment multiplied by Actual MCA Term</errorMessage>
+</ValidationRule>

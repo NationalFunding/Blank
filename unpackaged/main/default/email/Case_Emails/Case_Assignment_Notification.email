@@ -1,0 +1,10 @@
+Hello {!Case.OwnerFirstName},
+
+Case {!Case.CaseNumber} has been assigned to you.
+
+Subject:  {!Case.Subject}
+
+Click this link to view the Case:
+{!Case.Link}
+
+Thanks

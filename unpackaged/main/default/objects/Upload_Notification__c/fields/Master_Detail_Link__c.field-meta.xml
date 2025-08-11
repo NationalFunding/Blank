@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Master_Detail_Link__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( ISPICKVAL(Lead_Or_Account__c, "Account"), 'https://nf.my.salesforce.com/' +   Account__r.Id, 
+IF( ISPICKVAL(Lead_Or_Account__c, "Lead"), 'https://nf.my.salesforce.com/' +  Lead__r.Id, 
+"No Upload Exists"))</formula>
+    <label>Master Detail Link</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

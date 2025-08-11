@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Call_Disposition_Collections__c</fullName>
+    <description>Collections specific dispositions to show as options in the vonage LogACall utility bar feature</description>
+    <label>Call Disposition Collections</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Busy</fullName>
+                <default>false</default>
+                <label>Busy</label>
+            </value>
+            <value>
+                <fullName>Contacted - Gatekeeper</fullName>
+                <default>false</default>
+                <label>Contacted - Gatekeeper</label>
+            </value>
+            <value>
+                <fullName>Disconnected/Wrong Number</fullName>
+                <default>false</default>
+                <label>Disconnected/Wrong Number</label>
+            </value>
+            <value>
+                <fullName>Hang Up</fullName>
+                <default>false</default>
+                <label>Hang Up</label>
+            </value>
+            <value>
+                <fullName>No Answer - LVM</fullName>
+                <default>false</default>
+                <label>No Answer - LVM</label>
+            </value>
+            <value>
+                <fullName>No Answer - NML</fullName>
+                <default>false</default>
+                <label>No Answer - NML</label>
+            </value>
+            <value>
+                <fullName>No Answer - Unable to leave message</fullName>
+                <default>false</default>
+                <label>No Answer - Unable to leave message</label>
+            </value>
+            <value>
+                <fullName>RPC - Attorney Involved</fullName>
+                <default>false</default>
+                <label>RPC - Attorney Involved</label>
+            </value>
+            <value>
+                <fullName>RPC - Filing for Bankruptcy</fullName>
+                <default>false</default>
+                <label>RPC - Filing for Bankruptcy</label>
+            </value>
+            <value>
+                <fullName>RPC - Funds not available</fullName>
+                <default>false</default>
+                <label>RPC - Funds not available</label>
+            </value>
+            <value>
+                <fullName>RPC - Payment Link Sent</fullName>
+                <default>false</default>
+                <label>RPC - Payment Link Sent</label>
+            </value>
+            <value>
+                <fullName>RPC - Payments Scheduled</fullName>
+                <default>false</default>
+                <label>RPC - Payments Scheduled</label>
+            </value>
+            <value>
+                <fullName>RPC - Requested Bank Change</fullName>
+                <default>false</default>
+                <label>RPC - Requested Bank Change</label>
+            </value>
+            <value>
+                <fullName>RPC - Requested Call back</fullName>
+                <default>false</default>
+                <label>RPC - Requested Call back</label>
+            </value>
+            <value>
+                <fullName>RPC - Requested Payment Assistance</fullName>
+                <default>false</default>
+                <label>RPC - Requested Payment Assistance</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

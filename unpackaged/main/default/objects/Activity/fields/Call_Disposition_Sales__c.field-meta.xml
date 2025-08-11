@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Call_Disposition_Sales__c</fullName>
+    <description>Sales specific dispositions to show as options in the vonage LogACall utility bar feature</description>
+    <label>Call Disposition Sales</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Contacted - Gatekeeper</fullName>
+                <default>false</default>
+                <label>Contacted - Gatekeeper</label>
+            </value>
+            <value>
+                <fullName>Hung Up</fullName>
+                <default>false</default>
+                <label>Hung Up</label>
+            </value>
+            <value>
+                <fullName>No Answer - LVM</fullName>
+                <default>false</default>
+                <label>No Answer - LVM</label>
+            </value>
+            <value>
+                <fullName>No Answer - No Voicemail</fullName>
+                <default>false</default>
+                <label>No Answer - No Voicemail</label>
+            </value>
+            <value>
+                <fullName>Not In Service</fullName>
+                <default>false</default>
+                <label>Not In Service</label>
+            </value>
+            <value>
+                <fullName>RPC - Does not Meet Criteria</fullName>
+                <default>false</default>
+                <label>RPC - Does not Meet Criteria</label>
+            </value>
+            <value>
+                <fullName>RPC - Gathering Docs (Stips)</fullName>
+                <default>false</default>
+                <label>RPC - Gathering Docs (Stips)</label>
+            </value>
+            <value>
+                <fullName>RPC - Interested Thinking</fullName>
+                <default>false</default>
+                <label>RPC - Interested Thinking</label>
+            </value>
+            <value>
+                <fullName>RPC - Needs to Complete App</fullName>
+                <default>false</default>
+                <label>RPC - Needs to Complete App</label>
+            </value>
+            <value>
+                <fullName>RPC - Needs to Complete Banks</fullName>
+                <default>false</default>
+                <label>RPC - Needs to Complete Banks</label>
+            </value>
+            <value>
+                <fullName>RPC - Not Interested General</fullName>
+                <default>false</default>
+                <label>RPC - Not Interested General</label>
+            </value>
+            <value>
+                <fullName>RPC - Offers Presented - Thinking</fullName>
+                <default>false</default>
+                <label>RPC - Offers Presented - Thinking</label>
+            </value>
+            <value>
+                <fullName>RPC - ONA - ACH Schedule</fullName>
+                <default>false</default>
+                <label>RPC - ONA - ACH Schedule</label>
+            </value>
+            <value>
+                <fullName>RPC - ONA - Payment Too High</fullName>
+                <default>false</default>
+                <label>RPC - ONA - Payment Too High</label>
+            </value>
+            <value>
+                <fullName>RPC - ONA - Price Too High</fullName>
+                <default>false</default>
+                <label>RPC - ONA - Price Too High</label>
+            </value>
+            <value>
+                <fullName>RPC - ONA - Took Competitor Offer</fullName>
+                <default>false</default>
+                <label>RPC - ONA - Took Competitor Offer</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Broker_Decline_Reason_Required</fullName>
+    <active>true</active>
+    <description>Broker Decline Reason is required when declining a Broker Account.</description>
+    <errorConditionFormula>ISCHANGED(  Broker_Declined__c  ) &amp;&amp;
+Broker_Declined__c = TRUE &amp;&amp;
+ISBLANK( Broker_Decline_Reason__c)</errorConditionFormula>
+    <errorMessage>Broker Decline Reason must be entered when declining a Broker Account.</errorMessage>
+</ValidationRule>

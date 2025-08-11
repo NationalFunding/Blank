@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Organization_s_Bank_Account__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <label>Organization's Bank Account</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>Bank_Account__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Organization</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Bank_Account__c</referenceTo>
+    <relationshipLabel>ACH Payments (Organization's Bank Account)</relationshipLabel>
+    <relationshipName>ACH_Payments1</relationshipName>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

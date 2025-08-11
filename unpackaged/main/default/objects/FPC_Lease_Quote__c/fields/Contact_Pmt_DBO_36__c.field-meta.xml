@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contact_Pmt_DBO_36__c</fullName>
+    <description>Contact payment of a 36 month term DBO lease.</description>
+    <inlineHelpText>Contact payment of a 36 month term DBO lease.</inlineHelpText>
+    <label>Contact Pmt DBO 36</label>
+    <precision>17</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

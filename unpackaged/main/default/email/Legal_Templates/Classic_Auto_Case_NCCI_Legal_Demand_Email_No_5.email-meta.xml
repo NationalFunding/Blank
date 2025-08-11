@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Deprecated 6/30/25 - NCCI Email Drip now only uses emails #1-4.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank</letterhead>
+    <name>Auto - Case NCCI/Legal Demand Email No. 5</name>
+    <style>freeForm</style>
+    <subject>Follow-up on Legal Demand ({!Case.Legal_Name__c} - {!Case.Merchant_Number__c})</subject>
+    <textOnly>Hello {!Contact.FirstName},
+
+We have been attempting to reach you regarding payment on your account. A legal demand has been issued as of {!Case.Legal_Demand_Sent__c}. There is still time to bring your account out of delinquency. If you are unable to maintain full payments currently, we have temporary modification to help. Please reach out immediately by replying to this email or by phone via my direct line at the bottom of this email.
+
+
+Thank you,
+
+{!Case.OwnerFullName} | {!Case.OwnerTitle}
+
+National Funding, Inc., the parent and servicing company of
+Quick Bridge Funding, LLC
+
+{!$Setup.Company_Information__c.Street__c}
+{!$Setup.Company_Information__c.City__c}, {!$Setup.Company_Information__c.State__c} {!$Setup.Company_Information__c.Zip__c}
+P: {!Case.OwnerPhone} | F: {!User.Fax}
+E: {!Case.OwnerEmail}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

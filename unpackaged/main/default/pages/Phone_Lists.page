@@ -1,0 +1,22 @@
+<apex:page >
+<head>
+    <style>
+    .noUnderline {
+        text-decoration: none;
+    }
+    .noUnderline:hover {
+        text-decoration: none;
+    }
+   </style>
+   </head>
+   
+  <h1>Phone List PDFs</h1>
+  <br></br>
+  <br></br>
+
+    <div>
+        <a href="/apex/phoneListPDF" target="_blank" class="btn noUnderline">Sorted By Departments</a>
+        <a href="/apex/twoColumns" target="_blank" class="btn noUnderline">Alphabetical</a>
+    </div>
+
+</apex:page>

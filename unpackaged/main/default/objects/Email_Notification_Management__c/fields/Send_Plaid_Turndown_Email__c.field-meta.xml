@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Send_Plaid_Turndown_Email__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Plaid T1 Turndown email sent from the Record Distribution flow (PD-1323)</description>
+    <label>Send Plaid Turndown Email</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

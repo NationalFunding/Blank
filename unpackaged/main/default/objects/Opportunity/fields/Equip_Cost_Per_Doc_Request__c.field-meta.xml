@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Equip_Cost_Per_Doc_Request__c</fullName>
+    <description>Equipment cost as recorded at time of legal document request.</description>
+    <inlineHelpText>Type in the cost of equipment as listed on the legal documents.</inlineHelpText>
+    <label>Equip Cost Per Doc Request</label>
+    <precision>17</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

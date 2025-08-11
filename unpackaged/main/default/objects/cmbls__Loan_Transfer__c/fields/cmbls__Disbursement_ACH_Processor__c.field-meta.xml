@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cmbls__Disbursement_ACH_Processor__c</fullName>
+    <deprecated>false</deprecated>
+    <inlineHelpText>ACH Processor which will be used in the created Disbursement. If Empty it will be populated with the Default Credit ACH Processor from Fund Record</inlineHelpText>
+    <label>Disbursement ACH Processor</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Wells Fargo - NF Collections</fullName>
+                <default>false</default>
+                <label>Wells Fargo - NF Collections</label>
+            </value>
+            <value>
+                <fullName>Wells Fargo - NFAS2 Collections</fullName>
+                <default>false</default>
+                <label>Wells Fargo - NFAS2 Collections</label>
+            </value>
+            <value>
+                <fullName>Wells Fargo - NF Funding</fullName>
+                <default>false</default>
+                <label>Wells Fargo - NF Funding</label>
+            </value>
+            <value>
+                <fullName>Wells Fargo - QBF Funding</fullName>
+                <default>false</default>
+                <label>Wells Fargo - QBF Funding</label>
+            </value>
+            <value>
+                <fullName>NF Transfer (QB)</fullName>
+                <default>false</default>
+                <label>NF Transfer (QB)</label>
+            </value>
+            <value>
+                <fullName>NFAS2 Transfer</fullName>
+                <default>false</default>
+                <label>NFAS2 Transfer</label>
+            </value>
+            <value>
+                <fullName>NFSPV1 Transfer</fullName>
+                <default>false</default>
+                <label>NFSPV1 Transfer</label>
+            </value>
+            <value>
+                <fullName>NFSPV2 Transfer</fullName>
+                <default>false</default>
+                <label>NFSPV2 Transfer</label>
+            </value>
+            <value>
+                <fullName>NFAS3 Transfer</fullName>
+                <default>false</default>
+                <label>NFAS3 Transfer</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

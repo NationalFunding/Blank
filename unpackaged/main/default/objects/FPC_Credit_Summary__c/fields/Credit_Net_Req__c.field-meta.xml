@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Credit_Net_Req__c</fullName>
+    <description>Credit Net summary required - status</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Check box if a Credit Net summary is required.</inlineHelpText>
+    <label>Credit Net Req</label>
+    <length>1</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Federal_Tax_ID_cannot_be_null</fullName>
+    <active>true</active>
+    <description>Applies to only direct Working Capital deals</description>
+    <errorConditionFormula>AND(
+    OR(
+        RecordType.Name = 'Working Capital Oppty',
+        RecordType.Name = 'FRPSA'
+    ),
+    ISBLANK(Account.Fed_Tax_ID__c),  
+    ISPICKVAL(StageName, 'Statements In - MCA'),
+    ISCHANGED(StageName)
+)</errorConditionFormula>
+    <errorMessage>Federal Tax ID must have a value before stage can be updated.</errorMessage>
+</ValidationRule>

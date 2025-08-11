@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Rates_Subtotal__c</fullName>
+    <description>This field will calculate the New Rate subtotal for a Rate Review.</description>
+    <formula>(DiscoverQualified_New_Expense__c  +  DiscoverMid_Qualified_New_Expense__c  +  DiscoverNon_Qualified_New_Expense__c) + 
+( MCQualified_New_Expense__c +  MCMid_Qualified_New_Expense__c +  MCNon_Qualified_New_Expense__c) +  (Offline_Debit_Qualified_New_Expense__c + Offline_Debit_Mid_Qual_New_Expense__c + Offline_Debit_Non_Qual_New_Expense__c ) + 
+( Visa_Qualified_New_Expense__c + Visa_Mid_Qualified_New_Expense__c + Visa_Non_Qualified_New_Expense__c )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>This field will calculate the New Rate subtotal for a Rate Review.</inlineHelpText>
+    <label>New Rates Subtotal</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

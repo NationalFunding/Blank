@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Bank_Data_Error</fullName>
+        <ccEmails>trover@nationalfunding.com</ccEmails>
+        <description>Bank Data Error</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>acaisido@fairsquare.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>ghoward@nationalfunding.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>jromanowski@nationalfunding.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>lmolnar@nationalfunding.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>mentezam@nationalfunding.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>trover@nationalfunding.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Digital_Loan_Process_Templates/DLP_Error_Alert</template>
+    </alerts>
+    <alerts>
+        <fullName>Bank_Data_Status_Complete_Alert_Sender</fullName>
+        <description>Bank Data Status Complete - Alert Sender</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Banks_Requested_by_User_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <recipient>trover@nationalfunding.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Digital_Loan_Process_Templates/Digital_Loan_Process_Completed_by_Customer</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Bank_Name_Update</fullName>
+        <field>Bank_Name__c</field>
+        <formula>Yodlee_Banks__r.Name</formula>
+        <name>Bank Name Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Banks_Requested_By</fullName>
+        <field>Banks_Requested_By__c</field>
+        <formula>LastModifiedBy.Full_Name__c</formula>
+        <name>Update Banks Requested By</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Banks_Requested_by_Email</fullName>
+        <field>Banks_Requested_by_User_Email__c</field>
+        <formula>LastModifiedBy.Email</formula>
+        <name>Update Banks Requested by Email</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>DLP Error Alert</fullName>
+        <actions>
+            <name>Bank_Data_Error</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Bank_Data__c.Verification_Status__c</field>
+            <operation>equals</operation>
+            <value>Error</value>
+        </criteriaItems>
+        <description>Triggers an email to the IT team when a Bank Data record has a status of Error</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Status %3D Completed</fullName>
+        <actions>
+            <name>Bank_Data_Status_Complete_Alert_Sender</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Bank_Data__c.Verification_Status__c</field>
+            <operation>equals</operation>
+            <value>Completed</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Status %3D Invite Sent%2C Capture User Info</fullName>
+        <actions>
+            <name>Update_Banks_Requested_By</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Banks_Requested_by_Email</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Bank_Data__c.Verification_Status__c</field>
+            <operation>equals</operation>
+            <value>Invite Sent</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Yodlee Bank Selected</fullName>
+        <actions>
+            <name>Bank_Name_Update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>OR(    AND(     ISNEW(), NOT(ISBLANK(Yodlee_Banks__c))),    ISCHANGED(Yodlee_Banks__c))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

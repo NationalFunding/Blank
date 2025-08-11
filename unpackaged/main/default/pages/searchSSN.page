@@ -1,0 +1,44 @@
+<apex:page standardController="Contact" extensions="searchHashController" tabStyle="Search_by_SSN__tab">
+    <apex:sectionHeader title="Search by Social Security Number" />
+  <apex:form >
+      <apex:pageBlock title="Search Details">
+         <apex:pageBlockButtons location="bottom">
+           <apex:commandButton value="Search records" action="{!search}" />
+         </apex:pageBlockButtons> 
+        <apex:pageBlockSection >
+          <apex:inputText value="{!searchstring}" label="SSN" />   
+        </apex:pageBlockSection>
+      </apex:pageBlock>
+  </apex:form>  
+  <apex:pageBlock title="Search Results (Contacts)" rendered="{!cont != null && cont.size > 0}">
+                 <apex:pageblockTable value="{!cont}" var="c" title="Contact" id="contact_search"  >
+                     <apex:column headerValue="" width="40" styleClass="text-align: center">
+                             <apex:outputLink value="/{!URLFOR(c.Id)}">[view]</apex:outputLink>
+                     </apex:column>
+                     <apex:repeat value="{! $ObjectType.Contact.Fieldsets.SSN_Search_Result_Columns}" var="varFieldName">
+                         <apex:column value="{!c[varFieldName]}">
+                                 
+                          </apex:column>
+                      </apex:repeat>
+                    
+                 </apex:pageblockTable>
+      </apex:pageBlock>
+  <apex:pageBlock title="Search Results (Leads)" rendered="{!led != null && led.size > 0}">
+              <apex:pageblockTable value="{!led}" var="l" title="Lead">
+                         
+                       
+                              <apex:column headerValue="" width="40" styleClass="text-align: center">
+                             <apex:outputLink value="/{!URLFOR(l.Id)}">[view]</apex:outputLink>
+                                 </apex:column>
+                                 <apex:repeat value="{! $ObjectType.Lead.Fieldsets.SSN_Search_Result_Columns}" var="varFieldName">
+                                     <apex:column value="{!l[varFieldName]}">
+                                             
+                                      </apex:column>
+                                  </apex:repeat>
+                     
+                 </apex:pageblockTable>
+    </apex:pageBlock> 
+  <apex:pageBlock title="No Results Found" rendered="{!led != null && cont != null && cont.size == 0 && led.size == 0}">
+      There were no results that matched that Social Security Number.  Please try again.
+  </apex:pageBlock>
+ </apex:page>

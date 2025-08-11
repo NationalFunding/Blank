@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Comments__c</fullName>
+    <description>Populated via workflow with first 255 characters in the standard Comments field.</description>
+    <label>Comments</label>
+    <required>false</required>
+    <type>TextArea</type>
+</CustomField>

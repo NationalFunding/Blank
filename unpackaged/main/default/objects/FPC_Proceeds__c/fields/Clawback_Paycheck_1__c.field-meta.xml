@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Clawback_Paycheck_1__c</fullName>
+    <description>Indicates the paycheck that a rep's commission clawback will be taken from</description>
+    <inlineHelpText>Indicates the paycheck that a rep's commission clawback will be taken from</inlineHelpText>
+    <label>Clawback Paycheck 1</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

@@ -1,0 +1,157 @@
+<!--
+ - Created by oporter on 1/16/2017.
+ -->
+<apex:page controller="twoColumnsController" renderAs="pdf" applyBodyTag="false" showHeader="false" sidebar="false">
+
+    <apex:variable var="recsPerPage" value="{!117}"></apex:variable>
+    <apex:variable var="pageNum" value="{!0}"></apex:variable>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <style>
+    @page {
+        size:landscape;
+        @bottom-right {
+            content: "Page " counter(page) " of " counter(pages);
+            font-size: 8px;
+        }
+    }
+    table tr, table td{
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+    table {
+        width: 100%;
+        -fs-table-paginate: paginate;
+
+    }
+    body {
+        font-size: 6px;
+        margin: 0px;
+        padding: 0px;
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    }
+    th, td {
+        text-align: left;
+        padding: 1px;
+    }
+    thead {
+        background-color: #1798c1;
+        color: white;
+    }
+
+    #department{
+        background-color: #d6d6d6;
+        color: black;
+    }
+    h2 {
+        text-align: center;
+        font-size: 11px;
+    }
+    p {
+        text-align: center;
+        font-style: italic;
+        font-size: 9px;
+    }
+    .float-left {
+        float: left;
+    }
+    .float-right {
+        float: right;
+    }
+    div.wrapper{
+         columns: 2;
+         column-gap: 5mm;
+         column-rule: dotted green 1mm;
+    }
+    #right{
+        float: right;
+    }
+    </style>
+    </head>
+
+    <div class="container">
+        <h2>National Funding</h2>
+        <p><p>Employee Phone and Extension List</p><p><apex:outputText value="{!newDate}" style="font-weight: bold; float: right;"/></p></p>
+        <br/>
+
+        <body>
+
+        <apex:repeat value="{!listOfUsers}" var="dummy" first="{!recsPerPage * pageNum}" rows="{!recsPerPage}">
+
+            <apex:outputPanel rendered="{!pageNum * recsPerPage < listOfUsers.size}">
+                <table id="leftTable" style="width: 50%;float:left;" >
+                    <thead>
+                    <tr>
+                        <td>Name</td>
+                        <td>Phone</td>
+                        <td>Ext.</td>
+                        <td>Title</td>
+                        <td>Manager</td>
+                        <td>Department</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!-- Left side table -->
+                    <apex:repeat value="{!listOfUsers}" var="con" first="{! (recsPerPage) * pageNum}" rows="{!recsPerPage/2}">
+
+                        <tr>
+                            <td>{!con.Name}</td>
+                            <td>{!con.Phone}</td>
+                            <td>{!con.Extension}</td>
+                            <td>{!con.Title}</td>
+                            <td>{!con.Manager.Name}</td>
+                            <td>{!con.Department}</td>
+                        </tr>
+                    </apex:repeat>
+
+                    </tbody>
+                </table>
+            </apex:outputPanel>
+
+            <apex:outputPanel rendered="{!pageNum * recsPerPage < listOfUsers.size}">
+
+                <table id="rightTable" style="width:50%;float:right;">
+                    <thead>
+                    <tr>
+                        <td>Name</td>
+                        <td>Phone</td>
+                        <td>Ext.</td>
+                        <td>Title</td>
+                        <td>Manager</td>
+                        <td>Department</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <!-- Right side table -->
+
+                    <apex:repeat value="{!listOfUsers}" var="con" first="{!((recsPerPage) * pageNum) + (recsPerPage/2)}" rows="{!(recsPerPage/2)}">
+                        <tr>
+                            <td>{!con.Name}</td>
+                            <td>{!con.Phone}</td>
+                            <td>{!con.Extension}</td>
+                            <td>{!con.Title}</td>
+                            <td>{!con.Manager.Name}</td>
+                            <td>{!con.Department}</td>
+                        </tr>
+                    </apex:repeat>
+
+
+                    </tbody>
+                </table>
+            </apex:outputPanel>
+
+            <apex:variable var="pageNum" value="{!pageNum +1}"></apex:variable>
+
+            <apex:outputPanel rendered="{! ((pageNum + 1) * recsPerPage) <= listOfUsers.size }">
+                <p style="page-break-after: always;">&nbsp;</p>
+            </apex:outputPanel>
+
+        </apex:repeat>
+        </body>
+    </div>
+</apex:page>

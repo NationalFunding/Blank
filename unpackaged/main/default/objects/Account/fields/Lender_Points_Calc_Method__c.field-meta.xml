@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lender_Points_Calc_Method__c</fullName>
+    <description>What is the lender's method of computing points?</description>
+    <inlineHelpText>What is the lender's method of computing points?</inlineHelpText>
+    <label>Lender Points Calc Method</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>None</fullName>
+                <default>false</default>
+                <label>None</label>
+            </value>
+            <value>
+                <fullName>Advances + Stream</fullName>
+                <default>false</default>
+                <label>Advances + Stream</label>
+            </value>
+            <value>
+                <fullName>Stream Only</fullName>
+                <default>false</default>
+                <label>Stream Only</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

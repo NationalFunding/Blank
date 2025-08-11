@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>57.0</apiVersion>
+    <decisions>
+        <name>Cash_GL_or_Lender_Renewal</name>
+        <label>Cash GL or Lender Renewal</label>
+        <locationX>314</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Is_Cash_GL</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Cash_GL_Formula__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.cmbls__Repayment__r.cmbls__Primary_Fund__r.Chart_of_Accounts_Prefix__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>Cash_GL_First_Two_Digits</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.cmbls__Sub_Type__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Renewal Payoff</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Fund_Record</targetReference>
+            </connector>
+            <label>Is Cash GL</label>
+        </rules>
+        <rules>
+            <name>Is_Lender_Renewal</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.cmbls__Repayment__r.Renewal_Lender_Renewal_Payoff_GL__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.cmbls__Repayment__r.cmbls__Primary_Fund__r.Chart_of_Accounts_Prefix__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>Lender_Renewal_Payoff_Two_Digits</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.cmbls__Sub_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Renewal Payoff</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Fund_Record_1</targetReference>
+            </connector>
+            <label>Is Lender Renewal</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>Cash_GL_First_Two_Digits</name>
+        <dataType>String</dataType>
+        <expression>LEFT({!$Record.Cash_GL_Formula__c}, 2)</expression>
+    </formulas>
+    <formulas>
+        <name>Lender_Renewal_Payoff_Two_Digits</name>
+        <dataType>String</dataType>
+        <expression>LEFT({!$Record.cmbls__Repayment__r.Lender_Account__r.Renewal_Payoff_Debit_GL__c}, 2)</expression>
+    </formulas>
+    <interviewLabel>Intercompany Transaction - {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Intercompany Transaction - Cash GL prefix different than Existing Entity Prefix</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Create_an_Intercompany_Transaction</name>
+        <label>Create an Intercompany Transaction</label>
+        <locationX>314</locationX>
+        <locationY>623</locationY>
+        <inputAssignments>
+            <field>Payment__c</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>cmbls__Amount__c</field>
+            <value>
+                <elementReference>$Record.cmbls__Transaction_Amount__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>cmbls__Payee__c</field>
+            <value>
+                <elementReference>$Record.cmbls__Repayment__r.cmbls__Primary_Fund__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>cmbls__Payer__c</field>
+            <value>
+                <elementReference>EntityId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>cmbls__Status__c</field>
+            <value>
+                <stringValue>Due</stringValue>
+            </value>
+        </inputAssignments>
+        <object>cmbls__Intercompany_Transaction__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordLookups>
+        <name>Get_Fund_Record</name>
+        <label>Get Fund Record</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Create_an_Intercompany_Transaction</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Chart_of_Accounts_Prefix__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Cash_GL_First_Two_Digits</elementReference>
+            </value>
+        </filters>
+        <object>cmbls__Fund__c</object>
+        <outputAssignments>
+            <assignToReference>EntityId</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Fund_Record_1</name>
+        <label>Get Fund Record</label>
+        <locationX>314</locationX>
+        <locationY>431</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Create_an_Intercompany_Transaction</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Chart_of_Accounts_Prefix__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Lender_Renewal_Payoff_Two_Digits</elementReference>
+            </value>
+        </filters>
+        <object>cmbls__Fund__c</object>
+        <outputAssignments>
+            <assignToReference>EntityId</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
+    </recordLookups>
+    <start>
+        <locationX>188</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Cash_GL_or_Lender_Renewal</targetReference>
+        </connector>
+        <filterFormula>AND(
+ISPICKVAL({!$Record.cmbls__Transaction_Type__c}, &apos;Payment&apos;),
+{!$Record.RecordType.DeveloperName} = &apos;Debit&apos;,
+ISPICKVAL({!$Record.cmbls__Status__c}, &apos;Settled&apos;),
+OR(
+            AND(
+                        NOT(ISPICKVAL({!$Record.cmbls__Sub_Type__c}, &apos;Renewal Payoff&apos;)),
+                        NOT(ISBLANK({!$Record.Cash_GL_Formula__c})),
+                        LEFT({!$Record.Cash_GL_Formula__c}, 2) &lt;&gt; {!$Record.cmbls__Repayment__r.cmbls__Primary_Fund__r.Chart_of_Accounts_Prefix__c}
+            ),
+            AND(
+                        ISPICKVAL({!$Record.cmbls__Sub_Type__c}, &apos;Renewal Payoff&apos;),
+                        NOT(ISBLANK({!$Record.cmbls__Repayment__r.Lender_Account__r.Renewal_Payoff_Debit_GL__c})),
+                        LEFT({!$Record.cmbls__Repayment__r.Lender_Account__r.Renewal_Payoff_Debit_GL__c}, 2) &lt;&gt; {!$Record.cmbls__Repayment__r.cmbls__Primary_Fund__r.Chart_of_Accounts_Prefix__c}
+            )
+)
+)</filterFormula>
+        <object>cmbls__Payment__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>EntityId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MCA_REP_Validation</fullName>
+    <active>false</active>
+    <errorConditionFormula>$Profile.Name ="FPC - MCA - Sales User"  &amp;&amp; (ISCHANGED( Status_Lease__c ))</errorConditionFormula>
+    <errorMessage>MCA Rep Cannot change the Lease Status.</errorMessage>
+</ValidationRule>

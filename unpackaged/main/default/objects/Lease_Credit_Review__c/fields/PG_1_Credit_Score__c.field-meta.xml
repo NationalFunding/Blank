@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PG_1_Credit_Score__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF((VALUE(PG_1_EXP_Credit_Score__c) &gt; VALUE(PG_1_EQF_Credit_Score__c)) || ISBLANK(PG_1_EQF_Credit_Score__c), PG_1_EXP_Credit_Score__c, PG_1_EQF_Credit_Score__c)</formula>
+    <label>PG 1 Credit Score</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

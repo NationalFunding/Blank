@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Guarantor_3_Date_of_Birth__c</fullName>
+    <formula>Guarantor_3_Contact_ID__r.Birthdate</formula>
+    <label>Guarantor 3 Date of Birth</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

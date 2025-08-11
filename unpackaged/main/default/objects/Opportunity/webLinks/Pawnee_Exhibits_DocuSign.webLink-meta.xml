@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pawnee_Exhibits_DocuSign</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>600</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>Pawnee - Exhibits DocuSign</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>https://composer.congamerge.com/composer8/index.html
+?sessionId={!API.Session_ID}
+&amp;serverUrl={!API.Partner_Server_URL_210}
+&amp;id={!Opportunity.Id}
+&amp;TemplateGroup=Pawnee+Exhibits+DS
+&amp;QueryId=a068000000OH2X1,a068000000OH2Wm,a068000000OH2aZ,a068000000OH2Xq,a068000000OH2XH,a068000000OH2at,a068000000OH2b3,a068000000OH2cf,a068000000OH2cp,a068000000OH2d4,a068000000OH2dE,a068000000UVaEU,a068000000UVaz1,a068000000XMd5h,a068000000df06R
+&amp;DS4=0
+&amp;DS7=0
+&amp;DS8=1
+&amp;SelectTemplates=1
+&amp;DefaultPdf=1
+&amp;LG3=1
+&amp;LG0=0
+&amp;LG4=1
+&amp;PS0=1
+&amp;PS1=1
+&amp;PS2=0
+&amp;AttachmentParentId={!Opportunity.Id}
+&amp;OFN={!Opportunity.Name}+-+{Template.Label}
+
+&amp;DocuSignVisible=1
+&amp;DocuSignR1Id=0038000001i4QiC
+&amp;DocuSignR1Role=Director+of+Operations
+&amp;DocuSignR1Type=Any+Signer
+&amp;DocuSignR1RoutingOrder=1
+
+&amp;DocuSignR2Id=0038000001l8sFT
+&amp;DocuSignR2Role=Pawnee
+&amp;DocuSignR2Type=Signer
+&amp;DocuSignR2RoutingOrder=2
+
+&amp;DocuSignEmailSubject=Documents+for+your+DocuSign+Signature+-+Lease+Number+{!Opportunity.Lease_Number__c}
+&amp;DocuSignIgnoreOCR=1
+&amp;DocuSignSendReminders=1
+&amp;DocuSignRemindIn=1
+&amp;DocuSignRemindAgainIn=2
+&amp;DocuSignExpireIn=30
+&amp;DocuSignWarnIn=3
+&amp;DocuSignEndPoint=Prod
+
+&amp;DocuSignCustomField1=dsfs__Custom_Field_1_Name__c 
+&amp;DocuSignCustomFieldValue1=Vault With eOriginal 
+&amp;DocuSignCustomField2=dsfs__Custom_Field_1_Value__c 
+&amp;DocuSignCustomFieldValue2=No
+
+&amp;DocuSignCustomField3=dsfs__Custom_Field_2_Name__c
+&amp;DocuSignCustomFieldValue3=Lease Number
+&amp;DocuSignCustomField4=dsfs__Custom_Field_2_Value__c
+&amp;DocuSignCustomFieldValue4={!Opportunity.Lease_Number__c}</url>
+</WebLink>

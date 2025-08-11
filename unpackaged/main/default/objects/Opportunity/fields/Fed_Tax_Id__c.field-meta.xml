@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fed_Tax_Id__c</fullName>
+    <description>This is a formula field for Federal Tax Id number for an Account.  This field will carry it through to the Opportunity to verify that the field is populated.  It mirrors the Doc Formula field for Fed Tax Id.  This will be in the documentation section for each product.</description>
+    <externalId>false</externalId>
+    <formula>Account.Fed_Tax_ID__c</formula>
+    <inlineHelpText>This is a read only field.  If this field is blank please check the Fed Tax Id field on the Account record.</inlineHelpText>
+    <label>Fed Tax Id</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

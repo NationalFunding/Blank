@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Naitonal_Funding_Standard_Letterhead_Stack</letterhead>
+    <name>Titling Status is Titling Instructions</name>
+    <style>formalLetter</style>
+    <subject>Titling Instructions</subject>
+    <textOnly>Hello {!Titling__c.Sales_Rep__c},
+
+This email is to alert you that the Titling record on {!Titling__c.Opportunity__c} has been updated to &apos;Titling Instructions&apos;.
+
+{!Titling__c.Link}
+
+Thanks</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

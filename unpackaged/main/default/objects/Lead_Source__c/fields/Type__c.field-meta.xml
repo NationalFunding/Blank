@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type__c</fullName>
+    <label>Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Direct Mail</fullName>
+                <default>false</default>
+                <label>Direct Mail</label>
+            </value>
+            <value>
+                <fullName>Lead Aggregator</fullName>
+                <default>false</default>
+                <label>Lead Aggregator</label>
+            </value>
+            <value>
+                <fullName>Pay Per Click</fullName>
+                <default>false</default>
+                <label>Pay Per Click</label>
+            </value>
+            <value>
+                <fullName>Email</fullName>
+                <default>false</default>
+                <label>Email</label>
+            </value>
+            <value>
+                <fullName>Referral</fullName>
+                <default>false</default>
+                <label>Referral</label>
+            </value>
+            <value>
+                <fullName>List Provider</fullName>
+                <default>false</default>
+                <label>List Provider</label>
+            </value>
+            <value>
+                <fullName>Strategic Partner</fullName>
+                <default>false</default>
+                <label>Strategic Partner</label>
+            </value>
+            <value>
+                <fullName>Organic Traffic</fullName>
+                <default>false</default>
+                <label>Organic Traffic</label>
+            </value>
+            <value>
+                <fullName>Affiliate</fullName>
+                <default>false</default>
+                <label>Affiliate</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

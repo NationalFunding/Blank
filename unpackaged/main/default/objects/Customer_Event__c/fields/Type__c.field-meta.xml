@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type__c</fullName>
+    <label>Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>DLP Visit</fullName>
+                <default>false</default>
+                <label>DLP Visit</label>
+            </value>
+            <value>
+                <fullName>Credit Application Signed</fullName>
+                <default>false</default>
+                <label>Credit Application Signed</label>
+            </value>
+            <value>
+                <fullName>Bank Statements Uploaded</fullName>
+                <default>false</default>
+                <label>Bank Statements Uploaded</label>
+            </value>
+            <value>
+                <fullName>Drivers License Uploaded</fullName>
+                <default>false</default>
+                <label>Drivers License Uploaded</label>
+            </value>
+            <value>
+                <fullName>Voided Check Uploaded</fullName>
+                <default>false</default>
+                <label>Voided Check Uploaded</label>
+            </value>
+            <value>
+                <fullName>Plaid - Process Started</fullName>
+                <default>false</default>
+                <label>Plaid - Process Started</label>
+            </value>
+            <value>
+                <fullName>Plaid - Upload Error</fullName>
+                <default>false</default>
+                <label>Plaid - Upload Error</label>
+            </value>
+            <value>
+                <fullName>Plaid - Upload Success</fullName>
+                <default>false</default>
+                <label>Plaid - Upload Success</label>
+            </value>
+            <value>
+                <fullName>Success Generating Compliance Document</fullName>
+                <default>false</default>
+                <label>Success Generating Compliance Document</label>
+            </value>
+            <value>
+                <fullName>Error Generating Compliance Document</fullName>
+                <default>false</default>
+                <label>Error Generating Compliance Document</label>
+            </value>
+            <value>
+                <fullName>Customer Signed Compliance Document</fullName>
+                <default>false</default>
+                <label>Customer Signed Compliance Document</label>
+            </value>
+            <value>
+                <fullName>Success Generating Funding Documents</fullName>
+                <default>false</default>
+                <label>Success Generating Funding Documents</label>
+            </value>
+            <value>
+                <fullName>Error Generating Funding Documents</fullName>
+                <default>false</default>
+                <label>Error Generating Funding Documents</label>
+            </value>
+            <value>
+                <fullName>Customer Signed Funding Documents</fullName>
+                <default>false</default>
+                <label>Customer Signed Funding Documents</label>
+            </value>
+            <value>
+                <fullName>ID - Verification Started</fullName>
+                <default>false</default>
+                <label>ID - Verification Started</label>
+            </value>
+            <value>
+                <fullName>ID - Verification Completed</fullName>
+                <default>false</default>
+                <label>ID - Verification Completed</label>
+            </value>
+            <value>
+                <fullName>ID - Verification Error</fullName>
+                <default>false</default>
+                <label>ID - Verification Error</label>
+            </value>
+            <value>
+                <fullName>Success Generating Credit Application</fullName>
+                <default>false</default>
+                <label>Success Generating Credit Application</label>
+            </value>
+            <value>
+                <fullName>Error Generating Credit Application</fullName>
+                <default>false</default>
+                <label>Error Generating Credit Application</label>
+            </value>
+            <value>
+                <fullName>DLP Visit - Funding Options</fullName>
+                <default>false</default>
+                <label>DLP Visit - Funding Options</label>
+            </value>
+            <value>
+                <fullName>Consent Submitted</fullName>
+                <default>false</default>
+                <label>Consent Submitted</label>
+            </value>
+            <value>
+                <fullName>SMS Opt In</fullName>
+                <default>false</default>
+                <label>SMS Opt In</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

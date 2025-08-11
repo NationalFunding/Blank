@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Model_ChargeOff_Score__c</fullName>
+    <defaultValue>0</defaultValue>
+    <description>This is the Model ChargeOff Probability pumped through a Cumulative Distribution Function (CDF). This shows how a charge-off score ranks compared to other charge-off scores. I.e., a charge-off score of .619 means that 61.9% of all submissions had a lower probability of charge-off. Similarly, a charge-off score of .05 means that only 5% of all submissions had a lower probability of charge-off.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The charge-off probability pumped through a CDF. This percentage tells you what proportion of submissions have a lower charge-off probability than this one.</inlineHelpText>
+    <label>Model ChargeOff Score</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>4</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

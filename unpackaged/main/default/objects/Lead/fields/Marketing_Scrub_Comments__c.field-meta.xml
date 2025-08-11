@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Marketing_Scrub_Comments__c</fullName>
+    <description>This field will be used by the rep to enter comments and more info about the need for a marketing scrub.</description>
+    <inlineHelpText>Type in any additional information known about why a marketing scrub is needed.</inlineHelpText>
+    <label>Marketing Scrub Comments</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>TextArea</type>
+</CustomField>

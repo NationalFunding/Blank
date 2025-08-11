@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lease_Docs_In_Date_not_Populated</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISBLANK(Docs_In_Date__c) &amp;&amp; ISPICKVAL(StageName, 'Up for Funding') &amp;&amp; ISCHANGED(StageName)</errorConditionFormula>
+    <errorDisplayField>Docs_In_Date__c</errorDisplayField>
+    <errorMessage>Docs In Date must be populated before the stage can be updated to 'Up for Funding'.</errorMessage>
+</ValidationRule>

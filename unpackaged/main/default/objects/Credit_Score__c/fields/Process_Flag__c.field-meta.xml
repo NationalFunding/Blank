@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Process_Flag__c</fullName>
+    <externalId>false</externalId>
+    <formula>IMAGE(
+CASE(  Status__c ,
+"Received", "/img/samples/flag_green.gif", "Submitted", "/img/samples/flag_yellow.gif", "Error", "/img/samples/flag_red.gif", "/s.gif"),
+"priority flag")</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Process Flag</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

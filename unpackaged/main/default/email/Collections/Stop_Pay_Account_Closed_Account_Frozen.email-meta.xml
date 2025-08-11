@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Stop Pay/Account Closed/Account Frozen</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank</letterhead>
+    <name>Stop Pay/Account Closed/Account Frozen</name>
+    <style>freeForm</style>
+    <subject>{!Case.Merchant_Number__c} - {!Account.Legal_Name__c}</subject>
+    <textOnly>Hello,
+
+We received a notice from the bank that the payment from was returned as an unauthorized transaction.  We have notified you of this but have not received a response.  If you are having trouble making your payments, we do have options available to reduce the payments under the Agreement’s reconciliation provisions.  Pursuant to Section 2.3 of the Agreement, we can reconcile your payment amount to determine whether we have received an amount greater than the Purchased Percentage of your Future Receivables.  In order to process this request please provide us with the last two months of bank statements from your business account.  We need to receive those within the next five (5) days for us to process the reconciliation.  Once we receive the statements, we will process your request and notify you of any adjustment to the remittance amount going forward.
+
+Please note, if we do not receive the bank statements within such time or if the stop pay is not lifted then you will be in breach of the terms of the Agreement.
+
+We look forward to hearing from you.
+
+
+Best Regards,
+
+
+{!User.Name} | {!User.Title}
+
+{!Case.Email_Signature_Company__c}
+
+{!$Setup.Company_Information__c.Street__c}
+{!$Setup.Company_Information__c.City__c}, {!$Setup.Company_Information__c.State__c} {!$Setup.Company_Information__c.Zip__c}
+P: {!User.Phone} | F: {!User.Fax}
+E: {!User.Email}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>59.0</apiVersion>
+    <assignments>
+        <name>Assign_log_message_Pricing_Not_Found</name>
+        <label>Assign log message - Pricing Not Found</label>
+        <locationX>578</locationX>
+        <locationY>539</locationY>
+        <assignmentItems>
+            <assignToReference>var_logmessage</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>tt_get_pricing_error</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Copy_2_of_Create_Log_Message</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>assign_log_message_update_error</name>
+        <label>assign log message - update error</label>
+        <locationX>314</locationX>
+        <locationY>647</locationY>
+        <assignmentItems>
+            <assignToReference>var_logmessage</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>tt_funding_updating_error</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Copy_2_of_Create_Log_Message</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Record_Found</name>
+        <label>Record Found</label>
+        <locationX>314</locationX>
+        <locationY>431</locationY>
+        <defaultConnector>
+            <targetReference>Assign_log_message_Pricing_Not_Found</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Pricing_Definition</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Funding</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <description>populate pricing definition based on external ID from UW org (PD-3161)
++add opportunity Id to LogMessage PD-4121</description>
+    <environments>Default</environments>
+    <interviewLabel>Funding - Populate Pricing Definition {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Funding - Populate Pricing Definition</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Copy_2_of_Create_Log_Message</name>
+        <label>Copy 2 of Create Log Message</label>
+        <locationX>314</locationX>
+        <locationY>755</locationY>
+        <inputAssignments>
+            <field>Opportunity__c</field>
+            <value>
+                <elementReference>$Record.Opportunity__r.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Process_Name__c</field>
+            <value>
+                <stringValue> Funding - Populate Pricing Definition</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>exception__c</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>level__c</field>
+            <value>
+                <stringValue>error</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>message__c</field>
+            <value>
+                <elementReference>var_logmessage</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>tags__c</field>
+            <value>
+                <stringValue>Funding, Pricing Definition</stringValue>
+            </value>
+        </inputAssignments>
+        <object>LogMessage__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordLookups>
+        <name>Get_Pricing_Definition</name>
+        <label>Get Pricing Definition</label>
+        <locationX>314</locationX>
+        <locationY>323</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Record_Found</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>External_Id__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.UW_Pricing_ID__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Pricing_Definition__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Funding</name>
+        <label>Update Funding</label>
+        <locationX>50</locationX>
+        <locationY>539</locationY>
+        <faultConnector>
+            <targetReference>assign_log_message_update_error</targetReference>
+        </faultConnector>
+        <inputAssignments>
+            <field>Pricing_Definition__c</field>
+            <value>
+                <elementReference>Get_Pricing_Definition.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>188</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Pricing_Definition</targetReference>
+        </connector>
+        <filterFormula>AND(
+ OR(ISNEW(),
+     ISCHANGED({!$Record.UW_Pricing_ID__c})),
+NOT(ISBLANK({!$Record.UW_Pricing_ID__c}))
+)</filterFormula>
+        <object>FPC_Funding_del__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <name>tt_funding_updating_error</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Error updating funding record: {!$Record.Id}</text>
+    </textTemplates>
+    <textTemplates>
+        <name>tt_get_pricing_error</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Pricing Definition Not Found. External ID: {!$Record.UW_Pricing_ID__c}</text>
+    </textTemplates>
+    <variables>
+        <name>var_logmessage</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

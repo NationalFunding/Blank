@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ownership__c</fullName>
+    <description>The legal status of the Account ownership</description>
+    <inlineHelpText>Select the Legal Status of this Company's ownership</inlineHelpText>
+    <label>Legal Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Corporation</fullName>
+                <default>false</default>
+                <label>Corporation</label>
+            </value>
+            <value>
+                <fullName>LLC</fullName>
+                <default>false</default>
+                <label>LLC</label>
+            </value>
+            <value>
+                <fullName>Partnership</fullName>
+                <default>false</default>
+                <label>Partnership</label>
+            </value>
+            <value>
+                <fullName>Limited Partnership</fullName>
+                <default>false</default>
+                <label>Limited Partnership</label>
+            </value>
+            <value>
+                <fullName>LLP</fullName>
+                <default>false</default>
+                <label>LLP</label>
+            </value>
+            <value>
+                <fullName>Sole Proprietor</fullName>
+                <default>false</default>
+                <label>Sole Proprietor</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

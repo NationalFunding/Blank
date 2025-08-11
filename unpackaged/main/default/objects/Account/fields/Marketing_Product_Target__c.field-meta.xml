@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Marketing_Product_Target__c</fullName>
+    <description>This field will help determine which products should be targeted by marketing.</description>
+    <externalId>false</externalId>
+    <formula>IF( 
+OR(
+ISPICKVAL(Status__c, "Remove From List"),
+ISPICKVAL(Status__c, "Inactive"), 
+ISPICKVAL(Status__c, "Fraud"),
+ISPICKVAL(Status__c, "Duplicate"),
+ISPICKVAL(Type, "Other"),
+ISPICKVAL(Type, "Private Party"),
+ISPICKVAL(Type, "Vendor - EPP"),
+ISPICKVAL(Type, "Vendor - FPC"),
+ISPICKVAL(Type, "Lender - Lease"),
+ISPICKVAL(Type, "Lender - MCA"),
+ISPICKVAL(Type, "Lender - Alt"),
+ISPICKVAL(Type, "Lender - Merchant"),
+Do_Not_Solicit__c = True,
+ Out_of_Business__c = True, 
+AND(OR(ISPICKVAL(Status_Lease__c, "Do Not Solicit"), ISPICKVAL(Status_MCA__c, "Do Not Solicit")))),
+"Do Not Solicit",  
+
+IF(
+OR(ISPICKVAL(Type, "Vendor - VAP"), ISPICKVAL(Type, "Vendor - Lease Eq")),
+"Vendor",
+
+IF(
+AND(
+OR(OR(Min_FICO_Score__c = Null, Min_FICO_Score__c = 0),
+AND(Lease_Opportunities_Funded__c  &gt;= 1, Min_FICO_Score__c   &gt;= 550),
+AND(Lease_Opportunities_Funded__c = 0, Min_FICO_Score__c &gt;= 575)),
+OR(ISPICKVAL(Status_Lease__c, ""), ISPICKVAL(Status_Lease__c, "Interested")),
+OR(ISPICKVAL(Status_MCA__c, ""), ISPICKVAL(Status_MCA__c, "Interested"))),
+"ALL", 
+
+IF(
+OR(
+AND(
+OR(OR(Min_FICO_Score__c = Null, Min_FICO_Score__c = 0),
+AND( Lease_Opportunities_Funded__c   &gt;= 1, Min_FICO_Score__c &gt;= 550),
+AND(Lease_Opportunities_Funded__c = 0, Min_FICO_Score__c &gt;= 575)),
+OR(ISPICKVAL(Status_Lease__c, "Not Qualified"), ISPICKVAL(Status_Lease__c, "Not Interested")),
+OR(ISPICKVAL(Status_MCA__c, ""), ISPICKVAL(Status_MCA__c, "Interested"))),
+AND(
+OR(OR(Min_FICO_Score__c = Null, Min_FICO_Score__c = 0),
+AND( Lease_Opportunities_Funded__c   &gt;= 1, Min_FICO_Score__c &lt; 550),
+AND(Lease_Opportunities_Funded__c = 0, Min_FICO_Score__c &lt; 575)),
+OR(ISPICKVAL(Status_MCA__c, ""), ISPICKVAL(Status_MCA__c, "Interested")))),
+"Working Capital",
+
+IF(
+AND(
+OR(OR(Min_FICO_Score__c = Null, Min_FICO_Score__c = 0),
+AND(Lease_Opportunities_Funded__c   &gt;= 1, Min_FICO_Score__c   &gt;= 550),
+AND(Lease_Opportunities_Funded__c = 0, Min_FICO_Score__c &gt;= 575)),
+OR(ISPICKVAL(Status_MCA__c, "Not Qualified"), ISPICKVAL(Status_MCA__c, "Not Interested")),
+OR(ISPICKVAL(Status_Lease__c, "Interested"), ISPICKVAL(Status_Lease__c, ""))),
+"Lease",
+
+IF(
+OR(
+OR(AND( Lease_Opportunities_Funded__c   &gt;= 1, Min_FICO_Score__c &lt; 550),
+AND(Lease_Opportunities_Funded__c = 0, Min_FICO_Score__c &lt; 575)),
+OR(ISPICKVAL(Status_MCA__c, "Not Qualified"), ISPICKVAL(Status_MCA__c, "Not Interested")),
+OR(ISPICKVAL(Status_Lease__c, "Interested"), ISPICKVAL(Status_Lease__c, "")),
+AND(
+OR(ISPICKVAL(Status_Lease__c, "Not Interested"), ISPICKVAL(Status_Lease__c, "Not Qualified")), 
+OR(ISPICKVAL(Status_MCA__c, "Not Interested"), ISPICKVAL(Status_MCA__c, "Not Qualified")))),
+"Not Qualified - All","Sucka"))))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>This field will help determine which products should be targeted by marketing.</inlineHelpText>
+    <label>Marketing Product Target</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

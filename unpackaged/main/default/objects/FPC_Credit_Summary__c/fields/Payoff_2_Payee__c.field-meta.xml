@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payoff_2_Payee__c</fullName>
+    <description>Payoff 2 Payee</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Type in the payoff payee.</inlineHelpText>
+    <label>Payoff 2 Payee</label>
+    <length>64</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

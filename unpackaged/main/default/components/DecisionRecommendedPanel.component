@@ -1,0 +1,136 @@
+<apex:component layout="none">
+    <apex:attribute type="RecommendationPanelController" name="recController" description="Controller object" />
+
+    <div class="panel panel-default mt10">
+        <div class="panel-heading green-panel" style="position:relative">
+            <h3 class="panel-title pull-left" style="margin:10px 0px 5px;font-size:14px">
+                Recommendations
+            </h3>
+            <div id="lastRefreshedTime" class="pull-left" style="position:absolute; bottom: 0px;"></div>
+            <div class="pull-right" style="position:relative">
+                <a class=" btn btn-danger disabled-event" data-toggle="modal" onclick="getHistories();$('#History-modal').modal('show')" href="javascript:void(0)">View History</a>
+            </div>
+            <div class="pull-right" style="position:relative;margin-right:5px">
+                <div class="disabledByZ-index"></div>
+                <button class="btn btn-primary wide100" style="display: none;" id="scoring_button" disabled="disabled"><span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> Scoring...</button>
+                <a class="btn btn-primary text-right permissionDeny disabled-event wide100" onclick="reScoreCreditReview()" href="javascript:void(0)" id="rescore_button">Rescore</a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <apex:outputpanel layout="block" styleclass="panel-body recommendId" id="recommendId">
+            <!-- OUTPUT WHEN THE CREDIT REVIEW HAS NOT YET BEEN SCORED -->
+            <apex:outputpanel layout="none" rendered="{!recController.WC.Id = null}">
+                <table class="table  text-center " style="margin-bottom: 0px;">
+                    <tbody>
+                    <tr>
+                        <td style="vertical-align: middle;border-top:none;">
+                            <i class="fa fa-info-circle fa-2x" style="color: rgba(0, 0, 0, 0.75);font-size: 50px;"></i>
+                        </td>
+                        <td style="border-top:none;">
+                            <pre style="font-size:14px;color:black;background-color: rgb(255,255,255);border: white;margin: 0px;text-align: left;font-family: sans-serif;">Credit Review has not yet been scored.</pre>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </apex:outputpanel> <!-- End not scored panel -->
+            <!-- OUTPUT WHEN THE CREDIT REVIEW HAS BEEN SUCCESSFULLY SCORED -->
+            <apex:outputpanel layout="none" rendered="{!recController.WC.Id != null && recController.WC.Model_Run_Status__c == 'Success'}">
+                <!-- Table to show model score info -->
+                <table class="table  text-center " id="" style="margin-bottom: 2px;">
+                    <thead>
+                    <tr>
+                        <th width="10%" style="text-align:center"> Decision Recommendation </th>
+                        <th width="10%" style="text-align:center"> Max Tier </th>
+                        <th width="10%" style="text-align:center"> Link to Decision </th>
+                        <th width="10%" style="text-align:center"> Score Date </th>
+                        <th width="10%" style="text-align:center"> Weekly Payment Approval </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td id="decisionRecommendationTd">{!recController.WC.WC_Decision_Recommendation__c} </td>
+                        <td> {!recController.WC.Max_Tier__c} </td>
+                        <td>
+                            <apex:outputpanel layout="none" rendered="{!recController.WC.Id != null}">
+                                <a href="javascript:void(0)" onclick="window.open('/{!recController.WC.Id}','','width=1260px,height=600px')">View</a>
+                            </apex:outputpanel>
+                        </td>
+                        <td>
+                            <apex:outputfield value="{!recController.WC.CreatedDate}">
+                            </apex:outputfield>
+                        </td>
+                        <!--OP Updates 9.20.18-->
+                        <td>{!recController.WC.Weekly_Payments__c} </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <!-- This empty div just helps separate the recommendations table from the following divs -->
+                <div style="height: 13px;"></div>
+                <!-- OUTPUT WHEN THE CREDIT REVIEW HAS BEEN SCORED AND IS APPROVABLE -->
+                <!--<apex:outputpanel layout="none" rendered="{!recController.WC.WC_Decision_Recommendation__c = 'Approvable'}">-->
+                <apex:outputpanel layout="none">
+                    <!-- Table to show 10 point scorecard -->
+                    <div class="col-md-5">
+                        <table class="table table-striped" style="margin-bottom: 0px;border: solid 1px #DDDDDD; height: 100%;">
+                            <tr style="background: rgba(0, 158, 15, 0.31);">
+                                <th colspan="2" style="text-align:center" class="middleVAlign">Insight 6.0 Grade</th>
+                            </tr>
+                            <tr>
+                                <!--OP UPDATES 9.14.18-->
+                                <td style="text-align: center; border: 1px solid #ddd;">
+                                    <apex:outputText style="font-weight:bold; font-size: 75px; text-align: center;" label="Model Grade" value="{!recController.WC.Model_Grade__c}"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-7">
+                        <!--OP UPDATES 9.14.18-->
+                        <div class="col-md-12 panel-heading blue-panel" style="text-align: center;background:#B0E1B4 !important">Max Approval Amount by Term</div>
+                        <apex:pageblock >
+                            <apex:pageblocktable styleclass="table  table-striped table-bordered" style="table-layout:fixed; height: 100%;"
+                                                 value="{!recController.amountRecs.term_recs}" var="r">
+                                <apex:column headervalue="Term (months)" value="{!r.Term}" style="width:75px !important" />
+                                <!--OP UPDDATES 9.14.18 - removal of Gold Column-->
+                                <apex:column headervalue="Platinum ($)"
+                                             value="{!r.PlatinumAmount}"
+                                             style="{!IF(r.Term == recController.amountRecs.Platinum_Max_Term && recController.amountRecs.Max_Tier == 'Platinum', 'font-weight:bold;background-color: rgba(192, 192, 192, 0.5);border: black;border-width: 1px;border-style: double;', IF(r.Term > recController.amountRecs.Platinum_Max_Term, 'background:darkgrey', '' ))};width:50%" />
+                            </apex:pageblocktable>
+                        </apex:pageblock>
+                    </div>
+                </apex:outputpanel>  <!-- End panel for approvable scored credit decision -->
+            </apex:outputpanel> <!-- End Panel for Scored WC Credit Decision -->
+
+            <!-- Panel to show when there is an error running the model -->
+            <apex:outputpanel layout="block" styleclass="panel-body recommendErrorPanel"
+                              style="padding: 0;text-align: center;display:{!IF(reccontroller.wc !=null && reccontroller.wc.Model_Run_Status__c=='Error' , 'block', 'none')}">
+                <table class="table  text-center " style="margin:0px">
+                    <tbody>
+                    <tr>
+                        <td style="vertical-align: middle;width:100px;border-top: 0px;">
+                            <i class="fa fa-warning fa-2x" style="color: rgba(255, 0, 0, 0.75);font-size: 50px;"></i>
+                        </td>
+                        <td style="border-top: 0px;">
+                            <pre style="font-size:14px;color:red;background-color: rgb(255,255,255);border: white;margin: 0px;text-align: left;font-family: sans-serif;">{!recController.WC.Model_Run_Errors__c}</pre>
+                        </td>
+                        <td style="text-align:right;vertical-align:middle;width:100px;border-top: 0px;">
+                            <a href="javascript:void(0)" onclick="window.open('/{!recController.WC.Id}','','width=1260px,height=600px')">View Details</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </apex:outputpanel>
+            <!-- Panel to show when the model is still processing,  meaning it's not a success or error -->
+            <div layout="block" class="modelRunningPanel"
+                 style="padding: 0;text-align: center;display:{!IF((recController.WC.Id != null && (recController.WC.Model_Run_Status__c != 'Error') && !(recController.WC.Model_Run_Status__c == 'Success' || recController.WC.Model_Decision_Score__c != null) ), 'block', 'none')}">
+                <span style="padding: 0;font-size: 14pt;">
+                    <img src="{!URLFOR($Resource.loadingspinner)}" style="height:50px;margin: 10px;" />Scoring in progress...
+                </span>
+            </div>
+
+            <!-- AJAX Error -->
+            <div class="model-score-error" align="left" style="display:none;margin-right:5px;">
+                <span style='display:inline-block;height: 100%;vertical-align: middle;' class='error-area'></span>
+            </div>
+        </apex:outputpanel> <!-- End overall panel -->
+    </div>
+</apex:component>

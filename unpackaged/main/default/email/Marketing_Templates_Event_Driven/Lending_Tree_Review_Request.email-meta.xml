@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Lending Tree Review Request</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Naitonal_Funding_Standard_Letterhead_Stack</letterhead>
+    <name>Lending Tree Review Request</name>
+    <style>freeForm</style>
+    <subject>How many stars would you give National Funding?</subject>
+    <textOnly>Dear {!Contact.Full_Name__c},
+
+Thank you for trusting National Funding to help your business.
+
+To improve the satisfaction of our customers, we&apos;ve partnered with LendingTree to collect reviews.
+
+Click here to review us on LendingTree
+
+All reviews, good, bad, or otherwise will be visible.
+
+
+Thanks for your time.
+
+Best Regards,
+National Funding Customer Care Team</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

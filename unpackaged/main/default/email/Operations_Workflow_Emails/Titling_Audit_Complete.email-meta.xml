@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Naitonal_Funding_Standard_Letterhead_Stack</letterhead>
+    <name>Titling Audit Complete</name>
+    <style>formalLetter</style>
+    <subject>Titling Audit Complete</subject>
+    <textOnly>Hello,
+
+This message is to inform you that the status of the titling record associated to {!Titling__c.Opportunity__c}, has been marked as &apos;Audit Complete&apos;.
+
+Here is a link to the Titling record:
+{!Titling__c.Link}
+
+Thanks</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

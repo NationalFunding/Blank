@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Utility_Bill_Req__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Utility Bill Required - Status</description>
+    <inlineHelpText>Check box if a utility bill is required.</inlineHelpText>
+    <label>Utility Bill Req</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

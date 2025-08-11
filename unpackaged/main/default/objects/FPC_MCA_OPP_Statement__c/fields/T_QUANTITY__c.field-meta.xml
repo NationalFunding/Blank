@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>T_QUANTITY__c</fullName>
+    <externalId>false</externalId>
+    <formula>Discover_Transactions__c + MC_QUANTITY__c + OTHER_1_QUANTITY__c + OTHER_2_QUANTITY__c + VISA_QUANTITY__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>T_QUANTITY</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

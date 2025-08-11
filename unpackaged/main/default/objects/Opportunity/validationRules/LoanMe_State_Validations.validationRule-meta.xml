@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LoanMe_State_Validations</fullName>
+    <active>true</active>
+    <description>This rule will restrict the states that are allowed to be sent to LoanMe.
+
+**7/11/16 - Removed Iowa from restricted list**
+**3/25/16 - Added MN to the restricted List**</description>
+    <errorConditionFormula>AND(ISPICKVAL(Reason_Closed__c, 'Sent to LoanMe'),
+OR(
+Physical_Address_State__c = 'AK',
+Physical_Address_State__c = 'AR',
+Physical_Address_State__c = 'CO',
+Physical_Address_State__c = 'CT',
+Physical_Address_State__c = 'FL',
+Physical_Address_State__c = 'GA',
+Physical_Address_State__c = 'MA',
+Physical_Address_State__c = 'MI',
+Physical_Address_State__c = 'MT',
+Physical_Address_State__c = 'MN',
+Physical_Address_State__c = 'NV',
+Physical_Address_State__c = 'NY',
+Physical_Address_State__c = 'ND',
+Physical_Address_State__c = 'OK',
+Physical_Address_State__c = 'PA',
+Physical_Address_State__c = 'RI',
+Physical_Address_State__c = 'SD',
+Physical_Address_State__c = 'TN',
+Physical_Address_State__c = 'TX',
+Physical_Address_State__c = 'VT',
+Physical_Address_State__c = 'WV'))</errorConditionFormula>
+    <errorMessage>LoanMe is restricted in the state that the customer is located in.  Please Decline the transaction for a different reason and do not send the deal to LoanMe.  Thank you.</errorMessage>
+</ValidationRule>

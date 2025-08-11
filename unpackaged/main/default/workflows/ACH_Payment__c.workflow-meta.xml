@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>ACH_Payment_Rejected_Email_Funder_and_Rep_to_Update_Customer_s_Bank_Info</fullName>
+        <ccEmails>nffunding@nationalfunding.com</ccEmails>
+        <ccEmails>loanbooking@nationalfunding.com</ccEmails>
+        <description>ACH Payment Rejected - Email Funder and Rep to Update Customer's Bank Info</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Funder_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>Opportunity_Owner_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <recipient>bjoly@quickbridge.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>btimmons@nationalfunding.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Accounting_Workflows/ACH_Payment_Rejected</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>ACH_Payment_Update_Funder_Email</fullName>
+        <description>Upon Creation of the ACH Payment, the funder's email will be entered into the Funder Email field.</description>
+        <field>Funder_Email__c</field>
+        <formula>Opportunity__r.Funder__r.Email</formula>
+        <name>ACH Payment - Update Funder Email</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>ACH_Payment_Update_Oppty_Owner_s_Email</fullName>
+        <description>Update the Opportunity Owner's email address so a rejection notice can be sent if necessary.</description>
+        <field>Opportunity_Owner_Email__c</field>
+        <formula>Opportunity__r.Owner.Email</formula>
+        <name>ACH Payment - Update Oppty Owner's Email</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>ACH_Rejected_Lock_Record</fullName>
+        <description>This field update will lock the ACH payment record via Validation Rule.</description>
+        <field>Lock_ACH_Record__c</field>
+        <literalValue>1</literalValue>
+        <name>ACH Rejected - Lock Record</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>ACH_Update_Created_By_Field</fullName>
+        <field>ACH_File_Generated_By__c</field>
+        <formula>LastModifiedBy.Full_Name__c</formula>
+        <name>ACH - Update Created By Field</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>ACH_Upon_Create_Insert_Lease</fullName>
+        <description>This field update will indicate if the ACH Payment is associated with a lease transaction.</description>
+        <field>Lease_or_Loan__c</field>
+        <literalValue>Lease</literalValue>
+        <name>ACH - Upon Create: Insert Lease</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>ACH_Upon_Create_Insert_Lease_Num</fullName>
+        <description>Upon creating an ACH Payment from a Lease opportunity, insert the lease number into the NF Lease/Loan Number field.</description>
+        <field>NF_Lease_Loan_Number__c</field>
+        <formula>Opportunity__r.Lease_Number__c</formula>
+        <name>ACH - Upon Create: Insert Lease #</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>ACH_Upon_Create_Insert_Merchant</fullName>
+        <description>Upon creation of an ACH payment record, insert the associated lease/loan number.</description>
+        <field>NF_Lease_Loan_Number__c</field>
+        <formula>Opportunity__r.Merchant_Number__c</formula>
+        <name>ACH - Upon Create: Insert Merchant #</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>ACH_Upon_Create_Insert_WC</fullName>
+        <description>This field update will indicate if the ACH Payment is associated with a working capital transaction.</description>
+        <field>Lease_or_Loan__c</field>
+        <literalValue>Working Capital</literalValue>
+        <name>ACH - Upon Create: Insert WC</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>ACH - Payment Rejected - Lock Record</fullName>
+        <actions>
+            <name>ACH_Rejected_Lock_Record</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>ACH_Payment__c.ACH_Rejected__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>ACH_Payment__c.Originating_Lender__c</field>
+            <operation>notEqual</operation>
+            <value>Quick Bridge Funding</value>
+        </criteriaItems>
+        <description>When an ACH Payment is rejected, the record needs to be locked and an email needs to be sent to the funder and rep to update customer's bank information.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>ACH - Update File Created By Field</fullName>
+        <actions>
+            <name>ACH_Update_Created_By_Field</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>ACH_Payment__c.ACH_File_Generated__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>ACH_Payment__c.ACH_File_Generated_Date__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>ACH - Upon Create Insert Lease Number</fullName>
+        <actions>
+            <name>ACH_Upon_Create_Insert_Lease</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>ACH_Upon_Create_Insert_Lease_Num</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Upon creating a ACH Payment record from a lease opportunity, the lease number needs to be inserted into the Payment request.</description>
+        <formula>Opportunity__r.RecordType.DeveloperName = 'Lease_Oppty_Record_Type'</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>ACH - Upon Create Insert Merchant Number</fullName>
+        <actions>
+            <name>ACH_Upon_Create_Insert_Merchant</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>ACH_Upon_Create_Insert_WC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Upon creating a ACH Payment record from a working capital opportunity, the merchant number needs to be inserted into the Payment request.</description>
+        <formula>OR(
+Opportunity__r.RecordType.DeveloperName = 'MCA_Oppty',
+Opportunity__r.RecordType.DeveloperName = 'Broker_WC_Oppty')</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>ACH Payment - Update Funder %2B Oppty Owner Email</fullName>
+        <actions>
+            <name>ACH_Payment_Update_Funder_Email</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>ACH_Payment_Update_Oppty_Owner_s_Email</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Insert Email address for Funder and Oppty Owner when the ACH Payment request is created.</description>
+        <formula>True</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+</Workflow>

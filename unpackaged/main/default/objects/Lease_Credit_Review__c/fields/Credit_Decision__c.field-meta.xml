@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Credit_Decision__c</fullName>
+    <description>This field will indicate if the transaction has been approved.</description>
+    <inlineHelpText>This field will indicate if the transaction has been approved.</inlineHelpText>
+    <label>Credit Decision</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Approved</fullName>
+                <default>false</default>
+                <label>Approved</label>
+            </value>
+            <value>
+                <fullName>Pending</fullName>
+                <default>false</default>
+                <label>Pending</label>
+            </value>
+            <value>
+                <fullName>Decline</fullName>
+                <default>false</default>
+                <label>Decline</label>
+            </value>
+            <value>
+                <fullName>Manager Review</fullName>
+                <default>false</default>
+                <label>Manager Review</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

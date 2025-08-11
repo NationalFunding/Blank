@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Account</fullName>
+        <default>false</default>
+        <label>Account</label>
+        <reverseRole>Client</reverseRole>
+    </standardValue>
+    <standardValue>
+        <fullName>Attorney</fullName>
+        <default>false</default>
+        <label>Attorney</label>
+        <reverseRole>Client</reverseRole>
+    </standardValue>
+    <standardValue>
+        <fullName>Daughter</fullName>
+        <default>false</default>
+        <label>Daughter</label>
+        <reverseRole>Parent</reverseRole>
+    </standardValue>
+    <standardValue>
+        <fullName>Financial Advisor</fullName>
+        <default>false</default>
+        <label>Financial Advisor</label>
+        <reverseRole>Client</reverseRole>
+    </standardValue>
+    <standardValue>
+        <fullName>Husband</fullName>
+        <default>false</default>
+        <label>Husband</label>
+        <reverseRole>Wife</reverseRole>
+    </standardValue>
+    <standardValue>
+        <fullName>Influencer</fullName>
+        <default>false</default>
+        <label>Influencer</label>
+        <reverseRole>Influenced</reverseRole>
+    </standardValue>
+    <standardValue>
+        <fullName>Sales Person</fullName>
+        <default>false</default>
+        <label>Sales Person</label>
+        <reverseRole>Customer</reverseRole>
+    </standardValue>
+    <standardValue>
+        <fullName>Son</fullName>
+        <default>false</default>
+        <label>Son</label>
+        <reverseRole>Parent</reverseRole>
+    </standardValue>
+    <standardValue>
+        <fullName>Wife</fullName>
+        <default>false</default>
+        <label>Wife</label>
+        <reverseRole>Husband</reverseRole>
+    </standardValue>
+    <standardValue>
+        <fullName>Company w/ Same Ownership</fullName>
+        <default>false</default>
+        <label>Company w/ Same Ownership</label>
+        <reverseRole>Company w/ Same Ownership</reverseRole>
+    </standardValue>
+</StandardValueSet>

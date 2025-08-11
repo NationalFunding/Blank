@@ -1,0 +1,102 @@
+<html>
+<body bgcolor="#f0f0ec">
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#f0f0ec">
+ <tr>
+  <!-- first header -->
+     <td valign="top" align="center"><img src="https://c.na6.content.force.com/servlet/servlet.ImageServer?id=01580000001XewS&oid=00D80000000diq5&lastMod=1344976551000" width="634" height="47" border="0" usemap="#topbar" />
+      <map name="topbar">
+       <area shape="rect" coords="17,6,193,42" href="http://www.nationalfunding.com" target="_blank" alt="National Funding" title="National Funding">
+       <area shape="rect" coords="446,1,480,44" href="https://plus.google.com/+Nationalfunding/" target="_blank" alt="Google+" title="Google+">
+       <area shape="rect" coords="486,1,517,44" href="http://www.facebook.com/national.funding" target="_blank" alt="Facebook" title="Facebook">
+       <area shape="rect" coords="518,1,556,44" href="http://twitter.com/NatFunding/" target="_blank" alt="Twitter" title="Twitter">
+       <area shape="rect" coords="560,1,592,44" href="http://www.linkedin.com/company/national-funding" target="_blank" alt="LinkedIn" title="LinkedIn">
+      </map>
+     </td>
+    </tr>
+    <tr>
+     <td valign="top" align="center">
+      <a href="http://www.nationalfunding.com/vendor-program/" target="_blank"><img src="https://c.na6.content.force.com/servlet/servlet.ImageServer?id=01580000001Xf7A&oid=00D80000000diq5&lastMod=1345037171000" width="615" height="195" border="0" alt="Get Paid for Your Referred Deals" title="Get Paid for Your Referred Deals"></a>
+     </td>
+    </tr>
+         <table width="620" cellpadding="5" cellspacing="0" border="0" align="center" style="line-height: 1.1em;">
+          <tr>
+          <td valign="top" align="left"><font face="arial, sans-serif" size="3">
+         <br><br/>
+We've developed the <strong>VENDOR ADVANTAGE PROGRAM</strong>. It's our way of building a relationship with our vendors and providing them with a source of alternative financing for their customers.
+           <br><br>
+           <font face="arial, sans-serif" size="3">There's no cost to you. Simply <strong>RSVP</strong> to let us know that you are interested in being a part of the program. Upon completion of your first referred deal, we'll send you <strong>$500</strong> after the lease funds.
+           <br><br>
+           </font></td>
+          </tr>
+         </table>
+         <center>
+        <table width="620" cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#2c8e38">
+          <tr>
+           <td valign="top" align="center" colspan="5"><a href="http://www.nationalfunding.com/vendor-program/" target="_blank"><img src="https://c.na6.content.force.com/servlet/servlet.ImageServer?id=01580000001Xf7F&oid=00D80000000diq5&lastMod=1345039270000" width="620" height="278" border="0" alt="" />
+           </td>
+          </tr>
+          <tr>
+           <td valign="top"><img src="https://c.na6.content.force.com/servlet/servlet.ImageServer?id=01580000001XCxB&oid=00D80000000diq5&lastMod=1345039485000" width="40" height="1" border="0" /></td>
+           <td valign="top" align="center" width="160" style="padding: 0 0 10px 0;">
+            <img src="https://c.na6.content.force.com/servlet/servlet.ImageServer?id=01580000001XCww&oid=00D80000000diq5&lastMod=1345039358000" width="71" height="28" border="0" alt="Call" title="Call" />
+            <br>
+            <font face="arial, sans-serif" color="#ffffff" size="2">{!Account.OwnerPhone}</font>
+           </td>
+           <td valign="top" align="center" width="55">
+            <img src="https://c.na6.content.force.com/servlet/servlet.ImageServer?id=01580000001XCaH&oid=00D80000000diq5&lastMod=1344953366000" width="52" height="26" border="0" alt="or" title="or" style="display: block; padding: 10px;" />
+           </td>
+           <td valign="top" align="center" width="190" style="padding: 0 0 10px 0;">
+            <img src="https://c.na6.content.force.com/servlet/servlet.ImageServer?id=01580000001XCx1&oid=00D80000000diq5&lastMod=1345039402000" width="71" height="28" border="0" alt="Click" title="Click" />
+            <br>
+            <font face="arial, sans-serif" color="#ffffff" size="2"><a href="http://nationalfunding.com/vendor-program/" style="color:#ffffff;" target="_blank">NationalFunding.com/vendor-program/</a><br>and submit your information online</font>
+           </td>
+           <td valign="top"><img src="https://c.na6.content.force.com/servlet/servlet.ImageServer?id=01580000001XCxB&oid=00D80000000diq5&lastMod=1345039485000" width="40" height="1" border="0" /></td>
+          </tr>
+         </table>
+         <table width="620" cellpadding="5" cellspacing="0" border="0" align="center" style="line-height: 1.1em;">
+          <tr>
+           <td valign="top">
+           <br>
+            <font face="arial, sans-serif" size="3">
+            We want to thank you for doing business with us and <a href="http://www.nationalfunding.com/vendor-program/">Reward You for Doing More.</a></P>
+            And, until December 31, 2013, you will receive $250 for each additional referred deal that funds.  Once you reply, we'll rush you a complete information kit including applications and brochures to provide to your customers. 
+             </font>
+            <br><br>
+           </td>
+          </tr>
+         </table>
+        </td>
+       </tr>
+       <tr>
+        <td valign="top" bgcolor="#e5e5d2">
+         <table width="600" cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#e5e5d2">
+          <tr>
+           <td valign="top">
+            <table width="620" cellpadding="5" cellspacing="0" border="0" align="center" style="line-height: 1.1em;">
+             <tr>
+              <td valign="top">
+               <font face="arial, sans-serif" color="#666666" size="1">
+               If you no longer wish to receive emails from National Funding, send an email to emailreply@nationalfunding.com with Unsubscribe in the subject line. You may also unsubscribe by sending written notice to: National Funding Unsubscribe, 9530 Towne Centre Dr., Suite 120, San Diego, CA 92121. Thank you. 
+               <br>
+               National Funding respects your privacy. Our commitment to your privacy is described in our Privacy Policy which is available on our Web site for your reference.
+               <br>
+               &#169; 2014 National Funding.  All Rights Reserved.
+               </font>
+               </td>
+             </tr>
+            </table>
+           </td>
+          </tr>
+         </table>
+        </td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+ </center>
+</table>
+</body>
+</html>

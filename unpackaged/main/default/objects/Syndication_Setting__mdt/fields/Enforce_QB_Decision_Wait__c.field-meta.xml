@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Enforce_QB_Decision_Wait__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>If this is true Syndication will not continue until a decision is rendered from Quick Bridge after submission. If checkbox is false Syndication will continue as soon as is it is eligible to send, regardless of the decision from Quick Bridge.</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Enforce QB Decision Wait</label>
+    <type>Checkbox</type>
+</CustomField>

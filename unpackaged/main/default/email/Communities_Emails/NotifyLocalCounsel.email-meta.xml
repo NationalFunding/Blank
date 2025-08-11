@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>NotifyLocalCounsel</name>
+    <style>none</style>
+    <subject>New matter has been assigned - {!advpm__Matter__c.Name}</subject>
+    <textOnly>Dear {!User.FirstName} {!User.LastName},
+
+This is to notify that a new matter has been assigned to you.
+
+Please click here to view.
+
+Thanks,
+{!Organization.Name}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

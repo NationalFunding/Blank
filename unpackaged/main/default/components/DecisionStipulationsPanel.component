@@ -1,0 +1,90 @@
+<apex:component layout="none">
+<apex:attribute type="Credit_Review__c" name="creditReviewObj" description="Credit Review"/>
+<div class="panel panel-default mt10">
+   <div class="panel-heading  Orange-panel">
+      <h3 class="panel-title pull-left" style="margin:10px 0px 5px;font-size:14px">
+         Stipulations
+     </h3>
+     <div class="pull-right" style="position:relative">
+        <div class="disabledByZ-index"></div>
+        <a  href="javascript:void(0)" class="btn permissionDeny btn-primary text-right change_stripulations disabled-event" >Change Stipulations</a>
+      </div>
+      <div class="clearfix"></div>
+   </div>
+   <div class="panel-body">
+     <table class="table" id="Stipulations" style=" border-top: 1px solid #fff !important;" >
+       <tbody id="stipulations_contents">
+        <apex:outputPanel layout="none"  rendered="{!creditReviewObj.Credit_Stip1__c == null && creditReviewObj.Credit_Stip2__c == null  && creditReviewObj.Credit_Stip3__c == null  && creditReviewObj.Credit_Stips_Other__c == null && creditReviewObj.Credit_Stip_Funding_Requirement_1__c == null && creditReviewObj.Credit_Stip_Funding_Requirement_3__c == null  && creditReviewObj.Credit_Stip_Funding_Requirement_3__c == null  && creditReviewObj.Credit_Stip_Funding_Requirement_Other__c == null }">
+          <tr>
+            <td align="cenger">No Record</td>
+          </tr>
+        </apex:outputPanel>
+        <apex:outputPanel layout="none" rendered="{!creditReviewObj.Credit_Stip1__c != null}">
+         <tr>
+           <td> Credit Stipulation #1 </td>
+           <td>{!creditReviewObj.Credit_Stip1__c}</td>
+           <td> Reason: </td>
+           <td>{!creditReviewObj.Credit_Stip_1_Reason__c}</td>
+         </tr>
+        </apex:outputPanel>
+        <apex:outputPanel layout="none" rendered="{!creditReviewObj.Credit_Stip2__c != null}">
+         <tr>
+           <td> Credit Stipulation #2 </td>
+           <td>{!creditReviewObj.Credit_Stip2__c}</td>
+           <td> Reason: </td>
+           <td>{!creditReviewObj.Credit_Stip_2_Reason__c}</td>
+         </tr>
+        </apex:outputPanel>
+        <apex:outputPanel layout="none" rendered="{!creditReviewObj.Credit_Stip3__c != null}">
+         <tr>
+           <td> Credit Stipulation #3 </td>
+           <td>{!creditReviewObj.Credit_Stip3__c}</td>
+           <td> Reason: </td>
+           <td>{!creditReviewObj.Credit_Stip_3_Reason__c}</td>
+         </tr>
+        </apex:outputPanel>
+        <apex:outputPanel layout="none" rendered="{!creditReviewObj.Credit_Stips_Other__c != null}">
+         <tr>
+           <td> Credit Stipulation #4 </td>
+           <td>{!creditReviewObj.Credit_Stips_Other__c}</td>
+           <td> Reason: </td>
+           <td>{!creditReviewObj.Credit_Stips_Other_Reason__c}</td>
+         </tr>
+        </apex:outputPanel>
+        <apex:outputPanel layout="none" rendered="{!creditReviewObj.Credit_Stip_Funding_Requirement_1__c != null}">
+         <tr>
+           <td> Funding Stipulation #1 </td>
+           <td>{!creditReviewObj.Credit_Stip_Funding_Requirement_1__c}</td>
+           <td> Reason: </td>
+           <td>{!creditReviewObj.Credit_Stip_Funding_Requirement_1_Reason__c}</td>
+         </tr>
+        </apex:outputPanel>
+        <apex:outputPanel layout="none" rendered="{!creditReviewObj.Credit_Stip_Funding_Requirement_2__c != null}">
+         <tr>
+           <td> Funding Stipulation #2 </td>
+           <td>{!creditReviewObj.Credit_Stip_Funding_Requirement_2__c}</td>
+           <td> Reason: </td>
+           <td>{!creditReviewObj.Credit_Stip_Funding_Requirement_2_Reason__c}</td>
+         </tr>
+        </apex:outputPanel>
+        <apex:outputPanel layout="none" rendered="{!creditReviewObj.Credit_Stip_Funding_Requirement_3__c != null}">
+         <tr>
+           <td> Funding Stipulation #3 </td>
+           <td>{!creditReviewObj.Credit_Stip_Funding_Requirement_3__c}</td>
+           <td> Reason: </td>
+           <td>{!creditReviewObj.Credit_Stip_Funding_Requirement_3_Reason__c}</td>
+         </tr>
+        </apex:outputPanel>
+        <apex:outputPanel layout="none" rendered="{!creditReviewObj.Credit_Stip_Funding_Requirement_Other__c != null}">
+         <tr>
+           <td> Funding Stipulation #4 </td>
+           <td>{!creditReviewObj.Credit_Stip_Funding_Requirement_Other__c}</td>
+           <td> Reason: </td>
+           <td>{!creditReviewObj.Stip_Funding_Requirement_Other_Reason__c}</td>
+         </tr>
+        </apex:outputPanel>
+       </tbody>
+     </table>
+   </div>
+ </div>
+</apex:component>

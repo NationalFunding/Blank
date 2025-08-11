@@ -1,0 +1,7 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto; margin: 0; padding: 0;">We have been attempting to reach you regarding payment on your account. A legal demand was issued on {{{Case.Legal_Demand_Sent__c}}}. There is still time to bring your account out of default. If you are unable to maintain full remittances currently, a reconciliation may help. A reconciliation allows us to adjust your payments to match your cash flow. Please reach out immediately by replying to this email or by phone via my direct line at the bottom of this email.<br />
+<span style="display:none;">{{{Case.Thread_Id}}}</span></body>
+</html>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Projected_Final_Fund_Date_if_Prefund</fullName>
+    <active>true</active>
+    <description>This validation rule will ensure a value is entered into the Projected Final Fund Date if the transaction is going to be internally or externally funded.  Please contact your funder if you are unable to edit this record.</description>
+    <errorConditionFormula>RecordType.DeveloperName = 'Lease_Oppty_Record_Type' 
+&amp;&amp; 
+(External_Prefund__c = True || Internal_Prefund__c = True) 
+&amp;&amp; 
+ISBLANK(Projected_Final_Fund_Date__c)
+&amp;&amp;
+$User.ProfileId = '00e80000001C1Hy'</errorConditionFormula>
+    <errorMessage>The opportunity that you are attempting to edit has been marked as an Internal or External Prefund.  You Must enter a value in the Projected Final Fund Date in order to save your changes.</errorMessage>
+</ValidationRule>

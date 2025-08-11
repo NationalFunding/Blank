@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Title_Status__c</fullName>
+    <label>Title Status</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Titling Instructions</fullName>
+                <default>false</default>
+                <label>Titling Instructions</label>
+            </value>
+            <value>
+                <fullName>Audit Submitted</fullName>
+                <default>false</default>
+                <label>Audit Submitted</label>
+            </value>
+            <value>
+                <fullName>Audit Pending</fullName>
+                <default>false</default>
+                <label>Audit Pending</label>
+            </value>
+            <value>
+                <fullName>Audit Complete</fullName>
+                <default>false</default>
+                <label>Audit Complete</label>
+            </value>
+            <value>
+                <fullName>Title Received</fullName>
+                <default>false</default>
+                <label>Title Received</label>
+            </value>
+            <value>
+                <fullName>Title Pkg Out</fullName>
+                <default>false</default>
+                <label>Title Pkg Out</label>
+            </value>
+            <value>
+                <fullName>Title Perfected</fullName>
+                <default>false</default>
+                <label>Title Perfected</label>
+            </value>
+            <value>
+                <fullName>Title Perfected ELT</fullName>
+                <default>false</default>
+                <label>Title Perfected ELT</label>
+            </value>
+            <value>
+                <fullName>Paid in Full Title Sent</fullName>
+                <default>false</default>
+                <label>Paid in Full Title Sent</label>
+            </value>
+            <value>
+                <fullName>Default Title to Repo</fullName>
+                <default>false</default>
+                <label>Default Title to Repo</label>
+            </value>
+            <value>
+                <fullName>Vendor Transfer Pending</fullName>
+                <default>false</default>
+                <label>Vendor Transfer Pending</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

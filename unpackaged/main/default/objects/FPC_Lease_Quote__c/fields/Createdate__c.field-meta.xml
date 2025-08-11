@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Createdate__c</fullName>
+    <description>Date that the FPC Lease Quote was created is recorded.</description>
+    <inlineHelpText>Date that the FPC Lease Quote was created is recorded.</inlineHelpText>
+    <label>Createdate</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Earliest_Post_Date__c</fullName>
+    <inlineHelpText>Earliest available post date for the accounting period that has not been closed. Populated via automation at the time of GL Transaction creation by referencing the ‘Accounting Period’ records.</inlineHelpText>
+    <label>Earliest Post Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

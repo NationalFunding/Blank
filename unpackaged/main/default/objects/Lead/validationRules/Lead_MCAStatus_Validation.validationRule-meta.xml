@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_MCAStatus_Validation</fullName>
+    <active>false</active>
+    <errorConditionFormula>AND( NOT( ISBLANK(FPC_Rep_MCA__c) ), ISPICKVAL(Status_MCA__c,""))</errorConditionFormula>
+    <errorMessage>Status MCA cannot be null</errorMessage>
+</ValidationRule>

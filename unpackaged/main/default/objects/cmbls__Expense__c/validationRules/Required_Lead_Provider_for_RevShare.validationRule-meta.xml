@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Required_Lead_Provider_for_RevShare</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+            ISPICKVAL(Lead_Provider__c, ''),
+            ISPICKVAL(cmbls__Fee_Type__c, 'RevShare')
+        )</errorConditionFormula>
+    <errorDisplayField>Lead_Provider__c</errorDisplayField>
+    <errorMessage>Lead Provider must be selected for RevShare Expense Type</errorMessage>
+</ValidationRule>

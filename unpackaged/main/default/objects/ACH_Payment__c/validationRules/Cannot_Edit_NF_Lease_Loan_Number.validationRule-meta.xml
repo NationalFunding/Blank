@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_Edit_NF_Lease_Loan_Number</fullName>
+    <active>true</active>
+    <description>Must have the custom setting ValidationRules__c --&gt; Edit_NF_Lease_Loan_Number__c</description>
+    <errorConditionFormula>AND(
+	NOT(ISNEW()),
+	ISCHANGED(NF_Lease_Loan_Number__c ),
+	$Setup.ValidationRules__c.Edit_NF_Lease_Loan_Number__c = False
+	)</errorConditionFormula>
+    <errorDisplayField>NF_Lease_Loan_Number__c</errorDisplayField>
+    <errorMessage>You don't have the permission to update this field. Please reach out to helpdesk for support if you need to modify it.</errorMessage>
+</ValidationRule>

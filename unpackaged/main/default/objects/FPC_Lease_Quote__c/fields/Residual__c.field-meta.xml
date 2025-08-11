@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Residual__c</fullName>
+    <description>Residual option for the lease transaction.</description>
+    <inlineHelpText>Pick the residual option to quote lease payments.</inlineHelpText>
+    <label>Residual</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>FMV</fullName>
+                <default>false</default>
+                <label>FMV</label>
+            </value>
+            <value>
+                <fullName>FMV-NR</fullName>
+                <default>false</default>
+                <label>FMV-NR</label>
+            </value>
+            <value>
+                <fullName>10%</fullName>
+                <default>false</default>
+                <label>10%</label>
+            </value>
+            <value>
+                <fullName>20%</fullName>
+                <default>false</default>
+                <label>20%</label>
+            </value>
+            <value>
+                <fullName>$1 Buyout</fullName>
+                <default>false</default>
+                <label>$1 Buyout</label>
+            </value>
+            <value>
+                <fullName>$101 Buyout</fullName>
+                <default>false</default>
+                <label>$101 Buyout</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

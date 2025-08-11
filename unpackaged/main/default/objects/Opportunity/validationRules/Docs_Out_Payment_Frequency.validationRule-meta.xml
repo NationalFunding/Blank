@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Docs_Out_Payment_Frequency</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    OR(
+        RecordType.DeveloperName = 'Working Capital Oppty',
+        RecordType.DeveloperName = 'Broker WC Oppty',
+        RecordType.DeveloperName = 'Broker_FRPSA',
+        RecordType.DeveloperName = 'FRPSA'
+    ),
+    ISCHANGED(StageName),
+    ISPICKVAL(StageName,'Docs Out - MCA'),
+    ISPICKVAL(Docs_Payment_Frequency__c,'')
+)</errorConditionFormula>
+    <errorDisplayField>Docs_Payment_Frequency__c</errorDisplayField>
+    <errorMessage>The 'Docs Payment Frequency' must be populated before changing the Stage to 'Docs Out - MCA'</errorMessage>
+</ValidationRule>

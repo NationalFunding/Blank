@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Funds_Released_By__c</fullName>
+    <description>This field will indicate how funds need to be released to the customer and any other party that needs funding as result of this transaction.</description>
+    <inlineHelpText>This field will indicate how funds need to be released to the customer and any other party that needs funding as result of this transaction.</inlineHelpText>
+    <label>Funds Released By:</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>ACH</fullName>
+                <default>false</default>
+                <label>ACH</label>
+            </value>
+            <value>
+                <fullName>Wire</fullName>
+                <default>false</default>
+                <label>Wire</label>
+            </value>
+            <value>
+                <fullName>Check</fullName>
+                <default>false</default>
+                <label>Check</label>
+            </value>
+            <value>
+                <fullName>ACH &amp; Wire</fullName>
+                <default>false</default>
+                <label>ACH &amp; Wire</label>
+            </value>
+            <value>
+                <fullName>ACH &amp; Check</fullName>
+                <default>false</default>
+                <label>ACH &amp; Check</label>
+            </value>
+            <value>
+                <fullName>Wire &amp; Check</fullName>
+                <default>false</default>
+                <label>Wire &amp; Check</label>
+            </value>
+            <value>
+                <fullName>ACH &amp; Wire &amp; Check</fullName>
+                <default>false</default>
+                <label>ACH &amp; Wire &amp; Check</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

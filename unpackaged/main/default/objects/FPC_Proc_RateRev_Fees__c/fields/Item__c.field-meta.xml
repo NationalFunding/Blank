@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Item__c</fullName>
+    <description>This field is a list of possible fees in addition to normal processing fees in addition to normal processing fees.</description>
+    <inlineHelpText>This field is a list of possible fees in addition to normal processing fees in addition to normal processing fees.</inlineHelpText>
+    <label>Item</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>ACH Rejection Fee</fullName>
+                <default>false</default>
+                <label>ACH Rejection Fee</label>
+            </value>
+            <value>
+                <fullName>Annual Fee</fullName>
+                <default>false</default>
+                <label>Annual Fee</label>
+            </value>
+            <value>
+                <fullName>AVS Surcharge</fullName>
+                <default>false</default>
+                <label>AVS Surcharge</label>
+            </value>
+            <value>
+                <fullName>Bank Service Fee</fullName>
+                <default>false</default>
+                <label>Bank Service Fee</label>
+            </value>
+            <value>
+                <fullName>Charge Back Fee</fullName>
+                <default>false</default>
+                <label>Charge Back Fee</label>
+            </value>
+            <value>
+                <fullName>Customer Service Fee</fullName>
+                <default>false</default>
+                <label>Customer Service Fee</label>
+            </value>
+            <value>
+                <fullName>EBT Transactino Fee</fullName>
+                <default>false</default>
+                <label>EBT Transactino Fee</label>
+            </value>
+            <value>
+                <fullName>eCommerce/Gateway Item Fee</fullName>
+                <default>false</default>
+                <label>eCommerce/Gateway Item Fee</label>
+            </value>
+            <value>
+                <fullName>Gateway Activation Fee</fullName>
+                <default>false</default>
+                <label>Gateway Activation Fee</label>
+            </value>
+            <value>
+                <fullName>Gateway Fee</fullName>
+                <default>false</default>
+                <label>Gateway Fee</label>
+            </value>
+            <value>
+                <fullName>Gift Card Transaction Fee</fullName>
+                <default>false</default>
+                <label>Gift Card Transaction Fee</label>
+            </value>
+            <value>
+                <fullName>Interchange</fullName>
+                <default>false</default>
+                <label>Interchange</label>
+            </value>
+            <value>
+                <fullName>Maintenance Fee</fullName>
+                <default>false</default>
+                <label>Maintenance Fee</label>
+            </value>
+            <value>
+                <fullName>MC Network Access Fee</fullName>
+                <default>false</default>
+                <label>MC Network Access Fee</label>
+            </value>
+            <value>
+                <fullName>Membership Fee</fullName>
+                <default>false</default>
+                <label>Membership Fee</label>
+            </value>
+            <value>
+                <fullName>Micros Transaction Fee</fullName>
+                <default>false</default>
+                <label>Micros Transaction Fee</label>
+            </value>
+            <value>
+                <fullName>Mid Qual Downgrade Per Item Fee</fullName>
+                <default>false</default>
+                <label>Mid Qual Downgrade Per Item Fee</label>
+            </value>
+            <value>
+                <fullName>Network Access Fee</fullName>
+                <default>false</default>
+                <label>Network Access Fee</label>
+            </value>
+            <value>
+                <fullName>Non Qual Downgrade Per Item Fee</fullName>
+                <default>false</default>
+                <label>Non Qual Downgrade Per Item Fee</label>
+            </value>
+            <value>
+                <fullName>Online Batch Reporting</fullName>
+                <default>false</default>
+                <label>Online Batch Reporting</label>
+            </value>
+            <value>
+                <fullName>PCI Compliance Fee</fullName>
+                <default>false</default>
+                <label>PCI Compliance Fee</label>
+            </value>
+            <value>
+                <fullName>Retrieval Fee</fullName>
+                <default>false</default>
+                <label>Retrieval Fee</label>
+            </value>
+            <value>
+                <fullName>Statement Fee</fullName>
+                <default>false</default>
+                <label>Statement Fee</label>
+            </value>
+            <value>
+                <fullName>Visa APF</fullName>
+                <default>false</default>
+                <label>Visa APF</label>
+            </value>
+            <value>
+                <fullName>Voice Authorization Fee</fullName>
+                <default>false</default>
+                <label>Voice Authorization Fee</label>
+            </value>
+            <value>
+                <fullName>Wireless Access Fee</fullName>
+                <default>false</default>
+                <label>Wireless Access Fee</label>
+            </value>
+            <value>
+                <fullName>Wireless Activation Fee</fullName>
+                <default>false</default>
+                <label>Wireless Activation Fee</label>
+            </value>
+            <value>
+                <fullName>Wireless Item Fee</fullName>
+                <default>false</default>
+                <label>Wireless Item Fee</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

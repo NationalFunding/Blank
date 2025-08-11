@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank</letterhead>
+    <name>MOD approval - 2 weeks off 2 weeks half - QB</name>
+    <style>freeForm</style>
+    <subject>{!Case.Merchant_Number__c} - {!Account.Legal_Name__c}</subject>
+    <textOnly>Dear Business Owner,
+
+
+We have good news re: your temporary loan modification request due to the Covid-19 pandemic.
+
+
+We have received approval for 2 weeks of no payments followed by 2 weeks of half payments
+
+
+If you need an extension beyond the 4 weeks, please reach out to us before the end of this period to request an extension. We will need you to provide updated bank statements for an extension at that time.
+
+
+We wish you and your family the best during this difficult time. Visit our site for updates and support for our customers: https://www.nationalfunding.com/SBAloans
+
+
+We also encourage you to reach out to your banking partner for immediate assistance with loans administered by the SBA.
+
+
+Sincerely,
+
+
+Loan Modification Team
+
+
+{!Case.Email_Signature_Company__c}
+
+9820 Towne Centre Drive
+San Diego, CA 92121</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

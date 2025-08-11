@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Naitonal_Funding_Standard_Letterhead_Stack</letterhead>
+    <name>Matter Approval Template</name>
+    <style>formalLetter</style>
+    <subject>Matter Request has been Submitted for you Approval</subject>
+    <textOnly>Hello,
+
+A Matter Request had been submitted by  {!advpm__Matter__c.advpm__Internal_Dept_Owner__c} for your approval, please click the below link to see the Matter Request Record.
+
+{!advpm__Matter__c.Link}
+
+Thanks</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

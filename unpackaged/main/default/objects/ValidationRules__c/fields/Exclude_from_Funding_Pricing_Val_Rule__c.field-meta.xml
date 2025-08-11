@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Exclude_from_Funding_Pricing_Val_Rule__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Exclusion from Cannot_edit_pricing_definition_if_funded on Funding object</description>
+    <label>Exclude from Funding Pricing Val Rule</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

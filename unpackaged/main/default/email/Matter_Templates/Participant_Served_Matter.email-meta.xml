@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank</letterhead>
+    <name>Participant Served - Matter</name>
+    <style>freeForm</style>
+    <subject>{!advpm__Matter__c.Case_Name__c}</subject>
+    <textOnly>Dear {!advpm__Matter__c.advpm__Primary_Contact__c},
+
+We recently served you with a lawsuit to collect on the debt owed to
+{!IF(advpm__Matter__c.Originating_Lender__c == &quot;Quick Bridge&quot;, &quot;Quick Bridge Funding&quot;,&quot;National Funding&quot;)}. This lawsuit will enable us to get a judgment against you and/or the business. Under the terms of the loan agreement we are entitled to include all attorney’s fees and costs we spend in the final judgment amount. Additionally, post judgment interest in the amount of 10% will accrue. This will only work to increase the amount of the debt owed to {!IF(advpm__Matter__c.Originating_Lender__c == &quot;Quick Bridge&quot;, &quot;Quick Bridge Funding&quot;,&quot;National Funding&quot;)}.
+
+There is still time to settle this lawsuit. In order to avoid these additional fees and to prevent a judgment from being entered against you and/or your business, please reach out to us within fourteen (14) days from the date of this email to set up a payment plan or to arrange for a lump sum payment.
+
+Please contact us at 800-361-4094.
+
+
+{!IF(advpm__Matter__c.Originating_Lender__c == &quot;Quick Bridge&quot;, &quot;Quick Bridge Funding&quot;,&quot;National Funding&quot;)}
+{!$Setup.Company_Information__c.Street__c}
+{!$Setup.Company_Information__c.City__c}, {!$Setup.Company_Information__c.State__c} {!$Setup.Company_Information__c.Zip__c}
+P: (800) 361-4094</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

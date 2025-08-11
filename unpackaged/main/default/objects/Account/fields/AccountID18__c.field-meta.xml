@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AccountID18__c</fullName>
+    <description>The full Account ID needed in external applications</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The full Account ID needed in external applications</inlineHelpText>
+    <label>AccountID18</label>
+    <length>18</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

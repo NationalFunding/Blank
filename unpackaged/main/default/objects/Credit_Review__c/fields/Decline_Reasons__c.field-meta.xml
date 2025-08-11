@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Decline_Reasons__c</fullName>
+    <label>Decline Reasons</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Credit - No Open Trade Lines</fullName>
+                <default>false</default>
+                <label>Credit - No Open Trade Lines</label>
+            </value>
+            <value>
+                <fullName>Credit - Derogatory Trade Lines</fullName>
+                <default>false</default>
+                <label>Credit - Derogatory Trade Lines</label>
+            </value>
+            <value>
+                <fullName>Credit - Fico Below Minimum</fullName>
+                <default>false</default>
+                <label>Credit - Fico Below Minimum</label>
+            </value>
+            <value>
+                <fullName>Credit - Insufficient History</fullName>
+                <default>false</default>
+                <label>Credit - Insufficient History</label>
+            </value>
+            <value>
+                <fullName>Banks - Excessive NSF</fullName>
+                <default>false</default>
+                <label>Banks - Excessive NSF</label>
+            </value>
+            <value>
+                <fullName>Banks - Irregular Bank Activity</fullName>
+                <default>false</default>
+                <label>Banks - Irregular Bank Activity</label>
+            </value>
+            <value>
+                <fullName>Banks - Low Balances</fullName>
+                <default>false</default>
+                <label>Banks - Low Balances</label>
+            </value>
+            <value>
+                <fullName>Banks - Low Deposits</fullName>
+                <default>false</default>
+                <label>Banks - Low Deposits</label>
+            </value>
+            <value>
+                <fullName>Banks - Volatile Revenue</fullName>
+                <default>false</default>
+                <label>Banks - Volatile Revenue</label>
+            </value>
+            <value>
+                <fullName>Excessive Bankruptcies</fullName>
+                <default>false</default>
+                <label>Excessive Bankruptcies</label>
+            </value>
+            <value>
+                <fullName>Excessive Judgments/Liens</fullName>
+                <default>false</default>
+                <label>Excessive Judgments/Liens</label>
+            </value>
+            <value>
+                <fullName>Restricted Industry</fullName>
+                <default>false</default>
+                <label>Restricted Industry</label>
+            </value>
+            <value>
+                <fullName>Insufficient Time In Business</fullName>
+                <default>false</default>
+                <label>Insufficient Time In Business</label>
+            </value>
+            <value>
+                <fullName>Unconfirmed Documents</fullName>
+                <default>false</default>
+                <label>Unconfirmed Documents</label>
+            </value>
+            <value>
+                <fullName>Lack of Personal Guarantees</fullName>
+                <default>false</default>
+                <label>Lack of Personal Guarantees</label>
+            </value>
+            <value>
+                <fullName>History of Daily/Weekly Loan Payments</fullName>
+                <default>false</default>
+                <label>History of Daily/Weekly Loan Payments</label>
+            </value>
+            <value>
+                <fullName>Competitor Payoff Exceeds Limit</fullName>
+                <default>false</default>
+                <label>Competitor Payoff Exceeds Limit</label>
+            </value>
+            <value>
+                <fullName>Existing Customer/Signed Contract</fullName>
+                <default>false</default>
+                <label>Existing Customer/Signed Contract</label>
+            </value>
+            <value>
+                <fullName>Absentee Ownership</fullName>
+                <default>false</default>
+                <label>Absentee Ownership</label>
+            </value>
+            <value>
+                <fullName>Lack of Business History</fullName>
+                <default>false</default>
+                <label>Lack of Business History</label>
+            </value>
+            <value>
+                <fullName>No Business Bank Account</fullName>
+                <default>false</default>
+                <label>No Business Bank Account</label>
+            </value>
+            <value>
+                <fullName>Incomplete Application</fullName>
+                <default>false</default>
+                <label>Incomplete Application</label>
+            </value>
+            <value>
+                <fullName>Previous Poor Pay History with National Funding</fullName>
+                <default>false</default>
+                <label>Previous Poor Pay History with National Funding</label>
+            </value>
+            <value>
+                <fullName>Poor Pay History w/Competitor</fullName>
+                <default>false</default>
+                <label>Poor Pay History w/Competitor</label>
+            </value>
+            <value>
+                <fullName>Insufficient Financials</fullName>
+                <default>false</default>
+                <label>Insufficient Financials</label>
+            </value>
+            <value>
+                <fullName>Existing Customer/ Max Exposure</fullName>
+                <default>false</default>
+                <label>Existing Customer/ Max Exposure</label>
+            </value>
+            <value>
+                <fullName>Character Issues</fullName>
+                <default>false</default>
+                <label>Character Issues</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Industry Parameters</fullName>
+                <default>false</default>
+                <label>Industry Parameters</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

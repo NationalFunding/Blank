@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Time_to_eNoah_Complete__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( 
+Credit_Review__r.Opportunity__r.eNoah_Complete_Date__c - Credit_Review__r.Opportunity__r.PreQual_Date__c &gt; 0 , 
+TEXT( FLOOR( Credit_Review__r.Opportunity__r.eNoah_Complete_Date__c - Credit_Review__r.Opportunity__r.PreQual_Date__c ) ) &amp; " days " 
+&amp; TEXT( FLOOR( MOD( (Credit_Review__r.Opportunity__r.eNoah_Complete_Date__c - Credit_Review__r.Opportunity__r.PreQual_Date__c ) * 24, 24 ) ) ) &amp; " hours " 
+&amp; TEXT( ROUND( MOD( (Credit_Review__r.Opportunity__r.eNoah_Complete_Date__c - Credit_Review__r.Opportunity__r.PreQual_Date__c ) * 24 * 60, 60 ), 0 ) ) &amp; " minutes", 
+"" 
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Time to eNoah Complete</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

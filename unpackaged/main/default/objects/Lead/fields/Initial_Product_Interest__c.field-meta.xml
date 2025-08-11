@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Initial_Product_Interest__c</fullName>
+    <description>This field will be a field that dictates what product a customer is interested and will help determine queue placement.</description>
+    <inlineHelpText>This field will be a field that dictates what product a customer is interested and will help determine queue placement.</inlineHelpText>
+    <label>Initial Product Interest</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Lease</fullName>
+                <default>false</default>
+                <label>Lease</label>
+            </value>
+            <value>
+                <fullName>Merchant Funding</fullName>
+                <default>false</default>
+                <label>Merchant Funding</label>
+            </value>
+            <value>
+                <fullName>Merchant Processing</fullName>
+                <default>false</default>
+                <label>Merchant Processing</label>
+            </value>
+            <value>
+                <fullName>Merchant Cash Advance</fullName>
+                <default>false</default>
+                <label>Merchant Cash Advance</label>
+            </value>
+            <value>
+                <fullName>Small Business Loans</fullName>
+                <default>false</default>
+                <label>Small Business Loans</label>
+            </value>
+            <value>
+                <fullName>Equipment Leasing</fullName>
+                <default>false</default>
+                <label>Equipment Leasing</label>
+            </value>
+            <value>
+                <fullName>Credit Card Processing</fullName>
+                <default>false</default>
+                <label>Credit Card Processing</label>
+            </value>
+            <value>
+                <fullName>Vendor Advantage Program</fullName>
+                <default>false</default>
+                <label>Vendor Advantage Program</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

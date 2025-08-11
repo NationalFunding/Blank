@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DPBC_Date__c</fullName>
+    <description>The last date we certified the DPBC for this lead at this address.</description>
+    <inlineHelpText>The last date we certified the DPBC for this lead at this address.</inlineHelpText>
+    <label>DPBC Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

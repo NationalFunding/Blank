@@ -1,0 +1,47 @@
+<apex:page controller="AttachmentUploadController"  sidebar="false">  
+  <apex:sectionHeader subtitle="Upload the Customer's Signed Application and Bank Statements" description="<strong>An analyst from National Funding will contact you shortly regarding your submission.  If you have any questions in the meantime, please call your Partner Relationship Manager.</strong><br><br><strong>  When you have completed uploading documents, please click the Finished Uploading button and you will be returned to your Partner Dashboard.  Thank you!</strong>"/>
+
+  <apex:form enctype="multipart/form-data">
+    <apex:pageMessages />
+    <apex:pageBlock title="Upload A Document">
+
+      <apex:pageBlockButtons >
+        <apex:commandButton action="{!upload}" value="Upload"/>
+      </apex:pageBlockButtons>
+
+      <apex:pageBlockSection showHeader="false" columns="2" id="block1">
+
+        <apex:pageBlockSectionItem >
+          <apex:outputLabel value="File Name" for="fileName"/>
+          <apex:inputText value="{!attachment.name}" id="fileName" />
+        </apex:pageBlockSectionItem>
+
+        <apex:pageBlockSectionItem >
+          <apex:outputLabel value="File" for="file"/>
+          <apex:inputFile value="{!attachment.body}" filename="{!originalFileName}" contentType="{!attachment.contentType}" id="file"/>
+        </apex:pageBlockSectionItem>
+
+        <apex:pageBlockSectionItem >
+          <apex:outputLabel value="Description" for="description"/>
+          <apex:inputTextarea value="{!attachment.description}" id="description"/>
+        </apex:pageBlockSectionItem>
+
+     </apex:pageBlockSection>
+    </apex:pageBlock>
+      <apex:pageBlock title="Files Uploaded This Session">
+    <apex:pageBlockTable value="{!wrapperList}" var="wrapperRecord" >           
+        <apex:column headerValue="FileName">
+            <apex:outputLabel value="{!wrapperRecord.name}"/>
+        </apex:column>
+        <apex:column headerValue="Description">
+            <apex:outputLabel value="{!wrapperRecord.description }"/>
+        </apex:column>
+        <!--<apex:column headerValue="File">
+            <apex:inputFile value="{!wrapperRecord.file}" filename="{!wrapperRecord.a.name}"/>
+        </apex:column>  -->        
+    </apex:pageBlockTable>  
+
+    </apex:pageBlock>
+      <apex:commandButton value="Finished Uploading" action="{!doneUploading}" />
+  </apex:form>
+</apex:page>

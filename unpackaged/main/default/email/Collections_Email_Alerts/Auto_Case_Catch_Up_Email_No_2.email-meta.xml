@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank</letterhead>
+    <name>Auto - Case Catch Up Email No.2</name>
+    <style>freeForm</style>
+    <subject>Options to Bring Your Account Current - ({!Case.Legal_Name__c} - {!Case.Merchant_Number__c})</subject>
+    <textOnly>Hello {!Contact.FirstName},
+
+
+As we highlighted in prior correspondence, your account is currently {!Case.Past_Due_Balance__c} past due, which can cause the account to incur late fees and penalties. To avoid this we need to get the account brought current.
+
+Please let us know which of the following options would best work for you at this time:
+
+1. a one-time payment of {!Case.Past_Due_Balance__c}; or
+2. an increase of {!Case.Payment_Amount__c} to your existing payment for the next {!Case.Payments_Behind__c} payments.
+
+We look forward to hearing from you.
+
+Thank you,
+
+
+{!Case.Case_Email_Signature_Name_Formula__c}
+
+National Funding, Inc., the parent and servicing company of
+Quick Bridge Funding, LLC
+
+{!$Setup.Company_Information__c.Street__c}
+{!$Setup.Company_Information__c.City__c}, {!$Setup.Company_Information__c.State__c} {!$Setup.Company_Information__c.Zip__c}
+P: {!Case.OwnerPhone} | F: {!User.Fax}
+
+
+
+
+{!Case.Email_Thread_ID__c}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

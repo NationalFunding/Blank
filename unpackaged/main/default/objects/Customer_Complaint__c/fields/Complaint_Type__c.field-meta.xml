@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Complaint_Type__c</fullName>
+    <label>Complaint Type</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>CIP/Declined Application</fullName>
+                <default>false</default>
+                <label>CIP/Declined Application</label>
+            </value>
+            <value>
+                <fullName>Collections</fullName>
+                <default>false</default>
+                <label>Collections</label>
+            </value>
+            <value>
+                <fullName>Credit Bureau Report: Inquiry/Dispute/Unauthorized</fullName>
+                <default>false</default>
+                <label>Credit Bureau Report: Inquiry/Dispute/Unauthorized</label>
+            </value>
+            <value>
+                <fullName>ECOA Claim</fullName>
+                <default>false</default>
+                <label>ECOA Claim</label>
+            </value>
+            <value>
+                <fullName>Fees/Pricing/Rates/Interest</fullName>
+                <default>false</default>
+                <label>Fees/Pricing/Rates/Interest</label>
+            </value>
+            <value>
+                <fullName>Fraud/ID Theft</fullName>
+                <default>false</default>
+                <label>Fraud/ID Theft</label>
+            </value>
+            <value>
+                <fullName>Marketing: Unsolicited Marketing/Opt-Out Request/UDAAP</fullName>
+                <default>false</default>
+                <label>Marketing: Unsolicited Marketing/Opt-Out Request/UDAAP</label>
+            </value>
+            <value>
+                <fullName>Miscellaneous/Other</fullName>
+                <default>false</default>
+                <label>Miscellaneous/Other</label>
+            </value>
+            <value>
+                <fullName>Payments – Issues/Overages/Unauthorized</fullName>
+                <default>false</default>
+                <label>Payments – Issues/Overages/Unauthorized</label>
+            </value>
+            <value>
+                <fullName>Poor Service</fullName>
+                <default>false</default>
+                <label>Poor Service</label>
+            </value>
+            <value>
+                <fullName>Privacy</fullName>
+                <default>false</default>
+                <label>Privacy</label>
+            </value>
+            <value>
+                <fullName>Product – Terms/Limits</fullName>
+                <default>false</default>
+                <label>Product – Terms/Limits</label>
+            </value>
+            <value>
+                <fullName>Statements/Transaction History/Payoff Request</fullName>
+                <default>false</default>
+                <label>Statements/Transaction History/Payoff Request</label>
+            </value>
+            <value>
+                <fullName>Technical Issue</fullName>
+                <default>false</default>
+                <label>Technical Issue</label>
+            </value>
+            <value>
+                <fullName>Third Party Source Report (e.g. Datamerch)</fullName>
+                <default>false</default>
+                <label>Third Party Source Report (e.g. Datamerch)</label>
+            </value>
+            <value>
+                <fullName>Unable to Contact: Company/Customer Service/Website</fullName>
+                <default>false</default>
+                <label>Unable to Contact: Company/Customer Service/Website</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

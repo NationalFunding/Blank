@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SOS_Hyperlink__c</fullName>
+    <description>This is a formula field that will display a hyperlink to the Secretary of State website that correlates with the State of Incorporation field.</description>
+    <externalId>false</externalId>
+    <formula>Case(  State_of_Incorporation__c ,
+"AL", "http://1.usa.gov/AL-SOS",
+"AK", "http://1.usa.gov/AKSOS ",
+"AR", "http://5pt.co/AR_SOS",
+"AZ", "http://bit.ly/AZ-SOS",
+"CA", "http://kepler.sos.ca.gov/",
+"CO", "http://bit.ly/COSOS",
+"CT", "http://bit.ly/CTSOS",
+"DE", "http://bit.ly/DE-SOS",
+"FL", "http://bit.ly/FL-SOS",
+"GA", "http://bit.ly/GA-SOS",
+"HI", "http://bit.ly/HISOS",
+"ID", "http://bit.ly/SOSID",
+"IL", "http://bit.ly/ILSOS",
+"IN", "http://bit.ly/SOS-IN",
+"IA", "http://bit.ly/IASOS",
+"KS", "http://bit.ly/KS-SOS",
+"KY", "http://bit.ly/KYSOS",
+"LA", "http://1.usa.gov/LA-SOS ",
+"ME", "http://bit.ly/ME-SOS",
+"MD", "http://bit.ly/MDSOS",
+"MA", "http://bit.ly/MA-SOS",
+"MI", "http://1.usa.gov/MI-SOS",
+"MN", "http://bit.ly/SOS-MN",
+"MS", "http://bit.ly/MS-SOS",
+"MO", "http://1.usa.gov/MO-SOS",
+"MT", "http://bit.ly/MT-SOS",
+"NE", "http://1.usa.gov/NE-SOS",
+"NV", "http://bit.ly/NV-SOS",
+"NH", "http://1.usa.gov/NH-SOS",
+"NJ", "http://bit.ly/NJ-SOS",
+"NM", "http://bit.ly/NM-SOS",
+"NY", "http://bit.ly/NY-SOS",
+"NC", "http://bit.ly/NC-SOS",
+"ND", "http://bit.ly/ND-SOS",
+"OH", "http://bit.ly/OH-SOS",
+"OK", "http://bit.ly/OK-SOS ",
+"OR", "http://bit.ly/OR-SOS",
+"PA", "http://bit.ly/PA-SOS",
+"RI", "http://bit.ly/RI-SOS",
+"SC", "http://bit.ly/SC-SOS",
+"SD", "http://1.usa.gov/SD-SOS",
+"TN", "http://bit.ly/TN-SOS",
+"TX", "http://bit.ly/TX-SOS",
+"UT", "http://1.usa.gov/UT-SOS",
+"VT", "http://bit.ly/VT-SOS",
+"VA", "http://1.usa.gov/VA-SOS",
+"WA", "http://bit.ly/WA-SOS",
+"WV", "http://bit.ly/WV-SOS",
+"WI", "http://bit.ly/WI-SOS",
+"WY", "http://bit.ly/WY-SOS",
+"DC", "http://bit.ly/DC-SOS",
+"Pick a State in the State of Incorporation Field")</formula>
+    <inlineHelpText>This is a formula field that will display a hyperlink to the Secretary of State website that correlates with the State of Incorporation field.</inlineHelpText>
+    <label>SOS Hyperlink</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,181 @@
+<template>
+
+    <div class="slds-card__header" style="background-color: #b0c4df; min-height:100%; margin-bottom: 0;">
+
+        <div if:true={errorMsg} style="margin-left: 3%;">
+            <p style="color: red;">{errorMsg}</p>
+        </div>
+
+        <!-- <div class='slds-align_absolute-center'> -->
+        <article class="slds-card">
+            <div class="slds-card__body slds-card__body_inner">
+                <div class="slds-grid">
+
+                    <!-- Account Number Search -->
+                    <div onkeyup={anKeyUp} class="slds-col">
+                        <lightning-layout multiple-rows="false" vertical-align="end">
+                            <lightning-layout-item flexibility="auto" padding="around-small">
+                                <!-- <div class="slds-form-element">
+                                    <div class="slds-form-element__control"> -->
+                                        <!-- <lightning-input type="search" label="Account Number" onchange={handleCardSearchTerm}
+                                            data-id="ANS" value={cardNumberFormating} max-length="19">
+                                        </lightning-input> -->
+                                        <!-- *************************************** -->
+                                        <div class="slds-form-element">
+                                            <label class="slds-form-element__label" for="text-input-id-1">Account Number</label>
+                                            <div
+                                                class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left">
+                                                <svg class="slds-icon slds-input__icon slds-input__icon_left slds-icon-text-default"
+                                                    aria-hidden="true">
+                                                    <use
+                                                        xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg?cache=9.37.1#search">
+                                                    </use>
+                                                </svg>
+                                                <input type="text" id="form-element-01"
+                                                    class="slds-input" maxlength="19" data-id="ANS"
+                                                    onkeyup={formatSearchTerm} onfocusout={formatSearchTerm}/>
+                                            </div>
+                                        </div>
+                                        <!-- *************************************** -->
+                                    <!-- </div>
+                                </div> -->
+                            </lightning-layout-item>
+                            <lightning-layout-item flexibility="auto" padding="around-small">
+                                <lightning-button label="Search" variant="brand" onclick={handleCMSearch}>
+                                </lightning-button>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </div>
+
+                    <!-- Wild Card Search -->
+                    <div onkeyup={wcsKeyUp} class="slds-col">
+                        <lightning-layout multiple-rows="false" vertical-align="end">
+                            <lightning-layout-item flexibility="auto" padding="around-small">
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <lightning-input type="search" label="All Records (Slower)"
+                                            onchange={handleSearchTerm} data-id="WCS" minlength="5">
+                                        </lightning-input>
+                                    </div>
+                                </div>
+                            </lightning-layout-item>
+                            <lightning-layout-item flexibility="auto" padding="around-small">
+                                <lightning-button label="Search" variant="brand" onclick={handleSearch}>
+                                </lightning-button>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </div>
+
+                </div>
+            </div>
+        </article>
+
+        <!-- Spinner -->
+        <div class="spinner">
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Loading" variant="brand" size="large">
+                </lightning-spinner>
+            </template>
+        </div>
+
+        <!-- </div> -->
+        <br />
+
+        <!-- Lead Results -->
+        <div if:true={leadData}>
+            <!-- Header -->
+            <article class="slds-card slds-theme_shade">
+                <div class="slds-card__header slds-grid">
+                    <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                        <div class="slds-media__body">
+                            <h2 class="slds-card__header-title slds-text-title_bold slds-text-heading_medium">
+                                Leads
+                            </h2>
+                            <h4>{leadCount} Results</h4>
+                        </div>
+                    </header>
+                </div>
+            </article>
+            <!-- Header End -->
+            <!-- Lead DataTable -->
+            <lightning-datatable data={leadData} columns={leadColumns} key-field="id" hide-checkbox-column="true"
+                onrowaction={callRowAction}>
+            </lightning-datatable>
+        </div>
+
+        <br />
+
+        <!-- REMOVED FOR NF -->
+
+        <!-- Account Results -->
+        <!-- <div if:true={accountData}>
+            <article class="slds-card slds-theme_shade">
+                <div class="slds-card__header slds-grid">
+                    <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                        <div class="slds-media__body">
+                            <h2 class="slds-card__header-title slds-text-title_bold slds-text-heading_medium">
+                                Accounts
+                            </h2>
+                            <h4>{accountCount} Results</h4>
+                        </div>
+                    </header>
+                </div>
+            </article>
+            <lightning-datatable data={accountData} columns={accountColumns} key-field="id" hide-checkbox-column="true"
+                onrowaction={callRowAction}>
+            </lightning-datatable>
+        </div>
+
+        <br /> -->
+
+        <!-- Contact Results -->
+        <div if:true={contactData}>
+            <!-- Header -->
+            <article class="slds-card slds-theme_shade">
+                <div class="slds-card__header slds-grid">
+                    <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                        <div class="slds-media__body">
+                            <h2 class="slds-card__header-title slds-text-title_bold slds-text-heading_medium">
+                                Contacts
+                            </h2>
+                            <h4>{contactCount} Results</h4>
+                        </div>
+                    </header>
+                </div>
+            </article>
+            <!-- Header End -->
+            <!-- Contact DataTable -->
+            <lightning-datatable data={contactData} columns={contactColumns} key-field="id" hide-checkbox-column="true"
+                onrowaction={callRowAction}>
+            </lightning-datatable>
+        </div>
+
+        <br />
+
+        <!-- Lead Create -->
+        <!-- <div if:true={searchRan}>
+            <article class="slds-card">
+                <div class="slds-card__body slds-card__body_inner">
+                    <div class="slds-grid">
+                        <div class="slds-col slds-size_1-of-3">
+                            <img src="/projRes/ui-search-components/images/forceSearch/searchMoreBox/einstein-w-goggles.svg"
+                                alt="">
+                        </div>
+                        <div class="slds-col slds-size_2-of-3">
+                            <div style="padding-top: 25px">
+                                <h1 class="slds-card__header-title slds-text-heading_medium">Don't see your result?</h1>
+                                <br />
+                                <lightning-button label="Create a new lead" variant="brand" onclick={createNewLead}>
+                                </lightning-button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <br /> -->
+
+    </div>
+
+</template>

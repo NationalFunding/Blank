@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Actual_Merchant_Adjusted_Volume__c</fullName>
+    <description>This field will be the adjusted Volume for Merchant Deals.  Used in Calculating Reps Commission.</description>
+    <formula>IF( Actual_Points_Earned__c  &gt; 10.99, ACTUAL_AMT_OFFERED__c, IF(Actual_Points_Earned__c &gt; 6.99, ACTUAL_AMT_OFFERED__c * 2/3, ACTUAL_AMT_OFFERED__c * 1/3))</formula>
+    <inlineHelpText>This field will be the adjusted Volume for Merchant Deals.  Used in Calculating Reps Commission.</inlineHelpText>
+    <label>Actual Merchant Adjusted Volume</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

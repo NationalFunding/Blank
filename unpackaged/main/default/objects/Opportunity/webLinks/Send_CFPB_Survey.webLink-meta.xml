@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Send_CFPB_Survey</fullName>
+    <availability>online</availability>
+    <description>CFPB-28, button to allow manually trigger CFPB survey for lease opportunities</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>Send CFPB Survey</masterLabel>
+    <openType>noSidebar</openType>
+    <protected>false</protected>
+    <url>/flow/Opportunity_Manually_Invoke_Survey_Http_Callout?recordId={!Opportunity.Id}&amp;retURL=/{!Opportunity.Id}</url>
+</WebLink>

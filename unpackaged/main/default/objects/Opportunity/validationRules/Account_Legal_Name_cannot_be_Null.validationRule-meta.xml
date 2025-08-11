@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Legal_Name_cannot_be_Null</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISBLANK(Account.Legal_Name__c) &amp;&amp; (ISPICKVAL(StageName, 'Statements In - MCA') || ISPICKVAL(StageName, 'Credit Submittal')) &amp;&amp; ISCHANGED(StageName)</errorConditionFormula>
+    <errorMessage>Legal Name must have a value before stage can be updated.</errorMessage>
+</ValidationRule>

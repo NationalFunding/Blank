@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>false</available>
+    <description>Designed to look like a quick, personal email written by the rep. Please ensure the contact&apos;s name is capitalized properly (i.e. not ALL CAPS or lowercase).</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Text-only Missed You</name>
+    <style>none</style>
+    <subject>Following up on your inquiry</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

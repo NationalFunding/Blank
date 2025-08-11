@@ -1,0 +1,125 @@
+<apex:component layout="none">
+<!--Bank Information Add Account Modal Starts here-->
+<apex:attribute name="endDate" type="SelectOption[]" description="dd" />
+  <div id="bankmodal-addaccount" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3 id="myModalLabel">Add Bank Account</h3>
+        </div>
+        <div class="modal-body">
+          <div class="row" id="addBankAccountMain">
+            <div class="col-md-6">
+              <h3>Create Bank Account</h3>
+              <div class="row">
+                <div class="col-md-12"> 
+                  <!-- Select Basic -->
+                  <div class="form-group col-md-12">
+                    <label class="col-md-5 control-label" for="selectbasic">Bank Name</label>
+                    <div class="col-md-7">
+                      <input type="text" class="form-control bank_name" />
+                    </div>
+                  </div>
+                  
+                  <!-- Select Basic -->
+                  <div class="col-md-12">
+                    <div class="form-group col-md-5">
+                      <label class="control-label" for="selectbasic">Account Number</label>
+                    </div>
+                    <div class="form-group col-md-7">
+                      <div>
+                        <input type="text" class="form-control account_number" />
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Select Basic -->
+                  <div class="form-group col-md-12">
+                    <label class="col-md-5 control-label" for="selectbasic">Routing Number</label>
+                    <div class="col-md-7">
+                      <input type="text" class="form-control routing_no" maxlength="9" />
+                    </div>
+                  </div>
+                  <div class="form-group col-md-12"> 
+                    <!-- Select Basic -->
+                      <label class="col-md-5 control-label" for="selectbasic">Range</label>
+                      <div class="col-md-7">
+                        <select  class="form-control new-account-range">
+                          <option value="3">3 Months</option>
+                          <option value="6" selected="selected">6 Months</option>
+                          <option value="12">12 Months</option>
+                        </select>
+                      </div>
+                  </div>
+                  <!-- Select Basic -->
+                  <div class="form-group col-md-12">
+                      <label class="control-label  col-md-5" for="selectbasic">End Date</label>
+                      <div class="col-md-7">
+                        <apex:selectList styleClass="form-control new-account-end_date" size="1">
+                          <apex:selectOptions value="{!endDate}" />
+                        </apex:selectList>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6" style="border-left:#dddddd 1px solid;min-height:315px">
+              <h3>Associate Existing Bank Accounts:</h3>
+              <div class="existingBankData">
+
+              </div>
+              <div class="row">
+                <div class="col-md-6"> 
+                  <!-- Select Basic -->
+                  <div class=" row form-group">
+                    <label class="col-md-4 control-label" for="selectbasic">Range</label>
+                    <div class="col-md-8">
+                      <select class="form-control exists-account-range">
+                        <option value="3">3 Months</option>
+                        <option value="6" selected="selected">6 Months</option>
+                        <option value="12">12 Months</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <!-- Select Basic -->
+                <div class="col-md-6">
+                  <div class="row form-group">
+                    <label class="control-label  col-md-4" for="selectbasic">End Date</label>
+                    <div class="col-md-8">
+                      <apex:selectList styleClass="form-control exists-account-end_date" size="1">
+                          <apex:selectOptions value="{!endDate}" />
+                        </apex:selectList>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div  class="row" style="display:none;" id="addBankAccount-process">
+              <div class="dataloader text-center col-md-12">
+                <p style="margin-top:15px; display:inline-block;">
+                    <apex:image url="{!URLFOR($Resource.CreditReviewScreen, 'images/dataloader.gif')}"/>
+                </p>
+              </div>
+              
+              <span class="col-md-12 text-center help-block">Please Wait <strong class="searchvalue"></strong>Associating bank account...</span>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="col-md-4">
+            <button class="btn btn-success pull-left" id="add_account" onclick="saveNewBankAccount()"> Add Account</button>
+          </div>
+          <div class="col-md-4" style="text-align:center;">
+              <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Go Back</button>
+          </div>
+          <div class="col-md-4">
+            <button class="btn btn-success  pull-right" onclick="associateAccount()">Associate Account</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!--Bank Information Add Account Modal Ends here-->
+</apex:component>

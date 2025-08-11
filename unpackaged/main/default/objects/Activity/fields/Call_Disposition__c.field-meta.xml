@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Call_Disposition__c</fullName>
+    <description>Overall disposition of the call. Use of this field was changed over from Five9 to Vonage in Q2 2025. This field is populated with the most recent department specific disposition provided on the task</description>
+    <label>Call Disposition</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Vonage_Call_Dispositions</valueSetName>
+    </valueSet>
+</CustomField>

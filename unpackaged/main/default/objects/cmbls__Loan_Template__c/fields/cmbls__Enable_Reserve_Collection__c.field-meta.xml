@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cmbls__Enable_Reserve_Collection__c</fullName>
+    <defaultValue>false</defaultValue>
+    <deprecated>false</deprecated>
+    <description>Enable the creation of invoice line items to collect a reserve.</description>
+    <inlineHelpText>Enable the creation of invoice line items to collect a reserve.</inlineHelpText>
+    <label>Enable Reserve Collection</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

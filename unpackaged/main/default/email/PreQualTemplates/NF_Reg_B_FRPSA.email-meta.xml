@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Credit FRPSA - w/FICO</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>NF Reg B - FRPSA</name>
+    <relatedEntityType>Consumer_Risk_Summary__c</relatedEntityType>
+    <style>none</style>
+    <subject>Information About Your Application</subject>
+    <type>custom</type>
+    <uiType>SFX</uiType>
+</EmailTemplate>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>API_Send_Enabled__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Used to indicate if Lender is set up with an API integration with National Funding</description>
+    <label>API Send Enabled</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

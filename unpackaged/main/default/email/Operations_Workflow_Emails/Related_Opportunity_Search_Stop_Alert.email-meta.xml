@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Related Opportunity Search - Loan Write Off - Alert</name>
+    <style>none</style>
+    <subject>Alert - Loan Write Off with New Submission: {!Related_Opportunity_Search__c.Opportunity__c}</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

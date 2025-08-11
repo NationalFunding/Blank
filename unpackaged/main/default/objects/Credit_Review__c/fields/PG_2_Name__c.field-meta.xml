@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PG_2_Name__c</fullName>
+    <description>This field will contain the name of the 1st PG for the transaction.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Please type in the name of the 1st PG for the transaction.</inlineHelpText>
+    <label>PG #2 Name</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

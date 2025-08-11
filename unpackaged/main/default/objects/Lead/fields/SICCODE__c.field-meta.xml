@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SICCODE__c</fullName>
+    <description>Standard Industry Code (SIC) is a classification created by the US Government.  An SIC Code can be 2, 3, 4, or 8 digits.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Standard Industry Code (SIC) is a classification created by the US Government.  An SIC Code can be 2, 3, 4, or 8 digits</inlineHelpText>
+    <label>SIC Code</label>
+    <length>16</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

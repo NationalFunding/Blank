@@ -1,0 +1,1534 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <actionCalls>
+        <name>Send_Email</name>
+        <label>Send Email</label>
+        <locationX>3156</locationX>
+        <locationY>684</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>Update_Collections_S_S</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>Recipient.value</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>bccRecipientAddressList</name>
+            <value>
+                <elementReference>$User.Email</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <elementReference>Get_Org_Wide_Address.Address</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>composeEmailContent</name>
+            <value>
+                <stringValue>True</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>tt_Email_Subject</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>tt_Email_Body</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>useLineBreaks</name>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>recordId.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>logEmailOnSend</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>addThreadingTokenToBody</name>
+        </inputParameters>
+        <inputParameters>
+            <name>addThreadingTokenToSubject</name>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+        <versionString>1.0.1</versionString>
+    </actionCalls>
+    <apiVersion>60.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Assign_Count</name>
+        <label>Assign Count</label>
+        <locationX>2162</locationX>
+        <locationY>435</locationY>
+        <assignmentItems>
+            <assignToReference>var_mod_options_count</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>coll_mods_to_create</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_Mod_Options</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Mod_Option</name>
+        <label>Assign Mod Option</label>
+        <locationX>1848</locationX>
+        <locationY>274</locationY>
+        <assignmentItems>
+            <assignToReference>var_mod_option.Case__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>recordId.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>var_mod_option.Extension_Months__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_Rates.Extension_Months__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>var_mod_option.Extension_Fee__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formula_externsion_fee</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>var_mod_option.Total_Remaining_Payment__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formula_total_balance_with_fee</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>var_mod_option.Daily_Payment_Amount__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formula_daily_payment</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>var_mod_option.Weekly_Payment_Amount__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formula_weekly_payment</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>var_mod_option.Monthly_Payment_Amount__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formula_monthly_payment</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>var_mod_option.Type__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Select_Perm_Mod_Type</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>var_mod_option.Biweekly_Payment_Amount__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formula_bimonthly_payment</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>var_formula_maturity_plus_workday</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formula_maturity_plus_workdays</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>var_mod_option.Extended_Maturity_Date__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formula_extended_maturity_date</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Assign_to_Collection</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Row_Style</name>
+        <label>Assign Row Style</label>
+        <locationX>2475</locationX>
+        <locationY>738</locationY>
+        <assignmentItems>
+            <assignToReference>var_row_number</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>var_IsEvenRow</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formula_NotIsEvenRow</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Assign_Rows</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Rows</name>
+        <label>Assign Rows</label>
+        <locationX>2566</locationX>
+        <locationY>740</locationY>
+        <assignmentItems>
+            <assignToReference>var_tablerows</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>formula_table_row_version</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>var_table_header</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formula_table_header_version</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Options</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_to_Collection</name>
+        <label>Assign to Collection</label>
+        <locationX>1987</locationX>
+        <locationY>276</locationY>
+        <assignmentItems>
+            <assignToReference>coll_mod_options</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>var_mod_option</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Rates</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>assign_value</name>
+        <label>assign value</label>
+        <locationX>1349</locationX>
+        <locationY>193</locationY>
+        <assignmentItems>
+            <assignToReference>var_selected_option.Selected__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>var_selected_option.Selected_Frequency__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Select_Payment_Frequency</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Selected</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>clear_collection</name>
+        <label>clear collection</label>
+        <locationX>1543</locationX>
+        <locationY>448</locationY>
+        <assignmentItems>
+            <assignToReference>coll_mod_options</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>coll_null</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>coll_mods_to_create</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>coll_null</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Get_Mod_Rates</targetReference>
+        </connector>
+    </assignments>
+    <choices>
+        <name>Generate_New_Options</name>
+        <choiceText>Generate New Options</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Generate New Options</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Select_Another_Option</name>
+        <choiceText>Select Another Option</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Select Another Option</stringValue>
+        </value>
+    </choices>
+    <decisions>
+        <name>Active_Option</name>
+        <label>Active Option</label>
+        <locationX>849</locationX>
+        <locationY>362</locationY>
+        <defaultConnector>
+            <targetReference>existing_options</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Outcome_1_of_Active_Option</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Active_Mod_Options</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Active_Option_Found</targetReference>
+            </connector>
+            <label>Found Active Option</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>existing_options</name>
+        <label>existing options?</label>
+        <locationX>1021</locationX>
+        <locationY>364</locationY>
+        <defaultConnector>
+            <targetReference>Create_Modification_Options</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No Existing Options</defaultConnectorLabel>
+        <rules>
+            <name>Existing_found</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_existing_mod_options</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>existing_record_screen</targetReference>
+            </connector>
+            <label>Existing found</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Generate_New_Options2</name>
+        <label>Generate New Options?</label>
+        <locationX>1191</locationX>
+        <locationY>182</locationY>
+        <defaultConnector>
+            <targetReference>assign_value</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Outcome_1_of_Generate_New_Options</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>generate_new_existing_option_screen.value</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Delete_Records_1</targetReference>
+            </connector>
+            <label>Yes_generate_new</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>not_available</name>
+        <label>not available</label>
+        <locationX>1771</locationX>
+        <locationY>448</locationY>
+        <defaultConnector>
+            <targetReference>Loop_Rates</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Outcome_1_of_not_available</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Mod_Rates</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>invalid</targetReference>
+            </connector>
+            <label>Outcome 1 of not available</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Path</name>
+        <label>Path</label>
+        <locationX>1017</locationX>
+        <locationY>678</locationY>
+        <defaultConnector>
+            <targetReference>existing_options</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Outcome_1_of_Path</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>pick_one_action</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>Generate_New_Options</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Delete_Records_1</targetReference>
+            </connector>
+            <label>Generate New Options</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Send_Email_Decision</name>
+        <label>Send Email?</label>
+        <locationX>2408</locationX>
+        <locationY>434</locationY>
+        <defaultConnector>
+            <targetReference>Update_Collections_S_S</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Send</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Send_Email_Checkbox</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Loop_Options</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <description>fix maturity date field reference
+remove Collection Stage Update</description>
+    <dynamicChoiceSets>
+        <name>choice_mod_frequency</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Selected_Frequency__c</picklistField>
+        <picklistObject>Modification_Option__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>choice_mod_type</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Type__c</picklistField>
+        <picklistObject>Modification_Option__c</picklistObject>
+    </dynamicChoiceSets>
+    <environments>Default</environments>
+    <formulas>
+        <name>formula_bimonthly_payment</name>
+        <dataType>Currency</dataType>
+        <expression>{!formula_weekly_payment}*2</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>formula_Collection_stage</name>
+        <dataType>String</dataType>
+        <expression>IF({!recordId.Product__c}=&quot;FRPSA&quot;,&quot;FRPSA - Recon&quot;,&quot;Modification&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>formula_contact_us_verbiage</name>
+        <dataType>String</dataType>
+        <expression>IF({!recordId.Product__c}=&quot;FRPSA&quot;,{!tt_email_contact_us_frpsa},{!tt_email_contact_us_wc})</expression>
+    </formulas>
+    <formulas>
+        <name>formula_daily_payment</name>
+        <dataType>Currency</dataType>
+        <expression>{!formula_total_balance_with_fee}/{!formula_new_workdays_left}</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>formula_default_type</name>
+        <dataType>String</dataType>
+        <expression>IF({!recordId.Product__c}=&quot;FRPSA&quot;,&quot;FRPSA Settlement&quot;,&quot;Standard PM&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>formula_evenrow_style</name>
+        <dataType>String</dataType>
+        <expression>IF({!var_IsEvenRow}, &quot;background-color: #f2f2f2;&quot;, &quot;&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>formula_extended_maturity_date</name>
+        <dataType>Date</dataType>
+        <expression>IF({!Loop_Rates.Extension_Months__c}=12, 
+DATEVALUE(TEXT({!recordId.Opportunity__r.NF_WC_Maturity_Date__c}+365)),
+DATEVALUE(TEXT({!formula_maturity_plus_workdays})))</expression>
+    </formulas>
+    <formulas>
+        <name>formula_extension_days</name>
+        <dataType>Number</dataType>
+        <expression>IF({!Loop_Rates.Extension_Months__c}=12, 365, {!Loop_Rates.Extension_Workdays__c})</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>formula_externsion_fee</name>
+        <dataType>Currency</dataType>
+        <expression>{!recordId.Opportunity__r.Balance_Remaining__c}*{!Loop_Rates.Extension_Fee_Rate__c}</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>formula_main_body_veribiage</name>
+        <dataType>String</dataType>
+        <expression>IF({!recordId.Product__c}=&quot;FRPSA&quot;,{!tt_email_main_paragraph_frpsa},{!tt_email_main_paragraph_wc})</expression>
+    </formulas>
+    <formulas>
+        <name>formula_maturity_date_verbiage</name>
+        <dataType>String</dataType>
+        <expression>IF({!recordId.Product__c}=&quot;FRPSA&quot;, &quot;Current Estimated Completion Date&quot;, &quot;Maturity Date&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>formula_maturity_plus_workdays</name>
+        <dataType>Date</dataType>
+        <expression>CASE( 
+MOD({!recordId.Opportunity__r.NF_WC_Maturity_Date__c}- DATE(1900, 1, 7), 7), 
+0, ({!recordId.Opportunity__r.NF_WC_Maturity_Date__c}) + {!formula_extension_days}+ FLOOR(({!formula_extension_days}-1)/5)*2, 
+1, ({!recordId.Opportunity__r.NF_WC_Maturity_Date__c}) + {!formula_extension_days}+ FLOOR(({!formula_extension_days})/5)*2, 
+2, ({!recordId.Opportunity__r.NF_WC_Maturity_Date__c}) +{!formula_extension_days}+ FLOOR(({!formula_extension_days}+1)/5)*2, 
+3, ({!recordId.Opportunity__r.NF_WC_Maturity_Date__c}) + {!formula_extension_days}+ FLOOR(({!formula_extension_days}+2)/5)*2, 
+4, ({!recordId.Opportunity__r.NF_WC_Maturity_Date__c}) + {!formula_extension_days}+ FLOOR(({!formula_extension_days}+3)/5)*2, 
+5, ({!recordId.Opportunity__r.NF_WC_Maturity_Date__c}) + {!formula_extension_days}+ CEILING(({!formula_extension_days})/5)*2, 
+6, ({!recordId.Opportunity__r.NF_WC_Maturity_Date__c}) -1 + {!formula_extension_days} + CEILING(({!formula_extension_days})/5)*2, 
+NULL)</expression>
+    </formulas>
+    <formulas>
+        <name>formula_monthly_payment</name>
+        <dataType>Currency</dataType>
+        <expression>{!formula_weekly_payment}*4.2</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>formula_net_workdays_left</name>
+        <dataType>Number</dataType>
+        <expression>ABS(
+CASE(MOD ((TODAY()-1)- DATE(1985,6,24),7),
+0 , CASE( MOD(  {!recordId.Opportunity__r.Maturity_Date__c}  - (TODAY()-1)
+,7),1,2,2,3,3,4,4,5,5,5,6,5,1)
+,
+1 , CASE( MOD( {!recordId.Opportunity__r.Maturity_Date__c}   - (TODAY()-1)
+,7),1,2,2,3,3,4,4,4,5,4,6,5,1),
+2 , CASE( MOD(  {!recordId.Opportunity__r.Maturity_Date__c}   - (TODAY()-1)
+,7),1,2,2,3,3,3,4,3,5,4,6,5,1),
+3 , CASE( MOD(  {!recordId.Opportunity__r.Maturity_Date__c}  - (TODAY()-1)
+,7),1,2,2,2,3,2,4,3,5,4,6,5,1),
+4 , CASE( MOD(  {!recordId.Opportunity__r.Maturity_Date__c}  - (TODAY()-1)
+,7),1,1,2,1,3,2,4,3,5,4,6,5,1),
+5 , CASE( MOD(  {!recordId.Opportunity__r.Maturity_Date__c}   - (TODAY()-1)
+,7),1,0,2,1,3,2,4,3,5,4,6,5,0),
+6 , CASE( MOD( {!recordId.Opportunity__r.Maturity_Date__c}  - (TODAY()-1)
+,7),1,1,2,2,3,3,4,4,5,5,6,5,0),
+999)
++
+(FLOOR(( {!recordId.Opportunity__r.Maturity_Date__c}   - (TODAY()-1) )/7)*5)-1 +
+
+{!recordId.Opportunity__r.Maturity_Date__c}   - (TODAY()-1) - ({!recordId.Opportunity__r.Maturity_Date__c}   - (TODAY()-1))
+)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>formula_new_workdays_left</name>
+        <dataType>Number</dataType>
+        <expression>ABS(
+CASE(MOD ((TODAY()-1)- DATE(1985,6,24),7),
+0 , CASE( MOD(  {!formula_extended_maturity_date}  - (TODAY()-1)
+,7),1,2,2,3,3,4,4,5,5,5,6,5,1)
+,
+1 , CASE( MOD(  {!formula_extended_maturity_date}   - (TODAY()-1)
+,7),1,2,2,3,3,4,4,4,5,4,6,5,1),
+2 , CASE( MOD(   {!formula_extended_maturity_date}    - (TODAY()-1)
+,7),1,2,2,3,3,3,4,3,5,4,6,5,1),
+3 , CASE( MOD(   {!formula_extended_maturity_date}   - (TODAY()-1)
+,7),1,2,2,2,3,2,4,3,5,4,6,5,1),
+4 , CASE( MOD(   {!formula_extended_maturity_date}   - (TODAY()-1)
+,7),1,1,2,1,3,2,4,3,5,4,6,5,1),
+5 , CASE( MOD(   {!formula_extended_maturity_date}   - (TODAY()-1)
+,7),1,0,2,1,3,2,4,3,5,4,6,5,0),
+6 , CASE( MOD( {!formula_extended_maturity_date}  - (TODAY()-1)
+,7),1,1,2,2,3,3,4,4,5,5,6,5,0),
+999)
++
+(FLOOR(( {!formula_extended_maturity_date}   - (TODAY()-1) )/7)*5)-1 +
+ {!formula_extended_maturity_date} - (TODAY()-1) - ( {!formula_extended_maturity_date}   - (TODAY()-1))
+)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>formula_NotIsEvenRow</name>
+        <dataType>Boolean</dataType>
+        <expression>NOT({!var_IsEvenRow})</expression>
+    </formulas>
+    <formulas>
+        <name>formula_number_of_weeks_left</name>
+        <dataType>Number</dataType>
+        <expression>{!formula_net_workdays_left}/5</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>formula_table_header_version</name>
+        <dataType>String</dataType>
+        <expression>IF({!recordId.Product__c}=&quot;FRPSA&quot;,{!tt_table_header_frpsa},{!tt_table_header_wc})</expression>
+    </formulas>
+    <formulas>
+        <name>formula_table_row_version</name>
+        <dataType>String</dataType>
+        <expression>IF({!recordId.Product__c}=&quot;FRPSA&quot;,{!tt_table_row_frpsa},{!tt_table_row_wc})</expression>
+    </formulas>
+    <formulas>
+        <name>formula_total_balance_with_fee</name>
+        <dataType>Currency</dataType>
+        <expression>{!recordId.Opportunity__r.Balance_Remaining__c}+{!formula_externsion_fee}</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>formula_Verbiage_Email_Subject</name>
+        <dataType>String</dataType>
+        <expression>IF(
+	{!recordId.Product__c} = &quot;FRPSA&quot;, 
+	&quot;Pre Charge-Off Settlement Options&quot;, 
+	&quot;Extended Repayment Options&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formula_verbiage_extended_maturity_date</name>
+        <dataType>String</dataType>
+        <expression>IF({!recordId.Product__c}=&quot;FRPSA&quot;, &quot;Expected Completion Date&quot;,&quot;Extended Maturity Date&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>formula_verbiage_extension_fee</name>
+        <dataType>String</dataType>
+        <expression>IF({!recordId.Product__c}=&quot;FRPSA&quot;, &quot;Prejudgment Interest&quot;,&quot;Extension Fee&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>formula_verbiage_total_repayment</name>
+        <dataType>String</dataType>
+        <expression>IF({!recordId.Product__c}=&quot;FRPSA&quot;, &quot;Total Settlement Balance&quot;,&quot;Total Remaining Repayment&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>formula_weekly_payment</name>
+        <dataType>Currency</dataType>
+        <expression>{!formula_daily_payment}*5</expression>
+        <scale>2</scale>
+    </formulas>
+    <interviewLabel>Case - Create Perm Mod Options screen flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Case - Create Perm Mod Options screen flow</label>
+    <loops>
+        <name>Loop_Options</name>
+        <label>Loop Options</label>
+        <locationX>2509</locationX>
+        <locationY>561</locationY>
+        <collectionReference>coll_mods_to_create</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Assign_Row_Style</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Get_Sender_Email</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <loops>
+        <name>Loop_Rates</name>
+        <label>Loop Rates</label>
+        <locationX>1904</locationX>
+        <locationY>453</locationY>
+        <collectionReference>Get_Mod_Rates</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Assign_Mod_Option</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Confirmation</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordCreates>
+        <name>Create_Mod_Options</name>
+        <label>Create Mod Options</label>
+        <locationX>2283</locationX>
+        <locationY>434</locationY>
+        <connector>
+            <targetReference>Send_Email_Decision</targetReference>
+        </connector>
+        <inputReference>coll_mods_to_create</inputReference>
+    </recordCreates>
+    <recordDeletes>
+        <name>Delete_Records_1</name>
+        <label>Delete Records 1</label>
+        <locationX>1203</locationX>
+        <locationY>523</locationY>
+        <connector>
+            <targetReference>Create_Modification_Options</targetReference>
+        </connector>
+        <inputReference>Get_existing_mod_options</inputReference>
+    </recordDeletes>
+    <recordLookups>
+        <name>Get_Active_Mod_Options</name>
+        <label>Get Active Mod Options</label>
+        <locationX>603</locationX>
+        <locationY>361</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_existing_mod_options</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Selected__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Case__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Modification_Option__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_existing_mod_options</name>
+        <label>Get existing mod options</label>
+        <locationX>744</locationX>
+        <locationY>360</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Active_Option</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Case__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Modification_Option__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Mod_Rates</name>
+        <label>Get Mod Rates</label>
+        <locationX>1666</locationX>
+        <locationY>462</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>not_available</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Select_Perm_Mod_Type</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Collections_Perm_Mod_Options_Rate__mdt</object>
+        <sortField>Extension_Months__c</sortField>
+        <sortOrder>Asc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Org_Wide_Address</name>
+        <label>Get Org Wide Address</label>
+        <locationX>2839</locationX>
+        <locationY>562</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Send_Email</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Address</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Sender_Email.Email_to_Case_Address__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>OrgWideEmailAddress</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Sender_Email</name>
+        <label>Get Sender Email</label>
+        <locationX>2695</locationX>
+        <locationY>561</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Org_Wide_Address</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Mod_Options</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Case_Email_Drip_Sender_Setting__mdt</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Unselect_Option</name>
+        <label>Unselect Option</label>
+        <locationX>861</locationX>
+        <locationY>678</locationY>
+        <connector>
+            <targetReference>Path</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Active_Mod_Options.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Selected__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <object>Modification_Option__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Collections_S_S</name>
+        <label>Update Collections S/S</label>
+        <locationX>3112</locationX>
+        <locationY>442</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId.Account.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Collections_Status__c</field>
+            <value>
+                <stringValue>Mod Options Generated</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Account</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Selected</name>
+        <label>Update Selected</label>
+        <locationX>1520</locationX>
+        <locationY>182</locationY>
+        <inputReference>var_selected_option</inputReference>
+    </recordUpdates>
+    <runInMode>SystemModeWithoutSharing</runInMode>
+    <screens>
+        <name>Active_Option_Found</name>
+        <label>Active Option Found Screen</label>
+        <locationX>861</locationX>
+        <locationY>537</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Unselect_Option</targetReference>
+        </connector>
+        <fields>
+            <name>message_activeOption</name>
+            <fieldText>&lt;p&gt;Selected Modification Option found.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Extension Months:&lt;/strong&gt; {!Get_Active_Mod_Options.Extension_Months__c}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Extension Fee:&lt;/strong&gt; ${!Get_Active_Mod_Options.Extension_Fee__c}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Extension Payment Frequency: &lt;/strong&gt;{!Get_Active_Mod_Options.Selected_Frequency__c}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Please select below action or close screen to exit.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>pick_one_action</name>
+            <choiceReferences>Select_Another_Option</choiceReferences>
+            <choiceReferences>Generate_New_Options</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Pick One</fieldText>
+            <fieldType>RadioButtons</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Confirmation</name>
+        <label>Confirmation</label>
+        <locationX>2050</locationX>
+        <locationY>440</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Assign_Count</targetReference>
+        </connector>
+        <fields>
+            <name>confirmationtt</name>
+            <fieldText>&lt;p&gt;{!tt_header_loaninfo}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>ModOptions_Confirmation</name>
+            <dataTypeMappings>
+                <typeName>T</typeName>
+                <typeValue>Modification_Option__c</typeValue>
+            </dataTypeMappings>
+            <extensionName>flowruntime:datatable</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>label</name>
+                <value>
+                    <stringValue>Modification Options</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>selectionMode</name>
+                <value>
+                    <stringValue>MULTI_SELECT</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>minRowSelection</name>
+                <value>
+                    <numberValue>1.0</numberValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>shouldDisplayLabel</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>tableData</name>
+                <value>
+                    <elementReference>coll_mod_options</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>columns</name>
+                <value>
+                    <stringValue>[{&quot;apiName&quot;:&quot;Extension_Months__c&quot;,&quot;guid&quot;:&quot;column-e562&quot;,&quot;editable&quot;:false,&quot;hasCustomHeaderLabel&quot;:true,&quot;customHeaderLabel&quot;:&quot;Months&quot;,&quot;wrapText&quot;:true,&quot;order&quot;:0,&quot;label&quot;:&quot;Extension Months&quot;,&quot;type&quot;:&quot;number&quot;},{&quot;apiName&quot;:&quot;Extension_Fee__c&quot;,&quot;guid&quot;:&quot;column-f0b5&quot;,&quot;editable&quot;:false,&quot;hasCustomHeaderLabel&quot;:false,&quot;customHeaderLabel&quot;:&quot;&quot;,&quot;wrapText&quot;:true,&quot;order&quot;:1,&quot;label&quot;:&quot;Extension Fee&quot;,&quot;type&quot;:&quot;currency&quot;},{&quot;apiName&quot;:&quot;Total_Remaining_Payment__c&quot;,&quot;guid&quot;:&quot;column-e157&quot;,&quot;editable&quot;:false,&quot;hasCustomHeaderLabel&quot;:false,&quot;customHeaderLabel&quot;:&quot;&quot;,&quot;wrapText&quot;:true,&quot;order&quot;:2,&quot;label&quot;:&quot;Total Remaining Payment&quot;,&quot;type&quot;:&quot;currency&quot;},{&quot;apiName&quot;:&quot;Extended_Maturity_Date__c&quot;,&quot;guid&quot;:&quot;column-c019&quot;,&quot;editable&quot;:false,&quot;hasCustomHeaderLabel&quot;:false,&quot;customHeaderLabel&quot;:&quot;&quot;,&quot;wrapText&quot;:true,&quot;order&quot;:3,&quot;label&quot;:&quot;Extended Maturity Date&quot;,&quot;type&quot;:&quot;date-local&quot;},{&quot;apiName&quot;:&quot;Daily_Payment_Amount__c&quot;,&quot;guid&quot;:&quot;column-b6bb&quot;,&quot;editable&quot;:false,&quot;hasCustomHeaderLabel&quot;:false,&quot;customHeaderLabel&quot;:&quot;&quot;,&quot;wrapText&quot;:true,&quot;order&quot;:4,&quot;label&quot;:&quot;Daily Payment Amount&quot;,&quot;type&quot;:&quot;currency&quot;},{&quot;apiName&quot;:&quot;Weekly_Payment_Amount__c&quot;,&quot;guid&quot;:&quot;column-c137&quot;,&quot;editable&quot;:false,&quot;hasCustomHeaderLabel&quot;:false,&quot;customHeaderLabel&quot;:&quot;&quot;,&quot;wrapText&quot;:true,&quot;order&quot;:5,&quot;label&quot;:&quot;Weekly Payment Amount&quot;,&quot;type&quot;:&quot;currency&quot;},{&quot;apiName&quot;:&quot;Biweekly_Payment_Amount__c&quot;,&quot;guid&quot;:&quot;column-1a27&quot;,&quot;editable&quot;:false,&quot;hasCustomHeaderLabel&quot;:false,&quot;customHeaderLabel&quot;:&quot;&quot;,&quot;wrapText&quot;:true,&quot;order&quot;:6,&quot;label&quot;:&quot;Biweekly Payment Amount&quot;,&quot;type&quot;:&quot;currency&quot;},{&quot;apiName&quot;:&quot;Monthly_Payment_Amount__c&quot;,&quot;guid&quot;:&quot;column-fe30&quot;,&quot;editable&quot;:false,&quot;hasCustomHeaderLabel&quot;:false,&quot;customHeaderLabel&quot;:&quot;&quot;,&quot;wrapText&quot;:true,&quot;order&quot;:7,&quot;label&quot;:&quot;Monthly Payment Amount&quot;,&quot;type&quot;:&quot;currency&quot;}]</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>selectedRows</name>
+                <value>
+                    <elementReference>coll_mod_options</elementReference>
+                </value>
+            </inputParameters>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <outputParameters>
+                <assignToReference>coll_mods_to_create</assignToReference>
+                <name>selectedRows</name>
+            </outputParameters>
+        </fields>
+        <fields>
+            <name>Send_Email_Checkbox</name>
+            <dataType>Boolean</dataType>
+            <defaultValue>
+                <booleanValue>true</booleanValue>
+            </defaultValue>
+            <fieldText>Send Email</fieldText>
+            <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Recipient</name>
+            <extensionName>flowruntime:email</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>label</name>
+                <value>
+                    <stringValue>Email Options To:</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>required</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>value</name>
+                <value>
+                    <elementReference>recordId.ContactEmail</elementReference>
+                </value>
+            </inputParameters>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Create_Modification_Options</name>
+        <label>Create Modification Options</label>
+        <locationX>1428</locationX>
+        <locationY>453</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>clear_collection</targetReference>
+        </connector>
+        <fields>
+            <name>LoanInfo</name>
+            <fieldText>&lt;p&gt;{!tt_header_loaninfo}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Select_Perm_Mod_Type</name>
+            <choiceReferences>choice_mod_type</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formula_default_type</elementReference>
+            </defaultValue>
+            <fieldText>Select Perm Mod Type</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>existing_record_screen</name>
+        <label>existing record screen</label>
+        <locationX>1027</locationX>
+        <locationY>178</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Generate_New_Options2</targetReference>
+        </connector>
+        <fields>
+            <name>message</name>
+            <fieldText>&lt;p&gt;Existing Modification Options Found.&lt;/p&gt;&lt;p&gt;Please select an options or generate new options.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>generate_new_existing_option_screen</name>
+            <extensionName>flowruntime:toggle</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>messageToggleActive</name>
+                <value>
+                    <stringValue>Yes</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>label</name>
+                <value>
+                    <stringValue>Generate New Options</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>messageToggleInactive</name>
+                <value>
+                    <stringValue>No</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>value</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </inputParameters>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
+        </fields>
+        <fields>
+            <name>ExistingOptions</name>
+            <dataTypeMappings>
+                <typeName>T</typeName>
+                <typeValue>Modification_Option__c</typeValue>
+            </dataTypeMappings>
+            <extensionName>c:datatable</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>objectName</name>
+                <value>
+                    <stringValue>Modification_Option__c</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>tableData</name>
+                <value>
+                    <elementReference>Get_existing_mod_options</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>isDisplayHeader</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>cb_isDisplayHeader</name>
+                <value>
+                    <stringValue>CB_TRUE</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>tableLabel</name>
+                <value>
+                    <stringValue>Existing Options</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>columnEdits</name>
+                <value>
+                    <stringValue>Selected__c:true, Selected_Frequency__c:true</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>columnFields</name>
+                <value>
+                    <stringValue>Extension_Months__c,Extension_Fee__c,Total_Remaining_Payment__c,Extended_Maturity_Date__c,Daily_Payment_Amount__c,Weekly_Payment_Amount__c,Biweekly_Payment_Amount__c,Monthly_Payment_Amount__c</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>cb_matchCaseOnFilters</name>
+                <value>
+                    <stringValue>CB_FALSE</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>columnWidths</name>
+                <value>
+                    <stringValue>Extension_Months__c:219, Extension_Fee__c:219, Total_Remaining_Payment__c:219, Extended_Maturity_Date__c:219, Daily_Payment_Amount__c:110, Weekly_Payment_Amount__c:110, Biweekly_Payment_Amount__c:112, Monthly_Payment_Amount__c:110</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>singleRowSelection</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>cb_singleRowSelection</name>
+                <value>
+                    <stringValue>CB_TRUE</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>cb_not_suppressNameFieldLink</name>
+                <value>
+                    <stringValue>CB_FALSE</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>showRowNumbers</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>cb_showRowNumbers</name>
+                <value>
+                    <stringValue>CB_TRUE</stringValue>
+                </value>
+            </inputParameters>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <outputParameters>
+                <assignToReference>var_coll_selected_option_datatable</assignToReference>
+                <name>outputSelectedRows</name>
+            </outputParameters>
+            <outputParameters>
+                <assignToReference>var_selected_option</assignToReference>
+                <name>outputSelectedRow</name>
+            </outputParameters>
+        </fields>
+        <fields>
+            <name>Select_Payment_Frequency</name>
+            <choiceReferences>choice_mod_frequency</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Select Payment Frequency</fieldText>
+            <fieldType>RadioButtons</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>generate_new_existing_option_screen.value</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>invalid</name>
+        <label>invalid</label>
+        <locationX>1785</locationX>
+        <locationY>671</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>NoResult</name>
+            <fieldText>&lt;p&gt;No Modification Option is available.&lt;/p&gt;&lt;p&gt;Please reach out to helpdesk@nationalfunding.com if you believe this is an error.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Or go back to the previous screen and proceed with a different option.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>205</locationX>
+        <locationY>343</locationY>
+        <connector>
+            <targetReference>Get_Active_Mod_Options</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <name>AllCellsStyle</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>text-align: left; padding: 8px;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>tt_Email_Body</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Hello {!recordId.Contact.FirstName},&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;{!formula_main_body_veribiage}&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;{!tt_email_body_loan_info}&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;{!tt_table}&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;{!formula_contact_us_verbiage}&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Thank you,&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;{!$User.FirstName} | {!$User.Title}&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;
+	&lt;strong style=&quot;font-size: 14px;&quot;&gt;National Funding, Inc., the parent and servicing company of&lt;/strong&gt;&lt;br&gt;
+	&lt;strong style=&quot;font-size: 14px;&quot;&gt;Quick Bridge Funding, LLC&lt;/strong&gt;&lt;br&gt;
+	&lt;span style=&quot;font-size: 14px;&quot;&gt;4380 La Jolla Village Dr.&lt;/span&gt;&lt;br&gt;
+	&lt;span style=&quot;font-size: 14px;&quot;&gt;San Diego, CA 92122&lt;/span&gt;&lt;br&gt;
+	&lt;span style=&quot;font-size: 14px;&quot;&gt;P: {!$User.Phone}&lt;/span&gt;&lt;br&gt;
+	&lt;span style=&quot;font-size: 0; display: none;&quot;&gt;{!recordId.Email_Thread_ID__c}&lt;/span&gt;
+&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>tt_email_body_loan_info</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;Account Number: {!recordId.Opportunity__r.Merchant_Number__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 12px;&quot;&gt;Current&lt;/span&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt; Balance: ${!recordId.Opportunity__r.Balance_Remaining__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;Current Payment: ${!recordId.Opportunity__r.Actual_Daily_Payment__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;Current Date: {!$Flow.CurrentDate}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;{!formula_maturity_date_verbiage}: {!recordId.Opportunity__r.NF_WC_Maturity_Date__c}&lt;/span&gt;&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>tt_email_contact_us_frpsa</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;p style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;
+We look forward to hearing from you as these options will not be available after the end of the month.
+&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>tt_email_contact_us_wc</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;p style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;
+Please contact us as soon as possible so we can work together to resolve the delinquency on the account.&amp;nbsp;We look forward to hearing from you.
+&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>tt_email_main_paragraph_frpsa</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;p style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;
+We have been attempting to come to a resolution regarding your account that has moved into default due to {!recordId.FRPSA_Breach__c}. If the breach is not cured, the account will be reported to business credit as a defaulted account and the file will be sent to our litigation team for review and further handling.
+&lt;/p&gt;
+&lt;p style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;
+To help avoid that outcome, we are prepared to offer you a settlement prior to charge off of the account. Below is what we are able to authorize at this time. Please let us know which of the following options works for you:
+&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>tt_email_main_paragraph_wc</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;p style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;
+We have been attempting to come to a resolution regarding your account that is {!recordId.Opportunity__r.Payments_Behind__c} {!recordId.Opportunity__r.Actual_Payment_Frequency__c} payments past due. If you are unable to make the required payments, we are able to offer you some options to lower the payments and extend out the repayment period. Please take a look at the following and let us know which of these options will work for you:
+&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>tt_Email_Subject</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>{!formula_Verbiage_Email_Subject} ({!recordId.Account.Legal_Name__c} - {!recordId.Opportunity__r.Merchant_Number__c})</text>
+    </textTemplates>
+    <textTemplates>
+        <name>tt_header_loaninfo</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Product: {!recordId.Product__c}
+Current Balance: ${!recordId.Opportunity__r.Balance_Remaining__c}
+Current Maturity Date: {!recordId.Opportunity__r.NF_WC_Maturity_Date__c}
+Past Due Balance: ${!recordId.Opportunity__r.Past_Due_Balance__c}
+Payments Behind: {!recordId.Opportunity__r.Payments_Behind__c}</text>
+    </textTemplates>
+    <textTemplates>
+        <name>tt_table</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;table style=&quot;border-collapse: collapse; width: 100%;&quot;&gt;
+{!var_table_header}
+{!var_tablerows}
+&lt;/table&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>tt_table_header_frpsa</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;tr style=&quot;background-color: #808080; color: white;&quot;&gt;
+    &lt;th&gt;#&lt;/th&gt;
+    &lt;th&gt;{!formula_verbiage_extended_maturity_date}&lt;/th&gt;
+    &lt;th&gt;{!formula_verbiage_extension_fee}&lt;/th&gt;
+    &lt;th&gt;{!formula_verbiage_total_repayment}&lt;/th&gt;
+    &lt;th&gt;Daily Payment&lt;/th&gt;
+    &lt;th&gt;Weekly Payment&lt;/th&gt;
+    &lt;th&gt;Biweekly Payment&lt;/th&gt;
+    &lt;th&gt;Monthly Payment&lt;/th&gt;
+&lt;/tr&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>tt_table_header_wc</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;tr style=&quot;background-color: #808080; color: white;&quot;&gt;
+    &lt;th&gt;Months&lt;/th&gt;
+    &lt;th&gt;{!formula_verbiage_extended_maturity_date}&lt;/th&gt;
+    &lt;th&gt;{!formula_verbiage_extension_fee}&lt;/th&gt;
+    &lt;th&gt;{!formula_verbiage_total_repayment}&lt;/th&gt;
+    &lt;th&gt;Daily Payment&lt;/th&gt;
+    &lt;th&gt;Weekly Payment&lt;/th&gt;
+    &lt;th&gt;Biweekly Payment&lt;/th&gt;
+    &lt;th&gt;Monthly Payment&lt;/th&gt;
+&lt;/tr&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>tt_table_row_frpsa</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;tr style=&quot;{!formula_evenrow_style}&quot;&gt;
+   &lt;td style=&quot;{!AllCellsStyle}&quot;&gt;{!var_row_number}&lt;/td&gt;
+   &lt;td style=&quot;{!AllCellsStyle}&quot;&gt; {!Loop_Options.Extended_Maturity_Date__c}&lt;/td&gt;
+   &lt;td style=&quot;{!AllCellsStyle}&quot;&gt;${!Loop_Options.Extension_Fee__c}&lt;/td&gt;
+     &lt;td style=&quot;{!AllCellsStyle}&quot;&gt;${!Loop_Options.Total_Remaining_Payment__c}&lt;/td&gt;
+    &lt;td style=&quot;{!AllCellsStyle}&quot;&gt;${!Loop_Options.Daily_Payment_Amount__c}&lt;/td&gt;
+   &lt;td style=&quot;{!AllCellsStyle}&quot;&gt;${!Loop_Options.Weekly_Payment_Amount__c}&lt;/td&gt;
+    &lt;td style=&quot;{!AllCellsStyle}&quot;&gt;${!Loop_Options.Biweekly_Payment_Amount__c}&lt;/td&gt;
+  &lt;td style=&quot;{!AllCellsStyle}&quot;&gt;${!Loop_Options.Monthly_Payment_Amount__c}&lt;/td&gt;
+&lt;/tr&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>tt_table_row_wc</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;tr style=&quot;{!formula_evenrow_style}&quot;&gt;
+    &lt;td style=&quot;{!AllCellsStyle}&quot;&gt;{!Loop_Options.Extension_Months__c}&lt;/td&gt;
+     &lt;td style=&quot;{!AllCellsStyle}&quot;&gt; {!Loop_Options.Extended_Maturity_Date__c}&lt;/td&gt;
+   &lt;td style=&quot;{!AllCellsStyle}&quot;&gt;${!Loop_Options.Extension_Fee__c}&lt;/td&gt;
+     &lt;td style=&quot;{!AllCellsStyle}&quot;&gt;${!Loop_Options.Total_Remaining_Payment__c}&lt;/td&gt;
+    &lt;td style=&quot;{!AllCellsStyle}&quot;&gt;${!Loop_Options.Daily_Payment_Amount__c}&lt;/td&gt;
+    &lt;td style=&quot;{!AllCellsStyle}&quot;&gt;${!Loop_Options.Weekly_Payment_Amount__c}&lt;/td&gt;
+  &lt;td style=&quot;{!AllCellsStyle}&quot;&gt;${!Loop_Options.Biweekly_Payment_Amount__c}&lt;/td&gt;
+    &lt;td style=&quot;{!AllCellsStyle}&quot;&gt;${!Loop_Options.Monthly_Payment_Amount__c}&lt;/td&gt;
+&lt;/tr&gt;</text>
+    </textTemplates>
+    <variables>
+        <name>coll_mod_options</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Modification_Option__c</objectType>
+    </variables>
+    <variables>
+        <name>coll_mods_to_create</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Modification_Option__c</objectType>
+    </variables>
+    <variables>
+        <name>coll_null</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Modification_Option__c</objectType>
+    </variables>
+    <variables>
+        <name>recordId</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Case</objectType>
+    </variables>
+    <variables>
+        <name>var_coll_selected_option_datatable</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Modification_Option__c</objectType>
+    </variables>
+    <variables>
+        <name>var_formula_maturity_plus_workday</name>
+        <dataType>Date</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>var_IsEvenRow</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </variables>
+    <variables>
+        <name>var_mod_option</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Modification_Option__c</objectType>
+    </variables>
+    <variables>
+        <name>var_mod_options_count</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+    </variables>
+    <variables>
+        <name>var_row_number</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+    <variables>
+        <name>var_selected_option</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Modification_Option__c</objectType>
+    </variables>
+    <variables>
+        <name>var_table_header</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>var_table_rows</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>var_tablerows</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

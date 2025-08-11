@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Update_Stage_After_Funded__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Allows a user to update the opportunity stage after it has been Funded.</description>
+    <label>Update Stage After Funded</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

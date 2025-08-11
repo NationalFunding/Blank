@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank</letterhead>
+    <name>Auto - Settlement Email No. 1 FRPSA</name>
+    <style>freeForm</style>
+    <subject>{!advpm__Matter__c.Loan_Number__c} - {!advpm__Matter__c.Name_of_Borrower__c}</subject>
+    <textOnly>To {!Contact.FirstName},
+
+Your agreement for the purchase and sale of future receivables with {!advpm__Matter__c.Originating_Lender__c} has recently charged off. The amount due is {!advpm__Matter__c.Total_Amount_Charged_Off__c}. We understand that there could be many reasons why you were unable to perform and therefore wanted to reach out to see if you were interested in working out a payment plan without having to proceed with possible litigation.
+
+Please feel free to call and/or email us to discuss further.
+
+Thank you,
+
+{!advpm__Matter__c.Lead_Attorney_Name__c} | {!advpm__Matter__c.Lead_Attorney_Title__c}
+
+National Funding, Inc., the parent and servicing company of
+Quick Bridge Funding, LLC
+{!$Setup.Company_Information__c.Street__c}
+{!$Setup.Company_Information__c.City__c}, {!$Setup.Company_Information__c.State__c} {!$Setup.Company_Information__c.Zip__c}
+P: {!advpm__Matter__c.Lead_Attorney_Phone__c}
+E: {!advpm__Matter__c.Lead_Attorney_Email__c}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

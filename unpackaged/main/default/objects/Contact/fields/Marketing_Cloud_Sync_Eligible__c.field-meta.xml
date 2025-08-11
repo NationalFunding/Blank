@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Marketing_Cloud_Sync_Eligible__c</fullName>
+    <formula>AND(
+    NOT(ISBLANK(Email)),
+    HasOptedOutOfEmail = FALSE,
+    Marketing_Opt_Out__c = FALSE,
+    NOT(ISBLANK(Encrypted_Email_String__c)),
+    OR(
+        AND(
+            OR(
+                ISBLANK(TEXT(Account.WC_Qualification__c)),
+                TEXT(Account.WC_Qualification__c) = 'Interested'
+            ),
+            OR(
+                ISBLANK(TEXT(Account.EF_Qualification__c)),
+                TEXT(Account.EF_Qualification__c) = 'Interested'
+            ),
+            OR(
+                ISBLANK(TEXT(Account.Status__c)),
+                OR(
+                    TEXT(Account.Status__c) = 'Prospect',
+                    TEXT(Account.Status__c) = 'Activator'
+                )
+            ),
+            Account.AnnualRevenue &gt; 249999
+        ),
+        AND(
+            NOT(ISBLANK(Account.NF_Renewal_Rep__c)),
+            OR(
+                ISBLANK(TEXT(Account.WC_Qualification__c)),
+                AND(
+                    TEXT(Account.WC_Qualification__c) != 'Customer Requested No Contact',
+                    TEXT(Account.WC_Qualification__c) != 'Low AGS',
+                    TEXT(Account.WC_Qualification__c) != 'Other',
+                    TEXT(Account.WC_Qualification__c) != 'Out of Business'
+                )
+            ),
+            OR(
+                ISBLANK(TEXT(Account.EF_Qualification__c)),
+                AND(
+                    TEXT(Account.EF_Qualification__c) != 'Customer Requested No Contact',
+                    TEXT(Account.EF_Qualification__c) != 'Low AGS',
+                    TEXT(Account.EF_Qualification__c) != 'Other',
+                    TEXT(Account.EF_Qualification__c) != 'Out of Business'
+                )
+            )
+        )
+    )
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Marketing Cloud Sync Eligible</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

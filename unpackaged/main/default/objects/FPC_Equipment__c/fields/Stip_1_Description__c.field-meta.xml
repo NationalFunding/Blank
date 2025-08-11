@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Stip_1_Description__c</fullName>
+    <description>Stipulation 1 description</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Type in a description of stipulation 1.</inlineHelpText>
+    <label>Stip 1 Description</label>
+    <length>64</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

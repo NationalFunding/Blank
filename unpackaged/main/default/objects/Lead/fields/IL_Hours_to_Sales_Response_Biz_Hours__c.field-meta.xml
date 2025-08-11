@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IL_Hours_to_Sales_Response_Biz_Hours__c</fullName>
+    <externalId>false</externalId>
+    <formula>((((DATEVALUE(IL_1st_Sales_Touch__c) - DATEVALUE( Internet_Response_Date__c )) - 
+( FLOOR ( ( ( (DATEVALUE(IL_1st_Sales_Touch__c) - DATEVALUE(Internet_Response_Date__c)) / 7 ) ) * 2 ) + 
+CASE(MOD ( DATEVALUE(IL_1st_Sales_Touch__c) - DATE( 1900,1,6 ),7), 
+0,CASE( MOD ((DATEVALUE(Internet_Response_Date__c)) - DATE( 1900,1,6 ),7),0,1,2 ), 
+1,CASE( MOD ((DATEVALUE(Internet_Response_Date__c)) - DATE( 1900,1,6 ),7),0,2,1 ), 
+IF(MOD(DATEVALUE(Internet_Response_Date__c) - DATE( 1900,1,6 ),7) - MOD((DATEVALUE(IL_1st_Sales_Touch__c)) - DATE( 1900,1,6 ),7) &lt;= 0 ,0, 
+IF(MOD((DATEVALUE(IL_1st_Sales_Touch__c)) - DATE( 1900,1,6 ),7) = 0,1,-2 ) ) ) - 1) * 24) 
++
+IF(
+AND(
+(MOD( IL_1st_Sales_Touch__c  - (Internet_Response_Date__c  + 8/24),1) *24) &lt; 17,
+(MOD( IL_1st_Sales_Touch__c  - (Internet_Response_Date__c  + 8/24),1) *24) &gt; 6
+),
+(MOD( IL_1st_Sales_Touch__c  - (Internet_Response_Date__c + 8/24),1) *24) - 9,
+IF(
+(MOD( IL_1st_Sales_Touch__c  - (Internet_Response_Date__c + 8/24),1) *24) &lt;= 6,
+0,
+(IF(
+(MOD( IL_1st_Sales_Touch__c  - (Internet_Response_Date__c + 8/24),1) *24) &gt;= 17,
+9,
+9)
+))
++
+(MOD( IL_1st_Sales_Touch__c  - (Internet_Response_Date__c + 8/24),1) *24)  - 9)))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Internet_Response_Date__c = Create Date
+IL_1st_Sales_Touch__c = JP_Sent_to_EJP__c</inlineHelpText>
+    <label>IL - Hours to Sales Response (Biz Hours)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

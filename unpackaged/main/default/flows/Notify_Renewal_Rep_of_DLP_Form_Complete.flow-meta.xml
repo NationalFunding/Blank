@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Alert_NF_Renewal_Rep</name>
+        <label>Alert NF Renewal Rep</label>
+        <locationX>48</locationX>
+        <locationY>50</locationY>
+        <actionName>Account.DLP_Contact_Alert_Renewal_Owner_of_Form_Submit</actionName>
+        <actionType>emailAlert</actionType>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>inputAccountId</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Account.DLP_Contact_Alert_Renewal_Owner_of_Form_Submit</nameSegment>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <apiVersion>49.0</apiVersion>
+    <interviewLabel>Notify Renewal Rep of DLP Form Complete {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Notify Renewal Rep of DLP Form Complete</label>
+    <processType>AutoLaunchedFlow</processType>
+    <startElementReference>Alert_NF_Renewal_Rep</startElementReference>
+    <status>Active</status>
+    <variables>
+        <name>inputAccountId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

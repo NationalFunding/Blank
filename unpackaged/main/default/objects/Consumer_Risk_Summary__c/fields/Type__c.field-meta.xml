@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type__c</fullName>
+    <description>Values should align with the available Risk models being run and evaluated as apart of the sales process.</description>
+    <label>Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>PreQual</fullName>
+                <default>false</default>
+                <label>PreQual</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

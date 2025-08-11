@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SUM_of_BofI_ACH_Payments__c</fullName>
+    <label>SUM of BofI ACH Payments</label>
+    <summarizedField>ACH_Payment__c.Amount__c</summarizedField>
+    <summaryFilterItems>
+        <field>ACH_Payment__c.Organization_s_Bank_Account__c</field>
+        <operation>equals</operation>
+        <value>a2n800000000WOB</value>
+    </summaryFilterItems>
+    <summaryForeignKey>ACH_Payment__c.Opportunity__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

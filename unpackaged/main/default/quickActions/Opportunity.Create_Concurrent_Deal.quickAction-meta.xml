@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Call Opportunity - Create Concurrent Deal screen flow SD-5947</description>
+    <flowDefinition>Opportunity_Create_Concurrent_Deal</flowDefinition>
+    <label>Create Concurrent Deal</label>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <type>Flow</type>
+</QuickAction>

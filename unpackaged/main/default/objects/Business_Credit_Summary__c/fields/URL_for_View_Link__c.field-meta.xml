@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>URL_for_View_Link__c</fullName>
+    <externalId>false</externalId>
+    <formula>'file://s44/EXP/' + TEXT(YEAR(Transaction_Date__c)) + '/' + TEXT(MONTH(Transaction_Date__c)) + '/ExpBizReport__' + CASESAFEID(Id) + '_' + 
+TEXT(YEAR(Transaction_Date__c)) + '.' + TEXT(MONTH(Transaction_Date__c)) +'.' + TEXT(DAY(Transaction_Date__c)) +  '.pdf'</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>URL for View Link</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

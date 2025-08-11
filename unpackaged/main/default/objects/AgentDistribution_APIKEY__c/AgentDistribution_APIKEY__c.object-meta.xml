@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>API Key for AgentDistribution_Token</description>
+    <enableFeeds>false</enableFeeds>
+    <label>AgentDistribution_APIKEY</label>
+    <visibility>Public</visibility>
+</CustomObject>

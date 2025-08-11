@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sweep_Date__c</fullName>
+    <description>This field will indicate the date 275 Days after a rep took ownership of a lead. Used in the lead management process.</description>
+    <inlineHelpText>This field will indicate the date 275 Days after a rep took ownership of a lead. Used in the lead management process.</inlineHelpText>
+    <label>Sweep Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

@@ -1,0 +1,6 @@
+<table height="400" width="550" cellpadding="5" border="0" cellspacing="5" >
+<tr height="400" valign="top" >
+<td style=" color:#000000; font-size:12pt; background-color:#FFFFFF; font-family:arial; bLabel:main; bEditID:r3st1;" tEditID="c1r1" locked="0" aEditID="c1r1" >
+<![CDATA[<div><span style="font-size: 12pt;">It was great speaking with you. Since we did not have enough time to discuss your working capital needs, I want to set up a time for us to chat. What time would work best for you to follow up and go over the working capital we have set aside for your business?&nbsp;</span></div><div><font face="arial"><br></font></div><div><font face="arial">Please call/email me at your earliest convenience; I look forward working with you.</font></div><div><font face="arial"><br></font></div><div><div style="font-family: arial; font-size: 16px; background-color: rgb(255, 255, 255);">Sincerely,<br><br></div><div style="font-family: arial; font-size: 16px; background-color: rgb(255, 255, 255);">{!User.Name}<br><b>National Funding</b><br>{!User.Title}<br><a href="http://www.nationalfunding.com/?utm_source=SF%20Emails&amp;utm_medium=Email&amp;utm_campaign=HotProspect">www.nationalfunding.com</a><br>P: {!User.Phone} | F: {!User.Fax}<br>Email: {!User.Email}</div></div>]]></td>
+</tr>
+</table>

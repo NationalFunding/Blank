@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Reconciliation Request-</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank</letterhead>
+    <name>Reconciliation Request-</name>
+    <style>freeForm</style>
+    <subject>{!Case.Merchant_Number__c} - {!Account.Legal_Name__c}</subject>
+    <textOnly>Hello,
+
+
+Pursuant to Section 2.3 of the Agreement, we are requesting a reconciliation to determine whether we have received an amount greater or less than the Purchased Percentage of your Future Receivables.  In order to process your request please provide us with the last two months of bank statements.  We need to receive those within the next five (5) days for us to process the reconciliation.  Once we receive the statements, we will process your request and notify you of any adjustment to the remittance amount going forward.
+
+
+Please note, if we do not receive the bank statements within such time, the remittance amount will return to the Initial Remittance amount provided for in page one of the Agreement.
+
+
+Thank you,
+
+{!User.Name} | {!User.Title}
+
+{!Case.Email_Signature_Company__c}
+
+{!$Setup.Company_Information__c.Street__c}
+{!$Setup.Company_Information__c.City__c}, {!$Setup.Company_Information__c.State__c} {!$Setup.Company_Information__c.Zip__c}
+P: {!User.Phone} | F: {!User.Fax}
+E: {!User.Email}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

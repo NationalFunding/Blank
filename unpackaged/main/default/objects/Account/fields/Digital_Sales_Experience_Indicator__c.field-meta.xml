@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Digital_Sales_Experience_Indicator__c</fullName>
+    <description>This field is used to pass values to the Loan Service which passes it to the Web Calculator. It signifies if this Account is treated differently during the Digital Sales Process.</description>
+    <inlineHelpText>This field changes how the Account is treated during the Digital Sales Process. If it is blank it follows the normal Digital Sales process.</inlineHelpText>
+    <label>Digital Sales Experience Indicator</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Preferred Broker</fullName>
+                <default>false</default>
+                <label>Preferred Broker</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

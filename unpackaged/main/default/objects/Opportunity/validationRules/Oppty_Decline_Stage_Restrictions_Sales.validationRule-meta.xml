@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Oppty_Decline_Stage_Restrictions_Sales</fullName>
+    <active>false</active>
+    <description>This rule will prohibit a Sales Rep/Manager from changing an opportunity stage to Declined.</description>
+    <errorConditionFormula>AND( 
+OR( 
+$User.Title = "Business Finance Consultant", 
+$User.Title = "Sr. Account Manager", 
+$User.Title = "Relationship Manager", 
+$User.Title = "Sales Manager", 
+$User.Title = "Working Capital Sales Manager", 
+$User.Title = "Account Executive"), 
+ISCHANGED(StageName), 
+ISPICKVAL((StageName), "Declined"))</errorConditionFormula>
+    <errorDisplayField>StageName</errorDisplayField>
+    <errorMessage>Sales cannot change the Stage of an Opportunity to Declined. Please select offers not accepted or Desktop Decline if the deal is no longer live.</errorMessage>
+</ValidationRule>

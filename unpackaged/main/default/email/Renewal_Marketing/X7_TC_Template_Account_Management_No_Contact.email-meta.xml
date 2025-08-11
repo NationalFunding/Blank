@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Naitonal_Funding_Standard_Letterhead_Stack</letterhead>
+    <name>7. TC Template – Account Management (No Contact)</name>
+    <style>freeForm</style>
+    <subject>Following up on your Open Account</subject>
+    <textOnly>Hi {!Contact.FirstName},
+
+I have been trying to reach you regarding your open account with National Funding.
+
+Your business is still eligible for additional funding in our Renewal Program.
+
+To secure additional funding for your business, please provide the following information:
+
+- Last 6 months of your business bank statements
+- Signed application – available upon request (can be sent to you electronically for e-signature)
+
+Please feel free to contact me with any questions regarding your account.
+
+Thank you,
+{!User.Name}
+
+{!User.Name}
+{!User.Title}
+www.nationalfunding.com
+P: {!User.Phone} | F: {!User.Fax}
+Email: {!User.Email}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

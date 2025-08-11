@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>External_Customer_Id__c</fullName>
+    <description>The Account/Customer ID provided by an external system. Ex: QuickBridge customer ID maps to this field.</description>
+    <externalId>true</externalId>
+    <inlineHelpText>The Account/Customer ID provided by an external system. Ex: QuickBridge customer ID maps to this field.</inlineHelpText>
+    <label>External Customer Id</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

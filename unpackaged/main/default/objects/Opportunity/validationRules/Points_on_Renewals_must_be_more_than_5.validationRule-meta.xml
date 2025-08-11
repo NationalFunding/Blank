@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Points_on_Renewals_must_be_more_than_5</fullName>
+    <active>false</active>
+    <description>Validates that docs can't be sent out on Renewal deals with points less than 5. Allows for manual exception. --&gt; Removing validation on 8/27 to support renewals to DLP.</description>
+    <errorConditionFormula>( 
+ISCHANGED( WC_Buy_Rate__c ) || 
+ISCHANGED( Ratio__c ) 
+)&amp;&amp; 
+
+
+Date_on_Docs__c  &gt;=  DATE(2015,12,16)&amp;&amp;
+
+(
+ISPICKVAL(Type,'RENEWAL') || 
+ISPICKVAL(Type,'RENEWAL CONCURRENT')
+)&amp;&amp;
+
+((
+VALUE(Ratio__c)- WC_Buy_Rate__c)*100&lt;5
+)&amp;&amp;
+
+
+NOT(
+OR(
+ISPICKVAL(Renewal_Points_Exception__c, "Approved by Lauren"),
+ISPICKVAL(Renewal_Points_Exception__c, "Approved by Kyle"),
+ISPICKVAL(Renewal_Points_Exception__c, "Approved by Johnny"),
+ISPICKVAL(Renewal_Points_Exception__c, "Approved by Justin"),
+ISPICKVAL(Renewal_Points_Exception__c, "Approved by Nikki"),
+ISPICKVAL(Renewal_Points_Exception__c, "Approved by Andra") 
+))</errorConditionFormula>
+    <errorMessage>Points on Renewals must be greater than 5 to send docs out. If this is a Direct Renewal, submit for Points Exception to the Renewals Manager.</errorMessage>
+</ValidationRule>

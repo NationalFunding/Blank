@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Deal_Flag__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+    AND(
+        DATEVALUE(Approved_Date__c) &gt;= DATEVALUE("2020-01-02"),
+            /* Date Governor - Earliest Applicable Date */
+        Max_FICO_Score__c &gt;= 700,
+            /* Max Fico is greater or equal to 700 */
+        Annual_Revenue__c &gt;= 1000000,
+            /* Annual Revenue is greater or equal to 1000000 */
+        Approval_Expiration_Date__c &gt;= TODAY(),
+            /* Check if the Expiration date has passed */
+        ISPICKVAL(Status__c, "Approved"),
+            /* Check if the CR is Approved */
+        Opportunity__r.RecordType.Name = "Working Capital Oppty",
+            /* Exclude Broker Deals */
+        ISPICKVAL(Opportunity__r.Type, "NEW"),
+            /* New Opportunities */ 
+        Account__r.Initial_Lead_Source__c != "Strategic Partner",
+            /* Exclude SP Sourced Accounts */
+        OR(
+        ISPICKVAL(Opportunity__r.StageName, "Approved - MCA"),
+        ISPICKVAL(Opportunity__r.StageName, "Offer Out - MCA")
+        ) /* Stage Exclusion */
+    ), 
+    "Retention Pricing Applicable - " + TEXT(DATEVALUE(Approved_Date__c) + 13) , "Not Applicable"
+)</formula>
+    <label>Deal Flag</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

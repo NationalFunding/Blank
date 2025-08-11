@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Broker_WC_Oppty_must_have_Broker_Acct</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    ISPICKVAL(StageName,'Statements In - MCA'),
+    ISBLANK(Broker_Account__c),
+    OR(
+        RecordType.DeveloperName = 'Broker_WC_Oppty',
+        RecordType.DeveloperName = 'Broker_FRPSA'
+    )
+)</errorConditionFormula>
+    <errorDisplayField>Broker_Account__c</errorDisplayField>
+    <errorMessage>Broker Account must be populated before the stage can be changed to 'Statements In - MCA'</errorMessage>
+</ValidationRule>

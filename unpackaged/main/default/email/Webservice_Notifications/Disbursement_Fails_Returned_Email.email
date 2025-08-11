@@ -1,0 +1,7 @@
+The following disbursement has failed/returned. Please review to update and reprocess as needed.
+
+Loan Number: {!cmbls__Disbursement__c.Loan_Number__c}
+Disbursement: {!cmbls__Disbursement__c.Name}
+Effective Date: {!cmbls__Disbursement__c.cmbls__Effective_Date__c}
+Disbursement Amount: {!cmbls__Disbursement__c.cmbls__Transaction_Amount__c}
+Disbursement Salesforce Record ID: {!cmbls__Disbursement__c.Id}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Broker_Oppty_Must_Have_Active_BrokerAcct</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    ISPICKVAL(StageName,'Statements In - MCA'),
+    OR(
+       RecordType.DeveloperName = 'Broker_WC_Oppty',
+       RecordType.DeveloperName = 'Broker_FRPSA'
+       ),
+       NOT(ISPICKVAL(Broker_Account__r.Status__c, 'Active')),
+       NOT(ISPICKVAL(Broker_Account__r.Status__c, 'Active - Renewals'))
+)</errorConditionFormula>
+    <errorDisplayField>Broker_Account__c</errorDisplayField>
+    <errorMessage>Broker Account must be Active.</errorMessage>
+</ValidationRule>

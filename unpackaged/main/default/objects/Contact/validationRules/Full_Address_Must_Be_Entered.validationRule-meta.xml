@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Full_Address_Must_Be_Entered</fullName>
+    <active>false</active>
+    <errorConditionFormula>AND(
+$UserRole.DeveloperName&lt;&gt;'ExecutiveCEO',
+$UserRole.DeveloperName&lt;&gt;'PermissionsRole',
+$UserRole.DeveloperName&lt;&gt;'Salesforce_Admin',
+OR(
+ISBLANK(OtherStreet),
+ISBLANK(OtherCity),
+ISBLANK(OtherState),
+ISBLANK(OtherPostalCode)
+),
+OR(
+NOT(ISBLANK(OtherStreet)),
+NOT(ISBLANK(OtherCity)),
+NOT(ISBLANK(OtherState)),
+NOT(ISBLANK(OtherPostalCode))
+)
+)</errorConditionFormula>
+    <errorMessage>Full address is required to save.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DQ_Details__c</fullName>
+    <description>Further details to added to the DQ_Reason</description>
+    <inlineHelpText>Please select additional detail with regard to the reason for Unqualified status</inlineHelpText>
+    <label>DQ_Details</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>DQ_Reasons__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Annual revenue too low</fullName>
+                <default>false</default>
+                <label>Annual revenue too low</label>
+            </value>
+            <value>
+                <fullName>Bounced eMail</fullName>
+                <default>false</default>
+                <label>Bounced eMail</label>
+            </value>
+            <value>
+                <fullName>Business too new</fullName>
+                <default>false</default>
+                <label>Business too new</label>
+            </value>
+            <value>
+                <fullName>CC transactions too low</fullName>
+                <default>false</default>
+                <label>CC transactions too low</label>
+            </value>
+            <value>
+                <fullName>Dead phone</fullName>
+                <default>false</default>
+                <label>Dead phone</label>
+            </value>
+            <value>
+                <fullName>FICO too low</fullName>
+                <default>false</default>
+                <label>FICO too low</label>
+            </value>
+            <value>
+                <fullName>No credit card processing</fullName>
+                <default>false</default>
+                <label>No credit card processing</label>
+            </value>
+            <value>
+                <fullName>Not in Business</fullName>
+                <default>false</default>
+                <label>Not in Business</label>
+            </value>
+            <value>
+                <fullName>Timing not right</fullName>
+                <default>false</default>
+                <label>Timing not right</label>
+            </value>
+            <value>
+                <fullName>Wrong SIC</fullName>
+                <default>false</default>
+                <label>Wrong SIC</label>
+            </value>
+            <value>
+                <fullName>Funds too low</fullName>
+                <default>false</default>
+                <label>Funds too low</label>
+            </value>
+            <value>
+                <fullName>Went with other funding source</fullName>
+                <default>false</default>
+                <label>Went with other funding source</label>
+            </value>
+            <value>
+                <fullName>Under contract</fullName>
+                <default>false</default>
+                <label>Under contract</label>
+            </value>
+            <value>
+                <fullName>Remove from List</fullName>
+                <default>false</default>
+                <label>Remove from List</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Cant Reach</controllingFieldValue>
+            <valueName>Bounced eMail</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cant Reach</controllingFieldValue>
+            <valueName>Dead phone</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cant Reach</controllingFieldValue>
+            <valueName>Not in Business</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Qualified</controllingFieldValue>
+            <valueName>Annual revenue too low</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Qualified</controllingFieldValue>
+            <valueName>Business too new</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Qualified</controllingFieldValue>
+            <valueName>CC transactions too low</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Qualified</controllingFieldValue>
+            <valueName>FICO too low</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Qualified</controllingFieldValue>
+            <valueName>No credit card processing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Qualified</controllingFieldValue>
+            <valueName>Wrong SIC</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Interested</controllingFieldValue>
+            <valueName>Timing not right</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Interested</controllingFieldValue>
+            <valueName>Funds too low</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Interested</controllingFieldValue>
+            <valueName>Went with other funding source</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Interested</controllingFieldValue>
+            <valueName>Under contract</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Interested</controllingFieldValue>
+            <valueName>Remove from List</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

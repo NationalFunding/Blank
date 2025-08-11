@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Marketo_Cookie_Id__c</fullName>
+    <description>This field will be used in conjunction with the marketo lead process. This will cookie will be used to link up an anonymous lead in marketo with SF / Marketo lead.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This field will be used in the Marketo process to link web activity to a SF lead.</inlineHelpText>
+    <label>Marketo Cookie Id</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

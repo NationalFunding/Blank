@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Policy_Exceptions__c</fullName>
+    <label>Policy Exceptions</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>FICO &lt;500</fullName>
+                <default>false</default>
+                <label>FICO &lt;500</label>
+            </value>
+            <value>
+                <fullName>Restricted Industry</fullName>
+                <default>false</default>
+                <label>Restricted Industry</label>
+            </value>
+            <value>
+                <fullName>Average Daily Balance</fullName>
+                <default>false</default>
+                <label>Average Daily Balance</label>
+            </value>
+            <value>
+                <fullName>Overdrafts</fullName>
+                <default>false</default>
+                <label>Overdrafts</label>
+            </value>
+            <value>
+                <fullName>Directory Assistance not found</fullName>
+                <default>false</default>
+                <label>Directory Assistance not found</label>
+            </value>
+            <value>
+                <fullName>New Bank Account</fullName>
+                <default>false</default>
+                <label>New Bank Account</label>
+            </value>
+            <value>
+                <fullName>UCC Filing by Competitor</fullName>
+                <default>false</default>
+                <label>UCC Filing by Competitor</label>
+            </value>
+            <value>
+                <fullName>No Installment Loan on cbr</fullName>
+                <default>false</default>
+                <label>No Installment Loan on cbr</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

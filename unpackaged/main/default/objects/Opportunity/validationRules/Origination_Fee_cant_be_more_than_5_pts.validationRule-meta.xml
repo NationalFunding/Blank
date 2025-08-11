@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Origination_Fee_cant_be_more_than_5_pts</fullName>
+    <active>true</active>
+    <description>Prohibits a user from entering an Origination Fee (%) value greater than 5. Updating as this rule is out of date for external lenders. TR 3/5/19</description>
+    <errorConditionFormula>Origination_Fee__c &gt; 13 &amp;&amp;
+Date_on_Docs__c &gt;  DATE(2016,04,23)</errorConditionFormula>
+    <errorDisplayField>Origination_Fee__c</errorDisplayField>
+    <errorMessage>Origination Fee (%) cannot be more than 5 points.</errorMessage>
+</ValidationRule>

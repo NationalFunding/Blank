@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Use_of_Funds__c</fullName>
+    <description>Customers planned use of funds</description>
+    <inlineHelpText>Enter the customer's planned use of funds</inlineHelpText>
+    <label>Use of Funds</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>TextArea</type>
+</CustomField>

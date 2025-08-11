@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bypass_Updating_Oppty_Lender_Account__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>bypasses Funding - Update Opportunity Lender Account flow on insert. Bypass used for data migration</description>
+    <label>Bypass Updating Oppty Lender Account</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

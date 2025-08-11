@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Funds_Impact_Business_Not_Long_Enough</fullName>
+    <active>true</active>
+    <description>The 'How will the funds impact the business?' field must have more than 50 characters in it</description>
+    <errorConditionFormula>LEN(How_will_the_money_help_the_business__c) &lt; 50</errorConditionFormula>
+    <errorDisplayField>How_will_the_money_help_the_business__c</errorDisplayField>
+    <errorMessage>The description of the funds business impact must be longer.</errorMessage>
+</ValidationRule>

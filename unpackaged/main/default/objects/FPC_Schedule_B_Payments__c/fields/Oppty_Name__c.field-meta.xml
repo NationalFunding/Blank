@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Oppty_Name__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>Oppty Name</label>
+    <referenceTo>Opportunity</referenceTo>
+    <relationshipLabel>Schedule B Payments (Oppty Name)</relationshipLabel>
+    <relationshipName>Schedule_B_Payments1</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

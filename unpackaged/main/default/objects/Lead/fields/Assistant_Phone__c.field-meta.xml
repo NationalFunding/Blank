@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Assistant_Phone__c</fullName>
+    <description>This field will capture a secondary contact phone number for an associate of the customer.</description>
+    <inlineHelpText>Enter a phone number for a secondary contact.</inlineHelpText>
+    <label>Assistant Phone</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Phone</type>
+</CustomField>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prevent_Duplicate_Active_Agreements</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ISPICKVAL( Validation_Error__c ,'Existing Active Agreement'),
+RecordType.DeveloperName = 'Settlement_Agreement'
+)</errorConditionFormula>
+    <errorMessage>There is already an active Payment Agreement for this Matter.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Residual_Assignment</fullName>
+    <active>true</active>
+    <description>Requires that before a deal is marked funded that the Residual assignment field is populated.</description>
+    <errorConditionFormula>AND(RecordTypeId = "01280000000BZvi",  ISPICKVAL(StageName, "Funded"),   ISPICKVAL(Residual_Assigned_To__c, ""),   DATEVALUE( Fund_Date__c) &gt;= DATE(2012,11,06) )</errorConditionFormula>
+    <errorMessage>Before a lease can be funded, the "Residual Assigned To" field must be populated.</errorMessage>
+</ValidationRule>

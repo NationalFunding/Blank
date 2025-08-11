@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Equipment_Down_Payment__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field will indicate if the customer made a down payment on the equipment.  It will also a flag for a disclaimer of ownership to be generated.</description>
+    <inlineHelpText>This field will indicate if the customer made a down payment on the equipment.  It will also a flag for a disclaimer of ownership to be generated.</inlineHelpText>
+    <label>Equipment Down Payment</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

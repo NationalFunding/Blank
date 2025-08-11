@@ -1,0 +1,6 @@
+<apex:page standardController="Opportunity" sidebar="false">
+<apex:sectionHeader title="Create A New Renewal Opportunity" />
+<flow:interview name="Create_Renewal_Flow" finishLocation="{!$Page.gotoLastCreatedOppty}">  
+<apex:param name="inputLaunchOpportunity" value="{!Id}"/>
+</flow:interview>
+</apex:page>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Company_DBA__c</fullName>
+    <description>This field is the location specific DBA for the opportunity. The logic behind the field is as follows- If the DBA (Multiple Locations) is populated, then populate the field with that DBA, if it isn't populate with the Account DBA.</description>
+    <externalId>false</externalId>
+    <formula>IF(DBA_Multiple_Locations__c = "", Account.Company_DBA__c,  DBA_Multiple_Locations__c )</formula>
+    <inlineHelpText>This field displays the DBA to the physical location associated with this opportunity.</inlineHelpText>
+    <label>Company DBA</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

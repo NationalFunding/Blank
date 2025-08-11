@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cmbls__Debit</fullName>
+    <active>true</active>
+    <label>Debit</label>
+    <picklistValues>
+        <picklist>cmbls__ACH_Processor__c</picklist>
+        <values>
+            <fullName>Wells Fargo - NF Collections</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wells Fargo - NF Funding</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wells Fargo - NFSPV1 Collections</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wells Fargo - NFAS2 Collections</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wells Fargo - QBF Funding</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>cmbls__Payment_Method__c</picklist>
+        <values>
+            <fullName>ACH</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Check</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Credit Card</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Split Funding</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wire</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>cmbls__Status__c</picklist>
+        <values>
+            <fullName>Applied</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Canceled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Failed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fees Applied</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fees Collected</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fees Reversed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-Pending</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Scheduled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Settled</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>cmbls__Sub_Type__c</picklist>
+        <values>
+            <fullName>Additional Principal Payment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Adjustment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Catch Up Payment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Collection on Write-Off</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consulting Fee</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Default</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deferred Interest Write Off</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fee Balance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>General</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Interest Charge</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Payment From Reserve</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Payoff</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Recovery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Refund from Reserve</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Renewal Fee Payoff</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Renewal Payoff</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unwind</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Write Off</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Write Off Fee Balance</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>cmbls__Transaction_Type__c</picklist>
+        <values>
+            <fullName>Adjustment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deferred Fee</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Discount</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Draw</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Draw Reserve</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fee</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fee Collection</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Interest</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lender Reimbursement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Payment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Payoff</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reserve</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>cmbls__Type_of_Account__c</picklist>
+        <values>
+            <fullName>Checking</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lockbox</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Savings</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

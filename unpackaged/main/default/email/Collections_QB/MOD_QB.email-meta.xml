@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank</letterhead>
+    <name>MOD - QB</name>
+    <style>freeForm</style>
+    <subject>{!Case.Merchant_Number__c} - {!Account.Legal_Name__c}</subject>
+    <textOnly>Hello,
+
+To apply for temporary loan modification, please send the following:
+
+- January and February bank statements
+- March month to date bank transaction history
+
+Please answer the following questions:
+
+Why the need for MOD?
+When will you be able to resume payment?
+When will you be able to catch up missed payment?
+
+Once received, I will submit to a credit manager with your request to temporarily modify payment.
+
+Please note, missed payments are meant to be caught up prior to date of maturity. Any payment ran past this day carries a $10 per day fee.
+
+Please call me with any questions.
+
+Thank you,
+
+{!User.Name} | {!User.Title}
+
+National Funding, Inc., the parent and servicing company of 
+Quick Bridge Funding, LLC
+9820 Towne Centre Drive
+San Diego, CA 92121
+P: {!User.Phone} | F: {!User.Fax}
+E: {!User.Email}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

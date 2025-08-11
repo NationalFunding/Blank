@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Action_Type__c</fullName>
+    <description>This field will identify the action that we are tracking as milestones for the referral source.</description>
+    <label>Action Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Lead Created</fullName>
+                <default>false</default>
+                <label>Lead Created</label>
+            </value>
+            <value>
+                <fullName>CJ Lead Qualified</fullName>
+                <default>false</default>
+                <label>CJ Lead Qualified</label>
+            </value>
+            <value>
+                <fullName>Credit Sub</fullName>
+                <default>false</default>
+                <label>Credit Sub</label>
+            </value>
+            <value>
+                <fullName>Approved</fullName>
+                <default>false</default>
+                <label>Approved</label>
+            </value>
+            <value>
+                <fullName>Funded</fullName>
+                <default>false</default>
+                <label>Funded</label>
+            </value>
+            <value>
+                <fullName>Lead Qualified</fullName>
+                <default>false</default>
+                <label>Lead Qualified</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

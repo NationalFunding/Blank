@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Broker_Match__c</fullName>
+    <description>This field will indicate if a SplitOwnerId is the same the logged in user.  If the users are the same, partners/brokers can see their renewal commission reports.</description>
+    <formula>IF($User.Id == SplitOwnerId, True, False)</formula>
+    <label>Broker Match</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Funded_Amount_not_Approved_for_User</fullName>
+    <active>true</active>
+    <description>Diamond = 00180000011jo4A, Platinum = 0018000000nfIJI, Commercial = 0018000001HXhIz, Gold = 0018000000whwPY</description>
+    <errorConditionFormula>ISCHANGED(StageName) &amp;&amp; 
+ISPICKVAL(StageName, 'Funded') &amp;&amp;
+(Lender_Account__c = '00180000011jo4A' || Lender_Account__c = '0018000000nfIJI' || Lender_Account__c = '0018000001HXhIz' || Lender_Account__c = '0018000000whwPY') &amp;&amp; 
+(RecordType.Name = 'Working Capital Oppty' || 
+RecordType.Name = 'Broker WC Oppty') &amp;&amp; 
+NOT(ISPICKVAL(WC_Funding_Approval_Status__c, 'Approved')) &amp;&amp; 
+ACTUAL_AMT_OFFERED__c &gt; $User.WC_Funding_Signing_Authority__c</errorConditionFormula>
+    <errorMessage>The Actual Amount Offered is greater than your Approved Funding Amount, and the Funding Amount has not been approved, please have someone approve the Funding Amount</errorMessage>
+</ValidationRule>

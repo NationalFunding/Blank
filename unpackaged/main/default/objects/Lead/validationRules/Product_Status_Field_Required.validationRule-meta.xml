@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product_Status_Field_Required</fullName>
+    <active>false</active>
+    <description>Requires there to be a MCA product status if the activation date has changed and lead status is Contacted.</description>
+    <errorConditionFormula>AND( DATEVALUE(Activation_Date__c) = TODAY() ,  ISPICKVAL( Status , "Contacted"),
+ ISBLANK(TEXT( Status_EPP__c )), 
+ ISBLANK(TEXT( Status_Lease__c)), 
+ ISBLANK(TEXT( Status_MCA__c )), 
+ ISBLANK(TEXT( Status_ML__c )))</errorConditionFormula>
+    <errorDisplayField>Accepts_CC__c</errorDisplayField>
+    <errorMessage>Please select a product status.</errorMessage>
+</ValidationRule>

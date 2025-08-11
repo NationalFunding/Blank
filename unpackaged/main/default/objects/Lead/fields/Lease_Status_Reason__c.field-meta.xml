@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lease_Status_Reason__c</fullName>
+    <description>This field will capture why a customer has a certain disposition about a product.</description>
+    <inlineHelpText>Please pick why a customer has a certain disposition about a product.</inlineHelpText>
+    <label>Lease Status Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Status_Lease__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>All Phone Numbers Out of Service</fullName>
+                <default>false</default>
+                <label>All Phone Numbers Out of Service</label>
+            </value>
+            <value>
+                <fullName>Bankruptcy</fullName>
+                <default>false</default>
+                <label>Bankruptcy</label>
+            </value>
+            <value>
+                <fullName>Contact Deceased</fullName>
+                <default>false</default>
+                <label>Contact Deceased</label>
+            </value>
+            <value>
+                <fullName>Contact No Longer with Company</fullName>
+                <default>false</default>
+                <label>Contact No Longer with Company</label>
+            </value>
+            <value>
+                <fullName>Contact Not a Decision Maker</fullName>
+                <default>false</default>
+                <label>Contact Not a Decision Maker</label>
+            </value>
+            <value>
+                <fullName>Cost</fullName>
+                <default>false</default>
+                <label>Cost</label>
+            </value>
+            <value>
+                <fullName>Credit</fullName>
+                <default>false</default>
+                <label>Credit</label>
+            </value>
+            <value>
+                <fullName>Customer Requested No Contact</fullName>
+                <default>false</default>
+                <label>Customer Requested No Contact</label>
+            </value>
+            <value>
+                <fullName>Customer Unresponsive</fullName>
+                <default>false</default>
+                <label>Customer Unresponsive</label>
+            </value>
+            <value>
+                <fullName>Customer Upset</fullName>
+                <default>false</default>
+                <label>Customer Upset</label>
+            </value>
+            <value>
+                <fullName>Deceased</fullName>
+                <default>false</default>
+                <label>Deceased</label>
+            </value>
+            <value>
+                <fullName>Equipment</fullName>
+                <default>false</default>
+                <label>Equipment</label>
+            </value>
+            <value>
+                <fullName>Fraud</fullName>
+                <default>false</default>
+                <label>Fraud</label>
+            </value>
+            <value>
+                <fullName>Funding Not Needed</fullName>
+                <default>false</default>
+                <label>Funding Not Needed</label>
+            </value>
+            <value>
+                <fullName>Has Non-Lease Funding</fullName>
+                <default>false</default>
+                <label>Has Non-Lease Funding</label>
+            </value>
+            <value>
+                <fullName>Hung Up On</fullName>
+                <default>false</default>
+                <label>Hung Up On</label>
+            </value>
+            <value>
+                <fullName>Insufficient Funding Available</fullName>
+                <default>false</default>
+                <label>Insufficient Funding Available</label>
+            </value>
+            <value>
+                <fullName>Language Barrier</fullName>
+                <default>false</default>
+                <label>Language Barrier</label>
+            </value>
+            <value>
+                <fullName>Lender Exposure</fullName>
+                <default>false</default>
+                <label>Lender Exposure</label>
+            </value>
+            <value>
+                <fullName>Out of Business</fullName>
+                <default>false</default>
+                <label>Out of Business</label>
+            </value>
+            <value>
+                <fullName>Out of Service</fullName>
+                <default>false</default>
+                <label>Out of Service</label>
+            </value>
+            <value>
+                <fullName>Payment Structure</fullName>
+                <default>false</default>
+                <label>Payment Structure</label>
+            </value>
+            <value>
+                <fullName>Restricted Industry</fullName>
+                <default>false</default>
+                <label>Restricted Industry</label>
+            </value>
+            <value>
+                <fullName>Seasonal</fullName>
+                <default>false</default>
+                <label>Seasonal</label>
+            </value>
+            <value>
+                <fullName>Tax Liens</fullName>
+                <default>false</default>
+                <label>Tax Liens</label>
+            </value>
+            <value>
+                <fullName>Term</fullName>
+                <default>false</default>
+                <label>Term</label>
+            </value>
+            <value>
+                <fullName>Time In Business</fullName>
+                <default>false</default>
+                <label>Time In Business</label>
+            </value>
+            <value>
+                <fullName>Use of Funds</fullName>
+                <default>false</default>
+                <label>Use of Funds</label>
+            </value>
+            <value>
+                <fullName>Wrong Number</fullName>
+                <default>false</default>
+                <label>Wrong Number</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>D&amp;B Non Marketable</fullName>
+                <default>false</default>
+                <label>D&amp;B Non Marketable</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Not Qualified</controllingFieldValue>
+            <valueName>Bankruptcy</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Qualified</controllingFieldValue>
+            <valueName>Credit</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Qualified</controllingFieldValue>
+            <valueName>Equipment</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Qualified</controllingFieldValue>
+            <valueName>Fraud</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Qualified</controllingFieldValue>
+            <valueName>Lender Exposure</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Qualified</controllingFieldValue>
+            <valueName>Out of Business</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Qualified</controllingFieldValue>
+            <valueName>Restricted Industry</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Qualified</controllingFieldValue>
+            <valueName>Seasonal</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Qualified</controllingFieldValue>
+            <valueName>Tax Liens</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Qualified</controllingFieldValue>
+            <valueName>Time In Business</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Qualified</controllingFieldValue>
+            <valueName>Use of Funds</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Qualified</controllingFieldValue>
+            <controllingFieldValue>Not Interested</controllingFieldValue>
+            <controllingFieldValue>Marketing Scrub</controllingFieldValue>
+            <valueName>Other</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Interested</controllingFieldValue>
+            <valueName>Cost</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Interested</controllingFieldValue>
+            <valueName>Customer Requested No Contact</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Interested</controllingFieldValue>
+            <valueName>Customer Unresponsive</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Interested</controllingFieldValue>
+            <valueName>Customer Upset</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Interested</controllingFieldValue>
+            <valueName>Funding Not Needed</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Interested</controllingFieldValue>
+            <valueName>Has Non-Lease Funding</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Interested</controllingFieldValue>
+            <valueName>Hung Up On</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Interested</controllingFieldValue>
+            <valueName>Insufficient Funding Available</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Interested</controllingFieldValue>
+            <valueName>Payment Structure</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Interested</controllingFieldValue>
+            <valueName>Term</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Marketing Scrub</controllingFieldValue>
+            <valueName>All Phone Numbers Out of Service</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Marketing Scrub</controllingFieldValue>
+            <valueName>Contact Deceased</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Marketing Scrub</controllingFieldValue>
+            <valueName>Contact No Longer with Company</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Marketing Scrub</controllingFieldValue>
+            <valueName>Contact Not a Decision Maker</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Marketing Scrub</controllingFieldValue>
+            <valueName>Language Barrier</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Marketing Scrub</controllingFieldValue>
+            <valueName>Out of Service</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Marketing Scrub</controllingFieldValue>
+            <valueName>Wrong Number</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Marketing Scrub</controllingFieldValue>
+            <valueName>D&amp;B Non Marketable</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

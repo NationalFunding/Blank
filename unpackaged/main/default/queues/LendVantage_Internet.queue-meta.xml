@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <email>trover@nationalfunding.com</email>
+    <name>LendVantage - Internet</name>
+    <queueMembers>
+        <users>
+            <user>aankers@nationalfunding.com</user>
+            <user>bgoodbody@nationalfunding.com</user>
+            <user>efong@nationalfunding.com</user>
+            <user>kburke@nationalfunding.com</user>
+            <user>rbogomolny@nationalfunding.com</user>
+            <user>sdesimone@nationalfunding.com</user>
+            <user>tlewis@nationalfunding.com</user>
+            <user>trover@nationalfunding.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Lead</sobjectType>
+    </queueSobject>
+</Queue>

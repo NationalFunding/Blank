@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>allow user to Void/Refund Chargent transactions</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Chargent Transactions - Void and Refund Access</label>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>Chargent_Void_Refund</name>
+    </customPermissions>
+</PermissionSet>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cannot_change_internal_funding_status</fullName>
+    <active>true</active>
+    <description>Users cannot change status to Declined for internal funding records</description>
+    <errorConditionFormula>AND(
+ ISCHANGED(Status__c),
+ ISPICKVAL(Status__c, 'Declined'),
+OR(
+ CONTAINS(Lender_Name_Workflow__c, 'National Funding'), 
+ CONTAINS(Lender_Name_Workflow__c, 'Quick Bridge'),
+ Lender_Name_Workflow__c ='MLP'
+) ,
+ $Setup.ValidationRules__c.Allow_Funding_Status_Updates__c = FALSE
+)</errorConditionFormula>
+    <errorDisplayField>Status__c</errorDisplayField>
+    <errorMessage>You cannot update the status for internal funding.</errorMessage>
+</ValidationRule>

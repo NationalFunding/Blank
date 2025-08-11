@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <apiVersion>49.0</apiVersion>
+    <choices>
+        <name>Cleared</name>
+        <choiceText>Cleared</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Cleared</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>InReview</name>
+        <choiceText>In Review</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>In Review</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Pending</name>
+        <choiceText>Pending</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Pending</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Rejected</name>
+        <choiceText>Rejected</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Rejected</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Waived</name>
+        <choiceText>Waived</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Waived</stringValue>
+        </value>
+    </choices>
+    <dynamicChoiceSets>
+        <name>ChoicesStipType</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Stip_Type__c</picklistField>
+        <picklistObject>Stipulations__c</picklistObject>
+    </dynamicChoiceSets>
+    <formulas>
+        <name>CommentsIsBlankFormula</name>
+        <dataType>Boolean</dataType>
+        <expression>IF(
+LEN({!Add_Comments})=0, 
+TRUE,
+ FALSE
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaCleared</name>
+        <dataType>Boolean</dataType>
+        <expression>IF(
+{!Stip_Status}={!Cleared},
+TRUE,
+FALSE)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaClearedBy</name>
+        <dataType>String</dataType>
+        <expression>IF(
+{!Stip_Status}={!Cleared},
+{!$User.Full_Name__c},
+&apos;&apos;)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaClearedDate</name>
+        <dataType>DateTime</dataType>
+        <expression>IF(
+{!Stip_Status}={!Cleared},
+NOW(), 
+null
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaConvertDateTimetoPST</name>
+        <dataType>String</dataType>
+        <expression>IF ( DATEVALUE({!$Flow.CurrentDateTime}) &gt;=
+DATE ( YEAR (DATEVALUE({!$Flow.CurrentDateTime})),3,1)
++
+(
+14-
+CASE( MOD(DATE ( YEAR (DATEVALUE({!$Flow.CurrentDateTime})),3,1) - DATE (1900,1,7),7) ,
+0,7,MOD(DATE ( YEAR (DATEVALUE({!$Flow.CurrentDateTime})),3,1) - DATE (1900,1,7),7))
+)
+&amp;&amp;
+DATEVALUE({!$Flow.CurrentDateTime}) &lt;
+DATE ( YEAR (DATEVALUE({!$Flow.CurrentDateTime})),11,1)
++
+(
+7-
+CASE( MOD(DATE ( YEAR (DATEVALUE({!$Flow.CurrentDateTime})),11,1) - DATE (1900,1,7),7) ,
+0,7,MOD(DATE ( YEAR (DATEVALUE({!$Flow.CurrentDateTime})),11,1) - DATE (1900,1,7),7))
+),
+LEFT ( TEXT ({!$Flow.CurrentDateTime}- 7/24 ), 16),
+LEFT ( TEXT ({!$Flow.CurrentDateTime}- 8/24), 16)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaDocumentName</name>
+        <dataType>String</dataType>
+        <expression>&quot;[Stip Document - &quot;  + {!varStipRecord.Stip_Description__c} + &quot;] &quot; + SUBSTITUTE(SUBSTITUTE({!varDocumentName}, &quot;[&quot;, &quot;&quot;), &quot;]&quot;, &quot;&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaLineBreak</name>
+        <dataType>String</dataType>
+        <expression>SUBSTITUTE({!txtLineBreak},&quot;~&quot;,&quot;&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaStipComments</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    AND(
+        ISBLANK({!varStipRecord.Comments__c}),
+        {!CommentsIsBlankFormula}=FALSE),
+        {!formulaConvertDateTimetoPST} + &quot; [&quot; + {!$User.Full_Name__c} + &quot;] - &quot; + {!Add_Comments}, 
+        IF(
+            AND(
+                NOT(ISBLANK({!varStipRecord.Comments__c})),
+                {!CommentsIsBlankFormula}=FALSE),
+            {!varStipRecord.Comments__c} + {!formulaLineBreak} + {!formulaConvertDateTimetoPST} + &quot; [&quot; + {!$User.Full_Name__c} + &quot;] - &quot; + {!Add_Comments},
+            IF(
+                AND(
+                    NOT(ISBLANK({!varStipRecord.Comments__c})),
+                    {!CommentsIsBlankFormula}=TRUE),
+                {!varStipRecord.Comments__c},
+                &apos;&apos;
+            )))</expression>
+    </formulas>
+    <formulas>
+        <name>formulaTransferStip</name>
+        <dataType>String</dataType>
+        <expression>IF(
+AND(
+ISPICKVAL({!varStipRecord.Stip_Type__c},&quot;Credit&quot;),
+{!varTransferStip}=TRUE
+), 
+&quot;Funding&quot;,
+IF(
+AND(
+ISPICKVAL({!varStipRecord.Stip_Type__c},&quot;Funding&quot;),
+{!varTransferStip}=TRUE
+), 
+&quot;Credit&quot;,
+TEXT({!varStipRecord.Stip_Type__c})
+))</expression>
+    </formulas>
+    <formulas>
+        <name>formulaTransferStipRemoveUser</name>
+        <dataType>String</dataType>
+        <expression>IF(
+{!varTransferStip}=TRUE,
+&apos;&apos;,
+{!varStipRecord.Assigned_To__c}
+)</expression>
+    </formulas>
+    <interviewLabel>Stipulations - Review Stip {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Stipulations - Review Stip</label>
+    <loops>
+        <name>LoopDocuments</name>
+        <label>LoopDocuments</label>
+        <locationX>576</locationX>
+        <locationY>50</locationY>
+        <assignNextValueToReference>loopvarDocumentId</assignNextValueToReference>
+        <collectionReference>varDocumentIds</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Update_Document_Name</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Update_Stip</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordLookups>
+        <name>Lookup_Stip</name>
+        <label>Lookup Stip</label>
+        <locationX>250</locationX>
+        <locationY>50</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Review_Stip</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>inputStipId</elementReference>
+            </value>
+        </filters>
+        <object>Stipulations__c</object>
+        <outputReference>varStipRecord</outputReference>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Comments__c</queriedFields>
+        <queriedFields>Status__c</queriedFields>
+        <queriedFields>Stip_Description__c</queriedFields>
+        <queriedFields>Submitted_Date__c</queriedFields>
+        <queriedFields>Opportunity_Stage__c</queriedFields>
+        <queriedFields>Stip_Type__c</queriedFields>
+        <queriedFields>Assigned_To__c</queriedFields>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Document_Name</name>
+        <label>Update Document Name</label>
+        <locationX>577</locationX>
+        <locationY>244</locationY>
+        <connector>
+            <targetReference>LoopDocuments</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>loopvarDocumentId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Title</field>
+            <value>
+                <elementReference>formulaDocumentName</elementReference>
+            </value>
+        </inputAssignments>
+        <object>ContentDocument</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Stip</name>
+        <label>Update Stip</label>
+        <locationX>781</locationX>
+        <locationY>49</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>inputStipId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Assigned_To__c</field>
+            <value>
+                <elementReference>formulaTransferStipRemoveUser</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Cleared_By__c</field>
+            <value>
+                <elementReference>formulaClearedBy</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Cleared_Date__c</field>
+            <value>
+                <elementReference>formulaClearedDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Cleared__c</field>
+            <value>
+                <elementReference>formulaCleared</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Comments__c</field>
+            <value>
+                <elementReference>formulaStipComments</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <elementReference>Stip_Status</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Stip_Type__c</field>
+            <value>
+                <elementReference>formulaTransferStip</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Stipulations__c</object>
+    </recordUpdates>
+    <screens>
+        <name>Review_Stip</name>
+        <label>Review Stip</label>
+        <locationX>409</locationX>
+        <locationY>50</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>LoopDocuments</targetReference>
+        </connector>
+        <fields>
+            <name>StipName</name>
+            <fieldText>&lt;p&gt;&lt;b style=&quot;font-size: 16px;&quot;&gt;Stip: {!varStipRecord.Stip_Description__c}&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(62, 62, 60); font-size: 16px;&quot;&gt;Stage: {!varStipRecord.Opportunity_Stage__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;Submitted Date {!varStipRecord.Submitted_Date__c}&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Stip_Status</name>
+            <choiceReferences>Cleared</choiceReferences>
+            <choiceReferences>Waived</choiceReferences>
+            <choiceReferences>Pending</choiceReferences>
+            <choiceReferences>InReview</choiceReferences>
+            <choiceReferences>Rejected</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Stip Status</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>UploadFiles</name>
+            <extensionName>forceContent:fileUpload</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>label</name>
+                <value>
+                    <stringValue>Upload Files</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>recordId</name>
+                <value>
+                    <elementReference>inputStipId</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>multiple</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </inputParameters>
+            <isRequired>true</isRequired>
+            <outputParameters>
+                <assignToReference>varDocumentIds</assignToReference>
+                <name>contentDocIds</name>
+            </outputParameters>
+            <outputParameters>
+                <assignToReference>varDocumentName</assignToReference>
+                <name>fileNames</name>
+            </outputParameters>
+        </fields>
+        <fields>
+            <name>EmptyText</name>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Add_Comments</name>
+            <fieldText>Add Comments</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>CommentHistory</name>
+            <fieldText>&lt;p&gt;&lt;b&gt;&lt;u&gt;Comment History&lt;/u&gt;&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;{!varStipRecord.Comments__c}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>TransferStip</name>
+            <extensionName>flowruntime:toggle</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>label</name>
+                <value>
+                    <stringValue>Transfer Stip</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>messageToggleActive</name>
+                <value>
+                    <stringValue>Yes</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>messageToggleInactive</name>
+                <value>
+                    <stringValue>No</stringValue>
+                </value>
+            </inputParameters>
+            <isRequired>true</isRequired>
+            <outputParameters>
+                <assignToReference>varTransferStip</assignToReference>
+                <name>value</name>
+            </outputParameters>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <startElementReference>Lookup_Stip</startElementReference>
+    <status>Active</status>
+    <textTemplates>
+        <name>txtLineBreak</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>~
+~
+~</text>
+    </textTemplates>
+    <variables>
+        <name>inputStipId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>loopvarDocumentId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varDocumentIds</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varDocumentName</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varStipRecord</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Stipulations__c</objectType>
+    </variables>
+    <variables>
+        <name>varTransferStip</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

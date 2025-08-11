@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Related_Opportunity_Loan_Write_Off_Alert</fullName>
+        <description>Related Opportunity - Loan Write Off Alert</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>acaisido@fairsquare.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>rzahradka@nationalfunding.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Legal/Related_Opportunity_Loan_Write_Off_Alert</template>
+    </alerts>
+    <rules>
+        <fullName>Related Opportunity - Loan Write Off Alert</fullName>
+        <actions>
+            <name>Related_Opportunity_Loan_Write_Off_Alert</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Related_Opportunity__c.Exit_Path__c</field>
+            <operation>equals</operation>
+            <value>B.7,D.1</value>
+        </criteriaItems>
+        <description>Supersedes workflow rule: Related Opportunity Search - Loan Write Off Alert</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>

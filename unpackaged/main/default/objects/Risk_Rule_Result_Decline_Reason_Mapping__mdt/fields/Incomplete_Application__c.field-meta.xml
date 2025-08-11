@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Incomplete_Application__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Checked for Risk Rule Result Decline Reason Mappings where the decision results from an incomplete application.</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Incomplete Application</label>
+    <type>Checkbox</type>
+</CustomField>

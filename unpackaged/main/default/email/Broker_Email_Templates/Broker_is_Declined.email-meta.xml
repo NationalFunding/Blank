@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Template for when a broker is declined after first being approved</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Naitonal_Funding_Standard_Letterhead_Stack</letterhead>
+    <name>Broker is Declined</name>
+    <style>formalLetter</style>
+    <subject>Broker Has Been Declined: {!Account.Name}</subject>
+    <textOnly>The following Broker has been declined. Please remove portal access.
+Broker Account: {!Account.Name}
+{!Account.Link}
+
+Reason for decline:
+{!Account.Broker_Decline_Reason__c}
+
+Thanks,
+{!User.Full_Name__c}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

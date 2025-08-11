@@ -1,0 +1,455 @@
+<apex:page standardController="Opportunity" extensions="CustomMCAStatementController" id="thePage">
+   <apex:form id="theForm"> 
+    <script>   
+    
+      function IntValidation(obj){        
+          var num = obj.value;
+          if(num == "" || num == null){
+              num = "0";
+          }
+          
+          var reg=/[^0-9,]+/; 
+          if(reg.test(num)){ 
+              alert("Please insert a numeric value.");
+              obj.focus();
+              return;
+          }
+          Calculate();
+      }
+      
+      function CurrencyValidation(obj){
+          var num = obj.value;
+          
+          if(num == "" || num == null){
+              num = "0.00";
+          }
+
+          var reg=/[^0-9,.]+/; 
+          if(reg.test(num)){ 
+              alert("Please insert a numeric value.");
+              obj.focus();
+              return;
+          }else{
+             var temp = num.split("."); 
+             if(temp.length == 2){
+                 if(temp[1].length > 2){
+                     alert("Decimal places can not larger than 2.");
+                     obj.focus();
+                     return;
+                 }
+                 if(temp[1].length == 1){
+                    obj.value = obj.value + "0";
+                 }
+             }else{
+                 obj.value = obj.value + ".00";
+             }             
+          }
+          Calculate();
+      }
+      
+      function  commafyback(num)
+      {  
+         if(num == "" || num == null){
+             num = "0";
+         } 
+         var x;
+         var reg;
+         if(num.indexOf(".") != -1){
+             reg=/[^0-9.]*/g; 
+             x = num.replace(reg,""); 
+             var temp = parseFloat(x);
+             return parseInt(temp * 100);    
+         }else{
+             //g =/[^0-9]*/g;
+             //= num.replace(reg,""); 
+             num = num.replace(",",""); 
+             return parseInt(num);    
+         }
+      } 
+      
+      function  commafy(num)
+      {   
+          num  =  num+"";  
+          var  re=/(-?\d+)(\d{3})/;
+           
+          while(re.test(num))
+          {  
+            num=num.replace(re,"$1,$2")  
+          }  
+          return  num;  
+      }
+      
+      function forCurrency(num){
+          var temp = num.split(".");
+          
+          if(temp.length != 2){
+              num = num + ".00";
+          }else{
+              if(temp[1].length == 1){
+                  num = num + "0";
+              }
+          }
+          return  num;  
+      }    
+               
+      function Calculate()
+      {          	       
+		  var tableRows  = document.getElementById("theGrid").getElementsByTagName("tr");
+          var rowLength = tableRows.length;
+          var lastRow = tableRows[rowLength - 1].getElementsByTagName("td");
+
+          var vt = 0;
+          var va = 0;
+          var mt = 0;
+          var ma = 0;
+          var dt = 0;
+          var da = 0;
+          var ot1 = 0;
+          var oa1 = 0;
+          var ot2 = 0;
+          var oa2 = 0;
+          var tt = 0;
+          var ta = 0;
+          var DebitTotalAmount = 0;
+          var DebitTotalTrasaction = 0;
+          var vmtCount = 0;
+          var vmaCount = 0;
+          var vmdtCount = 0;
+          var vmdaCount = 0;
+          var cottCount = 0;
+          var cotaCount = 0;
+          var tCount = 0;
+          var aCount = 0;
+          
+          var vtCount = 0;
+          var mtCount = 0;
+          var dtCount = 0;
+          var ot1Count = 0;
+          var ot2Count = 0;
+          var vaCount = 0;
+          var maCount = 0;
+          var daCount = 0;
+          var oa1Count = 0;
+          var oa2Count = 0;
+          
+          var rowCount = 0;
+          var blankFlag = true;
+          var blankCount = 0;
+          var tempCount = 0;
+          var CountArray = new Array();
+          
+          for(var i = 2; i < rowLength - 1; i++){  
+          	   rowCount++;  
+          	   blankFlag = true;                 
+          	           
+               tableRows[i].getElementsByTagName("td")[11].childNodes[0].innerHTML = commafy(commafyback(tableRows[i].getElementsByTagName("td")[1].childNodes[0].value) 
+               + commafyback(tableRows[i].getElementsByTagName("td")[3].childNodes[0].value) 
+               + commafyback(tableRows[i].getElementsByTagName("td")[5].childNodes[0].value) 
+               + commafyback(tableRows[i].getElementsByTagName("td")[7].childNodes[0].value) 
+               + commafyback(tableRows[i].getElementsByTagName("td")[9].childNodes[0].value));
+               if(tableRows[i].getElementsByTagName("td")[11].childNodes[0].innerHTML != "0"){
+               		tCount++;              		
+               }              
+               
+               var temp = commafyback(tableRows[i].getElementsByTagName("td")[2].childNodes[0].value) 
+               + commafyback(tableRows[i].getElementsByTagName("td")[4].childNodes[0].value) 
+               + commafyback(tableRows[i].getElementsByTagName("td")[6].childNodes[0].value) 
+               + commafyback(tableRows[i].getElementsByTagName("td")[8].childNodes[0].value) 
+               + commafyback(tableRows[i].getElementsByTagName("td")[10].childNodes[0].value);
+                            
+               tableRows[i].getElementsByTagName("td")[12].childNodes[0].innerHTML = "$"+forCurrency(commafy(temp /100));     
+               if(tableRows[i].getElementsByTagName("td")[12].childNodes[0].innerHTML != "$0.00"){
+               		aCount++;
+               }         
+                              
+               vt = commafyback(tableRows[i].getElementsByTagName("td")[1].childNodes[0].value) + vt;
+               if(tableRows[i].getElementsByTagName("td")[1].childNodes[0].value != ''){					
+					vtCount = rowCount;
+					blankFlag = false;
+               }
+               
+               va = commafyback(tableRows[i].getElementsByTagName("td")[2].childNodes[0].value) + va;
+               if(tableRows[i].getElementsByTagName("td")[2].childNodes[0].value != ''){
+					vaCount = rowCount;
+					blankFlag = false;
+               }
+               
+               mt = commafyback(tableRows[i].getElementsByTagName("td")[3].childNodes[0].value) + mt;
+               if(tableRows[i].getElementsByTagName("td")[3].childNodes[0].value != ''){
+					mtCount = rowCount;
+					blankFlag = false;
+               }
+               
+               ma = commafyback(tableRows[i].getElementsByTagName("td")[4].childNodes[0].value) + ma;
+               if(tableRows[i].getElementsByTagName("td")[4].childNodes[0].value != ''){
+					maCount = rowCount;
+					blankFlag = false;
+               }
+               
+               dt = commafyback(tableRows[i].getElementsByTagName("td")[5].childNodes[0].value) + dt;
+               if(tableRows[i].getElementsByTagName("td")[5].childNodes[0].value != ''){
+					dtCount = rowCount;
+					blankFlag = false;
+               }
+               
+               da = commafyback(tableRows[i].getElementsByTagName("td")[6].childNodes[0].value) + da;
+               if(tableRows[i].getElementsByTagName("td")[6].childNodes[0].value != ''){
+					daCount = rowCount;
+					blankFlag = false;
+               }
+               
+               ot1 = commafyback(tableRows[i].getElementsByTagName("td")[7].childNodes[0].value) + ot1;
+               if(tableRows[i].getElementsByTagName("td")[7].childNodes[0].value != ''){
+					ot1Count = rowCount;
+					blankFlag = false;
+               }
+               
+               oa1 = commafyback(tableRows[i].getElementsByTagName("td")[8].childNodes[0].value) + oa1;
+               if(tableRows[i].getElementsByTagName("td")[8].childNodes[0].value != ''){
+					oa1Count = rowCount;
+					blankFlag = false;
+               }               
+               
+               ot2 = commafyback(tableRows[i].getElementsByTagName("td")[9].childNodes[0].value) + ot2;
+               if(tableRows[i].getElementsByTagName("td")[9].childNodes[0].value != ''){
+					ot2Count = rowCount;
+					blankFlag = false;
+               }
+               
+               oa2 = commafyback(tableRows[i].getElementsByTagName("td")[10].childNodes[0].value) + oa2;
+               if(tableRows[i].getElementsByTagName("td")[10].childNodes[0].value != ''){
+					oa2Count = rowCount;
+					blankFlag = false;
+               }
+               
+               if(blankFlag){
+               		blankCount++;
+               }
+               CountArray[rowCount] = blankFlag;
+               
+               tt = commafyback(tableRows[i].getElementsByTagName("td")[11].childNodes[0].innerHTML) + tt;
+               ta = commafyback(tableRows[i].getElementsByTagName("td")[12].childNodes[0].innerHTML) + ta;              
+          }		  
+		 			 		  
+          lastRow[1].childNodes[0].innerHTML = commafy(vt); 
+          lastRow[2].childNodes[0].innerHTML = "$"+forCurrency(commafy(va/100));
+          lastRow[3].childNodes[0].innerHTML = commafy(mt);
+          lastRow[4].childNodes[0].innerHTML = "$"+forCurrency(commafy(ma/100));
+          lastRow[5].childNodes[0].innerHTML = commafy(dt);
+          lastRow[6].childNodes[0].innerHTML = "$"+forCurrency(commafy(da/100));    
+          lastRow[7].childNodes[0].innerHTML = commafy(ot1); 
+          lastRow[8].childNodes[0].innerHTML = "$"+forCurrency(commafy(oa1/100));
+          lastRow[9].childNodes[0].innerHTML = commafy(ot2); 
+          lastRow[10].childNodes[0].innerHTML = "$"+forCurrency(commafy(oa2/100));     
+          lastRow[11].childNodes[0].innerHTML = commafy(tt); 
+          lastRow[12].childNodes[0].innerHTML = "$"+forCurrency(commafy(ta/100));       
+          
+          vmtCount = (vtCount>mtCount)?vtCount:mtCount; 
+          var tempvmtCount = vmtCount;
+          for(var i = 1; i <= CountArray.length - 1; i++){
+          	  if(CountArray[i] == true && i <= tempvmtCount){
+          	  	  vmtCount--;
+          	  }
+          }
+            
+          vmaCount = (vaCount>maCount)?vaCount:maCount;
+          var tempvmaCount = vmaCount;
+          for(var i = 1; i <= CountArray.length - 1; i++){
+          	  if(CountArray[i] == true && i <= tempvmaCount){
+          	  	  vmaCount--;
+          	  }
+          }
+          
+          vmdtCount = (vtCount>mtCount)?vtCount:mtCount;
+          vmdtCount = (vmdtCount>dtCount)?vmdtCount:dtCount;
+          var tempvmdtCount = vmdtCount;
+          for(var i = 1; i <= CountArray.length - 1; i++){
+          	  if(CountArray[i] == true && i <= tempvmdtCount){
+          	  	  vmdtCount--;
+          	  }
+          }
+          
+          vmdaCount = (vaCount>maCount)?vaCount:maCount;
+          vmdaCount = (vmdaCount>daCount)?vmdaCount:daCount;
+          var tempvmdaCount = vmdaCount;
+          for(var i = 1; i <= CountArray.length - 1; i++){
+          	  if(CountArray[i] == true && i <= tempvmdaCount){
+          	  	  vmdaCount--;
+          	  }
+          }
+          
+          cottCount = (ot1Count>ot2Count)?ot1Count:ot2Count;  
+          var tempcottCount = cottCount;
+          for(var i = 1; i <= CountArray.length - 1; i++){
+          	  if(CountArray[i] == true && i <= tempcottCount){
+          	  	  cottCount--;
+          	  }
+          }
+          
+          cotaCount = (oa1Count>oa2Count)?oa1Count:oa2Count; 
+          var tempcotaCount = cotaCount;
+          for(var i = 1; i <= CountArray.length - 1; i++){
+          	  if(CountArray[i] == true && i <= tempcotaCount){
+          	  	  cotaCount--;
+          	  }
+          }
+                            
+          var vmtt = commafyback(lastRow[1].childNodes[0].innerHTML ) + commafyback(lastRow[3].childNodes[0].innerHTML);   
+          document.getElementById("vmtt").value = commafy(vmtt);
+          document.getElementById("vmat").value = commafy((vmtt/vmtCount).toFixed(0));
+
+          var vmta = commafyback(lastRow[2].childNodes[0].innerHTML ) + commafyback(lastRow[4].childNodes[0].innerHTML);   
+          document.getElementById("vmta").value = "$"+forCurrency(commafy(vmta/100));
+          document.getElementById("vmaa").value = "$"+forCurrency(commafy((vmta/100/vmaCount).toFixed(2)));
+          
+          var vmdtt = vmtt + dt;   
+          document.getElementById("vmdtt").value = commafy(vmdtt);
+          document.getElementById("vmdat").value = commafy((vmdtt/vmdtCount).toFixed(0));          
+          
+          var vmdta = vmta + da;   
+          document.getElementById("vmdta").value = "$"+forCurrency(commafy(vmdta/100));       
+          document.getElementById("vmdaa").value = "$"+forCurrency(commafy((vmdta/100/vmdaCount).toFixed(2)));
+          
+          var octt = commafyback(lastRow[7].childNodes[0].innerHTML ) + commafyback(lastRow[9].childNodes[0].innerHTML);   
+          document.getElementById("octt").value = commafy(octt);         
+          document.getElementById("ocat").value = commafy((octt/cottCount).toFixed(0));          
+          
+          var octa = commafyback(lastRow[8].childNodes[0].innerHTML ) + commafyback(lastRow[10].childNodes[0].innerHTML);   
+          document.getElementById("octa").value = "$"+forCurrency(commafy(octa/100));          
+          document.getElementById("ocaa").value = "$"+forCurrency(commafy((octa/100/cotaCount).toFixed(2)));
+                           
+          document.getElementById("ratt").value = commafy((tt/tCount).toFixed(0));
+          document.getElementById("rata").value = "$"+forCurrency(commafy((ta/100/aCount).toFixed(2)));         
+     }
+    </script>
+    <apex:sectionHeader title="MCA Statement" subtitle="MCA Statement List"/>
+    <apex:pageBlock title="MCA Statement" id="theBlock">        
+        <table id="theGrid" border='1' style='border-collapse:collapse;'>
+                <tr>
+                    <td bgcolor='orange' align='center' valign='middle' rowspan='2'><span><b>Month</b></span></td>
+                    <td bgcolor='orange' align='center' rowspan='2'><span><b>Visa # Transactions</b></span></td>
+                    <td bgcolor='orange' align='center' rowspan='2'><span><b>Visa Amount</b></span></td>
+                    <td bgcolor='orange' align='center' rowspan='2'><span><b>MC # Transactions</b></span></td>
+                    <td bgcolor='orange' align='center' rowspan='2'><span><b>MC Amount</b></span></td>
+                    <td bgcolor='orange' align='center' rowspan='2'><span><b>Debit # Transactions</b></span></td>
+                    <td bgcolor='orange' align='center' rowspan='2'><span><b>Debit Amount</b></span></td>
+                    <td bgcolor='orange' align='center' colspan='2'><span><b>Other Type 1: </b><apex:inputField value="{!opportunity.Other_Type_1__c}" style="width: 70px;text-align:center"/></span></td>                    
+                    <td bgcolor='orange' align='center' colspan='2'><span><b>Other Type 2: </b><apex:inputField value="{!opportunity.Other_Type_2__c}" style="width: 70px;text-align:center"/></span></td>  
+                    <td bgcolor='orange' align='center' rowspan='2'><span><b>Total Transactions</b></span></td>
+                    <td bgcolor='orange' align='center' rowspan='2'><span><b>Total Amount</b></span></td>
+                </tr>
+                <tr>
+                    <td bgcolor='orange' align='center'><span><b>Other 1 # Transactions</b></span></td>
+                    <td bgcolor='orange' align='center'><span><b>Other 1 Amount</b> </span></td>
+                    <td bgcolor='orange' align='center'><span><b>Other 2 # Transactions</b></span></td>
+                    <td bgcolor='orange' align='center'><span><b>Other 2 Amount</b></span></td>
+                </tr>
+                <apex:repeat value="{!statementList}" var="st" id="theRepeat">
+                    <tr>
+                        <td><apex:inputField value="{!st.STATEMENT_DATE__c}" style="width:60px;text-align:center"/></td>
+                        <td><apex:inputField value="{!st.VISA_QUANTITY__c}" onblur="IntValidation(this);" style="width: 80px;text-align:center"/></td>
+                        <td><apex:inputField value="{!st.VISA_AMOUNT__c}" onblur="CurrencyValidation(this);" style="width: 75px;text-align:right"/></td>
+                        <td><apex:inputField value="{!st.MC_QUANTITY__c}" onblur="IntValidation(this);" style="width: 80px;text-align:center"/></td>
+                        <td><apex:inputField value="{!st.MC_AMOUNT__c}" onblur="CurrencyValidation(this);" style="width: 80px;text-align:right"/></td>
+                        <td><apex:inputField value="{!st.DEBIT_QUANTITY__c}" onblur="IntValidation(this);" style="width: 80px;text-align:center"/></td>
+                        <td><apex:inputField value="{!st.DEBIT_AMOUNT__c}" onblur="CurrencyValidation(this);" style="width: 75px;text-align:right"/></td>        
+                        <td><apex:inputField value="{!st.OTHER_1_QUANTITY__c}" onblur="IntValidation(this);" style="width: 80px;text-align:center"/></td>
+                        <td><apex:inputField value="{!st.OTHER_1_AMOUNT__c}" onblur="CurrencyValidation(this);" style="width: 75px;text-align:right"/></td>  
+                        <td><apex:inputField value="{!st.OTHER_2_QUANTITY__c}" onblur="IntValidation(this);" style="width: 80px;text-align:center"/></td>
+                        <td><apex:inputField value="{!st.OTHER_2_AMOUNT__c}" onblur="CurrencyValidation(this);" style="width: 75px;text-align:right"/></td> 
+                        <td align='center'><span>{!st.T_QUANTITY__c}</span></td>
+                        <td align='right'><span>{!st.T_AMOUNT__c}</span></td>
+                     </tr>
+                </apex:repeat>    
+                    <tr>
+                        <td align='center'><span>Total</span></td>
+                        <td align='center'><span></span></td>
+                        <td align='right'><span></span></td>
+                        <td align='center'><span></span></td>
+                        <td align='right'><span></span></td>
+                        <td align='center'><span></span></td>
+                        <td align='right'><span></span></td>                       
+                        <td align='center'><span></span></td>
+                        <td align='right'><span></span></td>
+                        <td align='center'><span></span></td>
+                        <td align='right'><span></span></td>
+                        <td align='center'><span>0</span></td>
+                        <td align='right'><span>0.00</span></td>
+                     </tr>
+        </table>    
+        <br></br>
+        <apex:pageBlockSection columns="2" id="basicSearch">
+                <apex:pageBlockSectionItem >     
+                    <apex:outputLabel value="Visa + MC Total Transactions"/> 
+                    <input type='text' value='' id='vmtt' disabled='true'></input>               
+                </apex:pageBlockSectionItem>  
+                <apex:pageBlockSectionItem >      
+                    <apex:outputLabel value="Visa + MC Average Transactions"/> 
+                    <input type='text' value='' id='vmat' disabled='true'></input> 
+                </apex:pageBlockSectionItem> 
+
+                <apex:pageBlockSectionItem >     
+                    <apex:outputLabel value="Visa + MC Total Amount"/> 
+                    <input type='text' value='' id='vmta' disabled='true'></input>               
+                </apex:pageBlockSectionItem>  
+                <apex:pageBlockSectionItem >      
+                    <apex:outputLabel value="Visa + MC Average Amount"/> 
+                    <input type='text' value='' id='vmaa' disabled='true'></input> 
+                </apex:pageBlockSectionItem>                 
+                                                           
+                <apex:pageBlockSectionItem >     
+                    <apex:outputLabel value="Visa + MC + Debit Total Transactions"/>  
+                    <input type='text' value='' id='vmdtt' disabled='true'></input>                  
+                </apex:pageBlockSectionItem>  
+                <apex:pageBlockSectionItem >     
+                    <apex:outputLabel value="Visa + MC + Debit Average Transactions"/>  
+                    <input type='text' value='' id='vmdat' disabled='true'></input>                  
+                </apex:pageBlockSectionItem>  
+                
+                <apex:pageBlockSectionItem >     
+                    <apex:outputLabel value="Visa + MC + Debit Total Amount"/>  
+                    <input type='text' value='' id='vmdta' disabled='true'></input>                  
+                </apex:pageBlockSectionItem>  
+                <apex:pageBlockSectionItem >     
+                    <apex:outputLabel value="Visa + MC + Debit Average Amount"/>  
+                    <input type='text' value='' id='vmdaa' disabled='true'></input>                  
+                </apex:pageBlockSectionItem>  
+
+                <apex:pageBlockSectionItem >     
+                    <apex:outputLabel value="Other Cards Total Transactions"/>  
+                    <input type='text' value='' id='octt' disabled='true'></input>                  
+                </apex:pageBlockSectionItem>  
+                <apex:pageBlockSectionItem >     
+                    <apex:outputLabel value="Other Cards Average Transactions"/>  
+                    <input type='text' value='' id='ocat' disabled='true'></input>                  
+                </apex:pageBlockSectionItem> 
+
+                <apex:pageBlockSectionItem >     
+                    <apex:outputLabel value="Other Cards Total Amount"/>  
+                    <input type='text' value='' id='octa' disabled='true'></input>                  
+                </apex:pageBlockSectionItem>  
+                <apex:pageBlockSectionItem >     
+                    <apex:outputLabel value="Other Cards Average Amount"/>  
+                    <input type='text' value='' id='ocaa' disabled='true'></input>                  
+                </apex:pageBlockSectionItem> 
+                
+                <apex:pageBlockSectionItem >     
+                    <apex:outputLabel value="Report Average of Total Transactions"/>  
+                    <input type='text' value='' id='ratt' disabled='true'></input>                  
+                </apex:pageBlockSectionItem>  
+                <apex:pageBlockSectionItem >     
+                    <apex:outputLabel value="Report Average of Total Amount"/>  
+                    <input type='text' value='' id='rata' disabled='true'></input>                  
+                </apex:pageBlockSectionItem>                                                                                      
+       </apex:pageBlockSection>                      
+      <apex:pageBlockButtons id="theBlockButtons">
+          <apex:commandButton value="Save" action="{!saveAction1}" disabled="{!flag}"/>
+          <apex:commandButton value="Quick Save" action="{!saveAction2}" disabled="{!flag}"/>
+          <apex:commandButton value="Cancel" action="{!Cancel}" disabled="{!flag}"/>
+      </apex:pageBlockButtons>
+    </apex:pageblock>
+  </apex:form> 
+  <script>   
+       Calculate();                     
+  </script>
+</apex:page>

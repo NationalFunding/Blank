@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Create_ACH_Payment_Auto</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Create ACH Payment - Auto</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>/flow/ACH_Payments_Create_V5?inputOpptyId={!Opportunity.Id}&amp;retURL=/{!Opportunity.Id}</url>
+</WebLink>

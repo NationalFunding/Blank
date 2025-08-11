@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Source = RepDC1</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>HTML Contact - DLP Email Drip Day 1</name>
+    <style>none</style>
+    <subject>RE: National Funding call {!User.FirstName} {!User.LastName}</subject>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

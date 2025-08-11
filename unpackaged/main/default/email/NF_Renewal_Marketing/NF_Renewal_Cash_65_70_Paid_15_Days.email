@@ -1,0 +1,74 @@
+<html>
+<body bgcolor="#f0f0ec">
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#e6e6db">
+ <tr>
+  <td valign="top">
+   <table width="615" cellpadding="0" cellspacing="0" border="0" align="center">
+      <tr>
+     <td valign="top" align="center">
+    <img src="https://nf--c.na29.content.force.com/servlet/servlet.ImageServer?id=015340000022h7f&amp;oid=00D80000000diq5&amp;lastMod=1500396255000" width="590" height="90" border="0" alt="You may be eligible for additional cash." title="You May Be Eligible For Additional Cash."></a>
+     </td>
+    </tr>
+    <tr>
+     <td valign="top">
+      <table width="590" cellpadding="30" cellspacing="0" border="0" bgcolor="#ffffff" align="center" style="line-height: 1.3em;">
+       <tr>
+        <td valign="top">
+<br>
+         <font face="arial, sans-serif" color="#f78d2c" size="4.5">
+<Strong><center>You May Be Eligible For Additional Cash</center></Strong>
+ <p><br>
+              <font face="arial, sans-serif" color="#3e362a" size="3">
+          Re: National Funding Agreement #{!Opportunity.Merchant_Number__c}
+          <br>
+          <br>
+          We are pleased that we could help you in the past with financing for your business.  <em>Because of your continued timely payments, you may be eligible for additional funding</em>.
+          <br>
+          <strong><center>Just send me your last 6 months of bank statements.</center></strong>
+          <p>
+              <font face="arial, sans-serif" color="#3e362a" size="3">
+                In order to tell you how much you qualify for I will need <u>your recent 6 months of bank statements</u>.   Just email or fax me your statements at my contact information listed below.  You could get funds into your account in as little as 24 hours after I get your statements.  It's easy and quick.
+                <br>
+                <br>
+                Call me at <font face="arial, sans-serif" color="#f78d2c"><strong>{!Opportunity.NF_Renewal_Rep_Phone__c}</strong> <font face="arial, sans-serif" color=#000000"> to discuss how we can help you get more cash.  Once I get your statements, I can let you know how much you could potentially qualify for.
+                <br>
+                <br>
+                National Funding is dedicated to helping small businesses fill their cash needs.  Let us help you again.
+                <br>
+                <br>
+                <br>
+                <Strong>{!Opportunity.NF_Renewal_Rep__c}</Strong>
+                <br>
+                Renewal Specialist | <a href="https://www.nationalfunding.com/?utm_source=Renewal%20Drip&utm_medium=Email&utm_content=HomeSig&utm_campaign=Renewal60Paid{!Opportunity.NF_Renewal_Rep__c}" style="color: #f78d2c; text-decoration: none;" target="_blank"><Strong>National Funding</Strong></a>
+                <br>
+{!Opportunity.NF_Renewal_Rep_Signature__c}
+            </font>
+            </p></td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+    <tr>
+    <td valign="top">
+      <table width="600" cellpadding="5" cellspacing="0" border="0" align="center">
+       <tr>
+        <td valign="top">
+         <font face="arial, sans-serif" color="#666666" size="1">
+         If you no longer wish to receive emails from National Funding, send an email to emailreply@nationalfunding.com with Unsubscribe in the subject line. You may also unsubscribe by sending written notice to: National Funding Unsubscribe, {!$Setup.Company_Information__c.Street__c}, {!$Setup.Company_Information__c.City__c}, {!$Setup.Company_Information__c.State__c} {!$Setup.Company_Information__c.Zip__c}. Thank you.
+         <br><br>
+         National Funding respects your privacy. Our commitment to your privacy is described in our Privacy Policy which is available on our website for your reference.
+         <br>
+         &#169; 2018 National Funding.  All Rights Reserved.
+         </font>
+         <br><br>
+        </td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+</body>
+</html>

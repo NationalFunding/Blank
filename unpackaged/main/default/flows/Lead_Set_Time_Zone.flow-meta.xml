@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <environments>Default</environments>
+    <formulas>
+        <name>formula_Time_Zone</name>
+        <dataType>String</dataType>
+        <expression>Case( {!$Record.State},
+&quot;AK&quot;, &quot;07 Alaska&quot;, 
+&quot;Alaska&quot;, &quot;07 Alaska&quot;,
+&quot;AZ&quot;, &quot;05 Arizona&quot;, 
+&quot;Arizona&quot;, &quot;05 Arizona&quot;,
+&quot;HI&quot;, &quot;08 Hawaii&quot;,
+&quot;Hawaii&quot;, &quot;08 Hawaii&quot;, 
+&quot;Hawai&apos;i&quot;, &quot;08 Hawaii&quot;,
+&quot;IN&quot;, &quot;02 Indiana&quot;, 
+&quot;Indiana&quot;, &quot;02 Indiana&quot;,
+&quot;TX&quot;, &quot;03 Central&quot;, 
+&quot;Texas&quot;, &quot;03 Central&quot;,
+&quot;IA&quot;, &quot;03 Central&quot;, 
+&quot;Iowa&quot;, &quot;03 Central&quot;,
+&quot;WI&quot;, &quot;03 Central&quot;, 
+&quot;Wisconsin&quot;, &quot;03 Central&quot;,
+&quot;KS&quot;, &quot;03 Central&quot;,
+&quot;Kansas&quot;, &quot;03 Central&quot;,
+&quot;MN&quot;, &quot;03 Central&quot;,
+&quot;Minnesota&quot;, &quot;03 Central&quot;,
+&quot;MS&quot;, &quot;03 Central&quot;,
+&quot;Mississippi&quot;, &quot;03 Central&quot;,
+&quot;NE&quot;, &quot;03 Central&quot;,
+&quot;Nebraska&quot;, &quot;03 Central&quot;,
+&quot;TN&quot;, &quot;03 Central&quot;,
+&quot;Tennessee&quot;, &quot;03 Central&quot;,
+&quot;AR&quot;, &quot;03 Central&quot;,
+&quot;Arkansas&quot;, &quot;03 Central&quot;,
+&quot;IL&quot;, &quot;03 Central&quot;,
+&quot;Illinois&quot;, &quot;03 Central&quot;,
+&quot;ND&quot;, &quot;03 Central&quot;,
+&quot;North Dakota&quot;, &quot;03 Central&quot;,
+&quot;OK&quot;, &quot;03 Central&quot;,
+&quot;Oklahoma&quot;, &quot;03 Central&quot;,
+&quot;SD&quot;, &quot;03 Central&quot;,
+&quot;South Dakota&quot;, &quot;03 Central&quot;,
+&quot;MO&quot;, &quot;03 Central&quot;, 
+&quot;Missouri&quot;, &quot;03 Central&quot;,
+&quot;AL&quot;, &quot;03 Central&quot;,
+&quot;Alabama&quot;, &quot;03 Central&quot;,
+&quot;LA&quot;, &quot;03 Central&quot;,
+&quot;Louisiana&quot;, &quot;03 Central&quot;,
+&quot;MD&quot;, &quot;01 Eastern&quot;, 
+&quot;Maryland&quot;, &quot;01 Eastern&quot;,
+&quot;OH&quot;, &quot;01 Eastern&quot;,
+&quot;Ohio&quot;, &quot;01 Eastern&quot;,
+&quot;WV&quot;, &quot;01 Eastern&quot;,
+&quot;West Virginia&quot;, &quot;01 Eastern&quot;,
+&quot;DE&quot;, &quot;01 Eastern&quot;, 
+&quot;Delaware&quot;, &quot;01 Eastern&quot;,
+&quot;NH&quot;, &quot;01 Eastern&quot;,
+&quot;New Hampshire&quot;, &quot;01 Eastern&quot;,
+&quot;NC&quot;, &quot;01 Eastern&quot;,
+&quot;North Carolina&quot;, &quot;01 Eastern&quot;,
+&quot;SC&quot;, &quot;01 Eastern&quot;, 
+&quot;South Carolina&quot;, &quot;01 Eastern&quot;,
+&quot;CT&quot;, &quot;01 Eastern&quot;,
+&quot;Connecticut&quot;, &quot;01 Eastern&quot;,
+&quot;FL&quot;, &quot;01 Eastern&quot;,
+&quot;Florida&quot;, &quot;01 Eastern&quot;,
+&quot;NJ&quot;, &quot;01 Eastern&quot;, 
+&quot;New Jersey&quot;, &quot;01 Eastern&quot;, 
+&quot;GA&quot;, &quot;01 Eastern&quot;, 
+&quot;Georgia&quot;, &quot;01 Eastern&quot;, 
+&quot;NY&quot;, &quot;01 Eastern&quot;, 
+&quot;New York&quot;, &quot;01 Eastern&quot;, 
+&quot;VT&quot;, &quot;01 Eastern&quot;, 
+&quot;Vermont&quot;, &quot;01 Eastern&quot;, 
+&quot;MA&quot;, &quot;01 Eastern&quot;, 
+&quot;Massachusetts&quot;, &quot;01 Eastern&quot;, 
+&quot;MI&quot;, &quot;01 Eastern&quot;, 
+&quot;Michigan&quot;, &quot;01 Eastern&quot;, 
+&quot;KY&quot;, &quot;01 Eastern&quot;, 
+&quot;Kentucky&quot;, &quot;01 Eastern&quot;, 
+&quot;ME&quot;, &quot;01 Eastern&quot;, 
+&quot;Maine&quot;, &quot;01 Eastern&quot;, 
+&quot;RI&quot;, &quot;01 Eastern&quot;, 
+&quot;Rhode Island&quot;, &quot;01 Eastern&quot;, 
+&quot;VA&quot;, &quot;01 Eastern&quot;, 
+&quot;Virginia&quot;, &quot;01 Eastern&quot;, 
+&quot;PA&quot;, &quot;01 Eastern&quot;, 
+&quot;Pennsylvania&quot;, &quot;01 Eastern&quot;, 
+&quot;DC&quot;, &quot;01 Eastern&quot;, 
+&quot;NM&quot;, &quot;04 Mountain&quot;,
+&quot;New Mexico&quot;, &quot;04 Mountain&quot;,
+&quot;UT&quot;, &quot;04 Mountain&quot;,
+&quot;Utah&quot;, &quot;04 Mountain&quot;,
+&quot;CO&quot;, &quot;04 Mountain&quot;,
+&quot;Colorado&quot;, &quot;04 Mountain&quot;,
+&quot;MT&quot;, &quot;04 Mountain&quot;,
+&quot;Montana&quot;, &quot;04 Mountain&quot;,
+&quot;ID&quot;, &quot;04 Mountain&quot;,
+&quot;Idaho&quot;, &quot;04 Mountain&quot;,
+&quot;OR&quot;, &quot;06 Pacific&quot;,
+&quot;Oregon&quot;, &quot;06 Pacific&quot;,
+&quot;CA&quot;, &quot;06 Pacific&quot;,
+&quot;California&quot;, &quot;06 Pacific&quot;,
+&quot;NV&quot;, &quot;06 Pacific&quot;,
+&quot;Nevada&quot;, &quot;06 Pacific&quot;,
+&quot;WA&quot;, &quot;06 Pacific&quot;,
+&quot;Washington&quot;, &quot;06 Pacific&quot;,
+null
+)</expression>
+    </formulas>
+    <interviewLabel>Lead - Set Time Zone {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Lead - Set Time Zone</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Set_Time_Zone</name>
+        <label>Set Time Zone</label>
+        <locationX>176</locationX>
+        <locationY>311</locationY>
+        <inputAssignments>
+            <field>Time_Zone__c</field>
+            <value>
+                <elementReference>formula_Time_Zone</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Set_Time_Zone</targetReference>
+        </connector>
+        <filterFormula>ISNEW() || ISCHANGED({!$Record.State})</filterFormula>
+        <object>Lead</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

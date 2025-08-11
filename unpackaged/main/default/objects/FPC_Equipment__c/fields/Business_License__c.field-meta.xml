@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Business_License__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Business license completed - Status (A checked box indicates the business license has been completed).</description>
+    <inlineHelpText>Check box if business license is completed.</inlineHelpText>
+    <label>Business License</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

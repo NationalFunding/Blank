@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Accounting Instructions Owner Alert</name>
+    <style>none</style>
+    <subject>Accounting Instructions assigned: {!Accounting_Instructions__c.Loan_Number__c} - {!Accounting_Instructions__c.Type__c}</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

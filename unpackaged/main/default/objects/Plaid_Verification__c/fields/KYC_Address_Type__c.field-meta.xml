@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>KYC_Address_Type__c</fullName>
+    <description>kyc_check.type</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Describes whether the address is being used for commercial or residential purposes</inlineHelpText>
+    <label>KYC Address Type</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

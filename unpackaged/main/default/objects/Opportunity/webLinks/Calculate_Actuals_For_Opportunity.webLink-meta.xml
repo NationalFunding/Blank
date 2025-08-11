@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Calculate_Actuals_For_Opportunity</fullName>
+    <availability>online</availability>
+    <description>Calculate_Actuals_For_Opportunity</description>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Calculate Actuals</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT("/soap/ajax/21.0/connection.js")} 
+
+var thisOpportunity= new sforce.SObject("Opportunity"); 
+
+thisOpportunity.Id = '{!Opportunity.Id}'; 
+thisOpportunity.FlagToClickCalculateActuals__c= true; 
+
+var saveResults = sforce.connection.update([thisOpportunity]); 
+
+if(saveResults[0].success == 'false'){ 
+alert('an error occured: ' + saveResults[0].errors.message); 
+} else{
+ window.location.href = '/{!Opportunity.Id}';
+}</url>
+</WebLink>

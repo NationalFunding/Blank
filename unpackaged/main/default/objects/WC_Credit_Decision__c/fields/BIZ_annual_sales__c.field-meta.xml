@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BIZ_annual_sales__c</fullName>
+    <defaultValue>0</defaultValue>
+    <description>Annual Sales Range. 1 (1-249999), 2 (250000-499999), 3 (500000-999999), 4 (1000000-2499999), 5 (2500000-4999999), 6 (5000000-9999999), 7 (10000000-24999999), 8 (25000000-49999999), 9 (50000000-99999999), 10 (100000000-249999999), 11 (250000000-499999999), 12 (500000000-749999999), 13 (750000000-9999999999), 14 (1000000000-1499999999), 15 (1500000000+)</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Annual Sales Range</inlineHelpText>
+    <label>Annual Sales Range</label>
+    <precision>16</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

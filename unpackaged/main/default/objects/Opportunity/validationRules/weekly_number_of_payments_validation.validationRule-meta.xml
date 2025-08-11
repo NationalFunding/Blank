@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>weekly_number_of_payments_validation</fullName>
+    <active>true</active>
+    <description>Prevents Funding users from entering an invalid number of payments when frequency is weekly.</description>
+    <errorConditionFormula>AND(
+    $UserRole.Name = 'Sales Operations',
+    ISPICKVAL(StageName, 'Docs Out - MCA'),
+    ISPICKVAL (Docs_Payment_Frequency__c, 'Weekly'),
+    OR(
+       VALUE(ACTUAL_MCA_TERM__c) &gt;80,
+       VALUE(Docs_Term__c) &gt; 80
+      )
+)</errorConditionFormula>
+    <errorMessage>Too many weekly payments</errorMessage>
+</ValidationRule>

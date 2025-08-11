@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cmbls__Status__c</fullName>
+    <deprecated>false</deprecated>
+    <inlineHelpText>Scheduled: Created and not submitted
+Pending: Submitted to the ACH provider, but not yet settled.
+Settled: The ACH payment was pulled successfully from the customer's account
+Failed: Returned a failed response from the ACH provider</inlineHelpText>
+    <label>Status</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>true</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>cmbls__Transaction_Type__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Scheduled</fullName>
+                <default>false</default>
+                <label>Scheduled</label>
+            </value>
+            <value>
+                <fullName>Pre-Pending</fullName>
+                <default>false</default>
+                <label>Pre-Pending</label>
+            </value>
+            <value>
+                <fullName>Pending</fullName>
+                <default>false</default>
+                <label>Pending</label>
+            </value>
+            <value>
+                <fullName>Settled</fullName>
+                <default>false</default>
+                <label>Settled</label>
+            </value>
+            <value>
+                <fullName>Failed</fullName>
+                <default>false</default>
+                <label>Failed</label>
+            </value>
+            <value>
+                <fullName>Fees Applied</fullName>
+                <default>false</default>
+                <label>Fees Applied</label>
+            </value>
+            <value>
+                <fullName>Fees Collected</fullName>
+                <default>false</default>
+                <label>Fees Collected</label>
+            </value>
+            <value>
+                <fullName>Fees Reversed</fullName>
+                <default>false</default>
+                <label>Fees Reversed</label>
+            </value>
+            <value>
+                <fullName>Applied</fullName>
+                <default>false</default>
+                <label>Applied</label>
+            </value>
+            <value>
+                <fullName>Sent Error</fullName>
+                <default>false</default>
+                <label>Sent Error</label>
+            </value>
+            <value>
+                <fullName>Canceled</fullName>
+                <default>false</default>
+                <label>Canceled</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Lender Reimbursement</controllingFieldValue>
+            <controllingFieldValue>Reserve</controllingFieldValue>
+            <controllingFieldValue>Interest</controllingFieldValue>
+            <controllingFieldValue>Draw</controllingFieldValue>
+            <controllingFieldValue>Draw Reserve</controllingFieldValue>
+            <controllingFieldValue>Deferred Fee</controllingFieldValue>
+            <valueName>Applied</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Lender Reimbursement</controllingFieldValue>
+            <controllingFieldValue>Discount</controllingFieldValue>
+            <controllingFieldValue>Payoff</controllingFieldValue>
+            <controllingFieldValue>Fee</controllingFieldValue>
+            <controllingFieldValue>Payment</controllingFieldValue>
+            <controllingFieldValue>Adjustment</controllingFieldValue>
+            <controllingFieldValue>Distribution</controllingFieldValue>
+            <controllingFieldValue>Fee Collection</controllingFieldValue>
+            <controllingFieldValue>Reserve</controllingFieldValue>
+            <controllingFieldValue>Interest</controllingFieldValue>
+            <controllingFieldValue>Draw</controllingFieldValue>
+            <controllingFieldValue>Draw Reserve</controllingFieldValue>
+            <controllingFieldValue>Deferred Fee</controllingFieldValue>
+            <valueName>Canceled</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Discount</controllingFieldValue>
+            <controllingFieldValue>Payment</controllingFieldValue>
+            <controllingFieldValue>Adjustment</controllingFieldValue>
+            <controllingFieldValue>Distribution</controllingFieldValue>
+            <controllingFieldValue>Draw</controllingFieldValue>
+            <valueName>Settled</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fee</controllingFieldValue>
+            <valueName>Fees Applied</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fee</controllingFieldValue>
+            <controllingFieldValue>Fee Collection</controllingFieldValue>
+            <valueName>Fees Collected</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fee</controllingFieldValue>
+            <valueName>Fees Reversed</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Payment</controllingFieldValue>
+            <controllingFieldValue>Adjustment</controllingFieldValue>
+            <controllingFieldValue>Distribution</controllingFieldValue>
+            <valueName>Scheduled</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Payment</controllingFieldValue>
+            <valueName>Pre-Pending</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Payment</controllingFieldValue>
+            <controllingFieldValue>Adjustment</controllingFieldValue>
+            <controllingFieldValue>Distribution</controllingFieldValue>
+            <valueName>Pending</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Payment</controllingFieldValue>
+            <controllingFieldValue>Adjustment</controllingFieldValue>
+            <controllingFieldValue>Distribution</controllingFieldValue>
+            <valueName>Failed</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

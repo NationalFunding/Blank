@@ -1,0 +1,3 @@
+<apex:page controller="DCS_GoogleAppAuth_OP">
+    <c:DCS_GoogleAppAuthComponent /><!--</c:DCS_GoogleAppAuthCo>onclick="{!IF(false, 'javascript_call(\"js_string_parameter\")', 'else case')}"-->
+</apex:page>

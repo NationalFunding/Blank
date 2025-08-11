@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>49.0</apiVersion>
+    <decisions>
+        <name>Account_NFRR</name>
+        <label>Account NFRR</label>
+        <locationX>138</locationX>
+        <locationY>206</locationY>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
+        <rules>
+            <name>Account_NFRR_Not_Null</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varAcctNFRR</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Case_Record</targetReference>
+            </connector>
+            <label>Account NFRR Not Null</label>
+        </rules>
+    </decisions>
+    <description>Flow will update NF Renewal Rep field from related Account.</description>
+    <interviewLabel>Case Update NFRR {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Case Update NF Renewal Rep</label>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Account_Id</name>
+        <label>Get Account Id</label>
+        <locationX>140</locationX>
+        <locationY>93</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Account_NFRR</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>varAccountId</elementReference>
+            </value>
+        </filters>
+        <object>Account</object>
+        <outputAssignments>
+            <assignToReference>varAcctNFRR</assignToReference>
+            <field>NF_Renewal_Rep__c</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Case_Record</name>
+        <label>Update Case Record</label>
+        <locationX>141</locationX>
+        <locationY>343</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>varCaseId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>NF_Renewal_Rep__c</field>
+            <value>
+                <elementReference>varAcctNFRR</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Case</object>
+    </recordUpdates>
+    <startElementReference>Get_Account_Id</startElementReference>
+    <status>Active</status>
+    <variables>
+        <description>Input Only</description>
+        <name>varAccountId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>I/O</description>
+        <name>varAcctNFRR</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>I/O</description>
+        <name>varCaseId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

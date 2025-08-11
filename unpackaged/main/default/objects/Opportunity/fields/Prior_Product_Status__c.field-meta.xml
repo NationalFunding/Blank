@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prior_Product_Status__c</fullName>
+    <label>Prior Product Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Pre-EDR</fullName>
+                <default>false</default>
+                <label>Pre-EDR</label>
+            </value>
+            <value>
+                <fullName>EDR</fullName>
+                <default>false</default>
+                <label>EDR</label>
+            </value>
+            <value>
+                <fullName>Trailing EDR</fullName>
+                <default>false</default>
+                <label>Trailing EDR</label>
+            </value>
+            <value>
+                <fullName>Term Complete</fullName>
+                <default>false</default>
+                <label>Term Complete</label>
+            </value>
+            <value>
+                <fullName>Funded</fullName>
+                <default>false</default>
+                <label>Funded</label>
+            </value>
+            <value>
+                <fullName>Not Renewable</fullName>
+                <default>false</default>
+                <label>Not Renewable</label>
+            </value>
+            <value>
+                <fullName>MLP</fullName>
+                <default>false</default>
+                <label>MLP</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

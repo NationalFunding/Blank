@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Email_Domain_is_Disposable__c</fullName>
+    <description>risk_check.email.domain_is_disposable</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Indicates whether the email domain is listed as a known disposable domain</inlineHelpText>
+    <label>Email Domain is Disposable</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

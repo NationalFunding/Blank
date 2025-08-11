@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LOAN_OPEN__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Loan open status</description>
+    <inlineHelpText>Check the box if the customer has a loan open with their bank.</inlineHelpText>
+    <label>LOAN_OPEN</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

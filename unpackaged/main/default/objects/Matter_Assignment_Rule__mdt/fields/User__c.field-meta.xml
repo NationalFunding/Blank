@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>User__c</fullName>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>User</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Margie_Spurrier</fullName>
+                <default>false</default>
+                <label>Margie_Spurrier</label>
+            </value>
+            <value>
+                <fullName>Janet_Aaver</fullName>
+                <default>true</default>
+                <label>Janet_Aaver</label>
+            </value>
+            <value>
+                <fullName>Blair_Houston</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Blair_Houston</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

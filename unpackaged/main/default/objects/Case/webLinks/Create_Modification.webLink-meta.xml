@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Create_Modification</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Create Modification</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>/flow/Payment_Agreement_Create_Permanent_Modification_Schedule?inputCaseId={!Case.Id}&amp;RetURL=/{!Case.Id}</url>
+</WebLink>

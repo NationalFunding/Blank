@@ -1,0 +1,4 @@
+<apex:page standardController="Merchant_Checklist__c" >
+  <h1>Funder Acknowledgement:</h1>
+  Completing/Checking the field Merchant Checklist Acknowledged indicates that all required documents and verification procedures for loan funding have been completed and that all documents corresponding to the loan that has been underwritten have been uploaded to the Welcome Call Screen in Salesforce.com. 
+</apex:page>

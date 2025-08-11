@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Assistant_Secondary_Contact__c</fullName>
+    <description>This field will capture a secondary contact on the lead object.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter the name of the customer's assistant or secondary contact.</inlineHelpText>
+    <label>Assistant / Secondary Contact</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

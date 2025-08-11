@@ -1,0 +1,1544 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <apiVersion>49.0</apiVersion>
+    <assignments>
+        <name>Add_Action_2_to_Collection</name>
+        <label>Add Action 2 to Collection</label>
+        <locationX>2070</locationX>
+        <locationY>778</locationY>
+        <assignmentItems>
+            <assignToReference>varColActionstoAdd</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>varNewAccountingActionRecord2</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Action_3</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Add_Action_3_to_Collection</name>
+        <label>Add Action 3 to Collection</label>
+        <locationX>2253</locationX>
+        <locationY>777</locationY>
+        <assignmentItems>
+            <assignToReference>varColActionstoAdd</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>varNewAccountingActionRecord3</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_Accounting_Action</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Add_Actions_1_to_Collection</name>
+        <label>Add Actions 1 to Collection</label>
+        <locationX>1872</locationX>
+        <locationY>774</locationY>
+        <assignmentItems>
+            <assignToReference>varColActionstoAdd</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>varNewAccountingActionRecord1</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Action_2</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Accounting_Actions</name>
+        <label>Assign Accounting Actions</label>
+        <locationX>1640</locationX>
+        <locationY>578</locationY>
+        <assignmentItems>
+            <assignToReference>varNewAccountingActionRecord1.Accounting_Instructions__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>varActgInstructionId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varNewAccountingActionRecord1.Action__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>RerunAction</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varNewAccountingActionRecord2.Accounting_Instructions__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>varActgInstructionId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varNewAccountingActionRecord2.Action__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formulaACHStatusActionValue</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varNewAccountingActionRecord2.ACH_Date__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formulaACHDate</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varNewAccountingActionRecord2.ACH_Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formulaACHStatus</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varNewAccountingActionRecord3.Accounting_Instructions__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>varActgInstructionId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varNewAccountingActionRecord3.Action__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formulaACHStatusActionValue</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varNewAccountingActionRecord3.ACH_Date__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Resume_ACH_Date</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varNewAccountingActionRecord3.ACH_Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>On</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varNewAccountingActionRecord1.ACH_Date__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formulaRerunDate</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Action_1_dec</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Case_Attributes</name>
+        <label>Assign Case Attributes</label>
+        <locationX>2507</locationX>
+        <locationY>815</locationY>
+        <assignmentItems>
+            <assignToReference>varCaseUpdates.Id</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>varCaseRecord.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varCaseUpdates.Status</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Sent to Accounting</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Case_2</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Case_RPC</name>
+        <label>Assign Case RPC</label>
+        <locationX>2626</locationX>
+        <locationY>878</locationY>
+        <assignmentItems>
+            <assignToReference>varCaseUpdates.RPC__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>RPC</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Assign_Case_Attributes</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Validation_Fields</name>
+        <label>Assign Validation Fields</label>
+        <locationX>2842</locationX>
+        <locationY>807</locationY>
+        <assignmentItems>
+            <assignToReference>varCaseUpdates.New_Collections_Stage__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>New_Collections_Stage</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varCaseUpdates.New_Collections_Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>New_Collections_Status</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varCaseUpdates.New_Sum_Note__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>New_Sum_Note</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Case_2</targetReference>
+        </connector>
+    </assignments>
+    <choices>
+        <name>CancelMod</name>
+        <choiceText>Cancel Modification and Create New Accounting Instructions</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>CancelMod</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>DoNotRerun</name>
+        <choiceText>Do Not Rerun</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Do Not Rerun</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>NewActgInstructions</name>
+        <choiceText>Keep Modification and Create New Accounting Instructions</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>NewActgInstructions</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Rerun</name>
+        <choiceText>Rerun</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Rerun</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>RerunwithFee</name>
+        <choiceText>Rerun w/Fee</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Rerun w/Fee	</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>ResumeACH</name>
+        <choiceText>Resume ACH</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Resume ACH</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>StopACH</name>
+        <choiceText>Stop ACH</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Stop ACH</stringValue>
+        </value>
+    </choices>
+    <decisions>
+        <name>Action_1_dec</name>
+        <label>Action 1</label>
+        <locationX>1762</locationX>
+        <locationY>580</locationY>
+        <defaultConnector>
+            <targetReference>Action_2</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Action 1 null</defaultConnectorLabel>
+        <rules>
+            <name>Action_1_not_null</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>RerunAction</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Add_Actions_1_to_Collection</targetReference>
+            </connector>
+            <label>Action 1 not null</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Action_2</name>
+        <label>Action 2</label>
+        <locationX>1949</locationX>
+        <locationY>585</locationY>
+        <defaultConnector>
+            <targetReference>Action_3</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Action 2 null</defaultConnectorLabel>
+        <rules>
+            <name>Action_2_not_null</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>ACH_Status</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Add_Action_2_to_Collection</targetReference>
+            </connector>
+            <label>Action 2 not null</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Action_3</name>
+        <label>Action 3</label>
+        <locationX>2143</locationX>
+        <locationY>586</locationY>
+        <defaultConnector>
+            <targetReference>Create_Accounting_Action</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Action 3 null</defaultConnectorLabel>
+        <rules>
+            <name>Action_3_not_null</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Resume_ACH_Date</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>ACH_Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>StopACH</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Add_Action_3_to_Collection</targetReference>
+            </connector>
+            <label>Action 3 not null</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Active_Mod_Decision</name>
+        <label>Active Mod Decision</label>
+        <locationX>851</locationX>
+        <locationY>296</locationY>
+        <defaultConnector>
+            <targetReference>Existing_Accounting_Instructions_Dec</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Cancel_Modification</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>ActiveModOptions</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>CancelMod</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Confirm_Cancellation</targetReference>
+            </connector>
+            <label>Cancel Modification</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If the Case Update fails we check the fault message for a known validation rule message. If the fault message matches the validation message text we send the User to another screen to insert the required information to get passed the validation rule.</description>
+        <name>Check_Error_Message</name>
+        <label>Check Error Message</label>
+        <locationX>2701</locationX>
+        <locationY>977</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>New_Collections_Status_Stage_and_Sum_Note_must_be_entered</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Flow.FaultMessage</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>New Collections Status, Stage and Sum Note must be entered</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Need_Stage_Status_Sum</targetReference>
+            </connector>
+            <label>New Collections Status, Stage and Sum Note must be entered</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Existing_Accounting_Instructions_Dec</name>
+        <label>Existing Accounting Instructions</label>
+        <locationX>916</locationX>
+        <locationY>581</locationY>
+        <defaultConnector>
+            <targetReference>Save</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No Actg Instructions</defaultConnectorLabel>
+        <rules>
+            <name>Existing_Actg_Instructions</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Existing_Accounting_Instructions</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Existing_Instructions</targetReference>
+            </connector>
+            <label>Existing Actg Instructions</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Modification_Check</name>
+        <label>Modification Check</label>
+        <locationX>712</locationX>
+        <locationY>583</locationY>
+        <defaultConnector>
+            <targetReference>Existing_Accounting_Instructions_Dec</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Active_Modification_dec</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Active_Modification</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Active_Modification_Screen</targetReference>
+            </connector>
+            <label>Active Modification</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Override_Existing_Instructions</name>
+        <label>Override Existing Instructions</label>
+        <locationX>1027</locationX>
+        <locationY>790</locationY>
+        <defaultConnector>
+            <targetReference>Save</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Don&apos;t Override</defaultConnectorLabel>
+        <rules>
+            <name>Override_dec</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Override.value</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Existing_Actg_Inst_to_Override</targetReference>
+            </connector>
+            <label>Override</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Repayment_Status</name>
+        <label>Repayment Status</label>
+        <locationX>1286</locationX>
+        <locationY>578</locationY>
+        <defaultConnector>
+            <targetReference>Create_Accounting_Instruction</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Active</defaultConnectorLabel>
+        <rules>
+            <name>Paused</name>
+            <conditionLogic>7 AND (1 OR (2 AND 3 AND 4) OR (2 AND 5 AND 6)) AND 8</conditionLogic>
+            <conditions>
+                <leftValueReference>varCaseRecord.Repayment__r.cmbls__Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Pause</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>varCaseRecord.Repayment__r.cmbls__Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Active</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>varCaseRecord.Repayment__r.cmbls__Payment_Frequency__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Daily</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>varCaseRecord.Repayment__r.cmbls__Next_Hit_Date__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <elementReference>var2ndBusinessDay</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>varCaseRecord.Repayment__r.cmbls__Payment_Frequency__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Weekly</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>varCaseRecord.Repayment__r.cmbls__Next_Hit_Date__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <elementReference>formulaNextWeek</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>ACH_Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>StopACH</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Scheduled_Payment</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>screen_Paused_Repayment</targetReference>
+            </connector>
+            <label>Paused</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If the Case Status needs to be updated (varSendtoAccounting =TRUE) the RPC field must also be populated. Here we check if the RPC field is already populated and if not send the User to a screen to set the RPC field value.</description>
+        <name>Update_Case_Status_RPC_Needed</name>
+        <label>Update Case Status RPC Needed</label>
+        <locationX>2349</locationX>
+        <locationY>878</locationY>
+        <defaultConnectorLabel>No Updates to Case</defaultConnectorLabel>
+        <rules>
+            <name>RPC_Already_Populated</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varSendtoAccounting</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>varCaseRecord.RPC__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Case_Attributes</targetReference>
+            </connector>
+            <label>RPC Already Populated</label>
+        </rules>
+        <rules>
+            <name>RPC_Needed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varSendtoAccounting</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>varCaseRecord.RPC__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>RPC_Fill_In</targetReference>
+            </connector>
+            <label>RPC Needed</label>
+        </rules>
+    </decisions>
+    <description>+ Check for Pause ACH payments PD-2562 fix</description>
+    <dynamicChoiceSets>
+        <name>choiceRPC</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>RPC__c</picklistField>
+        <picklistObject>Case</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>Picklist_New_Collections_Stage</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>New_Collections_Stage__c</picklistField>
+        <picklistObject>Case</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>Picklist_New_Collectons_Status</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>New_Collections_Status__c</picklistField>
+        <picklistObject>Case</picklistObject>
+    </dynamicChoiceSets>
+    <environments>Default</environments>
+    <formulas>
+        <name>formulaACHActionSummary</name>
+        <dataType>String</dataType>
+        <expression>IF(
+ISBLANK({!ACH_Status}),
+null,
+IF(
+ISBLANK({!Resume_ACH_Date}),
+&quot;ACH Status: &quot; + {!ACH_Status} + &quot; - &quot; + TEXT(MONTH({!formulaDateTomorrow}))+&quot;/&quot;+TEXT(DAY({!formulaDateTomorrow}))+&quot;/&quot;+TEXT(YEAR({!formulaDateTomorrow})) + {!formulaLineBreak},
+IF(
+AND(
+{!ACH_Status}={!StopACH},
+NOT(ISBLANK({!Resume_ACH_Date}))
+),
+&quot;ACH Status: &quot; + {!ACH_Status} + &quot; - &quot; + TEXT(MONTH({!formulaDateTomorrow}))+&quot;/&quot;+TEXT(DAY({!formulaDateTomorrow}))+&quot;/&quot;+TEXT(YEAR({!formulaDateTomorrow})) + &quot;; Resume ACH - &quot; +TEXT(MONTH({!Resume_ACH_Date}))+&quot;/&quot;+TEXT(DAY({!Resume_ACH_Date}))+&quot;/&quot;+TEXT(YEAR({!Resume_ACH_Date})) + {!formulaLineBreak},
+IF(
+AND(
+{!ACH_Status}={!ResumeACH},
+NOT(ISBLANK({!Resume_ACH_Date}))
+),
+&quot;ACH Status: &quot; + {!ACH_Status} + &quot; - &quot; + TEXT(MONTH({!Resume_ACH_Date}))+&quot;/&quot;+TEXT(DAY({!Resume_ACH_Date}))+&quot;/&quot;+TEXT(YEAR({!Resume_ACH_Date})) + {!formulaLineBreak},
+null
+))))</expression>
+    </formulas>
+    <formulas>
+        <description>IF ACH Status is Stop, the default value should be tomorrow. If ACH Status is Resume, use the value from the input screen. If ACH Status is null, no value should be inserted.</description>
+        <name>formulaACHDate</name>
+        <dataType>Date</dataType>
+        <expression>IF(
+{!ACH_Status}=&apos;Stop ACH&apos;,
+{!formulaDateTomorrow},
+IF(
+AND(
+{!ACH_Status}=&apos;Resume ACH&apos;,
+NOT(ISBLANK({!Resume_ACH_Date}))
+),
+{!Resume_ACH_Date},
+IF(
+AND(
+{!ACH_Status}=&apos;Resume ACH&apos;,
+ISBLANK({!Resume_ACH_Date})
+),
+{!formulaDateTomorrow},
+{!varDateBlank}
+)))</expression>
+    </formulas>
+    <formulas>
+        <name>formulaACHStatus</name>
+        <dataType>String</dataType>
+        <expression>IF(
+{!ACH_Status}=&apos;Resume ACH&apos;,
+&apos;On&apos;, 
+IF(
+{!ACH_Status}=&apos;Stop ACH&apos;,
+&apos;Off&apos;, 
+&apos;&apos;
+))</expression>
+    </formulas>
+    <formulas>
+        <description>Inserts the picklist value of Start/Stop ACH if there is a selection on the screen for ACH Status. No value if no selection.</description>
+        <name>formulaACHStatusActionValue</name>
+        <dataType>String</dataType>
+        <expression>IF(
+NOT(ISBLANK({!ACH_Status})), 
+&apos;Start/Stop ACH&apos;,
+&apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaActgInstSummary</name>
+        <dataType>String</dataType>
+        <expression>{!formulaRerunActionSummary} + {!formulaACHActionSummary}</expression>
+    </formulas>
+    <formulas>
+        <name>formulaBalanceRemainingCurrency</name>
+        <dataType>Currency</dataType>
+        <expression>{!varOpptyRecord.Balance_Remaining__c}</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>formulaDateTomorrow</name>
+        <dataType>Date</dataType>
+        <expression>CASE(
+MOD( {!$Flow.CurrentDate}- DATE(1900, 1, 7), 7),
+0, {!$Flow.CurrentDate}+1, /*if {!$Flow.CurrentDate} is Sun,{!$Flow.CurrentDate}+1=Monday */
+1, {!$Flow.CurrentDate}+1, /*if {!$Flow.CurrentDate} is Mon,{!$Flow.CurrentDate}+1=Tuesday */
+2, {!$Flow.CurrentDate}+1, /*if {!$Flow.CurrentDate} is Tues,{!$Flow.CurrentDate}+1=Wednesday */
+3, {!$Flow.CurrentDate}+1, /*if {!$Flow.CurrentDate} is Wed,{!$Flow.CurrentDate}+1=Thursday*/
+4, {!$Flow.CurrentDate}+1, /*if {!$Flow.CurrentDate} is Thurs,{!$Flow.CurrentDate}+1=Friday */
+5,{!$Flow.CurrentDate}+3, /*if {!$Flow.CurrentDate} is Fri,{!$Flow.CurrentDate}+3=Monday next week */
+6,{!$Flow.CurrentDate}+2, /*if {!$Flow.CurrentDate} is Sat,{!$Flow.CurrentDate}+2=Monday next week */
+{!$Flow.CurrentDate})</expression>
+    </formulas>
+    <formulas>
+        <name>formulaLineBreak</name>
+        <dataType>String</dataType>
+        <expression>SUBSTITUTE({!txtLineBreak},&quot;~&quot;,&quot;&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaNextMonth</name>
+        <dataType>Date</dataType>
+        <expression>DATE(YEAR(TODAY()), MONTH (TODAY()) + 2, 1)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaNextWeek</name>
+        <dataType>Date</dataType>
+        <expression>TODAY() + 15 -  WEEKDAY( TODAY() )</expression>
+    </formulas>
+    <formulas>
+        <name>formulaOverrideCommentsSummary</name>
+        <dataType>String</dataType>
+        <expression>&quot;***Cancelled - See Updated Instructions &quot; + TEXT({!$Flow.CurrentDate}) + {!formulaLineBreak} + 
+{!Existing_Accounting_Instructions.Other_Comments__c}</expression>
+    </formulas>
+    <formulas>
+        <name>formulaPaymentAmountCurrency</name>
+        <dataType>Currency</dataType>
+        <expression>{!varOpptyRecord.Actual_Daily_Payment__c}</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>formulaRerunActionSummary</name>
+        <dataType>String</dataType>
+        <expression>IF(
+	AND(
+		NOT(ISBLANK({!RerunAction})),
+		{!RerunAction}&lt;&gt; {!DoNotRerun}
+	),
+&quot;Rerun Action: &quot; + {!RerunAction} + &quot; on &quot; + TEXT(MONTH({!formulaRerunDate}))+&quot;/&quot;+TEXT(DAY({!formulaRerunDate}))+&quot;/&quot;+TEXT(YEAR({!formulaRerunDate})) + {!formulaLineBreak},
+	IF(
+		AND(
+			NOT(ISBLANK({!RerunAction})),
+			{!RerunAction} = {!DoNotRerun}
+		),
+	&quot;Rerun Action: &quot; + {!RerunAction} + {!formulaLineBreak},
+	null
+))</expression>
+    </formulas>
+    <formulas>
+        <name>formulaRerunDate</name>
+        <dataType>Date</dataType>
+        <expression>If(isblank({!Rerun_Date}), {!formulaDateTomorrow}, {!Rerun_Date})</expression>
+    </formulas>
+    <interviewLabel>Accounting Instructions - Quick Action {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Accounting Instructions - Quick Action</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordCreates>
+        <name>Create_Accounting_Action</name>
+        <label>Create Accounting Action</label>
+        <locationX>2349</locationX>
+        <locationY>584</locationY>
+        <connector>
+            <targetReference>Update_Case_Status_RPC_Needed</targetReference>
+        </connector>
+        <inputReference>varColActionstoAdd</inputReference>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_Accounting_Instruction</name>
+        <label>Create Accounting Instruction</label>
+        <locationX>1505</locationX>
+        <locationY>577</locationY>
+        <assignRecordIdToReference>varActgInstructionId</assignRecordIdToReference>
+        <connector>
+            <targetReference>Assign_Accounting_Actions</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Case__c</field>
+            <value>
+                <elementReference>RecordId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Other_Comments__c</field>
+            <value>
+                <elementReference>formulaActgInstSummary</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Type__c</field>
+            <value>
+                <stringValue>ACH Bounce</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Accounting_Instructions__c</object>
+    </recordCreates>
+    <recordLookups>
+        <name>Active_Modification</name>
+        <label>Active Modification</label>
+        <locationX>583</locationX>
+        <locationY>581</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Modification_Check</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Loan_Number__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>varCaseRecord.Merchant_Number__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Active</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Payment_Agreement__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Existing_Accounting_Instructions</name>
+        <label>Existing Accounting Instructions</label>
+        <locationX>582</locationX>
+        <locationY>453</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Active_Modification</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Accounting_Complete__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Case__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>RecordId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Send_to_Accounting__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Accounting_Instructions__c</object>
+        <sortField>CreatedDate</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Scheduled_Payment</name>
+        <label>Get Scheduled Payment</label>
+        <locationX>1165</locationX>
+        <locationY>577</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Repayment_Status</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>cmbls__Repayment__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>varCaseRecord.Repayment__r.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>cmbls__Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Scheduled</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>cmbls__Payment__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Lookup_Case</name>
+        <label>Lookup Case</label>
+        <locationX>583</locationX>
+        <locationY>199</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Lookup_Opportunity</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>RecordId</elementReference>
+            </value>
+        </filters>
+        <object>Case</object>
+        <outputReference>varCaseRecord</outputReference>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Payment_Frequency__c</queriedFields>
+        <queriedFields>Balance_Paid__c</queriedFields>
+        <queriedFields>Balance_Remaining__c</queriedFields>
+        <queriedFields>Past_Due_Balance__c</queriedFields>
+        <queriedFields>Internal_Funding_Status__c</queriedFields>
+        <queriedFields>Legal_Name__c</queriedFields>
+        <queriedFields>Debit_Amount__c</queriedFields>
+        <queriedFields>Merchant_Number__c</queriedFields>
+        <queriedFields>Payments_Behind__c</queriedFields>
+        <queriedFields>Fund_Date__c</queriedFields>
+        <queriedFields>Opportunity__c</queriedFields>
+        <queriedFields>RPC__c</queriedFields>
+        <queriedFields>Repayment__c</queriedFields>
+    </recordLookups>
+    <recordLookups>
+        <name>Lookup_Opportunity</name>
+        <label>Lookup Opportunity</label>
+        <locationX>583</locationX>
+        <locationY>324</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Existing_Accounting_Instructions</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>varCaseRecord.Opportunity__c</elementReference>
+            </value>
+        </filters>
+        <object>Opportunity</object>
+        <outputReference>varOpptyRecord</outputReference>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Balance_Remaining__c</queriedFields>
+        <queriedFields>Actual_Daily_Payment__c</queriedFields>
+        <queriedFields>Last_Payment_Made_Date__c</queriedFields>
+        <queriedFields>Actual_Payment_Frequency__c</queriedFields>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Accounting_Instruction</name>
+        <label>Update Accounting Instruction</label>
+        <locationX>2709</locationX>
+        <locationY>654</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>varActgInstructionId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Send_to_Accounting__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <object>Accounting_Instructions__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Case_2</name>
+        <label>Update Case</label>
+        <locationX>2709</locationX>
+        <locationY>807</locationY>
+        <connector>
+            <targetReference>Update_Accounting_Instruction</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Check_Error_Message</targetReference>
+        </faultConnector>
+        <inputReference>varCaseUpdates</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Existing_Actg_Inst_to_Override</name>
+        <label>Update Existing Actg Inst to Override</label>
+        <locationX>1199</locationX>
+        <locationY>789</locationY>
+        <connector>
+            <targetReference>Save</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Existing_Accounting_Instructions.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Other_Comments__c</field>
+            <value>
+                <elementReference>formulaOverrideCommentsSummary</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Override__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <object>Accounting_Instructions__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Payment_Agreement</name>
+        <label>Update Payment Agreement</label>
+        <locationX>1110</locationX>
+        <locationY>294</locationY>
+        <connector>
+            <targetReference>Existing_Accounting_Instructions_Dec</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Active_Modification.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <stringValue>Cancelled</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Payment_Agreement__c</object>
+    </recordUpdates>
+    <runInMode>SystemModeWithoutSharing</runInMode>
+    <screens>
+        <name>Active_Modification_Screen</name>
+        <label>Active Modification</label>
+        <locationX>721</locationX>
+        <locationY>294</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Active_Mod_Decision</targetReference>
+        </connector>
+        <fields>
+            <name>ActiveMod</name>
+            <fieldText>&lt;p&gt;There is an Active Modification in place for this customer.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Select the appropriate option to continue:&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>ActiveModOptions</name>
+            <choiceReferences>NewActgInstructions</choiceReferences>
+            <choiceReferences>CancelMod</choiceReferences>
+            <dataType>String</dataType>
+            <defaultSelectedChoiceReference>NewActgInstructions</defaultSelectedChoiceReference>
+            <fieldText>Options</fieldText>
+            <fieldType>RadioButtons</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Confirm_Cancellation</name>
+        <label>Confirm Cancellation</label>
+        <locationX>992</locationX>
+        <locationY>294</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Update_Payment_Agreement</targetReference>
+        </connector>
+        <fields>
+            <name>CancelConfirm</name>
+            <fieldText>&lt;p&gt;Are you sure you want to cancel the existing Modification&lt;b&gt; &lt;/b&gt;and create new Accounting Instructions?&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Click Next to cancel the Modification and continue.&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Click Previous to return to the previous screen and select a different option.&lt;/b&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Existing_Instructions</name>
+        <label>Existing Instructions</label>
+        <locationX>888</locationX>
+        <locationY>789</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Override_Existing_Instructions</targetReference>
+        </connector>
+        <fields>
+            <name>ExistingInstructionSummary</name>
+            <fieldText>&lt;p&gt;&lt;b&gt;There are existing Accounting Instructions that have been submitted to Accounting that have not been completed:&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p class=&quot;ql-indent-1&quot;&gt;{!Existing_Accounting_Instructions.Other_Comments__c}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Do you want to override the previous instructions with new instructions? &lt;/b&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Override</name>
+            <extensionName>flowruntime:toggle</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>messageToggleActive</name>
+                <value>
+                    <stringValue>Yes</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>messageToggleInactive</name>
+                <value>
+                    <stringValue>No</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>label</name>
+                <value>
+                    <stringValue>Ovrerride</stringValue>
+                </value>
+            </inputParameters>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
+        </fields>
+        <fields>
+            <name>Override2</name>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(62, 62, 60);&quot;&gt;If you do not override the instructions anything entered will be completed in addition to the earlier request.&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <description>Error Screen if Validation Rule New_Collections_Status_and_Stage is triggered</description>
+        <name>Need_Stage_Status_Sum</name>
+        <label>Need Stage Status Sum</label>
+        <locationX>2929</locationX>
+        <locationY>977</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Assign_Validation_Fields</targetReference>
+        </connector>
+        <fields>
+            <name>ValidationRuleFailure</name>
+            <fieldText>&lt;p&gt;O No! It looks like we ran into an error. It appears some needed data is missing. Please populate all three fields below to continue.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>New_Collections_Stage</name>
+            <choiceReferences>Picklist_New_Collections_Stage</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>New Collections Stage</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>New_Collections_Status</name>
+            <choiceReferences>Picklist_New_Collectons_Status</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>New Collections Status</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>New_Sum_Note</name>
+            <dataType>String</dataType>
+            <fieldText>New Sum Note</fieldText>
+            <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>RPC_Fill_In</name>
+        <label>RPC Fill In</label>
+        <locationX>2511</locationX>
+        <locationY>956</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Assign_Case_RPC</targetReference>
+        </connector>
+        <fields>
+            <name>RPCCheck</name>
+            <fieldText>&lt;p&gt;RPC must be filled in prior to sending the instructions to Accounting. &lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Indicate RPC below to continue. &lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>RPC</name>
+            <choiceReferences>choiceRPC</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>RPC</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Save</name>
+        <label>Save</label>
+        <locationX>1043</locationX>
+        <locationY>576</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Get_Scheduled_Payment</targetReference>
+        </connector>
+        <fields>
+            <name>Details</name>
+            <fieldText>&lt;p&gt;&lt;b style=&quot;font-size: 16px;&quot;&gt;{!varCaseRecord.Legal_Name__c}&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b style=&quot;font-size: 16px;&quot;&gt;{!varCaseRecord.Merchant_Number__c}&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;b style=&quot;font-size: 12px;&quot;&gt;Balance Remaining: {!formulaBalanceRemainingCurrency}&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b style=&quot;font-size: 12px;&quot;&gt;Payments Behind: {!varCaseRecord.Payments_Behind__c}&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b style=&quot;font-size: 12px;&quot;&gt;Payment Amount: {!formulaPaymentAmountCurrency}&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b style=&quot;font-size: 12px;&quot;&gt;Payment Frequency: {!varOpptyRecord.Actual_Payment_Frequency__c}&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b style=&quot;font-size: 12px;&quot;&gt;Fund Date: {!varCaseRecord.Fund_Date__c}&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b style=&quot;font-size: 12px;&quot;&gt;Last Payment Made: {!varOpptyRecord.Last_Payment_Made_Date__c}&lt;/b&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>RerunAction</name>
+            <choiceReferences>Rerun</choiceReferences>
+            <choiceReferences>RerunwithFee</choiceReferences>
+            <choiceReferences>DoNotRerun</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Rerun Action</fieldText>
+            <fieldType>RadioButtons</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Rerun_Date</name>
+            <dataType>Date</dataType>
+            <fieldText>Rerun Date</fieldText>
+            <fieldType>InputField</fieldType>
+            <helpText>&lt;p&gt;If blank it will be set to next business day.&lt;/p&gt;</helpText>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <visibilityRule>
+                <conditionLogic>or</conditionLogic>
+                <conditions>
+                    <leftValueReference>RerunAction</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <elementReference>Rerun</elementReference>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>RerunAction</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <elementReference>RerunwithFee</elementReference>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
+            <name>ACH_Status</name>
+            <choiceReferences>StopACH</choiceReferences>
+            <choiceReferences>ResumeACH</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>ACH Status</fieldText>
+            <fieldType>RadioButtons</fieldType>
+            <helpText>&lt;p&gt;The stop ACH date will default to tomorrow. You can either indicate a resume ACH date, or if no date is selected it will default to tomorrow.&lt;/p&gt;</helpText>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Resume_ACH_Date</name>
+            <dataType>Date</dataType>
+            <fieldText>Resume ACH Date</fieldText>
+            <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <validationRule>
+                <errorMessage>&lt;p&gt;If Resume ACH is selected a resume ACH date must be entered. &lt;/p&gt;&lt;p&gt;You may not enter today&apos;s date in resume ACH.&lt;/p&gt;</errorMessage>
+                <formulaExpression>IF(
+{!Resume_ACH_Date}&lt;={!$Flow.CurrentDate},
+FALSE,
+TRUE
+)</formulaExpression>
+            </validationRule>
+        </fields>
+        <fields>
+            <name>Send_To_Accounting</name>
+            <extensionName>flowruntime:toggle</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>label</name>
+                <value>
+                    <stringValue>Send to Accounting</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>messageToggleActive</name>
+                <value>
+                    <stringValue>Yes</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>messageToggleInactive</name>
+                <value>
+                    <stringValue>No</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>value</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </inputParameters>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <outputParameters>
+                <assignToReference>varSendtoAccounting</assignToReference>
+                <name>value</name>
+            </outputParameters>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>screen_Paused_Repayment</name>
+        <label>PausedRepayment</label>
+        <locationX>1293</locationX>
+        <locationY>419</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>PausedSchedule</name>
+            <fieldText>&lt;p&gt;You selected to pause a payment that is already Paused. Please reach out to Accounting or submit a helpdesk ticket if you believe this is incorrect.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <nextOrFinishButtonLabel>Finish</nextOrFinishButtonLabel>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>49</locationX>
+        <locationY>39</locationY>
+        <connector>
+            <targetReference>Get_Next_Business_Day</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <name>Get_Next_Business_Day</name>
+        <label>Get Next Business Day</label>
+        <locationX>465</locationX>
+        <locationY>56</locationY>
+        <connector>
+            <targetReference>Get_Second_Business_Day</targetReference>
+        </connector>
+        <flowName>Next_Business_Day</flowName>
+        <inputAssignments>
+            <name>varBankHoliday</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>varInputDate</name>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </inputAssignments>
+        <outputAssignments>
+            <assignToReference>varNextBusinessDay</assignToReference>
+            <name>varOutputDate</name>
+        </outputAssignments>
+    </subflows>
+    <subflows>
+        <name>Get_Second_Business_Day</name>
+        <label>Get Second Business Day</label>
+        <locationX>584</locationX>
+        <locationY>55</locationY>
+        <connector>
+            <targetReference>Lookup_Case</targetReference>
+        </connector>
+        <flowName>Next_Business_Day</flowName>
+        <inputAssignments>
+            <name>varBankHoliday</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>varInputDate</name>
+            <value>
+                <elementReference>varNextBusinessDay</elementReference>
+            </value>
+        </inputAssignments>
+        <outputAssignments>
+            <assignToReference>var2ndBusinessDay</assignToReference>
+            <name>varOutputDate</name>
+        </outputAssignments>
+    </subflows>
+    <textTemplates>
+        <name>txtLineBreak</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>~
+~
+~</text>
+    </textTemplates>
+    <variables>
+        <name>RecordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>var2ndBusinessDay</name>
+        <dataType>Date</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varActgInstructionId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varActgInstructionSummary</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varCaseRecord</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Case</objectType>
+    </variables>
+    <variables>
+        <name>varCaseUpdates</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Case</objectType>
+    </variables>
+    <variables>
+        <name>varColActionstoAdd</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Accounting_Action__c</objectType>
+    </variables>
+    <variables>
+        <name>varDateBlank</name>
+        <dataType>Date</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varNewAccountingActionRecord1</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Accounting_Action__c</objectType>
+    </variables>
+    <variables>
+        <name>varNewAccountingActionRecord2</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Accounting_Action__c</objectType>
+    </variables>
+    <variables>
+        <name>varNewAccountingActionRecord3</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Accounting_Action__c</objectType>
+    </variables>
+    <variables>
+        <name>varNextBusinessDay</name>
+        <dataType>Date</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varOpptyRecord</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Opportunity</objectType>
+    </variables>
+    <variables>
+        <name>varSendtoAccounting</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

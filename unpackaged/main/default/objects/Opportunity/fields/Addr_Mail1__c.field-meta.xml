@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Addr_Mail1__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Address ID for Mailing Address on Oppty</description>
+    <inlineHelpText>Select the Mailing Address of the Account or Contact to use for this Oppty</inlineHelpText>
+    <label>Mailing Address</label>
+    <lookupFilter>
+        <active>true</active>
+        <booleanFilter>1 OR 2</booleanFilter>
+        <filterItems>
+            <field>FPC_Address__c.Account__c</field>
+            <operation>equals</operation>
+            <valueField>$Source.AccountId</valueField>
+        </filterItems>
+        <filterItems>
+            <field>FPC_Address__c.Contact__r.AccountId</field>
+            <operation>equals</operation>
+            <valueField>$Source.AccountId</valueField>
+        </filterItems>
+        <infoMessage>Select the Mailing address to use for this Opportunity</infoMessage>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>FPC_Address__c</referenceTo>
+    <relationshipLabel>Opportunities (AddressID1)</relationshipLabel>
+    <relationshipName>Opportunities2</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Mktg_Pilot_Results__c</fullName>
+    <description>This field will be used for the Telemarketing Efforts starting in Feb 2013</description>
+    <label>TM Hot Leads Result</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>TBD</fullName>
+                <default>false</default>
+                <label>TBD</label>
+            </value>
+            <value>
+                <fullName>It's Mine</fullName>
+                <default>false</default>
+                <label>It's Mine</label>
+            </value>
+            <value>
+                <fullName>Actively Being Worked by Other Rep</fullName>
+                <default>false</default>
+                <label>Actively Being Worked by Other Rep</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SSN_Encrypted__c</fullName>
+    <description>Encrypted Social Security Number used in Credit Report Inquiry</description>
+    <label>SSN Encrypted</label>
+    <length>11</length>
+    <maskChar>asterisk</maskChar>
+    <maskType>ssn</maskType>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>EncryptedText</type>
+</CustomField>

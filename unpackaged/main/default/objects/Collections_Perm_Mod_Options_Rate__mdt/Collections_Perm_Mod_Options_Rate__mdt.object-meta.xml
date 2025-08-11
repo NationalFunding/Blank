@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>PD-4619</description>
+    <label>Collections Perm Mod Options Rate</label>
+    <pluralLabel>Collections Perm Mod Options Rates</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

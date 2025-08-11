@@ -1,0 +1,116 @@
+<template>
+
+    <!-- Lightning Card -->
+    <lightning-card>
+
+        <div class="slds-grid">
+
+            <!-- Contextual Buttons -->
+            <div class="slds-col slds-size_1-of-1">
+
+                <div class="slds-align_absolute-center">
+
+                    <!-- Unordered List -->
+                    <ul class="slds-button-group-row">
+                        <!-- Send DFP Email -->
+                        <li class="slds-button-group-item" if:true={stage0}>
+                            <button class="slds-button slds-button_brand" onclick={openTwilioModal}>
+                                Send Opt-In Text
+                            </button>
+                        </li>
+                        <!-- Send DFP Email -->
+                        <li class="slds-button-group-item" if:true={stage0}>
+                            <button class="slds-button slds-button_brand" onclick={sendDLPEmail}>
+                                Send DFP Email
+                            </button>
+                        </li>
+                        <!-- Send DFP Text -->
+                        <li class="slds-button-group-item" if:true={stage0}>
+                            <button class="slds-button slds-button_brand" onclick={sendDLPText}>
+                                Send DFP Text
+                            </button>
+                        </li>
+                        <!-- Web Search -->
+                        <li class="slds-button-group-item" if:true={stage0}>
+                            <button class="slds-button slds-button_brand" onclick={webSearch}>
+                                Web Search
+                            </button>
+                        </li>
+                        <!-- Convert -->
+                        <!-- <li class="slds-button-group-item" if:true={stage0}>
+                            <button class="slds-button slds-button_brand" onclick={convertToOpp}>
+                                Convert to Opportunity
+                            </button>
+                        </li> -->
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </lightning-card>
+
+
+    <!-- Opt In Message Modal -->
+    <template if:true={TwilioModal}>
+
+        <div class="contact-edit" data-id="twilioModal" style="height: 640px;">
+
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+
+                <div class="slds-modal__container">
+
+                    <header class="slds-modal__header">
+
+                        <!-- TITLE -->
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">
+                            Confirm Opt In
+                        </h2>
+
+                    </header>
+
+                    <!-- BODY -->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        
+                        Please Confirm that this person wants to receive text messages from National Funding.
+
+                        <lightning-radio-group 
+                            label =""
+                            name ="optInConfirmation"
+                            onchange={handleChange}
+                            options={options}
+                            value={value}
+                            type='radio'>
+                        </lightning-radio-group>
+
+                    </div>
+
+                    <!-- FOOTER -->
+                    <footer class="slds-modal__footer">
+                        <!-- Cancel Button -->
+                        <lightning-button label="Cancel" variant="neutral" onclick={closeTwilioModal}></lightning-button>
+
+                        <!-- Spacing -->
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+
+                        <!-- Update/Save Button -->
+                        <lightning-button label="Send Opt In Message" variant="brand" onclick={sendOptIn}>
+                        </lightning-button>
+
+                    </footer>
+
+                </div>
+                
+            </section>
+            <!-- Create Shading for Modal -->
+            <div class="slds-backdrop slds-backdrop_open"></div>
+
+        </div>
+        
+    </template>
+
+    
+</template>

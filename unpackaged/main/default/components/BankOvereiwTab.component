@@ -1,0 +1,38 @@
+<apex:component layout="none">
+<apex:attribute name="dateStart" description="String" type="String" />
+<apex:attribute name="dateEnd" description="String" type="String" />
+<div class="form-group">
+  <label class="control-label col-md-2" style="text-align: right; padding-right: 0; margin-top: 7px;">Summary Range</label>
+  <div class="col-md-4"><!-- date-picker input-daterange-->
+    <div class="input-group input-large" data-date-format="yyyy/mm">
+      <input type="text" class="form-control startDate" value="{!SUBSTITUTE(dateStart,'-','/')}"/>
+      <span class="input-group-addon"> - </span>
+      <input type="text" class="form-control endDate" value="{!SUBSTITUTE(dateEnd,'-','/')}" />
+    </div>
+  </div>
+</div>
+<div class="clearfix"></div>
+<div style=" border:1px solid #CCC; margin-top:10px">
+  <table class="table table-striped" id="" >
+    <thead>
+      <tr>
+        <th width="10%" style="font-size:12px"> Name </th>
+        <th  style="font-size:12px; text-align:right"> Acct(#) </th>
+        <th  style="font-size:12px; text-align:right"> Beginning Balance($) </th>
+        <th  style="font-size:12px; text-align:right" align="right"> Deposits(#) </th>
+        <th  style="font-size:12px; text-align:right" align="right"> Counter Deposits($) </th>
+        <th  style="font-size:12px; text-align:right" align="right"> Other Deposits($) </th>
+        <th  style="font-size:12px; text-align:right" align="right"> Withdrawals($) </th>
+        <th  style="font-size:12px; text-align:right" align="right"> Ending Balance($) </th>
+        <th  style="font-size:12px; text-align:right" align="right"> Negative Days(#) </th>
+        <th  style="font-size:12px; text-align:right" align="right"> NSFs(#) </th>
+        <th  style="font-size:12px; text-align:right" align="right"> Avg Daily Balance($) </th>
+        <th  style="font-size:12px;width:11% "> Primary?</th>
+      </tr>
+    </thead>
+    <tbody id="summary-tbody">
+      
+    </tbody>
+  </table>
+</div>
+</apex:component>

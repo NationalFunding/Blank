@@ -1,0 +1,8 @@
+Hi
+
+Docs are In for {!Opportunity.Name}.  
+
+Amount Doc'd: {!Opportunity.Amount_Offered__c}
+Broker: {!Opportunity.Broker_Account__c}
+
+Click here to go directly to this deal {!Opportunity.Link}

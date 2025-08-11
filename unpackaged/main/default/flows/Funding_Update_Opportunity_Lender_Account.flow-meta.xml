@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <decisions>
+        <name>Opportunity_ID</name>
+        <label>Opportunity ID</label>
+        <locationX>182</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Opportunity_Exists</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Opportunity__r.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Records_1</targetReference>
+            </connector>
+            <label>Opportunity Exists</label>
+        </rules>
+    </decisions>
+    <description>replacing Apex trigger UpdateActualforOpportunity
+
+Last Update: New validationrule bypass to allow data engineering to insert funding records without updating the Opportunity Lender Account</description>
+    <environments>Default</environments>
+    <interviewLabel>Funding - Update Opportunity Lender Account {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Funding - Update Opportunity Lender Account</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Records_1</name>
+        <label>Update Records 1</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Opportunity__r.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Lender_Account__c</field>
+            <value>
+                <elementReference>$Record.Lender_ID__r.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>NF_Commercial_Portfolio__c</field>
+            <value>
+                <elementReference>$Record.NF_Commercial_Portfolio__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Opportunity</object>
+    </recordUpdates>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Opportunity_ID</targetReference>
+        </connector>
+        <filterFormula>OR(
+    AND(  
+        ISNEW(),
+        ISPICKVAL({!$Record.Status__c}, &apos;Approved&apos;),
+        {!$Setup.ValidationRules__c.Bypass_Updating_Oppty_Lender_Account__c} = False
+    ),
+    AND(
+        ISCHANGED({!$Record.Status__c}),
+        ISPICKVAL({!$Record.Status__c}, &apos;Approved&apos;)
+    ) 
+)</filterFormula>
+        <object>FPC_Funding_del__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

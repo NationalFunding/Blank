@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Case_Email_Signature_Name_Formula__c</fullName>
+    <description>being referenced by Case communications to populate the name/title on signature line</description>
+    <externalId>false</externalId>
+    <formula>IF(  BEGINS(OwnerId,"00G") ,
+"",
+ Owner:User.FirstName &amp;" | "&amp; Owner:User.Title )</formula>
+    <label>Case Email Signature Name Formula</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DPBC__c</fullName>
+    <description>Data Point Bar Code - Full 12 digit zip code used for CASS Certification</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Data Point Bar Code - Full 12 digit zip code used for CASS Certification</inlineHelpText>
+    <label>DPBC</label>
+    <length>16</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

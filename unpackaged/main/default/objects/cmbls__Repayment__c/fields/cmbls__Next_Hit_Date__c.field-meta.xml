@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cmbls__Next_Hit_Date__c</fullName>
+    <deprecated>false</deprecated>
+    <description>Next date an ACH payment will be withdrawn</description>
+    <inlineHelpText>Next date an ACH payment will be withdrawn</inlineHelpText>
+    <label>Next Hit Date</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <type>Date</type>
+</CustomField>

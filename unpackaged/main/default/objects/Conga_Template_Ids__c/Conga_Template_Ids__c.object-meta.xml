@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>Conga template ids. Introduced as part of the QB migration into NF to be used for QB branded automation</description>
+    <enableFeeds>false</enableFeeds>
+    <label>Conga Template Ids</label>
+    <visibility>Public</visibility>
+</CustomObject>

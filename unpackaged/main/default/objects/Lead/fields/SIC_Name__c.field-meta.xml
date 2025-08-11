@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SIC_Name__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>The SIC Name for that SIC Code</description>
+    <inlineHelpText>The SIC Name for that SIC Code</inlineHelpText>
+    <label>SIC Name</label>
+    <referenceTo>FPC_SIC__c</referenceTo>
+    <relationshipLabel>Leads</relationshipLabel>
+    <relationshipName>Leads</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

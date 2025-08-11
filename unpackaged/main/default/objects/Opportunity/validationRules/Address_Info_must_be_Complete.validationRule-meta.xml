@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Address_Info_must_be_Complete</fullName>
+    <active>true</active>
+    <errorConditionFormula>(ISPICKVAL(StageName, 'Credit Submittal')) &amp;&amp; 
+(ISBLANK(Mailing_Address_1__c) || 
+ISBLANK(Mailing_Address_City__c) || 
+ISBLANK(Mailing_Address_State__c) || 
+ISBLANK(Mailing_Address_Zip__c) || 
+ISBLANK(Physical_Address_1__c) || 
+ISBLANK(Physical_Address_City__c) || 
+ISBLANK(Physical_Address_State__c) || 
+ISBLANK(Physical_Address_Zip__c)) &amp;&amp; ISCHANGED(StageName)</errorConditionFormula>
+    <errorMessage>All Mailing Address and Physical Address fields must be completed before updating the Stage to 'Credit Submittal'.</errorMessage>
+</ValidationRule>

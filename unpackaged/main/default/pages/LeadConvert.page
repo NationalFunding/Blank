@@ -1,0 +1,19 @@
+<apex:page standardController="Lead" extensions="customLeadConvert">
+<apex:pageMessages />
+<apex:form > 
+    <apex:pageBlock title="Convert Lead" id="ConvertLeadBlock" mode="edit">
+        <apex:pageBlockButtons >
+            <apex:commandButton value="Convert" action="{!doConvert}"/>
+            <apex:commandButton value="Cancel" action="{!Cancel}"/>
+        </apex:pageBlockButtons>
+        <apex:pageBlockSection columns="1">
+	         <apex:pageBlockSectionItem >
+	           <apex:outputLabel id="lblOppRecType" value="Opportunity Record Type"/>
+	           <apex:selectList id="ddlOppRecType" size="1" multiselect="False" value="{!objRecType}">
+                    <apex:selectOptions value="{!OpportunityRecordType}" /> 
+                </apex:selectList>
+	         </apex:pageBlockSectionItem>
+	    </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:form> 
+</apex:page>

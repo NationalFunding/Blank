@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank</letterhead>
+    <name>CATCHUP, ALREADY RUNNING PAST MATURITY</name>
+    <style>freeForm</style>
+    <subject>{!Case.Merchant_Number__c} - {!Account.Legal_Name__c}</subject>
+    <textOnly>Hello,
+
+Your account is currently running past maturity. The balance remaining of {!Case.Past_Due_Balance__c} is considered past due at this time. We will continue to run your {!Case.Payment_Frequency__c} payments until the balance remaining is paid in full. We would also like to start to run additional payments as well in an effort to get this balance paid off in a timely manner. Please let me know what days work best for you  to do so.
+
+
+
+Thank you,
+
+{!User.Name} | {!User.Title}
+
+{!Case.Email_Signature_Company__c}
+
+{!$Setup.Company_Information__c.Street__c}
+{!$Setup.Company_Information__c.City__c}, {!$Setup.Company_Information__c.State__c} {!$Setup.Company_Information__c.Zip__c}
+P: {!User.Phone} | F: {!User.Fax}
+E: {!User.Email}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

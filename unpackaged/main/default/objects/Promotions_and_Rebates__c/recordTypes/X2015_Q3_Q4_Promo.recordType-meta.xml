@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X2015_Q3_Q4_Promo</fullName>
+    <active>true</active>
+    <label>2015 Q3 / Q4 Promo</label>
+    <picklistValues>
+        <picklist>Promotion_Rebate_Selected__c</picklist>
+        <values>
+            <fullName>Apple Watch - 38mm%2C Stainless Steep Case%2C Black Sport Band %28%24549%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Apple Watch Sport - 38mm%2C Space Gray Case%2C Black Sport Band %28%24349%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Apple iPad Air 2%3A Silver%2C Wi-Fi Only%2C 16GB %28%24499%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Apple iPad Mini 2%3A Silver%2C Wi-Fi Only%2C 16 GB %28%24299%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GoPro HERO3%2B %28%24299%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GoPro HERO4 Black %28%24500%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Shipping_Provider__c</picklist>
+        <values>
+            <fullName>DHL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FedEx</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Overnight Express</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UPS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>USPS</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

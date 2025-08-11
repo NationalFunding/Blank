@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Decline_Email_Exempt_Reason__c</fullName>
+    <label>Decline Email Exempt Reason</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Decline_Email_Status__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Associated Opportunity Submitted</fullName>
+                <default>false</default>
+                <label>Associated Opportunity Submitted</label>
+            </value>
+            <value>
+                <fullName>Bank Statements Provided</fullName>
+                <default>false</default>
+                <label>Bank Statements Provided</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Not Applicable</controllingFieldValue>
+            <valueName>Associated Opportunity Submitted</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Applicable</controllingFieldValue>
+            <valueName>Bank Statements Provided</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

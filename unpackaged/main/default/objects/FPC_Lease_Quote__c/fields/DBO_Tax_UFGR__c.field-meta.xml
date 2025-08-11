@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DBO_Tax_UFGR__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>DBO Tax Upfront On Gross Receipts- Status</description>
+    <inlineHelpText>Check box if tax will be collected upfront on gross reciepts in the DBO lease.</inlineHelpText>
+    <label>DBO Tax UFGR</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

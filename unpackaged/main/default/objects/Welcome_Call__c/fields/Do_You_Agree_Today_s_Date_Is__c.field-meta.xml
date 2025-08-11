@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Do_You_Agree_Today_s_Date_Is__c</fullName>
+    <description>This field will capture the date that the call took place.</description>
+    <inlineHelpText>This field will capture the date that the call took place.</inlineHelpText>
+    <label>Do You Agree Today's Date Is:</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

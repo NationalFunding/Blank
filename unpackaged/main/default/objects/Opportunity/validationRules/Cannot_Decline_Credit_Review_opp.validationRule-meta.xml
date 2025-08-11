@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_Decline_Credit_Review_opp</fullName>
+    <active>false</active>
+    <description>Users with the custom permission 'Cannot Decline Credit Review' won't be able to decline a CR</description>
+    <errorConditionFormula>AND
+(
+ $Permission.Cannot_Decline_Credit_Reviews = TRUE,
+ ISCHANGED(StageName ),
+ OR(
+    ISPICKVAL(StageName, 'Declined'),
+    ISPICKVAL(StageName, 'NF Decline'),
+    ISPICKVAL(StageName, 'Internal Decline')
+   )
+)</errorConditionFormula>
+    <errorMessage>Lender Relations Specialists are not eligible to decline Credit Reviews</errorMessage>
+</ValidationRule>

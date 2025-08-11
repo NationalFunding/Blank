@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Avg_Daily_Sales_Log10__c</fullName>
+    <externalId>false</externalId>
+    <label>Avg Daily Sales Log10</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>15</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

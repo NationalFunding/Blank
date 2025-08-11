@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>invhst_effective_date__c</fullName>
+    <description>invhst_effective_date</description>
+    <externalDeveloperName>invhst_effective_date</externalDeveloperName>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>Date</label>
+    <required>false</required>
+    <type>Date</type>
+</CustomField>

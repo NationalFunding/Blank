@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Submission_Files_Provided__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Set to TRUE when credit application and bank statement files have been attached</description>
+    <inlineHelpText>Credit Application and Bank Statement's attached</inlineHelpText>
+    <label>Submission Files Provided</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

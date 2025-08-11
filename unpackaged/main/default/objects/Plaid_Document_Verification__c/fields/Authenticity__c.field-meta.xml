@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Authenticity__c</fullName>
+    <description>documents.analysis.authenticity</description>
+    <externalId>false</externalId>
+    <inlineHelpText>High level summary of whether the document in the provided image matches the formatting rules and security checks for the associated jurisdiction.</inlineHelpText>
+    <label>Authenticity</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

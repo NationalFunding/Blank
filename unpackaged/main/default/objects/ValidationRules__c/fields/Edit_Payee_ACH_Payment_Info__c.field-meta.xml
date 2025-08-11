@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Edit_Payee_ACH_Payment_Info__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Payee_s_Account_Type__c
+Payee_s_Bank_Account_Number__c
+Payee_s_Bank_Name__c
+Payee_s_Routing_Number__c</description>
+    <label>Edit Payee ACH Payment Info</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,103 @@
+<messaging:emailTemplate subject="Thank you for your interest in National Funding" recipientType="Lead" relatedToType="Lead">
+<messaging:htmlEmailBody >
+<html>
+
+       
+        <head>
+            <meta name="viewport" content="width=device-width" />
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <title>Thank you for applying</title>
+            <style media="all" type="text/css">
+            @media only screen and (max-width: 620px) {
+                table[class=body] h1,
+                table[class=body] h2,
+                table[class=body] h3,
+                table[class=body] h4 {
+                    font-weight: 600 !important;
+                }
+                table[class=body] h1 {
+                    font-size: 22px !important;
+                }
+                table[class=body] h2 {
+                    font-size: 18px !important;
+                }
+                table[class=body] h3 {
+                    font-size: 16px !important;
+                }
+                table[class=body] .content,
+                table[class=body] .wrapper {
+                    padding: 10px !important;
+                }
+                table[class=body] .container {
+                    padding: 0 !important;
+                    width: 100% !important;
+                }
+                table[class=body] .btn table,
+                table[class=body] .btn a {
+                    width: 100% !important;
+                }
+            }
+            </style>
+        </head>
+
+        <body style="margin: 0; font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-size: 14px; height: 100% !important; line-height: 1.6em; -webkit-font-smoothing: antialiased; padding: 0; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; width: 100% !important; background-color: #f6f6f6;">
+            <table class="body" style="box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; background-color: #f6f6f6;" width="100%" bgcolor="#f6f6f6">
+                <tr>
+                    <td style="box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top;" valign="top"></td>
+                    <td class="container" style="box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top; display: block; Margin: 0 auto !important; max-width: 580px; padding: 10px; width: 580px;" width="580" valign="top">
+                        <div class="content" style="box-sizing: border-box; display: block; margin: 0 auto; max-width: 580px; padding: 10px;">
+                            <table class="main" style="box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; background: #ffffff; border: 1px solid #e9e9e9; border-radius: 3px;" width="100%">
+                                <tr class="blue" style="margin-bottom: 15px; margin-top: 10px; width: 100%; background-color: #223657; text-align: center;" bgcolor="#223657" align="center">
+                                    <td style="box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top;" valign="top">
+                                        <a href="https://www.nationalfunding.com" style="box-sizing: border-box; color: #EB8243; text-decoration: underline;"><img class="pad-b13" src="https://wp.natfundcdn.com/static/img/logo-horizontal.png" height="49" alt="National Funding" style="-ms-interpolation-mode: bicubic; max-width: 100%; padding-bottom: 13px;" /></a>
+                                    </td>
+                                </tr>
+
+                                    <td class="wrapper" style="box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top; padding: 30px;" valign="top">
+                                        <table style="box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;" width="100%">
+                                            <tr>
+                                                <td style="box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top;" valign="top">
+                                                        <br/>
+
+                                                        <p style="font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; font-weight: bold; margin: 0; margin-bottom: 15px;">Dear Valued Business Partner,</p>
+                                                        <p style="font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 15px;">
+                                                            Upon further review of your information, our records indicate that your annual gross sales are below the minimum needed for us to proceed at this time.
+                                                            Minimum required: $250,000 annually, represented as business revenue being deposited into your business bank account.
+                                                        </p>
+                                                        <p style="font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 15px;">
+                                                            If our information is incorrect, please reapply at  <a href="https://www.nationalfunding.com"  target="_blank">www.nationalfunding.com</a>.
+                                                        </p>
+                                                        <br/>
+                                                        <p style="font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 15px;">
+                                                            Sincerely,
+                                                        </p>
+                                                        <p style="font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 15px;">
+                                                            <b>Your Small Business Support Team</b>&nbsp; <br/>
+                                                            National Funding
+                                                        </p>
+
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="align-center small-gray pad-t20" style="box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; vertical-align: top; font-size: 12px; text-align: center; color: gray; padding-top: 20px;" valign="top" align="center">
+                                                    National Funding respects your privacy.  Our commitment to your privacy is described in our <a href="https://www.nationalfunding.com/privacy-policy/ "  target="_blank">privacy policy</a>, which is available on our website for your reference.
+                                                    <br/>
+                                                    
+                                                    <br/> {!YEAR(TODAY())} National Funding. All rights reserved.  
+                                                    <br/>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                               
+                            </table>
+                        </div>
+                    </td>
+                    <td style="box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top;" valign="top"></td>
+                </tr>
+            </table>
+        </body>
+
+        </html>
+    </messaging:htmlEmailBody>
+</messaging:emailTemplate>

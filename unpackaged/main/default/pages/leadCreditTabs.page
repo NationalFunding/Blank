@@ -1,0 +1,480 @@
+<apex:page doctype="html-5.0" applyBodyTag="false" applyHtmlTag="false" showHeader="false" sidebar="false" standardStylesheets="false" StandardController="Lead" Extensions="vf_leadCreditTabs_ext">
+    <html class="sfbs-fullscreen">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+        <!-- CSS -->
+        <apex:stylesheet value="{!URLFOR($Resource.tcrmMaterialSkin,'third-party/font-awesome/css/font-awesome.min.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.tcrmMaterialSkin,'third-party/material-design-iconic-font/dist/css/material-design-iconic-font.min.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.tcrmMaterialSkin,'third-party/animate.css/animate.min.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.tcrmMaterialSkin,'third-party/ng-dialog/css/ngDialog.min.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.tcrmMaterialSkin,'third-party/ng-dialog/css/ngDialog-theme-default.min.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.tcrmMaterialSkin,'third-party/bootstrap-datepicker/dist/css/bootstrap-datepicker3.standalone.min.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.tcrmMaterialSkin,'css/materialadmin.min.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.tcrmMaterialSkin,'css/thrive-utilities.min.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.tcrmMaterialSkin,'css/ngdialog.theme.min.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.tcrmCreditLeadTabs,'third-party/sweetalert/dist/sweetalert.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.tcrmCreditLeadTabs,'css/adjustments.min.css')}" />
+
+        <!-- JS -->
+        <apex:includeScript value="{!URLFOR($Resource.tcrmMaterialSkin,'third-party/jquery/dist/jquery.min.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.tcrmMaterialSkin,'third-party/angular/angular.min.js')}" />
+
+        <!-- Remote Action Dictionary -->
+        <script type="text/javascript">
+            var $RAD = {};
+            var LeadId = "{!Lead.Id}";
+            $RAD.CheckCreditStatus = {
+                  rs: '{!$RemoteAction.vf_leadCreditTabs_ext.PullCreditUpdate}',
+                  fakeReturn: {
+                        Id: 'def123',
+                        Lead_Contact__c: '0031800000AnEfoAAF',
+                        FICO__c: 457,
+                        Status__c: 'Completed',
+                        Record_Type_Name__c: 'Equifax Consumer',
+                        URL_for_View_Link__c: 'http://google.ca/',
+                        Transaction_Date__c: '2015-01-01'
+                  },
+                  multipleResults: false
+            };
+            $RAD.GetLead = {
+                  rs: '{!$RemoteAction.vf_leadCreditTabs_ext.RetrieveLead}',
+                  fakeReturn: {
+                        Id: "abc1235",
+                        Name: "Johny Doe",
+                        FirstName: "Johny",
+                        LastName: "Doe",
+                        Title: "CEO",
+                        Birth_Date__c: 1449187200000,
+                        NickName__c: 'Janie',
+                        Ownership_Percentage__c: 40,
+                        SSN_Encrypted__c: "*****6789",
+                        Email: "dummy@dummy.com",
+                        Home_Phone__c: "(902) 498-1827",
+                        MobilePhone: "(381) 349-1982",
+                        Home_Address__c: "340 Kent Road",
+                        City__c: "Stewiacke",
+                        State__c: "NS",
+                        Zip_Code__c: "12345-6789",
+                        City: "Fake City",
+                        State: "NY",
+                        Street: "366 Big Road",
+                        PostalCode: "90210",
+                        Country: "United States"
+                  },
+                  dummyDataQuery: null,
+                  multipleResults: false
+            };
+            $RAD.GetLeadContacts = {
+                rs: '{!$RemoteAction.vf_leadCreditTabs_ext.RetrieveLeadContacts}',
+                fakeReturn: [{
+                    Id: 'abc123987',
+                    First_Name__c: 'Jane',
+                    Last_Name__c: 'Smith',
+                    Title__c: 'CEO',
+                    Ownership_Percentage__c: 99,
+                    SSN_Encrypted__c: '123456789',
+                    Email__c: 'emailc@domain.ca',
+                    Home_Phone__c: '(902) 123-1234',
+                    Mobile_Phone__c: '(902) 234-2345',
+                    Birthdate__c: 1449187200000,
+                    Nickname__c: 'Janiedabest',
+                    Mailing_Street__c: 'myStreet',
+                    Mailing_City__c: 'Some City',
+                    Mailing_State_Province__c: 'NS',
+                    Mailing_Zip_Postal_Code__c: '12345',
+                    Primary__c: false
+                }, {
+                    Id: 'abc143153',
+                    First_Name__c: 'Janey',
+                    Last_Name__c: 'Smithy',
+                    Title__c: 'CEO',
+                    Ownership_Percentage__c: 99,
+                    SSN_Encrypted__c: '123456789',
+                    Email__c: 'emailc@domain.ca',
+                    Home_Phone__c: '(902) 123-1234',
+                    Mobile_Phone__c: '(902) 123-1234',
+                    Birthdate__c: 1449187200000,
+                    Nickname__c: 'Janietheterrible',
+                    Mailing_Street__c: 'myStreet',
+                    Mailing_City__c: 'Some City',
+                    Mailing_State_Province__c: 'NS',
+                    Mailing_Zip_Postal_Code__c: '12345',
+                    Primary__c: false
+                }],
+                multipleResults: false
+            };
+            $RAD.PullCredit = {
+                  rs: '{!$RemoteAction.vf_leadCreditTabs_ext.PullCreditEqfx}',
+                  fakeReturn: {
+                        Id: 'def123',
+                        Lead_Contact__c: '0031800000AnEfoAAF',
+                        FICO__c: '222',
+                        Status__c: 'Completed',
+                        Record_Type_Name__c: 'Equifax Consumer',
+                        URL_for_View_Link__c: 'http://google.ca/',
+                        Transaction_Date__c: '2016-01-27'
+                  },
+                  multipleResults: false
+            };
+            $RAD.SaveLead = {
+                  rs: '{!$RemoteAction.vf_leadCreditTabs_ext.SaveLead}',
+                  fakeReturn: {
+                        leadId: "abc12366666",
+                        leadContactId: "1234abc"
+                  },
+                  multipleResults: false
+            };
+            $RAD.SaveLeadContact = {
+                rs: '{!$RemoteAction.vf_leadCreditTabs_ext.SaveLeadContact}',
+                fakeReturn: 'abc123321321321999',
+                multipleResults: false
+            };
+        </script>
+
+
+         <script>
+            var serverMode = true;
+        </script>
+        
+    </head>
+
+    <body>
+        <!-- Content -->
+        <div ng-app="contactTabs" class="sfbs">
+            <div ng-controller="StandardController as ctrl" layout="column" ng-cloak="true">
+                <div class="container m-t-10">
+                    <!-- start main card -->
+                    <div class="card card-underline">
+                        <div class="card-head">
+                            <ul class="nav nav-tabs pull-left" data-toggle="tabs" id="tabs">
+                                <li ng-class="{'edit':'disabled','pull':'disabled'}[ctrl.mode]" ng-repeat="contact in ctrl.model.contacts"><a data-toggle="tab" ng-click="ctrl.changeContact(contact)" href="#" onclick="return testActive(this,event);"><i ng-if="contact.isPrimary" class="fa fa fa-bullseye m-r-5"></i><i ng-if="!contact.isPrimary" class="fa fa-user m-r-5"></i>{{contact.First_Name__c}} {{contact.Last_Name__c}}</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Contact Details Section -->
+                        <form name="Form">
+                            <div id="contactDetailsWrapper" ng-hide="ctrl.mode == 'empty'">
+                                <div class="card-head card-head-xs p-t-5 p-b-5 style-default-light">
+                                    <div class="pull-right m-r-10">
+                                        <button style="display: none"></button>
+                                        <button class="btn btn-success m-r-10" ng-click="ctrl.newContact()" ng-hide="ctrl.mode == 'edit' || ctrl.mode == 'pull'"><i class="zmdi zmdi-collection-plus"></i> &nbsp;New Contact</button>
+                                        <button class="btn btn-warning" ng-click="ctrl.edit()" ng-show="ctrl.mode == 'read'"><i class="zmdi zmdi-edit"></i> &nbsp;Edit Contact</button>
+                                        <!--<a class="btn btn-info m-l-10" ng-show="ctrl.mode == 'read'" target="blank" href="http://www.w3schools.com" disabled="true"><i class="fa fa-envelope-o"></i> &nbsp;Send App</a>-->
+                                        <button validation-submit="Form" class="btn btn-success m-r-10" ng-click="ctrl.save()" ng-show="ctrl.mode == 'edit'"><i class="zmdi zmdi-save"></i> &nbsp;Save Changes</button>
+                                        <!-- <button validation-submit="Form" class="btn btn-success m-r-10" ng-click="ctrl.save()" ng-show="ctrl.mode == 'edit' && ctrl.contactIndex == 0"><i class="zmdi zmdi-save"></i> &nbsp;Save &amp; Pull Credit</button> -->
+                                        <button class="btn btn-danger" ng-click="ctrl.cancelChanges()" ng-show="ctrl.mode == 'edit'"><i class="zmdi zmdi-undo"></i> &nbsp;Cancel</button>
+                                    </div>
+                                    <header>Contact Details</header>
+                                </div>
+                                <div class="card-body tab-content no-padding">
+                                    <div ng-hide="ctrl.contact == null">
+                                        <div ng-hide="ctrl.mode == 'empty'" class="contactDetails">
+                                            <div ng-hide="ctrl.mode == 'empty'" class="card-body no-padding">
+                                                <table class="table table-banded m-b-0">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td width="15%" class="text-muted">First Name:</td>
+                                                            <td width="15%">
+                                                                <span ng-hide="ctrl.mode == 'edit'">{{ctrl.contact.First_Name__c}}</span>
+                                                                <input type="text" class="w-100 p-l-5" ng-model="ctrl.contact.First_Name__c" ng-show="ctrl.mode == 'edit'" />
+                                                            </td>
+                                                            <td width="15%" class="control-label text-muted"><i class="fa fa-star m-l-5 c-red"></i> Last Name:</td>
+                                                            <td width="15%">
+                                                                <span ng-hide="ctrl.mode == 'edit'">{{ctrl.contact.Last_Name__c}}</span>
+                                                                <input type="text" required="true" class="w-100 p-l-5" ng-model="ctrl.contact.Last_Name__c" ng-show="ctrl.mode == 'edit'" />
+                                                            </td>
+                                                            <td width="15%" class="control-label text-muted">Title:</td>
+                                                            <td width="15%">
+                                                                <span ng-hide="ctrl.mode == 'edit'">{{ctrl.contact.Title__c}}</span>
+                                                                <input type="text" class="w-100 p-l-5" ng-model="ctrl.contact.Title__c" ng-show="ctrl.mode == 'edit'" />
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="control-label text-muted">Ownership %:</td>
+                                                            <td>
+                                                                <span ng-hide="ctrl.mode == 'edit'">{{ctrl.contact.Ownership_Percentage__c}}<span ng-show="ctrl.contact.Ownership_Percentage__c != null">%</span></span>
+                                                                <input type="number" maxlength="3" class="w-100 p-l-5" ng-model="ctrl.contact.Ownership_Percentage__c" ng-show="ctrl.mode == 'edit'" />
+                                                            </td>
+                                                            <td class="control-label text-muted">SSN:</td>
+                                                            <td>
+                                                                <span ng-hide="ctrl.mode == 'edit'">{{ctrl.contact.SSN_Encrypted__c}}</span>
+                                                                <input type="text" ng-focus="ctrl.contact.SSN_Encrypted__c = null" ui-mask="xxx-xx-xxxx" ui-mask-placeholder="___-__-____" ui-mask-placeholder-char="_" class="w-100 p-l-5" ng-model="ctrl.contact.SSN_Encrypted__c" ng-show="ctrl.mode == 'edit'" ui-options="ctrl.opts"
+                                                                />
+                                                            </td>
+                                                            <td class="control-label text-muted">Email:</td>
+                                                            <td>
+                                                                <span ng-hide="ctrl.mode == 'edit'">{{ctrl.contact.Email__c}}</span>
+                                                                <input type="email" name="email" class="w-100 p-l-5" ng-model="ctrl.contact.Email__c" ng-show="ctrl.mode == 'edit'" />
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td class="control-label text-muted">Mobile Phone:</td>
+                                                            <td>
+                                                                <span ng-hide="ctrl.mode == 'edit'">{{ctrl.contact.Mobile_Phone__c}}</span>
+                                                                <input type="text" class="w-100 p-l-5" ng-model="ctrl.contact.Mobile_Phone__c" ng-show="ctrl.mode == 'edit'" /><i class="fa fa-phone m-l-5 c-green" style="font-size: large;cursor: pointer;"  ng-click="ctrl.callMobilePhone()"></i>
+                                                            </td>
+                                                            <td class="control-label text-muted">Home Phone:</td>
+                                                            <td>
+                                                                <span ng-hide="ctrl.mode == 'edit'">{{ctrl.contact.Home_Phone__c}}</span>
+                                                                <input type="text" class="w-100 p-l-5" ng-model="ctrl.contact.Home_Phone__c" ng-show="ctrl.mode == 'edit'" /><i class="fa fa-phone m-l-5 c-green" style="font-size: large;cursor: pointer;" ng-click="ctrl.callHomePhone()"></i>
+                                                            </td>
+                                                            <td class="control-label text-muted">Date of Birth:</td>
+                                                            <td>
+                                                                <span ng-hide="ctrl.mode == 'edit'">{{ctrl.contact.Birthdate__c }}</span>
+                                                                <input class="w-100 p-l-5" ui-mask="99/99/9999" ui-mask-placeholder="__/__/____" ui-mask-placeholder-char="_" model-view-value="true" ng-model="ctrl.contact.Birthdate__c" ng-show="ctrl.mode == 'edit'" />
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="control-label text-muted">Nickname:</td>
+                                                            <td>
+                                                                <span ng-hide="ctrl.mode == 'edit'">{{ctrl.contact.Nickname__c}}</span>
+                                                                <input type="text" class="w-100 p-l-5" ng-model="ctrl.contact.Nickname__c" ng-show="ctrl.mode == 'edit'" />
+                                                            </td>
+                                                            <td></td>
+                                                            <td>
+                                                            </td>
+                                                            <td></td>
+                                                            <td>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end contact detail section -->
+                            <!-- Home Address Section -->
+                            <div id="homeAddressSection" ng-hide="ctrl.mode == 'empty'">
+                                <div class="card-head style-default-light card-head-xs p-t-5 p-b-5">
+                                    <div class="pull-right m-r-10">
+                                        <button class="btn btn-success" ng-click="ctrl.copyLeadAddress()" ng-hide="ctrl.mode == 'read' || ctrl.mode == 'pull'"><i class="fa fa-files-o"></i> &nbsp;Copy Lead Address</button>
+                                    </div>
+                                    <header>Home Address</header>
+                                </div>
+                                <div class="card-body tab-content no-padding">
+                                    <div ng-hide="ctrl.contact == null">
+                                        <div ng-hide="ctrl.mode == 'empty'" class="contactDetails">
+                                            <div ng-hide="ctrl.mode == 'empty'" class="card-body no-padding">
+                                                <table class="table table-banded m-b-0">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="control-label text-muted">Street Address:</td>
+                                                            <td colspan="5">
+                                                                <span ng-hide="ctrl.mode == 'edit'">{{ctrl.contact.Mailing_Street__c}}</span>
+                                                                <input type="text" class="w-100 p-l-5" ng-model="ctrl.contact.Mailing_Street__c" ng-show="ctrl.mode == 'edit'" ng-change="ctrl.addressChanged()" />
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="control-label text-muted">City:</td>
+                                                            <td>
+                                                                <span ng-hide="ctrl.mode == 'edit'">{{ctrl.contact.Mailing_City__c}}</span>
+                                                                <input id="city" type="text" class="w-100 p-l-5" ng-model="ctrl.contact.Mailing_City__c" ng-show="ctrl.mode == 'edit'" />
+                                                            </td>
+                                                            <td class="control-label text-muted">State:</td>
+                                                            <td>
+                                                                <span ng-hide="ctrl.mode == 'edit'">{{ctrl.contact.Mailing_State_Province__c}}</span>
+                                                                <input placeholder="e.g. NY" maxlength="2" type="text" class="w-100 p-l-5" ng-model="ctrl.contact.Mailing_State_Province__c" ng-show="ctrl.mode == 'edit'" />
+                                                            </td>
+                                                            <td class="control-label text-muted">Zip:</td>
+                                                            <td>
+                                                                <span ng-hide="ctrl.mode == 'edit'">{{ctrl.contact.Mailing_Zip_Postal_Code__c}}</span>
+                                                                <input type="text" minlength="5" maxlength="10" class="w-100 p-l-5" ng-model="ctrl.contact.Mailing_Zip_Postal_Code__c" ng-show="ctrl.mode == 'edit'" />
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="15%" class="control-label text-muted">Street Number:</td>
+                                                            <td width="15%" style="background-color: rgba(242,242,243,0.35);">
+                                                                <span ng-hide="ctrl.mode == 'edit'">{{ctrl.contact.Address_Number__c}}</span>
+                                                                <input type="text" class="w-100 p-l-5" ng-model="ctrl.contact.Address_Number__c" ng-show="ctrl.mode == 'edit'" />
+                                                            </td>
+                                                            <td width="15%" class="control-label text-muted">Street Name:</td>
+                                                            <td width="15%" style="background-color: rgba(242,242,243,0.35);">
+                                                                <span ng-hide="ctrl.mode == 'edit'">{{ctrl.contact.Street_Name__c}}</span>
+                                                                <input type="text" class="w-100 p-l-5" ng-model="ctrl.contact.Street_Name__c" ng-show="ctrl.mode == 'edit'" />
+                                                            </td>
+                                                            <td width="15%" class="control-label text-muted">Street Type:</td>
+                                                            <td width="15%" style="background-color: rgba(242,242,243,0.35);">
+                                                                <span ng-hide="ctrl.mode == 'edit'">{{ctrl.contact.Street_Type__c}}</span>
+                                                                <input type="text" class="w-100 p-l-5" ng-model="ctrl.contact.Street_Type__c" ng-show="ctrl.mode == 'edit'" />
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end home address section -->
+                        </form>
+                        <!-- credit results section -->
+                        <div id="creditResultsWrapper" ng-hide="ctrl.mode == 'edit' || ctrl.mode == 'empty'">
+                            <div class="card-head style-default-light card-head-xs p-t-5 p-b-5">
+                                <header>Credit Results</header>
+                            </div>
+                            <div ng-hide="ctrl.mode == 'empty'" class="card-body no-padding">
+                                <table class="table table-banded m-b-0">
+                                    <thead>
+                                        <tr>
+                                            <th class="p-l-15">Credit Bureau</th>
+                                            <th class="ha-center">Latest Pull Date</th>
+                                            <th class="ha-center">FICO Score</th>
+                                            <th class="ha-center">View Report</th>
+                                            <th class="ha-center">Status</th>
+                                            <th width="80" class="ha-center">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="p-l-15" width="20%">Equifax</td>
+                                            <td class="ha-center" width="20%">
+                                                <span ng-show='ctrl.model.contactEqfCreditResult[ctrl.contact.Id] == undefined'>
+                                            N/A
+                                        </span>
+                                                <span ng-show='ctrl.model.contactEqfCreditResult[ctrl.contact.Id] != undefined'>
+
+                                            {{ctrl.model.contactEqfCreditResult[ctrl.contact.Id].Transaction_Date__c | amDateFormat: "YYYY-MM-DD"}}
+
+                                        </span>
+                                            </td>
+                                            <td class="ha-center" width="20%">
+                                                <span ng-show='ctrl.model.contactEqfCreditResult[ctrl.contact.Id] == undefined'>
+
+                                            N/A
+
+                                        </span>
+                                                <span ng-show="ctrl.model.contactEqfCreditResult[ctrl.contact.Id] != undefined && ctrl.model.contactEqfCreditResult[ctrl.contact.Id].Status__c != 'Pending'">
+
+                                            {{ctrl.model.contactEqfCreditResult[ctrl.contact.Id].FICO__c}}
+
+                                        </span>
+                                            </td>
+                                            <td class="ha-center" width="20%">
+                                                <span ng-show='ctrl.model.contactEqfCreditResult[ctrl.contact.Id] == undefined'>
+
+                                            N/A
+
+                                        </span>
+                                                <span ng-show="ctrl.model.contactEqfCreditResult[ctrl.contact.Id] != undefined && ctrl.model.contactEqfCreditResult[ctrl.contact.Id].Status__c != 'Pending'">
+
+                                            <a target="_blank" href="{{ctrl.model.contactEqfCreditResult[ctrl.contact.Id].URL_for_View_Link__c}}">Click Here</a>
+
+                                        </span>
+                                            </td>
+                                            <td class="ha-center" width="20%">
+                                                <span ng-show='ctrl.model.contactEqfCreditResult[ctrl.contact.Id] == undefined'>
+
+                                            Awaiting Pull Request
+
+                                        </span>
+                                                <span ng-show='ctrl.model.contactEqfCreditResult[ctrl.contact.Id] != undefined'>
+
+                                            {{ctrl.model.contactEqfCreditResult[ctrl.contact.Id].Status__c}}
+
+                                        </span>
+                                            </td>
+                                            <td>
+                                                <button id="btnPullCredit" class="btn btn-primary btn-sm" ng-click="ctrl.pullCredit()" ng-disabled="ctrl.model.contactEqfCreditResult[ctrl.contact.Id].Status__c == 'Pending' || ctrl.checkResultTransDate(ctrl.model.contactEqfCreditResult[ctrl.contact.Id])">Pull Credit</button>
+                                                <!-- <button id="btnPullCredit" class="btn btn-primary btn-sm" ng-click="ctrl.edit()" ng-show="ctrl.contactIndex == 0">Pull Credit</button> -->
+                                            </td>
+                                        </tr>
+                                        <tr style="height: 51px" ng-hide="ctrl.mode == 'read'">
+                                            <td class="p-l-15">Experian</td>
+                                            <td class="ha-center">
+                                                <span ng-show='ctrl.model.contactExpCreditResult[ctrl.contact.Id] == undefined'>
+
+                                            N/A
+
+                                        </span>
+                                                <span ng-show='ctrl.model.contactExpCreditResult[ctrl.contact.Id] != undefined'>
+
+                                            {{ctrl.model.contactExpCreditResult[ctrl.contact.Id].Transaction_Date__c | amDateFormat: "YYYY-MM-DD"}}
+
+                                        </span>
+                                            </td>
+                                            <td class="ha-center">
+                                                <span ng-show='ctrl.model.contactExpCreditResult[ctrl.contact.Id] == undefined'>
+
+                                            N/A
+
+                                        </span>
+                                                <span ng-show='ctrl.model.contactExpCreditResult[ctrl.contact.Id] != undefined'>
+
+                                            {{ctrl.model.contactExpCreditResult[ctrl.contact.Id].FICO__c}}
+
+                                        </span>
+                                            </td>
+                                            <td class="ha-center">
+                                                <span ng-show='ctrl.model.contactExpCreditResult[ctrl.contact.Id] == undefined'>
+
+                                            N/A
+
+                                        </span>
+                                                <span ng-show="ctrl.model.contactExpCreditResult[ctrl.contact.Id] != undefined && ctrl.model.contactExpCreditResult[ctrl.contact.Id].Status__c != 'Pending'">
+
+                                            <a target="_blank" href="{{ctrl.model.contactExpCreditResult[ctrl.contact.Id].URL_for_View_Link__c}}">Click Here</a>
+
+                                        </span>
+                                            </td>
+                                            <td class="ha-center">
+                                                <span ng-show='ctrl.model.contactExpCreditResult[ctrl.contact.Id] == undefined'>
+
+                                            N/A
+
+                                        </span>
+                                                <span ng-show='ctrl.model.contactExpCreditResult[ctrl.contact.Id] != undefined'>
+
+                                            {{ctrl.model.contactExpCreditResult[ctrl.contact.Id].Status__c}}
+
+                                        </span>
+                                            </td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content End -->
+
+        <!-- Other JS -->
+        <apex:includeScript value="{!URLFOR($Resource.tcrmMaterialSkin,'third-party/bootstrap/dist/js/bootstrap.min.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.tcrmMaterialSkin,'third-party/angular-animate/angular-animate.min.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.tcrmMaterialSkin,'js/App.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.tcrmMaterialSkin,'js/AppCard.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.tcrmMaterialSkin,'js/AppForm.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.tcrmMaterialSkin,'js/AppNavigation.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.tcrmMaterialSkin,'js/AppNavSearch.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.tcrmMaterialSkin,'js/AppOffcanvas.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.tcrmMaterialSkin,'js/AppVendor.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.tcrmMaterialSkin,'third-party/ng-dialog/js/ngDialog.min.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.tcrmMaterialSkin,'third-party/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.tcrmCreditLeadTabs,'third-party/angular-ui-mask/dist/mask.min.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.tcrmCreditLeadTabs,'third-party/moment/min/moment.min.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.tcrmCreditLeadTabs,'third-party/angular-moment/angular-moment.min.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.tcrmCreditLeadTabs,'third-party/sweetalert/dist/sweetalert.min.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.tcrmCreditLeadTabs,'third-party/ngSweetAlert/SweetAlert.min.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.tcrmCreditLeadTabs,'third-party/angular-validation/dist/angular-validation.min.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.tcrmCreditLeadTabs,'third-party/angular-validation/dist/angular-validation-rule.min.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.tcrmCreditLeadTabs,'js/src/ang.app.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.tcrmCreditLeadTabs,'js/ang.templates.min.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.tcrmCreditLeadTabs,'js/fix.min.js')}" />
+    </body>
+
+    </html>
+</apex:page>

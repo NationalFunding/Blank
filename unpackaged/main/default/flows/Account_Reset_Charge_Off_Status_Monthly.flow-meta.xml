@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>52.0</apiVersion>
+    <decisions>
+        <name>Day_of_the_Month_Check</name>
+        <label>Day of the Month Check</label>
+        <locationX>324</locationX>
+        <locationY>424</locationY>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>formula_ResetChargeOffDate</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Reset_Charge_Off_Status</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <description>Looks for accounts where Charge Off status = &quot;Excluded from Charge Off&quot; and resets them back to &quot;Monitoring&quot;
+
+Last Update: Changing day of the month to a configurable custom setting - Collections Custom Settings.Charge Off Reset Day</description>
+    <environments>Default</environments>
+    <formulas>
+        <description>The flow should only continue if the date is the fifth of the month</description>
+        <name>formula_ResetChargeOffDate</name>
+        <dataType>Boolean</dataType>
+        <expression>IF(
+Date(
+  YEAR(TODAY()),
+  MONTH(TODAY()),
+  {!$Setup.Collections_Custom_Settings__c.Charge_Off_Reset_Day__c}) = TODAY(),
+TRUE,
+FALSE
+)</expression>
+    </formulas>
+    <interviewLabel>Account - Reset Charge Off Status Monthly {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Account - Reset Charge Off Status Monthly</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Reset_Charge_Off_Status</name>
+        <label>Reset Charge Off Status</label>
+        <locationX>332</locationX>
+        <locationY>599</locationY>
+        <inputAssignments>
+            <field>Chargeoff_Status__c</field>
+            <value>
+                <stringValue>Monitoring</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>206</locationX>
+        <locationY>169</locationY>
+        <connector>
+            <targetReference>Day_of_the_Month_Check</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Chargeoff_Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Excluded from Chargeoff</stringValue>
+            </value>
+        </filters>
+        <object>Account</object>
+        <schedule>
+            <frequency>Daily</frequency>
+            <startDate>2023-11-01</startDate>
+            <startTime>04:00:00.000Z</startTime>
+        </schedule>
+        <triggerType>Scheduled</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

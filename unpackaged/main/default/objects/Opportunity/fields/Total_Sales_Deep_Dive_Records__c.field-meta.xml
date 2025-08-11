@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Sales_Deep_Dive_Records__c</fullName>
+    <description>Roll-up summary field that counts the total number of Sales Deep Dive records associated to the Opportunity</description>
+    <label>Total Sales Deep Dive Records</label>
+    <summaryForeignKey>Sales_Deep_Dive__c.Opportunity__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Set_Reason_Closed</fullName>
+    <active>true</active>
+    <description>Set Reason Closed if Stage = Offer(s) Not Accepted</description>
+    <errorConditionFormula>AND (
+ISPICKVAL(StageName, "Offer(s) Not Accepted"),
+ISPICKVAL( Reason_Closed__c, "" )
+)</errorConditionFormula>
+    <errorMessage>You must enter a Reason if Stage set to Offer(s) Not Accepted.  Please check the field Reason Closed.</errorMessage>
+</ValidationRule>

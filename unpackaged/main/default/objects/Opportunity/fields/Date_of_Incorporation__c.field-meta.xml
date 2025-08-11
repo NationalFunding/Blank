@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Date_of_Incorporation__c</fullName>
+    <description>Customer's Company Date of Incorporation</description>
+    <inlineHelpText>Type in the Date of Incorporation of the Corporation</inlineHelpText>
+    <label>Date of Incorporation</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

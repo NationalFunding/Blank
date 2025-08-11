@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Contains Quick Bridge review links for specific lead sources. Links will be texted to contacts post-funding</description>
+    <label>Customer Review Link (QB)</label>
+    <pluralLabel>Customer Review Links (QB)</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

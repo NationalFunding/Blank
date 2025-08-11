@@ -1,0 +1,76 @@
+<apex:page controller="CardSearchController1_v2" id="test" standardStylesheets="false" showHeader="false">
+    <apex:includeScript value="/support/console/37.0/integration.js"/>
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" />
+    <apex:stylesheet value="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"/>
+    <apex:stylesheet value="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+     <script type="text/javascript">
+
+        var listener = function (result) {
+            sforce.console.setCustomConsoleComponentVisible(true);
+            //lert('Message received from event: ' + result.message);
+        };
+        //Add a listener for the 'FireEvent' event type
+        sforce.console.addEventListener('FireEvent', listener);
+    </script>
+    <script type="text/javascript">         
+    var j$ = jQuery.noConflict();     
+         j$(document).ready(function(){
+             j$('#clickHere').click(function(){
+                 var xyz = j$('#userInput').val();
+                 console.log(xyz);
+                 openPrimaryTab(xyz);
+                 //alert(xyz);
+            });
+        });         
+  </script>
+<div class="jumbotron">
+  <apex:form id="f1">
+      <b>Card Search: </b><input type="text" id="userInput"/>  
+      <button herf="#" id="clickHere" class="btn btn-primary">Submit</button>
+  </apex:form>
+</div>    
+
+    
+        
+   
+<script type="text/javascript">
+    function openPrimaryTab(callId) {
+        console.log(callId);
+        sforce.console.openPrimaryTab(undefined,
+                                      '/apex/ConsoleCardSearch?name=' + callId, true, 'Card Search', testSetCustomConsoleComponentVisible);
+    }
+  
+    //The callback function that openSubtab will call once it has the ID for its primary tab
+    var callOpenSubtab=function callOpenSubtab(result) {
+        sforce.console.openSubtab(result.id,
+                                  '/apex/cardSearchPage1', true, 'example');
+    };
+    function testSetCustomConsoleComponentVisible() {
+// Make the custom console component window visible
+sforce.console.setCustomConsoleComponentVisible(false);
+}
+  
+function testGetPageInfo() {
+//Get the page information of 'scc-pt-1'
+//This value is for example purposes only
+var tabId = 'scc-pt-1';
+sforce.console.getPageInfo(tabId , showPageInfo);
+}
+var showPageInfo = function showPageInfo(result) {
+console.log('Page Info: ' + result.pageInfo);
+};
+
+function testIsCustomConsoleComponentHidden() {
+sforce.console.isCustomConsoleComponentHidden(checkWindowVisibility);
+}
+var checkWindowVisibility = function checkWindowVisibility(result) {
+//Display the window visibility
+if (result.success) {
+alert('Is window hidden: ' + result.hidden);
+} else {
+openPrimaryTab();
+}
+}
+
+    </script>
+</apex:page>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Net_to_Customer_is_Inaccurate</fullName>
+    <active>false</active>
+    <errorConditionFormula>((ISPICKVAL(BofI_Deal__c,'Yes') &amp;&amp; 
+NOT(ISPICKVAL(Type,'NEW'))) || 
+ISPICKVAL(Type,'NEW')) &amp;&amp; 
+(RecordType.Name = 'Working Capital Oppty' ||
+RecordType.Name = 'Broker WC Oppty') &amp;&amp;
+Net_to_Customer__c &lt;&gt; Sum_of_Default_ACH_Payments__c - Current_Balance__c &amp;&amp;
+DATEVALUE(Fund_Date__c) &gt; DATE(2015,4,3)</errorConditionFormula>
+    <errorMessage>'Net to Customer' must be equal to 'Sum of Default ACH Payments' - 'Existing Loan Balance'</errorMessage>
+</ValidationRule>

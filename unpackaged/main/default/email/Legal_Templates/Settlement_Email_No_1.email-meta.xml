@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank</letterhead>
+    <name>Settlement Email No. 1</name>
+    <style>freeForm</style>
+    <subject>{!advpm__Matter__c.Loan_Number__c} - {!advpm__Matter__c.Name_of_Borrower__c}</subject>
+    <textOnly>To {!advpm__Matter__c.advpm__Primary_Contact__c},
+
+Your loan with {!advpm__Matter__c.Originating_Lender__c} has recently charged off due to non-payment and has been sent to us, the legal department for review. The amount due on the loan is {!advpm__Matter__c.Outstanding_Balance__c}. We understand that we are all going through uncertain times right now and therefore wanted to reach out to see if you were interested in working out some sort of payment resolution without having to go the litigation route.
+
+Please feel free to call and/or email us to discuss further.
+
+
+Sincerely,
+
+
+{!User.Name} | {!User.Title}
+
+{!advpm__Matter__c.Email_Signature_Company__c}
+
+{!$Setup.Company_Information__c.Street__c}
+{!$Setup.Company_Information__c.City__c}, {!$Setup.Company_Information__c.State__c} {!$Setup.Company_Information__c.Zip__c}
+P: {!User.Phone} | F: {!User.Fax}
+E: {!User.Email}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

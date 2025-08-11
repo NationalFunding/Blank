@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TERMS_AMOUNT__c</fullName>
+    <description>Term amounts of the customer's lease / loan reference.</description>
+    <inlineHelpText>Type in the term amounts of the customer's lease / loan reference.</inlineHelpText>
+    <label>TERMS_AMOUNT</label>
+    <precision>17</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Trigger_Assignment__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Triggers record distribution process</description>
+    <inlineHelpText>Check box to assign record using Distribution Rules</inlineHelpText>
+    <label>Trigger Assignment</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

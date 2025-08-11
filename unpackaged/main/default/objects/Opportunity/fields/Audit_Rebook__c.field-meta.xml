@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Audit_Rebook__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Audit Rebook</description>
+    <inlineHelpText>Check box if an audit required deal to be rebooked.</inlineHelpText>
+    <label>Audit Rebook</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

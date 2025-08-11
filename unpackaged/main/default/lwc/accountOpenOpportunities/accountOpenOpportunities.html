@@ -1,0 +1,166 @@
+<template>
+
+    <lightning-card title={title} icon-name="standard:opportunity">
+
+        <lightning-accordion allow-multiple-sections-open active-section-name={activeSections}>
+
+            <!-- If Opportunity Data is Returned -->
+            <template if:true={opportunities}>
+
+                <ul class="slds-has-dividers_around-space">
+
+                    <template for:each={opportunities} for:item="opportunity">
+
+                        <lightning-accordion-section name={opportunity.Id} key={opportunity.Id}
+                            label={opportunity.Name}>
+
+                            <div slot="actions">
+                                <lightning-button-icon icon-name="utility:info" variant="bare"
+                                    alternative-text="Open record" onclick={navigateToRecord} value={opportunity.Id}
+                                    data-id={opportunity.Id}>
+                                </lightning-button-icon>
+                            </div>
+
+                            <div class="slds-title__detail">
+                                <dl class="slds-dl_horizontal">
+                                    <dt class="slds-dl_horizontal__label">Type:</dt>
+                                    <dd class="slds-dl_horizontal__detail">
+                                        {opportunity.Type}
+                                    </dd>
+                                    <!-- <dt class="slds-dl_horizontal__label">Product:</dt>
+                                    <dd class="slds-dl_horizontal__detail">
+                                        {opportunity.RecordTypeId}
+                                    </dd> -->
+                                    <dt class="slds-dl_horizontal__label">Amount:</dt>
+                                    <dd class="slds-dl_horizontal__detail">
+                                        <lightning-formatted-number value={opportunity.Pipeline_Amount__c} format-style="currency"
+                                            currency-code="USD"></lightning-formatted-number>
+                                    </dd>
+                                    <dt class="slds-dl_horizontal__label">Stage:</dt>
+                                    <dd class="slds-dl_horizontal__detail">
+                                        {opportunity.StageName}
+                                    </dd>
+
+                                </dl>
+                            </div>
+
+                        </lightning-accordion-section>
+
+                    </template>
+
+                </ul>
+
+            </template>
+
+            <button class="slds-button slds-button_neutral" onclick={openModal} if:true={createOpportunity}>
+                Create New Opportunity
+            </button>
+
+            <!-- If NO Opportunity Data is Returned -->
+            <template if:false={opportunities}>
+            </template>
+
+        </lightning-accordion>
+
+    </lightning-card>
+
+
+    <!-- Opportunity Create Modal -->
+    <template if:true={oppModal}>
+
+        <div class="demo-only" style="height: 640px;">
+
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+
+                <div class="slds-modal__container">
+
+                    <header class="slds-modal__header">
+
+                        <!-- TITLE -->
+                        <h2 id="modal-heading-02" class="slds-text-heading_medium slds-hyphenate">
+                            Create new Opportunity
+                        </h2>
+
+                    </header>
+
+                    <!-- BODY -->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-2">
+
+                        <!-- CREATE CONTACT -->
+                        <lightning-card>
+
+                            <!-- Lightning Messages Display -->
+                            <lightning-messages></lightning-messages>
+
+                            <!-- Contact Edit Form -->
+                            <div class="slds-grid slds-gutters">
+
+                                <div class="slds-col">
+
+                                    <!-- Record Type -->
+                                    <lightning-combobox 
+                                        name="ProductType"
+                                        label="Product Type" 
+                                        placeholder="Choose Product"
+                                        value={rtValue} 
+                                        options={oppRecordTypes}
+                                        onchange={handleProductChange}>
+                                    </lightning-combobox>
+
+                                    <!-- Type -->
+                                    <lightning-combobox 
+                                        name="OppType"
+                                        label="Type" 
+                                        placeholder="Choose Type"
+                                        value={typeValue} 
+                                        options={oppTypes}
+                                        onchange={handleTypeChange}>
+                                    </lightning-combobox>
+
+                                </div>
+
+                                <div class="slds-col">
+
+                                    <!-- Amount -->
+                                    <lightning-input 
+                                        label="Amount"
+                                        onchange={handleAmountChange} 
+                                        type="text">
+                                    </lightning-input>
+
+                                </div>
+                            </div>
+
+                            <br><br><br><br><br>
+
+                        </lightning-card>
+                    </div>
+
+                    <!-- FOOTER -->
+                    <footer class="slds-modal__footer">
+                        <!-- Cancel Button -->
+                        <lightning-button label="Cancel" variant="neutral" onclick={closeModal}>
+                        </lightning-button>
+
+                        <!-- Spacing -->
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+
+                        <!-- Update/Save Button -->
+                        <lightning-button label="Create" variant="brand" type="submit" onclick={createOpp}>
+                        </lightning-button>
+
+                    </footer>
+
+                </div>
+
+            </section>
+            <!-- Create Shading for Modal -->
+            <div class="slds-backdrop slds-backdrop_open"></div>
+
+        </div>
+
+    </template>
+
+
+</template>

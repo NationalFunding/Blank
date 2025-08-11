@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Includes the necessary Renewal Grade permissions for a User.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Renewal Grade User</label>
+    <permissionSets>Renewal_Grade_Data</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>

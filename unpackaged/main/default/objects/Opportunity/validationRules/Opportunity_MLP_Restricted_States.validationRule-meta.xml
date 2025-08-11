@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opportunity_MLP_Restricted_States</fullName>
+    <active>false</active>
+    <description>restrict users from saving Direct MLP record if physical address is at certain states PD-302</description>
+    <errorConditionFormula>AND(
+				ISCHANGED(StageName),
+				ISPICKVAL(StageName,"Statements In - MCA"),
+    RecordType.DeveloperName="Direct_MLP", 				
+    CONTAINS($Label.1013n000000dV1k,Physical_Address_State__c)
+				)</errorConditionFormula>
+    <errorMessage>MLP is restricted in the physical state of this customer</errorMessage>
+</ValidationRule>

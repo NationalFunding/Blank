@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Signor</fullName>
+        <color>#009900</color>
+        <default>true</default>
+        <label>Signor</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Guarantor 2</fullName>
+        <color>#33FF33</color>
+        <default>false</default>
+        <label>Guarantor 2</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Guarantor 3</fullName>
+        <color>#33FF33</color>
+        <default>false</default>
+        <label>Guarantor 3</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Guarantor 4</fullName>
+        <color>#33FF33</color>
+        <default>false</default>
+        <label>Guarantor 4</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Guarantor 5</fullName>
+        <color>#33FF33</color>
+        <default>false</default>
+        <label>Guarantor 5</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Guarantor 6</fullName>
+        <color>#33FF33</color>
+        <default>false</default>
+        <label>Guarantor 6</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Co-Lessee</fullName>
+        <color>#003300</color>
+        <default>false</default>
+        <label>Co-Lessee</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Assistant</fullName>
+        <color>#FFFF66</color>
+        <default>false</default>
+        <label>Assistant</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Gatekeeper</fullName>
+        <color>#FF0000</color>
+        <default>false</default>
+        <label>Gatekeeper</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Spouse of Signor / Guarntor</fullName>
+        <color>#FF0000</color>
+        <default>false</default>
+        <label>Spouse of Signor / Guarntor</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Contact- Without Ownership</fullName>
+        <color>#FF0000</color>
+        <default>false</default>
+        <label>Contact- Without Ownership</label>
+    </standardValue>
+</StandardValueSet>

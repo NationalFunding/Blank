@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CampaignId</fullName>
+    <inlineHelpText>ID field that points to a Campaign.  this is the base campaign that is tagged with this lead.  This used to be the campaign related to the card activation.</inlineHelpText>
+    <type>Lookup</type>
+</CustomField>

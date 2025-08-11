@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Renewal Team Lead</label>
+    <permissionSets>Allow_Edit_NF_Renewal_Rep_on_Account</permissionSets>
+    <permissionSets>Exception_Requests_New_Buy_Rate</permissionSets>
+    <permissionSets>Exception_Requests_Override_ER_Summary_Limitation</permissionSets>
+    <permissionSets>Transfer_Opportunities</permissionSets>
+    <permissionSets>Transfer_Record_Ownership</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>

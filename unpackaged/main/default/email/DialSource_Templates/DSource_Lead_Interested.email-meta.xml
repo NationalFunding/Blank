@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>DialSource - Sent when disposition is Interested</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Naitonal_Funding_Standard_Letterhead_Stack</letterhead>
+    <name>DSource - Lead - Interested</name>
+    <style>freeForm</style>
+    <subject>Application Instructions</subject>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

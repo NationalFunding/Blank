@@ -1,0 +1,21 @@
+Hi {!Contact.FirstName},
+
+Please allow me to introduce myself. My name is {!User.Name}, and I work in the Renewal Department for National Funding. Our company was previously known as Five Point Capital. What you may not know is that National Funding is now a direct lender, which means we can better serve more clients. Back in November of 2009 you worked with us to receive working capital. Your business is now eligible for additional funding – with a possible increase in funding amount and longer terms!
+ 
+I have attached an updated copy of the verification form.  Please sign & date and send back with:
+ 
+The last 6 months of business bank account statements (April - September) and MTD for current month.
+The page of your 2013 business tax return that lists gross revenue.
+ 
+If you have any cash-flow needs, please contact me to review our special renewal program.
+ 
+Have a good day,
+{!User.Name}
+
+
+
+{!User.Name}
+{!User.Title}
+www.nationalfunding.com
+P: {!User.Phone} | F: {!User.Fax}
+Email: {!User.Email}

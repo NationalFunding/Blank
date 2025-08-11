@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Naitonal_Funding_Standard_Letterhead_Stack</letterhead>
+    <name>4. EDR/TC Template – Account Management (ready for Renewal)</name>
+    <style>freeForm</style>
+    <subject>Per your request – Renewal Application Generated</subject>
+    <textOnly>Hi {!Contact.FirstName},
+
+Thank you again for your time today. I look forward to securing the additional funding for your business.
+
+As we discussed, please provide the following:
+
+- Last 6 months of your business bank statements
+- Signed application - (sent to you electronically for e-signature)
+
+Please feel free to reach out with any additional questions.
+
+Thank you,
+{!User.Name}
+
+{!User.Name}
+{!User.Title}
+www.nationalfunding.com
+P: {!User.Phone} | F: {!User.Fax}
+Email: {!User.Email}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

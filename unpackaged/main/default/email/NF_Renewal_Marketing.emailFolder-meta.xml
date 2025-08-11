@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <accessType>Shared</accessType>
+    <name>NF - Renewal Marketing</name>
+    <publicFolderAccess>ReadOnly</publicFolderAccess>
+    <sharedTo>
+        <role>ExecutiveCEO</role>
+        <role>Marketing_Manager</role>
+        <role>MktgCoordinator</role>
+        <role>Renewal_Sales_Manager</role>
+        <role>Salesforce_Admin</role>
+    </sharedTo>
+</EmailFolder>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>true</sorted>
+    <standardValue>
+        <fullName>Approved</fullName>
+        <default>false</default>
+        <label>Approved</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Bounced</fullName>
+        <default>false</default>
+        <label>Bounced</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Clicked</fullName>
+        <default>false</default>
+        <label>Clicked</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Closed Won</fullName>
+        <default>false</default>
+        <label>Closed Won</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Contacted</fullName>
+        <default>false</default>
+        <label>Contacted</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Customer Marketing</fullName>
+        <default>false</default>
+        <label>Customer Marketing</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Delivered</fullName>
+        <default>false</default>
+        <label>Delivered</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Disqualified Contact</fullName>
+        <default>false</default>
+        <label>Disqualified Contact</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Disqualified Lead</fullName>
+        <default>false</default>
+        <label>Disqualified Lead</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Docs In</fullName>
+        <default>false</default>
+        <label>Docs In</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Docs Out</fullName>
+        <default>false</default>
+        <label>Docs Out</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Interested Resp</fullName>
+        <default>false</default>
+        <label>Interested Resp</label>
+    </standardValue>
+    <standardValue>
+        <fullName>MEL</fullName>
+        <default>false</default>
+        <label>MEL</label>
+    </standardValue>
+    <standardValue>
+        <fullName>MQL</fullName>
+        <default>false</default>
+        <label>MQL</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Offer In</fullName>
+        <default>false</default>
+        <label>Offer In</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Offer Out</fullName>
+        <default>false</default>
+        <label>Offer Out</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Opened</fullName>
+        <default>false</default>
+        <label>Opened</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Pre-Qual MCA</fullName>
+        <default>false</default>
+        <label>Pre-Qual MCA</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Queued</fullName>
+        <default>false</default>
+        <label>Queued</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Received</fullName>
+        <default>false</default>
+        <label>Received</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Recycled Contact</fullName>
+        <default>false</default>
+        <label>Recycled Contact</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Recycled Lead</fullName>
+        <default>false</default>
+        <label>Recycled Lead</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Re-Engaged Contact</fullName>
+        <default>false</default>
+        <label>Re-Engaged Contact</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Responded</fullName>
+        <default>false</default>
+        <label>Responded</label>
+    </standardValue>
+    <standardValue>
+        <fullName>SAL</fullName>
+        <default>false</default>
+        <label>SAL</label>
+    </standardValue>
+    <standardValue>
+        <fullName>SEL</fullName>
+        <default>false</default>
+        <label>SEL</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Sent</fullName>
+        <default>false</default>
+        <label>Sent</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Statements In</fullName>
+        <default>false</default>
+        <label>Statements In</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Submission</fullName>
+        <default>false</default>
+        <label>Submission</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Unsubscribed</fullName>
+        <default>false</default>
+        <label>Unsubscribed</label>
+    </standardValue>
+</StandardValueSet>

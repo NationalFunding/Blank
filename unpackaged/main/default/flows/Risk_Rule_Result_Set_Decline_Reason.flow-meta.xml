@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <assignments>
+        <name>Set_Decline_Reason</name>
+        <label>Set Decline Reason</label>
+        <locationX>50</locationX>
+        <locationY>503</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Decline_Reason__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Risk_Rule_Result_Decline_Reason_Mapping.Decline_Reason__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Decline_Email_Reason__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Risk_Rule_Result_Decline_Reason_Mapping.Decline_Email_Reason__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.FICO_Score_Decline__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Risk_Rule_Result_Decline_Reason_Mapping.FICO_Score_Decline__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Incomplete_Application__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Risk_Rule_Result_Decline_Reason_Mapping.Incomplete_Application__c</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <constants>
+        <name>con_Minimum_FICO_LT</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Minimum FICO LT</stringValue>
+        </value>
+    </constants>
+    <decisions>
+        <name>Decline_Reason_Mapping_Returned</name>
+        <label>Decline Reason Mapping Returned?</label>
+        <locationX>182</locationX>
+        <locationY>395</locationY>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Decline_Reason_Returned</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Risk_Rule_Result_Decline_Reason_Mapping</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Decline_Reason</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <description>Populates Decline Reason &amp; Reg B Decline Reason based on the Rule Name.
+CRD-182</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>form_Rule_Name</name>
+        <dataType>String</dataType>
+        <expression>IF(
+	BEGINS({!$Record.Rule_Name__c}, {!con_Minimum_FICO_LT}),
+	&quot;Minimum Score LT &lt;score&gt; Decline&quot;,
+	{!$Record.Rule_Name__c}
+)</expression>
+    </formulas>
+    <interviewLabel>Risk Rule Result - Set Decline Reason {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Risk Rule Result - Set Decline Reason</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Risk_Rule_Result_Decline_Reason_Mapping</name>
+        <label>Get Risk Rule Result Decline Reason Mapping</label>
+        <locationX>182</locationX>
+        <locationY>287</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Decline_Reason_Mapping_Returned</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Oscilar_Rule_Name__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>form_Rule_Name</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Risk_Rule_Result_Decline_Reason_Mapping__mdt</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Risk_Rule_Result_Decline_Reason_Mapping</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Rule_Name__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Decline_Reason__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>Risk_Rule_Result__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

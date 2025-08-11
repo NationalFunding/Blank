@@ -1,0 +1,44 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="400" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[<font face="arial" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><span style="font-size: 12pt;">Hello,&nbsp;</span></font><div style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><br></div><div style=""><p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><span style="font-size: 12pt; line-height: 107%; font-family: Arial, sans-serif;">Please complete the
+attached form and send back with:<o:p></o:p></span></p><ul type="disc" style="">
+ <li class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; line-height: normal;"><span style="font-size:12.0pt;font-family:&quot;Arial&quot;,sans-serif;mso-fareast-font-family:
+     &quot;Times New Roman&quot;">Voided check for new account<o:p></o:p></span></li>
+ <li class="MsoNormal" style="line-height: normal;"><font face="Arial, sans-serif"><span style="font-size: 12pt;">Previous account: </span>{!Case.Last_Month__c}<span style="font-size: 12pt;">&nbsp;and transactions
+     history to the date of account closing. <o:p></o:p></span></font></li>
+ <li class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; line-height: normal;"><span style="font-size:12.0pt;font-family:&quot;Arial&quot;,sans-serif;mso-fareast-font-family:
+     &quot;Times New Roman&quot;">Please answer the following questions:<o:p></o:p></span></li>
+</ul><p class="MsoListParagraphCxSpFirst" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; margin-left: 1in; text-indent: -0.25in; line-height: normal;"><!--[if !supportLists]--><span style="font-size: 12pt; font-family: &quot;Courier New&quot;;">o<span style="font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;
+</span></span><!--[endif]--><span style="font-size: 12pt; font-family: Arial, sans-serif;">Why the need for
+Modification?<o:p></o:p></span></p><p class="MsoListParagraphCxSpMiddle" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; margin-left: 1in; text-indent: -0.25in; line-height: normal;"><!--[if !supportLists]--><span style="font-size: 12pt; font-family: &quot;Courier New&quot;;">o<span style="font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;
+</span></span><!--[endif]--><span style="font-size: 12pt; font-family: Arial, sans-serif;">When will you be able to
+resume full payments?<o:p></o:p></span></p><p class="MsoListParagraphCxSpLast" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; margin-left: 1in; text-indent: -0.25in; line-height: normal;"><!--[if !supportLists]--><span style="font-size: 12pt; font-family: &quot;Courier New&quot;;">o<span style="font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;
+</span></span><!--[endif]--><span style="font-size: 12pt; font-family: Arial, sans-serif;">When will you be able to
+catch up missed payments?<o:p></o:p></span></p><ul type="disc" style="">
+ <li class="MsoNormal" style="line-height: normal;"><font face="Arial, sans-serif"><span style="font-size: 12pt;">New account: </span>{!Case.Two_Months_Ago__c}<span style="font-size: 12pt;">&nbsp;and </span>{!Case.Last_Month__c}&nbsp;<span style="font-size: 12pt;">bank statements and a month to date transaction history
+     for </span>{!Case.Current_Month__c}<span style="font-size: 12pt;">&nbsp;</span></font><span style="color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot;, serif; font-size: 12pt;"><o:p></o:p></span></li>
+ <ul type="circle" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;">
+  <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;line-height:normal;mso-list:l0 level2 lfo1;tab-stops:list 1.0in"><b><u><span style="font-size: 12pt; font-family: Arial, sans-serif;">OR</span></u></b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> if account was just opened, please provide a letter from
+      the bank detailing: Account Name, Account Number, Routing Number, and
+      Current balance.</span><span style="font-size:12.0pt;font-family:&quot;Arial&quot;,sans-serif"><o:p></o:p></span></li>
+ </ul>
+</ul><p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;">
+
+
+
+
+
+
+
+
+
+
+
+</p><p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; margin-left: 0.5in; line-height: normal;"><b><span style="font-family:&quot;Arial&quot;,sans-serif">*all
+missed payments will require a catchup plan to be setup within 1 month of
+payment resuming*&nbsp;</span></b><span style="font-size:12.0pt;font-family:
+&quot;Arial&quot;,sans-serif"><o:p></o:p></span></p></div><div style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><div style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><br></div><div style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><br></div><div style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;">Thank you,&nbsp;</div><div style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><br></div><div style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><div style="font-size: medium; background-color: rgb(255, 255, 255); font-family: &quot;Times New Roman&quot;;"><font face="arial">{!User.Name} |&nbsp;</font><span style="font-family: arial;">{!User.Title}</span></div><div style="font-size: medium; background-color: rgb(255, 255, 255); font-family: &quot;Times New Roman&quot;;"><span style="font-family: arial;"><br></span></div><div style="background-color: rgb(255, 255, 255);"><p class="MsoNormal" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><font face="Arial, sans-serif"><b>{!Case.Email_Signature_Company__c}</b></font></p></div><div style="background-color: rgb(255, 255, 255);"><div>{!$Setup.Company_Information__c.Street__c}</div><div>{!$Setup.Company_Information__c.City__c}, {!$Setup.Company_Information__c.State__c} {!$Setup.Company_Information__c.Zip__c}</div></div><div style="font-size: medium; background-color: rgb(255, 255, 255); font-family: &quot;Times New Roman&quot;;"><font face="arial">P:&nbsp;{!User.Phone} | F:&nbsp;{!User.Fax}</font></div><div style="font-size: medium; background-color: rgb(255, 255, 255); font-family: &quot;Times New Roman&quot;;"><span style="font-family: arial;">E:&nbsp;{!User.Email}</span></div></div></div>]]></td>
+</tr>
+</table>

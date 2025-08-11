@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Legal_Name__c</fullName>
+    <description>the account's legal name as filed with the Secretary of State.</description>
+    <externalId>true</externalId>
+    <inlineHelpText>the account's legal name as filed with the Secretary of State.</inlineHelpText>
+    <label>Legal Name</label>
+    <length>128</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

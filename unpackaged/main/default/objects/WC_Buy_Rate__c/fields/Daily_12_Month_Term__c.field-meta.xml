@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Daily_12_Month_Term__c</fullName>
+    <defaultValue>1.28</defaultValue>
+    <description>4/30/2018 - Previous value 1.30, 1/1/2019 - previous value 1.26</description>
+    <externalId>false</externalId>
+    <label>Daily 12 Month Term</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>4</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

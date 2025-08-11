@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SOS__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>SOS in good standing - status</description>
+    <inlineHelpText>Check box if SOS (Secretary of State) is in good standing.</inlineHelpText>
+    <label>SOS</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

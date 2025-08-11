@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>Contains all the settings for Round Robin auto assignment. Used in Internet Auto Assign flows.</description>
+    <enableFeeds>false</enableFeeds>
+    <label>Auto Assign Settings</label>
+    <visibility>Public</visibility>
+</CustomObject>

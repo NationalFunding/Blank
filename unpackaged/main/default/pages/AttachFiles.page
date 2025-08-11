@@ -1,0 +1,7 @@
+<apex:page >
+   <apex:sectionHeader subtitle="Upload the Customer's Signed Application and Bank Statements" description="<strong>An analyst from National Funding will contact you shortly regarding your submission.  If you have any questions in the meantime, please call your Partner Relationship Manager.</strong><br><br><strong>  When you have completed uploading documents, please click the Finished Uploading button and you will be returned to Partner Reports.  Thank you!</strong>"/>
+     <c:AttachFilesComponent recordNewid="{!$CurrentPage.parameters.recordid}" 
+                            recordname="{!$CurrentPage.parameters.recordname}" 
+                            recordtype="{!$CurrentPage.parameters.recordtype}" />
+                            
+</apex:page>

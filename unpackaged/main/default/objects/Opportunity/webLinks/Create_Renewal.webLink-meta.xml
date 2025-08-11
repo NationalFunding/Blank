@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Create_Renewal</fullName>
+    <availability>online</availability>
+    <description>Create a Renewal Opportunity</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>600</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>Create Renewal</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>/flow/Auto_Create_Object_Records?Var_AccountId={!Opportunity.AccountId}&amp;Var_OpportunityID={!Opportunity.Id}&amp;Var_Type=Renewal&amp;Var_ObjectType=Opportunity&amp;retURL=/{!Opportunity.Id}</url>
+</WebLink>

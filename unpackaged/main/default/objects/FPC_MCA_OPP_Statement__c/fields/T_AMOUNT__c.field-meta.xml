@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>T_AMOUNT__c</fullName>
+    <formula>Discover_Amount__c + MC_AMOUNT__c + OTHER_1_AMOUNT__c + OTHER_2_AMOUNT__c + VISA_AMOUNT__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>T_AMOUNT</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

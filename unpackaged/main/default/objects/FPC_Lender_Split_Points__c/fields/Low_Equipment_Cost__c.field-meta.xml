@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Low_Equipment_Cost__c</fullName>
+    <description>This field will indicate the low dollar cost at which a split point calculation occurs.</description>
+    <inlineHelpText>This field will indicate the low dollar cost at which a split point calculation occurs.</inlineHelpText>
+    <label>Low Equipment Cost</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

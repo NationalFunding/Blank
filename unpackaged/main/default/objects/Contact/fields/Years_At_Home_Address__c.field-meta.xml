@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Years_At_Home_Address__c</fullName>
+    <description>This field will capture the number of years that the customer has lived at their home address.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This field will capture the number of years that the customer has lived at their home address.</inlineHelpText>
+    <label>Years At Home Address</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

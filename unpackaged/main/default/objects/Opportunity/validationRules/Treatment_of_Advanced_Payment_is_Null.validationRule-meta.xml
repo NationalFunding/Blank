@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Treatment_of_Advanced_Payment_is_Null</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISPICKVAL(PRIORVALUE(StageName), "Docs Out") &amp;&amp; (Lease_Deposit_Amount_Received__c &gt; 0) &amp;&amp; (ISPICKVAL(StageName, "Offer(s) Not Accepted") || ISPICKVAL(StageName, "Declined")) &amp;&amp;  ISPICKVAL(Treatment_of_Advanced_Payment__c, '') &amp;&amp;  (RecordType.Name = 'Lease Oppty')</errorConditionFormula>
+    <errorDisplayField>Treatment_of_Advanced_Payment__c</errorDisplayField>
+    <errorMessage>Please populate this field before saving the record</errorMessage>
+</ValidationRule>

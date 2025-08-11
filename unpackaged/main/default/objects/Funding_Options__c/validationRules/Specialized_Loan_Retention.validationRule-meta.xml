@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Specialized_Loan_Retention</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    ISPICKVAL(Funding__r.Specialized_Loan__c, "Retention"),
+        /* Check if the Loan is currently identified as Retention */
+    OR(
+        $Profile.Name = "FPC - MCA - Sales User",
+        $Profile.Name = "NF - Hybrid Sales",
+        $Profile.Name = "NF - WC Sales Manager",
+        $Profile.Name = "NF - Working Capital Users"
+    ),
+        /* Check if the current User is Sales */
+    ISCHANGED(Active__c),
+    Active__c = TRUE
+        /* Check if funding Option is trying to be activated */
+)</errorConditionFormula>
+    <errorMessage>You are not Authorized to update this record</errorMessage>
+</ValidationRule>

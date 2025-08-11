@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cmbls__Funding</fullName>
+    <active>true</active>
+    <label>Funding</label>
+    <picklistValues>
+        <picklist>ACH_Rejected_Reason__c</picklist>
+        <values>
+            <fullName>ACH Rejected by Customer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cancelled - Customer Needs Wire</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cancelled - Deal Unwound</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Incorrect Account Name</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Invalid Account Number</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Invalid Routing Number</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>cmbls__ACH_Processor__c</picklist>
+        <values>
+            <fullName>NFAS2 Transfer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wells Fargo - NF Funding</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wells Fargo - QBF Funding</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NF Transfer (QB)</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wire</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NFSPV1 Transfer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NFAS3 Transfer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NFSPV2 Transfer</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>cmbls__Bank_Account_Type__c</picklist>
+        <values>
+            <fullName>Checking</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lockbox</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Savings</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>cmbls__Status__c</picklist>
+        <values>
+            <fullName>Canceled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Failed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-Pending</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rejected</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Scheduled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sent Error</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Settled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Staging</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

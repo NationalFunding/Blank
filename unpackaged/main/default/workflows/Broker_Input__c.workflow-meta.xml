@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Broker_Concurrent_Deal_Input_Did_Not_Match</fullName>
+        <ccEmails>nfcredit@nationalfunding.com</ccEmails>
+        <ccEmails>trover@nationalfunding.com</ccEmails>
+        <description>Broker Concurrent Deal Input Did Not Match</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>btimmons@nationalfunding.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Broker_Email_Templates/Broker_Input_Error</template>
+    </alerts>
+    <alerts>
+        <fullName>Broker_Input_Invalid_Submission</fullName>
+        <description>Broker Input - Invalid Submission</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Broker_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>Broker_Manager_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>Partner_Preferred_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Broker_Email_Templates/Broker_Input_Invalid_Submission</template>
+    </alerts>
+    <flowActions>
+        <fullName>Broker_Input_Setup_Deal</fullName>
+        <description>Launches the Broker Internal Input Flow.</description>
+        <flow>Broker_Internal_Input</flow>
+        <flowInputs>
+            <name>inputBrokerInputId</name>
+            <value>{!Id}</value>
+        </flowInputs>
+        <label>Broker Input - Setup Deal</label>
+        <language>en_US</language>
+        <protected>false</protected>
+    </flowActions>
+</Workflow>

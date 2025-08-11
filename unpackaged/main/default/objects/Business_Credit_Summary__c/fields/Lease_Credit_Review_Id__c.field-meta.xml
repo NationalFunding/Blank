@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lease_Credit_Review_Id__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>Lease Credit Review Id</label>
+    <referenceTo>Lease_Credit_Review__c</referenceTo>
+    <relationshipLabel>Business Credit Summaries</relationshipLabel>
+    <relationshipName>Business_Credit_Summaries</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

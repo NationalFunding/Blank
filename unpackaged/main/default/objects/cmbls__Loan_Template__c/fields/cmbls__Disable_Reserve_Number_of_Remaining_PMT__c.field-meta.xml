@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cmbls__Disable_Reserve_Number_of_Remaining_PMT__c</fullName>
+    <deprecated>false</deprecated>
+    <description>An Invoice line item to collect a reserve (if there is a balance) will not be created if the # of remaining payments is less or equal than this number if [Disable Reserve Collection After] = Remaining Payments.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>An Invoice line item to collect a reserve (if there is a balance) will not be created if the # of remaining payments is less or equal than this number if [Disable Reserve Collection After] = Remaining Payments.</inlineHelpText>
+    <label>Disable Reserve After # of Remaining PMT</label>
+    <precision>2</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

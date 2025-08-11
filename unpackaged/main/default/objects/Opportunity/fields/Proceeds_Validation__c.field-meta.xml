@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Proceeds_Validation__c</fullName>
+    <description>This field will validate that the amount of proceeds that we expect from the lender matches the calc net proceeds field.</description>
+    <externalId>false</externalId>
+    <formula>IF( ROUND(Discount_PV_For_Actual__c -  Actual_Equip_Cost__c - Lender_Doc_Fee_For_Actual__c - Actual_Fee_1_Amt__c - Actual_Fee_2_Amt__c -  Lost_Margin_For_Actual__c -  Actual_Split_Margin__c  - Int_Settlement_For_Actual__c,2) =  ROUND(Calc_Net_Proceeds_For_Actual__c,2), "True", "False")</formula>
+    <inlineHelpText>This field will validate that the amount of proceeds that we expect from the lender matches the calc net proceeds field.</inlineHelpText>
+    <label>Proceeds Validation</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

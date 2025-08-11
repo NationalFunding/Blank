@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Originating_Lender__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+CONTAINS(Opportunity__r.Lender_Account__r.Name,'National Funding'),
+'National Funding', 
+IF(
+CONTAINS(Opportunity__r.Lender_Account__r.Name,'Quick Bridge'),
+'Quick Bridge Funding',
+''
+))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Originating Lender</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

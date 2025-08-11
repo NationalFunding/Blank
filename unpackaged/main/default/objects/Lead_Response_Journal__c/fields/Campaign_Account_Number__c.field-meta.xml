@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Campaign_Account_Number__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>This field will associate the lead response journal to the campaign that generated the lead.</description>
+    <label>Campaign Account Number</label>
+    <referenceTo>Campaign</referenceTo>
+    <relationshipLabel>Lead Response Journal (Campaign 1)</relationshipLabel>
+    <relationshipName>Lead_Response_Journal1</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

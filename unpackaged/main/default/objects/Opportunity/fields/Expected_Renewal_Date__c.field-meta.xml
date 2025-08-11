@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Expected_Renewal_Date__c</fullName>
+    <description>Fund_Date_For_Actual__c  + ((( VALUE(ACTUAL_MCA_TERM__c) /5)*7) * 7/10)</description>
+    <formula>IF( 
+AND( 
+CONTAINS(Lender_Account__r.Name, 'National Funding'), ISPICKVAL(Actual_Payment_Frequency__c, 'Weekly')), Fund_Date_For_Actual__c + ((VALUE(ACTUAL_MCA_TERM__c) * 7) * 7/10), 
+
+IF( 
+AND( 
+CONTAINS(Lender_Account__r.Name, 'National Funding'), ISPICKVAL(Actual_Payment_Frequency__c, 'Daily')), Fund_Date_For_Actual__c + ((( VALUE(ACTUAL_MCA_TERM__c) /5)*7) * 7/10), 
+
+IF( 
+AND( 
+NOT( 
+CONTAINS(Lender_Account__r.Name, 'National Funding')), ISPICKVAL(Actual_Payment_Frequency__c, 'Weekly')), Fund_Date_For_Actual__c + ((VALUE(ACTUAL_MCA_TERM__c) * 7) * 65/100), 
+
+IF( 
+AND( 
+NOT( 
+CONTAINS(Lender_Account__r.Name, 'National Funding')), ISPICKVAL(Actual_Payment_Frequency__c, 'Daily')), Fund_Date_For_Actual__c + ((( VALUE(ACTUAL_MCA_TERM__c) /5)*7) * 65/100), NOW()))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Expected Renewal Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

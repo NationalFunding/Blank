@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>49.0</apiVersion>
+    <description>Increments the ACH Cutoff Date each day to the next business day.</description>
+    <formulas>
+        <name>formulaCutoffTime</name>
+        <dataType>DateTime</dataType>
+        <expression>DATETIMEVALUE(Text(DATEVALUE(NOW()+1))+ &quot; &quot; +MID( TEXT( NOW() ), 12, 2) +&apos;:00:00&apos;) - 8/24</expression>
+    </formulas>
+    <interviewLabel>ACH Cutoff Date - Increment {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>ACH Cutoff Date - Increment</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Cutoff_Time</name>
+        <label>Update Cutoff Time</label>
+        <locationX>218</locationX>
+        <locationY>50</locationY>
+        <inputAssignments>
+            <field>Cutoff_Date_Time__c</field>
+            <value>
+                <elementReference>formulaCutoffTime</elementReference>
+            </value>
+        </inputAssignments>
+        <object>ACH_Payment_Cutoff_Time__c</object>
+    </recordUpdates>
+    <start>
+        <locationX>54</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>Update_Cutoff_Time</targetReference>
+        </connector>
+        <schedule>
+            <frequency>Daily</frequency>
+            <startDate>2019-11-06</startDate>
+            <startTime>00:15:00.000Z</startTime>
+        </schedule>
+        <triggerType>Scheduled</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

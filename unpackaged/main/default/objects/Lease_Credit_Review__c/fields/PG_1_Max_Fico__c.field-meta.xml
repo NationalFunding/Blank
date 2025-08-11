@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PG_1_Max_Fico__c</fullName>
+    <description>This field will determine which FICO score from a Signor should be uploaded into LP by import.</description>
+    <externalId>false</externalId>
+    <formula>MAX(
+VALUE(PG_1_EQF_Credit_Score__c),
+VALUE(PG_1_EXP_Credit_Score__c))</formula>
+    <label>PG #1 Max Fico</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

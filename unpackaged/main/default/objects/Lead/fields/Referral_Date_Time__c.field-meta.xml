@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Referral_Date_Time__c</fullName>
+    <description>The purpose of this field is to generically capture values required by different referral sources. A mapping of what this value means to each referral source is available in Confluence documentation.  This field will capture the date and time of the referral.</description>
+    <label>Referral Date/Time</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Broker_Signor_State_must_be_Populated</fullName>
+    <active>false</active>
+    <errorConditionFormula>(NOT(ISBLANK(Doc_Formulas_LU__r.Signor_Contact_ID__c))) &amp;&amp; 
+ISBLANK(Doc_Formulas_LU__r.Signor_State__c) &amp;&amp; 
+(ISPICKVAL(StageName, 'Statements In - MCA')) &amp;&amp; 
+ISCHANGED(StageName) &amp;&amp; 
+(RecordType.Name = 'Broker WC Oppty')</errorConditionFormula>
+    <errorMessage>Signor State must be populated before updating the Stage to 'Statements In - MCA'. Once these fields are complete, click the 'Recalc Roles' button.</errorMessage>
+</ValidationRule>

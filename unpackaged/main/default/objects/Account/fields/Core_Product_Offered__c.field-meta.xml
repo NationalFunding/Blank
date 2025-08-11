@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Core_Product_Offered__c</fullName>
+    <label>Core Product Offered</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Merchant Processor</fullName>
+                <default>false</default>
+                <label>Merchant Processor</label>
+            </value>
+            <value>
+                <fullName>Equipment Lessor</fullName>
+                <default>false</default>
+                <label>Equipment Lessor</label>
+            </value>
+            <value>
+                <fullName>Real Estate</fullName>
+                <default>false</default>
+                <label>Real Estate</label>
+            </value>
+            <value>
+                <fullName>Personal Credit Provider</fullName>
+                <default>false</default>
+                <label>Personal Credit Provider</label>
+            </value>
+            <value>
+                <fullName>Business Lender (alt product)</fullName>
+                <default>false</default>
+                <label>Business Lender (alt product)</label>
+            </value>
+            <value>
+                <fullName>SBA Lender</fullName>
+                <default>false</default>
+                <label>SBA Lender</label>
+            </value>
+            <value>
+                <fullName>Bank</fullName>
+                <default>false</default>
+                <label>Bank</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

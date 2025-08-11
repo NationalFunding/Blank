@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank</letterhead>
+    <name>FRPSA Settlement Email No. 4</name>
+    <style>freeForm</style>
+    <subject>{!advpm__Matter__c.Loan_Number__c} - {!advpm__Matter__c.Name_of_Borrower__c}</subject>
+    <textOnly>To {!advpm__Matter__c.advpm__Primary_Contact__c},
+
+Despite our several attempts to contact you and work out a resolution, we still have not heard back from you. In one last attempt to work out a resolution before filing a lawsuit, we are willing to offer you the following extended payment plans:
+
+- Eighteen (18) monthly payments of {!advpm__Matter__c.Automated_Settlement_Offer__c}
+- Twenty-Four (24) monthly payments of {!advpm__Matter__c.Automated_Settlement_Offer_24__c}
+
+If you wish to take advantage of either plan, please reach out to us to set up. However, if you are unable to make any of the above monthly payments, but still want to come to an agreement prior to incurring additional fees through litigation, please let us know as soon as possible.
+
+This will be our last attempt to contact you before attorney’s fees and costs are incurred and added to the outstanding amounts owed as we will be moving forward with filing a law suit.
+
+We hope to hear from you soon.
+
+Sincerely,
+
+{!advpm__Matter__c.Lead_Attorney__c} | {!advpm__Matter__c.Lead_Attorney_Title__c}
+
+{!advpm__Matter__c.Email_Signature_Company__c}
+{!$Setup.Company_Information__c.Street__c}
+{!$Setup.Company_Information__c.City__c}, {!$Setup.Company_Information__c.State__c} {!$Setup.Company_Information__c.Zip__c}
+P: {!advpm__Matter__c.Lead_Attorney_Phone__c}
+E: {!advpm__Matter__c.Lead_Attorney_Email__c}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

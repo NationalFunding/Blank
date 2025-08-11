@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Refund_due_to_Lease_Rebook_Restructure__c</fullName>
+    <defaultValue>false</defaultValue>
+    <label>Refund due to Lease Rebook/Restructure</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Mitigating_Factors__c</fullName>
+    <description>This field will be used as a summary field in the B of I reports.  It will be a cumulative field that shows all the Mitigating factors that policy exceptions were made.</description>
+    <externalId>false</externalId>
+    <formula>IF(TEXT(Mitigating_Factor_3__c) &lt;&gt; '', 
+TEXT(Mitigating_Factor_1__c) + ',' + ' ' + TEXT(Mitigating_Factor_2__c) + ',' + ' ' + TEXT(Mitigating_Factor_3__c), 
+IF(TEXT(Mitigating_Factor_2__c) &lt;&gt; '',TEXT(Mitigating_Factor_1__c) + ',' + ' ' + TEXT(Mitigating_Factor_2__c), 
+TEXT(Mitigating_Factor_1__c)))</formula>
+    <inlineHelpText>This field will be used as a summary field in the B of I reports.  It will be a cumulative field that shows all the Mitigating factors that policy exceptions were made.</inlineHelpText>
+    <label>All Mitigating Factors</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

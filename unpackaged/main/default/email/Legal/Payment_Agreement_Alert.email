@@ -1,0 +1,9 @@
+Settlement total has been paid in full for {!Payment_Agreement__c.Legal_Name__c}. 
+
+Loan Number: {!Payment_Agreement__c.Loan_Number__c}
+
+Settlement Total: {!Payment_Agreement__c.Settlement_Total__c}
+
+{!Payment_Agreement__c.Link}
+
+Thanks,

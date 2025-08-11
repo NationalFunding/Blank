@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TERM__c</fullName>
+    <description>Term of the customer's loan with their bank reference.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Type in the term of the customer's loan with their bank reference.</inlineHelpText>
+    <label>TERM</label>
+    <precision>8</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

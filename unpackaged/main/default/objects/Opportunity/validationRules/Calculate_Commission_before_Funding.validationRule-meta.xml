@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Calculate_Commission_before_Funding</fullName>
+    <active>true</active>
+    <description>(ISBLANK(Actual_FPC_Margin__c) &amp;&amp; 
+(ISBLANK(NF_Rep_Margin__c) || 
+ISBLANK(Broker_Commission__c))) &amp;&amp; 
+((RecordType.Name = 'Working Capital Oppty' &amp;&amp;</description>
+    <errorConditionFormula>(
+		(
+				(RecordType.Name = 'Working Capital Oppty'||RecordType.Name = 'FRPSA') 
+					&amp;&amp; 
+					ISBLANK(Actual_FPC_Margin__c)
+					&amp;&amp;
+				(	
+							(
+										(ISPICKVAL(Type,'NEW')|| ISPICKVAL(Type,'CONCURRENT'))
+					     &amp;&amp; 
+								  Lender_Account__r.Name = 'Quick Bridge Funding'
+								)
+				    ||
+							Lender_Account__r.Name &lt;&gt; 'Quick Bridge Funding')
+		  )							
+				
+	 || 
+				(
+						 (RecordType.Name = 'Broker WC Oppty'||RecordType.Name = 'Broker FRPSA')
+						 &amp;&amp; 
+							(ISBLANK(Actual_FPC_Margin__c)|| ISBLANK(Broker_Commission__c))
+				)
+)
+&amp;&amp; 
+ISPICKVAL(StageName, 'Funded') 
+&amp;&amp; 
+ISCHANGED(StageName) 
+&amp;&amp; 
+$User.User_Developer_Name__c &lt;&gt; 'NF_Automation_User'</errorConditionFormula>
+    <errorMessage>You must click the "Calculate Commission' button before changing the Stage to 'Funded'</errorMessage>
+</ValidationRule>

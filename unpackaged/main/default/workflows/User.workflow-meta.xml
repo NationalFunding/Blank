@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Team_Assignment_Date_Today</fullName>
+        <description>Sets the field Team Assignment Date to Today</description>
+        <field>Team_Assignment_Date__c</field>
+        <formula>TODAY()</formula>
+        <name>Team Assignment Date = Today</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Update Team Assignment Date</fullName>
+        <actions>
+            <name>Team_Assignment_Date_Today</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>When Team value changes on user record update the Team Assignment Date to Today.</description>
+        <formula>ISCHANGED(Team__c )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

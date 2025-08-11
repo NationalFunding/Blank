@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Follow_Up_Piece_1__c</fullName>
+    <description>This field will indicate if a follow up piece to a direct mail campaign has been sent out.</description>
+    <inlineHelpText>This field will indicate if a follow up piece to a direct mail campaign has been sent out.  Pick the type of follow up piece being sent to the campaign.</inlineHelpText>
+    <label>Follow Up Piece 1</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Snap Pack</fullName>
+                <default>false</default>
+                <label>Snap Pack</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

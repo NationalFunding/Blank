@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SMS_Opt_In__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field will be utilized to capture opt in to text messages by customers.</description>
+    <inlineHelpText>This field will be utilized to capture opt in to text messages by customers.</inlineHelpText>
+    <label>SMS Opt In</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

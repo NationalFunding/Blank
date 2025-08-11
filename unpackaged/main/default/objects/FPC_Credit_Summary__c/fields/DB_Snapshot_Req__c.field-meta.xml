@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DB_Snapshot_Req__c</fullName>
+    <description>D&amp;B snapshot required - status</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Check box if a D&amp;B snapshot is required.</inlineHelpText>
+    <label>DB Snapshot Req</label>
+    <length>1</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

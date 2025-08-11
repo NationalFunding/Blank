@@ -1,0 +1,138 @@
+<messaging:emailTemplate subject="Instructions for Your Loan Modification Request" recipientType="Contact" relatedToType="Account">
+    <messaging:plainTextEmailBody >
+        Hi {!recipient.FirstName},
+
+        Please follow the link below to start your loan modification request.  To enable us to approve your request you will be asked to answer a few questions and perform a bank verification.  It takes only a few minutes to complete.
+
+        <apex:repeat var="objBD" value="{!relatedTo.Bank_Data__r}">
+            <apex:outputText rendered="{!objBD.Request_Bank__c == true}">
+                <p>
+                    <b>{!objBD.Bank_Name__c}</b>:
+                    <br />
+                    <a href="https://my.nationalfunding.com/?source=email&context=BID&payload={!objBD.Encrypted_Email_String__c}">Start Loan Modification Request</a>
+                </p>
+            </apex:outputText>
+        </apex:repeat>
+                
+        If you have any questions or issues don’t hesitate to contact me.
+        
+        Thanks, 
+        
+        {!$User.FirstName} {!$User.LastName} | {!$User.Title}
+        {!$Setup.Company_Information__c.Street__c}, {!$Setup.Company_Information__c.City__c}, {!$Setup.Company_Information__c.State__c} {!$Setup.Company_Information__c.Zip__c}
+        {!$User.Email}
+        {!$User.Phone}
+    </messaging:plainTextEmailBody>
+    <messaging:htmlEmailBody >
+        <html>
+
+        <head>
+            <meta name="viewport" content="width=device-width" />
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <title>Thank you for applying</title>
+            <style media="all" type="text/css">
+            @media only screen and (max-width: 620px) {
+                table[class=body] h1,
+                table[class=body] h2,
+                table[class=body] h3,
+                table[class=body] h4 {
+                    font-weight: 600 !important;
+                }
+                table[class=body] h1 {
+                    font-size: 22px !important;
+                }
+                table[class=body] h2 {
+                    font-size: 18px !important;
+                }
+                table[class=body] h3 {
+                    font-size: 16px !important;
+                }
+                table[class=body] .content,
+                table[class=body] .wrapper {
+                    padding: 10px !important;
+                }
+                table[class=body] .container {
+                    padding: 0 !important;
+                    width: 100% !important;
+                }
+                table[class=body] .btn table,
+                table[class=body] .btn a {
+                    width: 100% !important;
+                }
+            }
+            </style>
+        </head>
+
+        <body style="margin: 0; font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-size: 14px; height: 100% !important; line-height: 1.6em; -webkit-font-smoothing: antialiased; padding: 0; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; width: 100% !important; background-color: #f6f6f6;">
+            <table class="body" style="box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; background-color: #f6f6f6;" width="100%" bgcolor="#f6f6f6">
+                <tr>
+                    <td style="box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top;" valign="top"></td>
+                    <td class="container" style="box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top; display: block; Margin: 0 auto !important; max-width: 580px; padding: 10px; width: 580px;" width="580" valign="top">
+                        <div class="content" style="box-sizing: border-box; display: block; margin: 0 auto; max-width: 580px; padding: 10px;">
+                            <table class="main" style="box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; background: #ffffff; border: 1px solid #e9e9e9; border-radius: 3px;" width="100%">
+                                <tr class="blue" style="margin-bottom: 15px; margin-top: 10px; width: 100%; background-color: #223657; text-align: center;" bgcolor="#223657" align="center">
+                                    <td style="box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top;" valign="top">
+                                        <a href="https://www.nationalfunding.com" style="box-sizing: border-box; color: #EB8243; text-decoration: underline;"><img class="pad-b13" src="https://wp.natfundcdn.com/static/img/logo-horizontal.png" height="49" alt="National Funding" style="-ms-interpolation-mode: bicubic; max-width: 100%; padding-bottom: 13px;" /></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="wrapper" style="box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top; padding: 30px;" valign="top">
+                                        <table style="box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;" width="100%">
+                                            <tr>
+                                                <td style="box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top;" valign="top">
+                                                    <h2 class="align-center" style="color: #111111 !important; font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: 400; line-height: 1.4em; margin: 0; margin-bottom: 30px; font-size: 24px; text-align: center;">Loan Modification Instructions</h2>
+                                                    <p style="font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 15px;">Hi {!recipient.FirstName},</p>
+                                                    <p style="font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 15px;">Please follow the link below to start your loan modification request.  To enable us to approve your request you will be asked to answer a few questions and perform a bank verification.  It takes only a few minutes to complete. </p>
+                                                    <table class="btn btn-primary" cellpadding="0" cellspacing="0" style="box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;" width="100%">
+                                                        <tr>
+                                                            <td align="center" style="box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top; padding-bottom: 15px;" valign="top">
+                                                                <table cellpadding="0" cellspacing="0" style="box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: auto;">
+                                                                    <tr>
+                                                                        <td style="box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top; background-color: #EB8243; border-radius: 5px; text-align: center;" valign="top" bgcolor="#EB8243" align="center">
+                                                                            <apex:repeat var="objBD" value="{!recipient}">                                       
+                                                                             <!--<apex:outputText rendered="{!objBD.Request_Bank__c == true}">-->
+                                                                                <apex:outputText >
+                                                                                    <a href="https://my.nationalfunding.com/?source=email&context=BID&payload={!objBD.Encrypted_Email_String__c}" style="box-sizing: border-box; border-color: #EB8243; text-decoration: none; background-color: #EB8243; border: solid 1px #EB8243; border-radius: 5px; cursor: pointer; color: #ffffff; font-size: 14px; font-weight: bold; margin: 0; padding: 7px 25px; text-transform: capitalize; display: inline-block;">Instructions for Your Loan Modification Request</a>
+                                                                                </apex:outputText>
+                                                                            </apex:repeat>
+                                                                            
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                    <p style="font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 15px;">If you have any questions or issues don’t hesitate to contact me.</p>
+                                                    <p style="font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 15px;">Thanks,</p>
+                                                    <p style="font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 15px;">{!$User.FirstName} {!$User.LastName} | {!$User.Title}
+                                                        <br/> {!$Setup.Company_Information__c.Street__c}, {!$Setup.Company_Information__c.City__c}, {!$Setup.Company_Information__c.State__c} {!$Setup.Company_Information__c.Zip__c}&nbsp;
+                                                        <br/>{!$User.Email}&nbsp;
+                                                        <br/>{!$User.Phone}&nbsp;
+                                                        <br/>
+                                                        <a href="http://www.nationalfunding.com" style="box-sizing: border-box; color: #f78d2c; font-style: normal; text-decoration: none; font-weight: 700;" target="_blank">www.nationalfunding.com</a>
+                                                        <br/>
+                                                        <img alt="" border="0" style="-ms-interpolation-mode: bicubic; max-width: 100%;" /><img alt="National Funding" border="0" height="39" src="https://wp.natfundcdn.com/static/img/logo-horizontal-blue.png" style="-ms-interpolation-mode: bicubic; max-width: 100%; width: 220px; height: 39px; border-width: 0px; border-style: solid;" width="220" />
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="align-center small-gray pad-t20" style="box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; vertical-align: top; font-size: 12px; text-align: center; color: gray; padding-top: 20px;" valign="top" align="center">
+                                                    National Funding respects your privacy. Our commitment to your privacy is in our privacy policy, which is available on our website for your reference.
+                                                    <br/> © 2022 National Funding. All rights reserved.
+                                                    <br/>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                    <td style="box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top;" valign="top"></td>
+                </tr>
+            </table>
+        </body>
+
+        </html>
+    </messaging:htmlEmailBody>
+</messaging:emailTemplate>

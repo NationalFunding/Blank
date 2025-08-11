@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>LFC_Auth_for_Payoff</fullName>
+        <field>Auth_for_Payoff_Needed__c</field>
+        <literalValue>1</literalValue>
+        <name>LFC - Auth for Payoff</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>LFC_BOS</fullName>
+        <field>Bill_of_Sale_Needed__c</field>
+        <literalValue>1</literalValue>
+        <name>LFC - BOS</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>LFC_Back_of_Title</fullName>
+        <field>Back_of_Title_Needed__c</field>
+        <literalValue>1</literalValue>
+        <name>LFC - Back of Title</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>LFC_ERC</fullName>
+        <field>PP_ECR_Needed__c</field>
+        <literalValue>1</literalValue>
+        <name>LFC - ERC</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>LFC_Front_of_Title</fullName>
+        <field>Front_of_Title_Needed__c</field>
+        <literalValue>1</literalValue>
+        <name>LFC - Front of Title</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>LFC_POA</fullName>
+        <field>Titled_Power_of_Attorney_Needed__c</field>
+        <literalValue>1</literalValue>
+        <name>LFC - POA</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>LFC_POA_PP</fullName>
+        <field>PP_Power_of_Attorney_Needed__c</field>
+        <literalValue>1</literalValue>
+        <name>LFC - POA PP</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>LFC_Payoff_Letter</fullName>
+        <field>Payoff_Letter_Needed__c</field>
+        <literalValue>1</literalValue>
+        <name>LFC - Payoff Letter</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>LFC_Private_Party_Ack</fullName>
+        <field>Private_Party_Ack_Needed__c</field>
+        <literalValue>1</literalValue>
+        <name>LFC - Private Party Ack.</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>LFC_Site_PP</fullName>
+        <field>PP_Site_Inspection_Needed__c</field>
+        <literalValue>1</literalValue>
+        <name>LFC - Site PP</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>LFC_Title_Audit</fullName>
+        <field>Title_Audit_Needed__c</field>
+        <literalValue>1</literalValue>
+        <name>LFC - Title Audit</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>LFC_Titled_Location_Addendum</fullName>
+        <field>Titled_Location_Addendum_Needed__c</field>
+        <literalValue>1</literalValue>
+        <name>LFC - Titled Location Addendum</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>LFC_Titled_Veh_Guaranty</fullName>
+        <field>Titled_Veh_Guaranty_Needed__c</field>
+        <literalValue>1</literalValue>
+        <name>LFC - Titled Veh. Guaranty</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>LFC_UCC_Search</fullName>
+        <field>UCC_Search_Needed__c</field>
+        <literalValue>1</literalValue>
+        <name>LFC - UCC Search</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Lease_Ins_Completed_Date</fullName>
+        <field>Insurance_Updated_Date__c</field>
+        <formula>NOW()</formula>
+        <name>Lease Ins - Completed Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Lease_Ins_Update_Ins_Completed_By</fullName>
+        <field>Insurance_Updated_By__c</field>
+        <formula>$User.Full_Name__c</formula>
+        <name>Lease Ins - Update Ins Completed By</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Lease_Ins_Update_Previous_Expiration</fullName>
+        <field>Previous_Insurance_Expiration_Date__c</field>
+        <formula>PRIORVALUE( Insurance_Expiration_Date__c )</formula>
+        <name>Lease Ins - Update Previous Expiration</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Second_Review_Completed_by</fullName>
+        <field>Second_Review_Completed_by__c</field>
+        <formula>$User.Full_Name__c</formula>
+        <name>Update Second Review Completed by</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Second_Review_Completed_on</fullName>
+        <field>Second_Review_Completed_on__c</field>
+        <formula>NOW()</formula>
+        <name>Update Second Review Completed on</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>LFC - PP%2FSLB%2FPayoff</fullName>
+        <actions>
+            <name>LFC_Auth_for_Payoff</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>LFC_BOS</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>LFC_ERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>LFC_POA_PP</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>LFC_Payoff_Letter</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>LFC_Private_Party_Ack</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>LFC_Site_PP</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>LFC_UCC_Search</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lease_Checklist__c.Lease_Properties__c</field>
+            <operation>equals</operation>
+            <value>Titled / Payoff,Private Party,Sale Leaseback,Payoff,Titled / Private Party,Titled / Sale Leaseback</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>LFC - Titled</fullName>
+        <actions>
+            <name>LFC_Back_of_Title</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>LFC_Front_of_Title</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>LFC_POA</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>LFC_Title_Audit</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>LFC_Titled_Location_Addendum</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>LFC_Titled_Veh_Guaranty</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lease_Checklist__c.Lease_Properties__c</field>
+            <operation>equals</operation>
+            <value>Titled,Titled / Payoff,Titled / Private Party,Titled / Sale Leaseback</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Lease Ins - Update Fields After Insurance Complete %28ETE%29</fullName>
+        <actions>
+            <name>Lease_Ins_Completed_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Lease_Ins_Update_Ins_Completed_By</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Lease_Ins_Update_Previous_Expiration</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>ISCHANGED(Insurance_Expiration_Date__c)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Lease Ins - Update Fields After Insurance Complete %28cesmc%29 - Amanda F</fullName>
+        <active>true</active>
+        <description>Edited 12/29/16 - changed task to Sarah Bowlin after Amanda left company.</description>
+        <formula>OR(  AND(ISBLANK(Previous_Insurance_Expiration_Date__c),       NOT(ISBLANK(Insurance_Expiration_Date__c)), Opportunity__r.Lender_Account__r.Name = "National Funding - Internal Lease Lender Record"),   AND(Previous_Insurance_Expiration_Date__c  &lt;= Insurance_Expiration_Date__c,  Opportunity__r.Lender_Account__r.Name = "National Funding - Internal Lease Lender Record")) &amp;&amp; (Funder__c = "Amanda Foust")</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <offsetFromField>Lease_Checklist__c.Insurance_Expiration_Date__c</offsetFromField>
+            <timeLength>-2</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Second Review is Complete</fullName>
+        <actions>
+            <name>Update_Second_Review_Completed_by</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Second_Review_Completed_on</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lease_Checklist__c.Second_Review__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>

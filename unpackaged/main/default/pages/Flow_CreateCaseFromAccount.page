@@ -1,0 +1,6 @@
+<apex:page standardController="Account" tabStyle="Account" >
+    <flow:interview name="Account_Create_Broker_Management_Case" finishLocation="{!$Page.gotoLastCreatedCase}">
+        <apex:param name="inputAccountId" value="{!Account.Id}"/>
+        
+    </flow:interview>
+</apex:page>

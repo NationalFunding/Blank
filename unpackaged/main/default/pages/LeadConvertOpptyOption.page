@@ -1,0 +1,87 @@
+<!--
+- Created by oporter on 6/8/2018.
+- Updated by Mhandler on 4/12/2021. 
+ -->
+
+<apex:page id="LeadConvertOpptyOption" standardController="Lead" extensions="customLeadConvert">
+    <head>
+        <apex:stylesheet value="{!URLFOR($Resource.SLDS2018, 'styles/salesforce-lightning-design-system.css')}" />
+        <script src="http://code.jquery.com/jquery-1.10.1.min.js" type="text/javascript"></script>
+
+        <style>
+            .opptyRecType{
+                color: #4a4a56;
+                font-family: Arial,Helvetica,sans-serif;
+                font-weight: bold;
+                font-size: 91%;
+                float: left;    
+            }
+        
+            #checkbox {
+                float: left;
+            }
+        </style>
+        <script>
+            $( document ).ready(function() {
+                console.log( "ready!" );
+                var x = $('[id$=checkbox]').is(':checked');
+                if(!x){
+                    $(".opptyRecType").hide();
+                }
+            });
+        </script>
+        <script type="text/javascript">
+            function markClicked(){
+                var x = $('[id$=checkbox]').is(':checked');
+                console.log('ready x:: ' + x);
+                if(x) {
+                    // Checkbox is checked..
+                    $(".opptyRecType").show();
+                } else {
+                    // Checkbox is not checked..
+                    $(".opptyRecType").hide();
+                }
+            }
+            
+         function disableBttn() {
+                console.log('Button Clicked');
+                <!-- calls actionFunction to convert lead -->
+                convertLead(); 
+                <!-- Disables Button -->
+                var btn = document.querySelector("[id$='ConvertBttn']");
+                btn.className = 'btn btnDisabled';
+                btn.disabled = 'disabled';
+                return;
+            }
+            
+        </script>
+    </head>
+
+    <apex:pageMessages />
+    <apex:form >
+    
+    <apex:actionFunction name="convertLead" action="{!convertLeadToAcctContOppty}"></apex:actionFunction>
+        <apex:pageBlock title="Convert Lead" id="ConvertLeadBlock" mode="edit">
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Convert" id="ConvertBttn" action="{!convertLeadToAcctContOppty}" onclick="return disableBttn()"/><!--convert button--> <!-- this will either convert the lead to just an account and contact OR all three oppty, acct, and cont-->
+                <apex:commandButton value="Cancel" action="{!Cancel}"/> <!--cancel button-->
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection columns="1">
+                <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Create Opportunity?"/>
+                        <!--<apex:inputCheckbox value="{!objLead.CreateConvertedOppty__c}" onClick="markClicked()" id="checkbox"/>-->
+                        <apex:inputCheckbox value="{!createOppty}" selected="true" onClick="markClicked()" id="checkbox"/>
+                </apex:pageBlockSectionItem>
+                <!--only display this section if the value of inputCheckbox == true-->
+                <apex:outputPanel styleClass="opptyRecType">
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel id="lblOppRecType" value="Opportunity Record Type "/>
+                        <apex:selectList id="ddlOppRecType" size="1" multiselect="False" value="{!objRecType}">
+                            <apex:selectOptions value="{!OpportunityRecordType}" />
+                        </apex:selectList>
+                    </apex:pageBlockSectionItem>
+                </apex:outputPanel>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

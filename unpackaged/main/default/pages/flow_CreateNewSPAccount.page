@@ -1,0 +1,6 @@
+<apex:page standardController="Contact" sidebar="false">
+<apex:sectionHeader title="Create a New Account" />
+<flow:interview name="Create_New_Strategic_Partner_Customer_Account" finishLocation="{!$Page.gotoLastCreatedOppty}">  
+<apex:param name="inputSPContactId" value="{!Id}"/>
+</flow:interview>
+</apex:page>

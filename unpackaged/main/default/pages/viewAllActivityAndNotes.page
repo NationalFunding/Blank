@@ -1,0 +1,29 @@
+<apex:page standardController="Opportunity" extensions="viewAllActivityAndNotes">
+<apex:form > 
+    <apex:PageBlock title="" mode="view" id="pbBlock">
+        <apex:pageBlockButtons >
+           <apex:commandButton action="{!Cancel}" value="Cancel"/>
+        </apex:pageBlockButtons>
+        <apex:pageBlockSection title="View Activity History" columns="2" id="pbsSection">
+           <apex:pageBlockSectionItem ><B>CALL HISTORY</B></apex:pageBlockSectionItem>
+           <apex:pageBlockSectionItem ><B>NOTES HISTORY</B></apex:pageBlockSectionItem> 
+           <apex:pageBlockSectionItem id="pbsiItem">
+                <apex:pageBlockTable value="{!lstActivities}" var="item">
+		           <apex:column headerValue="Date/Owner" value="{!item.sActivityDate}/{!item.sActivityOwner}"/>
+		           <apex:column headerValue="Subject" value="{!item.sActivitySubject}"/>		           
+		           <apex:column headerValue="Comments" value="{!item.sActivityComments}">                   
+                   	<!-- <span style="white-space:pre;"> </span> -->
+                   </apex:column>
+    	        </apex:pageBlockTable>
+           </apex:pageBlockSectionItem>
+           <apex:pageBlockSectionItem id="pbsiItem1">
+                <apex:pageBlockTable value="{!lstNotes}" var="item">
+                   <apex:column headerValue="Date/Owner" value="{!item.sNoteDate}/{!item.sNoteOwner}"/>
+                   <apex:column headerValue="Title" value="{!item.sNoteTitle}"/>
+                   <apex:column headerValue="Body" value="{!item.sNoteBody}"/>
+                </apex:pageBlockTable>
+           </apex:pageBlockSectionItem>
+           </apex:pageBlockSection>
+    </apex:PageBlock> 
+</apex:form>
+</apex:page>

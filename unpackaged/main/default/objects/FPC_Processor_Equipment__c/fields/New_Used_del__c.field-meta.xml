@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Used_del__c</fullName>
+    <description>New or used status of processing equipment.</description>
+    <inlineHelpText>Pick the status of the processing equipment.</inlineHelpText>
+    <label>New Used</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>New</fullName>
+                <default>false</default>
+                <label>New</label>
+            </value>
+            <value>
+                <fullName>Used</fullName>
+                <default>false</default>
+                <label>Used</label>
+            </value>
+            <value>
+                <fullName>Refurbished</fullName>
+                <default>false</default>
+                <label>Refurbished</label>
+            </value>
+            <value>
+                <fullName>Repaired</fullName>
+                <default>false</default>
+                <label>Repaired</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

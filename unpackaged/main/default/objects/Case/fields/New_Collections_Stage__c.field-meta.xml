@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Collections_Stage__c</fullName>
+    <label>New Collections Stage</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>No Change</fullName>
+                <default>false</default>
+                <label>No Change</label>
+            </value>
+            <value>
+                <fullName>Rerun</fullName>
+                <default>false</default>
+                <label>Rerun</label>
+            </value>
+            <value>
+                <fullName>Dark</fullName>
+                <default>false</default>
+                <label>Dark</label>
+            </value>
+            <value>
+                <fullName>Bank Change</fullName>
+                <default>false</default>
+                <label>Bank Change</label>
+            </value>
+            <value>
+                <fullName>MOD</fullName>
+                <default>false</default>
+                <label>MOD</label>
+            </value>
+            <value>
+                <fullName>Catchup</fullName>
+                <default>false</default>
+                <label>Catchup</label>
+            </value>
+            <value>
+                <fullName>Legal</fullName>
+                <default>false</default>
+                <label>Legal</label>
+            </value>
+            <value>
+                <fullName>Running Past Maturity</fullName>
+                <default>false</default>
+                <label>Running Past Maturity</label>
+            </value>
+            <value>
+                <fullName>RECON</fullName>
+                <default>false</default>
+                <label>RECON</label>
+            </value>
+            <value>
+                <fullName>FRPSA- Charge Off</fullName>
+                <default>false</default>
+                <label>FRPSA- Charge Off</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

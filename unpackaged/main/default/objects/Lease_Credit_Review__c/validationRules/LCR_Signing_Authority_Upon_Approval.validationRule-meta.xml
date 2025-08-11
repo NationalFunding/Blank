@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LCR_Signing_Authority_Upon_Approval</fullName>
+    <active>true</active>
+    <description>This validation rule will allow</description>
+    <errorConditionFormula>AND(ISPICKVAL(Credit_Decision__c, 'Approved'), 
+OR(ISBLANK($User.Equipment_Signing_Authority__c) ,
+   $User.Equipment_Signing_Authority__c &lt; Approved_Amount__c))</errorConditionFormula>
+    <errorMessage>The approval amount is above your signing authority.  Please submit this Lease Credit Review for approval.  Thank you.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,1228 @@
+<apex:page standardStylesheets="false" standardController="Credit_Review__c" action="{!checkValidVersion}" extensions="EquifaxCreditPullController,CreditreViewScreenController,CreditReportRemoting,sendToWebService2,RecommendationPanelController" sidebar="false" showHeader="false">
+    <html lang="en">
+    <head>
+        <title>Credit Review</title>
+        <!-- Bootstrap core CSS -->
+        <apex:stylesheet value="{!URLFOR($Resource.CreditReviewScreen, 'css/bootstrap.css')}"/>
+        <!-- Custom styles for this app -->
+        <apex:stylesheet value="{!URLFOR($Resource.CreditReviewScreen, 'css/app.css')}"/>
+        <!--  Bootstrap dataTables css -->
+        <apex:stylesheet value="{!URLFOR($Resource.CreditReviewScreen, 'css/dataTables.bootstrap.css')}"/>
+        <!--  font awesome/4.3.0 css-->
+        <apex:stylesheet value="{!URLFOR($Resource.CreditReviewScreen, 'css/font-awesome/css/font-awesome.css')}"/>
+        <!-- jquery ui css -->
+        <apex:stylesheet value="{!URLFOR($Resource.CreditReviewScreen, 'assets/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.css')}"/>
+
+        <apex:stylesheet value="{!URLFOR($Resource.CreditReviewScreen, 'assets/plugins/bootstrap-datepicker/css/datepicker.css')}"/>
+        <apex:includescript value="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular.min.js"></apex:includescript>
+        <apex:includescript value="https://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.js"></apex:includescript>
+        <apex:includeScript value="{!URLFOR($Resource.CreditReviewScreen, 'angular/app.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.CreditReviewScreen, 'angular/main.ctrl.js')}" />
+        <!--<script src="{!$Resource.cometd}"/>
+  <script src="{!$Resource.jquery_1_5_1}"/> 
+  <script src="{!$Resource.json2}"/>
+      <script src="{!$Resource.jquery_cometd}"></script>-->
+
+        <!-- Custom Script -->
+        <script>
+  var ModifyPermission = true;
+  var unLockPermissionDeny = false;
+  var approved_date ="{!approved_date}";
+  var rejected_date ="{!rejected_date}";
+  var Syndication_rejected_date ="{!Syndication_rejected_date}";
+  var approved_by = "{!creditReview.ApprovedBy__c}";
+  var withdrawn_date ="{!withdrawn_date}";
+  var withdrawn_by = "{!creditReview.Withdrawn_By__c}";
+  var approvedRecomendation_date ="{!approvedRecomendation_date}";
+  var approvedRecomendationBy = "{!creditReview.ApprovalRecomendationBy__c}";
+  var businessEditPermission = "{!$Permission.Credit_Business_Information_Edit}";
+  var pullCreditPermission = "{!$Permission.Credit_Review_Pull_Credit}";
+  var consumer1Interval,consumer2Interval,consumer3Interval,consumer4Interval,consumer5Interval,consumer6Interval;
+  var reasons = "{!creditReview.DeclineReasons__c}";
+  var declineType = '';
+
+  if("{!creditReview.Opportunity__r.RecordType.Name}" !='Broker WC Oppty' && "{!creditReview.Review_Type__c}" != 'Commercial Review'){
+      //alert('dd1');
+    $('.brokerDeclineCheckbox').show();
+    $('.declineCheckbox,.commercialDeclineCheckbox').hide();
+    declineType ='Decline';
+    reasons = "{!creditReview.Decline_Reasons__c}";
+  }
+  if("{!creditReview.Opportunity__r.RecordType.Name}" == 'Broker WC Oppty' && "{!creditReview.Review_Type__c}" != 'Commercial Review'){
+    // alert('dd2')
+    $('.declineCheckbox').show();
+    $('.brokerDeclineCheckbox,.commercialDeclineCheckbox').hide();
+    declineType = 'Broker';
+    reasons = "{!creditReview.Broker_Decline_Reasons__c}";
+  }
+  if("{!creditReview.Review_Type__c}" == 'Commercial Review'){
+     //alert('dd3')
+    $('.commercialDeclineCheckbox').show();
+    $('.brokerDeclineCheckbox,.commercialDeclineCheckbox').hide();
+    declineType = 'Commercial';
+    reasons = "{!creditReview.Commercial_Decline_Reasons__c }";
+  }
+  var reasonsArr = reasons.split(';');
+  var reasonCheckList = {};
+  for(var i=0;i<reasonsArr.length;i++){
+    reasonCheckList[reasonsArr[i]] = reasonsArr[i];
+  }
+  function declineChecked(){
+    $('.brokerOther,.declineOther,.commercialOther').hide();
+    //alert()
+    if(reasonCheckList['Other'] !== undefined){
+      if(declineType =='Commercial' ){
+        $('.commercialOther').show();
+      }
+      if(declineType =='Broker'){
+        $('.brokerOther').show();
+      }
+      if(declineType =='Decline'){
+        $('.declineOther').show();
+      }
+    }
+    
+    $('.declineSyndicationOption').each(function(){
+      $(this).filter(function() {
+       /// alert(reasonCheckList[$(this).val()]);
+          return $(this).val() === reasonCheckList[$(this).val()];
+      }).attr("checked",true);
+    })
+  }
+  // Landing Tab
+  var decitionTab = "{!$Permission.Credit_Review_Start_on_Decision}";
+  // Get Windo Height Width
+  var w = window.innerWidth;
+  var h = window.innerHeight;
+  // Set the effect type
+  var effect = 'slide';
+  var fetchAttachmentAndNote = "{!$RemoteAction.CreditreViewScreenController.fetchNotesAndAttachments}";
+  var saveNote = "{!$RemoteAction.CreditreViewScreenController.saveNotes}";
+  var parentId = "{!$CurrentPage.parameters.id}";
+  var acc = "{!creditReview.Opportunity__r.Account.name}";
+  var account_name = acc;// unescape(escape(acc));
+  var accLegal = "{!JSENCODE(creditReview.Opportunity__r.Account.Legal_Name__c)}";
+  var accLegal_name = accLegal; //unescape(escape(accLegal));
+  var accountId = "{!creditReview.Opportunity__r.Account.Id}";
+  var creditReviewStatus = "{!creditReview.Status__c}";
+  var secondReviewFrom = "{!creditReview.Second_Review_From__c}";
+  var creditReviewType = "{!creditReview.Review_Type__c}";
+  var userMaxApproval ="{!$User.WC_Approval_Authority__c}";
+  var userFullName = "{!$user.firstname} {!$user.lastname}"; 
+  var SyndicationRejectedByFullName = "{!creditReview.Syndication_Recommended_by__r.firstname} {!creditReview.Syndication_Recommended_by__r.lastname}";
+  var rejectedByFullName = "{!creditReview.Rejected_by__r.firstname} {!creditReview.Rejected_by__r.lastname}"; 
+  var approvedByFullName = "{!creditReview.ApprovedBy__r.firstname} {!creditReview.ApprovedBy__r.lastname}"; 
+  var withdrawnByFullName = "{!creditReview.Withdrawn_By__r.firstname} {!creditReview.Withdrawn_By__r.lastname}"; 
+  var approvedRecomendationByFullName = "{!creditReview.ApprovalRecomendationBy__r.firstname} {!creditReview.ApprovalRecomendationBy__r.lastname}"; 
+  var userId = '{!$user.id}'; 
+  // Set the options for the effect type chosen
+  var options = { direction: 'right' };
+  // Set the duration (default: 400 milliseconds)
+  var duration = 500;
+  //alert('{!creditReview.EXP_Business_Summary__r.status__c}');
+
+  function fillApprove(){
+    var v1 = "{!creditReview.Policy_Exception_Categories__c}";
+    var v2 = "{!creditReview.Allowable_Exceptions__c}";
+    var v3 = "{!creditReview.Strong_Mitigating_Factors__c}";
+    var v1Arr = v1.split(';');
+    var v2Arr = v2.split(';');
+    var v3Arr = v3.split(';');
+    var value1='';
+    var value2='';
+    var value3='';
+    for(var i=0; i < v1Arr.length; i++){
+      $('.PEC_Label input[type=Checkbox]').filter(function() {
+          return $(this).val() === String(v1Arr[i]);
+      }).attr("checked",true);
+      value1+=v1Arr[i]+'<br/>';
+    }
+    for(var j=0; j < v2Arr.length; j++){
+      $('.AE_Label input[type=Checkbox]').filter(function() {
+          return $(this).val() === String(v2Arr[j]);
+      }).attr("checked",true);
+      value2+=v2Arr[j]+'<br/>';
+    }
+    for(var k=0; k < v3Arr.length; k++){
+      $('.SMF_Label input[type=Checkbox]').filter(function() {
+          return $(this).val() === String(v3Arr[k]);
+      }).attr("checked",true);
+      value3+=v3Arr[k]+'<br/>';
+    }
+    $('.policyExceptions').html(value1);
+    $('.allowableExceptions').html(value2);
+    $('.strongMitigatingFactors').html(value3);
+
+    if(rejected_date != ''){
+       var d4 = stringToDateTime(rejected_date);
+        $('.rejected_on').text(formatDate(d4, true));
+         $('.rejected_by').html('<a href="/{!creditReview.Rejected_by__c}" target="_blank">'+rejectedByFullName+'</a>');
+      }
+    if(Syndication_rejected_date != ''){
+       var d5 = stringToDateTime(Syndication_rejected_date);
+        $('.Syndication_rejected_on').text(formatDate(d5, true));
+         $('.Syndication_rejected_by').html('<a href="/{!creditReview.Syndication_Recommended_by__c}" target="_blank">'+SyndicationRejectedByFullName+'</a>');
+      }
+    if(approved_by != ''){
+      var d1 = stringToDateTime(approved_date);
+      $('.submitted-date').text(formatDate(d1, true));
+      $('.approved-by').html('<a href="/'+approved_by+'" target="_blank">'+approvedByFullName+'</a>');
+    }
+    if(withdrawn_by != ''){
+      var d2 = stringToDateTime(withdrawn_date);
+      $('.withdram-on').text(formatDate(d2, true));
+      $('.withdram-by').html('<a href="/'+withdrawn_by+'" target="_blank">'+withdrawnByFullName+'</a>');
+    }
+    if(approvedRecomendationBy != ''){
+      var d3 = stringToDateTime(approvedRecomendation_date);
+      $('.submittedRecommended-date').text(formatDate(d3, true));
+      $('.approvedRecommended-by').html('<a href="/'+approvedRecomendationBy+'" target="_blank">'+approvedRecomendationByFullName+'</a>');
+    }
+  }
+  function setCookie(cname,cvalue,exdays) {
+      var d = new Date();
+      d.setTime(d.getTime() + (exdays*24*60*60*1000));
+      var expires = "expires=" + d.toGMTString();
+      document.cookie = cname+"="+cvalue+"; "+expires;
+  }
+  // Fill SSN Lookup Record 
+  function fillSSNLookupRecord(){
+      if("{!creditReview.PG1__r.Name}" != ''){
+        $('#signor-contact_id').val("{!creditReview.PG1__c}");
+        $('#signor-contact_name').val("{!creditReview.PG1__r.Name}");
+        $('#signor-ownership').val("{!creditReview.PG1__r.Ownership_Percentage__c}");
+        $('#signor-contact_ssn').val("{!creditReview.PG1__r.SSN_Encrypted__c}");
+        $('#signor-ssn,#signor-ownership').removeAttr('disabled');
+        if(pullCreditPermission =='true'){
+          $('.pull1').removeAttr('disabled').addClass('permissionDeny'); 
+        }
+        var pg1Error='';
+        if("{!creditReview.PG1__r.FirstName}" == '') pg1Error +='<li>First Name </li>'; 
+        if("{!creditReview.PG1__r.LastName}" == '')  pg1Error +='<li>Last Name</li>';
+        if("{!creditReview.PG1__r.SSN_Encrypted__c}" == '')  pg1Error +='<li>SSN Encrypted</li>';
+        if('{!PG1Addresses.size}' =='0') pg1Error +='<li>An associated Home Address </li>';
+        if(pg1Error != ''){
+          $('.equifax1_error,.experian1_error').show().find('.error_area').html(pg1Error);
+          $('.equifax1,.experian1').hide();
+          
+          $('.pull1').attr('disabled',true);
+        }
+      }
+      if("{!creditReview.PG2__r.Name}" != ''){
+        $('#guarantor2-contact_id').val("{!creditReview.PG2__c}");
+        $('#guarantor2-contact_name').val("{!creditReview.PG2__r.Name}");
+        $('#guarantor2-ownership').val("{!creditReview.PG2__r.Ownership_Percentage__c}");
+        $('#guarantor2-contact_ssn').val("{!creditReview.PG2__r.SSN_Encrypted__c}");
+        $('#gua2-ssn,#guarantor2-ownership').removeAttr('disabled');
+        if(pullCreditPermission =='true')
+           $('.pull2').removeAttr('disabled').addClass('permissionDeny'); 
+        var pg2Error='';
+        if("{!creditReview.PG2__r.FirstName}" == '') pg2Error +='<li>First Name </li>'; 
+        if("{!creditReview.PG2__r.LastName}" == '')  pg2Error +='<li>Last Name</li>';
+        if("{!creditReview.PG2__r.SSN_Encrypted__c}" == '')  pg2Error +='<li>SSN Encrypted</li>';
+        if('{!PG2Addresses.size}' =='0') pg2Error +='<li>An associated Home Address </li>';
+        if(pg2Error != ''){
+          $('.equifax2_error,.experian2_error').show().find('.error_area').html(pg2Error);
+          $('.equifax2,.experian2').hide();
+          $('.pull2').attr('disabled',true);
+        }
+      }
+      if("{!creditReview.PG3__r.Name}" != ''){
+        $('#guarantor3-contact_id').val("{!creditReview.PG3__c}");
+        $('#guarantor3-contact_name').val("{!creditReview.PG3__r.Name}");
+        $('#guarantor3-ownership').val("{!creditReview.PG3__r.Ownership_Percentage__c}");
+        $('#guarantor3-contact_ssn').val("{!creditReview.PG3__r.SSN_Encrypted__c}");
+        $('#gua3-ssn,#guarantor3-ownership').removeAttr('disabled');
+        if(pullCreditPermission =='true')
+            $('.pull3').removeAttr('disabled').addClass('permissionDeny');  
+        var pg3Error='';
+        if("{!creditReview.PG3__r.FirstName}" == '') pg3Error +='<li>First Name </li>'; 
+        if("{!creditReview.PG3__r.LastName}" == '')  pg3Error +='<li>Last Name</li>';
+        if("{!creditReview.PG3__r.SSN_Encrypted__c}" == '')  pg3Error +='<li>SSN Encrypted</li>';
+        if('{!PG3Addresses.size}' =='0') pg3Error +='<li>An associated Home Address </li>';
+        if(pg3Error != ''){
+          $('.equifax3_error,.experian3_error').show().find('.error_area').html(pg3Error);
+          $('.equifax3,.experian3').hide();
+          $('.pull3').attr('disabled',true);
+        }
+      }
+   }
+      
+  function disabledEvents(creditStatus){
+      if("{!$Permission.Modify_Completed_Credit_Reviews}" == 'false'){
+          if ((creditStatus =='Approved' || creditStatus =='Second Review' || creditStatus =='Withdrawn' || creditStatus =='Declined') && unLockPermissionDeny == false){
+              $('.disabledByZ-index,.unlockForm').show();
+              $('.permissionDeny').attr('disabled','disabled');
+              ModifyPermission = false;
+              unLockPermissionDeny == false;
+          }
+          else {
+              $('.disabledByZ-index,.unlockForm').hide();
+              $('.permissionDeny').removeAttr('disabled');
+              ModifyPermission = true;
+              unLockPermissionDeny = true;
+          }
+      }
+      if("{!$Permission.Credit_Review_Read_Only}" == 'true'){
+          $('.disabledByZ-index,.unlockForm').show();
+          $('.disabledByZ-index-decision').show();
+          $('.permissionDeny').attr('disabled','disabled');
+          ModifyPermission = false;
+          unLockPermissionDeny == false;
+     }
+
+      // Deny permissions for experian credit pulls
+      if("{!canPullExperian}" == 'true') {
+        $('.permissionDenyExpPG').removeAttr('disabled');
+        $('.permissionDenyExpBiz').removeAttr('disabled');
+      } else {
+        $('.permissionDenyExpPG').attr('disabled','disabled');
+        $('.permissionDenyExpBiz').attr('disabled','disabled');
+      }
+  }
+  function unlockCreditReviewForm(){
+    $('.disabledByZ-index,.unlockForm').hide();
+    $('.permissionDeny').removeAttr('disabled');
+    ModifyPermission = true;
+    unLockPermissionDeny = true;
+  }
+  function rebindGuarantorInformationValidation(){
+    if($('#signor-contact_name').val() !='' && $('.pull1').attr('disabled') !== undefined){
+      $('.equifax1,.experian1').hide();
+    }
+    if($('#guarantor2-contact_name').val() !='' && $('.pull2').attr('disabled') !== undefined){
+      $('.equifax2,.experian2').hide();
+    }
+    if($('#guarantor3-contact_name').val() !='' && $('.pull3').attr('disabled') !== undefined){
+      $('.equifax3,.experian3').hide();
+    }
+  }
+  function callPage(){
+     window.open("/apex/checklist?id="+parentId, "",'width='+w+'px,height='+h+'px');
+  }
+      
+</script>
+<style>
+                
+.cheaderOP {        
+    background-color: green;        
+    color: white;       
+ }      
+                
+.wrapperOP{     
+  margin: 0 auto;       
+  padding: 40px;        
+  max-width: 800px;     
+  font-family: 'Helvetica Neue', Helvetica, Arial;      
+  font-size: 14px;      
+  line-height: 20px;        
+  font-weight: 400;     
+  color: #3b3b3b;       
+  -webkit-font-smoothing: antialiased;      
+  font-smoothing: antialiased;      
+}       
+                
+.tableOP{       
+  margin: 0 0 40px 0;       
+  width: 100%;      
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);        
+  display: table;       
+  @media screen and (max-width: 580px){     
+    display: block;     
+        }       
+}       
+.rowOP {        
+  display: table-row;       
+  background: #f6f6f6;      
+  .headerOP{        
+    font-weight: 900;       
+    color: #ffffff;     
+    background: #ea6153;}       
+  .greenOP{     
+    background: #27ae60;}       
+  .blueOP{      
+    background: #2980b9;}       
+  @media screen and (max-width: 580px){     
+    padding: 8px 0;     
+    display: block;     
+        }       
+ }      
+.oddOP {        
+  background-color: white;      
+}       
+.evenOP {       
+  background color: ;       
+}       
+.floatLOP {     
+  float: left;      
+}       
+.floatROP {     
+  float: right;     
+}       
+.cellOP {       
+  padding: 20px 12px;       
+  text-align: center;           
+  display: table-cell;      
+  @media screen and (max-width: 580px){     
+    padding: 2px 12px;      
+    display: block;     
+    }       
+}       
+                    
+.paddingStyleCompName {
+  padding:5px 12px;
+}               
+                    
+.paddingStyle {                 
+  padding:5px 12px;             
+}           
+#btn-defaultOP:hover {      
+    color: #333;        
+    background-color: #e6e6e6;      
+    border-color: #adadad;          
+}       
+            
+.testOP input:hover {background-color:red;}         
+<!--all my styles are above-->
+@media (min-width: 768px){
+  #firstmodel .modal-dialog{
+      width: 500px !important;
+  }
+}
+/*#summary-tbody td:not(:first-child),#summary-tbody1 td:not(:first-child){text-align: right}*/
+button[disabled], a[disabled]{
+  cursor:not-allowed !important;
+}
+#summaryBody,#summaryBody1 {text-align: right}
+#summaryHeader th,#summaryHeader1 th {text-align: center; padding: 7px 30px}
+.month-table-bottom input{width: 80px !important;}
+.disabledByZ-index{
+  z-index:1000;position:absolute;height:100%;width:100%; display: none; cursor: not-allowed;
+}
+.disabledByZ-index-decision{
+  z-index:1000;position:absolute;height:100%;width:100%; display: none; cursor: not-allowed;
+}
+.input-group-addon{cursor: pointer;}
+.boriView{margin-bottom: 10px}
+.error_area{
+  margin: 10px
+}
+.error_msg{
+  padding: 5px 10px; font-size: 13px
+}
+div.error{
+    background-color: #f2dede;
+    padding-top: 10px;
+    margin: 7px 0px
+  }
+ .custPopup{ background-color: white; border-width: 0px; border-radius:10px; z-index: 9999; left: 50%; padding:20px; position: fixed; /* These are the 3 css properties you will need to change so the popup displays in the center of the screen. First set the width. Then set margin-left to negative half of what the width is. You can add the height property for a fixed size pop up if you want.*/ margin-left: -100px; top:40%; } .popupBackground{ background-color:black; opacity: 0.30; filter: alpha(opacity = 30); position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: 9998; }
+input[type="checkbox"] { width: auto!important; height: auto!important; }    
+
+
+.biz_reports_panel .ui-widget-content {
+    background: #ffffff;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    border : 0px;
+}
+
+
+.biz_reports_panel .ui-widget-content a {
+    color: #337ab7;
+}
+
+.biz_reports_panel .ui-accordion-content {
+    padding: 15px;
+}
+
+.biz_reports_panel .table td {
+    padding: 0px;
+}
+
+.biz_reports_panel .ui-state-hover {
+  color : inherit;
+}
+
+.biz_reports_panel .ui-state-default {
+  color : inherit;
+}
+
+.biz_reports_panel .ui-state-active
+ {
+  color : inherit;
+}
+
+.glyphicon-refresh-animate {
+    -animation: spin .7s infinite linear;
+    -webkit-animation: spin2 .7s infinite linear;
+}
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg);}
+    to { -webkit-transform: rotate(360deg);}
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg);}
+    to { transform: scale(1) rotate(360deg);}
+}
+
+.wide100 {
+    width: 100px !important;
+}
+
+.light-green-color {
+    color: #B0E1B4;
+}
+
+.middleVAlign {
+    vertical-align: middle !important;
+}
+</style>
+
+        <!--Note Information Modal End here-->
+        <script type="text/javascript">__sfdcSessionId = '{!$Api.Session_Id}';</script>
+        <script src="../../soap/ajax/30.0/connection.js" type="text/javascript"></script>
+        <script src="{!$Resource.functions}" />
+        <script src="{!$Resource.creditpull}"></script>
+        <!-- Style -->
+        <c:CreditReviewScreenStyle />
+    </head>
+
+
+
+    <apex:form id="mainForm">
+
+        <!-- General action function to refresh the view state of the controller.
+        This is important because some of the "save" functions, such as for PGs, update the Credit Review via javascript remoting
+        rather than explicitly using the view state. -->
+        <apex:actionfunction name="refreshViewState" action="{!resetBusinessInformationRecord}" oncomplete="rebindDateFields()" />
+
+        <!--
+          Action Function to call on the Credit Review Screen Controller to refresh the PG Credit data in creditReview after a credit pull
+          It will re-render all of the PG apex:outputPanel objects on the credit review screen
+        -->
+        <apex:actionFunction name="updatePGCredit" action="{!updatePGCredit}" reRender="pg1_left,pg2_left,pg3_left" oncomplete="rebindDateFields()"/>
+
+
+        <!-- Action function to re-render a PG credit result panel (the small green box) -->
+
+        <!--OLIVIA UPDATES - 7.9.18 -->
+        <apex:actionFunction name="updatePG1EquifaxPanel" action="{!dataLoad}" reRender="pg1_credit_equifax,pg1_left"/>
+        <apex:actionFunction name="updatePG2EquifaxPanel" action="{!dataLoad}" reRender="pg2_credit_equifax,pg2_left"/>
+        <apex:actionFunction name="updatePG3EquifaxPanel" action="{!dataLoad}" reRender="pg3_credit_equifax,pg3_left"/>
+
+        <apex:actionFunction name="updatePG1ExperianPanel" action="{!resetBusinessInformationRecord}" reRender="pg1_credit_experian,pg1_left"/>
+        <apex:actionFunction name="updatePG2ExperianPanel" action="{!resetBusinessInformationRecord}" reRender="pg2_credit_experian,pg2_left"/>
+        <apex:actionFunction name="updatePG3ExperianPanel" action="{!resetBusinessInformationRecord}" reRender="pg3_credit_experian,pg3_left"/>
+
+        <apex:actionFunction name="updatePGCreditPanels" action="{!resetBusinessInformationRecord}"
+                             reRender="pg1_credit_equifax,pg2_credit_equifax,pg3_credit_equifax,pg1_credit_experian,pg2_credit_experian,pg3_credit_experian"/>
+
+        <apex:actionFunction name="reloadWholePage" action="{!reloadPage}" reRender="mainForm" />
+        <apex:actionFunction name="Diamond" status="fetching" action="{!setReviewDiamond}" reRender="mainForm" />
+        <apex:actionFunction name="Platinum"  status="fetching" action="{!setPlatinum}" reRender="mainForm" />
+        <apex:actionFunction name="Gold"  status="fetching" action="{!setReviewGold}" reRender="mainForm" />
+        <apex:actionFunction name="Commercial" status="fetching" action="{!setReviewCommercial}" reRender="mainForm" />
+        <apex:actionFunction name="refreshDecision"  action="{!resetBusinessInformationRecord}" reRender="declineArea" oncomplete="declineChecked();declineOtherCheckbox()" />
+        <apex:actionfunction name="reloadRecommended" action="{!resetBusinessInformationRecord}" oncomplete="refreshDecisionRecord()"/>
+        <apex:actionfunction name="refreshDecisionRecord" action="{!refreshDecisionRecord}" oncomplete="rebindDateFields()" rerender="pg1_left,pg2_left,pg3_left,recommendId" />
+
+        <apex:actionFunction name="reloadBusinessLoader" reRender="businessPull_EXP,businessDetailPanel,recommendId,decisionbusiness" action="{!resetBusinessInformationRecord}" oncomplete="disabledEvents(creditReviewStatus);clearBusinessLoading('experian');stopToClearValue();rebindDateFields();getBusinessCreditSummaryMark();makeBizReportAccordion('experian')"  />
+
+        <apex:actionFunction name="LoadingIcon" status="fetching" reRender="businessPull_EXP,businessPull_EQF,businessDetailPanel,recommendId" />
+
+        <apex:actionFunction name="reloadBusinessLoaderRight" reRender="businessPull_EXP,recommendId,decisionbusiness" action="{!resetBusinessInformationRecord}" oncomplete="disabledEvents(creditReviewStatus);clearBusinessLoading('experian');stopToClearValue();rebindDateFields();getBusinessCreditSummaryMark()"  />
+
+        <apex:actionFunction name="reloadBusinessReLoaderRight" reRender="businessPull_EXP,recommendId" action="{!resetBusinessInformationRecord}" oncomplete="disabledEvents(creditReviewStatus);stopToClearValue();rebindDateFields()"  />
+
+        <apex:actionfunction name="rescoreActionFunction" rerender="recommendId" action="{!refreshDecisionRecord}" oncomplete="disabledEvents(creditReviewStatus);rebindDateFields();showModelScoring(false)" />
+
+        <apex:actionFunction name="reloadGuarantorLoader" reRender="pg1OutPut,pg1OutPut1,pg2OutPut,pg2OutPut1,pg3OutPut,pg3OutPut1,pg1OutPut-decision,pg1OutPut1-decision,pg2OutPut-decision,pg2OutPut1-decision,pg3OutPut-decision,pg3OutPut1-decision" action="{!resetBusinessInformationRecord}" oncomplete="rebindGuarantorInformationValidation();disabledEvents(creditReviewStatus);getGuarantorInfo();" />
+
+        <apex:actionFunction name="reloadGuarantor" reRender="recommendId,pg1_credit_equifax,pg2_credit_equifax,pg3_credit_equifax,pg1_credit_experian,pg2_credit_experian,pg3_credit_experian,pg1_left,pg2_left,pg3_left" status="fetching" action="{!resetBusinessInformationRecord}" oncomplete="$('#guarantormodal').modal('hide');rebindGuarantorInformationValidation();callAssociatedContacts();disabledEvents(creditReviewStatus);onlyInteger();getGuarantorInfo();" />
+
+        <apex:actionFunction name="reloadGuarantorPull" reRender="pullOptionBiz,pullOption1,pullOption2,pullOption3,pullOption4,pullOption5,pullOptidisabledEvents(creditReviewStatus)on6,altCon1,altCon2,altCon3,altCon4,altCon5,altCon6"  action="{!resetBusinessInformationRecord}" oncomplete="pullCreditValidation();callAssociatedContacts();" />
+
+        <apex:actionFunction name="reloadBusinessLoader_EQF" reRender="businessPull_EQF,businessDetailPanel,recommendId,decisionbusiness" action="{!resetBusinessInformationRecord}" oncomplete="disabledEvents(creditReviewStatus);clearBusinessLoading('equifax'); stopToClearValue();rebindDateFields();getBusinessCreditSummaryMark()"  />
+
+        <apex:actionFunction name="reloadBusinessLoaderRight_EQF" reRender="businessPull_EQF,recommendId,decisionbusiness" action="{!resetBusinessInformationRecord}" oncomplete="disabledEvents(creditReviewStatus);clearBusinessLoading('equifax'); stopToClearValue();rebindDateFields();getBusinessCreditSummaryMark()"  />
+
+        <apex:actionFunction name="reloadBusinessLoader_EQF_EXP" reRender="businessPull_EXP,businessPull_EQF,businessDetailPanel,recommendId,decisionbusiness" action="{!resetBusinessInformationRecord}" oncomplete="disabledEvents(creditReviewStatus);clearBusinessLoading('equifax'); stopToClearValue();rebindDateFields();getBusinessCreditSummaryMark()"  />
+
+        <!--<apex:actionFunction name="reloadCreditSummaryOption" reRender="altCon1,altCon2,altCon3,altCon4,altCon5,altCon6" action="{!reloadCreditSummaryOptions}"  />-->
+        <apex:actionStatus startText="Processing....." id="process" />
+        <apex:actionStatus id="fetching">
+            <apex:facet name="start">
+                <apex:outputPanel id="tstpopup">
+                    <apex:outputPanel styleClass="popupBackground" layout="block"/>
+                    <apex:outputPanel styleClass="custPopup" layout="block">
+                        <img src="/img/loading24.gif" style="vertical-align:middle; horizontal-align:middle"/>
+                        <span>Please wait...</span>
+                    </apex:outputPanel>
+                </apex:outputPanel>
+            </apex:facet>
+        </apex:actionStatus>
+        <!--<apex:repeat value="{!MonthlyLedgerParents}" var="ml">
+  {!ml.tabName}
+  </apex:repeat>-->
+        <body ng-app="app" ng-controller="MainController as main" class="mb30">
+
+        <div class="loadingDiv" style="display:none">
+            <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; opacity: 0.75; z-index: 100000;">
+                <div style="position:fixed;top:250px;height:100%;width:100%;">
+                    <center>
+                        <img src="{!URLFOR($Resource.loading,'loading/circle.gif')}"/>
+                    </center>
+                </div>
+            </div>
+        </div>
+        <div class="container dropbox dropboxdiv" id="dropbox1">
+            <div class="page-header" style="margin-top:15px;margin-bottom:0px">
+                <h1>Credit Review <small>{!creditReview.Opportunity__r.name}</small></h1>
+            </div>
+            <a href="/{!creditReview.Opportunity__c}" class="btn btn-primary"  style="margin-top:15px"> <i class="fa fa-reply"></i> Go Back </a>
+
+
+            <!-- Key Business Panel -->
+            <c:CreditReviewScreenKeyBusiness creditReviewObj="{!creditReview}" />
+
+            <!--expand collepse bar starts-->
+            <div class="collepse-bar">
+                <!-- Example row of columns -->
+
+                <div class="collapse-group">
+                    <div class="panel-heading green-panel">
+                        Attachments (<span id="attachment-count">{!totalAttachments}</span> attachments)
+                        <div class="pull-right">
+                            <a style="margin-top:-3px;" class="expand-btn pull-right" href="#"><i class="fa fa-plus-circle fa-2x"></i></a>
+                        </div>
+                        <div class="pull-right" style="position:relative">
+                            <div class="disabledByZ-index"></div>
+                            <a class="pull-right disabled-event" href="javascript:void(0)"  onclick="$('#attachmentmodel').modal('show')"  style="margin-right:10px; margin-top:-3px;"><i class="fa fa-upload fa-2x"></i></a>
+                            <a class="pull-right disabled-event" href="javascript:void(0)"  onclick="$('#notesmodel').modal('show')" title="Notes" style="margin-right:10px; margin-top:-3px;"><i class="fa fa-book fa-2x"></i></a>
+                        </div>
+                    </div>
+                    <div class="panel-body-custom">
+                        <div class="collapse">
+                            <div class="row">
+                                <div class="col-md-12 noteAttachmentBox">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--expand collepse bar starts-->
+            <!--Main Navigation using Tabs-->
+            <div class="row">
+                <div class="col-md-12 main-nav-tabs">
+                    <ul id="myTab" class="nav nav-pills" role="tablist">
+                        <li role="presentation" class="active"> <a href="#business" id="business-tab" role="tab" data-toggle="tab" aria-controls="business" aria-expanded="false">Business Information</a> </li>
+                        <li role="presentation"> <a href="#guarantor" id="guarantor-tab" role="tab" data-toggle="tab" aria-controls="guarantor" aria-expanded="false">Guarantor Information</a> </li>
+                        <li role="presentation"> <a href="#bank" id="bank-tab" role="tab" data-toggle="tab" aria-controls="bank" aria-expanded="false">Bank Information</a> </li>
+                        <apex:outputPanel layout="none" rendered="{!$Permission.Credit_Review_Can_Access_Decision_Tab}">
+                            <li role="presentation"> <a href="#Decision" onclick="summaryTabCalculation();getGuarantorInfo()" id="decision-tab" role="tab" data-toggle="tab" aria-controls="bank" aria-expanded="false">Decision</a> </li>
+                        </apex:outputPanel>
+                        <div class="pull-right">
+                            <apex:outputPanel layout="none" rendered="{!$Permission.Credit_Review_Can_Access_Checklist}">
+                                <a class="btn btn-black pull-right"  href="javascript:void(0)" onclick="callPage()" target="_blank" style="padding:8px 12px" >Checklist</a>
+                            </apex:outputPanel>
+                        </div>
+                        <div class="pull-right" style="position:relative">
+                            <div class="disabledByZ-index"></div>
+                            <apex:outputPanel layout="none" rendered="{!$Permission.Credit_Review_Can_Submit_Credit_Review_for_Processing}">
+                               <apex:outputPanel layout="none" rendered="{!creditReview.Processing_Completed__c == true}">
+                                    <button type="button" class="btn btn-success pull-right completedProcessing" onclick="completeProcessing(this)" style="padding:8px 12px; margin-right: 10px" disabled="disabled">Complete Processing</button>
+                                </apex:outputPanel>
+                                <apex:outputPanel layout="none" rendered="{!creditReview.Processing_Completed__c == false}">
+                                    <button type="button" class="btn btn-success pull-right completedProcessing" onclick="completeProcessing(this)" style="padding:8px 12px; margin-right: 10px">Complete Processing</button>
+                                </apex:outputPanel>
+                            </apex:outputPanel>
+                        </div>
+                        <div class="pull-right">
+                            <apex:outputPanel layout="none" rendered="{!!$Permission.Credit_Review_Read_Only}">
+                                <button type="button" class="btn btn-success pull-right unlockForm" style="padding:8px 12px; margin-right: 10px;display:{!If($Permission.Allow_Modify_Completed_Credit_Reviews == false && (creditReview.Status__c =='Approved' || creditReview.Status__c =='Second Review' || creditReview.Status__c =='Withdrawn' || creditReview.Status__c =='Declined'),'block','none')}" onclick="unlockCreditReviewForm()">Unlock Form</button>
+                            </apex:outputPanel>
+
+                        </div>
+                    </ul>
+                    <div class="col-md-12 tab-content">
+                        <div class="tab-pane fade active in" id="business">
+
+                            <div class="row business-info">
+                                <h3>Business Information
+                                    <!--<button type="button" class="btn btn-primary pull-right" onclick="LoadingIcon();businessMonitoringLoading()"> Refresh Business Credit Result </button>-->
+                                </h3>
+
+                                <hr/>
+                                <apex:pageMessages />
+                                <hr/>
+
+                                <div class="col-md-6" style="position:relative">
+                                    <div class="disabledByZ-index"></div>
+                                    <form class="form-horizontal" id="business-detail-form">
+                                        <fieldset>
+                                            <apex:actionFunction name="saveBusinessDetail" reRender="businessDetailPanel" status="fetching" action="{!saveBusinessInformationRecord}" oncomplete="unbindStopToClearValue();" />
+                                            <apex:actionFunction name="cancelBusinessDetail" reRender="businessDetailPanel" status="fetching" action="{!resetBusinessInformationRecord}" />
+                                            <apex:outputPanel id="businessDetailPanel">
+                                                <!-- Form Name -->
+                                                <apex:repeat value="{! $ObjectType.Credit_review__c.Fieldsets.Business_Info_Fields}" var="varFieldName">
+                                                    <div class="form-group margin-bottom">
+                                                        <label class="col-md-5 control-label" for="textinput">{!varFieldName.label}</label>
+                                                        <div class="col-md-7">
+                                                            <apex:inputField value="{!creditReview[varFieldName]}" styleclass="form-control bussInfodisabled" />
+                                                        </div>
+                                                    </div>
+                                                </apex:repeat>
+                                                <br/>
+                                                <div class="form-group margin-bottom">
+                                                    <div class="col-md-offset-3 col-md-6">
+                                                        <input type="button" value="Cancel" onclick="cancelBusinessDetail(); return false;" class="btn btn-danger bussInfodisabled permissionDeny" />
+                                                        <input type="button" value="Save" onclick="saveBusinessDetail(); return false;" class="btn btn-primary bussInfodisabled permissionDeny" />
+                                                    </div>
+                                                </div>
+                                            </apex:outputPanel>
+                                        </fieldset>
+                                    </form>
+                                </div>
+                                <div class="col-md-6" style="position:relative">
+                                    <div class="row" id="biz-reports-tabs-experian">
+                                        <apex:outputPanel id="businessPull_EXP">
+                                            <c:CreditReviewBizReportsPanel creditReview="{!creditReview}" BusinessCreditSummaryObj="{!BusinessCreditSummaryObj}" BizCreditReports="{!BizCreditReports}" Bureau="Experian" PrimaryId="{!creditReview.EXP_Business_Summary__r.Id}" />
+                                        </apex:outputPanel>
+                                    </div>
+                                </div>
+
+<!--Start LexisNexis Business Instant ID Report-->
+ <apex:actionFunction name="pullReportOP" action="{!pullReport}" reRender="refreshOutPutPannel" status="spinnerStatus" />
+                
+                <div class="col-md-6 spinBorder" style="position:relative; display:{!If($Profile.Name == 'FPC - WC - Renewal Sales' || $Profile.Name == 'NF - Broker Relationship Manager' || $Profile.Name == 'NF - Broker Relationship Mgr Traveling' || $Profile.Name == 'NF - Hybrid Sales' || $Profile.Name == 'NF - VP of Sales' || $Profile.Name == 'NF - WC Sales Manager' || $Profile.Name == 'NF - Working Capital Users' || $Profile.Name == 'NF Partner - BofI Federal' || $Profile.Name =='NF Renewal Manager Profile', 'none', 'block')}">
+                    <div class="tableOP panel-default" id="oldPullreportbutton" onload="deleteButton()" >
+                        <div class="rowOP headerOP greenOP">		
+                            <div class="cell cheaderOP panel-heading green-panel"> 		
+                                LexisNexis Business Instant ID Report 		  
+                            </div>		
+                        </div> 
+                        <div class="replaceWithSpinner">
+                            <div class="panel-body">		
+                                <div class="paddingStyleCompName text-center" id="changeString" >Instant ID Report has not yet been pulled for this organization.</div>		
+                            </div>	
+                            <div class="panel-body panel-footer">		 
+                                <div class="form-group" style="position:relative;text-align:center">		  
+                                    <div class= "btn btn-default"> 
+                                        <apex:commandLink action="{!pullReport}" onclick="showCreditPull()" value="Pull Report" style="text-decoration: none; color: #333;"/>	
+                                    </div>
+                                </div>
+                            </div>	 
+                        </div>
+                    </div>                         
+                    
+                    
+                        <apex:actionStatus id="spinnerStatus" onstop="hideShow()">
+                            <apex:facet name="start">
+                                <apex:outputPanel id="spinnerContainer2">
+                                    <div class="business-loading-icon panel-body" align="center" style="margin-right:5px;height:178px;">
+                                        <span style='display:inline-block; height:100%; vertical-align:middle;'></span>
+                                        <img src="{!URLFOR($Resource.loadingspinner)}" style="height:100px" />  
+                                    </div>
+                                </apex:outputPanel> 
+                            </apex:facet>
+                        </apex:actionStatus>
+                        
+                    
+                    <apex:pageMessages />
+                    
+                    <apex:outputPanel id="refreshOutPutPannel">	
+                        <div class="tableOP" id="populatedChart">		
+                            <div class="rowOP headerOP greenOP">		
+                                <div class="cell cheaderOP panel-heading green-panel"> 		
+                                    LexisNexis Business Instant ID Report 		
+                                </div>		
+                            </div>		
+                            <div class="rowOP oddOP">		
+                                <div class="cellOP companyname paddingStyleCompName" id="blankComp">	
+                                    {!bvs.Company_Name__c}	
+                                </div>		
+                            </div>		
+                            <div class="rowOP borderTop">		
+                                <div class="cellOP evenOP paddingStyle">		
+                                    <div class="cellOP floatLOP paddingStyle">		
+                                        Report Date		
+                                    </div>		
+                                    <div class="cellOP floatROP paddingStyle">		
+                                        {!bvs.Transaction_Date__c} 		
+                                    </div>		
+                                </div>		
+                            </div>		
+                            <div class="rowOP">		
+                                <div class="cellOP oddOP paddingStyle">		
+                                    <div class="cellOP floatLOP paddingStyle">		
+                                        See Full Report In Attachments
+                                    </div>		
+                                    <!--<div class="cellOP floatROP paddingStyle">				-->
+                                        <!--<a href="{!bvs.Lexis_Nexis_Report_Link__c}" target="_blank" class="paddingStyle">View Details </a>		-->
+                                    <!--</div>		-->
+                                </div>		
+                            </div>		
+                        </div>
+                    </apex:outputPanel> 
+                </div>
+                
+<script> 	
+window.addEventListener('DOMContentLoaded', function() { 
+	var bananas = true;
+	console.log(bananas);
+	if ('{!bvs.Status__c}' != 'Completed') {
+		console.log(bananas + '1');
+		document.getElementById("populatedChart").style.display = "none";  
+		console.log(bananas + '2'); 
+	}
+	if ('{!bvs.Status__c}' == 'Completed') {
+		console.log(bananas + '3');
+		document.getElementById("oldPullreportbutton").style.display = "none";
+		console.log(bananas + '4');
+	}
+	if ('{!bvs.Company_Name__c}'.length > 0) {		
+   		document.getElementById("blankComp").style.fontWeight="bold";		
+	}             
+});
+</script>                                  
+
+                            </div>
+                            <c:CreditReviewScreenBusinessTab otherRelatedBusinessesTables="{!otherRelatedBusinessesTables}"/>
+                        </div>
+                        <div class="tab-pane fade" id="guarantor">
+                            <c:CreditReviewScreenGuarantorTab creditReviewObj="{!creditReview}" signorHasNoCCS="{!signorHasNoCCS}" signorCCS="{!signorCCS}" g2CCS="{!g2CCS}" g3CCS="{!g3CCS}" table="{!TableValue}"/>
+                        </div>
+                        <div class="tab-pane fade" id="bank">
+                            <!--<c:CreditReviewScreenBankTab dd="{!MonthlyLedgerParents}" />-->
+                            <div class="row bank-info">
+                                <h3>Bank Information</h3>
+
+                                <!-- Tabs Navigation starts-->
+                                <ul class="nav nav-tabs bankTabMenu" id="my-Tab-1" style="padding: 0px; background: #fff;">
+                                    <li class="active" ><a data-toggle="tab" href="#Summary" onclick="summaryTabCalculation()">Summary</a> </li>
+                                    <li class="last"><a href="#Overeiw" data-toggle="tab">Account Overview</a> </li>
+                                    <apex:repeat value="{!MonthlyLedgerParents}" var="ml">
+                                        <li><a href="#{!ml.bankId}" data-toggle="tab" onClick="checkMonth('{!ml.bankId}')">
+                                                {!ml.tabName}</a> </li>
+                                    </apex:repeat>
+                                    <a href="javascript:void(0)" onclick="$('#bankmodal-addaccount').modal('show');getBankData()" class="btn btn-primary permissionDeny pull-right" role="button">Add Account</a>
+
+                                    <div class="changes-btn pull-right"  style="text-align:center;margin-right:5px; display:none">  <a href="javascript:void(0)" class="btn btn-danger" onclick="cancelChanges()" >Cancel Changes</a> <a class="btn btn-success"  onClick="saveBankChanges('')"  >Save Changes</a> </div>
+                                </ul>
+                                <!-- Tabs Navigation Ends-->
+                                <!-- Tabs Content starts-->
+                                <div class="tab-content bankTabContent">
+                                    <!-- Tabs Summary  content starts-->
+                                    <div class="tab-pane active" id="Summary">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div style=" margin-top:18px">
+                                                    <div class="col-md-8" style="line-height: 32px;">
+                                                        <label class="bank-label-head">Month</label>
+                                                        <br/>
+                                                        <label class="bank-label" style="font-size:13px">Beginning Balance($)</label>
+                                                        <br/>
+                                                        <label class="bank-label" style="font-size:13px">Deposits(#)</label>
+                                                        <br/>
+                                                        <label class="bank-label" style="font-size:13px">Counter Deposits($)</label>
+                                                        <br/>
+                                                        <label class="bank-label" style="font-size:13px">Other Deposits($)</label>
+                                                        <br/>
+                                                        <label class="bank-label" style="font-size:13px">Withdrawals($)</label>
+                                                        <br/>
+                                                        <label class="bank-label" style="font-size:13px">Ending Balance($)</label>
+                                                        <br/>
+                                                        <label class="bank-label" style="font-size:13px">Negative Days(#)</label>
+                                                        <br/>
+                                                        <label class="bank-label" style="font-size:13px">NSFs(#)</label>
+                                                        <br/>
+                                                        <label class="bank-label" style="font-size:13px">Avg Daily Balance($)</label>
+                                                        <br/>
+                                                    </div>
+                                                    <div class="col-md-4" style="line-height: 32px; text-align:right">
+                                                        <label class="bank-label-head">Average</label>
+                                                        <br/>
+                                                        <label class="summaryLabel1 bank-label">${!summaryRecords.BMA.Column1}</label>
+                                                        <br/>
+                                                        <label class="summaryLabel2 bank-label">{!summaryRecords.BMA.Column2}</label>
+                                                        <br/>
+                                                        <label class="summaryLabel3 bank-label">${!summaryRecords.BMA.Column3}</label>
+                                                        <br/>
+                                                        <label class="summaryLabel4 bank-label">${!summaryRecords.BMA.Column4}</label>
+                                                        <br/>
+                                                        <label class="summaryLabel5 bank-label">${!summaryRecords.BMA.Column5}</label>
+                                                        <br/>
+                                                        <label class="summaryLabel6 bank-label">${!summaryRecords.BMA.Column6}</label>
+                                                        <br/>
+                                                        <label class="summaryLabel7 bank-label">{!summaryRecords.BMA.Column7}</label>
+                                                        <br/>
+                                                        <label class="summaryLabel8 bank-label">{!summaryRecords.BMA.Column8}</label>
+                                                        <br/>
+                                                        <label class="summaryLabel9 bank-label">${!summaryRecords.BMA.Column9}</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div style="width:100%; overflow-x:scroll; border:1px solid #CCC; margin-top:10px">
+                                                    <table class="table " id="" >
+                                                        <thead id="summaryHeader">
+                                                        <tr>
+                                                            <apex:repeat value="{!summaryRecords.SummaryMonths}" var="month">
+                                                                <th style="white-space: nowrap;">{!month.MonthName} {!month.Year}</th>
+                                                            </apex:repeat>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody id="summaryBody">
+                                                        <tr>
+                                                            <apex:repeat value="{!summaryRecords.SummaryMonths}" var="month">
+                                                                <td>
+                                                                    <apex:outputText value="{0,number,$#,##0.00}">
+                                                                        <apex:param value="{!month.Column1}" />
+                                                                    </apex:outputText>
+                                                                </td>
+                                                            </apex:repeat>
+                                                        </tr>
+                                                        <tr>
+                                                            <apex:repeat value="{!summaryRecords.SummaryMonths}" var="month">
+                                                                <td> {!month.Column2} </td>
+                                                            </apex:repeat>
+                                                        </tr>
+                                                        <tr>
+                                                            <apex:repeat value="{!summaryRecords.SummaryMonths}" var="month">
+                                                                <td> <apex:outputText value="{0,number,$#,##0.00}">
+                                                                    <apex:param value="{!month.Column3}" />
+                                                                </apex:outputText>
+                                                                </td>
+                                                            </apex:repeat>
+                                                        </tr>
+                                                        <tr>
+                                                            <apex:repeat value="{!summaryRecords.SummaryMonths}" var="month">
+                                                                <td> <apex:outputText value="{0,number,$#,##0.00}">
+                                                                    <apex:param value="{!month.Column4}" />
+                                                                </apex:outputText>
+                                                                </td>
+                                                            </apex:repeat>
+                                                        </tr>
+                                                        <tr>
+                                                            <apex:repeat value="{!summaryRecords.SummaryMonths}" var="month">
+                                                                <td> <apex:outputText value="{0,number,$#,##0.00}">
+                                                                    <apex:param value="{!month.Column5}" />
+                                                                </apex:outputText>
+                                                                </td>
+                                                            </apex:repeat>
+                                                        </tr>
+                                                        <tr>
+                                                            <apex:repeat value="{!summaryRecords.SummaryMonths}" var="month">
+                                                                <td> <apex:outputText value="{0,number,$#,##0.00}">
+                                                                    <apex:param value="{!month.Column6}" />
+                                                                </apex:outputText>
+                                                                </td>
+                                                            </apex:repeat>
+                                                        </tr>
+                                                        <tr>
+                                                            <apex:repeat value="{!summaryRecords.SummaryMonths}" var="month">
+                                                                <td> {!month.Column7} </td>
+                                                            </apex:repeat>
+                                                        </tr>
+                                                        <tr>
+                                                            <apex:repeat value="{!summaryRecords.SummaryMonths}" var="month">
+                                                                <td> {!month.Column8} </td>
+                                                            </apex:repeat>
+                                                        </tr>
+                                                        <tr>
+                                                            <apex:repeat value="{!summaryRecords.SummaryMonths}" var="month">
+                                                                <td>  <apex:outputText value="{0,number,$#,##0.00}">
+                                                                    <apex:param value="{!month.Column9}" />
+                                                                </apex:outputText>
+                                                                </td>
+                                                            </apex:repeat>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Tabs Summary  content Ends-->
+                                    <!-- Tabs Summary  Account Overview starts-->
+                                    <div class="tab-pane create_tab" id="Overeiw">
+                                        <c:BankOvereiwTab dateStart="{!startRangeDate}" dateEnd="{!endRangeDate}" />
+                                    </div>
+                                    <!-- Tabs Summary  Account Overview Ends-->
+                                    <apex:repeat value="{!MonthlyLedgerParents}" var="mlrow">
+                                        <div class="tab-pane tabStyle" id="{!mlrow.bankId}" data-summaryid="{!mlrow.BankSummaryId}" style="position:relative">
+                                            <div class="disabledByZ-index"></div>
+                                            <div class="fa-border" style="margin-top:20px; margin-bottom:20px; width:100%;">
+
+                                                <div class="row" >
+                                                    <div class="col-md-2">
+                                                        <div style=" margin-top:10px">
+                                                            <div class="col-md-12">
+                                                                <label class="bank-label-head hidden">s</label>
+                                                                <br/>
+                                                                <label class=" bank-label"> Beginning Balance($)</label>
+                                                                <br/>
+                                                                <label class=" bank-label">Deposits(#)</label>
+                                                                <br/>
+                                                                <label class=" bank-label">Counter Deposits($)</label>
+                                                                <br/>
+                                                                <label class=" bank-label"> Other Deposits($)</label>
+                                                                <br/>
+                                                                <label class=" bank-label"> Withdrawals($)</label>
+                                                                <br/>
+                                                                <label class=" bank-label"> Ending Balance($)</label>
+                                                                <br/>
+                                                                <label class=" bank-label"> Negative Days(#)</label>
+                                                                <br/>
+                                                                <label class=" bank-label"> NSFs(#)</label>
+                                                                <br/>
+                                                                <label class=" bank-label"> Avg Daily Balance($)</label>
+                                                                <br/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div class="row bankMonthSection row-horizon"  onscroll="myScroller(this,'{!mlrow.BankSummaryId}')">
+                                                            <apex:repeat value="{!mlrow.childs}" var="month">
+                                                                <div class="col-md-2 {!month.mr.Month_Name__c}{!month.mr.Year__c}">
+                                                                    <div style="width:100%; margin-top:10px">
+                                                                        <table class="table table-bordered month-table">
+                                                                            <label class="bank-label-head">
+                                                                                <apex:outputPanel rendered="{!month.mr.Include_in_Averages__c}" layout="none">
+                                                                                    <input type="checkbox" class="bankMonthlyCheck" value="{!month.mr.Bank_Monthly_Ledger__c}" checked="checked" />
+                                                                                </apex:outputPanel>
+                                                                                <apex:outputPanel rendered="{!!month.mr.Include_in_Averages__c}" layout="none">
+                                                                                    <input type="checkbox" class="bankMonthlyCheck" value="{!month.mr.Bank_Monthly_Ledger__c}" />
+                                                                                </apex:outputPanel>
+                                                                                    {!month.mr.Month_Name__c} {!month.mr.Year__c}</label>
+                                                                            <tr>
+                                                                                <td><input type="text" class="bankRow1" value="{!month.mr.Beginning_Balance__c}" /></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td><input type="text" class="bankRow2" value="{!month.mr.Deposits_Number__c}"  /></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td><input type="text" class="bankRow3" value="{!month.mr.Counter_Deposits__c}"  /></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td><input type="text" class="bankRow4" value="{!month.mr.Other_Deposits__c}"  /></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td><input type="text" class="bankRow5" value="{!month.mr.Withdrawls__c}"  /></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td><input type="text" class="bankRow6" value="{!month.mr.Ending_Balance__c}"  /></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td><input type="text" class="bankRow7"  value="{!month.mr.Negative_Days__c}" /></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td><input type="text" class="bankRow8" value="{!month.mr.NSF__c}"  /></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td><input type="text"  readonly="readonly" class="bankRow9" value="{!month.mr.Avg_Daily_Balance__c}"  /></td>
+                                                                            </tr>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+
+                                                            </apex:repeat>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div style=" margin-top:10px">
+                                                            <div class="col-md-12">
+                                                                <label class="bank-label-head">Average</label>
+                                                                <br/>
+                                                                <label class="bankRow1Label bank-label">${!mlrow.avg.column1}</label>
+                                                                <br/>
+                                                                <label class="bankRow2Label bank-label">{!mlrow.avg.column2}</label>
+                                                                <br/>
+                                                                <label class="bankRow3Label bank-label">${!mlrow.avg.column3}</label>
+                                                                <br/>
+                                                                <label class="bankRow4Label bank-label">${!mlrow.avg.column4}</label>
+                                                                <br/>
+                                                                <label class="bankRow5Label bank-label">${!mlrow.avg.column5}</label>
+                                                                <br/>
+                                                                <label class="bankRow6Label bank-label"> ${!mlrow.avg.column6}</label>
+                                                                <br/>
+                                                                <label class="bankRow7Label bank-label">{!mlrow.avg.column7}</label>
+                                                                <br/>
+                                                                <label class="bankRow8Label bank-label">{!mlrow.avg.column8}</label>
+                                                                <br/>
+                                                                <label class="bankRow9Label bank-label"> ${!mlrow.avg.column9}</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <hr/>
+                                                <div class="clearfix"></div>
+                                                <div class="row">
+                                                    <div class="col-md-2" style="margin-top:30%;">
+                                                        <div class="col-md-10 mt10"> <a href="#" data-toggle="modal" class="btn btn-success add1month" onclick="addMonths(this,'1future')"> <i class="fa fa-plus-circle fa-4x" style="  margin-top: 10px;"></i><br/>
+                                                            <span class="mt10">Add 1 Month</span> </a> </div>
+                                                        <div class="col-md-10 mt10"> <a href="#" class="btn btn-success add6month" onclick="addMonths(this,'6future')"> <i class="fa fa-plus-circle fa-4x" style="  margin-top: 10px;"></i><br/>
+                                                            <span class="mt10">Add 6 Month</span> </a> </div>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div class="row creditMonthSection  row-horizon {!mlrow.BankSummaryId}">
+                                                            <apex:repeat value="{!mlrow.childs}" var="month">
+                                                                <div class="col-md-2" data-year="{!month.mr.year__c}" data-month="{!month.mr.Month__c}" data-days="{!month.daysInMonth}" data-id="{!month.mr.Id}" data-target="{!month.mr.Month_Name__c}{!month.mr.year__c}">
+                                                                    <div style="width:100%; margin-top:10px">
+                                                                        <table class="table table-bordered-custom month-table-bottom">
+                                                                            <label class="bank-label-head text-center ">{!month.mr.Month_Name__c} {!month.mr.year__c}</label>
+                                                                            <apex:variable value="{!1}" var="i" />
+                                                                            <apex:repeat value="{!month.fieldNames}" var="days">
+                                                                                <tr>
+                                                                                    <td width="10%" >{!i}</td>
+                                                                                    <td width="90%"><input type="text" value="{!month.mr[days]}" /></td>
+                                                                                </tr>
+                                                                                <apex:variable value="{!i+1}" var="i" />
+                                                                            </apex:repeat>
+                                                                        </table>
+
+                                                                    </div>
+                                                                </div>
+                                                            </apex:repeat>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2" style="margin-top:30%;">
+                                                        <div class="col-md-10 mt10 " > <a class="btn btn-success "  onclick="addMonths(this,'1past')"> <i class="fa fa-plus-circle fa-4x" style="  margin-top: 10px;"></i><br/>
+                                                            <span class="mt10">Add 1 Month</span> </a> </div>
+                                                        <div class="col-md-10 mt10 " > <a class="btn btn-success"  onclick="addMonths(this,'6past')"> <i class="fa fa-plus-circle fa-4x" style="  margin-top: 10px;"></i><br/>
+                                                            <span class="mt10">Add 6 Month</span> </a> </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="changes-btn"  style="text-align:center; margin-bottom:20px; display:none"> <a href="javascript:void(0)" class="btn btn-danger" onclick="cancelChanges()" >Cancel Changes</a> <a class="btn btn-success"  onClick="saveBankChanges('{!mlrow.bankId}')"  >Save Changes</a> </div>
+                                        </div>
+                                    </apex:repeat>
+                                </div>
+                                <!-- Tabs Content Ends-->
+                            </div>
+                            <!--Bank Information using Tabs Ends-->
+                        </div>
+                        <!--Decision using Tabs Starts-->
+                        <div class="tab-pane fade" id="Decision">
+                            <c:CreditReviewScreenDecisionTab declinereasonscommercialoptions="{!DeclineReasonsCommercialOptions}"
+                                                             declinereasonsbrokeroptions="{!DeclineReasonsBrokerOptions}"
+                                                             businesscreditsummaryobj="{!BusinessCreditSummaryObj}"
+                                                             declinereasonsoptions="{!DeclineReasonsOptions}"
+                                                             datestart="{!startRangeDate}"
+                                                             dateend="{!endRangeDate}"
+                                                             creditreviewobj="{!creditReview}"
+                                                             creditsummaryobj1="{!CreditSummaryObj1}"
+                                                             creditsummaryobj2="{!CreditSummaryObj2}"
+                                                             creditsummaryobj3="{!CreditSummaryObj3}"
+                                                             creditsummaryobj4="{!CreditSummaryObj4}"
+                                                             creditsummaryobj5="{!CreditSummaryObj5}"
+                                                             creditsummaryobj6="{!CreditSummaryObj6}"
+                                                             strongmitigatingfactorslist="{!StrongMitigatingFactorsList}"
+                                                             allowableexceptionlist="{!AllowableExceptionList}"
+                                                             policyexceptioncategorieslist="{!PolicyExceptionCategoriesList}"
+                                                             creditreviewobjAutomation="{!creditReview}" 
+                                                             reccontroller="{!recController}"
+                                                             bankName="{!bankName}"
+                                                             bankLastFour="{!bankLastFour}"
+                                                             platinumNum="{!platinumNum}"
+                                                             maxApproval="{!maxApproval}"
+                                                             approveDatePlus30="{!approveDatePlus30}"
+                                                             approveDatePlus30String="{!approveDatePlus30String}"
+                                                             creditReviewWCCreditDecision="{!creditReviewWCCreditDecision}" />
+
+                        </div>
+                        <!--Decision using Tabs Ends-->
+                    </div>
+                </div>
+            </div>
+            <!--Main Navigation using Tabs-->
+
+        </div>
+        <footer style="display:none;">
+            <p>© Company 2014</p>
+        </footer>
+        <!-- Notes Modal Start -->
+        <c:CreditReviewScreenNotesModal />
+        <!-- Notes Modal End -->
+        <!-- Business Modal Start -->
+        <c:CreditReviewScreenBusinessModal creditReviewObj="{!creditReview}" />
+        <!-- Business Modal End-->
+        <!-- Guarantor Modal Start -->
+        <!--     <c:CreditReviewScreenGuarantorModal BusinessCreditSummaryOptions="{!BusinessCreditSummaryOptions}" accountPull="{!accountPull}" creditReviewObj="{!creditReview}"  CreditSummaryOpts="{!CreditSummaryOptions}"  CreditSummaryOptsEx="{!CreditSummaryOptionsEx}"  CreditSummaryOpts7="{!CreditSummaryOptions7}"  CreditSummaryOptsEx7="{!CreditSummaryOptionsEx7}" CreditSummaryOpts8="{!CreditSummaryOptions8}"  CreditSummaryOptsEx8="{!CreditSummaryOptionsEx8}"    CreditSummaryOpts1="{!CreditSummaryOptions1}" CreditSummaryOpts2="{!CreditSummaryOptions2}" CreditSummaryOpts3="{!CreditSummaryOptions3}" CreditSummaryOpts4="{!CreditSummaryOptions4}" CreditSummaryOpts5="{!CreditSummaryOptions5}" CreditSummaryOpts6="{!CreditSummaryOptions6}"
+  BusinessCreditSummaryOptions_EQF="{!BusinessCreditSummaryOptions_EQF}" accountPull_EQF="{!accountPull_EQF}"/> -->
+        <!-- Guarantor Modal End -->
+        <!-- Opportunities Modal Start-->
+        <c:CreditReviewScreenOpportunitiesModal />
+        <!-- Opportunities Modal End-->
+        <!-- Credit Results Modal Start -->
+        <c:CreditReviewScreenCreditResultsModal />
+        <!-- Credit Results Modal End -->
+        <!-- SSNsearch Modal Start -->
+        <c:CreditReviewScreenSSNsearchModal />
+        <!-- SSNsearch Modal End -->
+        <!-- Bank Modal Start -->
+        <c:CreditReviewScreenBankModal />
+        <!-- Bank Modal End -->
+        <!-- Guarantor Modals Start  -->
+        <c:CreditReviewScreenGuarantorModals contacts="{!contacts}" />
+        <!-- Guarantor Modals End -->
+        <!-- BankInfo Modal -->
+        <c:CreditReviewScreenBankInfoModal endDate="{!endDate}"/>
+        <!-- BankInfo Modal End -->
+        <!--  Attachment Modal Start -->
+        <c:CreditReviewScreenAttachmentModal />
+        <!--  Attachment Modal End -->
+        <!-- Checklist Modal Start -->
+        <c:CreditReviewScreenChecklistModal />
+        <!-- Checklist Modal End -->
+        <!-- Processing Modal Start -->
+        <c:CreditReviewScreenProcessingModal />
+        <!-- Processing Modal End -->
+        <!--Credit Screen opens Modal Start -->
+        <c:CreditScreenOpensModal />
+        <!-- Credit Screen opens Modal End -->
+        <c:BankRename />
+        <c:CreditReviewNewContact />
+        <c:AccountButtonsModal />
+        <!-- /container -->
+
+        <apex:includescript value="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></apex:includescript>
+        <apex:includeScript value="{!URLFOR($Resource.CreditReviewScreen, 'js/sidebar.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.CreditReviewScreen, 'js/bootstrap.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.CreditReviewScreen, 'js/custom.js')}"/>
+  		<apex:includeScript value="{!URLFOR($Resource.customOPTravis)}"/>
+        <apex:includeScript value="{!URLFOR($Resource.CreditReviewScreen, 'js/tab.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.CreditReviewScreen, 'assets/plugins/jquery-1.11.0.min.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.CreditReviewScreen, 'assets/plugins/jquery-migrate-1.2.1.min.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.CreditReviewScreen, 'assets/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.CreditReviewScreen, 'assets/plugins/bootstrap/js/bootstrap.min.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.CreditReviewScreen, 'assets/plugins/uniform/jquery.uniform.min.js')}"/>
+        <!-- GRID PLUGINS -->
+        <!--<apex:includeScript value="{!URLFOR($Resource.CreditReviewScreen, 'assets/plugins/select2/select2.min.js')}"/>
+              <apex:includeScript value="{!URLFOR($Resource.CreditReviewScreen, 'assets/plugins/datatables/media/js/jquery.dataTables.min.js')}"/>
+              <apex:includeScript value="{!URLFOR($Resource.CreditReviewScreen, 'assets/plugins/datatables/extensions/TableTools/js/dataTables.tableTools.min.js')}"/>
+              <apex:includeScript value="{!URLFOR($Resource.CreditReviewScreen, 'assets/plugins/datatables/extensions/ColReorder/js/dataTables.colReorder.min.js')}"/>
+              <apex:includeScript value="{!URLFOR($Resource.CreditReviewScreen, 'assets/plugins/datatables/extensions/Scroller/js/dataTables.scroller.min.js')}"/>
+              <apex:includeScript value="{!URLFOR($Resource.CreditReviewScreen, 'assets/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js')}"/>-->
+        <!-- GRID PLUGINS -->
+        <!-- BEGIN PAGE LEVEL SCRIPTS -->
+        <apex:includeScript value="{!URLFOR($Resource.CreditReviewScreen, 'assets/scripts/app.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.CreditReviewScreen, 'assets/scripts/table-advanced.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.CreditReviewScreen, 'assets/scripts/form-components.js')}"/>
+        <!--Date Picker -->
+        <apex:includeScript value="{!URLFOR($Resource.CreditReviewScreen, 'assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.CreditReviewScreen, 'assets/plugins/bootstrap-daterangepicker/moment.min.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.CreditReviewScreen, 'assets/plugins/bootstrap-daterangepicker/daterangepicker.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.CreditReviewScreen, 'assets/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.CreditReviewScreen, 'assets/plugins/bootstrap-touchspin/bootstrap.touchspin.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.CreditReviewScreen, 'assets/plugins/typeahead/handlebars.min.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.CreditReviewScreen, 'assets/plugins/typeahead/typeahead.bundle.min.js')}"/>
+        </body>
+    </apex:form>
+    </html>
+</apex:page>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_Method_Check</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ISPICKVAL(Payment_Method__c, "Check"),
+ISBLANK(Check_Number__c)
+)</errorConditionFormula>
+    <errorMessage>You chose the Payment Method of "Check", please be sure to populate the Check Number</errorMessage>
+</ValidationRule>

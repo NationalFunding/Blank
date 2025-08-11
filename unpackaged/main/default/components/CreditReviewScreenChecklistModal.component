@@ -1,0 +1,19 @@
+<apex:component layout="none">
+<!--Check list Modal Starts here-->
+  <div id="History-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3 id="myModalLabel"> Recommendation History </h3>
+        </div>
+        <div class="modal-body">
+          <div style="max-height:250px; overflow-y: scroll;" id="recommendation-history">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Check list Modal Modal Ends here-->
+</apex:component>

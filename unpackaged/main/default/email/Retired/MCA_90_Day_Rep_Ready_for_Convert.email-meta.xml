@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Naitonal_Funding_Standard_Letterhead_Stack</letterhead>
+    <name>MCA 90 Day Rep - Ready for Convert</name>
+    <style>freeForm</style>
+    <subject>Lead to be Converted</subject>
+    <textOnly>{!Lead.OwnerFirstName},
+
+Please convert this lead {!Lead.Link} for {!Lead.FPC_Rep_MCA__c}.  He/She would like to pursue a merchant opportunity with the customer.
+
+Thank you.</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

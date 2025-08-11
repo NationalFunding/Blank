@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>This email will be sent to a user when they submit a credit score with a PO Box.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Naitonal_Funding_Standard_Letterhead_Stack</letterhead>
+    <name>Credit Score - PO Box</name>
+    <style>freeForm</style>
+    <subject>Credit Error - PO BOX</subject>
+    <textOnly>Please correct the address on the record below, you have entered a PO Box as an address and attempted to run credit.  You can submit the request for credit again once the address has been changed. Thank you.
+
+{!Credit_Score__c.Link}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

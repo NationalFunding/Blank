@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WC_Qualification__c</fullName>
+    <description>This field was created to replace Status MCA and Merchant Status Reason as the primary picklist for qualification status. Consolidates options and removes need for dependent picklist. SD-5788</description>
+    <label>WC Qualification</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Qualification_Status</valueSetName>
+    </valueSet>
+</CustomField>

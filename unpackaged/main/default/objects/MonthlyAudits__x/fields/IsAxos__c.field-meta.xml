@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IsAxos__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>IsAxos</description>
+    <externalDeveloperName>IsAxos</externalDeveloperName>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>IsAxos</label>
+    <type>Checkbox</type>
+</CustomField>

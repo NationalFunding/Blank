@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cmbls__Posted_to_accounting__c</fullName>
+    <deprecated>false</deprecated>
+    <description>Will populate once the GL transactions have been generated for relevant payment records (that generate GL entry records).</description>
+    <inlineHelpText>Will populate once the GL transactions have been generated for relevant payment records (that generate GL entry records).</inlineHelpText>
+    <label>Posted to accounting</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <type>Date</type>
+</CustomField>

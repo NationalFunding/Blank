@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Impact_Factor_Raw__c</fullName>
+    <description>This field is populated on approval by our internal services. It is then referenced by the impact factor field that is utilized for the Sales Calculator.</description>
+    <externalId>false</externalId>
+    <label>Impact Factor Raw</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

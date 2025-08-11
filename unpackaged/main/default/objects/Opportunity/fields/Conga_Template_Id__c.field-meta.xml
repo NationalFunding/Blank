@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Conga_Template_Id__c</fullName>
+    <description>Adobe Sign Links Conga template id. Introduced as part of the QB migration into NF to be used for QB branded automation</description>
+    <externalId>false</externalId>
+    <formula>IF( TEXT(Brand_Experience__c)='Quick Bridge',$Setup.Conga_Template_Ids__c.QB_Prequal__c, $Setup.Conga_Template_Ids__c.NF_Prequal__c )</formula>
+    <label>Conga Template Id</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CVLeaseCustomerVWs__c</fullName>
+    <externalDeveloperName>invhst_cust_id_num</externalDeveloperName>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>LP Customer Id</label>
+    <length>128</length>
+    <referenceTo>CVLeaseCustomerVWs__x</referenceTo>
+    <relationshipLabel>LP Payment History</relationshipLabel>
+    <relationshipName>LPlusOpenInvoiceHistoryVWs</relationshipName>
+    <type>ExternalLookup</type>
+</CustomField>

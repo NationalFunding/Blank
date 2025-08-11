@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cmbls__Expense</fullName>
+    <active>true</active>
+    <label>Expense</label>
+    <picklistValues>
+        <picklist>Lead_Provider__c</picklist>
+        <values>
+            <fullName>Fundera</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LendingTree</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Strategic Partner</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>cmbls__Fee_Type__c</picklist>
+        <values>
+            <fullName>Broker Fee</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Origination Fee</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RevShare</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cmbls__Sub_Type__c</fullName>
+    <deprecated>false</deprecated>
+    <label>Sub Type</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>true</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>cmbls__Transaction_Type__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Default</fullName>
+                <default>false</default>
+                <label>Default</label>
+            </value>
+            <value>
+                <fullName>General</fullName>
+                <default>false</default>
+                <label>General</label>
+            </value>
+            <value>
+                <fullName>Renewal Payoff</fullName>
+                <default>false</default>
+                <label>Renewal Payoff</label>
+            </value>
+            <value>
+                <fullName>Add-on</fullName>
+                <default>false</default>
+                <label>Add-on</label>
+            </value>
+            <value>
+                <fullName>RTR</fullName>
+                <default>false</default>
+                <label>RTR</label>
+            </value>
+            <value>
+                <fullName>Net Funding</fullName>
+                <default>false</default>
+                <label>Net Funding</label>
+            </value>
+            <value>
+                <fullName>Fee Balance</fullName>
+                <default>false</default>
+                <label>Fee Balance</label>
+            </value>
+            <value>
+                <fullName>Write Off</fullName>
+                <default>false</default>
+                <label>Write Off</label>
+            </value>
+            <value>
+                <fullName>Write Off Fee Balance</fullName>
+                <default>false</default>
+                <label>Write Off Fee Balance</label>
+            </value>
+            <value>
+                <fullName>Overpayment Refund</fullName>
+                <default>false</default>
+                <label>Overpayment Refund</label>
+            </value>
+            <value>
+                <fullName>Initial Balance</fullName>
+                <default>false</default>
+                <label>Initial Balance</label>
+            </value>
+            <value>
+                <fullName>Refund</fullName>
+                <default>false</default>
+                <label>Refund</label>
+            </value>
+            <value>
+                <fullName>Reversal</fullName>
+                <default>false</default>
+                <label>Reversal</label>
+            </value>
+            <value>
+                <fullName>Deferred Interest Write Off</fullName>
+                <default>false</default>
+                <label>Deferred Interest Write Off</label>
+            </value>
+            <value>
+                <fullName>Collection on Write-Off</fullName>
+                <default>false</default>
+                <label>Collection on Write-Off</label>
+            </value>
+            <value>
+                <fullName>Renewal Fee Payoff</fullName>
+                <default>false</default>
+                <label>Renewal Fee Payoff</label>
+            </value>
+            <value>
+                <fullName>Interest Charge</fullName>
+                <default>false</default>
+                <label>Interest Charge</label>
+            </value>
+            <value>
+                <fullName>Reserve Request</fullName>
+                <default>false</default>
+                <label>Reserve Request</label>
+            </value>
+            <value>
+                <fullName>Payment From Reserve</fullName>
+                <default>false</default>
+                <label>Payment From Reserve</label>
+            </value>
+            <value>
+                <fullName>Refund from Reserve</fullName>
+                <default>false</default>
+                <label>Refund from Reserve</label>
+            </value>
+            <value>
+                <fullName>Adjustment</fullName>
+                <default>false</default>
+                <label>Adjustment</label>
+            </value>
+            <value>
+                <fullName>Consulting Fee</fullName>
+                <default>false</default>
+                <label>Consulting Fee</label>
+            </value>
+            <value>
+                <fullName>Additional Principal Payment</fullName>
+                <default>false</default>
+                <label>Additional Principal Payment</label>
+            </value>
+            <value>
+                <fullName>Starting Draw Reserve Balance</fullName>
+                <default>false</default>
+                <label>Starting Draw Reserve Balance</label>
+            </value>
+            <value>
+                <fullName>Extension Fee</fullName>
+                <default>false</default>
+                <label>Extension Fee</label>
+            </value>
+            <value>
+                <fullName>Maturity Default</fullName>
+                <default>false</default>
+                <label>Maturity Default</label>
+            </value>
+            <value>
+                <fullName>Payoff</fullName>
+                <default>false</default>
+                <label>Payoff</label>
+            </value>
+            <value>
+                <fullName>Origination Fee</fullName>
+                <default>false</default>
+                <label>Origination Fee</label>
+            </value>
+            <value>
+                <fullName>Recovery</fullName>
+                <default>false</default>
+                <label>Recovery</label>
+            </value>
+            <value>
+                <fullName>Unwind</fullName>
+                <default>false</default>
+                <label>Unwind</label>
+            </value>
+            <value>
+                <fullName>Catch Up Payment</fullName>
+                <default>false</default>
+                <label>Catch Up Payment</label>
+            </value>
+            <value>
+                <fullName>Pre-Judgment Interest</fullName>
+                <default>false</default>
+                <label>Pre-Judgment Interest</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Fee</controllingFieldValue>
+            <valueName>Default</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fee</controllingFieldValue>
+            <controllingFieldValue>Payment</controllingFieldValue>
+            <controllingFieldValue>Adjustment</controllingFieldValue>
+            <valueName>General</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fee</controllingFieldValue>
+            <controllingFieldValue>Adjustment</controllingFieldValue>
+            <valueName>Fee Balance</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fee</controllingFieldValue>
+            <controllingFieldValue>Adjustment</controllingFieldValue>
+            <valueName>Write Off Fee Balance</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fee</controllingFieldValue>
+            <controllingFieldValue>Payment</controllingFieldValue>
+            <valueName>Renewal Fee Payoff</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fee</controllingFieldValue>
+            <controllingFieldValue>Interest</controllingFieldValue>
+            <valueName>Adjustment</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fee</controllingFieldValue>
+            <controllingFieldValue>Deferred Fee</controllingFieldValue>
+            <valueName>Extension Fee</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fee</controllingFieldValue>
+            <controllingFieldValue>Interest</controllingFieldValue>
+            <valueName>Pre-Judgment Interest</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Payment</controllingFieldValue>
+            <valueName>Renewal Payoff</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Payment</controllingFieldValue>
+            <valueName>Collection on Write-Off</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Payment</controllingFieldValue>
+            <controllingFieldValue>Interest</controllingFieldValue>
+            <valueName>Interest Charge</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Payment</controllingFieldValue>
+            <valueName>Payment From Reserve</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Payment</controllingFieldValue>
+            <valueName>Payoff</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Payment</controllingFieldValue>
+            <valueName>Origination Fee</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Payment</controllingFieldValue>
+            <controllingFieldValue>Adjustment</controllingFieldValue>
+            <valueName>Recovery</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Payment</controllingFieldValue>
+            <valueName>Catch Up Payment</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Adjustment</controllingFieldValue>
+            <valueName>Write Off</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Adjustment</controllingFieldValue>
+            <valueName>Refund</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Adjustment</controllingFieldValue>
+            <valueName>Reversal</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Adjustment</controllingFieldValue>
+            <valueName>Deferred Interest Write Off</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Adjustment</controllingFieldValue>
+            <valueName>Unwind</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Distribution</controllingFieldValue>
+            <valueName>RTR</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Distribution</controllingFieldValue>
+            <valueName>Net Funding</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Distribution</controllingFieldValue>
+            <valueName>Initial Balance</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Reserve</controllingFieldValue>
+            <valueName>Overpayment Refund</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Reserve</controllingFieldValue>
+            <valueName>Reserve Request</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Reserve</controllingFieldValue>
+            <valueName>Refund from Reserve</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Draw Reserve</controllingFieldValue>
+            <valueName>Starting Draw Reserve Balance</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

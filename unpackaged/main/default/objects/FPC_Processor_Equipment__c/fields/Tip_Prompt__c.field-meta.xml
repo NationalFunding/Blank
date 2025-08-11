@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tip_Prompt__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Tip prompt - Status</description>
+    <inlineHelpText>Check box if merchant has tip prompt.</inlineHelpText>
+    <label>Tip Prompt</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

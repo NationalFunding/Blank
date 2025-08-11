@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Credit_Score__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>If this Lead Contact was created from an existing Credit Score object, then this is the Id of the source object</description>
+    <label>Credit Score</label>
+    <referenceTo>Credit_Score__c</referenceTo>
+    <relationshipLabel>Lead Contacts</relationshipLabel>
+    <relationshipName>Lead_Contacts</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

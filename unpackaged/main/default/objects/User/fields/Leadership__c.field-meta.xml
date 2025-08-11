@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Leadership__c</fullName>
+    <defaultValue>false</defaultValue>
+    <inlineHelpText>Check this box to make this user appear as the as the department head on the Phone List.</inlineHelpText>
+    <label>Leadership</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Checkbox</type>
+</CustomField>

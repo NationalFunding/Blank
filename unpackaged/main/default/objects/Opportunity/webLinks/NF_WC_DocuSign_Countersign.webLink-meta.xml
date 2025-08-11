@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NF_WC_DocuSign_Countersign</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>600</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>NF - WC DocuSign Countersign</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>https://composer.congamerge.com/composer8/index.html
+?sessionId={!API.Session_ID}
+&amp;serverUrl={!API.Partner_Server_URL_210}
+&amp;id={!Opportunity.Id}
+&amp;TemplateGroup=NF - Renewals DocuSign,NF - WC Prequal Forms - Encrypt (O),NF - Working Capital Addendum
+&amp;QueryId=a068000000OH2X1,a068000000OH2Wm,a068000000OH2Xq,a068000000OH2aZ,a068000000OH2XH,a068000000OH2at,a068000000OH2b3,a068000000OH2UN,a068000000OH2ck,a068000000a5adW,a068000000ujoaH,a0634000013YJGM
+&amp;DS4=0
+&amp;DS7=0
+&amp;DS8=1
+&amp;SelectTemplates=1
+&amp;DefaultPdf=1
+&amp;LG3=1
+&amp;LG0=0
+&amp;LG4=1
+&amp;PS0=1
+&amp;PS1=1
+&amp;PS2=0
+&amp;AttachmentParentId={!Opportunity.Id}
+&amp;OFN={!Opportunity.Name}+-+{Template.Label}
+
+&amp;DocuSignVisible=1
+&amp;DocuSignR1Id={!Opportunity.OwnerId}
+&amp;DocuSignR1Role=Approver
+&amp;DocuSignR1Type=Signer
+&amp;DocuSignR1RoutingOrder=1
+
+&amp;DocuSignR2Id={QVar0}
+&amp;DocuSignR2Role=Signor
+&amp;DocuSignR2Type=Signer
+&amp;DocuSignR2RoutingOrder=2
+&amp;QVar0Id=a068000000m0ger
+&amp;QVar0Format=10010
+
+&amp;DocuSignR3Id={QVar1}
+&amp;DocuSignR3Role=Guarantor+2
+&amp;DocuSignR3Type=Signer
+&amp;DocuSignR3RoutingOrder=2
+&amp;QVar1Id=a068000000m0ghb
+&amp;QVar1Format=10010
+
+&amp;DocuSignR4Id={QVar2}
+&amp;DocuSignR4Role=Guarantor+3
+&amp;DocuSignR4Type=Signer
+&amp;DocuSignR4RoutingOrder=2
+&amp;QVar2Id=a068000000m0ggx
+&amp;QVar2Format=10010
+
+&amp;DocuSignR5Id={QVar3}
+&amp;DocuSignR5Role=Guarantor+4
+&amp;DocuSignR5Type=Signer
+&amp;DocuSignR5RoutingOrder=2
+&amp;QVar3Id=a068000000m0gbK
+&amp;QVar3Format=10010
+
+&amp;DocuSignR6Id={!Opportunity.OwnerId} 
+&amp;DocuSignR6Role=CC 
+&amp;DocuSignR6Type=Carbon+Copy 
+&amp;DocuSignR6RoutingOrder=3 
+
+&amp;DocuSignR7Id=0038000001i4QiC
+&amp;DocuSignR7Role=Director+of+Operations
+&amp;DocuSignR7Type=Any+Signer
+&amp;DocuSignR7RoutingOrder=4
+
+&amp;DocuSignEmailSubject=Documents+for+your+DocuSign+Signature+-+{!Opportunity.Legal_Name__c}
+&amp;DocuSignIgnoreOCR=1
+&amp;DocuSignSendReminders=1
+&amp;DocuSignRemindIn=1
+&amp;DocuSignRemindAgainIn=2
+&amp;DocuSignExpireIn=30
+&amp;DocuSignWarnIn=3
+
+&amp;DocuSignCustomField1=dsfs__Custom_Field_1_Name__c
+&amp;DocuSignCustomFieldValue1=Vault With eOriginal
+&amp;DocuSignCustomField2=dsfs__Custom_Field_1_Value__c
+&amp;DocuSignCustomFieldValue2=No</url>
+</WebLink>

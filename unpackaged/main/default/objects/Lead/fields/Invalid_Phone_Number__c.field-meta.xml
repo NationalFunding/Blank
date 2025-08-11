@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Invalid_Phone_Number__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field will capture if a phone number is invalid.</description>
+    <inlineHelpText>Check the box if the phone number is invalid.</inlineHelpText>
+    <label>Invalid Phone Number</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

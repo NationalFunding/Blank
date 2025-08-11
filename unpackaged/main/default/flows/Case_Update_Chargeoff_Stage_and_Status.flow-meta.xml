@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <apiVersion>56.0</apiVersion>
+    <dynamicChoiceSets>
+        <name>ChargeoffStatus</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Chargeoff_Status__c</picklistField>
+        <picklistObject>Account</picklistObject>
+    </dynamicChoiceSets>
+    <environments>Default</environments>
+    <formulas>
+        <name>formulaChargeoffNotes</name>
+        <dataType>String</dataType>
+        <expression>IF(
+NOT(ISBLANK({!Chargeoff_Notes})),
+{!Chargeoff_Notes},
+{!Account.Chargeoff_Notes__c}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaChargeoffStatus</name>
+        <dataType>String</dataType>
+        <expression>IF(
+NOT(ISBLANK({!Chargeoff_Status})),
+{!Chargeoff_Status},
+TEXT({!Account.Chargeoff_Status__c})
+)</expression>
+    </formulas>
+    <interviewLabel>Case Update Chargeoff Stage and Status {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Case Update Chargeoff Stage and Status</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordLookups>
+        <name>Account</name>
+        <label>Account</label>
+        <locationX>176</locationX>
+        <locationY>278</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Chargeoff_Summary</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Case.Account.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Account</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Case</name>
+        <label>Case</label>
+        <locationX>176</locationX>
+        <locationY>158</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Account</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>varCaseId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Case</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Account</name>
+        <label>Update Account</label>
+        <locationX>176</locationX>
+        <locationY>518</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Account.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Chargeoff_Notes__c</field>
+            <value>
+                <elementReference>formulaChargeoffNotes</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Chargeoff_Status__c</field>
+            <value>
+                <elementReference>formulaChargeoffStatus</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Account</object>
+    </recordUpdates>
+    <screens>
+        <name>Chargeoff_Summary</name>
+        <label>Chargeoff Summary</label>
+        <locationX>176</locationX>
+        <locationY>398</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Update_Account</targetReference>
+        </connector>
+        <fields>
+            <name>Chargeoff_Summary_Screen</name>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 16px;&quot;&gt;Chargeoff Summary&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Chargeoff Status:   &lt;/strong&gt;{!Account.Chargeoff_Status__c}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Chargeoff Notes: &lt;/strong&gt;{!Account.Chargeoff_Notes__c}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Chargeoff_Summary_Section1</name>
+            <fieldType>RegionContainer</fieldType>
+            <fields>
+                <name>Chargeoff_Summary_Section1_Column1</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>Chargeoff_Status</name>
+                    <choiceReferences>ChargeoffStatus</choiceReferences>
+                    <dataType>String</dataType>
+                    <fieldText>Chargeoff Status</fieldText>
+                    <fieldType>DropdownBox</fieldType>
+                    <isRequired>false</isRequired>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>6</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <fields>
+                <name>Chargeoff_Summary_Section1_Column2</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>Chargeoff_Notes</name>
+                    <fieldText>Chargeoff Note</fieldText>
+                    <fieldType>LargeTextArea</fieldType>
+                    <isRequired>false</isRequired>
+                    <validationRule>
+                        <errorMessage>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt;Chargeoff Note must be less than 255 characters&lt;/span&gt;&lt;/p&gt;</errorMessage>
+                        <formulaExpression>LEN({!Chargeoff_Notes})&lt;=255</formulaExpression>
+                    </validationRule>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>6</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <isRequired>false</isRequired>
+            <regionContainerType>SectionWithoutHeader</regionContainerType>
+        </fields>
+        <nextOrFinishButtonLabel>Save</nextOrFinishButtonLabel>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Case</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>varCaseId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

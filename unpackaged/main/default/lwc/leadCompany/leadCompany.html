@@ -1,0 +1,285 @@
+<template>
+    
+    <lightning-card title={accountTitle} icon-name="standard:account">
+
+        <div slot="actions">
+            <lightning-button-icon icon-name="utility:edit_form" variant="bare" alternative-text="Update Account Information"
+                size="Medium" onclick={updateAccount}>
+            </lightning-button-icon>
+        </div>
+
+        <template if:true={recordId}>
+
+            <ul class="slds-has-dividers_around-space" style="margin-right: 5px; margin-left: 5px;">
+
+                <li class="slds-item" key={recordId}>
+
+                    <div class="slds-region_narrow">
+
+                        <dl class="slds-dl_horizontal">
+                            <!-- Website -->
+                            <!-- <dt class="slds-dl_horizontal__label slds-text-title">Website:</dt>
+                                <dd class="slds-dl_horizontal__detail">
+                                    <p if:true={accountWebsite}>
+                                        <a href={accountWebsite} target="_blank">Company Website</a>
+                                    </p>
+                                </dd> -->
+                            <!-- Main Phone -->
+                            <dt class="slds-dl_horizontal__label slds-text-title">Main Phone:</dt>
+                                <dd class="slds-dl_horizontal__detail">
+                                    <lightning-click-to-dial value={accountPhone} record-id={recordId}>
+                                        {accountPhone}
+                                    </lightning-click-to-dial>
+                                </dd>
+                            <!-- Alt Phone -->
+                            <!-- <dt class="slds-dl_horizontal__label slds-text-title">Alt Phone:</dt>
+                                <dd class="slds-dl_horizontal__detail">
+                                    <lightning-click-to-dial value={altPhone} record-id={recordId}>
+                                        {altPhone}
+                                    </lightning-click-to-dial>
+                                </dd> -->
+                            <!-- Alt Phone 2 -->
+                            <!-- <dt class="slds-dl_horizontal__label slds-text-title">Alt Phone 2:</dt>
+                                <dd class="slds-dl_horizontal__detail">
+                                    <lightning-click-to-dial value={altPhone2} record-id={recordId}>
+                                        {altPhone2}
+                                    </lightning-click-to-dial>
+                                </dd> -->
+                            <!-- Address -->
+                            <dt class="slds-dl_horizontal__label slds-text-title">Address:</dt>
+                                <dd class="slds-dl_horizontal__detail">
+                                    <div>
+                                        <lightning-formatted-address 
+                                            street={accountStreet} 
+                                            city={accountCity}
+                                            country={accountCountry} 
+                                            province={accountState} 
+                                            postal-code={accountPostal}>
+                                        </lightning-formatted-address>
+                                    </div>
+                                </dd>
+                            <!-- Annual Rev -->
+                            <dt class="slds-dl_horizontal__label slds-text-title">Annual Revenue:</dt>
+                                <dd class="slds-dl_horizontal__detail">
+                                    <p>
+                                        <lightning-formatted-number value={annualRevenue} format-style="currency" currency-code="USD" minimum-fraction-digits="0"></lightning-formatted-number>
+                                         / 
+                                        <lightning-formatted-text value={distributionTier}></lightning-formatted-text>
+                                    </p>
+                                </dd>
+                            <!-- Date Established -->
+                            <dt class="slds-dl_horizontal__label slds-text-title">Date Established:</dt>
+                                <dd class="slds-dl_horizontal__detail">
+                                    <p>
+                                        <lightning-formatted-date-time value={dateEstablished}></lightning-formatted-date-time>
+                                    </p>
+                                </dd>
+                            <!-- sicDesc -->
+                            <!-- <dt class="slds-dl_horizontal__label slds-text-title">SIC Desc:</dt>
+                                <dd class="slds-dl_horizontal__detail">
+                                    <p>
+                                        <lightning-formatted-text value={sicDesc}></lightning-formatted-text>
+                                    </p>
+                                </dd>                           -->
+                            <!-- Activation Date -->
+                            <dt class="slds-dl_horizontal__label slds-text-title">Activation Date:</dt>
+                                <dd class="slds-dl_horizontal__detail">
+                                    <p>
+                                        <lightning-formatted-date-time value={activationDate} year="numeric" month="numeric" day="numeric" hour="2-digit"
+                                        minute="2-digit" time-zone-name="short" hour12="true"></lightning-formatted-date-time>
+                                    </p>
+                                </dd>
+                            <!-- Time Zone -->
+                            <dt class="slds-dl_horizontal__label slds-text-title">Time Zone:</dt>
+                                <dd class="slds-dl_horizontal__detail">
+                                    <p>
+                                        <lightning-formatted-text value={timeZone}></lightning-formatted-text>
+                                    </p>
+                                </dd>
+                            <!-- Lead Source -->
+                            <dt class="slds-dl_horizontal__label slds-text-title">Lead Source:</dt>
+                                <dd class="slds-dl_horizontal__detail">
+                                    <p>
+                                        <lightning-formatted-text value={leadSource}></lightning-formatted-text>
+                                    </p>
+                                </dd>
+                            <!-- Lead Owner -->
+                            <dt class="slds-dl_horizontal__label slds-text-title">Lead Owner:</dt>
+                                <dd class="slds-dl_horizontal__detail">
+                                    <p>
+                                        <lightning-formatted-text value={leadOwner}></lightning-formatted-text>
+                                    </p>
+                                </dd>
+                        </dl>
+                    </div>
+                </li>
+
+            </ul>
+
+        </template>
+
+    </lightning-card>
+
+    <template if:true={accountEditModal}>
+
+        <div class="demo-only" >
+
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+
+                <div class="slds-modal__container">
+
+                    <header class="slds-modal__header">
+
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">
+                            {companyName}
+                        </h2>
+
+                    </header>
+
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+
+                        <lightning-card>
+
+                            <lightning-record-edit-form record-id={recordId} object-api-name="Lead">
+
+                                <lightning-messages></lightning-messages>
+
+                                <div class="slds-grid slds-wrap">
+
+                                    <div class="slds-col slds-size_1-of-2">
+                                        <lightning-input-field data-field="Company" field-name="Company">
+                                        </lightning-input-field>
+                                    </div>
+                                
+                                    <div class="slds-col slds-size_1-of-2">
+                                        <lightning-input-field data-field="DBA__c" field-name="DBA__c">
+                                        </lightning-input-field>
+                                    </div>    
+                                
+                                    <div class="slds-col slds-size_1-of-2">
+                                        <lightning-input-field data-field="Phone" field-name="Phone">
+                                        </lightning-input-field>
+                                    </div>
+                                
+                                    <div class="slds-col slds-size_1-of-2">
+                                        <lightning-input-field data-field="AnnualRevenue" field-name="AnnualRevenue">
+                                        </lightning-input-field>
+                                    </div>
+                                
+                                    <!-- <div class="slds-col slds-size_1-of-2">    
+                                        <lightning-input-field data-field="Alternate_Phone__c" field-name="Alternate_Phone__c">
+                                        </lightning-input-field>
+                                    </div>
+
+                                    <div class="slds-col slds-size_1-of-2">    
+                                        <lightning-input-field data-field="Alternate_Phone_2__c" field-name="Alternate_Phone_2__c">
+                                        </lightning-input-field>
+                                    </div> -->
+                                
+                                    <div class="slds-col slds-size_1-of-2">        
+                                        <lightning-input-field data-field="Date_Established__c" field-name="Date_Established__c">
+                                        </lightning-input-field>
+                                    </div>
+                                
+                                    <div class="slds-col slds-size_1-of-2">    
+                                        <lightning-input-field data-field="Federal_Tax_ID__c" field-name="Federal_Tax_ID__c">
+                                        </lightning-input-field>
+                                    </div>
+                                
+                                    <div class="slds-col slds-size_1-of-2">
+                                        <lightning-input-field data-field="State_of_Incorporation__c" field-name="State_of_Incorporation__c">
+                                        </lightning-input-field>
+                                    </div>
+                                
+                                    <div class="slds-col slds-size_1-of-2">
+                                        <lightning-input-field data-field="Ownership__c" field-name="Ownership__c">
+                                        </lightning-input-field>
+                                    </div>
+                                
+                                    <div class="slds-col slds-size_1-of-2">
+                                        <lightning-input-field data-field="Time_Zone__c" field-name="Time_Zone__c">
+                                        </lightning-input-field>
+                                    </div>
+                                
+                                    <div class="slds-col slds-size_1-of-2">
+                                        <lightning-input-field data-field="Website" field-name="Website">
+                                        </lightning-input-field>
+                                    </div>
+                                
+                                    <!-- <div class="slds-col slds-size_1-of-2">
+                                        <lightning-input-field data-field="SICCODE__c" field-name="SICCODE__c">
+                                        </lightning-input-field>
+                                    </div> -->
+                                
+                                </div>
+
+                                <hr>
+
+                                <lightning-input-address
+                                    address-label="Address"
+                                    street-label="Street"
+                                    city-label="City"
+                                    province-label="Province"
+                                    postal-code-label="PostalCode"
+                                    street={accountStreet}
+                                    city={accountCity}
+                                    province={accountState}
+                                    postal-code={accountPostal}
+                                    country="United States"
+                                    field-level-help="Company Address"
+                                    country-options={countryOptions}
+                                    province-options={stateOptions}
+                                    onchange={handleChange}
+                                    show-address-lookup>
+                                </lightning-input-address>
+
+                                <hr>
+
+                                <!-- <div class="slds-grid slds-wrap">
+
+                                    <div class="slds-col slds-size_1-of-2">
+                                        <lightning-input-field data-field="Landlord_Name__c" field-name="Landlord_Name__c">
+                                        </lightning-input-field>
+                                    </div>
+
+                                    <div class="slds-col slds-size_1-of-2">
+                                        <lightning-input-field data-field="Landlord_Phone__c" field-name="Landlord_Phone__c">
+                                        </lightning-input-field>
+                                    </div>
+
+                                    <div class="slds-col slds-size_1-of-2">
+                                        <lightning-input-field data-field="Business_Property_Status__c" field-name="Business_Property_Status__c">
+                                        </lightning-input-field>
+                                    </div>
+
+                                </div> -->
+                                
+                            </lightning-record-edit-form>
+
+
+
+                        </lightning-card>
+                    </div>
+
+                    <footer class="slds-modal__footer">
+                        <lightning-button label="Cancel" variant="neutral" onclick={closeAccountModal}>
+                        </lightning-button>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+
+                        <lightning-button label="Update" variant="brand" type="submit" onclick={saveForm}>
+                        </lightning-button>
+
+                    </footer>
+
+                </div>
+
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+
+        </div>
+
+    </template>
+
+</template>

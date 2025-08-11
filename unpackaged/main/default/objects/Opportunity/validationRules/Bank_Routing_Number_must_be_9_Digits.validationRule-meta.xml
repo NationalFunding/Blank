@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bank_Routing_Number_must_be_9_Digits</fullName>
+    <active>true</active>
+    <errorConditionFormula>NOT(OR(LEN(Bank_Routing_Number__c) = 0,REGEX(Bank_Routing_Number__c, "[0-9]{9}")))</errorConditionFormula>
+    <errorDisplayField>Bank_Routing_Number__c</errorDisplayField>
+    <errorMessage>Bank Routing Number must be 9 digits</errorMessage>
+</ValidationRule>

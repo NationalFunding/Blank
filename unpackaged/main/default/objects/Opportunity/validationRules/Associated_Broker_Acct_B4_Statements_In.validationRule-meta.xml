@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Associated_Broker_Acct_B4_Statements_In</fullName>
+    <active>false</active>
+    <description>This validation rule will require a broker account be associated with all Broker WC Opportunities before the Statements In stage can be selected. (deactivated 1/17/17 - duplicate rule)</description>
+    <errorConditionFormula>AND(
+RecordType.DeveloperName = 'Broker_WC_Oppty', 
+ISPICKVAL(StageName, 'Statements In - MCA'),  
+Broker_Account__c = '')</errorConditionFormula>
+    <errorMessage>A broker account must be associated to a broker deal before the stage of Statements In can be selected.</errorMessage>
+</ValidationRule>

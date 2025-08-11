@@ -1,0 +1,281 @@
+<apex:page controller="VisualforceTestActivityController">
+    <apex:includeScript value="/support/console/31.0/integration.js"/>
+    <apex:includeScript value="{!$Resource.json2}"/>
+    <apex:includeScript value="{!URLFOR($Resource.cometd, 'dojo/dojo.js')}"/>
+    <apex:includeScript value="{!$Resource.demo_js}"/>
+    <apex:stylesheet value="{!$Resource.demo}"/>
+    <script type="text/javascript">
+    var a = null ;
+    var b = null ;
+    var c = null ;
+    var accounts = new Array();
+    function testInsert(objid, phone, id, ownerid) {
+        a = objid;
+        b = phone;
+        c = id;
+        
+        var ownerId = ownerid;
+        var consoleId = '{!$User.Id}';
+        console.log('Owner Match ' + ownerid.replace(/"/g,"") + ' ' + consoleId);
+        if(ownerid.replace(/"/g,"") == consoleId){
+            startActions(a, b, c);
+        }
+    };
+    function startActions(objid, phone, id) {
+        var oppId = objid.replace(/"/g,"");
+        var phoneNumber = phone.replace(/"/g,"");
+        var taskId = id.replace(/"/g,"");
+        
+        Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.VisualforceTestActivityController.phoneMatch}',
+            oppId, phoneNumber,
+            function(result, event){
+                console.log('First Phone Match Pass::::::> ' + result + ' ObjectID: ' + oppId);
+                if(result == false || result == 'null'){
+                    var pObjID = sforce.console.getFocusedPrimaryTabObjectId(showObjectId);
+                };
+                if(result == true){
+                    phoneMatchLog(taskId);
+                };
+            }           
+        );
+        
+        var showObjectId = function showObjectId(result) {
+            //Display the object ID
+            console.log('Object ID(Page):::::::> ' + result.id + ' Object ID(Task): ' + oppId + ' Task Id: ' + taskId);
+            console.log(result.id.length);
+            if(result.id.length < 5 ){
+                console.log('fire');
+                subTabEvent(taskId, phoneNumber);    
+            }
+            if(result.id.length > 10){
+                reparentActivity(taskId, result.id, phoneNumber);
+            }
+        };
+        
+    };
+    function subTabEvent(taskId, phoneNumber){
+        const t1 = taskId;
+        const p1 = phoneNumber;
+        
+        var showObjectId2 = function showObjectId2(result) {
+            console.log(t1 + ' ' + result.id + ' ' + p1);
+            reparentActivity(t1, result.id, p1);
+        };
+        
+        sforce.console.getFocusedSubtabObjectId(showObjectId2);
+        
+    };
+    
+    function reparentActivity(objId, reparent, phoneNumber){
+        Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.VisualforceTestActivityController.phoneMatch}',
+            reparent, phoneNumber,
+            function(result, event){
+                console.log('Second Phone Match Pass::::::>  ' + result);
+                if(result == true){
+                    reparentSend(objId, reparent);
+                };
+                if(result == false){
+                    sforce.console.getPrimaryTabIds(checkSubTabCallback);
+                };
+            }           
+        );
+    };
+    
+    
+    
+    function reparentSend(objId, reparent){
+        Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.VisualforceTestActivityController.reparentActivityCtrl}',
+            objId, reparent,
+            function(result, event){
+                if(result == true){
+                    console.log('Reparent Task:::::::> '  + objId);
+                };
+            }
+        );
+    };
+    
+    
+    
+    function phoneMatchLog(taskId){
+        Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.VisualforceTestActivityController.phoneMatchLog}',
+            taskId,
+            function(result, event){
+                if(result == true){
+                    console.log('Phonematch Task Report::::::> ' + taskId);
+                    location.reload();
+                };
+            }
+        );
+    };
+    
+    function nophoneMatchLog(taskId){
+        Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.VisualforceTestActivityController.nophoneMatchLog}',
+            taskId,
+            function(result, event){
+                if(result == true){
+                    console.log('NoPhonematch Task Report::::::> ' + taskId);
+                    location.reload();
+                    
+                };
+                
+            }
+        );
+    };
+    function checkSubTabCallback(result) {
+        var arrPriTabs = result.ids;
+        if (result.error) {
+            console.log("Error message is " + result.error);
+        } else {
+            for (var i = 0; i < arrPriTabs.length; i++) {
+                if(i != arrPriTabs.length - 1){
+                    sforce.console.getPageInfo(arrPriTabs[i] , showPageInfo);
+                }
+                else{
+                    sforce.console.getPageInfo(arrPriTabs[i] , showPageInfo2);
+                }
+            }
+            
+        }
+        
+    };
+    
+    function Account(){
+        /* Note the field names are case-sensitive! */
+        this.Id = null; /* set a value here if you need to update or delete */
+        this.Name = null;
+        this.Phone = null; /* the field names must match the API names */
+    }    
+    
+    function showPageInfo2(result) {
+        
+        
+        obj = JSON.parse(result.pageInfo);
+        var acc1 = new Account();
+        acc1.Name = obj.objectId;
+        acc1.Phone = b.replace(/"/g,"");
+        accounts.push(acc1);
+        console.log('Page Info: ' + obj.objectId + ' ' + b.replace(/"/g,"") + ' ' + c.replace(/"/g,""));
+        
+        console.log(acc1);
+        
+        reparentActivityFinal();
+    };
+    
+    function showPageInfo(result) {
+        
+        
+        obj = JSON.parse(result.pageInfo);
+        var acc1 = new Account();
+        acc1.Name = obj.objectId;
+        acc1.Phone = b.replace(/"/g,"");
+        accounts.push(acc1);
+        console.log('Page Info: ' + obj.objectId + ' ' + b.replace(/"/g,"") + ' ' + c.replace(/"/g,""));
+        
+        console.log(acc1);
+        
+        // reparentActivityFinal(b.replace(/"/g,""), obj.objectId, c.replace(/"/g,""));
+    };
+
+    function showsbTabId(result) {
+        //Display the subtab IDs
+         console.log(result);
+        findNavigationObjectId(result.ids);
+    };
+    function findNavigationObjectId(id){
+		var callback = function(result){
+            console.log(result);
+            }
+         sforce.console.getPageInfo("scc-st-3" , callback);
+        };
+    function findsecondarytab(){
+        var callback = function (result) {
+        var arrPriTabs2 = result.ids;
+        for (var i = 0; i < arrPriTabs2.length; i++) {
+            console.log(arrPriTabs2[i]);
+		    sforce.console.getSubtabIds(arrPriTabs2[i], showsbTabId);
+            
+        }
+            }
+    sforce.console.getPrimaryTabIds(callback);
+    };
+    function findAbsentLead() {
+	 Visualforce.remoting.Manager.invokeAction(
+	        '{!$RemoteAction.VisualforceTestActivityController.absentPhoneMatch}',
+	        a.replace(/"/g,""), b.replace(/"/g,""), c.replace(/"/g,""),
+	        function(result, event){
+                console.log('VisualforceTestActivityController.AbsentPhoneMatch:::::> Success');
+	        },
+	        {escape: true}
+	    );
+};    
+    function reparentActivityFinal(){
+        console.log(accounts);
+        Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.VisualforceTestActivityController.superphoneMatch}',
+            accounts,
+            function(result, event){
+                console.log('Third Phone Match Pass::::::>  ' + result);
+                if(result !== "false"){
+                    reparentSend(c.replace(/"/g,""), result);
+                     console.log('something found ' + result);
+                }
+                else{
+                    var x = a.replace(/"/g,"");
+                    var y = c.replace(/"/g,"");
+                    if(x.startsWith("00Q")){
+					findAbsentLead();
+                    console.log('Entering Absent Lead:::::::::::> ' + result);
+                       }
+                    else{
+                        nophoneMatchLog(y);
+                        }
+                };
+            }           
+        );
+    };
+    
+    
+    
+    </script>
+    <script>var token = '{!$Api.Session_ID}';</script>
+    
+    <META http-equiv="refresh" content="3600"/>
+        
+        <div id="demo">
+            <div id="datastream"></div>
+            <div id="input">
+                <div id="join">
+                    <table>
+                    <tbody>
+                    <tr>
+                    <td>&nbsp;</td>
+                    <td> Enter Topic Name </td>
+                    <td>
+                        <input id="topic" type="text" />
+                            </td>
+                        <td>
+                            <button id="subscribeButton" class="button">Subscribe</button>
+                            </td>
+                            </tr>
+                            </tbody>
+                            </table>
+                            </div>
+                            <div id="joined">
+                                <table>
+                                <tbody>
+                                <tr>
+                                <td>
+                                <button id="leaveButton" class="button">Unsubscribe</button>
+                                </td>
+                                </tr>
+                                </tbody>
+                                </table>
+                                </div>
+                                </div>
+                                </div>
+                                </apex:page>

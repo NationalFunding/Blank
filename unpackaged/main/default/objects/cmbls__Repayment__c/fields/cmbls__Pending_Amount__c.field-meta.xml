@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cmbls__Pending_Amount__c</fullName>
+    <deprecated>false</deprecated>
+    <description>Any amount submitted, but not settled</description>
+    <inlineHelpText>Payments submitted, but not settled. This field only calculates the Payment transaction type</inlineHelpText>
+    <label>Total Pending Amount</label>
+    <summarizedField>cmbls__Payment__c.cmbls__Transaction_Amount__c</summarizedField>
+    <summaryFilterItems>
+        <field>cmbls__Payment__c.cmbls__Status__c</field>
+        <operation>equals</operation>
+        <value>Scheduled, Pending</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>cmbls__Payment__c.cmbls__Transaction_Type__c</field>
+        <operation>equals</operation>
+        <value>Payment</value>
+    </summaryFilterItems>
+    <summaryForeignKey>cmbls__Payment__c.cmbls__Repayment__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

@@ -1,0 +1,8 @@
+Credit Review: {!Bank_Statements_Processing__c.Credit_ReviewId__c}
+Controller: {!Bank_Statements_Processing__c.Credit_Review_ControllerId__c}
+
+Result: {!Bank_Statements_Processing__c.Result__c}
+
+Stage: {!Bank_Statements_Processing__c.Processing_Stage__c}
+
+Link: {!Bank_Statements_Processing__c.Link}

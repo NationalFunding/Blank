@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Model_Risk_Classification__c</fullName>
+    <description>Based on the combined model score (approval and charge-off models) this classification ranks deals from least risky (super-green) to most risky (red). There are five classifications: super-green, green, yellow, orange, and red.</description>
+    <inlineHelpText>Based on segmenting the combined approval and charge-off model scores, this classification indicates how risky a deal is--from lowest-risk (super-green) to highest risk (red)</inlineHelpText>
+    <label>Model Risk Classification</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Super-Green</fullName>
+                <default>false</default>
+                <label>Super-Green</label>
+            </value>
+            <value>
+                <fullName>Green</fullName>
+                <default>false</default>
+                <label>Green</label>
+            </value>
+            <value>
+                <fullName>Yellow</fullName>
+                <default>false</default>
+                <label>Yellow</label>
+            </value>
+            <value>
+                <fullName>Orange</fullName>
+                <default>false</default>
+                <label>Orange</label>
+            </value>
+            <value>
+                <fullName>Red</fullName>
+                <default>false</default>
+                <label>Red</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

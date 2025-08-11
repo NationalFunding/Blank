@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Device_IP_Timezone_Offset__c</fullName>
+    <description>risk_check.devices.ip_timezone_offset</description>
+    <externalId>false</externalId>
+    <inlineHelpText>UTC offset of the timezone associated with the IP address.</inlineHelpText>
+    <label>Device IP Timezone Offset</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

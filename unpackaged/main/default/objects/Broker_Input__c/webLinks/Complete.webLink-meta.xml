@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Complete</fullName>
+    <availability>online</availability>
+    <description>Complete Broker Input and enter SSN's</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Complete</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>/flow/Broker_Internal_Input_Complete?inputBrokerInputId={!Broker_Input__c.Id}&amp;retURL={!Broker_Input__c.Id}</url>
+</WebLink>

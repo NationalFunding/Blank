@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank</letterhead>
+    <name>MOD Extension Email Response</name>
+    <style>freeForm</style>
+    <subject>{!Case.Merchant_Number__c} - {!Account.Legal_Name__c}</subject>
+    <textOnly>Hello,
+
+We have received your request to extend your current or recent temporary loan modification due to the Covid-19 pandemic.
+
+Please provide your {!Case.Last_Month__c} bank statement and your {!Case.Current_Month__c} month to date transaction history for extension to be considered.
+
+Please reply to this email with all the requested information and attachments. Once received, our team will review and a credit manager will respond as soon as possible*. We wish you and your family the best during this difficult time. Visit our site for updates and support for our customers: {!Case.Email_Website_Address__c}
+
+
+Thank you,
+
+
+
+Modification Department
+
+
+
+{!Case.Email_Signature_Company__c}
+
+9820 Towne Centre Drive
+San Diego, CA 92121</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

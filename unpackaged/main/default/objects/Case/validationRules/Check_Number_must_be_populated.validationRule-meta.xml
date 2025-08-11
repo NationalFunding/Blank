@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Check_Number_must_be_populated</fullName>
+    <active>true</active>
+    <description>If the Case Type is Check Request, the Check Number field must be populated before the Case can be closed.</description>
+    <errorConditionFormula>ISPICKVAL(Type, 'Check Request') &amp;&amp; Check_Number__c = '' &amp;&amp; ISPICKVAL(Status, 'Closed')</errorConditionFormula>
+    <errorDisplayField>Check_Number__c</errorDisplayField>
+    <errorMessage>You must enter a value for Check Number before a Check Request Case can be closed.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,246 @@
+<template>
+    <div class="slds-page-header">
+        <div class="slds-grid">
+            <div class="slds-col slds-has-flexi-truncate">
+                <h1 class="slds-page-header__title slds-m-right_small slds-align-middle slds-truncate"
+                    title="Account Information">Account Information</h1>
+            </div>
+            <lightning-button-icon icon-name="utility:edit" variant="bare" alternative-text="Edit Application"
+                size="Medium" onclick={popAccountModal} style="margin-right: 10px;">
+            </lightning-button-icon>
+            <lightning-button-icon icon-name="utility:refresh" variant="bare"
+                alternative-text="Submit Application" size="Medium" onclick={isAppComplete}>
+            </lightning-button-icon>
+        </div>
+    </div>
+    <br>
+
+    <div class="slds-grid slds-gutters">
+
+        <div class="slds-col">
+
+            <lightning-record-edit-form record-id={accountId} object-api-name="Account">
+
+                <lightning-messages></lightning-messages>
+
+                <lightning-output-field field-name="Legal_Name__c" data-field="Legal_Name__c"></lightning-output-field>
+
+                <lightning-output-field field-name="Company_DBA__c" data-field="Company_DBA__c" data-val="true">
+                </lightning-output-field>
+
+                <lightning-output-field field-name="Fed_Tax_ID__c" data-field="Fed_Tax_ID__c" data-val="true">
+                </lightning-output-field>
+
+                <lightning-output-field field-name="Legal_Status__c" data-field="Legal_Status__c" data-val="true">
+                </lightning-output-field>
+
+            </lightning-record-edit-form>
+
+            <lightning-record-edit-form record-id={accountId} object-api-name="Account">
+                <lightning-messages></lightning-messages>
+        
+                <div class="slds-grid slds-gutters">
+        
+                    <div class="slds-col slds-size_1-of-2 ">
+                        <lightning-output-field field-name="BillingAddress" data-field="BillingAddress">
+                        </lightning-output-field>
+                    </div>        
+        
+                </div>
+        
+            </lightning-record-edit-form>
+
+        </div>
+
+
+        <div class="slds-col">
+
+            <lightning-record-edit-form record-id={accountId} object-api-name="Account">
+
+                <lightning-messages></lightning-messages>
+
+                <lightning-output-field field-name="AnnualRevenue" data-field="AnnualRevenue"></lightning-output-field>
+
+                <lightning-output-field field-name="Sic" data-field="Sic"></lightning-output-field>
+
+                <lightning-output-field field-name="Date_Established__c" data-field="Date_Established__c">
+                </lightning-output-field>
+
+                <lightning-output-field field-name="Website" data-field="Website"></lightning-output-field>
+
+                <lightning-output-field field-name="Phone" data-field="Phone"></lightning-output-field>
+
+            </lightning-record-edit-form>
+
+        </div>
+
+    </div>
+
+    <br>
+
+    <div class="slds-page-header">
+        <div class="slds-grid">
+            <div class="slds-col slds-has-flexi-truncate">
+                <h1 class="slds-page-header__title slds-m-right_small slds-align-middle slds-truncate" title="Contact Information">
+                    Contact Information</h1>
+            </div>
+        </div>
+    </div>
+
+    <br>
+        <div class="slds-col">
+
+            <div>
+                    <!-- slds-m-around_medium -->
+                    <!-- slds-has-dividers_around-space -->
+                    <div class="slds-grid slds-wrap ">
+                    <template for:each={contacts} for:item="contact">
+
+                        <div class="slds-item slds-col slds-size_1-of-2 slds-m-top_x-small slds-m-bottom_medium slds-m-horizontal_none" key={contact.Id}>
+
+                            <!-- Contact Card  -->
+                            <lightning-card title={contact.Contact.Name} icon-name="standard:client" padding="around-small">
+       
+                                <!-- Display Fields -->
+                                <div class="slds-region_narrow">
+                                    <dl class="slds-dl_horizontal">
+                                        <!-- Title -->
+                                        <dt class="slds-dl_horizontal__label slds-text-title">Title:</dt>
+                                        <dd class="slds-dl_horizontal__detail">
+                                            {contact.Contact.Title}
+                                        </dd>
+                                        <!-- Email -->
+                                        <dt class="slds-dl_horizontal__label slds-text-title">Email:</dt>
+                                        <dd class="slds-dl_horizontal__detail">
+                                            {contact.Contact.Email}
+                                        </dd>
+                                        <!-- DOB -->
+                                        <dt class="slds-dl_horizontal__label slds-text-title">Bithdate:</dt>
+                                        <dd class="slds-dl_horizontal__detail">
+                                            <!-- {contact.Contact.Birthdate} -->
+                                            <lightning-formatted-date-time value={contact.Contact.Birthdate}></lightning-formatted-date-time>
+                                        </dd>
+                                        <!-- SSN -->
+                                        <dt class="slds-dl_horizontal__label slds-text-title">SSN:</dt>
+                                        <dd class="slds-dl_horizontal__detail">
+                                            {contact.Contact.SSN_Encrypted__c}
+                                        </dd>
+                                        <!-- Mobile Phone -->
+                                        <dt class="slds-dl_horizontal__label slds-text-title">Mobile Phone:</dt>
+                                        <dd class="slds-dl_horizontal__detail">
+                                            <lightning-formatted-phone
+                                            value={contact.Contact.MobilePhone} disabled></lightning-formatted-phone>
+                                        </dd>
+                                        <!-- Phone -->
+                                        <dt class="slds-dl_horizontal__label slds-text-title">Phone:</dt>
+                                        <dd class="slds-dl_horizontal__detail">
+                                            <lightning-formatted-phone
+                                            value={contact.Contact.HomePhone} disabled></lightning-formatted-phone>
+                                        </dd>
+                                        <!-- Ownership -->
+                                        <dt class="slds-dl_horizontal__label slds-text-title">Ownership %:</dt>
+                                        <dd class="slds-dl_horizontal__detail">
+                                            <lightning-formatted-number value={contact.Contact.Ownership_Percentage__c} format-style="percent-fixed" maximum-fraction-digits="0"></lightning-formatted-number>
+                                            
+                                        </dd>
+                                        <!-- Role -->
+                                        <dt class="slds-dl_horizontal__label slds-text-title">Role:</dt>
+                                        <dd class="slds-dl_horizontal__detail">
+                                            {contact.Role}
+                                        </dd>
+                                        <!-- Address -->
+                                        <dt class="slds-dl_horizontal__label slds-text-title">Address:</dt>
+                                        <dd class="slds-dl_horizontal__detail">
+                                            <div>
+                                                <lightning-formatted-address street={contact.Contact.OtherStreet} city={contact.Contact.OtherCity}
+                                                    country={contact.Contact.OtherCountry} province={contact.Contact.OtherState} postal-code={contact.Contact.OtherPostalCode}>
+                                                </lightning-formatted-address>
+                                            </div>
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </lightning-card>
+    
+                        </div>
+                        
+
+                    </template>
+                </div>
+                <!-- </ul> -->
+            </div>
+
+        </div>
+    <br>
+
+    <div class="slds-page-header">
+        <div class="slds-grid">
+            <div class="slds-col slds-has-flexi-truncate">
+                <h1 class="slds-page-header__title slds-m-right_small slds-align-middle slds-truncate"
+                    title="Application Status">
+                    Application Status</h1>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="slds-grid slds-gutters">
+
+        <div class="slds-col">
+
+            <h2 style="font-size: medium;">All Sections must be completed to Submit the Application</h2>
+
+            <br>
+
+            <ul>
+                <!-- Signor Present -->
+                <li>
+                    <lightning-input class="slds-p-left_xx-large" type="checkbox" data-id="CB-SP" label="Signor Present"
+                        checked={CBSPVal} disabled="True">
+                    </lightning-input>
+                </li>
+                <!-- No Duplicate Roles -->
+                <li>
+                    <lightning-input class="slds-p-left_xx-large" type="checkbox" data-id="CP-NDR"
+                        label="No Duplicate Roles" checked={CBNDRVal} disabled="True">
+                    </lightning-input>
+                </li>
+                <!-- Contact Fields Populated -->
+                <li>
+                    <lightning-input class="slds-p-left_xx-large" type="checkbox" data-id="CP-CF"
+                        label="Contact Data Present" checked={CBCFVal} disabled="True">
+                    </lightning-input>
+                </li>
+                <!-- Account Fields Populated -->
+                <li>
+                    <lightning-input class="slds-p-left_xx-large" type="checkbox" data-id="CP-AF"
+                        label="Account Data Present" checked={CBAFVal} disabled="True">
+                    </lightning-input>
+                </li>
+                <!-- Files Present -->
+                <li>
+                    <lightning-input class="slds-p-left_xx-large" type="checkbox" data-id="CP-FP" label="Files Present"
+                        checked={CBFPVal} disabled="True">
+                    </lightning-input>
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="slds-col">
+
+            <h2 style="font-size: medium;">Missing Application Requirements</h2>
+
+                <ul class="slds-m-around_medium">
+                    <template for:each={validationErrors} for:item="validationError">
+                    <li class="slds-text-color_error" key={validationError.field}>{validationError.field}</li>
+                    </template>
+                </ul>
+
+        </div>
+
+    </div>
+
+    <br><br>
+
+</template>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Broker_Buy_Ratio__c</fullName>
+    <description>This field will contain the ratio at which the broker bought the deal.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This field will contain the ratio at which the broker bought the deal.</inlineHelpText>
+    <label>Broker Buy Ratio</label>
+    <precision>5</precision>
+    <required>false</required>
+    <scale>4</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

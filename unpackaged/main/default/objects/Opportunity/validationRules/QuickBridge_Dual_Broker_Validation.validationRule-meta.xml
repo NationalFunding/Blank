@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QuickBridge_Dual_Broker_Validation</fullName>
+    <active>false</active>
+    <description>This validation rule will not allow any brokers that are not Dual/Navigator brokers from having their deals submitted to Quick Bridge.</description>
+    <errorConditionFormula>(RecordType.DeveloperName = 'Broker_WC_Oppty' &amp;&amp;
+NOT(ISPICKVAL( Broker_Tier__c, 'Referral Partner')) &amp;&amp;  
+NOT(ISCHANGED( Adverse_Action_Letter_Sent__c)) &amp;&amp;
+NOT(ISBLANK(TEXT(QB_Prequal_Status__c))) &amp;&amp; 
+
+(Broker_Account__r.NF_QB_Dual_Broker__c = False || 
+ISBLANK(Broker_Account__c)))&amp;&amp;
+
+NOT(
+  AND(
+    ISPICKVAL(StageName,'Funded'),
+    OR( 
+      Lender_Account__r.Name  ='Quick Bridge Funding',
+      Lender_Account__r.Name ='National Funding - Commercial WC Funding',
+      Lender_Account__r.Name ='National Funding - Diamond WC Funding',
+      Lender_Account__r.Name ='National Funding - Gold WC Funding',
+      Lender_Account__r.Name ='National Funding - Platinum WC Funding')
+))</errorConditionFormula>
+    <errorMessage>The broker who submitted this deal is not part of the Quick Bridge Navigator program.  Their deals should not be submitted to QuickBridge until they are.  Please change the field "QB Prequal Status" to the value of -None-</errorMessage>
+</ValidationRule>

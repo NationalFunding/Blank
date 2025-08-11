@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pay_Proceeds_Needed__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Field label updated as part of Wells Fargo updates to Merchant Checklist object (NF-1809).</description>
+    <label>Loan Proceed Direction (N)</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

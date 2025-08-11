@@ -1,0 +1,18 @@
+<apex:component layout="none">
+<!--Bank Information Modal Starts here-->
+  <div id="bankmodal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3 id="myModalLabel">Unsaved Changes</h3>
+        </div>
+        <div class="modal-body"> You have unsaved changes left on this page. Please Cancel or save the changes before navigating away from the record. </div>
+        <div class="modal-footer" style="text-align:center;">
+          <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true"> Ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--Bank Information Modal Ends here--> 
+</apex:component>

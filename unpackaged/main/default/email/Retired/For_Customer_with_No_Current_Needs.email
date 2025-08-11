@@ -1,0 +1,25 @@
+<table height="400" width="600" cellpadding="5" border="0" cellspacing="5" >
+<tr height="50" valign="top" >
+<td style=" color:#000000; font-size:12pt; background-color:#FFFFFF; font-family:arial; bLabel:main; bEditID:r3st1;" tEditID="c1r1" locked="0" aEditID="c1r1" >
+<![CDATA[]]></td>
+</tr>
+<tr height="300" valign="top" >
+<td style=" color:#000000; font-size:12pt; background-color:#FFFFFF; font-family:arial; bLabel:main; bEditID:r3st1;" tEditID="c1r2" locked="0" aEditID="c1r2" >
+<![CDATA[<div>Hi {!Contact.FirstName},</div><div><br></div><div><p class="MsoNormal">It
+was great speaking with you today!&nbsp; Please
+find my contact info below. If you ever need more working capital, we can look
+into National Funding’s special renewal program - <b>there is a possibility you may qualify for more funds &amp; longer
+terms!</b><o:p></o:p></p><p class="MsoNormal"><b><br></b></p>
+
+<p class="MsoNormal">You’ve
+been a good customer, and we’d like to work with you again when you need
+working capital to grow or improve your business!<o:p></o:p></p><p class="MsoNormal"><br></p>
+
+<p class="MsoNormal">Have
+a good day,<o:p></o:p></p><p class="MsoNormal"><font size="4"><span style="font-family: 'Times New Roman', Times, serif; font-style: italic; font-weight: bold;">{!User.Name}</span></font><br><br><font size="4" style="font-family: Arial, sans-serif; font-weight: bold;"><span style="font-style: italic;"></span></font><span style="font-family: Arial, sans-serif; font-weight: bold;"></span>{!User.Name}<br>{!User.Title}<br><a href="http://www.nationalfunding.com/?utm_source=SF%20Emails&amp;utm_medium=Email&amp;utm_campaign=CoolProspect">www.nationalfunding.com</a><br>P: {!User.Phone} | F: {!User.Fax}<br>Email: {!User.Email}<br><br><font color="#CC0000" size="1">Follow Us on:&nbsp;</font><br><a href="https://www.facebook.com/national.funding"><img alt="" src="https://c.na6.content.force.com/servlet/servlet.ImageServer?id=01580000001WNEu&amp;oid=00D80000000diq5" align="left" border="0"></a><a href="http://www.linkedin.com/company/national-funding"><img alt="" src="https://c.na6.content.force.com/servlet/servlet.ImageServer?id=01580000001WNFn&amp;oid=00D80000000diq5" align="left" border="0"></a><a href="https://twitter.com/NatFunding"><img alt="" src="https://c.na6.content.force.com/servlet/servlet.ImageServer?id=01580000001WNFx&amp;oid=00D80000000diq5" align="left" border="0"></a><a title="Google+" href="https://plus.google.com/+Nationalfunding/" target="_blank" alt="Google+"><img src="https://c.na6.content.force.com/servlet/servlet.ImageServer?id=01580000001Xf1W&amp;oid=00D80000000diq5&amp;lastMod=1363900191000"></a></p></div>]]></td>
+</tr>
+<tr height="50" valign="top" >
+<td style=" color:#000000; font-size:12pt; background-color:#FFFFFF; font-family:arial; bLabel:main; bEditID:r3st1;" tEditID="c1r3" locked="0" aEditID="c1r3" >
+<![CDATA[]]></td>
+</tr>
+</table>

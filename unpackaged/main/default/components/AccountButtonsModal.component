@@ -1,0 +1,17 @@
+<apex:component layout="none">
+<!--Credit Screen opens Modal Modal Starts here-->
+  <div id="modify_account" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+            <button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
+          <h3 style="margin:0px;font-size:18px">Remove From Account</h3>
+          
+        </div>
+        <div class="modal-body account-buttons"> 
+            
+        </div>
+      </div>
+    </div>
+  </div>
+</apex:component>

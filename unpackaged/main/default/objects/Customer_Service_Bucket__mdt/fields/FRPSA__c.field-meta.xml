@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FRPSA__c</fullName>
+    <defaultValue>false</defaultValue>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <inlineHelpText>Checked if rep is responsible for FRPSA portfolios</inlineHelpText>
+    <label>FRPSA</label>
+    <type>Checkbox</type>
+</CustomField>

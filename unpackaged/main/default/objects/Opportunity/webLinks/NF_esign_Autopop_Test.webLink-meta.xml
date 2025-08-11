@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NF_esign_Autopop_Test</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>600</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>NF esign Autopop Test</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>https://composer.congamerge.com/composer8/index.html
+?sessionId={!API.Session_ID}
+&amp;serverUrl={!API.Partner_Server_URL_210}
+&amp;id={!Opportunity.Id}
+&amp;TemplateGroup=AdobeNFWC
+&amp;QueryId=[AInfo]a063400001BhgVg,[SG2]a063400001Bhgei,[G3G4]a063400001BhggA,[CRInfo]a063400001BhghI,[AT]a063400001BhhHu
+&amp;DS4=0
+&amp;DS7=0
+&amp;DS8=1
+&amp;SelectTemplates=1
+&amp;DefaultPdf=1
+&amp;LG3=1
+&amp;LG0=0
+&amp;LG4=1
+&amp;PS0=1
+&amp;PS1=1
+&amp;PS2=0
+&amp;AttachmentParentId={!Opportunity.Id}
+&amp;OFN={!Opportunity.Name}+-+{Template.Label}
+&amp;QVAR0ID=a063400001BhhMQ
+&amp;DV0={QVAR0}
+
+&amp;ESVisible=1
+&amp;ESAgreementTemplateId=a0c3400000DdIj1</url>
+</WebLink>

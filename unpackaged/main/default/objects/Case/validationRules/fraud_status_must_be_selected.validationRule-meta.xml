@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>fraud_status_must_be_selected</fullName>
+    <active>true</active>
+    <description>Fraud Status must be selected for Case Type = Fraud</description>
+    <errorConditionFormula>AND(
+ISPICKVAL(Status, 'Closed'),
+ISPICKVAL(Type,'Fraud'),
+ISPICKVAL( Fraud_Status__c ,'')
+)</errorConditionFormula>
+    <errorMessage>Fraud Status must be selected</errorMessage>
+</ValidationRule>

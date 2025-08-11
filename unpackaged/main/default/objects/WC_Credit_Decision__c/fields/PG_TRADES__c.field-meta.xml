@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PG_TRADES__c</fullName>
+    <defaultValue>0</defaultValue>
+    <description>Number of accounts on file (not falling into exclusion category)</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Number of accounts on file (not falling into exclusion category)</inlineHelpText>
+    <label>Trades</label>
+    <precision>16</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

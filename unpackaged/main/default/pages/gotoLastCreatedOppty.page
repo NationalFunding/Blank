@@ -1,0 +1,3 @@
+<apex:page controller="vf_gotoLastCreatedOppty" action="{!goToLastOppty}">
+  <p>Forwarding you to your last created opptortunity...</p>
+</apex:page>

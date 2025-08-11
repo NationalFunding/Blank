@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Close_Form_Approved</fullName>
+        <ccEmails>accountingsupport@nationalfunding.com</ccEmails>
+        <description>Close Form Approved</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Approval_Notifications/Close_Form_Approved</template>
+    </alerts>
+    <alerts>
+        <fullName>Close_Form_Rejected</fullName>
+        <description>Close Form Rejected</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Approval_Notifications/Close_Form_Rejected</template>
+    </alerts>
+    <alerts>
+        <fullName>Generate_Bill_of_Sale</fullName>
+        <description>Generate Bill of Sale</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Submitted_By__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Operations_Workflow_Emails/Generate_Bill_of_Sale</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Populate_Customer</fullName>
+        <field>Customer__c</field>
+        <formula>Opportunity__r.Account.LP_Cust_Number__c</formula>
+        <name>Populate Customer #</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Populate_Date</fullName>
+        <field>Date__c</field>
+        <formula>TODAY()</formula>
+        <name>Populate Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Populate_Payment_to_Field</fullName>
+        <field>Payable_To__c</field>
+        <formula>Opportunity__r.Lender_Account__r.Name</formula>
+        <name>Populate Payment to Field</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Status_to_Rejected</fullName>
+        <field>Status__c</field>
+        <literalValue>Rejected</literalValue>
+        <name>Set Status to Rejected</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Status_is_Submitted</fullName>
+        <field>Status__c</field>
+        <literalValue>Submitted</literalValue>
+        <name>Status is Submitted</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Status_to_Approved</fullName>
+        <field>Status__c</field>
+        <literalValue>Approved</literalValue>
+        <name>Update Status to Approved</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Close Form is Paid in Full</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Close_Form__c.Paid_in_Full__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Generate_Bill_of_Sale</name>
+                <type>Alert</type>
+            </actions>
+            <actions>
+                <name>Generate_Bill_of_Sale</name>
+                <type>Task</type>
+            </actions>
+            <timeLength>10</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>New Close Form Created</fullName>
+        <actions>
+            <name>Populate_Customer</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Populate_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Populate_Payment_to_Field</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Close_Form__c.Name</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <tasks>
+        <fullName>Generate_Bill_of_Sale</fullName>
+        <assignedToType>owner</assignedToType>
+        <description>The close form has been paid in full, please generate a Bill of Sale</description>
+        <dueDateOffset>1</dueDateOffset>
+        <notifyAssignee>true</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>Generate Bill of Sale</subject>
+    </tasks>
+</Workflow>

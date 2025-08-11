@@ -1,0 +1,6 @@
+<table height="400" width="550" cellpadding="5" border="0" cellspacing="5" >
+<tr height="400" valign="top" >
+<td style=" color:#000000; font-size:12pt; background-color:#FFFFFF; font-family:arial; bLabel:main; bEditID:r3st1;" tEditID="c1r1" locked="0" aEditID="c1r1" >
+<![CDATA[The landlord verification for {!Landlord_Verifcation__c.Opportunity__c} has been completed, but a second review is needed.&nbsp; The comments about the landlord verification made by {!Landlord_Verifcation__c.LLV_Completed_By__c} are: <br><br>{!Landlord_Verifcation__c.Comments__c}<br><br>Please use the link below to access the Landlord Verification:<br>{!Landlord_Verifcation__c.Link}<br><br>Thank you.<br>]]></td>
+</tr>
+</table>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Minutes_to_Completion__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+ISBLANK(Ocrolus_Analysis_Retrieved__c),
+(NOW() - CreatedDate)*24*60,
+(Ocrolus_Analysis_Retrieved__c - CreatedDate)*24*60
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Minutes to Completion</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

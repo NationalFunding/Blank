@@ -1,0 +1,6 @@
+<table height="400" width="550" cellpadding="5" border="0" cellspacing="5" >
+<tr height="400" valign="top" >
+<td style=" color:#000000; font-size:12pt; background-color:#FFFFFF; font-family:arial; bLabel:main; bEditID:r3st1;" tEditID="c1r1" locked="0" aEditID="c1r1" >
+<![CDATA[<div><font face="arial">The transaction that you have submitted to the Navigator program for {!Opportunity.Legal_Name__c} is pending additional information in order to be approved by National Funding.&nbsp;</font></div><div><font face="arial"><br></font></div><div><font face="arial">To expedite processing time, the transaction has also been transferred to Quick Bridge for review. &nbsp;</font></div><div><font face="arial"><br></font></div><div><font face="arial">For further details about the transaction, please contact your National Funding or Quick Bridge representative.&nbsp;</font></div><div><font face="arial"><br></font></div><div><font face="arial">Thank you,</font></div><div><font face="arial"><br></font></div><div><font face="arial">The National Funding Team</font></div>]]></td>
+</tr>
+</table>

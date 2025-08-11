@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Collection_Engagement_Status__c</fullName>
+    <description>reference same field on the account (PD-1185)</description>
+    <externalId>false</externalId>
+    <formula>TEXT(Account.Collections_Engagement_Status__c )</formula>
+    <inlineHelpText>value from related Account</inlineHelpText>
+    <label>Collection Engagement Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

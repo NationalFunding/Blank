@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Current_Email_Drip_Index__c</fullName>
+    <description>Stores the number of the most recent email sent in the drip campaign sequence for this case. Currently only used for NCCI email drip, but can be scaled further.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Indicates the most recent email number sent in the drip campaign sequence.</inlineHelpText>
+    <label>Current Email Drip Index</label>
+    <precision>2</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

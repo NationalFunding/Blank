@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payoff_Quote</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>500</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>Payoff Quote</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>/apex/APXTConga4__Conga_Composer?serverUrl={!API.Partner_Server_URL_370}
+&amp;id={!Case.Id}
+&amp;TemplateGroup=Pay off
+&amp;QueryId=a068000000OH2Wm,a0634000018QBFU,a0634000018QBE7,a068000000thK0o,a068000000m0ger,a0634000016WUUs
+&amp;DS4=0
+&amp;DS8=1
+&amp;ContactId={Qvar0}
+
+&amp;DocuSignVisible=1
+&amp;DocuSignR1Id={!Case.NF_Renewal_RepId__c}
+&amp;DocuSignR1Role=Approver
+&amp;DocuSignR1Type=Signer
+&amp;DocuSignR1RoutingOrder=1
+
+&amp;DocuSignR2Id={Qvar0}
+&amp;DocuSignR2Role=Signor
+&amp;DocuSignR2Type=Signer
+&amp;DocuSignR2RoutingOrder=2
+&amp;QVar0Id=a0634000016WUUs
+&amp;QVar0Format=10010
+
+&amp;DocuSignIgnoreOCR=1
+&amp;DocuSignSendReminders=1
+&amp;DocuSignRemindIn=1
+&amp;DocuSignRemindAgainIn=1
+&amp;DocuSignExpireIn=7
+&amp;DocuSignWarnIn=3
+
+&amp;DocuSignCustomField1=dsfs__Custom_Field_1_Name__c
+&amp;DocuSignCustomFieldValue1=Vault With eOriginal
+&amp;DocuSignCustomField2=dsfs__Custom_Field_1_Value__c
+&amp;DocuSignCustomFieldValue2=No</url>
+    <width>700</width>
+</WebLink>

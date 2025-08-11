@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank</letterhead>
+    <name>Corporate Turnaround</name>
+    <style>freeForm</style>
+    <subject>{!Case.Merchant_Number__c} - {!Account.Legal_Name__c}</subject>
+    <textOnly>Hello,
+
+It is our understanding that you are currently working with corporate turnaround regarding your account with National Funding.
+
+I am reaching out to advise you that we can offer you the same programs as we would offer them and would like to discuss possible repayment plans with you directly.  In our experience dealing with a third party debt settlement company has proven more costly for our customers and as such we have a policy not to communicate with them.
+
+Please contact us as soon as possible to work with us on resolving your account and making payment arrangements that are manageable.
+
+We look forward to hearing from you.
+
+
+{!User.Name} | {!User.Title}
+
+{!Case.Email_Signature_Company__c}
+
+{!$Setup.Company_Information__c.Street__c}
+{!$Setup.Company_Information__c.City__c}, {!$Setup.Company_Information__c.State__c} {!$Setup.Company_Information__c.Zip__c}
+P: {!User.Phone} | F: {!User.Fax}
+E: {!User.Email}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

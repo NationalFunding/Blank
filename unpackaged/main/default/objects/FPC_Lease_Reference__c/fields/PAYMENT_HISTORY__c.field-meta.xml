@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PAYMENT_HISTORY__c</fullName>
+    <description>Customer's payment history with their trade reference.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Type in the customer's payment history with their trade reference.</inlineHelpText>
+    <label>PAYMENT_HISTORY</label>
+    <length>32</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

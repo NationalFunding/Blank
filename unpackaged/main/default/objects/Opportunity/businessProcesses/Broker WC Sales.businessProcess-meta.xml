@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BusinessProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Broker WC Sales</fullName>
+    <isActive>true</isActive>
+    <values>
+        <fullName>Approved - MCA</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Declined</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Docs In - MCA</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Docs Out - MCA</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Funded</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Identified</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Invalid Submission</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Lender Pend Info</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>NF Withdrawn</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Offer In - MCA</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Offer Out - MCA</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Offer%28s%29 Not Accepted</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Pre-Qual MCA</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Re-Process</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Re-Review</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Resubmit</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Statements In - MCA</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Submission - MCA%2FALT</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Withdrawn By Broker</fullName>
+        <default>false</default>
+    </values>
+</BusinessProcess>

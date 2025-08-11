@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Create_Stip</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Create Stip</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>/flow/Stipulations_Create_Stip_for_External_Lender?inputOpptyId={!FPC_Funding_del__c.OpportunityId__c}&amp;inputFundingId={!FPC_Funding_del__c.Id}&amp;inputLenderId={!FPC_Funding_del__c.Lender_IDId__c}&amp;inputLenderType={!FPC_Funding_del__c.Calculator_User_Type__c}&amp;retURL=/{!FPC_Funding_del__c.Id}</url>
+</WebLink>

@@ -1,0 +1,149 @@
+<messaging:emailTemplate subject="You're just 3 steps away from the funding your business needs" recipientType="Contact" relatedToType="Account">
+    <messaging:plainTextEmailBody >
+        Hi {!recipient.FirstName},
+        
+
+        Just 3 easy steps left to get up to {!$Setup.Welcome_Email_Variables__c.Funding_Amount__c} for your business.
+        
+        1. Start your online application - It'll only take a few minutes.
+        2. Choose your option - Then, I'll help you find the right terms to suit your business needs.
+        3. Get funded - Once approved, funds could be available in as little as 24 hours.
+        
+        Don't miss this opportunity to take your business to the next level.
+        <apex:repeat var="objBD" value="{!recipient}">
+            <apex:outputText >
+                <p>
+                    <br />
+                    <a href="https://my.nationalfunding.com/?source=RepC&utm_medium=email&utm_source=sf_rep&utm_campaign=contact&payload={!objBD.Encrypted_Email_String__c}">Complete Your Funding</a>
+                </p>
+            </apex:outputText>
+        </apex:repeat>
+                
+        Thanks, 
+        
+        {!$User.FirstName} {!$User.LastName} | {!$User.Title}
+        {!$Setup.Company_Information__c.Street__c}, {!$Setup.Company_Information__c.City__c}, {!$Setup.Company_Information__c.State__c} {!$Setup.Company_Information__c.Zip__c}
+        {!$User.Email}
+        {!$User.Phone}
+    </messaging:plainTextEmailBody>
+    <messaging:htmlEmailBody >
+        <html>
+
+        <head>
+            <meta name="viewport" content="width=device-width" />
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <title>Thank you for applying</title>
+            <style media="all" type="text/css">
+            @media only screen and (max-width: 620px) {
+                table[class=body] h1,
+                table[class=body] h2,
+                table[class=body] h3,
+                table[class=body] h4 {
+                    font-weight: 600 !important;
+                }
+                table[class=body] h1 {
+                    font-size: 22px !important;
+                }
+                table[class=body] h2 {
+                    font-size: 18px !important;
+                }
+                table[class=body] h3 {
+                    font-size: 16px !important;
+                }
+                table[class=body] .content,
+                table[class=body] .wrapper {
+                    padding: 10px !important;
+                }
+                table[class=body] .container {
+                    padding: 0 !important;
+                    width: 100% !important;
+                }
+                table[class=body] .btn table,
+                table[class=body] .btn a {
+                    width: 100% !important;
+                }
+            }
+            </style>
+        </head>
+
+        <body style="margin: 0; font-family: Arial, sans-serif; font-size: 14px; height: 100% !important; line-height: 1.2em; -webkit-font-smoothing: antialiased; padding: 0; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; width: 100% !important; background-color: #f6f6f6;">
+            <table class="body" style="box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; background-color: #f6f6f6;" width="100%" bgcolor="#f6f6f6">
+                <tr>
+                    <td style="box-sizing: border-box; font-family: Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top;" valign="top"></td>
+                    <td class="container" style="box-sizing: border-box; font-family: Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top; display: block; Margin: 0 auto !important; max-width: 580px; padding: 10px; width: 580px;" width="580" valign="top">
+                        <div class="content" style="box-sizing: border-box; display: block; margin: 0 auto; max-width: 580px; padding: 10px;">
+                            <table class="main" style="box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; background: #ffffff; border: 9px solid #e9e9e9; border-radius: 3px;" width="100%">
+                                <tr class="blue" style="margin-bottom: 15px; margin-top: 10px; width: 100%; background-color: #FFFFFF; text-align: center;" bgcolor="#223657" align="center">
+                                    <td style="box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top;" valign="top">
+                                        <a href="https://www.nationalfunding.com" style="box-sizing: border-box; color: #EB8243; text-decoration: underline;"><img class="pad-b13" src="https://694044703213-static-assets.s3.us-west-2.amazonaws.com/salesforce/NF+Logo-Vertical.png" height="65" alt="National Funding" style="-ms-interpolation-mode: bicubic; max-width: 100%; padding-bottom: 13px;" /></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="wrapper" style="box-sizing: border-box; font-family: Arial; font-size: 14px; vertical-align: top; padding: 5px;" valign="top">
+                                        <table style="box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;" width="100%">
+                                            <tr>
+                                                <td style="box-sizing: border-box; font-family: Arial; font-size: 14px; vertical-align: top;padding: 5px;" valign="top">
+                                                    <p style="font-family: Arial; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 10px;">Hi {!recipient.FirstName},</p>
+                                                    <br/>
+                                                    <p style="font-family: Arial; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 15px;">Just 3 easy steps left to get up to {!$Setup.Welcome_Email_Variables__c.Funding_Amount__c} for your business.</p>
+                                                    <ol>
+                                                     <li style="font-family: Arial; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 15px;">Start your online application - It'll only take a few minutes.</li>
+                                                    <li style="font-family: Arial; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 15px;">Choose your option - Then, I'll help you find the right terms to suit your business needs.</li>
+                                                    <li style="font-family: Arial; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 15px;">Get funded - Once approved, funds could be available in as little as 24 hours.<sup style="color:#223657;font-size:10;">1</sup></li>
+                                                    </ol>
+                                                    <p style="font-family: Arial; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 15px;">Don't miss this opportunity to take your business to the next level.</p>
+
+                                                    <table class="btn btn-primary" cellpadding="0" cellspacing="0" style="box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;" width="100%">
+                                                        <tr>
+                                                            <td align="center" style="box-sizing: border-box; font-family: Arial; font-size: 14px; vertical-align: top; padding-top: 10px; padding-bottom: 0px;" valign="top">
+                                                                <table cellpadding="0" cellspacing="0" style="box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: auto;">
+                                                                    <tr>
+                                                                        <td style="box-sizing: border-box; font-family: Arial; font-size: 14px; vertical-align: top; background-color: #EB8243; border-radius: 5px; text-align: center;" valign="top" bgcolor="#EB8243" align="center">
+                                                                            <apex:repeat var="objBD" value="{!recipient}">
+                                                                                <apex:outputText >
+                                                                                    <a href="{!$Setup.Instance_Settings__c.Base_URL__c}?source=RepC&utm_medium=email&utm_source=sf_rep&utm_campaign=contact&utm_content=202412relaunch&payload={!objBD.Encrypted_Email_String__c}" style="box-sizing: border-box; border-color: #EB8243; text-decoration: none; background-color: #EB8243; border: solid 1px #EB8243; border-radius: 0px; cursor: pointer; color: #ffffff; font-size: 14px; font-weight: bold; margin: 0; padding: 10px 15px; text-transform: capitalize; display: inline-block;">Complete Your Funding</a>
+                                                                                </apex:outputText>
+                                                                            </apex:repeat>
+                                                                            
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                    <br/>
+                                                    <p style="font-family: Arial; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 10px;">
+                                                    <br/><b>{!$User.FirstName} {!$User.LastName}</b> | {!$User.Title}
+                                                    <br/><apex:image url="https://694044703213-static-assets.s3.us-west-2.amazonaws.com/salesforce/NF+Logo-Horizontal.png" height="36" width="200"/>
+                                                    <br/>4380 La Jolla Village Drive, San Diego, California 92122
+                                                    <br/>P: <a style="color: black; text-decoration: none;" href = "tel: {!$User.Phone}&nbsp;"> {!$User.Phone}</a>
+                                                    <br/>E: <a style ="color:#F78D2C" href= "mailto: {!$User.Email}&nbsp;"> {!$User.Email} </a> | <a style="color:#F78D2C" href="https://www.nationalfunding.com">www.nationalfunding.com</a>
+                                                    </p>
+                                                   
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="align-left small-gray pad-t20" style="box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; vertical-align: top; font-size: 10px; text-align: left; color: #223657; padding-top: 10px;" valign="top" align="center">
+                                                    <a style="text-decoration: none; color:#F78D2C" href="https://www.nationalfunding.com/terms-conditions/">Terms &amp; Conditions</a> | <a style="text-decoration: none; color:#F78D2C" href="https://www.nationalfunding.com/privacy-policy/">Privacy Policy</a> | <a style="text-decoration: none; color:#F78D2C" href="https://www.nationalfunding.com/contact-us/">Contact Us</a>
+                                                <br/>© {!YEAR(TODAY())} National Funding. All rights reserved.
+                                                <br/>This is a marketing email. <a style = "color:#F78D2C" href="mailto:unsubscribe@u-nh1nfypnwfcg5pq2xz5i8k3oeaozhc8sj618r13qcli44btk3.8-diq5eaa.usa314.apex.salesforce.com?subject=Unsubscribe%20From%20Emails&body=I%20confirm%20I%20want%20to%20opt%20out%20from%20any%20emails">Unsubscribe.</a> 
+                                                <br/>4380 La Jolla Village Drive, San Diego, California 92122
+                                                <br></br>
+                                                         <br/>Subject to approval. Terms and conditions apply. Products offered by National Funding, Inc. and affiliates are business products only. Products are made or arranged pursuant to a California Financing Law License. License number: 603A169
+                                                         <br/><span style="font-size: 10px;color:#223657">1.</span> Fast approvals and 24-hour funding subject to receipt of required documentation, underwriting guidelines, and processing time by your bank. Funds are deposited into your business checking account as soon as the next business day after approval and acceptance of terms.
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                    <td style="box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top;" valign="top"></td>
+                </tr>
+            </table>
+        </body>
+
+        </html>
+    </messaging:htmlEmailBody>
+</messaging:emailTemplate>

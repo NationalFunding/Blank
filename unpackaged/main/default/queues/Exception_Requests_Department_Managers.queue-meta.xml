@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>Exception Requests - Department Managers</name>
+    <queueMembers>
+        <users>
+            <user>btimmons@nationalfunding.com</user>
+            <user>jchen@nationalfunding.com</user>
+            <user>sotero2@nationalfunding.com</user>
+            <user>sotero@nationalfunding.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Exception_Request_Summary__c</sobjectType>
+    </queueSobject>
+</Queue>

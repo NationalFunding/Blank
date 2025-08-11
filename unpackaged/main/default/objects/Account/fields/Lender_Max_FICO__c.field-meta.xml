@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lender_Max_FICO__c</fullName>
+    <description>Maximum FICO score a Lender will accept. Used in the automated syndication process.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Maximum FICO score a Lender will accept. Used in the automated syndication process.</inlineHelpText>
+    <label>Lender Max FICO</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

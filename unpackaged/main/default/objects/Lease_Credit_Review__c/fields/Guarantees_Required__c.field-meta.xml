@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Guarantees_Required__c</fullName>
+    <description>Names of the guarantors required.</description>
+    <inlineHelpText>Names of the guarantors required.</inlineHelpText>
+    <label>Guarantees Required</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

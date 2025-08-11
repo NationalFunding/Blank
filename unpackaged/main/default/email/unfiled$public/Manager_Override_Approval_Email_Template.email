@@ -1,0 +1,9 @@
+You have received a new Manager Override Request:   https://nf.lightning.force.com/{!Override__c.Id}
+
+
+Requester: {!Override__c.OwnerFullName}
+Opportunity: {!Override__c.Opportunity__c}
+Program: {!Override__c.Program__c}
+Status: {!Override__c.Status__c}
+
+Comments: {!Override__c.Comments__c}

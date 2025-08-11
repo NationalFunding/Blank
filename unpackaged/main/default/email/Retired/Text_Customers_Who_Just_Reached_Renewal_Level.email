@@ -1,0 +1,18 @@
+Hi {!Contact.FirstName},
+
+Just sending a reminder that as of today your business is eligible for additional funding through National Funding’s special renewal program!  If you have any upcoming business needs, please contact me to review the program.  The best thing about the special renewal program is that you should have access to higher funding & longer terms!
+ 
+Call me to go over the program.
+ 
+Let’s grow your business!
+ 
+Have a good day,
+{!User.Name}
+
+
+
+{!User.Name}
+{!User.Title}
+www.nationalfunding.com
+P: {!User.Phone} | F: {!User.Fax}
+Email: {!User.Email}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cmbls__Funded_Date__c</fullName>
+    <deprecated>false</deprecated>
+    <inlineHelpText>This will be used to indicate the funded date for the original deal</inlineHelpText>
+    <label>Funded Date</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>true</trackTrending>
+    <type>Date</type>
+</CustomField>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Vendor_Pmt_Made__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Vendor Payment Made- Status</description>
+    <inlineHelpText>Check box if the vendor payment has been made.</inlineHelpText>
+    <label>Vendor Pmt Made</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

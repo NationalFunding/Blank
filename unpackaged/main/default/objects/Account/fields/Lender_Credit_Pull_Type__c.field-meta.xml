@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lender_Credit_Pull_Type__c</fullName>
+    <description>Identifies if a Lender pulls Credit with a hard or soft credit inquiry</description>
+    <inlineHelpText>Identifies if a Lender pulls Credit with a hard or soft credit inquiry</inlineHelpText>
+    <label>Lender Credit Pull Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Soft Pull</fullName>
+                <default>false</default>
+                <label>Soft Pull</label>
+            </value>
+            <value>
+                <fullName>Hard Pull</fullName>
+                <default>false</default>
+                <label>Hard Pull</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BOFI_WC_eSign</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>600</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>AXOS WC eSign</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>/apex/CM8ConsoleLauncher
+?sessionId={!API.Session_ID}
+&amp;serverUrl={!API.Partner_Server_URL_210}
+&amp;id={!Opportunity.Id}
+&amp;EC={!IF(OR(Opportunity.BOFI_Restricted_State__c = "Restricted",Opportunity.Doc_Validation__c = FALSE),"0","1")}
+&amp;ECL=Opportunity+is+not+eligible+for+docs.+Check+required+fields+are+entered+and+ensure+the+Physical+Location+is+not+restricted+by+BOFI.
+&amp;TemplateGroup={!IF(ISPICKVAL(Opportunity.Docs_Payment_Frequency__c,"Daily"),"DailyBofI,AdobeBofiWC,DualACHBofI",IF(ISPICKVAL(Opportunity.Docs_Payment_Frequency__c,"Weekly"),"WeeklyBofI,DualACHBofI,AdobeBofiWC","DailyBofI,WeeklyBofI,DualACHBofI,AdobeBofiWC"))}
+&amp;TemplateId={!
+IF(
+AND(
+Opportunity.BOFI_Restricted_State__c='Allowed',
+Opportunity.Legal_Status__c != 'Sole Proprietor',
+Opportunity.CCPA_Notice_Required__c = TRUE
+),
+'a0S3400000nRArK,a0S3n00000hNDpe',
+IF(
+AND(
+Opportunity.BOFI_Restricted_State__c='Allowed',
+Opportunity.Legal_Status__c != 'Sole Proprietor'
+),
+'a0S3400000nRArK',
+IF(
+AND(
+Opportunity.BOFI_Restricted_State__c='Allowed',
+Opportunity.CCPA_Notice_Required__c = TRUE
+),
+'a0S3n00000hNDpe',
+'')))}
+&amp;QueryId=[AInfo]a063400001BhgVg,[SG2]a063400001Bhgei,[G3G4]a063400001BhggA,[CRInfo]a063400001BhghI,[AT]a063400001BhhHu,[LPD]a063400001BiUKa,[AMF]a063400001Cqswp,[BO]a063400001Cqswk
+&amp;DS4=0
+&amp;DS7=0
+&amp;DS8=1
+&amp;SelectTemplates=1
+&amp;DefaultPdf=1
+&amp;LG3=1
+&amp;LG0=0
+&amp;LG4=1
+&amp;PS0=1
+&amp;PS1=1
+&amp;PS2=0
+&amp;AttachmentParentId={!Opportunity.Id}
+&amp;OFN={!Opportunity.Name}+-+{Template.Label}
+&amp;QVAR0ID=a063400001BhhMQ
+&amp;DV0={QVAR0}
+
+&amp;ESVisible=1
+&amp;ESAgreementTemplateId=a0c3400000Dcm4r</url>
+</WebLink>

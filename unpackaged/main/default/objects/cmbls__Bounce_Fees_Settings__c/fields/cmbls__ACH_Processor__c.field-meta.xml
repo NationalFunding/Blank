@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cmbls__ACH_Processor__c</fullName>
+    <deprecated>false</deprecated>
+    <label>ACH Processor</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Wells Fargo - NF Collections</fullName>
+                <default>false</default>
+                <label>Wells Fargo - NF Collections</label>
+            </value>
+            <value>
+                <fullName>Wells Fargo - NFAS2 Collections</fullName>
+                <default>false</default>
+                <label>Wells Fargo - NFAS2 Collections</label>
+            </value>
+            <value>
+                <fullName>Wells Fargo - NFSPV1 Collections</fullName>
+                <default>false</default>
+                <label>Wells Fargo - NFSPV1 Collections</label>
+            </value>
+            <value>
+                <fullName>Wells Fargo - NFSPV2 Collections</fullName>
+                <default>false</default>
+                <label>Wells Fargo - NFSPV2 Collections</label>
+            </value>
+            <value>
+                <fullName>Wells Fargo - NFAS3 Collections</fullName>
+                <default>false</default>
+                <label>Wells Fargo - NFAS3 Collections</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

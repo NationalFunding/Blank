@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prepay_Amount__c</fullName>
+    <description>Prepay amount</description>
+    <inlineHelpText>Type in the amount prepaid to the equipment vendor.</inlineHelpText>
+    <label>Prepay Amount</label>
+    <precision>17</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

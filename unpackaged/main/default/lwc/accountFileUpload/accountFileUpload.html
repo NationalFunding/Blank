@@ -1,0 +1,191 @@
+<template>
+
+    <lightning-card>
+
+        <div style="margin-left: 5px;">
+
+            <lightning-file-upload label="Attach File" name="fileUploader" accept={acceptedFormats} record-id={recordId}
+                onuploadfinished={handleUploadFinished}>
+            </lightning-file-upload>
+
+            <br>
+
+            <i>Please Note: You can only upload files one at a time.</i>
+
+        </div>
+
+    </lightning-card>
+
+
+    <!-- File Type -->
+    <template if:true={typeModal}>
+
+        <div class="contact-edit" data-id="contact-edit" style="height: 640px;">
+
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+
+                <div class="slds-modal__container">
+
+                    <header class="slds-modal__header">
+
+                        <!-- TITLE -->
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">
+                            File Type
+                        </h2>
+
+                    </header>
+
+                    <!-- BODY -->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+
+                        <p if:true={errorMessage} class="slds-align_absolute-center" style="color:red">{errorMessage}</p>
+
+                        <!-- Update File Type -->
+                        <lightning-card>
+
+                            <lightning-radio-group 
+                                label =""
+                                name ="fileupload"
+                                onchange={handleChange}
+                                options={options}
+                                value={value}
+                                type='radio'>
+                            </lightning-radio-group>
+                            
+                        </lightning-card>
+                    </div>
+
+                    <!-- FOOTER -->
+                    <footer class="slds-modal__footer">
+                        <!-- Update/Save Button -->
+                        <lightning-button label="Update" variant="brand" onclick={saveForm}>
+                        </lightning-button>
+
+                    </footer>
+
+                </div>
+
+            </section>
+            <!-- Create Shading for Modal -->
+            <div class="slds-backdrop slds-backdrop_open"></div>
+
+        </div>
+
+    </template>
+
+    <!-- Available Contacts -->
+    <template if:true={contactModal}>
+
+        <div class="contact-edit" data-id="contact-edit" style="height: 640px;">
+
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+
+                <div class="slds-modal__container">
+
+                    <header class="slds-modal__header">
+
+                        <!-- TITLE -->
+                        <h2 id="contacts-heading-01" class="slds-text-heading_medium slds-hyphenate">
+                            Contacts
+                        </h2>
+
+                    </header>
+
+                    <!-- BODY -->
+                    <div class="slds-modal__content slds-p-around_medium" id="contacts-content-id-1">
+
+                        <p if:true={errorMessage} class="slds-align_absolute-center" style="color:red">{errorMessage}</p>
+
+                        <!-- Update File Type -->
+                        <lightning-card>
+
+                            <lightning-radio-group 
+                                label =""
+                                name ="contact list"
+                                onchange={handleChange}
+                                options={contactList}
+                                value={value}
+                                type='radio'>
+                            </lightning-radio-group>
+
+                        </lightning-card>
+                    </div>
+
+                    <!-- FOOTER -->
+                    <footer class="slds-modal__footer">
+                        <!-- Update/Save Button -->
+                        <lightning-button label="Update" variant="brand" onclick={relateDocument}>
+                        </lightning-button>
+
+                    </footer>
+
+                </div>
+
+            </section>
+            <!-- Create Shading for Modal -->
+            <div class="slds-backdrop slds-backdrop_open"></div>
+
+        </div>
+
+    </template>
+
+        <!-- Available Opportunities -->
+        <template if:true={oppModal}>
+
+            <div class="contact-edit" data-id="contact-edit" style="height: 640px;">
+    
+                <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                    aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+    
+                    <div class="slds-modal__container">
+    
+                        <header class="slds-modal__header">
+    
+                            <!-- TITLE -->
+                            <h2 id="opps-heading-01" class="slds-text-heading_medium slds-hyphenate">
+                                Opportunities
+                            </h2>
+    
+                        </header>
+    
+                        <!-- BODY -->
+                        <div class="slds-modal__content slds-p-around_medium" id="opps-content-id-1">
+    
+                            <p if:true={errorMessage} class="slds-align_absolute-center" style="color:red">{errorMessage}</p>
+    
+                            <!-- Update File Type -->
+                            <lightning-card>
+
+                                <lightning-radio-group 
+                                    label =""
+                                    name ="opp list"
+                                    onchange={handleChange}
+                                    options={oppList}
+                                    value={value}
+                                    type='radio'>
+                                </lightning-radio-group>
+        
+                            </lightning-card>
+                        </div>
+    
+                        <!-- FOOTER -->
+                        <footer class="slds-modal__footer">
+                            <!-- Update/Save Button -->
+                            <lightning-button label="Update" variant="brand" onclick={relateDocument}>
+                            </lightning-button>
+    
+                        </footer>
+    
+                    </div>
+    
+                </section>
+                <!-- Create Shading for Modal -->
+                <div class="slds-backdrop slds-backdrop_open"></div>
+    
+            </div>
+    
+        </template>
+
+</template>

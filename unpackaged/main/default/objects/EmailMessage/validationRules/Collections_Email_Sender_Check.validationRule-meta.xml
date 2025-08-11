@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Collections_Email_Sender_Check</fullName>
+    <active>true</active>
+    <description>check if user is restricted from sending email from their personal mailbox
+created for collections team (PD-1060)</description>
+    <errorConditionFormula>AND(
+ $Permission.Restrict_from_sending_email_from_personal_email =true,
+ FromAddress = $User.Email )</errorConditionFormula>
+    <errorMessage>Please do not use your personal mailbox as the From Address.</errorMessage>
+</ValidationRule>

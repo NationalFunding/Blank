@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Broker_Tier__c</fullName>
+    <description>This field will indicate the Broker's tier at time of Merchant Lender Offer Creation.  It will be populated by workflow if the opportunity is owned by a broker.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This field will indicate the Broker's tier at time of Merchant Lender Offer Creation.  It will be populated by workflow if the opportunity is owned by a broker.</inlineHelpText>
+    <label>Broker Tier</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

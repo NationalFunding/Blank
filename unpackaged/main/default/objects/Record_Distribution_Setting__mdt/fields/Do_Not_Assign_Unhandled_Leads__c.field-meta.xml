@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Do_Not_Assign_Unhandled_Leads__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field is used in the Record Distribution Process flow to allow to end the flow if no Routing Definition is found and we do not want the record to go to the Unhandled Leads path.</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Do Not Assign Unhandled Leads</label>
+    <type>Checkbox</type>
+</CustomField>

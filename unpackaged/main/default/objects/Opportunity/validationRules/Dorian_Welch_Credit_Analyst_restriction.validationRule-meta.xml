@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Dorian_Welch_Credit_Analyst_restriction</fullName>
+    <active>false</active>
+    <description>Deactivated - See track it 14872
+
+Restricts the opportunities Dorian Welch can work on based on the opportunity owner. 
+Sal Castaneda: 00580000008DMzx 
+Marcel Christine Torres: 00534000008nyG4 
+Dorian Welch: 00534000008cYM9</description>
+    <errorConditionFormula>(OwnerId ="00580000008DMzx"||OwnerId ="00534000008nyG4")&amp;&amp; (Credit_Analyst__c="00534000008cYM9"|| Internal_Credit_Analyst__c="00534000008cYM9"|| Commercial_Analyst__c ="00534000008cYM9")</errorConditionFormula>
+    <errorMessage>Dorian Welch is restricted from working on deals with the Opportunity Owner.</errorMessage>
+</ValidationRule>

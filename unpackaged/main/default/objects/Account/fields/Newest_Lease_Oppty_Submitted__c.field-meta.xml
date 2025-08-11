@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Newest_Lease_Oppty_Submitted__c</fullName>
+    <description>This field will indicate the most recent date that a lease oppty was submitted.</description>
+    <inlineHelpText>This field will indicate the most recent date that a lease oppty was submitted.</inlineHelpText>
+    <label>Newest Lease Oppty Submitted</label>
+    <summarizedField>Opportunity.Credit_Review_Date__c</summarizedField>
+    <summaryFilterItems>
+        <field>Opportunity.RecordTypeId</field>
+        <operation>equals</operation>
+        <value>Lease Oppty</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>Opportunity.Type</field>
+        <operation>equals</operation>
+        <value>NEW, Activator, Initial, Repeat, Procrastinator, NoMailDate, NoActDate, Vendor, Alt, Lease</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+    <summaryOperation>max</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

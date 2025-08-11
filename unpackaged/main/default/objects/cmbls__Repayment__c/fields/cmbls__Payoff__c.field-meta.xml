@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cmbls__Payoff__c</fullName>
+    <deprecated>false</deprecated>
+    <description>The balance of their payoff</description>
+    <externalId>false</externalId>
+    <formula>IF(
+
+    cmbls__Total_Credits_Settled__c=0,"No Balance",
+
+    IF( cmbls__Total_Outstanding_Amount__c / cmbls__Total_Credits_Settled__c &gt; 1,
+    IMAGE("/img/samples/color_red.gif", "None", 0, 0) +
+        IMAGE("/img/samples/color_red.gif", "red", 15, 100),
+    IMAGE("/img/samples/color_red.gif", "None", 0, 0) +        
+        IMAGE("/img/samples/color_green.gif", "green", 15, IF((100 - (cmbls__Total_Outstanding_Amount__c / cmbls__Total_Credits_Settled__c) * 100) &lt;=100, (100 -
+        (cmbls__Total_Outstanding_Amount__c / cmbls__Total_Credits_Settled__c) * 100), 100)) &amp;
+    IMAGE("/img/samples/color_red.gif", "None", 0, 0) +
+        IMAGE("/img/samples/color_yellow.gif", "yellow", 15,  100 -  (100 - (cmbls__Total_Outstanding_Amount__c / cmbls__Total_Credits_Settled__c) * 100))
+
+    )
+
+    &amp; " " &amp;
+    TEXT(
+        ROUND(
+            ((100 - (cmbls__Total_Outstanding_Amount__c / cmbls__Total_Credits_Settled__c) * 100)), 0
+        )
+    )
+
+    &amp; "%"
+)</formula>
+    <inlineHelpText>The balance of their payoff</inlineHelpText>
+    <label>Payoff %</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

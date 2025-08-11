@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WF_Batch_Scope__c</fullName>
+    <defaultValue>50</defaultValue>
+    <description>The total number of records processed on each batch scope. For example, if we have 1000 payments to send to WellsFargo, if we set this value to 50, we will have 20 batches.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The total number of records processed on each batch scope. For example, if we have 1000 payments to send to WellsFargo, if we set this value to 50, we will have 20 batches.</inlineHelpText>
+    <label>WF Batch Scope</label>
+    <precision>3</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

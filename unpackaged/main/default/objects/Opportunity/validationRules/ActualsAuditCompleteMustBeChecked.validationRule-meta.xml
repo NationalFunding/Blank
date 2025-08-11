@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ActualsAuditCompleteMustBeChecked</fullName>
+    <active>false</active>
+    <description>Prevents the user from funding a record if the Actuals Audit Complete is not checked.</description>
+    <errorConditionFormula>AND(
+OR(
+RecordType.Name = 'Working Capital Oppty',
+RecordType.Name = 'FRPSA',
+RecordType.Name = 'Broker WC Oppty',
+RecordType.Name = 'Broker FRPSA',
+RecordType.Name = 'MLP'
+),
+CONTAINS(Lender_Account__r.Name, 'National Funding'),
+ISPICKVAL(StageName, 'Funded'),
+ISCHANGED(StageName),
+Actuals_Audit_Complete__c = FALSE 
+)</errorConditionFormula>
+    <errorDisplayField>Actuals_Audit_Complete__c</errorDisplayField>
+    <errorMessage>Actuals Audit Complete must be checked prior to Funding.</errorMessage>
+</ValidationRule>

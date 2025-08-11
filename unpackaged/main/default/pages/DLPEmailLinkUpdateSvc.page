@@ -1,0 +1,7 @@
+<!--
+ - Created by bkravitz on 6/14/2017.
+ -->
+
+<apex:page controller="DLPEmailLinkUpdateController" action="{!init}"  >
+    <request><result>test<apex:pageMessages rendered="true" /></result></request>
+</apex:page>

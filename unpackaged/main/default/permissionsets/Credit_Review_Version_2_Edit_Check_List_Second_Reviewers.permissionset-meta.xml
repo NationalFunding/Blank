@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Credit Review Version 2 - Edit Check List - Second Reviewers</label>
+    <license>Salesforce</license>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>Allow_Modify_Completed_Credit_Reviews</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>Modify_Completed_Credit_Reviews</name>
+    </customPermissions>
+</PermissionSet>

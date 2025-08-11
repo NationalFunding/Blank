@@ -1,0 +1,56 @@
+<template>
+
+    <lightning-card title={title} icon-name="standard:opportunity">
+
+        <lightning-accordion 
+            allow-multiple-sections-open 
+            active-section-name={activeSections}>
+
+            <!-- If Opportunity Data is Returned -->
+            <template if:true={opportunities}>
+
+                <!-- <ul class="slds-has-dividers_around-space"> -->
+                <ul>
+
+                    <template for:each={opportunities} for:item="opportunity">
+
+                        <lightning-accordion-section name={opportunity.Id} key={opportunity.Id} label={opportunity.Name}>
+
+                            <div slot="actions">
+                                <lightning-button-icon icon-name="utility:info" variant="bare"
+                                    alternative-text="Open record" onclick={navigateToRecord} value={opportunity.Id}
+                                    data-id={opportunity.Id}  target="_blank" >
+                                </lightning-button-icon>
+                            </div>
+
+                            <div class="slds-title__detail">
+                                <dl class="slds-dl_horizontal">
+                                    <dt class="slds-dl_horizontal__label">Type:</dt>
+                                        <dd class="slds-dl_horizontal__detail">
+                                            {opportunity.Type}
+                                        </dd>
+                                    <dt class="slds-dl_horizontal__label">Close Date:</dt>
+                                        <dd class="slds-dl_horizontal__detail">
+                                            <lightning-formatted-date-time value={opportunity.CloseDate}></lightning-formatted-date-time>
+                                        </dd>
+
+                                </dl>
+                            </div>
+
+                        </lightning-accordion-section>
+
+                    </template>
+
+                </ul>
+
+            </template>
+    
+            <!-- If NO Opportunity Data is Returned -->
+            <template if:false={opportunities}>
+            </template>
+
+        </lightning-accordion>
+
+    </lightning-card>
+
+</template>

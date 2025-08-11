@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Upon Internally funding a Merchant Oppty - Notify Accounting to Process Wire</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Naitonal_Funding_Standard_Letterhead_Stack</letterhead>
+    <name>Upon Funding - Notification of Accounting</name>
+    <style>freeForm</style>
+    <subject>{!Opportunity.Name} - Internal Funding</subject>
+    <textOnly>{!Opportunity.Name} has been internally funded by Five Point Capital.  Please process a wire for this customer.
+
+The funder for this transaction is: {!Opportunity.Funder__c}
+
+A link to the opportunity is:
+
+{!Opportunity.Link}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

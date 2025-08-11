@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DLP_Link__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+ISBLANK(Encrypted_Email_String__c),"",IF( ISPICKVAL( Originating_Brand__c, 'Quick Bridge'), "https://my.quickbridge.com/?payload="+Encrypted_Email_String__c ,"https://my.nationalfunding.com/?payload="+Encrypted_Email_String__c
+))</formula>
+    <label>DLP Link</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

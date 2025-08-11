@@ -1,0 +1,53 @@
+<messaging:emailTemplate subject="Automated Yodlee Email" recipientType="Contact" relatedToType="Account">
+<messaging:plainTextEmailBody >
+Hi {!recipient.FirstName},
+
+In an effort to expedite your financing process, please click the link below and follow the instructions to complete the process of transferring your bank statements; it should only take a few minutes and will greatly reduce the time needed to review your application.
+ 
+When you click the link below you will be taken to a secure, co-branded webpage for National Funding and your bank. Please sign into your online banking account using your standard username and password; depending on your bank, you may be asked a security question to complete your sign-in process. Your information is secure, and no login information will be retained by either party. Once you have clicked submit, we will begin processing your bank statements electronically; this process may take 30 to 90 seconds. Please be patient and be sure not to exit the page or click the back button on your Internet browser. You will be alerted when processing is complete. 
+
+Should you encounter any issues or have any questions please do not hesitate to contact your National Funding Account Executive.
+
+<apex:repeat var="objBD" value="{!relatedTo.Bank_Data__r}">
+<apex:outputText rendered="{!objBD.Request_Bank__c == true}">
+{!objBD.Bank_Name__c}:
+https://ydl.nationalfunding.com/yodlee?rec={!objBD.Encrypted_Account_ID__c}
+---
+</apex:outputText>
+</apex:repeat>
+
+Thanks,
+{!$User.FirstName} {!$User.LastName}
+{!$User.Title}
+National Funding
+</messaging:plainTextEmailBody>
+<messaging:htmlEmailBody >
+<html>
+<apex:image id="Logo" value="https://na29.salesforce.com/servlet/servlet.ImageServer?id=01534000001tOXn&oid=00D80000000diq5&lastMod=1454719192000" 
+height="144" width="720"/>
+<body>
+<p>Hi {!recipient.FirstName},</p>
+
+<p>In an effort to expedite your financing process, please click the link below and follow the instructions to complete the process of transfering your bank statements; it should only take a few minutes and will greatly reduce the time needed to review your application.</p>
+ 
+<p>When you click the link below you will be taken to a secure, co-branded webpage for National Funding and your bank. Please sign into your online banking account using your standard username and password; depending on your bank, you may be asked a security question to complete your sign-in process. Your information is secure, and no login information will be retained by either party. Once you have clicked submit, we will begin processing your bank statements electronically; this process may take 30 to 90 seconds. Please be patient and be sure not to exit the page or click the back button on your Internet browser. You will be alerted when processing is complete.</p> 
+
+<p>Should you encounter any issues or have any questions please do not hesitate to contact your National Funding Account Executive.</p>
+
+<apex:repeat var="objBD" value="{!relatedTo.Bank_Data__r}">
+<apex:outputText rendered="{!objBD.Request_Bank__c == true}"><p>
+<b>{!objBD.Bank_Name__c}</b>:<br />
+<a href="https://ydl.nationalfunding.com/Account/GetDetailsFromUrl?{!objBD.Encrypted_Email_String__c}">Transfer Bank Statements Here</a>
+</p>
+</apex:outputText>
+</apex:repeat>
+
+<p>Thanks,<br />
+{!$User.FirstName} {!$User.LastName}<br />
+{!$User.Title}<br />
+National Funding
+</p>
+</body>
+</html>
+</messaging:htmlEmailBody>
+</messaging:emailTemplate>

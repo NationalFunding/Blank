@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bypass_Stip_Email_Notification__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Stips - On Create After Save sends an email alert to the owner on create, this will bypass sending the email</description>
+    <label>Bypass Stip Email Notification</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

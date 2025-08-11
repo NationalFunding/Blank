@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Concurrent__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field will indicate if an opportunity is a concurrent deal.  This field will mainly be used for reporting.</description>
+    <inlineHelpText>Check the box if the opportunity is a concurrent deal.</inlineHelpText>
+    <label>Concurrent</label>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

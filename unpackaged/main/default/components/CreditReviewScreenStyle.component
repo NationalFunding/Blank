@@ -1,0 +1,317 @@
+<apex:component layout="none">
+<style>
+     #dropbox{
+     border: 2px dashed #707070;
+     border-radius: 2px;
+     width: 600px;
+     height: 100px;
+     margin: 10px 0px;
+     text-align: center;
+     padding-top: 40px;
+     font-weight: bold;
+     color: #6E6E6E;    
+     letter-spacing: 1px;
+    }
+   .progress-holder{
+     width: 95%;
+     padding: 2px;
+     background: #CCCCCC;
+     border-radius: 3px;
+     float: left;
+     margin-top: 4px;
+     margin-right: 5px;
+   }
+   #progress{
+     height: 6px;
+     display:block;
+     width: 0%;
+     border-radius: 2px;
+     background: -moz-linear-gradient(center top , #13DD13 20%, #209340 80%) repeat scroll 0 0 transparent; /* IE hack */ 
+     background: -ms-linear-gradient(bottom, #13DD13, #209340); /* chrome hack */ 
+     background-image: -webkit-gradient(linear, 20% 20%, 20% 100%, from(#13DD13), to(#209340)); /* safari hack */ 
+     background-image: -webkit-linear-gradient(top, #13DD13, #209340); /* opera hack */ 
+     background-image: -o-linear-gradient(#13DD13,#209340);
+     box-shadow:3px 3px 3px #888888;
+   }
+   .preview{
+     border: 1px solid #CDCDCD;
+     width: 100%;
+     padding: 10px;
+     height:auto; 
+     overflow: auto;
+     color: #4D4D4D;
+     float: left;
+     box-shadow:3px 3px 3px #888888;
+     border-radius: 2px;
+   }
+   .percents{
+     float: right;
+   }
+   .preview-image{
+     box-shadow: 3px 3px 3px #888888;
+     width: 70px;
+     height: 70px;
+     float: left;
+     margin-right: 10px;
+   }
+   .file-info{
+     height: 50px;
+     float: left;
+     width: auto;
+     margin-bottom: 10px;
+     border: 1px solid blue;
+   }
+   .file-info span{
+     margin: 3px 2px;
+     font-size: 12px;
+     float:left;
+     display: block;
+     min-width: 100px;
+     overflow: auto;
+     border: 1px solid red;
+     overflow: none;
+   }
+   .upload-progress{
+     display: none;
+   }
+   
+   
+   
+   
+  
+.key-business {
+    margin-top:40px;
+}
+#sample_8 .checker {
+    float:left;
+    margin-right:7px;
+}
+.bank-label-head .checker {
+    float:left;
+    margin-right:7px;
+}
+.checker {
+    float:left;
+    margin-right:7px;
+}
+.tabStyle .bank-label, .tabStyle .bank-label {
+    font-size:11px;
+    font-weight: bold !important;
+}
+.tabStyle .text-center, .tabStyle .text-center {
+    text-align: center;
+    display: block;
+}
+.tabStyle tbody td{
+ padding:4px;
+    height:30px}
+.table-bordered-custom td{ border:1px solid #ccc; }
+.table-bordered-custom td:first-child{ border:1px solid #fff; border-right-color:#ccc !important; }
+
+.tabStyle .bank-label {
+  font-weight: normal;
+  padding: 8px;
+  line-height: 14px;
+  vertical-align: top;
+  margin-bottom: 1.9px;
+}
+
+.dataTables_filter {
+    display:none;
+}
+.btn-black {
+    background-color: #000 !important;
+    border-color: #000 !important;
+    color:#fff;
+}
+.btn-black:hover {
+    color:#fff;
+}
+.showButton {
+    width: 100%;
+    margin-bottom:15px;
+}
+.targetDiv {
+    display: none;
+}
+.key-business {
+    margin-top:40px;
+}
+.decisionbox {
+    padding: 8px;
+    background: #dddddd;
+    border-radius: 8px;
+    margin: 0PX;
+    border: 4px solid #fff;
+}
+.month-table td{padding:0px  !important}
+.month-table-bottom td:not(:first-child){padding:0px  !important}
+.month-table input[type=text],.month-table-bottom input[type=text]{width: 100%; border: none; height: 100%;padding: 0px 5px;}
+.top-decision{margin-top:10px;width:100%;display:none; border:none !important}
+.top-decision-group{width:33%;float:right;display:none}
+.margin-bottom{margin-bottom:5px !important;display:table;width:100%}
+.margin-bottom label{padding-top:7px}
+.dateFormat{display:none}
+.row-horizon {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+.row-horizon > [class*="col-lg"], .row-horizon > [class*="col-md"], .row-horizon > [class*="col-sm"], .row-horizon > [class*="col-xs"] {
+  float: none;
+  display: inline-block;
+  white-space: normal;
+  vertical-align: top;
+}
+.row-horizon > .col-xs-12 {
+  width: 90%;
+}
+.row-horizon > .col-xs-11 {
+  width: 82.5%;
+}
+.row-horizon > .col-xs-10 {
+  width: 75%;
+}
+.row-horizon > .col-xs-9 {
+  width: 67.5%;
+}
+.row-horizon > .col-xs-8 {
+  width: 60%;
+}
+.row-horizon > .col-xs-7 {
+  width: 52.5%;
+}
+.row-horizon > .col-xs-6 {
+  width: 45%;
+}
+.row-horizon > .col-xs-5 {
+  width: 37.5%;
+}
+.row-horizon > .col-xs-4 {
+  width: 30%;
+}
+.row-horizon > .col-xs-3 {
+  width: 22.5%;
+}
+.row-horizon > .col-xs-2 {
+  width: 15%;
+}
+.row-horizon > .col-xs-1 {
+  width: 7.5%;
+}
+@media (min-width: 768px) {
+  .row-horizon > .col-sm-12 {
+    width: 90%;
+  }
+  .row-horizon > .col-sm-11 {
+    width: 82.5%;
+  }
+  .row-horizon > .col-sm-10 {
+    width: 75%;
+  }
+  .row-horizon > .col-sm-9 {
+    width: 67.5%;
+  }
+  .row-horizon > .col-sm-8 {
+    width: 60%;
+  }
+  .row-horizon > .col-sm-7 {
+    width: 52.5%;
+  }
+  .row-horizon > .col-sm-6 {
+    width: 45%;
+  }
+  .row-horizon > .col-sm-5 {
+    width: 37.5%;
+  }
+  .row-horizon > .col-sm-4 {
+    width: 30%;
+  }
+  .row-horizon > .col-sm-3 {
+    width: 22.5%;
+  }
+  .row-horizon > .col-sm-2 {
+    width: 15%;
+  }
+  .row-horizon > .col-sm-1 {
+    width: 7.5%;
+  }
+}
+@media (min-width: 992px) {
+  .row-horizon > .col-md-12 {
+    width: 90%;
+  }
+  .row-horizon > .col-md-11 {
+    width: 82.5%;
+  }
+  .row-horizon > .col-md-10 {
+    width: 75%;
+  }
+  .row-horizon > .col-md-9 {
+    width: 67.5%;
+  }
+  .row-horizon > .col-md-8 {
+    width: 60%;
+  }
+  .row-horizon > .col-md-7 {
+    width: 52.5%;
+  }
+  .row-horizon > .col-md-6 {
+    width: 45%;
+  }
+  .row-horizon > .col-md-5 {
+    width: 37.5%;
+  }
+  .row-horizon > .col-md-4 {
+    width: 30%;
+  }
+  .row-horizon > .col-md-3 {
+    width: 22.5%;
+  }
+  .row-horizon > .col-md-2 {
+    width: 16%;
+  }
+  .row-horizon > .col-md-1 {
+    width: 7.5%;
+  }
+}
+@media (min-width: 1200px) {
+  .row-horizon > .col-lg-12 {
+    width: 90%;
+  }
+  .row-horizon > .col-lg-11 {
+    width: 82.5%;
+  }
+  .row-horizon > .col-lg-10 {
+    width: 75%;
+  }
+  .row-horizon > .col-lg-9 {
+    width: 67.5%;
+  }
+  .row-horizon > .col-lg-8 {
+    width: 60%;
+  }
+  .row-horizon > .col-lg-7 {
+    width: 52.5%;
+  }
+  .row-horizon > .col-lg-6 {
+    width: 45%;
+  }
+  .row-horizon > .col-lg-5 {
+    width: 37.5%;
+  }
+  .row-horizon > .col-lg-4 {
+    width: 30%;
+  }
+  .row-horizon > .col-lg-3 {
+    width: 22.5%;
+  }
+  .row-horizon > .col-lg-2 {
+    width: 15%;
+  }
+  .row-horizon > .col-lg-1 {
+    width: 7.5%;
+  }
+}
+</style>
+</apex:component>

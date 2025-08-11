@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Campaign History" icon-name="standard:channel_program_members">
+        <div class="slds-m-around_medium" if:true={marketingData}>
+            <!-- Loop Through data and display -->
+            <lightning-datatable key-field="Id" hide-checkbox-column data={data} columns={marketingColumns}>
+            </lightning-datatable>
+        </div>
+        <div class="slds-m-around_medium" if:true={error}>
+            <p>Sorry, there was an error displaying the Marketing Data.</p>
+            <p style="color: red;">{error}</p>
+        </div>
+    </lightning-card>
+
+</template>

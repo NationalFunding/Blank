@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Device_IP_Proxy_Type__c</fullName>
+    <description>risk_check.devices.ip_proxy_type</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Type of network proxy used if detected</inlineHelpText>
+    <label>Device IP Proxy Type</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

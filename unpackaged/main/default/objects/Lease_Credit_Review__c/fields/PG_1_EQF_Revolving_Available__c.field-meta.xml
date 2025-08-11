@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PG_1_EQF_Revolving_Available__c</fullName>
+    <description>PG 1's Revolving % available from Equifax.</description>
+    <inlineHelpText>PG 1's Revolving % available from Equifax.</inlineHelpText>
+    <label>PG 1 - EQF Revolving % Available</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

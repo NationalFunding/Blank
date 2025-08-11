@@ -1,0 +1,25 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="400" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[<p class="MsoNormal" style="font-family: arial;">Hello,<o:p></o:p></p>
+
+<p class="MsoNormal" style="font-family: arial;"><o:p>&nbsp;</o:p></p>
+
+<p class="MsoNormal" style="font-family: arial;">Per your request, we will be ACHing the full balance due of ${!Case.Total_Payoff__c} from the account on file. <o:p></o:p></p>
+
+<p class="MsoNormal" style="font-family: arial;"><o:p>&nbsp;</o:p></p>
+
+<p class="MsoNormal" style="font-family: arial;">If this request is received before 2pm PST the payment will
+draft the following business day. If this request is received after 2pm PST the
+payment will process in two business days.&nbsp;&nbsp; <o:p></o:p></p>
+
+<p class="MsoNormal" style="font-family: arial;"><o:p>&nbsp;</o:p></p>
+
+<p class="MsoNormal" style="font-family: arial;">Your response to this email is required to authorize this
+charge. Please respond to confirm that you authorize the payment draft above. <o:p></o:p></p>
+
+<p class="MsoNormal" style="font-family: arial;"><o:p>&nbsp;</o:p></p>
+
+<p class="MsoNormal" style="font-family: arial;">Thank you,&nbsp;&nbsp;<o:p></o:p></p><div style="font-family: arial;"><br></div><div style=""><div style="font-family: arial; color: rgb(0, 0, 0); font-size: 12pt;"><br></div><div style="color: rgb(0, 0, 0); font-size: 12pt;"><div style="font-size: 12pt; color: rgb(0, 0, 0);"><div style="font-family: arial; color: rgb(0, 0, 0); font-size: 12pt;">Thank you,&nbsp;</div><div style="font-family: arial; color: rgb(0, 0, 0); font-size: 12pt;"><br></div><div style="color: rgb(0, 0, 0); font-size: 12pt;"><div style="font-family: arial; font-size: medium; background-color: rgb(255, 255, 255);"><font face="arial">Payoff Department</font></div><div style="font-family: &quot;Times New Roman&quot;; font-size: medium; background-color: rgb(255, 255, 255);"><span style="font-family: arial;"><br></span></div><div style="font-family: &quot;Times New Roman&quot;; font-size: medium; background-color: rgb(255, 255, 255);"><font face="arial"><b>National Funding</b></font></div><div style="font-size: medium; background-color: rgb(255, 255, 255);"><div style=""><font face="Arial, sans-serif">{!$Setup.Company_Information__c.Street__c}</font></div><div style=""><font face="Arial, sans-serif">{!$Setup.Company_Information__c.City__c}, {!$Setup.Company_Information__c.State__c} {!$Setup.Company_Information__c.Zip__c}</font></div></div><div style="font-family: &quot;Times New Roman&quot;; font-size: medium; background-color: rgb(255, 255, 255);"><font face="arial">P: (800) 294-1702 | F: (888) 279-7564</font></div><div style="font-family: &quot;Times New Roman&quot;; font-size: medium; background-color: rgb(255, 255, 255);"><span style="font-family: arial;">E: payoff@nationalfunding.com</span></div></div></div></div></div>]]></td>
+</tr>
+</table>

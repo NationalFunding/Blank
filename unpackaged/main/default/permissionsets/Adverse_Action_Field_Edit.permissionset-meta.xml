@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This permission set will be given to Jun Jun to update the Adverse Action field value with the date that a letter was sent out in case the update from the Reg B letter activity being closed does not fire.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Adverse Action Field - Edit</label>
+    <license>Salesforce</license>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Adverse_Action_Letter_Sent__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+</PermissionSet>

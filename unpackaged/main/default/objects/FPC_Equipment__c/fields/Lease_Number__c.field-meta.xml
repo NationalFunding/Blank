@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lease_Number__c</fullName>
+    <description>Lease Number</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Type in the lease number associated with the piece of equipment.</inlineHelpText>
+    <label>Lease Number</label>
+    <length>32</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

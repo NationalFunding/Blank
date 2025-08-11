@@ -1,0 +1,12 @@
+Hi
+
+Credit Submittal for {!Opportunity.Name} is ready.  Please proceed with the next step in processing for this deal with {!Opportunity.Account}.
+
+Click here to go directly to this deal {!Opportunity.Link}
+
+New Salesforce Console: https://na29.salesforce.com/console#%2F{!Opportunity.Id}
+
+Thanks
+
+{!Opportunity.OwnerFullName}
+{!Opportunity.OwnerPhone}

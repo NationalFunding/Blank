@@ -1,0 +1,37 @@
+<apex:component layout="none">
+<apex:attribute name="businessList" type="Credit_Review_Related_Business__c[]" description="Credit_Review_Related_Business list" />
+<apex:attribute name="otherRelatedBusinessesTables" type="string[]" description="Credit_Review_Related_Business list" />
+ <div class="data-table">
+ <div class="row">
+   <div class="col-md-6">
+     <h3>Other Related Businesses</h3>
+   </div>
+   <div class="col-md-6"> <a href="#businessmodal" onclick="resetBusinessSearchModel()" role="button" class="btn pull-right permissionDeny btn-blue" data-toggle="modal" style="margin-top:18px;">Business Search</a> </div>
+ </div>
+ <!--Data Table-->
+ <apex:outputPanel layout="block" rendered="{!otherRelatedBusinessesTables.size > 0}">
+  <div id="other-business-box">
+     <table class="table table-striped table-bordered table-hover">
+        <thead>
+          <tr>
+            <th> Name </th>
+            <th> WC Exposure </th>
+            <th class=""> WC Last Fund Date </th>
+            <th class=""> Action </th>
+          </tr>
+        </thead>
+         <tbody>
+          <apex:repeat value="{!otherRelatedBusinessesTables}" var="business">
+            <apex:outputText escape="false" value="{!business}"></apex:outputText>
+           </apex:repeat>
+         </tbody>
+      </table>
+  </div>
+  </apex:outputPanel>
+  <apex:outputPanel layout="block" rendered="{!otherRelatedBusinessesTables.size == 0}">
+    <div id="other-business-box">
+      <center>No Record</center>
+    </div>
+  </apex:outputPanel>
+</div>
+</apex:component>

@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Address_Equifax_Update_Address_Number</fullName>
+        <field>Address_Number__c</field>
+        <formula>LEFT(Address_1__c, FIND(" ",Address_1__c))</formula>
+        <name>Address - Equifax, Update Address Number</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Address_Equifax_Update_Street_Name</fullName>
+        <field>Street_Name__c</field>
+        <formula>RIGHT(Address_1__c, LEN(Address_1__c) - FIND(" ", Address_1__c))</formula>
+        <name>Address - Equifax, Update Street Name</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Address_NCOA_Fail_Update_to_False</fullName>
+        <field>NCOA_Fail__c</field>
+        <literalValue>0</literalValue>
+        <name>Address - NCOA Fail Update to False</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Address_Vendor_City_Billing</fullName>
+        <field>BillingCity</field>
+        <formula>City__c</formula>
+        <name>Address - Vendor City Billing</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+        <targetObject>Account__c</targetObject>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Address_Vendor_City_Shipping</fullName>
+        <field>ShippingCity</field>
+        <formula>City__c</formula>
+        <name>Address - Vendor City Shipping</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+        <targetObject>Account__c</targetObject>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Address_Vendor_State_Billing</fullName>
+        <field>BillingState</field>
+        <formula>State__c</formula>
+        <name>Address - Vendor State Billing</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+        <targetObject>Account__c</targetObject>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Address_Vendor_State_Shipping</fullName>
+        <field>ShippingState</field>
+        <formula>State__c</formula>
+        <name>Address - Vendor State Shipping</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+        <targetObject>Account__c</targetObject>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Address_Vendor_Street_Billing</fullName>
+        <field>BillingStreet</field>
+        <formula>Address_1__c</formula>
+        <name>Address - Vendor Street Billing</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+        <targetObject>Account__c</targetObject>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Address_Vendor_Street_Shipping</fullName>
+        <field>ShippingStreet</field>
+        <formula>Address_1__c</formula>
+        <name>Address - Vendor Street Shipping</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+        <targetObject>Account__c</targetObject>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Address_Vendor_Zip_Billing</fullName>
+        <field>BillingPostalCode</field>
+        <formula>Zip_Code__c</formula>
+        <name>Address - Vendor Zip Billing</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+        <targetObject>Account__c</targetObject>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Address_Vendor_Zip_Shipping</fullName>
+        <field>ShippingPostalCode</field>
+        <formula>Zip_Code__c</formula>
+        <name>Address - Vendor Zip Shipping</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+        <targetObject>Account__c</targetObject>
+    </fieldUpdates>
+    <rules>
+        <fullName>Address - NCOA Fail Update if Address Changed %28Address Table%29</fullName>
+        <actions>
+            <name>Address_NCOA_Fail_Update_to_False</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>This work flow will update the NCOA fail field if a user updates an address after it was marked as failing the NCOA check.</description>
+        <formula>AND(NCOA_Fail__c = True, 
+OR(
+ISCHANGED(Address_1__c),
+ISCHANGED(City__c),
+ISCHANGED(State__c),
+ISCHANGED( Zip_Code__c)))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Address - Update For Equifax</fullName>
+        <actions>
+            <name>Address_Equifax_Update_Address_Number</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Address_Equifax_Update_Street_Name</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>This workflow will update the Address Number and Street Name field for Equifax pulls.</description>
+        <formula>OR( ISNEW(), AND(ISPICKVAL(Location_Type__c, 'Home Address'), ISCHANGED(Address_1__c)))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Vendor Mailing%2FBilling Address Update</fullName>
+        <actions>
+            <name>Address_Vendor_City_Billing</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Address_Vendor_State_Billing</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Address_Vendor_Street_Billing</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Address_Vendor_Zip_Billing</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND (2 OR 3 OR 4 OR 5) AND 6</booleanFilter>
+        <criteriaItems>
+            <field>FPC_Address__c.Location_Type__c</field>
+            <operation>equals</operation>
+            <value>Mailing Address</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.BillingStreet</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.BillingCity</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.BillingState</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.BillingPostalCode</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Vendor Acct</value>
+        </criteriaItems>
+        <description>To Billing/Mailing Address on Account.</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Vendor Shipping%2FPhysical Address Update</fullName>
+        <actions>
+            <name>Address_Vendor_City_Shipping</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Address_Vendor_State_Shipping</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Address_Vendor_Street_Shipping</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Address_Vendor_Zip_Shipping</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND (2 OR 3 OR 4 OR 5) AND 6</booleanFilter>
+        <criteriaItems>
+            <field>FPC_Address__c.Location_Type__c</field>
+            <operation>equals</operation>
+            <value>Physical Address</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.ShippingStreet</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.ShippingCity</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.ShippingState</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.ShippingPostalCode</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Vendor Acct</value>
+        </criteriaItems>
+        <description>To Shipping/Physical Address on Account.</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+</Workflow>

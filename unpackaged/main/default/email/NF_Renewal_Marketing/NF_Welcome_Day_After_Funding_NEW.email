@@ -1,0 +1,64 @@
+<html>
+<body bgcolor="#f0f0ec">
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#e6e6db">
+ <tr>
+  <td valign="top">
+   <table width="615" cellpadding="0" cellspacing="0" border="0" align="center">
+      <tr>
+     <td valign="top" align="center">
+    <img src="https://nf--c.na29.content.force.com/servlet/servlet.ImageServer?id=015340000022h7f&amp;oid=00D80000000diq5&amp;lastMod=1500396255000" width="590" height="90" border="0" alt="You may be eligible for additional cash." title="You May Be Eligible For Additional Cash."></a>
+     </td>
+    </tr>
+    <tr>
+     <td valign="top">
+      <table width="590" cellpadding="30" cellspacing="0" border="0" bgcolor="#ffffff" align="center" style="line-height: 1.3em;">
+       <tr>
+        <td valign="top">
+         <font face="arial, sans-serif" color="#3e362a" size="3">
+          Re: National Funding Agreement #{!Opportunity.Merchant_Number__c}
+          <br>
+          <br>
+           Welcome to National Funding!
+<br>
+<p>We are pleased that you have chosen us for your financial solution and feel certain you 
+ have made the right decision for your company.
+          <p>
+              <font face="arial, sans-serif" color="#3e362a" size="3">
+                 Very shortly you will receive a copy of your contract for your files. Please do not hesitate to call with questions or issues, should they arise. You can reach our renewal team at (800) 382-2856. Our goal is to help you with the success of your business with this funding, and any future financing needs you may have.  
+                <p>
+                Thank you for using National Funding. We look forward to working with you again in the future.
+                <p>
+                Sincerely,
+                <p>
+                <Strong>National Funding</Strong>
+                <p>
+               </font>
+            </p></td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+    <tr>
+    <td valign="top">
+      <table width="600" cellpadding="5" cellspacing="0" border="0" align="center">
+       <tr>
+        <td valign="top">
+         <font face="arial, sans-serif" color="#666666" size="1">
+         If you no longer wish to receive emails from National Funding, send an email to emailreply@nationalfunding.com with Unsubscribe in the subject line. You may also unsubscribe by sending written notice to: National Funding Unsubscribe, {!$Setup.Company_Information__c.Street__c}, {!$Setup.Company_Information__c.City__c}, {!$Setup.Company_Information__c.State__c} {!$Setup.Company_Information__c.Zip__c}. Thank you.
+         <br><br>
+         National Funding respects your privacy. Our commitment to your privacy is described in our Privacy Policy which is available on our website for your reference.
+         <br>
+         &#169; 2018 National Funding.  All Rights Reserved.
+         </font>
+         <br><br>
+        </td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Oppty_Stage_Restrictions_Lease_Sales</fullName>
+    <active>true</active>
+    <description>This rule will prohibit an MCA from changing an opportunity stage to PreQual, Approval, Docs Out, Submission, Conversion or Funded.</description>
+    <errorConditionFormula>AND(
+OR(
+$User.Title = "National Account Executive",$User.Title = "National Sales Manager",$User.Title = "Account Executive"),
+ ISCHANGED( StageName ), 
+ OR(
+ISPICKVAL(PRIORVALUE(StageName), "Credit Submittal"),
+ISPICKVAL(PRIORVALUE(StageName), "Credit Review"),
+ ISPICKVAL(PRIORVALUE(StageName), "Docs In"),
+ ISPICKVAL(PRIORVALUE(StageName), "Up For Funding"),
+ ISPICKVAL(PRIORVALUE(StageName), "Pre-Fund"),
+ ISPICKVAL( PRIORVALUE(StageName) , "Funded"),
+ ISPICKVAL( PRIORVALUE(StageName) , "Closed Won")))</errorConditionFormula>
+    <errorMessage>Sales may not change the opportunity to the Stage selected.  Please try again.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Re_Review</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Re-Review</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>/flow/Opportunity_Re_Review?inputOpptyId={!Opportunity.Id}&amp;inputStageName={!Opportunity.StageName}&amp;inputCreditAnalyst={!Opportunity.Internal_Credit_Analyst__c}&amp;inputReProcessCounter={!Opportunity.Re_Process_Counter__c}&amp;retURL={!Opportunity.Id}</url>
+</WebLink>

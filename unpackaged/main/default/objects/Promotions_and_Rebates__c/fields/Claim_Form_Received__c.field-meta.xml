@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Claim_Form_Received__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This box will indicate if the claim form has been received.</description>
+    <inlineHelpText>This box will indicate if the claim form has been received.</inlineHelpText>
+    <label>Claim Form Received</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

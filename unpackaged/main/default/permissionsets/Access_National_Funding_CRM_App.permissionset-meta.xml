@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Access National Funding CRM App</label>
+    <license>Salesforce</license>
+    <applicationVisibilities>
+        <application>Five_Point_Capital_CRM</application>
+        <visible>true</visible>
+    </applicationVisibilities>
+</PermissionSet>

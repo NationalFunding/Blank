@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank</letterhead>
+    <name>Lump Sum Due - 1 Day After - NF</name>
+    <style>freeForm</style>
+    <subject>URGENT: Past Due Payment – {!Account.Legal_Name__c} {!Case.Merchant_Number__c}</subject>
+    <textOnly>Hello,
+
+Your lump sum payment of {!Case.Lump_Sum_Amount__c} was due on {!Case.Lump_Sum_Due__c} and has yet to have been made. Please advise if we can expect payment today or if we should proceed with suit at this time.
+
+Thank you,
+
+{!Case.Case_Email_Signature_Name_Formula__c}
+
+National Funding
+{!$Setup.Company_Information__c.Street__c},
+{!$Setup.Company_Information__c.City__c}, {!$Setup.Company_Information__c.State__c} {!$Setup.Company_Information__c.Zip__c}
+P: {!Case.OwnerPhone}
+
+
+{!Case.Email_Thread_ID__c}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

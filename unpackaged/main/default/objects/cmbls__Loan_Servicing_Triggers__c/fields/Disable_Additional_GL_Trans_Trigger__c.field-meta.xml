@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Disable_Additional_GL_Trans_Trigger__c</fullName>
+    <defaultValue>false</defaultValue>
+    <inlineHelpText>Disable Additional GL Transactions creation trigger, the new Additional GL Transaction records will not be created when an Intercompany Transaction status is updated to "Paid"</inlineHelpText>
+    <label>Disable Additional GL Trans. Trigger</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

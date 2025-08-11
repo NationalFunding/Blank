@@ -1,0 +1,1366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>ACH_Bounce_Auto_Alert_Account_Closed</fullName>
+        <ccEmails>salesforce@nationalfunding.com</ccEmails>
+        <description>ACH Bounce Auto Alert - Account Closed</description>
+        <protected>false</protected>
+        <recipients>
+            <field>ContactId</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>custservice@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Collections_Email_Alerts/Bounce_Email_Account_Closed_Auto</template>
+    </alerts>
+    <alerts>
+        <fullName>ACH_Bounce_Auto_Alert_Account_Closed_QuickBridge</fullName>
+        <ccEmails>salesforce@nationalfunding.com</ccEmails>
+        <description>ACH Bounce Auto Alert - Account Closed - QuickBridge</description>
+        <protected>false</protected>
+        <recipients>
+            <field>ContactId</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>quickbridgecustservice@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Collections_Email_Alerts/Bounce_Email_Account_Closed_Auto_QB</template>
+    </alerts>
+    <alerts>
+        <fullName>ACH_Bounce_Auto_Alert_Account_Frozen</fullName>
+        <ccEmails>salesforce@nationalfunding.com</ccEmails>
+        <description>ACH Bounce Auto Alert - Account Frozen</description>
+        <protected>false</protected>
+        <recipients>
+            <field>ContactId</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>custservice@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Collections_Email_Alerts/Bounce_Email_Account_Frozen_Auto</template>
+    </alerts>
+    <alerts>
+        <fullName>ACH_Bounce_Auto_Alert_Account_Frozen_QuickBridge</fullName>
+        <ccEmails>salesforce@nationalfunding.com</ccEmails>
+        <description>ACH Bounce Auto Alert - Account Frozen - QuickBridge</description>
+        <protected>false</protected>
+        <recipients>
+            <field>ContactId</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>quickbridgecustservice@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Collections_Email_Alerts/Bounce_Email_Account_Frozen_Auto_QB</template>
+    </alerts>
+    <alerts>
+        <fullName>ACH_Bounce_Auto_Alert_NSF</fullName>
+        <ccEmails>salesforce@nationalfunding.com</ccEmails>
+        <description>ACH Bounce Auto Alert - NSF</description>
+        <protected>false</protected>
+        <recipients>
+            <field>ContactId</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>custservice@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Collections_Email_Alerts/Bounce_Email_NSF_Auto</template>
+    </alerts>
+    <alerts>
+        <fullName>ACH_Bounce_Auto_Alert_NSF_QuickBridge</fullName>
+        <ccEmails>salesforce@nationalfunding.com</ccEmails>
+        <description>ACH Bounce Auto Alert - NSF - QuickBridge</description>
+        <protected>false</protected>
+        <recipients>
+            <field>ContactId</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>quickbridgecustservice@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Collections_Email_Alerts/Bounce_Email_NSF_Auto_QB</template>
+    </alerts>
+    <alerts>
+        <fullName>ACH_Bounce_Auto_Alert_No_Account</fullName>
+        <ccEmails>salesforce@nationalfunding.com</ccEmails>
+        <description>ACH Bounce Auto Alert - No Account</description>
+        <protected>false</protected>
+        <recipients>
+            <field>ContactId</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>custservice@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Collections_Email_Alerts/Bounce_Email_No_Account_Auto</template>
+    </alerts>
+    <alerts>
+        <fullName>ACH_Bounce_Auto_Alert_No_Account_QuickBridge</fullName>
+        <ccEmails>salesforce@nationalfunding.com</ccEmails>
+        <description>ACH Bounce Auto Alert - No Account - QuickBridge</description>
+        <protected>false</protected>
+        <recipients>
+            <field>ContactId</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>quickbridgecustservice@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Collections_Email_Alerts/Bounce_Email_No_Account_Auto_QB</template>
+    </alerts>
+    <alerts>
+        <fullName>ACH_Bounce_Auto_Alert_Stop_Pay</fullName>
+        <ccEmails>salesforce@nationalfunding.com</ccEmails>
+        <description>ACH Bounce Auto Alert - Stop Pay</description>
+        <protected>false</protected>
+        <recipients>
+            <field>ContactId</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>custservice@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Collections_Email_Alerts/Bounce_Email_Stop_Pay_Auto</template>
+    </alerts>
+    <alerts>
+        <fullName>ACH_Bounce_Auto_Alert_Stop_Pay_QuickBridge</fullName>
+        <ccEmails>salesforce@nationalfunding.com</ccEmails>
+        <description>ACH Bounce Auto Alert - Stop Pay - QuickBridge</description>
+        <protected>false</protected>
+        <recipients>
+            <field>ContactId</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>quickbridgecustservice@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Collections_Email_Alerts/Bounce_Email_Stop_Pay_Auto_QB</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_Alert_Sandra_when_new_External_Recovery</fullName>
+        <description>Case - Alert Sandra when new External Recovery</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>acaisido@fairsquare.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>sotero@nationalfunding.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Case_Emails/Case_Assignment_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>Collections_Cases_Alert_Customer_Service_team_when_unassigned_case_is_created</fullName>
+        <ccEmails>customerservice@nationalfunding.com</ccEmails>
+        <description>Collections Cases - Alert Customer Service team when unassigned case is created</description>
+        <protected>false</protected>
+        <senderType>CurrentUser</senderType>
+        <template>Collections_Email_Alerts/Collections_Case_Assigned_to_PM</template>
+    </alerts>
+    <alerts>
+        <fullName>Collections_Cases_Legal_Demand_Expiration</fullName>
+        <description>Collections Cases - Legal Demand Expiration</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>ahoehn@nationalfunding.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>sotero@nationalfunding.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Collections_Email_Alerts/Collections_Legal_Demand_Expiration</template>
+    </alerts>
+    <alerts>
+        <fullName>Collections_Cases_Loan_Modification_Expired_7_Days_Ago</fullName>
+        <description>Collections Cases - Loan Modification Expired 7 Days Ago</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Collections_Email_Alerts/Collections_Loan_Mod_Expired_7_Days_Ago</template>
+    </alerts>
+    <alerts>
+        <fullName>Collections_Cases_Loan_Modification_Expiring</fullName>
+        <description>Collections Cases - Loan Modification Expiring</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Collections_Email_Alerts/Collections_Loan_Mod_Expiring_in_1_day</template>
+    </alerts>
+    <alerts>
+        <fullName>Collections_Cases_Lump_Sum_Due</fullName>
+        <description>Collections Cases - Lump Sum Due</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <recipients>
+            <recipient>minocentes@nationalfunding.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Collections_Email_Alerts/Collections_Lump_Sum_Due</template>
+    </alerts>
+    <alerts>
+        <fullName>Collections_Cases_Payoff_Received</fullName>
+        <description>Collections Cases - Payoff Received</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Renewal_Sales_Manager_Notifications</recipient>
+            <type>group</type>
+        </recipients>
+        <recipients>
+            <recipient>gmarquez@nationalfunding.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <field>NF_Renewal_Rep__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Collections_Email_Alerts/Collections_Payoff_Alert</template>
+    </alerts>
+    <alerts>
+        <fullName>Collections_Cases_Payoff_Received_QB</fullName>
+        <description>Collections Cases - Payoff Received QB</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Renewal_Sales_Manager_Notifications</recipient>
+            <type>group</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Collections_Email_Alerts/Collections_Payoff_Alert</template>
+    </alerts>
+    <alerts>
+        <fullName>Collections_Cases_Send_Catchup_Needed_Email</fullName>
+        <description>Collections Cases - Send Catchup Needed Email</description>
+        <protected>false</protected>
+        <recipients>
+            <field>ContactId</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>custservice@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Collections/Past_Due_Catch_Up_Auto</template>
+    </alerts>
+    <alerts>
+        <fullName>Collections_Cases_Send_Catchup_Needed_Email_QB</fullName>
+        <description>Collections Cases - Send Catchup Needed Email - QB</description>
+        <protected>false</protected>
+        <recipients>
+            <field>ContactId</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>quickbridgecustservice@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Collections/Past_Due_Catch_Up_Auto_HTML_QB</template>
+    </alerts>
+    <alerts>
+        <fullName>Lump_Sum_Due_Customer_Alert_0_Days_NF</fullName>
+        <description>Lump Sum Due Customer Alert - 0 Days - NF</description>
+        <protected>false</protected>
+        <recipients>
+            <field>ContactEmail</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>custservice@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Collections_Email_Alerts/Lump_Sum_Due_0_Days_NF</template>
+    </alerts>
+    <alerts>
+        <fullName>Lump_Sum_Due_Customer_Alert_0_Days_QB</fullName>
+        <description>Lump Sum Due Customer Alert - 0 Days - QB</description>
+        <protected>false</protected>
+        <recipients>
+            <field>ContactEmail</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>quickbridgecustservice@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Collections_Email_Alerts/Lump_Sum_Due_0_Days_QB</template>
+    </alerts>
+    <alerts>
+        <fullName>Lump_Sum_Due_Customer_Alert_1_Day_After_NF</fullName>
+        <description>Lump Sum Due Customer Alert - 1 Day After - NF</description>
+        <protected>false</protected>
+        <recipients>
+            <field>ContactEmail</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>custservice@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Collections_Email_Alerts/Lump_Sum_Due_1_Day_After_NF</template>
+    </alerts>
+    <alerts>
+        <fullName>Lump_Sum_Due_Customer_Alert_1_Day_After_QB</fullName>
+        <description>Lump Sum Due Customer Alert - 1 Day After - QB</description>
+        <protected>false</protected>
+        <recipients>
+            <field>ContactEmail</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>quickbridgecustservice@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Collections_Email_Alerts/Lump_Sum_Due_1_Day_After_QB</template>
+    </alerts>
+    <alerts>
+        <fullName>Lump_Sum_Due_Customer_Alert_3_Days_NF</fullName>
+        <description>Lump Sum Due Customer Alert - 3 Days - NF</description>
+        <protected>false</protected>
+        <recipients>
+            <field>ContactEmail</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>custservice@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Collections_Email_Alerts/Lump_Sum_Due_3_Days_NF</template>
+    </alerts>
+    <alerts>
+        <fullName>Lump_Sum_Due_Customer_Alert_3_Days_QB</fullName>
+        <description>Lump Sum Due Customer Alert - 3 Days - QB</description>
+        <protected>false</protected>
+        <recipients>
+            <field>ContactEmail</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>quickbridgecustservice@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Collections_Email_Alerts/Lump_Sum_Due_3_Days_QB</template>
+    </alerts>
+    <alerts>
+        <fullName>Lump_Sum_Due_Customer_Alert_7_Days_NF</fullName>
+        <description>Lump Sum Due Customer Alert - 7 Days - NF</description>
+        <protected>false</protected>
+        <recipients>
+            <field>ContactEmail</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>custservice@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Collections_Email_Alerts/Lump_Sum_Due_7_Days_NF</template>
+    </alerts>
+    <alerts>
+        <fullName>Lump_Sum_Due_Customer_Alert_7_Days_QB</fullName>
+        <description>Lump Sum Due Customer Alert - 7 Days - QB</description>
+        <protected>false</protected>
+        <recipients>
+            <field>ContactEmail</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>quickbridgecustservice@nationalfunding.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Collections_Email_Alerts/Lump_Sum_Due_7_Days_QB</template>
+    </alerts>
+    <alerts>
+        <fullName>Notify_Alissa_of_Unassigned_Accounting_Case</fullName>
+        <description>Notify Alissa of Unassigned Accounting Case</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Accounting_Queue_Users</recipient>
+            <type>group</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Case_Emails/Unassigned_Accounting_Case_Notification</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Assign_Case_to_the_Accounting_Queue</fullName>
+        <field>OwnerId</field>
+        <lookupValue>Accounting</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Assign Case to the Accounting Queue</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Case_Status_to_Open</fullName>
+        <field>Status</field>
+        <literalValue>Open</literalValue>
+        <name>Set Case Status to Open</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Case_Type_to_ACH</fullName>
+        <field>Type</field>
+        <literalValue>ACH</literalValue>
+        <name>Set Case Type to ACH</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Case_Type_to_ACH_Debit</fullName>
+        <field>Type</field>
+        <literalValue>ACH Debit</literalValue>
+        <name>Set Case Type to ACH Debit</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Case_Type_to_CC_Payment_Confirmation</fullName>
+        <field>Type</field>
+        <literalValue>CC Payment Confirmations</literalValue>
+        <name>Set Case Type to CC Payment Confirmation</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Case_Type_to_Check_Request</fullName>
+        <field>Type</field>
+        <literalValue>Check Request</literalValue>
+        <name>Set Case Type to Check Request</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Case_Type_to_Check_by_Fax</fullName>
+        <field>Type</field>
+        <literalValue>Check by Fax</literalValue>
+        <name>Set Case Type to Check by Fax</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Case_Type_to_Close_Form</fullName>
+        <field>Type</field>
+        <literalValue>Close Form</literalValue>
+        <name>Set Case Type to Close Form</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Case_Type_to_Commission_Question</fullName>
+        <field>Type</field>
+        <literalValue>Commission Question</literalValue>
+        <name>Set Case Type to Commission Question</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Case_Type_to_Credit_Memos</fullName>
+        <field>Type</field>
+        <literalValue>Credit Memos</literalValue>
+        <name>Set Case Type to Credit Memos</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Case_Type_to_Equipment_Sale</fullName>
+        <field>Type</field>
+        <literalValue>Equipment Sale</literalValue>
+        <name>Set Case Type to Equipment Sale</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Case_Type_to_Extension_Rent</fullName>
+        <field>Type</field>
+        <literalValue>Extension Rent</literalValue>
+        <name>Set Case Type to Extension Rent</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Case_Type_to_Final_Fund</fullName>
+        <field>Type</field>
+        <literalValue>Final Fund</literalValue>
+        <name>Set Case Type to Final Fund</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Case_Type_to_Funded_Loan_WC</fullName>
+        <field>Type</field>
+        <literalValue>Funded Loan - WC</literalValue>
+        <name>Set Case Type to Funded Loan - WC</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Case_Type_to_Loan_Modification</fullName>
+        <field>Type</field>
+        <literalValue>Loan Modification</literalValue>
+        <name>Set Case Type to Loan Modification</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Case_Type_to_Loan_Payoff</fullName>
+        <field>Type</field>
+        <literalValue>Loan Payoff</literalValue>
+        <name>Set Case Type to Loan Payoff</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Case_Type_to_Loan_Renewal</fullName>
+        <field>Type</field>
+        <literalValue>Loan Renewal</literalValue>
+        <name>Set Case Type to Loan Renewal</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Case_Type_to_Reapply_Funds</fullName>
+        <field>Type</field>
+        <literalValue>Reapply Funds</literalValue>
+        <name>Set Case Type to Reapply Funds</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Case_Type_to_Unapplied_Cash_Funds</fullName>
+        <field>Type</field>
+        <literalValue>Unapplied Cash/Funds</literalValue>
+        <name>Set Case Type to Unapplied Cash/Funds</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Case_Type_to_Wire_Request</fullName>
+        <field>Type</field>
+        <literalValue>Wire Request</literalValue>
+        <name>Set Case Type to Wire Request</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Date_Sent_to_Accounting</fullName>
+        <field>Sent_to_Accounting_Date__c</field>
+        <formula>NOW()</formula>
+        <name>Update Date Sent to Accounting</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Last_Stage_Change_Date_on_Case</fullName>
+        <field>Last_Stage_Change_Date__c</field>
+        <formula>NOW()</formula>
+        <name>Update Last Stage Change Date on Case</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Owner_to_James_Arillotta</fullName>
+        <field>OwnerId</field>
+        <lookupValue>amorales@nationalfunding.com</lookupValue>
+        <lookupValueType>User</lookupValueType>
+        <name>Update Owner to James Arillotta</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Record_Type_to_Accounting</fullName>
+        <field>RecordTypeId</field>
+        <lookupValue>Accounting</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>Update Record Type to Accounting</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Record_Type_to_Portfolio_Mngmnt</fullName>
+        <field>RecordTypeId</field>
+        <lookupValue>Portfolio_Management</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>Update Record Type to Portfolio Mngmnt</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_owner_to_Abril_Morales</fullName>
+        <field>OwnerId</field>
+        <lookupValue>amorales@nationalfunding.com</lookupValue>
+        <lookupValueType>User</lookupValueType>
+        <name>Update owner to Abril Morales</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_owner_to_April_Clark</fullName>
+        <description>Updates owner to Grace Vargas (as of 10/5/2021)</description>
+        <field>OwnerId</field>
+        <lookupValue>rmendel@fairsquare.com</lookupValue>
+        <lookupValueType>User</lookupValueType>
+        <name>Update owner to April Clark</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Accounting Case is Unassigned</fullName>
+        <actions>
+            <name>Notify_Alissa_of_Unassigned_Accounting_Case</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.OwnerId</field>
+            <operation>equals</operation>
+            <value>Accounting</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>Unassigned</value>
+        </criteriaItems>
+        <description>Rule is triggered when an Accounting Case is created/edited and the Status is 'Unassigned' and the owner is 'Accounting'</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Case Origin is Email - Accounting</fullName>
+        <actions>
+            <name>Update_Record_Type_to_Accounting</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Origin</field>
+            <operation>equals</operation>
+            <value>Email - Accounting</value>
+        </criteriaItems>
+        <description>Whenever a Case record is created with the Case Origin equal to 'Email - Accounting', the workflow will fire to update the record type to 'Accounting'</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Case Origin is Email - Portfolio Management</fullName>
+        <actions>
+            <name>Update_Record_Type_to_Portfolio_Mngmnt</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Origin</field>
+            <operation>equals</operation>
+            <value>Email - Portfolio Management</value>
+        </criteriaItems>
+        <description>Whenever a Case record is created with the Case Origin equal to 'Email - Portfolio Management', the workflow will fire to update the record type to 'Portfolio Management'.</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Case Subject Contains ACH</fullName>
+        <actions>
+            <name>Set_Case_Status_to_Open</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Set_Case_Type_to_ACH</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>When the Case Subject Contains ACH, the case type will be updated to 'ACH'</description>
+        <formula>(
+CONTAINS(Subject, " ACH")|| 
+CONTAINS(Subject, "ACH ")|| 
+CONTAINS(Subject, "-ACH")|| 
+CONTAINS(Subject, "ACH:")|| 
+CONTAINS(Subject, "ach:")||
+CONTAINS(Subject, " ach")|| 
+CONTAINS(Subject, "ach ")|| 
+CONTAINS(Subject, "-ach")
+) &amp;&amp; 
+NOT(CONTAINS(Subject, "Debit")) &amp;&amp;
+RecordType.Name = 'Accounting' &amp;&amp; 
+NOT(CONTAINS(Subject, "mod"))</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Case Subject Contains ACH Debit</fullName>
+        <actions>
+            <name>Set_Case_Status_to_Open</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Set_Case_Type_to_ACH_Debit</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>When the Case Subject Contains ACH Debit, the case type will be updated to 'ACH Debit'</description>
+        <formula>CONTAINS(Subject, "ACH Debit") &amp;&amp; 
+RecordType.Name = 'Accounting'</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Case Subject Contains CC Payment Confirmation</fullName>
+        <actions>
+            <name>Set_Case_Status_to_Open</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Set_Case_Type_to_CC_Payment_Confirmation</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>(1 OR 2 OR 3) AND 4</booleanFilter>
+        <criteriaItems>
+            <field>Case.Subject</field>
+            <operation>contains</operation>
+            <value>CC Payment Confirmation</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Subject</field>
+            <operation>contains</operation>
+            <value>CC Pymt</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Subject</field>
+            <operation>contains</operation>
+            <value>Credit Card Payment Confirmation</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Accounting</value>
+        </criteriaItems>
+        <description>When the Case Subject Contains CC Payment Confirmation, the case type will be updated to 'CC Payment Confirmation'</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Case Subject Contains Check Request</fullName>
+        <actions>
+            <name>Set_Case_Status_to_Open</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Set_Case_Type_to_Check_Request</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>(1 OR 2) AND 3</booleanFilter>
+        <criteriaItems>
+            <field>Case.Subject</field>
+            <operation>contains</operation>
+            <value>Check Request</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Subject</field>
+            <operation>contains</operation>
+            <value>Title Ch Req</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Accounting</value>
+        </criteriaItems>
+        <description>When the Case Subject Contains Check Request, the case type will be updated to 'Check Request'</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Case Subject Contains Check by Fax</fullName>
+        <actions>
+            <name>Set_Case_Status_to_Open</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Set_Case_Type_to_Check_by_Fax</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>(1 OR 3) AND 2</booleanFilter>
+        <criteriaItems>
+            <field>Case.Subject</field>
+            <operation>contains</operation>
+            <value>Check by Fax</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Accounting</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Subject</field>
+            <operation>contains</operation>
+            <value>CBF</value>
+        </criteriaItems>
+        <description>When the Case Subject Contains Check by Fax, the case type will be updated to 'Check by Fax'</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Case Subject Contains Close</fullName>
+        <actions>
+            <name>Set_Case_Status_to_Open</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Set_Case_Type_to_Close_Form</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Subject</field>
+            <operation>contains</operation>
+            <value>Close</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Accounting</value>
+        </criteriaItems>
+        <description>When the Case Subject Contains Close, the case type will be updated to 'Close Form'</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Case Subject Contains Commission Payment</fullName>
+        <actions>
+            <name>Set_Case_Status_to_Open</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Set_Case_Type_to_Commission_Question</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Subject</field>
+            <operation>contains</operation>
+            <value>Commission Payment</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Accounting</value>
+        </criteriaItems>
+        <description>When the Case Subject Contains Commission Payment, the case type will be updated to 'Commission Question'</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Case Subject Contains Credit Memo</fullName>
+        <actions>
+            <name>Set_Case_Status_to_Open</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Set_Case_Type_to_Credit_Memos</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Subject</field>
+            <operation>contains</operation>
+            <value>Credit Memo</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Accounting</value>
+        </criteriaItems>
+        <description>When the Case Subject Contains Credit Memo, the case type will be updated to 'Credit Memos'</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Case Subject Contains Equipment Sale</fullName>
+        <actions>
+            <name>Set_Case_Status_to_Open</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Set_Case_Type_to_Equipment_Sale</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>(1 OR 2) AND 3</booleanFilter>
+        <criteriaItems>
+            <field>Case.Subject</field>
+            <operation>contains</operation>
+            <value>Equipment Sale</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Subject</field>
+            <operation>contains</operation>
+            <value>Eq Sale</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Accounting</value>
+        </criteriaItems>
+        <description>When the Case Subject Contains Equipment Sale, the case type will be updated to 'Equipment Sale'</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Case Subject Contains Extension Rent</fullName>
+        <actions>
+            <name>Set_Case_Status_to_Open</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Set_Case_Type_to_Extension_Rent</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Subject</field>
+            <operation>contains</operation>
+            <value>Extension Rent</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Accounting</value>
+        </criteriaItems>
+        <description>When the Case Subject Contains Extension Rent, the case type will be updated to 'Extension Rent'</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Case Subject Contains Final Funds</fullName>
+        <actions>
+            <name>Set_Case_Status_to_Open</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Set_Case_Type_to_Final_Fund</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Subject</field>
+            <operation>contains</operation>
+            <value>Final Fund</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Accounting</value>
+        </criteriaItems>
+        <description>When the Case Subject Contains Check Request, the case type will be updated to 'Check Request'</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Case Subject Contains Loan Renewal</fullName>
+        <actions>
+            <name>Set_Case_Status_to_Open</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Set_Case_Type_to_Loan_Renewal</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Subject</field>
+            <operation>contains</operation>
+            <value>Loan Renewal</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Accounting</value>
+        </criteriaItems>
+        <description>When the Case Subject Contains Loan Renewal, the case type will be updated to 'Loan Renewal'</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Case Subject Contains Mod</fullName>
+        <actions>
+            <name>Set_Case_Status_to_Open</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Set_Case_Type_to_Loan_Modification</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>When the Case Subject Contains Mod, the case type will be updated to 'Loan Modification'</description>
+        <formula>AND(
+ RecordType.Name="Accounting",
+OR(
+   CONTAINS( Subject,"MOD "),
+   CONTAINS( Subject," MOD"))
+)</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Case Subject Contains Payoff</fullName>
+        <actions>
+            <name>Set_Case_Status_to_Open</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Set_Case_Type_to_Loan_Payoff</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>(1 OR 3) AND 2</booleanFilter>
+        <criteriaItems>
+            <field>Case.Subject</field>
+            <operation>contains</operation>
+            <value>Payoff</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Accounting</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Subject</field>
+            <operation>contains</operation>
+            <value>POQ</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Case Subject Contains Reapply Funds</fullName>
+        <actions>
+            <name>Set_Case_Type_to_Reapply_Funds</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Subject</field>
+            <operation>contains</operation>
+            <value>Reapply Funds</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Accounting</value>
+        </criteriaItems>
+        <description>When the Case Subject Contains Reapply Funds, the case type will be updated to 'Reapply Funds'</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Case Subject Contains Unapplied Cash%2FAscentium</fullName>
+        <actions>
+            <name>Set_Case_Status_to_Open</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Set_Case_Type_to_Unapplied_Cash_Funds</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>(1 OR 2 OR 3) AND 4</booleanFilter>
+        <criteriaItems>
+            <field>Case.Subject</field>
+            <operation>contains</operation>
+            <value>Unapplied Cash</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Subject</field>
+            <operation>contains</operation>
+            <value>Unapplied Funds</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Subject</field>
+            <operation>contains</operation>
+            <value>Notification of Payment from Ascentium Capital</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Accounting</value>
+        </criteriaItems>
+        <description>When the Case Subject Contains Unapplied Cash, Unapplied Funds, or Notification of Payment from Ascentium Capital the case type will be updated to 'Unapplied Cash/Funds'</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Case Subject Contains Wire Request</fullName>
+        <actions>
+            <name>Set_Case_Status_to_Open</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Set_Case_Type_to_Wire_Request</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Subject</field>
+            <operation>contains</operation>
+            <value>Wire Request</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Accounting</value>
+        </criteriaItems>
+        <description>When the Case Subject Contains Wire Request, the case type will be updated to 'Wire Request'</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Case Subject Contains Working Capital and Internal Funding</fullName>
+        <actions>
+            <name>Set_Case_Status_to_Open</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Set_Case_Type_to_Funded_Loan_WC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND 4 AND (2 OR 3)</booleanFilter>
+        <criteriaItems>
+            <field>Case.Subject</field>
+            <operation>notContain</operation>
+            <value>Lease</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Subject</field>
+            <operation>contains</operation>
+            <value>Internal Funding</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Subject</field>
+            <operation>contains</operation>
+            <value>Internal Renewal Funding</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Accounting</value>
+        </criteriaItems>
+        <description>When the Case Subject Contains Working Capital and Internal Funding, the case type will be updated to 'Funded Loan - WC'</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Case Type has been Changed</fullName>
+        <actions>
+            <name>Set_Case_Status_to_Open</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Whenever the Case has been changed, the record owner is updated from a queue to a specific user. This WF rule will fire to update the Status of the Case from 'Unassigned' to 'Open'.</description>
+        <formula>ISCHANGED(Type)  &amp;&amp; ((PRIORVALUE(OwnerId) = '00G800000032u6h') || (PRIORVALUE(OwnerId) = '00G800000032u6i') || (PRIORVALUE(OwnerId) = '00G800000032u6j')) &amp;&amp; (ISPICKVAL(PRIORVALUE(Type),'')|| (ISPICKVAL(PRIORVALUE(Type),'Miscellaneous'))|| (ISPICKVAL(PRIORVALUE(Type),'Reapply Funds')))&amp;&amp; (NOT(ISPICKVAL(Type,'Miscellaneous')))&amp;&amp; (NOT(ISPICKVAL(Type,'Reapply Funds')))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Case not Assigned to Queue</fullName>
+        <actions>
+            <name>Set_Case_Status_to_Open</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.OwnerId</field>
+            <operation>notEqual</operation>
+            <value>Accounting,Portfolio Management,Salesforce</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Collections Cases - Payoff Alert</fullName>
+        <actions>
+            <name>Collections_Cases_Payoff_Received</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Wire_Date__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Amount__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Payoff_From__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <description>Email Alert triggered when Payoff details are entered into case</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Collections Cases - Payoff Alert QB</fullName>
+        <actions>
+            <name>Collections_Cases_Payoff_Received_QB</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Wire_Date__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Amount__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Payoff_From__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Originating_Lender_formula__c</field>
+            <operation>equals</operation>
+            <value>Quick Bridge Funding</value>
+        </criteriaItems>
+        <description>Email Alert triggered when Payoff details are entered into case and the originator is Quick Bridge Funding</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Type is Final Fund</fullName>
+        <actions>
+            <name>Update_owner_to_April_Clark</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Type</field>
+            <operation>equals</operation>
+            <value>Final Fund</value>
+        </criteriaItems>
+        <description>Whenever a Case record is created or edited to subsequently meet the criteria of Case Type equals 'Final Fund', the Record Owner will be updated to Trang Le. (changed from Alissa Toth on 11/10/15)</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Type is Funded Loan</fullName>
+        <actions>
+            <name>Update_owner_to_April_Clark</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Type</field>
+            <operation>equals</operation>
+            <value>Funded Loan</value>
+        </criteriaItems>
+        <description>Whenever a Case record is created or edited to subsequently meet the criteria of Case Type equals 'Funded Loan', the Record Owner will be updated to Stella Lee. (changed from Shirley Lam on 02/18/16)</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Type is Funded Loan - WC</fullName>
+        <actions>
+            <name>Update_owner_to_Abril_Morales</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Type</field>
+            <operation>equals</operation>
+            <value>Funded Loan - WC</value>
+        </criteriaItems>
+        <description>Whenever a Case record is created or edited to subsequently meet the criteria of Case Type equals 'Funded Loan - WC', the Record Owner will be updated to Abril Morales (was Stella. Updated 9/13)</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Type is Loan Payoff</fullName>
+        <actions>
+            <name>Update_owner_to_April_Clark</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Type</field>
+            <operation>equals</operation>
+            <value>Loan Payoff</value>
+        </criteriaItems>
+        <description>Whenever a Case record is created or edited to subsequently meet the criteria of Case Type equals 'Loan Payoff', the Record Owner will be updated to Stella Lee (Was James. Updated 9/13)</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Type is Miscellaneous</fullName>
+        <actions>
+            <name>Assign_Case_to_the_Accounting_Queue</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Type</field>
+            <operation>equals</operation>
+            <value>Miscellaneous</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Accounting</value>
+        </criteriaItems>
+        <description>Whenever a Case record is created or edited to subsequently meet the criteria of Case Type equals 'Miscellaneous', the Record Owner will be updated to the Accounting Queue.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Type is Reapply Funds</fullName>
+        <actions>
+            <name>Assign_Case_to_the_Accounting_Queue</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Type</field>
+            <operation>equals</operation>
+            <value>Reapply Funds</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Accounting</value>
+        </criteriaItems>
+        <description>Whenever a Case record is created or edited to subsequently meet the criteria of Case Type equals 'Reapply Funds', the Record Owner will be updated to the Accounting Queue.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Date Sent to Accounting</fullName>
+        <actions>
+            <name>Update_Date_Sent_to_Accounting</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>Sent to Accounting</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Last Stage Change Date on Case</fullName>
+        <actions>
+            <name>Update_Last_Stage_Change_Date_on_Case</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>ISCHANGED(Status)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

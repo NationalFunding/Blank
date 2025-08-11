@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>NEW</fullName>
+        <default>true</default>
+        <label>NEW</label>
+    </standardValue>
+    <standardValue>
+        <fullName>CONCURRENT</fullName>
+        <default>false</default>
+        <label>CONCURRENT</label>
+    </standardValue>
+    <standardValue>
+        <fullName>RENEWAL</fullName>
+        <default>false</default>
+        <label>RENEWAL</label>
+    </standardValue>
+    <standardValue>
+        <fullName>RENEWAL CONCURRENT</fullName>
+        <default>false</default>
+        <label>RENEWAL CONCURRENT</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Merchant Attachment</fullName>
+        <default>false</default>
+        <label>Merchant Attachment</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Organic</fullName>
+        <default>false</default>
+        <label>Organic</label>
+    </standardValue>
+    <standardValue>
+        <fullName>FRP</fullName>
+        <default>false</default>
+        <label>FRP</label>
+    </standardValue>
+    <standardValue>
+        <fullName>FRP - Renewal</fullName>
+        <default>false</default>
+        <label>FRP - Renewal</label>
+    </standardValue>
+    <standardValue>
+        <fullName>SP NEW</fullName>
+        <default>false</default>
+        <label>SP NEW</label>
+    </standardValue>
+    <standardValue>
+        <fullName>SP RENEWAL</fullName>
+        <default>false</default>
+        <label>SP RENEWAL</label>
+    </standardValue>
+    <standardValue>
+        <fullName>SP CONCURRENT</fullName>
+        <default>false</default>
+        <label>SP CONCURRENT</label>
+    </standardValue>
+    <standardValue>
+        <fullName>SP RENEWAL CONCURRENT</fullName>
+        <default>false</default>
+        <label>SP RENEWAL CONCURRENT</label>
+    </standardValue>
+    <standardValue>
+        <fullName>MODIFICATION</fullName>
+        <default>false</default>
+        <label>MODIFICATION</label>
+    </standardValue>
+    <standardValue>
+        <fullName>REPEAT</fullName>
+        <default>false</default>
+        <label>REPEAT</label>
+    </standardValue>
+</StandardValueSet>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Stipulation_Id__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>Unique Id of the Stipulation provided from the Lender. This Id is generated from the lender and provided upon approval.</description>
+    <externalId>true</externalId>
+    <inlineHelpText>Unique Id of the Stipulation provided from the Lender</inlineHelpText>
+    <label>Stipulation Id</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

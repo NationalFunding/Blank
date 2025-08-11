@@ -1,0 +1,4 @@
+<apex:page standardController="advpm__Matter__c" title="NetDocuments workspace corresponding to a Matter">
+<apex:iframe scrolling="true" title="Matter Workspace" src="{!$Label.NetDocument_Site}?sfSession={!$Api.Session_ID}&sfUrl={!$Label.NetDocument_ApexAPIVersion}
+&smallDisplay=Y&cabinet=({!$Label.NetDocument_MatterCabinetGUID})&ws={!URLENCODE(advpm__Matter__c.advpm__Matter_Number__c)}"/>
+</apex:page>

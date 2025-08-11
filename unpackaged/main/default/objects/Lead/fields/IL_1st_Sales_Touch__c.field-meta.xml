@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IL_1st_Sales_Touch__c</fullName>
+    <description>This field will capture the date and time that the owner of a record modifies an internet lead.</description>
+    <inlineHelpText>This field will capture the date and time that the owner of a record modifies an internet lead.</inlineHelpText>
+    <label>IL - 1st Sales Touch</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

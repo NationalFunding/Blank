@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Vendor_Key__c</fullName>
+    <description>This field will be used in the process to update leads in the handoff from our telemarketing vendor to our internal sales rep.</description>
+    <inlineHelpText>This field will be used in the process to update leads in the handoff from our telemarketing vendor to our internal sales rep.</inlineHelpText>
+    <label>Vendor Key</label>
+    <length>150</length>
+    <maskChar>X</maskChar>
+    <maskType>all</maskType>
+    <required>false</required>
+    <type>EncryptedText</type>
+</CustomField>

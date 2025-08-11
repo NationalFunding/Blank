@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Fees_w_out_OFee__c</fullName>
+    <description>Sum of fees without Origination Fee</description>
+    <inlineHelpText>Sum of fees without Origination Fee</inlineHelpText>
+    <label>Total Fees w/out OFee</label>
+    <summarizedField>cmbls__Payment__c.cmbls__Transaction_Amount__c</summarizedField>
+    <summaryFilterItems>
+        <field>cmbls__Payment__c.RecordTypeId</field>
+        <operation>equals</operation>
+        <value>Credit</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>cmbls__Payment__c.cmbls__Status__c</field>
+        <operation>equals</operation>
+        <value>Fees Applied, Applied</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>cmbls__Payment__c.cmbls__Transaction_Type__c</field>
+        <operation>equals</operation>
+        <value>Fee</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>cmbls__Payment__c.cmbls__Sub_Type__c</field>
+        <operation>notEqual</operation>
+        <value>Origination Fee</value>
+    </summaryFilterItems>
+    <summaryForeignKey>cmbls__Payment__c.cmbls__Repayment__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

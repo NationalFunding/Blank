@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Hot_Note_Processing__c</fullName>
+    <description>A memo field used by EPP staff for the account.</description>
+    <inlineHelpText>A memo field used by EPP staff for the account.</inlineHelpText>
+    <label>Hot Note Processing</label>
+    <length>32000</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

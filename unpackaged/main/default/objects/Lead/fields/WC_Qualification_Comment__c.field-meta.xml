@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WC_Qualification_Comment__c</fullName>
+    <description>This field will hold disqualification comments inputted by the rep. They are required to put a comment if they choose Other as the qualification status. This field is used by marketing to understand why a lead is disqualified if one of the other options are not selected.</description>
+    <inlineHelpText>Used to further describe why this lead is disqualified</inlineHelpText>
+    <label>WC Qualification Comment</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>TextArea</type>
+</CustomField>

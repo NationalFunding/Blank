@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_LendingTree_RevShare__c</fullName>
+    <label>Total LendingTree RevShare</label>
+    <summarizedField>cmbls__Expense__c.cmbls__Amount__c</summarizedField>
+    <summaryFilterItems>
+        <field>cmbls__Expense__c.cmbls__Fee_Type__c</field>
+        <operation>equals</operation>
+        <value>RevShare</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>cmbls__Expense__c.Lead_Provider__c</field>
+        <operation>equals</operation>
+        <value>LendingTree</value>
+    </summaryFilterItems>
+    <summaryForeignKey>cmbls__Expense__c.cmbls__Repayment__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

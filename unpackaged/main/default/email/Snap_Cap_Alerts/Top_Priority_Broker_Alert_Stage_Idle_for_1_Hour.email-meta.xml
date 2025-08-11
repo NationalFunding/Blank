@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>new_logo</letterhead>
+    <name>Top Priority Broker Alert - Stage Idle for 1 Hour</name>
+    <style>freeForm</style>
+    <subject>Top Priority Broker Alert - 1 Hour Idle - {!Opportunity.StageName}</subject>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

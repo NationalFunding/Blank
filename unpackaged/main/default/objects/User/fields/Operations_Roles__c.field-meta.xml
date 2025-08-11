@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Operations_Roles__c</fullName>
+    <description>This field will be used to identify users roles within operations.</description>
+    <inlineHelpText>This field will be used to identify users roles within operations.</inlineHelpText>
+    <label>Operations Roles</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Director of Operations</fullName>
+                <default>false</default>
+                <label>Director of Operations</label>
+            </value>
+            <value>
+                <fullName>WC Outsourced Processor</fullName>
+                <default>false</default>
+                <label>WC Outsourced Processor</label>
+            </value>
+            <value>
+                <fullName>WC Internal Credit Analyst</fullName>
+                <default>false</default>
+                <label>WC Internal Credit Analyst</label>
+            </value>
+            <value>
+                <fullName>WC Syndication Credit Analyst</fullName>
+                <default>false</default>
+                <label>WC Syndication Credit Analyst</label>
+            </value>
+            <value>
+                <fullName>WC Credit Manager</fullName>
+                <default>false</default>
+                <label>WC Credit Manager</label>
+            </value>
+            <value>
+                <fullName>WC Credit Processor</fullName>
+                <default>false</default>
+                <label>WC Credit Processor</label>
+            </value>
+            <value>
+                <fullName>WC Commercial Credit Analyst</fullName>
+                <default>false</default>
+                <label>WC Commercial Credit Analyst</label>
+            </value>
+            <value>
+                <fullName>WC Commercial Credit Manager</fullName>
+                <default>false</default>
+                <label>WC Commercial Credit Manager</label>
+            </value>
+            <value>
+                <fullName>WC Documentator</fullName>
+                <default>false</default>
+                <label>WC Documentator</label>
+            </value>
+            <value>
+                <fullName>WC Funder</fullName>
+                <default>false</default>
+                <label>WC Funder</label>
+            </value>
+            <value>
+                <fullName>WC Funding Manager</fullName>
+                <default>false</default>
+                <label>WC Funding Manager</label>
+            </value>
+            <value>
+                <fullName>EQ Internal Credit Analyst</fullName>
+                <default>false</default>
+                <label>EQ Internal Credit Analyst</label>
+            </value>
+            <value>
+                <fullName>EQ Syndication Credit Analyst</fullName>
+                <default>false</default>
+                <label>EQ Syndication Credit Analyst</label>
+            </value>
+            <value>
+                <fullName>EQ Credit Manger</fullName>
+                <default>false</default>
+                <label>EQ Credit Manger</label>
+            </value>
+            <value>
+                <fullName>EQ Credit Processor</fullName>
+                <default>false</default>
+                <label>EQ Credit Processor</label>
+            </value>
+            <value>
+                <fullName>EQ Documentator</fullName>
+                <default>false</default>
+                <label>EQ Documentator</label>
+            </value>
+            <value>
+                <fullName>EQ Funder</fullName>
+                <default>false</default>
+                <label>EQ Funder</label>
+            </value>
+            <value>
+                <fullName>EQ Funding Manger</fullName>
+                <default>false</default>
+                <label>EQ Funding Manger</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

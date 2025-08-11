@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Initial_Marketing_Contact_Sent__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field is set to true if the marketing DLP email and text are sent out. It is being updated by the Notifications - Custom Partner Email and Text Notification flow.</description>
+    <label>Initial Marketing Contact Sent</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Moneyjet_Complaint__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>TRUE = Moneyjet related Complaint (PD-3058)</description>
+    <inlineHelpText>TRUE = Moneyjet related Complaint</inlineHelpText>
+    <label>Moneyjet Complaint</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Deactivate__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field will be indicate if a Yodlee account should be Deactivated.  If true, the account should no longer be active in Yodlee.</description>
+    <inlineHelpText>Check the box if we no longer wish to have data pulled in from Yodlee for this customer.</inlineHelpText>
+    <label>Deactivate</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

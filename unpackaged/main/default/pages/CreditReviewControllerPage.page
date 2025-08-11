@@ -1,0 +1,11 @@
+<!--
+ - Created by oporter on 9/20/2017.
+ -->
+
+<apex:page id="CreditReviewControllerPage" standardController="Opportunity" tabStyle="Opportunity" extensions="FlowToWebservice_Redirect">
+    <flow:interview name="CRC_1_UILayer" interview="{!aFlow2}" finishLocation="{!FinishPage2}">
+        <apex:param name="inputOpptyId" value="{!Opportunity.Id}"/>
+        <apex:param name="inputCreditAnalyst" value="{!Opportunity.Internal_Credit_Analyst__c}"/>
+        <apex:param name="inputStmtsInDate" value="{!IF(Opportunity.Statements_In_Date__c == NULL, FALSE, TRUE)}"/>
+    </flow:interview>
+</apex:page>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product__c</fullName>
+    <description>This field will indicate the product that will be identified in the funding record and drive the online calculator and DFP customer interactions.</description>
+    <externalId>false</externalId>
+    <formula>IF(
+ Opportunity__r.RecordType.DeveloperName = 'Broker_FRPSA', 'FRPSA', 
+IF(
+ Opportunity__r.RecordType.DeveloperName = 'Direct_MLP', 'MLP',
+IF(
+ Opportunity__r.RecordType.DeveloperName = 'Lease_Oppty_Record_Type', 'Lease',
+IF(
+ AND(Opportunity__r.RecordType.DeveloperName = 'FRPSA', OR(CONTAINS(Lender_ID__r.Name, 'National Funding'), CONTAINS(Lender_ID__r.Name, 'Quick Bridge'))), 'FRPSA',
+IF(
+  OR(
+     AND(
+       Opportunity__r.RecordType.DeveloperName = 'FRPSA', NOT(CONTAINS(Lender_ID__r.Name, 'National Funding')), NOT(CONTAINS(Lender_ID__r.Name, 
+       'Quick Bridge'))),   
+     Opportunity__r.RecordType.DeveloperName = 'Broker_WC_Oppty',
+     Opportunity__r.RecordType.DeveloperName = 'Working_Capital_Oppty',
+     Opportunity__r.RecordType.DeveloperName = 'MCA_Oppty'), 'Loan',
+'Error')))))</formula>
+    <inlineHelpText>This field will indicate the product that will be identified in the funding record and drive the online calculator and DFP customer interactions.</inlineHelpText>
+    <label>Product</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

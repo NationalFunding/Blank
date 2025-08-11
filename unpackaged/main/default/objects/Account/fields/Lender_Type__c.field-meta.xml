@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lender_Type__c</fullName>
+    <description>What type of lender is this?
+A Broker is a lender that pays us the points on the deals but does not offer us advanced payments as margin.
+A Discounter purchases a stream of payments from us.  this stream of payments is less than the number of payments in the lease itself..</description>
+    <inlineHelpText>What type of lender is this?
+A Broker is a lender that pays us the points on the deals but does not offer us advanced payments as margin.
+A Discounter purchases leszs than the full stream of payments from us.</inlineHelpText>
+    <label>Lender Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Broker</fullName>
+                <default>false</default>
+                <label>Broker</label>
+            </value>
+            <value>
+                <fullName>Discounter</fullName>
+                <default>false</default>
+                <label>Discounter</label>
+            </value>
+            <value>
+                <fullName>In House</fullName>
+                <default>false</default>
+                <label>In House</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

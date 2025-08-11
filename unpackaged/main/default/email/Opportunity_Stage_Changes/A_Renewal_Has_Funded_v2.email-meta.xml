@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>new_logo</letterhead>
+    <name>A Renewal Has Funded v2</name>
+    <style>freeForm</style>
+    <subject>A Renewal Has Funded</subject>
+    <textOnly>Hello {!Opportunity.OwnerFullName},
+
+An Opportunity with your name on it has changed stages.
+
+Account Name: {!Opportunity.Account}
+Opportunity Name: {!Opportunity.Name}
+
+New Stage: {!Opportunity.StageName}
+Renewal Amount: {!Opportunity.Pipeline_Amount__c}
+
+Sincerely,
+Salesforce Automation</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

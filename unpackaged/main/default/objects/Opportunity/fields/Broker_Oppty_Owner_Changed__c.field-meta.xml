@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Broker_Oppty_Owner_Changed__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Updated by a workflow when the Owner of a Renewal Broker Opportunity has changed, which will then fire a workflow to update the Oppty Team Members and Oppty Splits</description>
+    <label>Broker Oppty Owner Changed</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

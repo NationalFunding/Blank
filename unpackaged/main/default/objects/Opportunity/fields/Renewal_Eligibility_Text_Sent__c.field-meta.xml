@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Renewal_Eligibility_Text_Sent__c</fullName>
+    <description>Date when the renewal eligibility text was sent to signor. Date is inserted by the Opportunity - Automated Text for Qualified Renewal Deals flow (PD-1938)</description>
+    <label>Renewal Eligibility Text Sent</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

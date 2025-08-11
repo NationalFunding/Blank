@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sweep_Exception_Request__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field will be used as an indicator if the rep wants request an exception to keep a lead 1 month after the sweep date because the customer is close to starting a deal.</description>
+    <inlineHelpText>Check this box if you would like a sweep date exception. Must be done at least 1 day prior to month end.</inlineHelpText>
+    <label>Sweep Exception Request</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

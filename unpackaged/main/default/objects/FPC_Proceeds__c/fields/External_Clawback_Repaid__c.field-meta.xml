@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>External_Clawback_Repaid__c</fullName>
+    <description>Date commission was paid back to external lender</description>
+    <inlineHelpText>Date commission was paid back to external lender</inlineHelpText>
+    <label>External - Clawback Repaid</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

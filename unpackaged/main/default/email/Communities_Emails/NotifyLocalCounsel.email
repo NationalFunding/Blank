@@ -1,0 +1,9 @@
+Dear {!Contact.FirstName} {!Contact.LastName},
+<br/><br/>
+This is to notify that a new matter has been assigned to you: {!advpm__Matter__c.Name}
+<br/><br/>
+Please <a href="{!$Label.PartnerPortalURL}{!advpm__Matter__c.Id}">click here</a> to view.
+<br/><br/>
+Thanks,
+<br/>
+{!Organization.Name}

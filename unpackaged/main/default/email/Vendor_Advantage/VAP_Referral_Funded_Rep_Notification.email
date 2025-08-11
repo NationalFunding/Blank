@@ -1,0 +1,6 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="400" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; color:#000000; bEditID:r3st1; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[{!Opportunity.Link} has funded and the VAP Referral has been confirmed.&nbsp; Please call {!Opportunity.VAP_Referral_Vendor__c} to confirm if the vendor referral payment should be made out to the company or the sales rep.&nbsp;&nbsp;&nbsp;<div><br></div><div>New Salesforce Console: https://na29.salesforce.com/console#%2F{!Opportunity.Id}&nbsp;&nbsp;<br><br>Please indicate this in the VAP Referral Payment field on the Vendor's account. <br><br>Thank you.<br></div>]]></td>
+</tr>
+</table>

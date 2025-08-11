@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bypass_Contract_Required_Fields_Val_Rule__c</fullName>
+    <defaultValue>false</defaultValue>
+    <label>Bypass Contract Required Fields Val Rule</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

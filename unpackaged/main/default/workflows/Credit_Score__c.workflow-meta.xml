@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Credit_Is_Down_Notify_the_team</fullName>
+        <description>Credit Is Down - Notify the team</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>trover@nationalfunding.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>Retired/Credit_Is_Down</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Credit_Score_Insert_Last_Pull_Date</fullName>
+        <field>Last_Pull_Received__c</field>
+        <formula>NOW()</formula>
+        <name>Credit Score - Insert Last Pull Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Increase_Credit_Score_Request</fullName>
+        <field>Credit_Request_ID__c</field>
+        <formula>IF(ISBLANK(Credit_Request_ID__c),1,Credit_Request_ID__c +1)</formula>
+        <name>Increase Credit Score Request</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <flowActions>
+        <fullName>Update_Contact_with_URL</fullName>
+        <flow>Contact_Credit_Score_URL_Update</flow>
+        <flowInputs>
+            <name>inputCSId</name>
+            <value>{!Id}</value>
+        </flowInputs>
+        <label>Update Contact with URL</label>
+        <language>en_US</language>
+        <protected>false</protected>
+    </flowActions>
+    <outboundMessages>
+        <fullName>Send_Credit_Check_to_CloudPanel</fullName>
+        <apiVersion>24.0</apiVersion>
+        <description>Old Endpoint:
+http://fivepoint.us1.vapor6.com/trg/sfdc_wsdl/521a2b823459c
+http://fivepoint.us1.vapor6.com/trigger/wsdl/503259a431846</description>
+        <endpointUrl>http://fivepoint.vapor6.cloudbound.ca/trigger/wsdl/503259a431846</endpointUrl>
+        <fields>Address_Number__c</fields>
+        <fields>Address_Street__c</fields>
+        <fields>City__c</fields>
+        <fields>Credit_Request_ID__c</fields>
+        <fields>First_Name__c</fields>
+        <fields>Id</fields>
+        <fields>Last_Name__c</fields>
+        <fields>SSN__c</fields>
+        <fields>State__c</fields>
+        <fields>Zip_Postal_Code__c</fields>
+        <includeSessionId>true</includeSessionId>
+        <integrationUser>haccount@fivepointcapital.com</integrationUser>
+        <name>Send Credit Check to vapor6</name>
+        <protected>false</protected>
+        <useDeadLetterQueue>false</useDeadLetterQueue>
+    </outboundMessages>
+    <rules>
+        <fullName>CS - Submitted without Report</fullName>
+        <actions>
+            <name>Credit_Is_Down_Notify_the_team</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Credit_Score__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Submitted</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Credit_Score__c.Address_Number__c</field>
+            <operation>notContain</operation>
+            <value>,a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,-,.</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Credit_Is_Down_Notify_the_team</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Credit Score - Processing in MCE</fullName>
+        <actions>
+            <name>Credit_Score_Insert_Last_Pull_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Being_Processed_in_Merit_Credit_Engine</name>
+            <type>Task</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Credit_Score__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Submitted to Merit</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Flow Trigger - Credit Score Count Update Contact</fullName>
+        <actions>
+            <name>Update_Contact_with_URL</name>
+            <type>FlowAction</type>
+        </actions>
+        <active>true</active>
+        <formula>ISCHANGED(Credit_Request_ID__c) ||  Credit_Request_ID__c = 1</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Run Credit Check</fullName>
+        <actions>
+            <name>Increase_Credit_Score_Request</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Send_Credit_Check_to_CloudPanel</name>
+            <type>OutboundMessage</type>
+        </actions>
+        <actions>
+            <name>Credit_Submitted</name>
+            <type>Task</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Credit_Score__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Submitted</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <tasks>
+        <fullName>Being_Processed_in_Merit_Credit_Engine</fullName>
+        <assignedTo>haccount@fivepointcapital.com</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>This credit score has been sent to the Merit Credit Engine and we're awaiting a response...</description>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Completed</status>
+        <subject>Being Processed in Merit Credit Engine</subject>
+    </tasks>
+    <tasks>
+        <fullName>Credit_Submitted</fullName>
+        <assignedTo>haccount@fivepointcapital.com</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>Credit has been sent to Merit.</description>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Completed</status>
+        <subject>Credit Submitted</subject>
+    </tasks>
+</Workflow>

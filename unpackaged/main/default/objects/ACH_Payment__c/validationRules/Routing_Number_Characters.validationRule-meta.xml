@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Routing_Number_Characters</fullName>
+    <active>true</active>
+    <description>This validation rule will ensure 9 digits were entered into the routing number field.</description>
+    <errorConditionFormula>LEN( Payee_s_Routing_Number__c ) &lt;&gt; 9</errorConditionFormula>
+    <errorMessage>The number of digits in the Payee's Routing Number must be 9.</errorMessage>
+</ValidationRule>

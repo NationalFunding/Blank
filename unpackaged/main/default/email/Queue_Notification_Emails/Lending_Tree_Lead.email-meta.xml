@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Lending Tree Queue Alert Email Template</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Naitonal_Funding_Standard_Letterhead_Stack</letterhead>
+    <name>Lending Tree Lead</name>
+    <style>freeForm</style>
+    <subject>Lending Tree Lead - Call ASAP</subject>
+    <textOnly>A Lending Tree lead has been created.  Please visit the queue and accept the lead before calling.
+
+Please go to the Lending Tree Queue: https://na29.salesforce.com/00Q?fcf=00B34000008xNTO</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

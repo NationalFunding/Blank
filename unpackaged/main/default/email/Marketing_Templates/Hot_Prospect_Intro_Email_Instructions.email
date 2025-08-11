@@ -1,0 +1,25 @@
+<table height="400" width="550" cellpadding="5" border="0" cellspacing="5" >
+<tr height="400" valign="top" >
+<td style=" color:#000000; font-size:12pt; background-color:#FFFFFF; font-family:arial; bLabel:main; bEditID:r3st1;" tEditID="c1r1" locked="0" aEditID="c1r1" >
+<![CDATA[<p><span lang="EN-US">{!Contact.FirstName},<br><br></span><span lang="EN-US">Thank you for taking time to discuss the
+financing needs for {!Account.Name}.<span>&nbsp;
+</span>By this time next week you could be:</span></p>
+
+<p class="MsoNormal" style="text-align: center; margin-bottom: 6pt;" align="center"><b><span style="color: red; font-size: 12pt;" lang="EN-US"></span></b></p><p class="MsoNormal" style="text-align: center; margin-bottom: 6pt;" align="center"><b><span style="color: red; font-size: 12pt;" lang="EN-US">Up-to-date on your outstanding invoices<o:p></o:p></span></b></p>
+
+<p class="MsoNormal" style="text-align: center; margin-bottom: 6pt;" align="center"><b><span style="color: red; font-size: 12pt;" lang="EN-US">Negotiating your equipment purchase <i>with cash in hand<o:p></o:p></i></span></b></p>
+
+<p class="MsoNormal" style="text-align: center; margin-bottom: 6pt;" align="center"><b><span style="color: red; font-size: 12pt;" lang="EN-US">Planning your business remodel and expansion<o:p></o:p></span></b></p>
+
+
+
+<p class="MsoNormal"><span lang="EN-US"><o:p>&nbsp;</o:p></span><i style="text-decoration: underline;"><span lang="EN-US">To finalize your quote, fax the following
+information to my attention at </span></i><span style="text-decoration: underline;">{!User.Fax}</span><i style="text-decoration: underline;"><span lang="EN-US"> and I can follow up with a
+full quote by the next business day</span></i><span style="text-decoration: underline;" lang="EN-US">: </span><span lang="EN-US"><o:p></o:p></span></p>
+
+<ul type="disc">
+ 
+ <li class="MsoNormal"><span lang="EN-US">Your signed and completed full application </span></li><li class="MsoNormal">Your last 6 months of Business Bank Statements</li><li class="MsoNormal"><span lang="EN-US">Your last 4 months of merchant account statements (if you accept credit cards at your business)</span></li><li class="MsoNormal"><span lang="EN-US">The first page of your most recent Business Tax Return</span></li></ul><p>I look forward to doing business with you.<br></p>Sincerely,<br>
+<br><font style="font-family: Arial,Sans-Serif; font-weight: bold;" size="4"><span style="font-style: italic;"></span></font><span style="font-family: Arial,Sans-Serif; font-weight: bold;"> </span>{!User.Name}<br><b>National Funding</b><br>{!User.Title}<br><a href="http://www.nationalfunding.com/?utm_source=SF%20Emails&amp;utm_medium=Email&amp;utm_campaign=HotProspect">www.nationalfunding.com</a><br>P: {!User.Phone} | F: {!User.Fax}<br>Email: {!User.Email}<b><span style="font-family: &quot;Arial (W1)&quot;,&quot;sans-serif&quot;; font-size: 11pt;" lang="EN-US"><o:p><br><br></o:p></span></b><b><span style="font-family: &quot;Arial (W1)&quot;,&quot;sans-serif&quot;; font-size: 11pt;" lang="EN-US"><o:p><font color="#cc0000" size="1">Follow Us on: </font><br><a href="https://www.facebook.com/national.funding"><img alt="" src="https://c.na6.content.force.com/servlet/servlet.ImageServer?id=01580000001WNEu&amp;oid=00D80000000diq5" align="left" border="0"></a><a href="http://www.linkedin.com/company/national-funding"><img alt="" src="https://c.na6.content.force.com/servlet/servlet.ImageServer?id=01580000001WNFn&amp;oid=00D80000000diq5" align="left" border="0"></a><a href="https://twitter.com/NatFunding"><img alt="" src="https://c.na6.content.force.com/servlet/servlet.ImageServer?id=01580000001WNFx&amp;oid=00D80000000diq5" align="left" border="0"></a></o:p></span></b><a title="Google+" href="https://plus.google.com/+Nationalfunding/" target="_blank" alt="Google+"><img src="https://c.na6.content.force.com/servlet/servlet.ImageServer?id=01580000001Xf1W&amp;oid=00D80000000diq5&amp;lastMod=1363900191000"></a><b><span style="font-family: &quot;Arial (W1)&quot;,&quot;sans-serif&quot;; font-size: 11pt;" lang="EN-US"><o:p><br><br></o:p></span></b>]]></td>
+</tr>
+</table>

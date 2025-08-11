@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LEASE_LOAN_TYPE__c</fullName>
+    <description>Cutomer's lease / loan reference type.</description>
+    <inlineHelpText>Pick the type of loan / lease of the customer entered into with their lease / loan reference.</inlineHelpText>
+    <label>LEASE_LOAN_TYPE</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Lease</fullName>
+                <default>false</default>
+                <label>Lease</label>
+            </value>
+            <value>
+                <fullName>Loan</fullName>
+                <default>false</default>
+                <label>Loan</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Send_Opportunity_Docs_In_Notification__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>notify users when Opportunity (Type=New) is updated to Docs In
+(used in flow Opportunity - Docs In Notifications)</description>
+    <inlineHelpText>notify users when Opportunity (Type=New) is updated to Docs In</inlineHelpText>
+    <label>Send Opportunity Docs In Notification</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

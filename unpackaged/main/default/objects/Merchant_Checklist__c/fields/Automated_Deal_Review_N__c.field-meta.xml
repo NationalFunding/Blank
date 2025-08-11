@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Automated_Deal_Review_N__c</fullName>
+    <formula>IF(
+   AND( Opportunity_Record_Type__c = "Broker WC Oppty",
+        Opportunity_Type__c = "NEW",
+        Amount_Doc_d__c  &gt; 50000
+       ),      
+    True, False
+   )</formula>
+    <label>Deal Review (N)</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

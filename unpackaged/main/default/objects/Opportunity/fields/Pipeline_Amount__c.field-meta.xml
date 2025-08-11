@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pipeline_Amount__c</fullName>
+    <description>This is a formula field that will calculate the opportunity's current value based on stage but not on probability for pipeline reports.</description>
+    <formula>IF(
+OR(
+ISPICKVAL( StageName , "Identified"),
+ISPICKVAL( StageName , "Acceptance"),
+ISPICKVAL( StageName , "Credit Submittal"),
+ISPICKVAL( StageName , "Statements In - MCA"),
+ISPICKVAL( StageName , "Credit Review"),
+ISPICKVAL( StageName , "Pre-Qual MCA"),
+ISPICKVAL( StageName , "Deferred")), Amount,
+IF(
+OR(
+ISPICKVAL(StageName, "Approved - Lease"),
+ISPICKVAL(StageName, "Approved - MCA"),
+ISPICKVAL(StageName, "Offer Out - Lease"),
+ISPICKVAL(StageName, "Offer In - Lease"),
+ISPICKVAL(StageName, "Offer Out - MCA"),
+ISPICKVAL(StageName, "Offer In - MCA")), Approval_Amount__c ,
+IF(
+OR(
+ISPICKVAL(StageName, "Docs Out"),
+ISPICKVAL(StageName, "Docs In"),
+ISPICKVAL(StageName, "Docs Out - MCA"),
+ISPICKVAL(StageName, "Docs In - MCA"),
+ISPICKVAL(StageName, "Up for Funding"),
+ISPICKVAL(StageName, "Submission - MCA/ALT"),
+ISPICKVAL(StageName, "Conversion")),Amount_Offered__c ,
+IF(
+AND( OR($RecordType.Name = "Working Capital Oppty",$RecordType.Name = "Broker WC Oppty",$RecordType.Name = "Broker FRPSA",$RecordType.Name = "FRPSA"),
+ISPICKVAL(StageName, "Funded")), ACTUAL_AMT_OFFERED__c ,
+IF(
+AND( $RecordType.Name = "Lease Oppty" ,
+ISPICKVAL(StageName, "Funded")), Actual_Equip_Cost__c , 0) ) ) ))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>This is a formula field that will calculate the opportunity's current value based on stage but not on probability for pipeline reports.</inlineHelpText>
+    <label>Pipeline Amount</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

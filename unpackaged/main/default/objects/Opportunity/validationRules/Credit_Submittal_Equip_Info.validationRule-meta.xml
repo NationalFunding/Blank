@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Credit_Submittal_Equip_Info</fullName>
+    <active>true</active>
+    <errorConditionFormula>OR(
+AND( ISPICKVAL( StageName , "Credit Submittal"), 
+OR( 
+ISPICKVAL( Equipment_Condition__c , ""), 
+ISPICKVAL(Equipment_Seller__c , ""),
+ Eq_What__c = "")),
+AND( ISPICKVAL( StageName , "Credit Submittal"), OR(ISPICKVAL( Equipment_Condition__c , "Used"), ISPICKVAL( Equipment_Condition__c , "Both")),
+OR(ISPICKVAL( Equipment_Year__c , ""), 
+ISPICKVAL(Equipment_Seller__c , ""),
+ Eq_What__c = "")))</errorConditionFormula>
+    <errorMessage>Please populate all fields in the Equipment Information for Submittal section of the opportunity.</errorMessage>
+</ValidationRule>

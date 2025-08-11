@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Decline_Email_Reason__c</fullName>
+    <description>The decline reason that will be provided on the Reg B or Notice of Incomplete Application for applicable Consumer Risk Summary records.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Reg B or Notice of Incomplete Application email verbiage.</inlineHelpText>
+    <label>Decline Email Reason</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SLX_Campaign_Code__c</fullName>
+    <description>Campaign code lookup into Saleslogix.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Campaign code lookup into Saleslogix.</inlineHelpText>
+    <label>SLX Campaign Code</label>
+    <length>32</length>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

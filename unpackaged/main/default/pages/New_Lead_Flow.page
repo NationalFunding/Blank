@@ -1,0 +1,4 @@
+<apex:page standardController="Lead" sidebar="false">
+<apex:pageBlock title="Create A New Lead"></apex:pageBlock>
+<flow:interview name="New_Lead" finishLocation="{!$Page.gotoLastCreatedLead}"/>  
+</apex:page>

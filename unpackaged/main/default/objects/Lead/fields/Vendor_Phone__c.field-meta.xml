@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Vendor_Phone__c</fullName>
+    <description>This field will be used for the leasing team. It will capture the vendor's phone number.</description>
+    <inlineHelpText>Type in the vendor's phone number.</inlineHelpText>
+    <label>Vendor Phone</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Phone</type>
+</CustomField>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SECURED_PG__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Status account being secured by a personal guarantee.</description>
+    <inlineHelpText>Check the box if the customer's bank account is secured with a personal guarantee.</inlineHelpText>
+    <label>SECURED_PG</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

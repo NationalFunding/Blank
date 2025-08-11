@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Application_Reminder_Requested__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field will be checked true when a customer inputs their email address on the third step of a web form indicating they would like a reminder for.  This field is for tracking purposes only.</description>
+    <inlineHelpText>This field is for tracking purposes only.</inlineHelpText>
+    <label>Application Reminder Requested</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>56.0</apiVersion>
+    <decisions>
+        <name>Does_the_amount_match_the_remaining_balance</name>
+        <label>Does the amount match the remaining balance?</label>
+        <locationX>182</locationX>
+        <locationY>276</locationY>
+        <defaultConnectorLabel>Yes</defaultConnectorLabel>
+        <rules>
+            <name>No</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Split_Funding_Amount__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Remaining_Balance__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Split_Funding_Amount</targetReference>
+            </connector>
+            <label>No</label>
+        </rules>
+    </decisions>
+    <description>Scheduled flow to update internal payoff amount to match the remaining balance of the related payoff opportunity. Runs at 4:30am because BI updates the balance remaining on funded deals at 3:30am
+
+PD-731</description>
+    <environments>Default</environments>
+    <interviewLabel>Split Funding - Scheduled Flow to Update Split Funding Amount {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Split Funding - Scheduled Flow to Update Split Funding Amount</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Does_the_amount_match_the_remaining_balance</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Payoff_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Internal Payoff</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Opportunity_Closed__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Opportunity_Actuals_Audit_Complete__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Payoff_Opportunity__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>Split_Funding__c</object>
+        <schedule>
+            <frequency>Daily</frequency>
+            <startDate>2022-12-20</startDate>
+            <startTime>04:30:00.000Z</startTime>
+        </schedule>
+        <triggerType>Scheduled</triggerType>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <name>Update_Split_Funding_Amount</name>
+        <label>Update Split Funding Amount</label>
+        <locationX>50</locationX>
+        <locationY>396</locationY>
+        <flowName>Split_Funding_Update_Amount_Using_Payoff_Opportunity_Balance</flowName>
+        <inputAssignments>
+            <name>input_split_funding_record</name>
+            <value>
+                <elementReference>$Record</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+</Flow>

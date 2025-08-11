@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Correct_Phone_Number2</fullName>
+    <active>true</active>
+    <description>Please ensure phone number is 10 digits long with no alpha numeric.</description>
+    <errorConditionFormula>AND( 
+
+/* This part is to make sure the rule doesn't fire on a blank value Not() is used because the validation rule fires when it is true, we want it to fire when it is not blank */ 
+
+NOT(ISBLANK(Phone_Number__c)), 
+
+OR( 
+/* This First Part is an If Statement to ensure the number is 10 digits long and logically checks if it has an extension in the format of xdddd or x dddd only 4 digits is possible */ 
+IF( 
+AND(OR(Contains(Phone_Number__c, "x") , Contains(Phone_Number__c,"x")),REGEX(RIGHT(Phone_Number__c,5), "x[0-9]{4}")), 
+
+NOT(REGEX(Phone_Number__c, "\\([0-9]{3}\\) [0-9]{3}\\-[0-9]{4} x[0-9]{4}")), 
+
+IF( 
+AND(OR(Contains(Phone_Number__c, "x") , Contains(Phone_Number__c,"x")),REGEX(RIGHT(Phone_Number__c,4), "x[0-9]{3}")), 
+
+NOT(REGEX(Phone_Number__c, "\\([0-9]{3}\\) [0-9]{3}\\-[0-9]{4} x[0-9]{3}")), 
+
+IF( 
+
+AND(OR(Contains(Phone_Number__c, "x") , Contains(Phone_Number__c,"x")),REGEX(RIGHT(Phone_Number__c,3), "x[0-9]{2}")), 
+
+NOT(REGEX(Phone_Number__c, "\\([0-9]{3}\\) [0-9]{3}\\-[0-9]{4} x[0-9]{2}")), 
+
+IF( 
+AND(OR(Contains(Phone_Number__c, "x") , Contains(Phone_Number__c,"x")),REGEX(RIGHT(Phone_Number__c,2), "x[0-9]{1}")), 
+
+NOT(REGEX(Phone_Number__c, "\\([0-9]{3}\\) [0-9]{3}\\-[0-9]{4} x[0-9]{1}")), 
+
+IF( 
+AND(OR(Contains(Phone_Number__c, "x") , Contains(Phone_Number__c,"x")),REGEX(RIGHT(Phone_Number__c,6), "x\\ [0-9]{4}")), 
+
+NOT(REGEX(Phone_Number__c, "\\([0-9]{3}\\) [0-9]{3}\\-[0-9]{4} x\\ [0-9]{4}")), 
+
+IF( 
+AND(OR(Contains(Phone_Number__c, "x") , Contains(Phone_Number__c,"x")),REGEX(RIGHT(Phone_Number__c,5), "x\\ [0-9]{3}")), 
+
+NOT(REGEX(Phone_Number__c, "\\([0-9]{3}\\) [0-9]{3}\\-[0-9]{4} x\\ [0-9]{3}")), 
+
+IF( 
+
+AND(OR(Contains(Phone_Number__c, "x") , Contains(Phone_Number__c,"x")),REGEX(RIGHT(Phone_Number__c,4), "x\\ [0-9]{2}")), 
+
+NOT(REGEX(Phone_Number__c, "\\([0-9]{3}\\) [0-9]{3}\\-[0-9]{4} x\\ [0-9]{2}")), 
+
+IF( 
+AND(OR(Contains(Phone_Number__c, "x") , Contains(Phone_Number__c,"x")),REGEX(RIGHT(Phone_Number__c,3), "x\\ [0-9]{1}")), 
+
+NOT(REGEX(Phone_Number__c, "\\([0-9]{3}\\) [0-9]{3}\\-[0-9]{4} x\\ [0-9]{1}")), 
+
+
+IF( 
+LEFT(Phone_Number__c,1)="(", 
+NOT( REGEX(Phone_Number__c, "\\([0-9]{3}\\) [0-9]{3}-[0-9]{4}|\\d{10}")), 
+NOT(REGEX(Phone_Number__c, "\\D*?(\\d\\D*?){10}")) 
+
+
+))))))))), 
+
+/* This part is to ensure that the number is not XXXXXXXXXX. NOTE: this does not work with 1111111111 */ 
+mid(Phone_Number__c, 2, 1) + mid(Phone_Number__c, 2, 1) + mid(Phone_Number__c, 2, 1) + mid 
+(Phone_Number__c, 2, 1) + mid(Phone_Number__c, 2, 1) + mid(Phone_Number__c, 2, 1) + mid(Phone_Number__c, 2, 1) + mid 
+(Phone_Number__c, 2, 1) + mid(Phone_Number__c, 2, 1) + mid(Phone_Number__c, 2, 1) = mid(Phone_Number__c, 2, 3)+ mid(Phone_Number__c, 7, 3)+ mid(Phone_Number__c, 11, 4), 
+
+/* This is to ensure the Phone_Number__c is not 1111111111 */ 
+Phone_Number__c = "1111111111" 
+
+
+))</errorConditionFormula>
+    <errorDisplayField>Phone_Number__c</errorDisplayField>
+    <errorMessage>Please ensure phone number is 10 digits long with no alpha numeric.</errorMessage>
+</ValidationRule>

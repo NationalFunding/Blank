@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>STATEMENT_DATE__c</fullName>
+    <description>Date that the statement was received.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Type in the date that the statement was received in association with the opportunity.</inlineHelpText>
+    <label>STATEMENT DATE</label>
+    <length>16</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

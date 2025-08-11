@@ -1,0 +1,3 @@
+<apex:page standardController="Account" title="NetDocuments workspace corresponding to an account">
+<apex:iframe scrolling="true" title="Account Workspace" src="{!$Label.NetDocument_Site}?sfSession={!$Api.Session_ID}&sfUrl={!$Label.NetDocument_ApexAPIVersion}&smallDisplay=Y&ws={!URLENCODE(account.name)}"/>
+</apex:page>

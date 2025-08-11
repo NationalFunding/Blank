@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Record_Type__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE( Opportunity__r.RecordType.DeveloperName,
+'MCA_Oppty','Direct Sales',
+'Broker_WC_Oppty','Broker',
+'External_Collections', 'QB Funded',
+'Direct_MLP', 'MLP',
+'Lease_Oppty_Record_Type','Lease',
+'Other'
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Record Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

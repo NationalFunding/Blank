@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Projection_Date__c</fullName>
+    <description>Date projected by opportunity owner that the opportunity will close.</description>
+    <inlineHelpText>Type in the projected date of the opportunity being Closed-Won. (MM/DD/YYYY)</inlineHelpText>
+    <label>Projection Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

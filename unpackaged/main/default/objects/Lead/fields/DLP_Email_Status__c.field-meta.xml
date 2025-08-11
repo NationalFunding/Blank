@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DLP_Email_Status__c</fullName>
+    <label>DLP Email Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Prequal DocuSign Complete</fullName>
+                <default>false</default>
+                <label>Prequal DocuSign Complete</label>
+            </value>
+            <value>
+                <fullName>Prequal Bank Statements Uploaded</fullName>
+                <default>false</default>
+                <label>Prequal Bank Statements Uploaded</label>
+            </value>
+            <value>
+                <fullName>Driver's License Uploaded</fullName>
+                <default>false</default>
+                <label>Driver's License Uploaded</label>
+            </value>
+            <value>
+                <fullName>Voided Check Uploaded</fullName>
+                <default>false</default>
+                <label>Voided Check Uploaded</label>
+            </value>
+            <value>
+                <fullName>Drip Campaign Started</fullName>
+                <default>false</default>
+                <label>Drip Campaign Started</label>
+            </value>
+            <value>
+                <fullName>DLP Drip Activated</fullName>
+                <default>false</default>
+                <label>DLP Drip Activated</label>
+            </value>
+            <value>
+                <fullName>DLP Email Sent</fullName>
+                <default>false</default>
+                <label>DLP Email Sent</label>
+            </value>
+            <value>
+                <fullName>DLP Drip Deactivated</fullName>
+                <default>false</default>
+                <label>DLP Drip Deactivated</label>
+            </value>
+            <value>
+                <fullName>DLP Drip Campaign Ended</fullName>
+                <default>false</default>
+                <label>DLP Drip Campaign Ended</label>
+            </value>
+            <value>
+                <fullName>Prequal Application Signing Complete</fullName>
+                <default>false</default>
+                <label>Prequal Application Signing Complete</label>
+            </value>
+            <value>
+                <fullName>DLP Page 1 Complete</fullName>
+                <default>false</default>
+                <label>DLP Page 1 Complete</label>
+            </value>
+            <value>
+                <fullName>DLP Page 2 Complete</fullName>
+                <default>false</default>
+                <label>DLP Page 2 Complete</label>
+            </value>
+            <value>
+                <fullName>Email Link Clicked</fullName>
+                <default>false</default>
+                <label>Email Link Clicked</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

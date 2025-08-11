@@ -1,0 +1,326 @@
+<apex:component layout="none">
+<apex:attribute type="Credit_Review__c" name="creditReviewObj" description="Credit Review"/>
+<apex:attribute type="Consumer_Credit_Summary__c" name="CreditSummaryObj1" description="Consumer_Credit_Summary__c"/>
+<apex:attribute type="Consumer_Credit_Summary__c" name="CreditSummaryObj2" description="Consumer_Credit_Summary__c"/>
+<apex:attribute type="Consumer_Credit_Summary__c" name="CreditSummaryObj3" description="Consumer_Credit_Summary__c"/>
+<apex:attribute type="Consumer_Credit_Summary__c" name="CreditSummaryObj4" description="Consumer_Credit_Summary__c"/>
+<apex:attribute type="Consumer_Credit_Summary__c" name="CreditSummaryObj5" description="Consumer_Credit_Summary__c"/>
+<apex:attribute type="Consumer_Credit_Summary__c" name="CreditSummaryObj6" description="Consumer_Credit_Summary__c"/>
+ <div class="panel panel-default mt10">
+<div class="panel-heading  blue-panel">Individual Credit Results</div>
+<div class="panel-body">
+<div class="pg1_section" style="display:none">
+ <h4 class="pg1_header">John Smith(Signor)</h4>
+ <div class="row">
+   <div class="col-md-6">
+     <div class="gray-box">
+       <!--<h5 class="text-center">Experian Results(may 1/2015)</h5>
+       <table class="table"  width="100%">
+         <tr>
+           <td>EXP Score:</td>
+           <td>550</td>
+         </tr>
+         <tr>
+           <td>Previous BK:</td>
+           <td>None</td>
+         </tr>
+         <tr>
+           <td>BK Discharge Date:</td>
+           <td>N/A</td>
+         </tr>
+         <tr>
+           <td>Mortgage Issues:</td>
+           <td>None</td>
+         </tr>
+         <tr>
+           <td>Open Tax Leins:</td>
+           <td>3($4501.25)</td>
+         </tr>
+         <tr>
+           <td>Judgement($}:</td>
+           <td>None</td>
+         </tr>
+       </table>
+       <div  style="text-align:center;">
+         <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">View Details</button>
+       </div>-->
+
+       <apex:outputPanel id="pg1OutPut-decision">
+         <h5 class="text-center">Equifax Results</h5>
+           <apex:outputPanel rendered="{!creditReviewObj.PG1_EQF_Cons_Summary__c != NULL}" layout="none" >
+                   <table width="100%" border="0" class="table" >
+                    <apex:repeat value="{!$ObjectType.Consumer_Credit_Summary__c.Fieldsets.Credit_Review_Equifax_Fields}" var="fieldName">
+                        <tr>
+                           <td>{!fieldName.label}:</td>
+                           <td>
+                             <apex:outputText value="{0, date, MMM d','  yyyy}" rendered="{!fieldName.type =='date'}">
+                                <apex:param value="{!CreditSummaryObj1[fieldName.FieldPath]}" /> 
+                            </apex:outputText>
+                            <apex:outputText value="{0,number,#,##0.##}" rendered="{!fieldName.type == 'double'}">
+                              <apex:param value="{!CreditSummaryObj1[fieldName.FieldPath]}" />
+                            </apex:outputText>
+                            <apex:outputText value="{0,number,$#,##0.00}" rendered="{!fieldName.type == 'currency'}">
+                              <apex:param value="{!CreditSummaryObj1[fieldName.FieldPath]}" />
+                            </apex:outputText>
+                            <apex:outputPanel rendered="{!fieldName.type !='date' && fieldName.type !='double' && fieldName.type !='currency'}">
+                              {!CreditSummaryObj1[fieldName.FieldPath]}        
+                           </apex:outputPanel>
+                          </td>
+                         </tr>
+                    </apex:repeat>
+                   </table>
+                <div  style="text-align:center;"> <a href="{!creditReviewObj.PG1_EQF_Cons_Summary__r.URL_for_View_Link__c}" target="_blank" class="btn  btn-default">View Details</a> 
+                  <a href="javascript:void(0)"  onclick="$('#guarantormodal').modal('show')" role="button" class="btn permissionDeny btn-default">Pull Credit</a> 
+                </div>
+           </apex:outputPanel>
+           <apex:outputPanel rendered="{!creditReviewObj.PG1_EQF_Cons_Summary__c == NULL}"  layout="none">
+            <div class="text-center">
+                <p>Credit has not been pulled.</p>
+                <a href="javascript:void(0)"  onclick="$('#guarantormodal').modal('show')" role="button" class="btn permissionDeny btn-default">Pull Credit</a> 
+              </div>
+           </apex:outputPanel>
+        </apex:outputPanel>
+     </div>
+   </div>
+   <div class="col-md-6">
+     <div class="gray-box">
+       <!--<h5 class="text-center">Equifax Results(may 1/2015)</h5>
+       <table class="table"  width="100%">
+         <tr>
+           <td>EXP Score:</td>
+           <td>550</td>
+         </tr>
+         <tr>
+           <td>Previous BK:</td>
+           <td>None</td>
+         </tr>
+         <tr>
+           <td>BK Discharge Date:</td>
+           <td>N/A</td>
+         </tr>
+         <tr>
+           <td>Mortgage Issues:</td>
+           <td>None</td>
+         </tr>
+         <tr>
+           <td>Open Tax Leins:</td>
+           <td>3($4501.25)</td>
+         </tr>
+         <tr>
+           <td>Judgement($}:</td>
+           <td>None</td>
+         </tr>
+       </table>
+       <div  style="text-align:center;">
+         <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">View Details</button>
+       </div>-->
+       <apex:outputPanel id="pg1OutPut1-decision">
+            <h5 class="text-center">Experian Results</h5>
+               <apex:outputPanel rendered="{!creditReviewObj.PG1_EXP_Cons_Summary__c != NULL}"  layout="none">
+                      <table width="100%" border="0" class="table">
+                        <apex:repeat value="{!$ObjectType.Consumer_Credit_Summary__c.Fieldsets.Credit_Review_Experian_Fields}" var="fieldName">
+                            <tr>
+                               <td>{!fieldName.label}:</td>
+                               <td>
+                                  <apex:outputText value="{0, date, MMM d','  yyyy}" rendered="{!fieldName.type =='date'}">
+                                      <apex:param value="{!CreditSummaryObj2[fieldName.FieldPath]}" /> 
+                                  </apex:outputText>
+                                  <apex:outputText value="{0,number,#,##0.##}" rendered="{!fieldName.type == 'double'}">
+                                    <apex:param value="{!CreditSummaryObj2[fieldName.FieldPath]}" />
+                                  </apex:outputText>
+                                  <apex:outputText value="{0,number,$#,##0.00}" rendered="{!fieldName.type == 'currency'}">
+                                    <apex:param value="{!CreditSummaryObj2[fieldName.FieldPath]}" />
+                                  </apex:outputText>
+                                  <apex:outputPanel rendered="{!fieldName.type !='date' && fieldName.type !='double' && fieldName.type !='currency'}">
+                                    {!CreditSummaryObj2[fieldName.FieldPath]}        
+                                 </apex:outputPanel>
+                               </td>
+                             </tr>
+                        </apex:repeat>
+                      </table>
+                  <div align="center"> <a  href="{!creditReviewObj.PG1_EXP_Cons_Summary__r.URL_for_View_Link__c}" target="_blank" class="btn  btn-default">View Details</a>
+                  <a href="javascript:void(0)"  onclick="$('#guarantormodal').modal('show')" role="button" class="btn permissionDeny btn-default">Pull Credit</a> 
+                   </div>
+              </apex:outputPanel>
+              <apex:outputPanel rendered="{!creditReviewObj.PG1_EXP_Cons_Summary__c == NULL}" layout="none" >
+                  <div class="text-center">
+                   <p>Credit has not been pulled.</p>
+                   <a href="javascript:void(0)"  onclick="$('#guarantormodal').modal('show')" role="button" class="btn permissionDeny btn-default">Pull Credit</a> 
+                 </div>
+              </apex:outputPanel>
+           </apex:outputPanel>
+     </div>
+   </div>
+ </div>
+ <hr/>
+ </div>
+ <div class="pg2_section"  style="display:none">
+ <h4 class="pg2_header">Jane Smith (Guarantor #2)</h4>
+ <div class="row">
+   <div class="col-md-6">
+     <div class="gray-box">
+       <apex:outputPanel id="pg2OutPut-decision">
+           <h5 class="text-center">Equifax Results</h5>
+               <apex:outputPanel rendered="{!creditReviewObj.PG2_EQF_Cons_Summary__c != NULL}"  layout="none"> 
+                      <table width="100%" border="0" class="table" >
+                        <apex:repeat value="{!$ObjectType.Consumer_Credit_Summary__c.Fieldsets.Credit_Review_Equifax_Fields}" var="fieldName">
+                              <tr>
+                                 <td>{!fieldName.label}:</td>
+                                 <td>
+                                      <apex:outputText value="{0, date, MMM d','  yyyy}" rendered="{!fieldName.type =='date'}">
+                                        <apex:param value="{!CreditSummaryObj3[fieldName.FieldPath]}" /> 
+                                    </apex:outputText>
+                                    <apex:outputText value="{0,number,#,##0.##}" rendered="{!fieldName.type == 'double'}">
+                                      <apex:param value="{!CreditSummaryObj3[fieldName.FieldPath]}" />
+                                    </apex:outputText>
+                                    <apex:outputText value="{0,number,$#,##0.00}" rendered="{!fieldName.type == 'currency'}">
+                                      <apex:param value="{!CreditSummaryObj3[fieldName.FieldPath]}" />
+                                    </apex:outputText>
+                                    <apex:outputPanel rendered="{!fieldName.type !='date' && fieldName.type !='double' && fieldName.type !='currency'}">
+                                    {!CreditSummaryObj3[fieldName.FieldPath]}        
+                                 </apex:outputPanel>
+                                 </td>
+                               </tr>
+                          </apex:repeat>
+                      </table>
+                  <div align="center"> <a  href="{!creditReviewObj.PG2_EQF_Cons_Summary__r.URL_for_View_Link__c}" target="_blank" class="btn  btn-default" >View Details</a> 
+                    <a href="javascript:void(0)"  onclick="$('#guarantormodal').modal('show')" role="button" class="btn permissionDeny btn-default">Pull Credit</a> 
+                  </div>
+              </apex:outputPanel>
+              <apex:outputPanel rendered="{!creditReviewObj.PG2_EQF_Cons_Summary__c == NULL}" layout="none" >
+                  <div class="text-center">
+                   <p>Credit has not been pulled.</p>
+                   <a href="javascript:void(0)"  onclick="$('#guarantormodal').modal('show')" role="button" class="btn permissionDeny btn-default">Pull Credit</a> 
+                 </div>
+              </apex:outputPanel>
+          </apex:outputPanel>
+     </div>
+   </div>
+   <div class="col-md-6">
+     <div class="gray-box">
+       <apex:outputPanel id="pg2OutPut1-decision">
+            <h5 class="text-center">Experian Results</h5>
+               <apex:outputPanel rendered="{!creditReviewObj.PG2_EXP_Cons_Summary__c != NULL}"  layout="none">
+                      <table width="100%" border="0" class="table" >
+                        <apex:repeat value="{!$ObjectType.Consumer_Credit_Summary__c.Fieldsets.Credit_Review_Experian_Fields}" var="fieldName">
+                              <tr>
+                                 <td>{!fieldName.label}:</td>
+                                 <td>
+
+                                    <apex:outputText value="{0, date, MMM d','  yyyy}" rendered="{!fieldName.type =='date'}">
+                                      <apex:param value="{!CreditSummaryObj4[fieldName.FieldPath]}" /> 
+                                  </apex:outputText>
+                                  <apex:outputText value="{0,number,#,##0.##}" rendered="{!fieldName.type == 'double'}">
+                                    <apex:param value="{!CreditSummaryObj4[fieldName.FieldPath]}" />
+                                  </apex:outputText>
+                                  <apex:outputText value="{0,number,$#,##0.00}" rendered="{!fieldName.type == 'currency'}">
+                                    <apex:param value="{!CreditSummaryObj4[fieldName.FieldPath]}" />
+                                  </apex:outputText>
+                                  <apex:outputPanel rendered="{!fieldName.type !='date' && fieldName.type !='double' && fieldName.type !='currency'}">
+                                    {!CreditSummaryObj4[fieldName.FieldPath]}        
+                                 </apex:outputPanel>
+                                 </td>
+                               </tr>
+                          </apex:repeat>
+                      </table>
+                  <div align="center"> <a  href="{!creditReviewObj.PG2_EXP_Cons_Summary__r.URL_for_View_Link__c}" target="_blank" class="btn  btn-default">View Details</a> 
+                    <a href="javascript:void(0)"  onclick="$('#guarantormodal').modal('show')" role="button" class="btn permissionDeny btn-default">Pull Credit</a> 
+                  </div>
+              </apex:outputPanel>
+              <apex:outputPanel rendered="{!creditReviewObj.PG2_EXP_Cons_Summary__c == NULL}" layout="none" >
+                  <div class="text-center">
+                   <p>Credit has not been pulled.</p>
+                   <a href="javascript:void(0)"  onclick="$('#guarantormodal').modal('show')" role="button" class="btn permissionDeny btn-default">Pull Credit</a> 
+                 </div>
+              </apex:outputPanel>
+          </apex:outputPanel>
+     </div>
+   </div>
+ </div>
+ <hr/>
+ </div>
+ <div class="pg3_section"  style="display:none">
+ <h4 class="pg3_header">Jane Smith (Guarantor #3)</h4>
+ <div class="row">
+   <div class="col-md-6">
+     <div class="gray-box">
+       <apex:outputPanel id="pg3OutPut-decision">
+            <h5 class="text-center">Equifax Results</h5>
+               <apex:outputPanel rendered="{!creditReviewObj.PG3_EQF_Cons_Summary__c != NULL}"  layout="none">
+                      <table width="100%" border="0" class="table" >
+                        <apex:repeat value="{!$ObjectType.Consumer_Credit_Summary__c.Fieldsets.Credit_Review_Equifax_Fields}" var="fieldName">
+                          <tr>
+                             <td>{!fieldName.label}:</td>
+                             <td>
+                                <apex:outputText value="{0, date, MMM d','  yyyy}" rendered="{!fieldName.type =='date'}">
+                                    <apex:param value="{!CreditSummaryObj5[fieldName.FieldPath]}" /> 
+                                </apex:outputText>
+                                <apex:outputText value="{0,number,#,##0.##}" rendered="{!fieldName.type == 'double'}">
+                                  <apex:param value="{!CreditSummaryObj5[fieldName.FieldPath]}" />
+                                </apex:outputText>
+                                <apex:outputText value="{0,number,$#,##0.00}" rendered="{!fieldName.type == 'currency'}">
+                                  <apex:param value="{!CreditSummaryObj5[fieldName.FieldPath]}" />
+                                </apex:outputText>
+                                <apex:outputPanel rendered="{!fieldName.type !='date' && fieldName.type !='double' && fieldName.type !='currency'}">
+                                    {!CreditSummaryObj5[fieldName.FieldPath]}        
+                                 </apex:outputPanel>
+                             </td>
+                           </tr>
+                      </apex:repeat>
+                      </table>
+                  <div align="center"> <a  href="{!creditReviewObj.PG3_EQF_Cons_Summary__r.URL_for_View_Link__c}" target="_blank" class="btn  btn-default">View Details</a> </div>
+              </apex:outputPanel>
+              <apex:outputPanel rendered="{!creditReviewObj.PG3_EQF_Cons_Summary__c == NULL}" layout="none" >
+                  <div class="text-center">
+                   <p>Credit has not been pulled.</p>
+                   <a href="javascript:void(0)"  onclick="$('#guarantormodal').modal('show')" role="button" class="btn permissionDeny btn-default">Pull Credit</a> 
+                 </div>
+              </apex:outputPanel>
+          </apex:outputPanel>
+     </div>
+   </div>
+   <div class="col-md-6">
+     <div class="gray-box">
+       <apex:outputPanel id="pg3OutPut1-decision">
+            <h5 class="text-center">Experian Results</h5>
+               <apex:outputPanel rendered="{!creditReviewObj.PG3_EXP_Cons_Summary__c != NULL}"  layout="none">
+                      <table width="100%" border="0" class="table" >
+                        <apex:repeat value="{!$ObjectType.Consumer_Credit_Summary__c.Fieldsets.Credit_Review_Experian_Fields}" var="fieldName">
+                          <tr>
+                             <td>{!fieldName.label}:</td>
+                             <td>
+                                <apex:outputText value="{0, date, MMM d','  yyyy}" rendered="{!fieldName.type =='date'}">
+                                    <apex:param value="{!CreditSummaryObj6[fieldName.FieldPath]}" /> 
+                                </apex:outputText>
+                                <apex:outputText value="{0,number,#,##0.##}" rendered="{!fieldName.type == 'double'}">
+                                  <apex:param value="{!CreditSummaryObj6[fieldName.FieldPath]}" />
+                                </apex:outputText>
+                                <apex:outputText value="{0,number,$#,##0.00}" rendered="{!fieldName.type == 'currency'}">
+                                  <apex:param value="{!CreditSummaryObj6[fieldName.FieldPath]}" />
+                                </apex:outputText>
+                                <apex:outputPanel rendered="{!fieldName.type !='date' && fieldName.type !='double' && fieldName.type !='currency'}">
+                                    {!CreditSummaryObj6[fieldName.FieldPath]}        
+                                 </apex:outputPanel>
+                             </td>
+                           </tr>
+                      </apex:repeat>
+                      </table>
+                  <div align="center"> <a  href="{!creditReviewObj.PG3_EXP_Cons_Summary__r.URL_for_View_Link__c}" target="_blank" class="btn  btn-default">View Details</a> </div>
+              </apex:outputPanel>
+              <apex:outputPanel rendered="{!creditReviewObj.PG3_EXP_Cons_Summary__c == NULL}" layout="none" >
+                  <div class="text-center">
+                   <p>Credit has not been pulled.</p>
+                   <a href="javascript:void(0)"  onclick="$('#guarantormodal').modal('show')" role="button" class="btn permissionDeny btn-default">Pull Credit</a> 
+                 </div>
+              </apex:outputPanel>
+          </apex:outputPanel>
+     </div>
+   </div>
+ </div>
+ <hr/>
+ </div>
+ <h4 style="margin-bottom:20px">Other Related Individual Credit Results</h4>
+ <div class="otherRelatedIndividual"></div>
+</div>
+</div>
+</apex:component>

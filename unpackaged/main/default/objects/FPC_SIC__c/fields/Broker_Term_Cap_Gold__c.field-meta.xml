@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Broker_Term_Cap_Gold__c</fullName>
+    <description>This field will indicate the term cap for broker deals approved by the gold term.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This field will indicate the term cap for broker deals approved by the gold term.</inlineHelpText>
+    <label>Broker Term Cap Gold</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

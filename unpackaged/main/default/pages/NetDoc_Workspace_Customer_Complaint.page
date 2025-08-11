@@ -1,0 +1,4 @@
+<apex:page standardController="Customer_Complaint__c" title="NetDocuments workspace for Customer Complaint">
+<apex:iframe scrolling="true" title="NetDocuments Workspace" src="{!$Label.NetDocument_CustomerComplaintFolder}?sfSession={!$Api.Session_ID}&sfUrl={!$Label.NetDocument_ApexAPIVersion}
+"/>
+</apex:page>

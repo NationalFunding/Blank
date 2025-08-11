@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <label>Status</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>In Progress</fullName>
+                <default>true</default>
+                <label>In Progress</label>
+            </value>
+            <value>
+                <fullName>Second Review</fullName>
+                <default>false</default>
+                <label>Second Review</label>
+            </value>
+            <value>
+                <fullName>Need More Information</fullName>
+                <default>false</default>
+                <label>Need More Information</label>
+            </value>
+            <value>
+                <fullName>Financial Analysis</fullName>
+                <default>false</default>
+                <label>Financial Analysis</label>
+            </value>
+            <value>
+                <fullName>UW Call</fullName>
+                <default>false</default>
+                <label>UW Call</label>
+            </value>
+            <value>
+                <fullName>Commercial 2nd Review</fullName>
+                <default>false</default>
+                <label>Commercial 2nd Review</label>
+            </value>
+            <value>
+                <fullName>Approved</fullName>
+                <default>false</default>
+                <label>Approved</label>
+            </value>
+            <value>
+                <fullName>Declined</fullName>
+                <default>false</default>
+                <label>Declined</label>
+            </value>
+            <value>
+                <fullName>EP Review Done</fullName>
+                <default>false</default>
+                <label>EP Review Done</label>
+            </value>
+            <value>
+                <fullName>Increase Review</fullName>
+                <default>false</default>
+                <label>Increase Review</label>
+            </value>
+            <value>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+                <label>Withdrawn</label>
+            </value>
+            <value>
+                <fullName>Reactivated</fullName>
+                <default>false</default>
+                <label>Reactivated</label>
+            </value>
+            <value>
+                <fullName>NF Decline</fullName>
+                <default>false</default>
+                <label>NF Decline</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

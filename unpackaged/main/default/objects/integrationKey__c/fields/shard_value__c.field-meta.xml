@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>shard_value__c</fullName>
+    <defaultValue>"na1"</defaultValue>
+    <description>This is going to store the shard value for an Adobe Sign account</description>
+    <externalId>false</externalId>
+    <label>shard value</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

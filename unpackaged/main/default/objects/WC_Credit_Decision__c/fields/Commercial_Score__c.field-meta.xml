@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Commercial_Score__c</fullName>
+    <defaultValue>0</defaultValue>
+    <description>Contains our commercial score--roughly equivalent to the Equifax BDFS (Business Delinquency Financial Score) Commercial Score.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Score which uses Equifax BMA attributes to approximate commercial credit quality. Higher scores signal better credit.</inlineHelpText>
+    <label>Commercial Score</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

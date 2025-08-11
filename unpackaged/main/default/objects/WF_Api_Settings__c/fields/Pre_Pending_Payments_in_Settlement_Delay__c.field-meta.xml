@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pre_Pending_Payments_in_Settlement_Delay__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>If true, payments with a status of “Pre-Pending” will also be included in the settlement delay. If false, only payments with a status of “Pending” will be included in the settlement delay.</description>
+    <inlineHelpText>If true, payments with a status of “Pre-Pending” will also be included in the settlement delay. If false, only payments with a status of “Pending” will be included in the settlement delay.</inlineHelpText>
+    <label>Pre-Pending Payments in Settlement Delay</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

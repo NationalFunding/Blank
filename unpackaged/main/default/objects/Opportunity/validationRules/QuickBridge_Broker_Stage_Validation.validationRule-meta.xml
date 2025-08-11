@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QuickBridge_Broker_Stage_Validation</fullName>
+    <active>true</active>
+    <description>This validation rule will enforce that broker deals can only be submitted to QuickBridge when the stage is Lender Pend Info and Declined.</description>
+    <errorConditionFormula>RecordType.DeveloperName = 'Broker_WC_Oppty' &amp;&amp; 
+ISPICKVAL(QB_Prequal_Status__c, 'Send to Quick Bridge') &amp;&amp; 
+NOT(Broker_Account__r.Name = 'Snap Capital LLC') &amp;&amp; 
+(NOT(ISPICKVAL(StageName, 'Lender Pend Info')) &amp;&amp;
+NOT(ISPICKVAL(StageName, 'Declined')))</errorConditionFormula>
+    <errorMessage>A Broker deal may only be submitted to QuickBridge when the stage is Declined or Lender Pend Info.</errorMessage>
+</ValidationRule>

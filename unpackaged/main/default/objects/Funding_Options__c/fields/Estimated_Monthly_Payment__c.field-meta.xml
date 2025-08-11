@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Estimated_Monthly_Payment__c</fullName>
+    <description>TIL requirement to calculate an estimated monthly payment. Will be used on merge docs</description>
+    <formula>IF(
+	ISPICKVAL(Payment_Frequency__c, 'Daily'),
+	Funding_Repayment_Amount__c / (ROUND(((Number_of_Payments__c / 5) * 7),0) / 30.4),
+	IF(
+		ISPICKVAL(Payment_Frequency__c, 'Weekly'),
+		Funding_Repayment_Amount__c / (ROUND((Number_of_Payments__c * 7),0) / 30.4),
+		null
+		)
+	)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Estimated Monthly Payment</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

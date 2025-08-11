@@ -1,0 +1,67 @@
+<template>
+    <lightning-card>
+
+        <div class="slds-grid slds-wrap">
+
+            <!-- <div class="slds-col slds-size_3-of-3">
+
+                <lightning-progress-indicator current-step={currentStage} type="path" variant="base">
+                    <template for:each={steps} for:item="step">
+                        <lightning-progress-step label={step.label} value={step.value} key={step.label}>
+                        </lightning-progress-step>
+                    </template>
+                </lightning-progress-indicator>
+
+            </div>
+
+            </br>
+                <hr style="margin-right: 5%; margin-left: 5%; margin-top:0; margin-bottom:0;">
+            </br> -->
+
+            <div class="slds-col slds-size_3-of-3">
+                <lightning-record-edit-form record-id={recordId} onload={handleLoad} object-api-name={objectApiName}>
+                    <lightning-messages></lightning-messages>
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-size_1-of-2">
+                            <!-- Engagement Status - LEFT-->
+                            <lightning-input-field data-field="Engagement_Status__c" field-name="Engagement_Status__c" onchange={handleFieldChange}>
+                            </lightning-input-field>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2">
+                            <!-- Last Activity Description - RIGHT-->
+                            <lightning-output-field field-name="Last_Activity_Description__c">
+                            </lightning-output-field>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2">
+                            <!-- Next Activity Date - LEFT-->
+                            <lightning-input-field data-field="Next_Activity_Date__c" field-name="Next_Activity_Date__c" onchange={handleFieldChange}>
+                            </lightning-input-field>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2">
+                            <!-- Last Activity Date - RIGHT-->
+                            <lightning-output-field field-name="Last_Activity_Date__c">
+                            </lightning-output-field>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2">
+                            <!-- Regarding - LEFT -->
+                            <lightning-input-field data-field="Regarding__c"
+                                field-name="Regarding__c"
+                                onchange={handleFieldChange}>
+                            </lightning-input-field>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2" >
+                            <!-- Submit/Save - RIGHT -->
+                            <div style="position: absolute; bottom: 0px; margin-bottom: 20px;">
+                                <lightning-button class="slds-m-left_x-small" variant="brand-outline" label="Update Engagement" title="Update Engagement Information" onclick={updateEngagement}>
+                                </lightning-button>
+                            </div>
+                        </div>
+                    </div>
+                </lightning-record-edit-form>
+            </div>
+
+        </div>
+        
+    </lightning-card>
+
+</template>

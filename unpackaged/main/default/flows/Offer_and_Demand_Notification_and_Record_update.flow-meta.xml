@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Send_Email_Notifications</name>
+        <label>Send Email Notifications</label>
+        <locationX>314</locationX>
+        <locationY>947</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>ttEmailBody</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>varEmailRecipientstring</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>ttEmailSubject</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <apiVersion>55.0</apiVersion>
+    <assignments>
+        <name>Assign_New_Record_Email_Variables</name>
+        <label>Assign New Record Email Variables</label>
+        <locationX>50</locationX>
+        <locationY>755</locationY>
+        <assignmentItems>
+            <assignToReference>varEmailRecipientstring</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formEmailRecipientNewRecord</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Send_Email_Notifications</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Record_Update_Email_Variable</name>
+        <label>Assign Record Update Email Variable</label>
+        <locationX>314</locationX>
+        <locationY>647</locationY>
+        <assignmentItems>
+            <assignToReference>varEmailRecipientstring</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formEmailRecipientStatusUpdate</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Send_Email_Notifications</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Is_New_or_Status_Update</name>
+        <label>Is New or Status Update</label>
+        <locationX>314</locationX>
+        <locationY>431</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>New</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>formIsNew</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.advpm__Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Existing_Offer</targetReference>
+            </connector>
+            <label>New</label>
+        </rules>
+        <rules>
+            <name>Status_Update</name>
+            <conditionLogic>1 AND (3 OR (2 AND 4))</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.advpm__Status__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.advpm__Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Rejected</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.advpm__Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Approved</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Offer_Made_By__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>National Funding</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Matter_if_Approved</targetReference>
+            </connector>
+            <label>Status Update</label>
+        </rules>
+    </decisions>
+    <description>Recipient update PD5008</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>formEmailRecipientNewRecord</name>
+        <dataType>String</dataType>
+        <expression>IF(
+ISPICKVAL({!$Record.Offer_Made_By__c},&quot;Local Counsel&quot;), {!Get_Custom_Setting_Recipients.NF_Contact_for_Local_Counsel_Offers__c},
+IF(
+    ISPICKVAL({!$Record.Offer_Made_By__c},&quot;Defendant&quot;),{!Get_Custom_Setting_Recipients.NF_Contact_for_Defendant_Offers__c},
+  IF(
+      AND(
+            ISPICKVAL({!$Record.Offer_Made_By__c},&quot;National Funding&quot;),
+            ISPICKVAL({!$Record.advpm__Originating_Offer_And_Demand__r.Offer_Made_By__c},&quot;Local Counsel&quot;)
+),
+      {!Get_Custom_Setting_Recipients.Local_Counsel_Contact_for_NF_Offers__c},
+{!Get_Custom_Setting_Recipients.Attorney_Team_Recipient__c}
+)))</expression>
+    </formulas>
+    <formulas>
+        <name>formEmailRecipientStatusUpdate</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    ISPICKVAL({!$Record.Offer_Made_By__c},&quot;Local Counsel&quot;),
+    {!Get_Custom_Setting_Recipients.Local_Counsel_Contact_for_NF_Offers__c},
+  IF(
+      ISPICKVAL({!$Record.Offer_Made_By__c},&quot;Defendant&quot;),
+    {!Get_Custom_Setting_Recipients.Attorney_Team_Recipient__c},
+  IF(
+     AND(ISPICKVAL({!$Record.Offer_Made_By__c},&quot;National Funding&quot;), ISPICKVAL({!$Record.advpm__Originating_Offer_And_Demand__r.Offer_Made_By__c},&quot;Local Counsel&quot;), ISPICKVAL({!$Record.advpm__Status__c},&quot;Approved&quot;)
+             ),
+      {!Get_Custom_Setting_Recipients.NF_Contact_for_Local_Counsel_Offers__c},
+  IF(
+      AND(
+ISPICKVAL({!$Record.Offer_Made_By__c},&quot;National Funding&quot;), NOT(ISPICKVAL({!$Record.advpm__Originating_Offer_And_Demand__r.Offer_Made_By__c},&quot;Local Counsel&quot;)),
+ISPICKVAL({!$Record.advpm__Status__c},&quot;Approved&quot;)
+),
+      {!Get_Custom_Setting_Recipients.NF_Contact_for_Defendant_Offers__c},&quot;&quot;
+))))</expression>
+    </formulas>
+    <formulas>
+        <name>formIsNew</name>
+        <dataType>Boolean</dataType>
+        <expression>ISNEW()</expression>
+    </formulas>
+    <formulas>
+        <name>formMatterStatus</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  AND(
+        ISPICKVAL({!$Record.advpm__Status__c},&quot;Approved&quot;),
+        NOT(ISPICKVAL({!$Record.Offer_Made_By__c},&quot;Local Counsel&quot;)), 
+        NOT(ISPICKVAL({!$Record.advpm__Originating_Offer_And_Demand__r.Offer_Made_By__c},&quot;Local Counsel&quot;))
+),
+ &quot;Settlement&quot;,
+IF( 
+AND(
+         ISPICKVAL({!$Record.advpm__Status__c},&quot;Approved&quot;), 
+         OR(ISPICKVAL({!$Record.Offer_Made_By__c},&quot;Local Counsel&quot;),
+                 ISPICKVAL({!$Record.advpm__Originating_Offer_And_Demand__r.Offer_Made_By__c},&quot;Local Counsel&quot;))),
+&quot;Local Counsel&quot;,
+  TEXT({!$Record.advpm__Matter__r.advpm__Status__c}
+)))</expression>
+    </formulas>
+    <formulas>
+        <name>formulaMatterStage</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  AND(ISPICKVAL({!$Record.advpm__Status__c},&quot;Approved&quot;), 
+OR(ISPICKVAL({!$Record.Offer_Made_By__c},&quot;Local Counsel&quot;),
+ISPICKVAL({!$Record.advpm__Originating_Offer_And_Demand__r.Offer_Made_By__c},&quot;Local Counsel&quot;))),
+ &quot;Settled with Local Counsel&quot;,
+ IF(
+   AND(ISPICKVAL({!$Record.advpm__Status__c},&quot;Approved&quot;), NOT(ISPICKVAL({!$Record.Offer_Made_By__c},&quot;Local Counsel&quot;)),
+NOT(ISPICKVAL({!$Record.advpm__Matter__r.advpm__Status__c},&quot;Local Counsel&quot;))),
+  &quot;Draft Agreement&quot;,
+  TEXT({!$Record.advpm__Matter__r.advpm__Stage__c})
+))</expression>
+    </formulas>
+    <interviewLabel>Offer and Demand - Notification and Record update {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Offer and Demand - Notification and Record update</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Custom_Setting_Recipients</name>
+        <label>Get Custom Setting Recipients</label>
+        <locationX>314</locationX>
+        <locationY>323</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Is_New_or_Status_Update</targetReference>
+        </connector>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Offer_and_Demand_Notification_Recipients__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Existing_Offer</name>
+        <label>Get Existing Offer</label>
+        <locationX>50</locationX>
+        <locationY>539</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_Previous_Offers_to_Rejected</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>advpm__Matter__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.advpm__Matter__r.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>advpm__Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>New</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Id</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>advpm__Offer_And_Demand__c</object>
+        <sortField>CreatedDate</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Matter_if_Approved</name>
+        <label>Update Matter if Approved</label>
+        <locationX>314</locationX>
+        <locationY>539</locationY>
+        <connector>
+            <targetReference>Assign_Record_Update_Email_Variable</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.advpm__Matter__r.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>advpm__Stage__c</field>
+            <value>
+                <elementReference>formulaMatterStage</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>advpm__Status__c</field>
+            <value>
+                <elementReference>formMatterStatus</elementReference>
+            </value>
+        </inputAssignments>
+        <object>advpm__Matter__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Previous_Offers_to_Rejected</name>
+        <label>Update Previous Offers to Rejected</label>
+        <locationX>50</locationX>
+        <locationY>647</locationY>
+        <connector>
+            <targetReference>Assign_New_Record_Email_Variables</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Existing_Offer.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>advpm__Status__c</field>
+            <value>
+                <stringValue>Rejected</stringValue>
+            </value>
+        </inputAssignments>
+        <object>advpm__Offer_And_Demand__c</object>
+    </recordUpdates>
+    <start>
+        <locationX>188</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Custom_Setting_Recipients</targetReference>
+        </connector>
+        <filterFormula>ISNEW() || ISCHANGED({!$Record.advpm__Status__c})</filterFormula>
+        <object>advpm__Offer_And_Demand__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <name>ttEmailBody</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>{!$Record.advpm__Status__c} {!$Record.RecordType.Name}
+Matter Number: {!$Record.advpm__Matter__r.advpm__Matter_Number__c} 
+Matter Name: {!$Record.advpm__Matter__r.Name} 
+
+Link to Offer: https://nf.lightning.force.com/{!$Record.Id}</text>
+    </textTemplates>
+    <textTemplates>
+        <name>ttEmailSubject</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>{!$Record.advpm__Status__c} - {!$Record.RecordType.Name} - {!$Record.advpm__Matter__r.advpm__Matter_Number__c} {!$Record.advpm__Matter__r.Name}</text>
+    </textTemplates>
+    <variables>
+        <name>currentItem_NF_Contact_for_Local_Counsel_Offer_Collection</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Offer_and_Demand_Notification_Recipients__c</objectType>
+    </variables>
+    <variables>
+        <name>varCollNFContactforLC</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>User</objectType>
+    </variables>
+    <variables>
+        <name>varEmailRecipients</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>User</objectType>
+    </variables>
+    <variables>
+        <name>varEmailRecipientstring</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

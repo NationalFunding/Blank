@@ -1,0 +1,9 @@
+{!Related_Opportunity_Search__c.Link}
+
+Opportunity: {!Related_Opportunity_Search__c.Opportunity__c}
+
+{!Related_Opportunity_Search__c.Total_Matches__c}
+
+{!Related_Opportunity_Search__c.Exit_Path__c}
+
+{!Related_Opportunity_Search__c.Opportunity__c}

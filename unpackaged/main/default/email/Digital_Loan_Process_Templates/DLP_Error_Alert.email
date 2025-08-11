@@ -1,0 +1,3 @@
+Bank Data record: {!Bank_Data__c.Link}
+
+Last Modified: {!Bank_Data__c.LastModifiedDate}

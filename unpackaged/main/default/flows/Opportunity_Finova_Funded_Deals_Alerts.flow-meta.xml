@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Send_Email</name>
+        <label>Send Email</label>
+        <locationX>308</locationX>
+        <locationY>539</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <faultConnector>
+            <targetReference>Logmessage</targetReference>
+        </faultConnector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddressesArray</name>
+            <value>
+                <elementReference>colvar_recipients</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <stringValue>info@nationalfunding.com</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>tt_emailSubject</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>tt_emailBody</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <apiVersion>61.0</apiVersion>
+    <assignments>
+        <name>Assign_Recipients</name>
+        <label>Assign Recipients</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <assignmentItems>
+            <assignToReference>colvar_recipients</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>$Setup.Email_Notification_Management__c.NF_Compliance_Email__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Check_Number_of_Recipients</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Check_Number_of_Recipients</name>
+        <label>Check Number of Recipients</label>
+        <locationX>176</locationX>
+        <locationY>431</locationY>
+        <defaultConnector>
+            <targetReference>Send_Email</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Recipients found</defaultConnectorLabel>
+        <rules>
+            <name>No_Recipients</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>colvar_recipients</leftValueReference>
+                <operator>IsEmpty</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>No Recipients</label>
+        </rules>
+    </decisions>
+    <description>Sneds an email to compliance when a CA deal is funded externally.</description>
+    <environments>Default</environments>
+    <interviewLabel>Opportunity - Finova Funded Deals Alerts {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Opportunity - Finova Funded Deals Alerts</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Logmessage</name>
+        <label>Logmessage</label>
+        <locationX>572</locationX>
+        <locationY>647</locationY>
+        <inputAssignments>
+            <field>Opportunity__c</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Process_Name__c</field>
+            <value>
+                <stringValue>Opportunity - Finova Funded Deals Alerts</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>exception__c</field>
+            <value>
+                <stringValue>Error sending Finova NF Compliance Email</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>level__c</field>
+            <value>
+                <stringValue>error</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>message__c</field>
+            <value>
+                <stringValue>Error sending Finova NF Compliance Email</stringValue>
+            </value>
+        </inputAssignments>
+        <object>LogMessage__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Assign_Recipients</targetReference>
+        </connector>
+        <filterFormula>AND(
+ISCHANGED({!$Record.StageName}),
+ISPICKVAL({!$Record.StageName}, &apos;Funded&apos;),
+NOT(CONTAINS({!$Record.Lender_Account__r.Name}, &apos;National Funding&apos;)),
+NOT(CONTAINS({!$Record.Lender_Account__r.Name},  &apos;Quick Bridge&apos;)),
+{!$Record.Addr_Bill1__r.State__c}=&apos;CA&apos;,
+ISPICKVAL({!$Record.Campaign.Brand__c},&apos;Finova&apos;)
+)</filterFormula>
+        <object>Opportunity</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <name>tt_emailBody</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;&lt;code style=&quot;font-size: unset; background-color: unset; font-family: unset; color: unset;&quot;&gt;Finova deal in California funded by external lender.&lt;/code&gt;&lt;/p&gt;&lt;p&gt;&lt;code style=&quot;font-size: unset; background-color: unset; font-family: unset; color: unset;&quot;&gt;Please review and confirm they are funded as sales-based financing.&lt;/code&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;code style=&quot;font-size: unset; background-color: unset; font-family: unset; color: unset;&quot;&gt;Customer: {!$Record.Account.Legal_Name__c}&lt;/code&gt;&lt;/p&gt;&lt;p&gt;&lt;code style=&quot;font-size: unset; background-color: unset; font-family: unset; color: unset;&quot;&gt;Lender: {!$Record.Lender_Account__r.Name}&lt;/code&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;code style=&quot;font-size: unset; background-color: unset; font-family: unset; color: unset;&quot;&gt;Link: &lt;/code&gt;{!$Setup.Instance_Settings__c.Salesforce_URL__c}{!$Record.Id}&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>tt_emailSubject</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Finova CA Deal funded - {!$Record.Legal_Name__c}</text>
+    </textTemplates>
+    <variables>
+        <name>colvar_recipients</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sum_of_Average_Daily_Balance_v2__c</fullName>
+    <label>Sum of Average Daily Balance v2</label>
+    <summarizedField>Credit_Review_Bank_Summary__c.Sum_of_Average_Daily_Balance__c</summarizedField>
+    <summaryFilterItems>
+        <field>Credit_Review_Bank_Summary__c.Primary_Account__c</field>
+        <operation>equals</operation>
+        <value>Primary</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Credit_Review_Bank_Summary__c.Credit_Review__c</summaryForeignKey>
+    <summaryOperation>max</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

@@ -1,0 +1,575 @@
+<apex:component layout="none">
+<apex:attribute type="Credit_Review__c" name="creditReviewObj" description="Credit Review" />
+<apex:attribute type="Consumer_Credit_Summary__c[]" name="CreditSummaryOpts" description="Consumer_Credit_Summary__c"/>
+<apex:attribute type="Consumer_Credit_Summary__c[]" name="CreditSummaryOptsEX" description="Consumer_Credit_Summary__c"/>
+<apex:attribute type="Consumer_Credit_Summary__c[]" name="CreditSummaryOpts7" description="Consumer_Credit_Summary__c"/>
+<apex:attribute type="Consumer_Credit_Summary__c[]" name="CreditSummaryOptsEX7" description="Consumer_Credit_Summary__c"/>
+<apex:attribute type="Consumer_Credit_Summary__c[]" name="CreditSummaryOpts8" description="Consumer_Credit_Summary__c"/>
+<apex:attribute type="Consumer_Credit_Summary__c[]" name="CreditSummaryOptsEX8" description="Consumer_Credit_Summary__c"/>
+<apex:attribute type="Consumer_Credit_Summary__c[]" name="CreditSummaryOpts1" description="Consumer_Credit_Summary__c"/>
+<apex:attribute type="Consumer_Credit_Summary__c[]" name="CreditSummaryOpts2" description="Consumer_Credit_Summary__c"/>
+<apex:attribute type="Consumer_Credit_Summary__c[]" name="CreditSummaryOpts3" description="Consumer_Credit_Summary__c"/>
+<apex:attribute type="Consumer_Credit_Summary__c[]" name="CreditSummaryOpts4" description="Consumer_Credit_Summary__c"/>
+<apex:attribute type="Consumer_Credit_Summary__c[]" name="CreditSummaryOpts5" description="Consumer_Credit_Summary__c"/>
+<apex:attribute type="Consumer_Credit_Summary__c[]" name="CreditSummaryOpts6" description="Consumer_Credit_Summary__c"/>
+<apex:attribute type="Business_Credit_Summary__c[]" name="accountPull" description="Business_Credit_Summary__c" />
+<apex:attribute type="Business_Credit_Summary__c[]" name="accountPull_EQF" description="Business_Credit_Summary__c" />
+<apex:attribute type="Business_Credit_Summary__c[]" name="BusinessCreditSummaryOptions" description="Business_Credit_Summary__c" />
+<apex:attribute type="Business_Credit_Summary__c[]" name="BusinessCreditSummaryOptions_EQF" description="Business_Credit_Summary__c" />
+<!--Gurantor Model Starts here-->
+  <div id="guarantormodal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3 id="myModalLabel">Pull Credit</h3>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="row">
+              <div class="col-md-8 col-md-offset-4 text-center" style="margin-bottom: 20px;">
+                <apex:image url="{!URLFOR($Resource.CreditReviewScreen, 'images/logo-popup.jpg')}" styleClass="img-responsive"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12"> 
+                <!-- Select Basic -->
+                <div class="form-group col-md-12">
+                  <label class="col-md-4 control-label pullCreditAccount" for="selectbasic">{!creditReviewObj.Opportunity__r.Account.name}</label>
+                  <!-- START EXPERIAN BUSINESS PULL SELECTOR -->
+                  <div class="col-md-4">
+
+                  <!-- Drop down for pulling business credit -->
+                  <apex:outputPanel id="pullOptionBiz" layout="block" styleClass="form-group">
+                    <select id="selectbasic" name="selectbasic" class="form-control pullCreditAccountSelect">
+
+                      <!-- Default to pull new data if there are no recent ones and no associated ones -->
+                      <apex:outputPanel layout="none" rendered="{!accountPull.size < 1 && BusinessCreditSummaryOptions.size == 0}">
+                        <option value="1" selected="selected">
+                          Pull New Data
+                        </option> 
+                      </apex:outputPanel>
+                      <apex:outputPanel layout="none" rendered="{!NOT(accountPull.size < 1 && BusinessCreditSummaryOptions.size == 0)}">
+                        <option value="1">
+                          Pull New Data
+                        </option> 
+                      </apex:outputPanel>
+
+                      <!-- Default is no pull if there is already an associated record -->
+                      <apex:outputPanel layout="none" rendered="{!creditReviewObj.EXP_Business_Summary__c != null}">
+                        <option value="2" selected="selected">Don't Pull</option>
+                      </apex:outputPanel>
+
+                      <apex:outputPanel layout="none" rendered="{!NOT(creditReviewObj.EXP_Business_Summary__c != null)}">
+                        <option value="2">Don't Pull</option>
+                      </apex:outputPanel>
+
+                      <!-- Most recent is default if no associated credit yet but there are recent ones -->
+                      <apex:outputPanel layout="none" rendered="{!creditReviewObj.EXP_Business_Summary__c == null}">
+                        <apex:repeat value="{!BusinessCreditSummaryOptions}" var="bso">
+                          <option value="{!bso.id}" selected="selected">
+                          Use Most Recent (<apex:outputText value="{0, date,MMM dd/yyyy}">
+                                  <apex:param value="{!bso.Transaction_Date__c}" /> 
+                              </apex:outputText> )
+                          </option>
+                        </apex:repeat>
+                      </apex:outputPanel>
+                      <apex:outputPanel layout="none" rendered="{!NOT(creditReviewObj.EXP_Business_Summary__c == null)}">
+                        <apex:repeat value="{!BusinessCreditSummaryOptions}" var="bso">
+                          <option value="{!bso.id}">
+                          Use Most Recent (<apex:outputText value="{0, date,MMM dd/yyyy}">
+                                  <apex:param value="{!bso.Transaction_Date__c}" /> 
+                              </apex:outputText> )
+                          </option>
+                        </apex:repeat>
+                      </apex:outputPanel>
+                    </select>
+                    </apex:outputPanel>
+                  </div>
+                  <!-- END EXPERIAN BUSINESS PULL SELECTOR -->
+
+                  <!-- START EQUIFAX BUSINESS PULL SELECTOR -->
+                  <div class="col-md-4">
+
+                    <!-- Drop down for pulling business credit -->
+                    <apex:outputPanel id="pullOptionBizEQF" layout="block" styleClass="form-group">
+                      <select id="selectbasic" name="selectbasic" class="form-control pullCreditEquifaxAccountSelect">
+
+                        <!-- Default to pull new data if there are no recent ones and no associated ones -->
+                        <apex:outputPanel layout="none" rendered="{!accountPull_EQF.size < 1 && BusinessCreditSummaryOptions_EQF.size == 0}">
+                          <option value="1" selected="selected">
+                            Pull New Data
+                          </option> 
+                        </apex:outputPanel>
+                        <apex:outputPanel layout="none" rendered="{!NOT(accountPull_EQF.size < 1 && BusinessCreditSummaryOptions_EQF.size == 0)}">
+                          <option value="1">
+                            Pull New Data
+                          </option> 
+                        </apex:outputPanel>
+
+                        <!-- Default is no pull if there is already an associated record -->
+                        <apex:outputPanel layout="none" rendered="{!creditReviewObj.EFX_Business_Summary__c != null}">
+                          <option value="2" selected="selected">Don't Pull</option>
+                        </apex:outputPanel>
+
+                        <apex:outputPanel layout="none" rendered="{!NOT(creditReviewObj.EFX_Business_Summary__c != null)}">
+                          <option value="2">Don't Pull</option>
+                        </apex:outputPanel>
+
+                        <!-- Most recent is default if no associated credit yet but there are recent ones -->
+                        <apex:outputPanel layout="none" rendered="{!creditReviewObj.EFX_Business_Summary__c == null}">
+                          <apex:repeat value="{!BusinessCreditSummaryOptions_EQF}" var="bso">
+                            <option value="{!bso.id}" selected="selected">
+                            Use Most Recent (<apex:outputText value="{0, date,MMM dd/yyyy}">
+                                    <apex:param value="{!bso.Transaction_Date__c}" /> 
+                                </apex:outputText> )
+                            </option>
+                          </apex:repeat>
+                        </apex:outputPanel>
+                        <apex:outputPanel layout="none" rendered="{!NOT(creditReviewObj.EFX_Business_Summary__c == null)}">
+                          <apex:repeat value="{!BusinessCreditSummaryOptions_EQF}" var="bso">
+                            <option value="{!bso.id}">
+                            Use Most Recent (<apex:outputText value="{0, date,MMM dd/yyyy}">
+                                    <apex:param value="{!bso.Transaction_Date__c}" /> 
+                                </apex:outputText> )
+                            </option>
+                          </apex:repeat>
+                        </apex:outputPanel>
+                      </select>
+                    </apex:outputPanel>
+                  </div>
+                  <!-- END EQUIFAX BUSINESS PULL SELECTOR -->
+
+                </div>
+                
+                <!-- Select Basic -->
+                <!-- Drop down for pulling PG1 Credit -->
+                <div class="col-md-12  pullSection1" style="display:{!IF(ISNULL(creditReviewObj.PG1__r.name), 'none', 'block')}">
+                  
+                  <div class="form-group col-md-4">
+                    <label class="control-label title" for="selectbasic" data-id="{!creditReviewObj.PG1__c}">{!creditReviewObj.PG1__r.name} (Signor)</label>
+                    <div class="error_msg alert-danger" style="display:none"></div>
+                  </div>
+
+                  <!-- PG1 EXPERIAN CREDIT -->
+                  <div class="form-group col-md-4">
+                    <div>
+                     <apex:outputPanel id="pullOption1" layout="block" styleClass="form-group">
+                      <select id="selectbasic" name="selectbasic" class="form-control pullSection1Select" onchange="callAltContact(this,'1')">
+                        <!-- Default to pull new data if there are no recent ones and no associated ones -->
+                        <apex:outputPanel layout="none" rendered="{!creditReviewObj.PG1_EXP_Cons_Summary__c == null && CreditSummaryOpts1 != null && CreditSummaryOpts1.size > 0}">
+                          <option value="1" selected="selected">
+                                Pull New Data
+                          </option>
+                        </apex:outputPanel>
+                        <apex:outputPanel layout="none" rendered="{!NOT(creditReviewObj.PG1_EXP_Cons_Summary__c == null && CreditSummaryOpts1 != null && CreditSummaryOpts1.size > 0)}">
+                          <option value="1">
+                                Pull New Data
+                          </option>
+                        </apex:outputPanel>
+
+                        <!-- Default is no pull if there is already an associated record -->
+                        <apex:outputPanel layout="none" rendered="{!creditReviewObj.PG1_EXP_Cons_Summary__c != null}">
+                          <option value="2" selected="selected">
+                                Don't Pull
+                          </option>
+                        </apex:outputPanel>
+                        <apex:outputPanel layout="none" rendered="{!NOT(creditReviewObj.PG1_EXP_Cons_Summary__c != null)}">
+                          <option value="2">
+                                Don't Pull
+                          </option>
+                        </apex:outputPanel>
+                        
+                        <!-- Not sure what this does really -->
+                        <apex:outputPanel layout="none" rendered="{!CreditSummaryOpts.size > 0}">
+                              <option>Use Related Contact Report</option>
+                        </apex:outputPanel> 
+
+                        <!-- Most recent is default if no associated credit yet but there are recent ones -->
+                        <apex:outputPanel layout="none" rendered="{!creditReviewObj.PG1_EXP_Cons_Summary__c == null}">
+                          <apex:repeat value="{!CreditSummaryOpts1}" var="cso">
+                                <option value="{!cso.id}" selected="selected">
+                                    Use Most Recent (<apex:outputText value="{0, date,MMM dd/yyyy}"> <apex:param value="{!cso.Transaction_Date__c}" /> </apex:outputText> )
+                                </option>
+                          </apex:repeat>
+                        </apex:outputPanel> 
+                        <apex:outputPanel layout="none" rendered="{!NOT(creditReviewObj.PG1_EXP_Cons_Summary__c == null)}">
+                          <apex:repeat value="{!CreditSummaryOpts1}" var="cso">
+                                <option value="{!cso.id}">
+                                    Use Most Recent (<apex:outputText value="{0, date,MMM dd/yyyy}"> <apex:param value="{!cso.Transaction_Date__c}" /> </apex:outputText> )
+                                </option>
+                          </apex:repeat>
+                        </apex:outputPanel> 
+                      </select>
+                      </apex:outputPanel>
+                        <div class="pullOption1DependPickList" style="display:none">
+                            <apex:outputPanel layout="block" styleclass="form-group" id="altCon1">
+                              <select class="pullOption1Consumer form-control">
+                                <apex:repeat value="{!CreditSummaryOpts}" var="cso">
+                                  <option value="{!cso.id}" selected="selected">{!cso.Contact__r.name} ({!cso.Contact__r.Account.name}) (<apex:outputText value="{0, date,MMM dd/yyyy}">
+                                    <apex:param value="{!cso.Transaction_Date__c}" /> 
+                                </apex:outputText> )</option>
+                                </apex:repeat> 
+                              </select>
+                            </apex:outputPanel>
+                            <!--<div class="form-group">
+                              <select class="pullOption1Consumer  form-control">
+                              </select>
+                            </div>-->
+                        </div>
+                    </div>
+                  </div>
+
+                  <!-- PG1 EQUIFAX CREDIT -->
+                  <div class="form-group col-md-4">
+                    <div>
+                    <apex:outputPanel id="pullOption2" layout="block" styleClass="form-group">
+                      <select  id="selectbasic" name="selectbasic" class="form-control pullSection1SelectEx" onchange="callAltContact(this,'2')">
+                                                <!-- Default to pull new data if there are no recent ones and no associated ones -->
+                        <apex:outputPanel layout="none" rendered="{!creditReviewObj.PG1_EQF_Cons_Summary__c == null && CreditSummaryOpts4 != null && CreditSummaryOpts4.size > 0}">
+                          <option value="1" selected="selected">
+                                Pull New Data
+                          </option>
+                        </apex:outputPanel>
+                        <apex:outputPanel layout="none" rendered="{!NOT(creditReviewObj.PG1_EQF_Cons_Summary__c == null && CreditSummaryOpts4 != null && CreditSummaryOpts4.size > 0)}">
+                          <option value="1">
+                                Pull New Data
+                          </option>
+                        </apex:outputPanel>
+
+                        <!-- Default is no pull if there is already an associated record -->
+                        <apex:outputPanel layout="none" rendered="{!creditReviewObj.PG1_EQF_Cons_Summary__c != null}">
+                          <option value="2" selected="selected">
+                                Don't Pull
+                          </option>
+                        </apex:outputPanel>
+                        <apex:outputPanel layout="none" rendered="{!NOT(creditReviewObj.PG1_EQF_Cons_Summary__c != null)}">
+                          <option value="2">
+                                Don't Pull
+                          </option>
+                        </apex:outputPanel>
+                        
+                        <!-- Not sure what this does really -->
+                        <apex:outputPanel layout="none" rendered="{!CreditSummaryOptsEx.size > 0}">
+                              <option>Use Related Contact Report</option>
+                        </apex:outputPanel> 
+
+                        <!-- Most recent is default if no associated credit yet but there are recent ones -->
+                        <apex:outputPanel layout="none" rendered="{!creditReviewObj.PG1_EQF_Cons_Summary__c == null}">
+                          <apex:repeat value="{!CreditSummaryOpts4}" var="cso">
+                                <option value="{!cso.id}" selected="selected">
+                                    Use Most Recent (<apex:outputText value="{0, date,MMM dd/yyyy}"> <apex:param value="{!cso.Transaction_Date__c}" /> </apex:outputText> )
+                                </option>
+                          </apex:repeat>
+                        </apex:outputPanel> 
+                        <apex:outputPanel layout="none" rendered="{!NOT(creditReviewObj.PG1_EQF_Cons_Summary__c == null)}">
+                          <apex:repeat value="{!CreditSummaryOpts4}" var="cso">
+                                <option value="{!cso.id}">
+                                    Use Most Recent (<apex:outputText value="{0, date,MMM dd/yyyy}"> <apex:param value="{!cso.Transaction_Date__c}" /> </apex:outputText> )
+                                </option>
+                          </apex:repeat>
+                        </apex:outputPanel> 
+                        </select>
+                        </apex:outputPanel> 
+                        <div class="pullOption2DependPickList" style="display:none">
+                            <apex:outputPanel layout="block" styleclass="form-group" id="altCon2">
+                              <select class="pullOption2Consumer form-control">
+                                <apex:repeat value="{!CreditSummaryOptsEx}" var="cso">
+                                  <option value="{!cso.id}" selected="selected">{!cso.Contact__r.name} ({!cso.Contact__r.Account.name}) (<apex:outputText value="{0, date,MMM dd/yyyy}">
+                                    <apex:param value="{!cso.Transaction_Date__c}" /> 
+                                </apex:outputText> )</option>
+                                </apex:repeat> 
+                              </select>
+                            </apex:outputPanel>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- END Drop down for pulling PG1 Credit -->
+
+
+                <!-- Select Basic -->
+                <!-- Drop down for pulling PG2 Credit -->
+                <div class="form-group col-md-12 pullSection2" style="display:{!IF(ISNULL(creditReviewObj.PG2__r.name), 'none', 'block')}">
+                  <div class="col-md-4">
+                  <label class="control-label title" for="selectbasic"  data-id="{!creditReviewObj.PG2__c}">{!creditReviewObj.PG2__r.name} (Guarantor #2)</label>
+                  <div class="error_msg alert-danger" style="display:none"></div>
+                  </div>
+
+                  <!-- PG2 EXPERIAN CREDIT -->
+                  <div class="col-md-4">
+                      <apex:outputPanel id="pullOption3" layout="block" styleClass="form-group">
+                    <select id="selectbasic" name="selectbasic" class="form-control pullSection2Select" onchange="callAltContact(this,'3')">
+                                                <!-- Default to pull new data if there are no recent ones and no associated ones -->
+                        <apex:outputPanel layout="none" rendered="{!creditReviewObj.PG2_EXP_Cons_Summary__c == null && CreditSummaryOpts2 != null && CreditSummaryOpts2.size > 0}">
+                          <option value="1" selected="selected">
+                                Pull New Data
+                          </option>
+                        </apex:outputPanel>
+                        <apex:outputPanel layout="none" rendered="{!NOT(creditReviewObj.PG2_EXP_Cons_Summary__c == null && CreditSummaryOpts2 != null && CreditSummaryOpts2.size > 0)}">
+                          <option value="1">
+                                Pull New Data
+                          </option>
+                        </apex:outputPanel>
+
+                        <!-- Default is no pull if there is already an associated record -->
+                        <apex:outputPanel layout="none" rendered="{!creditReviewObj.PG2_EXP_Cons_Summary__c != null}">
+                          <option value="2" selected="selected">
+                                Don't Pull
+                          </option>
+                        </apex:outputPanel>
+                        <apex:outputPanel layout="none" rendered="{!NOT(creditReviewObj.PG2_EXP_Cons_Summary__c != null)}">
+                          <option value="2">
+                                Don't Pull
+                          </option>
+                        </apex:outputPanel>
+                        
+                        <!-- Not sure what this does really -->
+                        <apex:outputPanel layout="none" rendered="{!CreditSummaryOpts7.size > 0}">
+                              <option>Use Related Contact Report</option>
+                        </apex:outputPanel> 
+
+                        <!-- Most recent is default if no associated credit yet but there are recent ones -->
+                        <apex:outputPanel layout="none" rendered="{!creditReviewObj.PG2_EXP_Cons_Summary__c == null}">
+                          <apex:repeat value="{!CreditSummaryOpts2}" var="cso">
+                                <option value="{!cso.id}" selected="selected">
+                                    Use Most Recent (<apex:outputText value="{0, date,MMM dd/yyyy}"> <apex:param value="{!cso.Transaction_Date__c}" /> </apex:outputText> )
+                                </option>
+                          </apex:repeat>
+                        </apex:outputPanel> 
+                        <apex:outputPanel layout="none" rendered="{!NOT(creditReviewObj.PG2_EXP_Cons_Summary__c == null)}">
+                          <apex:repeat value="{!CreditSummaryOpts2}" var="cso">
+                                <option value="{!cso.id}">
+                                    Use Most Recent (<apex:outputText value="{0, date,MMM dd/yyyy}"> <apex:param value="{!cso.Transaction_Date__c}" /> </apex:outputText> )
+                                </option>
+                          </apex:repeat>
+                        </apex:outputPanel> 
+                    </select>
+                    </apex:outputPanel>
+                    <div class="pullOption3DependPickList" style="display:none">
+                        <apex:outputPanel layout="block" styleclass="form-group" id="altCon3">
+                          <select class="pullOption3Consumer form-control">
+                            <apex:repeat value="{!CreditSummaryOpts7}" var="cso">
+                              <option value="{!cso.id}" selected="selected">{!cso.Contact__r.name} ({!cso.Contact__r.Account.name}) (<apex:outputText value="{0, date,MMM dd/yyyy}">
+                                    <apex:param value="{!cso.Transaction_Date__c}" /> 
+                                </apex:outputText> )</option>
+                            </apex:repeat> 
+                          </select>
+                        </apex:outputPanel>
+                    </div>
+                  </div>
+
+                  <!-- PG2 EQUIFAX CREDIT -->
+                  <div class="col-md-4">
+                      <apex:outputPanel id="pullOption4" layout="block" styleClass="form-group">
+                    <select id="selectbasic" name="selectbasic" class="form-control pullSection2SelectEx" onchange="callAltContact(this,'4')">
+                                                <!-- Default to pull new data if there are no recent ones and no associated ones -->
+                        <apex:outputPanel layout="none" rendered="{!creditReviewObj.PG2_EQF_Cons_Summary__c == null && CreditSummaryOpts5 != null && CreditSummaryOpts5.size > 0}">
+                          <option value="1" selected="selected">
+                                Pull New Data
+                          </option>
+                        </apex:outputPanel>
+                        <apex:outputPanel layout="none" rendered="{!NOT(creditReviewObj.PG2_EQF_Cons_Summary__c == null && CreditSummaryOpts5 != null && CreditSummaryOpts5.size > 0)}">
+                          <option value="1">
+                                Pull New Data
+                          </option>
+                        </apex:outputPanel>
+
+                        <!-- Default is no pull if there is already an associated record -->
+                        <apex:outputPanel layout="none" rendered="{!creditReviewObj.PG2_EQF_Cons_Summary__c != null}">
+                          <option value="2" selected="selected">
+                                Don't Pull
+                          </option>
+                        </apex:outputPanel>
+                        <apex:outputPanel layout="none" rendered="{!NOT(creditReviewObj.PG2_EQF_Cons_Summary__c != null)}">
+                          <option value="2">
+                                Don't Pull
+                          </option>
+                        </apex:outputPanel>
+                        
+                        <!-- Not sure what this does really -->
+                        <apex:outputPanel layout="none" rendered="{!CreditSummaryOptsEx7.size > 0}">
+                              <option>Use Related Contact Report</option>
+                        </apex:outputPanel> 
+
+                        <!-- Most recent is default if no associated credit yet but there are recent ones -->
+                        <apex:outputPanel layout="none" rendered="{!creditReviewObj.PG2_EQF_Cons_Summary__c == null}">
+                          <apex:repeat value="{!CreditSummaryOpts5}" var="cso">
+                                <option value="{!cso.id}" selected="selected">
+                                    Use Most Recent (<apex:outputText value="{0, date,MMM dd/yyyy}"> <apex:param value="{!cso.Transaction_Date__c}" /> </apex:outputText> )
+                                </option>
+                          </apex:repeat>
+                        </apex:outputPanel> 
+                        <apex:outputPanel layout="none" rendered="{!NOT(creditReviewObj.PG2_EQF_Cons_Summary__c == null)}">
+                          <apex:repeat value="{!CreditSummaryOpts5}" var="cso">
+                                <option value="{!cso.id}">
+                                    Use Most Recent (<apex:outputText value="{0, date,MMM dd/yyyy}"> <apex:param value="{!cso.Transaction_Date__c}" /> </apex:outputText> )
+                                </option>
+                          </apex:repeat>
+                        </apex:outputPanel> 
+                    </select>
+                      </apex:outputPanel>
+                      <div class="pullOption4DependPickList" style="display:none">
+                          <apex:outputPanel layout="block" styleclass="form-group" id="altCon4">
+                            <select class="pullOption4Consumer form-control">
+                              <apex:repeat value="{!CreditSummaryOptsEx7}" var="cso">
+                                <option value="{!cso.id}" selected="selected">{!cso.Contact__r.name} ({!cso.Contact__r.Account.name}) (<apex:outputText value="{0, date,MMM dd/yyyy}">
+                                    <apex:param value="{!cso.Transaction_Date__c}" /> 
+                                </apex:outputText> )</option>
+                              </apex:repeat> 
+                            </select>
+                          </apex:outputPanel>
+                      </div>
+                  </div>
+                </div>
+                <!-- END Drop down for pulling PG2 Credit -->
+
+                <!-- Select Basic -->
+                <!-- Drop down for pulling PG3 Credit -->
+                <div class="form-group col-md-12 pullSection3" style="display:{!IF(ISNULL(creditReviewObj.PG3__r.name), 'none', 'block')}">
+                
+                  <div class="col-md-4">
+                  <label class="control-label title" for="selectbasic"  data-id="{!creditReviewObj.PG3__c}">{!creditReviewObj.PG3__r.name} (Guarantor #3)</label>
+                  <div class="error_msg alert-danger" style="display:none"></div>
+                  </div>
+
+                  <!-- PG3 EXPERIAN CREDIT -->
+                  <div class="col-md-4">
+                      <apex:outputPanel id="pullOption5" layout="block" styleClass="form-group">
+                    <select id="selectbasic" name="selectbasic" class="form-control pullSection3Select" onchange="callAltContact(this,'5')">
+                        <!-- Default to pull new data if there are no recent ones and no associated ones -->
+                        <apex:outputPanel layout="none" rendered="{!creditReviewObj.PG3_EXP_Cons_Summary__c == null && CreditSummaryOpts3 != null && CreditSummaryOpts3.size > 0}">
+                          <option value="1" selected="selected">
+                                Pull New Data
+                          </option>
+                        </apex:outputPanel>
+                        <apex:outputPanel layout="none" rendered="{!NOT(creditReviewObj.PG3_EXP_Cons_Summary__c == null && CreditSummaryOpts3 != null && CreditSummaryOpts3.size > 0)}">
+                          <option value="1">
+                                Pull New Data
+                          </option>
+                        </apex:outputPanel>
+
+                        <!-- Default is no pull if there is already an associated record -->
+                        <apex:outputPanel layout="none" rendered="{!creditReviewObj.PG3_EXP_Cons_Summary__c != null}">
+                          <option value="2" selected="selected">
+                                Don't Pull
+                          </option>
+                        </apex:outputPanel>
+                        <apex:outputPanel layout="none" rendered="{!NOT(creditReviewObj.PG3_EXP_Cons_Summary__c != null)}">
+                          <option value="2">
+                                Don't Pull
+                          </option>
+                        </apex:outputPanel>
+                        
+                        <!-- Not sure what this does really -->
+                        <apex:outputPanel layout="none" rendered="{!CreditSummaryOpts8.size > 0}">
+                              <option>Use Related Contact Report</option>
+                        </apex:outputPanel> 
+
+                        <!-- Most recent is default if no associated credit yet but there are recent ones -->
+                        <apex:outputPanel layout="none" rendered="{!creditReviewObj.PG3_EXP_Cons_Summary__c == null}">
+                          <apex:repeat value="{!CreditSummaryOpts3}" var="cso">
+                                <option value="{!cso.id}" selected="selected">
+                                    Use Most Recent (<apex:outputText value="{0, date,MMM dd/yyyy}"> <apex:param value="{!cso.Transaction_Date__c}" /> </apex:outputText> )
+                                </option>
+                          </apex:repeat>
+                        </apex:outputPanel> 
+                        <apex:outputPanel layout="none" rendered="{!NOT(creditReviewObj.PG3_EXP_Cons_Summary__c == null)}">
+                          <apex:repeat value="{!CreditSummaryOpts3}" var="cso">
+                                <option value="{!cso.id}">
+                                    Use Most Recent (<apex:outputText value="{0, date,MMM dd/yyyy}"> <apex:param value="{!cso.Transaction_Date__c}" /> </apex:outputText> )
+                                </option>
+                          </apex:repeat>
+                        </apex:outputPanel> 
+                    </select>
+                    </apex:outputPanel> 
+                    <div class="pullOption5DependPickList" style="display:none">
+                        <apex:outputPanel layout="block" styleclass="form-group" id="altCon5">
+                          <select class="pullOption5Consumer form-control">
+                            <apex:repeat value="{!CreditSummaryOpts8}" var="cso">
+                              <option value="{!cso.id}" selected="selected">{!cso.Contact__r.name} ({!cso.Contact__r.Account.name}) (<apex:outputText value="{0, date,MMM dd/yyyy}">
+                                    <apex:param value="{!cso.Transaction_Date__c}" /> 
+                                </apex:outputText> )</option>
+                            </apex:repeat> 
+                          </select>
+                        </apex:outputPanel>
+                    </div>
+                  </div>
+
+                  <!-- PG3 EQUIFAX CREDIT -->
+                  <div class="col-md-4">
+                   <apex:outputPanel id="pullOption6" layout="block" styleClass="form-group">
+                    <select id="selectbasic" name="selectbasic" class="form-control pullSection3SelectEx" onchange="callAltContact(this,'6')">
+                                                <!-- Default to pull new data if there are no recent ones and no associated ones -->
+                        <apex:outputPanel layout="none" rendered="{!creditReviewObj.PG3_EQF_Cons_Summary__c == null && CreditSummaryOpts6 != null && CreditSummaryOpts6.size > 0}">
+                          <option value="1" selected="selected">
+                                Pull New Data
+                          </option>
+                        </apex:outputPanel>
+                        <apex:outputPanel layout="none" rendered="{!NOT(creditReviewObj.PG3_EQF_Cons_Summary__c == null && CreditSummaryOpts6 != null && CreditSummaryOpts6.size > 0)}">
+                          <option value="1">
+                                Pull New Data
+                          </option>
+                        </apex:outputPanel>
+
+                        <!-- Default is no pull if there is already an associated record -->
+                        <apex:outputPanel layout="none" rendered="{!creditReviewObj.PG3_EQF_Cons_Summary__c != null}">
+                          <option value="2" selected="selected">
+                                Don't Pull
+                          </option>
+                        </apex:outputPanel>
+                        <apex:outputPanel layout="none" rendered="{!NOT(creditReviewObj.PG3_EQF_Cons_Summary__c != null)}">
+                          <option value="2">
+                                Don't Pull
+                          </option>
+                        </apex:outputPanel>
+                        
+                        <!-- Not sure what this does really -->
+                        <apex:outputPanel layout="none" rendered="{!CreditSummaryOptsEx8.size > 0}">
+                              <option>Use Related Contact Report</option>
+                        </apex:outputPanel> 
+
+                        <!-- Most recent is default if no associated credit yet but there are recent ones -->
+                        <apex:outputPanel layout="none" rendered="{!creditReviewObj.PG3_EQF_Cons_Summary__c == null}">
+                          <apex:repeat value="{!CreditSummaryOpts6}" var="cso">
+                                <option value="{!cso.id}" selected="selected">
+                                    Use Most Recent (<apex:outputText value="{0, date,MMM dd/yyyy}"> <apex:param value="{!cso.Transaction_Date__c}" /> </apex:outputText> )
+                                </option>
+                          </apex:repeat>
+                        </apex:outputPanel> 
+                        <apex:outputPanel layout="none" rendered="{!NOT(creditReviewObj.PG3_EQF_Cons_Summary__c == null)}">
+                          <apex:repeat value="{!CreditSummaryOpts6}" var="cso">
+                                <option value="{!cso.id}">
+                                    Use Most Recent (<apex:outputText value="{0, date,MMM dd/yyyy}"> <apex:param value="{!cso.Transaction_Date__c}" /> </apex:outputText> )
+                                </option>
+                          </apex:repeat>
+                        </apex:outputPanel> 
+                    </select>
+                   </apex:outputPanel>
+                   <div class="pullOption6DependPickList" style="display:none">
+                        <apex:outputPanel layout="block" styleclass="form-group" id="altCon6">
+                          <select class="pullOption6Consumer form-control">
+                            <apex:repeat value="{!CreditSummaryOptsEx8}" var="cso">
+                              <option value="{!cso.id}" selected="selected">{!cso.Contact__r.name} ({!cso.Contact__r.Account.name}) (<apex:outputText value="{0, date,MMM dd/yyyy}">
+                                    <apex:param value="{!cso.Transaction_Date__c}" /> 
+                                </apex:outputText> )</option>
+                            </apex:repeat> 
+                          </select>
+                        </apex:outputPanel>
+                    </div>
+                  </div>
+                </div>
+                <!-- END Drop down for pulling PG3 Credit -->
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer" style="text-align:center;">
+          <button class="btn btn-success" onclick="pullContact();accountPull($('.pullCreditAccountSelect'));accountPullEquifaxComm($('.pullCreditEquifaxAccountSelect'))">Pull Credit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Gurantor Model Ends here--> 
+</apex:component>

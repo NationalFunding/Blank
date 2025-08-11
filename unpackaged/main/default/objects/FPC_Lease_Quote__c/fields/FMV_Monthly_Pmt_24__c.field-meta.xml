@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FMV_Monthly_Pmt_24__c</fullName>
+    <description>Monthly payments in a 24 month term FMV lease.</description>
+    <inlineHelpText>Monthly payments in a 24 month term FMV lease.</inlineHelpText>
+    <label>FMV Monthly Pmt 24</label>
+    <precision>17</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

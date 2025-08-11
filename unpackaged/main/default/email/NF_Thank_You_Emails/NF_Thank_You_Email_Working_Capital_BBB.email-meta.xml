@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Thank you email after fund (Working Capital Loan) - National Funding with the BBB Review Link</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Naitonal_Funding_Standard_Letterhead_Stack</letterhead>
+    <name>NF - Thank You Email - Working Capital - BBB</name>
+    <style>freeForm</style>
+    <subject>Thank You from National Funding</subject>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

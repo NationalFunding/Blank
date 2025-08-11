@@ -1,0 +1,124 @@
+<messaging:emailTemplate subject="{!recipient.firstname}, check your funding options with no credit impact" recipientType="Lead" relatedToType="Lead">
+    <messaging:htmlEmailBody >
+        <html>
+
+        <head>
+            <meta name="viewport" content="width=device-width" />
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <title>Apply today and get up to $500K in working capital.</title>
+            <style media="all" type="text/css">
+            @media only screen and (max-width: 620px) {
+                table[class=body] h1,
+                table[class=body] h2,
+                table[class=body] h3,
+                table[class=body] h4 {
+                    font-weight: 600 !important;
+                }
+                table[class=body] h1 {
+                    font-size: 22px !important;
+                }
+                table[class=body] h2 {
+                    font-size: 18px !important;
+                }
+                table[class=body] h3 {
+                    font-size: 16px !important;
+                }
+                table[class=body] .content,
+                table[class=body] .wrapper {
+                    padding: 0 !important;
+                }
+                table[class=body] .container {
+                    padding: 0 !important;
+                    width: 100% !important;
+                }
+                table[class=body] .btn table,
+                table[class=body] .btn a {
+                    width: 100% !important;
+                }
+            }
+            </style>
+        </head>
+
+        <body style="margin: 10; font-family: Arial, sans-serif; font-size: 16px; height: 100% !important; line-height: 1.6em; -webkit-font-smoothing: antialiased; padding: 10; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; width: 100% !important; background-color: #f6f6f6;">
+            <table class="body" style="box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; background-color: #f6f6f6;" width="100%" bgcolor="#f6f6f6">
+                <tr>
+                    <td style="box-sizing: border-box; font-family: Arial, 'Lucida Grande', sans-serif; font-size: 16px; vertical-align: top;" valign="top"></td>
+                    <td class="container" style="box-sizing: border-box; font-family: Arial, 'Lucida Grande', sans-serif; font-size: 16px; vertical-align: top; display: block; Margin: 0 auto !important; max-width: 580px; padding: 10px; width: 580px;" width="580" valign="top">
+                        <div class="content" style="box-sizing: border-box; display: block; margin: 0 auto; max-width: 580px; padding: 10px;">
+                            <table class="main" style="box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; background: #ffffff; border: 1px solid #e9e9e9; border-radius: 3px;" width="100%">
+                                <tr class="blue" style="margin-bottom: 15px; margin-top: 10px; width: 100%; background-color: white; text-align: center;" bgcolor="#223657" align="center">
+                                    <td style="box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top;" valign="top">
+                                        <a href="{!$Setup.Instance_Settings__c.QB_Base_URL__c}?source=email_lt&utm_campaign=welcome_lt&utm_medium=email&utm_source=sf_welcome&payload={!recipient.Encrypted_Email_String__c}" style="box-sizing: border-box; color: #DC0032; text-decoration: underline;">
+                                            <apex:image url="https://694044703213-static-assets.s3.us-west-2.amazonaws.com/salesforce/24Q2-QB-LendingTree.png" width="100%"/>
+                                        </a>
+                                    </td>                                                   
+                                </tr>
+                                <tr>
+                                    <td class="wrapper" style="box-sizing: border-box; font-family: Arial; font-size: 16px; vertical-align: top; padding: 10px;" valign="top">
+                                        <table style="box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;" width="100%">
+                                            <tr>
+                                                <td style="box-sizing: border-box; font-family:Arial; font-size: 16px; vertical-align: top;" valign="top">
+                                                        <br/>
+                                                        <p style="font-family: Arial; font-size: 16px; font-weight: normal; margin: 0; margin-bottom: 15px;">
+                                                            Dear {!recipient.firstname},
+                                                        </p>
+                                                        <p style="font-family:Arial, sans-serif; font-size: 16px; font-weight: normal; margin: 0; margin-bottom: 15px;">
+                                                         As a trusted partner of LendingTree, we understand that securing capital when you need it most can be critical to maintaining the success of your business.
+                                                        </p>
+                                                        <p style="font-family: Arial; font-size: 16px; font-weight: normal; margin: 0; margin-bottom: 15px;">
+                                                        Since 2011, QuickBridge has helped businesses thrive by providing owners like you with fast, flexible, and transparent financing.
+                                                        </p>
+                                                        <p style="font-family: Arial; font-size: 16px; font-weight: normal; margin: 0; margin-bottom: 15px;">
+                                                        <ul>
+                                                        <li style="font-family: Arial; font-size: 16px; font-weight: normal; margin: 0; margin-bottom: 5px;"><a style="color:#3DB5E6" href="{!$Setup.Instance_Settings__c.QB_Base_URL__c}?source=email_lt&utm_campaign=welcome_lt&utm_medium=email&utm_source=sf_welcome&payload={!recipient.Encrypted_Email_String__c}">Easy application</a> and no hidden fees</li>
+                                                        <li style="font-family: Arial; font-size: 16px; font-weight: normal; margin: 0; margin-bottom: 5px;">Up to {!$Setup.QB_Email_Variables__c.Funding_Amount__c} in as little as 24 hours<sup style="color:#223657">1</sup></li>
+                                                        <li style="font-family: Arial; font-size: 16px; font-weight: normal; margin: 0; margin-bottom: 5px;">Early payoff discounts<sup style="color:#223657">2</sup></li>
+                                                        </ul>
+                                                        </p>
+                                                        <p style="font-family:Arial; font-size: 16px; font-weight: normal; margin: 0; margin-bottom: 15px;">
+                                                         Plus, for your convenience, we’ve already pre-filled some of your information. Just click below to finish your application and see what you qualify for with no credit impact.<sup style="color:#223657">3</sup>   
+                                                         </p>
+                                                            <table class="btn btn-primary" cellpadding="0" cellspacing="0" style="box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;" width="100%">
+                                                              <tr>
+                                                                 <td style="box-sizing: border-box; font-family:Arial, ; font-size: 16px; vertical-align: top; background-color: white; border-radius: 5px; text-align: center;" valign="top" bgcolor="#3DB5E6" align="center">
+                                                                    <a href="{!$Setup.Instance_Settings__c.QB_Base_URL__c}?source=email_lt&utm_campaign=welcome_lt&utm_medium=email&utm_source=sf_welcome&payload={!recipient.Encrypted_Email_String__c}" style="box-sizing: border-box; border-color: #3DB5E6; text-decoration: none; background-color: #3DB5E6; border: solid 1px #3DB5E6; border-radius: 5px; cursor: pointer; color: #223657; font-size: 14px; font-weight: bold; margin: 0; padding: 7px 25px; text-transform: capitalize; display: inline-block;">Apply Now</a>
+                                                                 </td>
+                                                              </tr>
+                                                            </table>
+                                                        <p style="font-family: Arial; font-size: 16px; font-weight: normal; margin: 10; margin-bottom: 10px;">
+                                                            <br/><b>{!recipient.Owner.FirstName} {!recipient.Owner.LastName}</b> | {!recipient.Owner.Title}
+                                                             <br/><apex:image style="padding:5px" url="https://694044703213-static-assets.s3.us-west-2.amazonaws.com/salesforce/Logo_Quickbridge_ForPrint.jpg" height="19" width="225"/>
+                                                             <br/>{!$Setup.QB_Email_Variables__c.QB_Address__c}
+                                                            <br/>P: {!recipient.Owner.Phone}
+                                                            <br/><a style="color:#DC0032" href="https://www.quickbridge.com">www.quickbridge.com</a>
+                                                        </p>
+                                                     </td>
+                                            </tr>
+                                             <tr>
+                                                <td class="align-left small-gray pad-t20" style="box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; vertical-align: top; font-size: 10px; text-align: left; color: #223657; padding-top: 10px;" valign="top" align="left">
+                                                  <br/>
+                                                   <a style="color:#DC0032" href="https://www.quickbridge.com/terms-conditions/">Terms and Conditions</a> | <a style="color:#DC0032" href="https://www.quickbridge.com/privacy-policy/">Privacy Policy</a>
+                                                   <br/>© {!YEAR(TODAY())} QuickBridge. All rights reserved.
+                                                   <br/>{!$Setup.QB_Email_Variables__c.QB_Address__c}
+                                                   <p style="font-family:Arial; font-size: 10px; color: #223657">
+                                                         <br/>Subject to approval. Terms and conditions apply. Products offered by QuickBridge Funding, LLC and affiliates are business products only. Products are made or arranged pursuant to a California Financing Law License. License number: 603J292.
+                                                         <br/><span style="font-size: 10px;color:#223657">1.</span> Fast approvals and 24-hour funding subject to receipt of required documentation, underwriting guidelines, and processing time by your bank. Funds are deposited into your business checking account as soon as the next business day after approval and acceptance of terms.
+                                                         <br/><span style="font-size: 10px;color:#223657">2.</span> Early payment discount amounts and details will be provided prior to acceptance of terms and funding. Customers must pay off the balance in full, be current, and in good standing to take advantage of the discount within the time parameters.
+                                                         <br/><span style="font-size: 10px;color:#223657">3.</span> Your credit score helps us determine your eligibility for financing as well as your financing terms. Exploring your financing options with us does not impact your credit score. If you apply with us and we are unable to offer financing to you, we may try to match you with one of our partners to obtain financing. They may perform a hard credit pull to determine your eligibility for financing.
+                                                   </p>      
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                    <td style="box-sizing: border-box; font-family:Arial; font-size: 16px; vertical-align: top;" valign="top"></td>
+                </tr>
+            </table>
+        </body>
+
+        </html>
+    </messaging:htmlEmailBody>
+</messaging:emailTemplate>

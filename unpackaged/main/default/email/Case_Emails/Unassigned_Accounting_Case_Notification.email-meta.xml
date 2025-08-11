@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Naitonal_Funding_Standard_Letterhead_Stack</letterhead>
+    <name>Unassigned Accounting Case Notification</name>
+    <style>formalLetter</style>
+    <subject>Unassigned Accounting Case</subject>
+    <textOnly>Hello,
+
+An Accounting case has been created that has a status of &apos;Unassigned&apos;, please review the case and assign it to the appropriate resource.
+
+Case Number:  {!Case.CaseNumber}
+Case Details: {!Case.Link}
+
+Thanks</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

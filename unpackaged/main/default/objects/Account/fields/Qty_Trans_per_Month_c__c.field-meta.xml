@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Qty_Trans_per_Month_c__c</fullName>
+    <description>Qty of CC Transactions processed per Month</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter Qty of CC Transactions processed per Month</inlineHelpText>
+    <label>CC Transactions Per Month</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

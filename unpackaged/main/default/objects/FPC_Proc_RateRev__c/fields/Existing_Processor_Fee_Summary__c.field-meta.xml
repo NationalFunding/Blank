@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Existing_Processor_Fee_Summary__c</fullName>
+    <description>This field will sum the existing rate processor fees for a rate review.</description>
+    <inlineHelpText>This field will sum the existing rate processor fees for a rate review.</inlineHelpText>
+    <label>Existing Processor Fee Summary</label>
+    <summarizedField>FPC_Proc_RateRev_Fees__c.Existing_Expense__c</summarizedField>
+    <summaryForeignKey>FPC_Proc_RateRev_Fees__c.Processor_Rate_Review__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

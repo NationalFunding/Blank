@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Marketing_Product_Target__c</fullName>
+    <description>This field will help determine which products should be targeted by marketing.</description>
+    <externalId>false</externalId>
+    <formula>IF(
+OR(
+ISPICKVAL(Status, "Remove From List"),
+ISPICKVAL(Status, "Open"),
+ISPICKVAL(Status, "House"),
+ISPICKVAL(Status, "Pursuing"),  
+ISPICKVAL(Status, "Contacted"),
+ISPICKVAL(Status, "Qualified/Converted"),
+ISPICKVAL(Status, "Deferred"),
+ISPICKVAL(Status, "Unqualified"),
+Do_Not_Solicit__c = True,
+Out_Of_Business__c = True,
+AND(OR(ISPICKVAL(Status_Lease__c, "Do Not Solicit"), ISPICKVAL(Status_MCA__c, "Do Not Solicit")))),
+"Do Not Solicit",
+
+IF(
+AND(
+OR(OR(FICO_Score__c = 0, FICO_Score__c = -1, FICO_Score__c = 1, FICO_Score__c = Null, FICO_Score__c  &gt;= 575),
+OR(ISPICKVAL(Status_Lease__c, ""), ISPICKVAL(Status_Lease__c, "Interested"))),
+OR(ISPICKVAL(Status_MCA__c, ""), ISPICKVAL(Status_MCA__c, "Interested"))),
+"ALL",
+
+IF(
+OR(
+AND(
+FICO_Score__c &lt; 575,
+OR(ISPICKVAL(Status_Lease__c, "Not Qualified"), ISPICKVAL(Status_Lease__c, "Not Interested"), ISPICKVAL(Status_Lease__c, ""), ISPICKVAL(Status_Lease__c, "Interested"), ISPICKVAL(Status_Lease__c, "")),
+OR(ISPICKVAL(Status_MCA__c, ""), ISPICKVAL(Status_MCA__c, "Interested"))),
+AND(
+OR(ISPICKVAL(Status_Lease__c, "Not Qualified"), ISPICKVAL(Status_Lease__c, "Not Interested")),
+OR(ISPICKVAL(Status_MCA__c, ""), ISPICKVAL(Status_MCA__c, "Interested"), ISPICKVAL(Status_MCA__c, "")))),
+"Working Capital",
+
+IF(
+AND(
+OR(FICO_Score__c = 0, FICO_Score__c = -1, FICO_Score__c = 1, FICO_Score__c = Null, FICO_Score__c  &gt;= 575),
+OR(ISPICKVAL(Status_MCA__c, "Not Qualified"), ISPICKVAL(Status_MCA__c, "Not Interested")),
+OR(ISPICKVAL(Status_Lease__c, "Interested"), ISPICKVAL(Status_Lease__c, ""))),
+"Lease",
+
+IF(
+OR(
+AND(
+FICO_Score__c  &lt; 575,
+OR(ISPICKVAL(Status_MCA__c, "Not Qualified"), ISPICKVAL(Status_MCA__c, "Not Interested"))),
+AND(
+OR(ISPICKVAL(Status_Lease__c, "Not Interested"), ISPICKVAL(Status_Lease__c, "Not Qualified")),
+OR(ISPICKVAL(Status_MCA__c, "Not Interested"), ISPICKVAL(Status_MCA__c, "Not Qualified")))),
+"Not Qualified - All","Sucka")))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>This field will help determine which products should be targeted by marketing.</inlineHelpText>
+    <label>Marketing Product Target</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

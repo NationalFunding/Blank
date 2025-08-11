@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Promotion_Call_List__c</fullName>
+    <description>Field to sort call lists for the promotion.</description>
+    <inlineHelpText>Field to sort call lists for the promotion.</inlineHelpText>
+    <label>Promotion Call List</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Week 1</fullName>
+                <default>false</default>
+                <label>Week 1</label>
+            </value>
+            <value>
+                <fullName>Week 2</fullName>
+                <default>false</default>
+                <label>Week 2</label>
+            </value>
+            <value>
+                <fullName>Week 3</fullName>
+                <default>false</default>
+                <label>Week 3</label>
+            </value>
+            <value>
+                <fullName>Week 4</fullName>
+                <default>false</default>
+                <label>Week 4</label>
+            </value>
+            <value>
+                <fullName>Week 5</fullName>
+                <default>false</default>
+                <label>Week 5</label>
+            </value>
+            <value>
+                <fullName>Week 6</fullName>
+                <default>false</default>
+                <label>Week 6</label>
+            </value>
+            <value>
+                <fullName>Week 7</fullName>
+                <default>false</default>
+                <label>Week 7</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

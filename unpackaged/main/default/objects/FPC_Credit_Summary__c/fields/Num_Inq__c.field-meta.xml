@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Num_Inq__c</fullName>
+    <description>Number of Inquiries that the contact has.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Number of Inquiries that the contact has.</inlineHelpText>
+    <label>Num Inq</label>
+    <precision>2</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

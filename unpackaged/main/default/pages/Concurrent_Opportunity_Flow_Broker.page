@@ -1,0 +1,8 @@
+<apex:page standardController="Account" extensions="AccountExtensionController" sidebar="false">
+<apex:pageBlock title="Submit A Concurrent Deal"></apex:pageBlock>
+<!-- {!$Page.AttachmentUploadController}  {!$Page.DragDropAttach__AttachFiles} -->
+
+<flow:interview name="Partner_Portal_Concurrent_Deal_Submit" finishLocation="{!$Page.AttachFiles}">  
+<apex:param name="inputPartnerId" value="{!$User.Id}"/>
+</flow:interview>
+</apex:page>

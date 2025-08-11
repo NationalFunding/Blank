@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lender_Name_Workflow__c</fullName>
+    <description>This field will display a text value of the lender in the funding table.  This field will be used in a workflow in place of the Lender Account field which is a look up.</description>
+    <externalId>false</externalId>
+    <formula>Lender_ID__r.Name</formula>
+    <inlineHelpText>This field will display a text value of the lender in the funding table.  This field will be used in a workflow in place of the Lender Account field which is a look up.</inlineHelpText>
+    <label>Lender Name - Workflow</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Previous_Bankruptcy__c</fullName>
+    <description>This field will indicate the if and when the customer has had a BK in the past.</description>
+    <inlineHelpText>Select the option that best indicates the customers bankruptcy status.</inlineHelpText>
+    <label>Previous Bankruptcy</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>No</fullName>
+                <default>false</default>
+                <label>No</label>
+            </value>
+            <value>
+                <fullName>In Progress/Not Dismissed\</fullName>
+                <default>false</default>
+                <label>In Progress/Not Dismissed\</label>
+            </value>
+            <value>
+                <fullName>0-1 Years Ago</fullName>
+                <default>false</default>
+                <label>0-1 Years Ago</label>
+            </value>
+            <value>
+                <fullName>1-2 Years Ago</fullName>
+                <default>false</default>
+                <label>1-2 Years Ago</label>
+            </value>
+            <value>
+                <fullName>2-3 Years Ago</fullName>
+                <default>false</default>
+                <label>2-3 Years Ago</label>
+            </value>
+            <value>
+                <fullName>3-4 Years Ago</fullName>
+                <default>false</default>
+                <label>3-4 Years Ago</label>
+            </value>
+            <value>
+                <fullName>4-5 Years Ago</fullName>
+                <default>false</default>
+                <label>4-5 Years Ago</label>
+            </value>
+            <value>
+                <fullName>5+ Years Ago</fullName>
+                <default>false</default>
+                <label>5+ Years Ago</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

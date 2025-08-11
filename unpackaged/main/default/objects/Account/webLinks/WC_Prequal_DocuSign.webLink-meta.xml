@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WC_Prequal_DocuSign</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>600</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>WC Prequal DocuSign</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>https://www.appextremes.com/apps/Conga/PointMerge.aspx
+?sessionId={!API.Session_ID}
+&amp;serverUrl={!API.Partner_Server_URL_80}
+&amp;id={!Account.Id}
+&amp;QueryId=a068000000V7xwi,a068000000V8bm4,a068000000XM9qD
+&amp;TemplateGroup=NF+-+WC+Prequal+Forms(A)
+&amp;SelectTemplates=1
+&amp;FP0=1
+&amp;OFN={!Account.Name}+Pre-Qualification+Form
+
+&amp;DocuSignR1Id={QVar0}
+&amp;DocuSignR1Role=Signor
+&amp;DocuSignR1Type=Signer
+&amp;DocuSignR1RoutingOrder=1
+&amp;QVar0Id=a068000000mdwRN
+&amp;QVar0Format=10010
+
+&amp;DocuSignR2Id={QVar1}
+&amp;DocuSignR2Role=Guarantor+2
+&amp;DocuSignR2Type=Signer
+&amp;DocuSignR2RoutingOrder=1
+&amp;QVar1Id=a068000000mdwS6
+&amp;QVar1Format=10010
+
+&amp;DocuSignVisible=1
+&amp;DocuSignSendReminders=1
+&amp;DocuSignRemindIn=3
+&amp;DocuSignRemindAgainIn=10
+&amp;DocuSignExpireIn=63
+&amp;DocuSignWarnIn=5
+&amp;DefaultPDF=1
+&amp;FlattenPDFForms=1
+
+&amp;DocuSignCustomField1=dsfs__Custom_Field_1_Name__c
+&amp;DocuSignCustomFieldValue1=Vault With eOriginal
+&amp;DocuSignCustomField2=dsfs__Custom_Field_1_Value__c
+&amp;DocuSignCustomFieldValue2=No</url>
+</WebLink>

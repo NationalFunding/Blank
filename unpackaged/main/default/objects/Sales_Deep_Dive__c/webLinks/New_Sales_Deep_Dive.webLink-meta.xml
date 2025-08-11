@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Sales_Deep_Dive</fullName>
+    <availability>online</availability>
+    <displayType>massActionButton</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>New Sales Deep Dive</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <requireRowSelection>false</requireRowSelection>
+    <url>{!REQUIRESCRIPT("/soap/ajax/20.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/20.0/apex.js")}
+
+if({!Opportunity.Total_Sales_Deep_Dive_Records__c} &gt; 0) {
+alert ("A Sales Deep Dive Record has already been created for this Opportunity");
+}
+else{
+window.open("/a3b/e?CF00N34000005GTIT={!Opportunity.Name}&amp;CF00N34000005GTIT_lkid={!Opportunity.Id}&amp;retURL=%2F{!Opportunity.Id}");
+}</url>
+</WebLink>

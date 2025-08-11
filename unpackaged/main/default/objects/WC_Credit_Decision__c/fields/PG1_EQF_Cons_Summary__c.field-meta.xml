@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PG1_EQF_Cons_Summary__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Consumer Credit Summary record used to lookup Equifax personal credit</description>
+    <label>PG1 Equifax Credit Summary</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>Consumer_Credit_Summary__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Equifax Consumer</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Consumer_Credit_Summary__c</referenceTo>
+    <relationshipLabel>WC Credit Decisions (PG1 Equifax Credit Summary)</relationshipLabel>
+    <relationshipName>WC_Credit_Decisions_EQF</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

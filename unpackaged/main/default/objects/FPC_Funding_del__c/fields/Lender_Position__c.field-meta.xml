@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lender_Position__c</fullName>
+    <description>This field will capture the position that a lender is in when shopping a deal for an approval.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This field will capture the position that a lender is in when shopping a deal for an approval.</inlineHelpText>
+    <label>Lender Position</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

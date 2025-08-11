@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Personal_Credit_exception_FICO_under_500</fullName>
+    <active>true</active>
+    <description>Requires that if any PG's FICO is &lt; 500 the Personal Credit Policy Exception must be checked prior to Approval</description>
+    <errorConditionFormula>AND(
+ISCHANGED(Status__c),
+ISPICKVAL(Status__c, 'Approved'),
+OR(
+VALUE(PG_1_EQF_Score__c)&lt;500, 
+VALUE(PG_2_EQF_Score__c)&lt;500, 
+VALUE(PG_3_EQF_Score__c)&lt;500
+), 
+NOT(INCLUDES( Policy_Exception_Categories__c, 'Personal Credit')) 
+)</errorConditionFormula>
+    <errorMessage>If FICO &lt; 500 Personal Credit Policy Exception must be selected prior to Approval.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cmbls__End_Date__c</fullName>
+    <deprecated>false</deprecated>
+    <inlineHelpText>This will be the final payment pulled. If populated, the system will no longer schedule payments for an Effective Date that is after this date. Note: An End Date is not required. If null, the system will continue to create payments until there is no longer a balance.</inlineHelpText>
+    <label>End Date</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

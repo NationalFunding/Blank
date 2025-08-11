@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Regional_Business_Developer__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>This field will contain a reference to a user who is the "Regional Business Developer"</description>
+    <inlineHelpText>This field will contain a reference to a user who is the "Regional Business Developer"</inlineHelpText>
+    <label>Regional Business Developer</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Broker_Accounts_Regional_Biz_Developer</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

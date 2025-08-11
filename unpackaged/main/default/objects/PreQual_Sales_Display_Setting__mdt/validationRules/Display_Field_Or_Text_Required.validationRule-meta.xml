@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Display_Field_Or_Text_Required</fullName>
+    <active>true</active>
+    <description>Ensures that either the Display Field or the Display Text is populated, but not both.</description>
+    <errorConditionFormula>OR(
+    AND(
+        ISPICKVAL(Display_Field__c, ''),
+        ISBLANK(Display_Text__c)
+    ),
+    AND(
+        NOT(ISPICKVAL(Display_Field__c, '')),
+        NOT(ISBLANK(Display_Text__c))
+    )
+)</errorConditionFormula>
+    <errorMessage>Please fill out either the Display Field or the Display Text, but not both. Only one of these fields is required.</errorMessage>
+</ValidationRule>

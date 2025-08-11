@@ -1,0 +1,71 @@
+<apex:component layout="none">
+<apex:attribute type="Credit_Review__c" name="creditReviewObj" description="Credit Review"/>
+<div class="row"> 
+    <!--Key Business Panel-->
+      <div class="col-md-12 key-business" style="margin-top:15px">
+        <div class="panel panel-default">
+          <div class="panel-heading blue-panel">Key Business Details</div>
+          <div class="panel-body">
+            <div class="row">
+                <apex:repeat value="{! $ObjectType.Credit_review__c.Fieldsets.Key_Business_Details}" var="fieldName">
+                <div class="col-md-4"> 
+                    <div class="form-group">
+                      <label class="col-md-5 control-label" for="textinput">{!fieldName.label}</label>
+                      <div class="col-md-7">
+                        <p>
+                              <apex:outputText value="{0, date, MMM d','  yyyy}" rendered="{!fieldName.type =='date'}">
+                                  <apex:param value="{!creditReviewObj[fieldName.FieldPath]}" /> 
+                              </apex:outputText>
+                              <apex:outputText value="{0,number,#,##0.##}" rendered="{!fieldName.type == 'double'}">
+                                <apex:param value="{!creditReviewObj[fieldName.FieldPath]}" />
+                              </apex:outputText>
+                              <apex:outputText value="{0,number,$#,##0.00}" rendered="{!fieldName.type == 'currency'}">
+                                <apex:param value="{!creditReviewObj[fieldName.FieldPath]}" />
+                              </apex:outputText>
+                              <apex:outputPanel rendered="{!fieldName.type !='date' && fieldName.type !='double' && fieldName.type !='currency'}">
+                                {!creditReviewObj[fieldName.FieldPath]}        
+                               </apex:outputPanel>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+              </apex:repeat>
+            </div>
+            <hr class="nohrmargin" />
+            <div class="row">
+              <h3 class="col-md-12">Guarantors</h3>
+                 <div class="gaurantors_info">
+                  <apex:outputPanel layout="none" rendered="{!creditReviewObj.PG1__r.Name == null && creditReviewObj.PG2__r.Name == null && creditReviewObj.PG3__r.Name == null}">
+                    <p align="center">No Guarantors Selected</p>
+                  </apex:outputPanel>
+                  <apex:outputPanel rendered="{!creditReviewObj.PG1__r.Name != null}" styleClass="col-md-4" layout="block">
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" for="textinput">Signor</label>
+                        <div class="col-md-8">
+                          <p>{!creditReviewObj.PG1__r.Name}</p>
+                      </div>
+                    </div>
+                  </apex:outputPanel>
+                  <apex:outputPanel rendered="{!creditReviewObj.PG2__r.Name != null}" styleClass="col-md-4" layout="block">
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" style="padding-right: 0;" for="textinput">Guarantor #2</label>
+                      <div class="col-md-8"> 
+                        <p>{!creditReviewObj.PG2__r.Name}</p>
+                      </div>
+                    </div>
+                  </apex:outputPanel>
+                  <apex:outputPanel rendered="{!creditReviewObj.PG3__r.Name != null}" styleClass="col-md-4" layout="block">
+                    <div class="form-group"> 
+                      <label class="col-md-4 control-label" style="padding-right: 0;" for="textinput">Guarantor #3</label>
+                      <div class="col-md-8"> 
+                        <p>{!creditReviewObj.PG3__r.Name}</p> 
+                      </div>
+                    </div>
+                  </apex:outputPanel> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</apex:component>

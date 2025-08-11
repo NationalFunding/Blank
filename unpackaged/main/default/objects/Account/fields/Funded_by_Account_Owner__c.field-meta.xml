@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Funded_by_Account_Owner__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field will indicate if a customer that has funded a deal did so with the current Account Owner.</description>
+    <inlineHelpText>This field will indicate if a customer that has funded a deal did so with the current Account Owner.</inlineHelpText>
+    <label>Funded by Account Owner</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

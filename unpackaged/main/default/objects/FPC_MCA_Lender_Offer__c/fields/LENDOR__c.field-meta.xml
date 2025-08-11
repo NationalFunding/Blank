@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LENDOR__c</fullName>
+    <description>Lender</description>
+    <inlineHelpText>Pick the lender from the drop down menu.</inlineHelpText>
+    <label>Lender</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>AdvanceMe</fullName>
+                <default>false</default>
+                <label>AdvanceMe</label>
+            </value>
+            <value>
+                <fullName>FPC</fullName>
+                <default>false</default>
+                <label>FPC</label>
+            </value>
+            <value>
+                <fullName>GRP Funding</fullName>
+                <default>false</default>
+                <label>GRP Funding</label>
+            </value>
+            <value>
+                <fullName>New Logic</fullName>
+                <default>false</default>
+                <label>New Logic</label>
+            </value>
+            <value>
+                <fullName>On Deck Capital</fullName>
+                <default>false</default>
+                <label>On Deck Capital</label>
+            </value>
+            <value>
+                <fullName>Quick Bridge Funding</fullName>
+                <default>false</default>
+                <label>Quick Bridge Funding</label>
+            </value>
+            <value>
+                <fullName>Rapid Financial Services</fullName>
+                <default>false</default>
+                <label>Rapid Financial Services</label>
+            </value>
+            <value>
+                <fullName>Strategic Funding Source</fullName>
+                <default>false</default>
+                <label>Strategic Funding Source</label>
+            </value>
+            <value>
+                <fullName>Merchant Cash &amp; Capital</fullName>
+                <default>false</default>
+                <label>Merchant Cash &amp; Capital</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

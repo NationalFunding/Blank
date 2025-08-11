@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Projected_Portfolio_Assignment__c</fullName>
+    <description>This field will capture the credit analysts projection of what lender will ultimately hold the lease/financing transaction once the deal has funded.</description>
+    <inlineHelpText>Please select the option that the credit analyst projects as the portfolio that will hold the lease/finance agreement.</inlineHelpText>
+    <label>Projected Portfolio Assignment</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Wells Fargo</fullName>
+                <default>false</default>
+                <label>Wells Fargo</label>
+            </value>
+            <value>
+                <fullName>National Funding</fullName>
+                <default>false</default>
+                <label>National Funding</label>
+            </value>
+            <value>
+                <fullName>Portfolio Sell</fullName>
+                <default>false</default>
+                <label>Portfolio Sell</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

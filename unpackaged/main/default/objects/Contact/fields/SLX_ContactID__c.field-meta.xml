@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SLX_ContactID__c</fullName>
+    <description>The contact ID from the legacy CRM system.</description>
+    <externalId>true</externalId>
+    <inlineHelpText>The contact ID from the legacy CRM system.</inlineHelpText>
+    <label>SLX_ContactID</label>
+    <length>12</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

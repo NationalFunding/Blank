@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Resale_Cert_Req__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Resale Certificate required - status</description>
+    <inlineHelpText>Check box if a resale certificate is required.</inlineHelpText>
+    <label>Resale Cert Req</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

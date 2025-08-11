@@ -1,0 +1,450 @@
+<apex:page showHeader="false"  renderAs="pdf" controller="LeadPdfController">
+<head>
+ <style type="text/css">
+  @page
+  {
+color:#000000;
+    /* Landscape orientation */
+   /* size:landscape;*/
+        margin-top: 0.0cm;
+
+    margin-bottom: 0.0cm;
+    font-size:11px;
+    /* Put page numbers in the bottom right corner of each
+    page in the pdf document. */
+    @bottom-right {
+     content: "Page " counter(page);
+    }
+  }
+
+  body {
+   font-family: Arial;
+   font-size:11px;
+  }
+
+
+  td {
+    font-size:11px;
+    font-family:Arial;
+  }
+
+  
+  </style>
+</head>
+<body>
+  <!-- Begin Default Content REMOVE THIS -->
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr><td width="50%"><apex:image value="{!$Resource.pdflogo}"/></td><td width="50%" align="right" valign="middle">
+<p style="float:left;width:25%;text-align:left;">
+House Account<br/>
+Phone: (888) 576-4685 x<br/>
+Fax:<br/>
+Email: trover@fivepointcapital.com<br/>
+</p>
+<h1>Equipment Lease
+<br/>Application</h1></td></tr>
+<tr><td colspan="2" style="height:5px;background-color:#dcdcdc;"></td></tr>
+<tr><td colspan="2" style="height:10px;background-color:#ffffff;"></td></tr>
+<tr><td colspan="2">
+<table border="0" cellspacing="1" cellpadding="0" width="100%" style="background-color:#000000;">
+<tr><td colspan="2" style="background-color:#000000;height:5px;"></td></tr>
+<tr style="height:20px;"><td width="50%" style="background-color:#ffffff;border-right:solid 2px #dcdcdc;" valign="top">
+<span style="padding-top:5px;padding-left:10px;float:left;">Business Legal Name:<br/><span style="text-transform: uppercase; "><b>{!myContacts.Company}</b></span></span>
+</td><td valign="top" style="background-color:#ffffff;"><span style="padding-top:5px;padding-left:10px;float:left;">Business DBA Name:<br/><span style="text-transform: uppercase; "><b>{!myContacts.LastName} <span style="text-transform: uppercase; "><b>{!myContacts.FirstName}</b></span></b></span></span>
+</td></tr>
+
+<tr style="height:20px;"><td colspan="2" style="background-color:#ffffff;" valign="top">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20%" valign="top" align="right" style="height:20px;">Type   of  Business  Entity<br/>(Select One)&nbsp;</td>
+<td width="15%" valign="top" align="center" style="height:20px;">Corporation<br/><apex:image value="{!$Resource.pdfsquare}"/></td>
+<td width="15%" valign="top" style="height:20px;text-align:center;">&nbsp;Limited Liability Company<br/><apex:image value="{!$Resource.pdfsquare}"/></td>
+<td width="12%" valign="top" style="height:20px;text-align:center;">&nbsp;Partnership<br/><apex:image value="{!$Resource.pdfsquare}"/></td>
+<td width="12%" valign="top" style="height:20px;text-align:center;">&nbsp;Sole Proprietor<br/><apex:image value="{!$Resource.pdfsquare}"/></td>
+
+<td width="24%" valign="top" style="border-left:solid 1px #000000;height:20px;text-align:center;">&nbsp;State Business Registered In
+</td>
+
+
+</tr>
+</table>
+</td></tr>
+<tr style="height:20px;"><td colspan="2" style="background-color:#ffffff;" valign="top">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="45%" valign="top"  style="border-right:solid 1px #000000;height:30px;"><span style="float:left;padding-left:10px;">Physical Street Address (No PO Box)
+</span>
+
+</td>
+<td width="31%" valign="top" align="left" style="border-right:solid 1px #000000;height:30px;"><span style="float:left;padding-left:10px;">City</span> 
+</td>
+<td width="14%" valign="top" style="height:30px;"><span style="float:left;padding-left:10px;">State</span></td>
+<td width="15%" valign="top" style="border-left:solid 1px #000000;height:30px;"><span style="float:left;padding-left:10px;">Zip Code</span></td>
+</tr>
+</table>
+</td></tr>
+
+<tr style="height:20px;"><td colspan="2" style="background-color:#ffffff;" valign="top">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="33%" valign="top"  style="border-right:solid 1px #000000;height:30px;"><span style="float:left;padding-left:10px;">Telephone:</span> 
+
+</td>
+<td width="33%" valign="top" align="left" style="border-right:solid 1px #000000;height:30px;"><span style="float:left;padding-left:10px;">Facsimile
+</span> 
+
+</td>
+<td width="33%" valign="top" style="height:30px;"><span style="float:left;padding-left:10px;">Federal Tax ID
+ 
+</span> 
+</td>
+</tr>
+</table>
+</td></tr>
+
+<tr style="height:20px;"><td colspan="2" style="background-color:#ffffff;" valign="top">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="33%" valign="top"  style="border-right:solid 1px #000000;height:30px;">
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr><td width="50%">
+<span style="float:left;padding-left:10px;">Business Start Date</span> 
+</td><td width="50%">
+<span style="float:left;padding-left:10px;">Current Ownership YRS 
+</span> 
+</td></tr></table>
+</td>
+<td width="33%" valign="top" align="left" style="border-right:solid 1px #000000;height:30px;">
+<span style="float:left;padding-left:10px;">Business Website Address 
+
+</span> 
+
+</td>
+<td width="33%" valign="top" style="height:30px;">
+<span style="float:left;padding-left:10px;">Nature of Business</span> 
+</td>
+</tr>
+</table>
+</td></tr>
+
+<tr style="height:20px;"><td colspan="2" style="background-color:#ffffff;" valign="top">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="45%" valign="top"  style="border-right:solid 1px #000000;height:30px;"><span style="float:left;padding-left:10px;">Equipment Location (If different from Physical Address) 
+
+</span>
+
+</td>
+<td width="25%" valign="top" align="left" style="border-right:solid 1px #000000;height:30px;"><span style="float:left;padding-left:10px;">City</span> 
+</td>
+<td width="15%" valign="top" style="border-right:solid 1px #000000;height:30px;"><span style="float:left;padding-left:10px;">State</span></td>
+<td width="15%" valign="top" style="height:30px;"><span style="float:left;padding-left:10px;">Zip Code</span></td>
+</tr>
+</table>
+</td></tr>
+
+<tr><td colspan="2" style="background-color:#000000;height:5px;"></td></tr>
+</table>
+
+</td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+
+  <!-- End Default Content REMOVE THIS -->
+       
+ 
+ 
+ 
+ 
+ 
+  <!-- Begin Default Content REMOVE THIS -->
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr><td colspan="2" style="background-color:#ffffff;height:15px;"></td></tr>
+<tr><td colspan="2">
+<table border="0" cellspacing="1" cellpadding="0" width="100%" style="background-color:#000000;">
+<tr><td colspan="2" style="background-color:#000000;height:5px;"></td></tr>
+<tr style="height:20px;">
+<td colspan="2" style="background-color:#ffffff;" valign="top">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="50%" valign="top"  style="border-right:solid 1px #000000;height:30px;text-align:left;">
+<span style="float:left;padding-left:10px;">Bank Name</span> 
+</td>
+<td width="50%" valign="top" align="left" style="border-right:solid 1px #000000;height:30px;">
+<span style="float:left;padding-left:10px;">Bank Contact</span>
+</td>
+</tr>
+</table>
+</td></tr>
+
+<tr style="height:20px;">
+<td colspan="2" style="background-color:#ffffff;" valign="top">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="50%" valign="top"  style="border-right:solid 1px #000000;height:30px;text-align:left;">
+<span style="float:left;padding-left:10px;">Account Number</span> 
+</td>
+<td width="50%" valign="top" align="left" style="border-right:solid 1px #000000;height:30px;">
+<span style="float:left;padding-left:10px;">Bank Phone</span>
+</td>
+</tr>
+</table>
+</td></tr>
+
+<tr><td colspan="2" style="background-color:#000000;height:5px;"></td></tr>
+
+
+</table>
+
+</td></tr>
+</table>
+
+ <!-- Begin Default Content REMOVE THIS -->
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr><td colspan="2" style="background-color:#ffffff;height:15px;"></td></tr>
+<tr><td colspan="2">
+<table border="0" cellspacing="1" cellpadding="0" width="100%" style="background-color:#000000;">
+<tr><td colspan="2" style="background-color:#000000;height:5px;"></td></tr>
+<tr style="height:20px;">
+<td colspan="2" style="background-color:#ffffff;" valign="top">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="50%" valign="top"  style="border-right:solid 1px #000000;height:30px;text-align:left;">
+<span style="float:left;padding-left:10px;">Owner#1 Name 
+</span> 
+</td>
+<td width="50%" valign="top" align="left" style="border-right:solid 1px #000000;height:30px;">
+<span style="float:left;padding-left:10px;">Owner#2 Name
+</span>
+</td>
+</tr>
+</table>
+</td></tr>
+
+<tr style="height:20px;">
+<td colspan="2" style="background-color:#ffffff;" valign="top">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="50%" valign="top"  style="border-right:solid 1px #000000;height:30px;text-align:left;">
+<span style="float:left;padding-left:10px;">Title</span> 
+</td>
+<td width="50%" valign="top" align="left" style="border-right:solid 1px #000000;height:30px;">
+<span style="float:left;padding-left:10px;">Title</span>
+</td>
+</tr>
+</table>
+</td></tr>
+
+
+<tr style="height:20px;">
+<td colspan="2" style="background-color:#ffffff;" valign="top">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="50%" valign="top"  style="border-right:solid 1px #000000;height:30px;text-align:left;">
+<span style="float:left;padding-left:10px;">Home Address</span> 
+</td>
+<td width="50%" valign="top" align="left" style="border-right:solid 1px #000000;height:30px;">
+<span style="float:left;padding-left:10px;">Home Address</span>
+</td>
+</tr>
+</table>
+</td></tr>
+
+
+
+<tr style="height:20px;">
+<td colspan="2" style="background-color:#ffffff;" valign="top">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="50%" valign="top"  style="border-right:solid 1px #000000;height:30px;text-align:left;">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr><td width="50%" ><span style="float:left;padding-left:10px;">City</span> </td>
+<td width="25%"  style="border-left:solid 1px #000000;height:30px;"><span style="float:left;padding-left:10px;">State</span> </td>
+<td width="25%" style="border-left:solid 1px #000000;height:30px;"><span style="float:left;padding-left:10px;">Zipcode</span> </td></tr>
+</table>
+</td>
+<td width="50%" valign="top" align="left" style="border-right:solid 1px #000000;height:30px;">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr><td width="50%"><span style="float:left;padding-left:10px;">City</span> </td>
+<td width="25%"  style="border-left:solid 1px #000000;height:30px;"><span style="float:left;padding-left:10px;">State</span> </td>
+<td width="25%"  style="border-left:solid 1px #000000;height:30px;"><span style="float:left;padding-left:10px;">Zipcode</span> </td></tr>
+</table>
+</td>
+</tr>
+</table>
+</td></tr>
+
+
+
+
+<tr style="height:20px;">
+<td colspan="2" style="background-color:#ffffff;" valign="top">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="50%" valign="top"  style="border-right:solid 1px #000000;height:30px;text-align:left;">
+<span style="float:left;padding-left:10px;">Home Phone</span> 
+</td>
+<td width="50%" valign="top" align="left" style="border-right:solid 1px #000000;height:30px;">
+<span style="float:left;padding-left:10px;">Home Phone</span>
+</td>
+</tr>
+</table>
+</td></tr>
+
+<tr style="height:20px;">
+<td colspan="2" style="background-color:#ffffff;" valign="top">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="50%" valign="top"  style="border-right:solid 1px #000000;height:30px;text-align:left;">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr><td width="50%"><span style="float:left;padding-left:10px;">Social Security Number
+</span> </td>
+<td width="50%"  style="border-left:solid 1px #000000;height:30px;"><span style="float:left;padding-left:10px;">Percent Ownership %
+</span> </td>
+</tr>
+</table>
+</td>
+<td width="50%" valign="top" align="left" style="border-right:solid 1px #000000;height:30px;">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr><td width="50%"><span style="float:left;padding-left:10px;">Social Security Number
+</span> </td>
+<td width="50%"  style="border-left:solid 1px #000000;height:30px;"><span style="float:left;padding-left:10px;">Percent Ownership %
+</span> </td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td></tr>
+
+<tr style="height:20px;">
+<td colspan="2" style="background-color:#ffffff;" valign="top">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="50%" valign="top"  style="border-right:solid 1px #000000;height:30px;text-align:left;">
+<span style="float:left;padding-left:10px;">Email Address</span> 
+</td>
+<td width="50%" valign="top" align="left" style="border-right:solid 1px #000000;height:30px;">
+<span style="float:left;padding-left:10px;">Email Address</span>
+</td>
+</tr>
+</table>
+</td></tr>
+
+<tr><td colspan="2" style="background-color:#000000;height:5px;"></td></tr>
+
+
+</table>
+
+</td></tr>
+</table>
+
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr><td colspan="2" style="background-color:#ffffff;height:15px;"></td></tr>
+<tr><td colspan="2">
+<table border="0" cellspacing="1" cellpadding="0" width="100%" style="background-color:#000000;">
+<tr><td colspan="2" style="background-color:#000000;height:5px;"></td></tr>
+
+<tr style="height:20px;">
+<td colspan="2" style="background-color:#ffffff;" valign="top">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="50%" valign="top"  style="border-right:solid 1px #000000;height:30px;text-align:left;">
+<span style="float:left;padding-left:10px;width:100%;">Have you selected equipment?</span> 
+<span style="float:left;padding-left:150px;">YES</span> <span style="float:left;padding-left:30px;">NO</span> 
+
+</td>
+<td width="50%" valign="top" align="left" style="border-right:solid 1px #000000;height:30px;">
+<span style="float:left;padding-left:10px;">Type of Equipment</span>
+</td>
+</tr>
+</table>
+</td></tr>
+
+
+<tr style="height:20px;">
+<td colspan="2" style="background-color:#ffffff;" valign="top">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="50%" valign="top"  style="border-right:solid 1px #000000;height:30px;text-align:left;">
+<span style="float:left;padding-left:10px;width:100%;">I plan to purchase equipment in:</span> 
+
+<span style="float:left;padding-left:100px;">30 days</span> <span style="float:left;padding-left:30px;">60-90 days</span> <span style="float:left;padding-left:30px;">90+ days</span> 
+</td>
+<td width="50%" valign="top" align="left" style="border-right:solid 1px #000000;height:30px;">
+<span style="float:left;padding-left:10px;">Estimated Cost
+</span>
+</td>
+</tr>
+</table>
+</td></tr>
+
+<tr style="height:20px;">
+<td colspan="2" style="background-color:#ffffff;" valign="top">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="50%" valign="top"  style="border-right:solid 1px #000000;height:30px;text-align:left;">
+<span style="float:left;padding-left:10px;">Vendor Name
+</span> 
+</td>
+<td width="50%" valign="top" align="left" style="border-right:solid 1px #000000;height:30px;">
+<span style="float:left;padding-left:10px;">Vendor Phone
+
+</span>
+</td>
+</tr>
+</table>
+</td></tr>
+<tr><td colspan="2" style="background-color:#000000;height:5px;"></td></tr>
+
+
+</table>
+
+</td></tr>
+</table>
+
+
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr><td colspan="2" style="background-color:#ffffff;text-align:left;">
+<hr style="height:5px;width:100%;background-color:#dcdcdc;color:#dcdcdc;" />
+<p style="width:100%;float:left;text-align:left;"><b>Declaration:
+:</b><br/>I hereby certify: (i) the information provided above is true and correct, (ii) you are hereby authorized to investigate all bank, credit, and trade references, and said references are
+hereby authorized to release any requested information to you or your nominee, (iii) such authorization shall extend to obtaining personal credit profile in considering this
+application and subsequently for the purposes of update, renewal or extension of such credit or additional credit and for reviewing or collecting the resulting account, (iv) this
+information may be transmitted by us to you and by you to underwriter(s) for the purpose of granting me credit, either electronically or manually, and that by submitting this
+application, I take full responsibility for transmission thereof, (v) I am over 18 years of age, (vi) I acknowledge my rights under the Fair Credit Reporting Act, (vii) I consent to
+receive faxes and e-mails sent by Five Point Capital and its affiliates for the purposes of transmitting account updates, requests for information and notices, and (viii) this
+request is for business and not for consumer purposes.<br/></p>
+</td></tr>
+<tr><td width="50%"><b>Owner/Officer<br/> Signature 
+:   ________________________________</b><br/><br/>
+<b>Title
+
+:   ________________________________</b>   <br/>   <b>Date:  ________________________________</b>
+
+</td>
+<td width="50%"><b>Owner/Officer <br/>Signature 
+:   ________________________________</b><br/><br/>
+<b>Title
+
+:   ________________________________</b>  <br/>    <b>Date:  ________________________________</b>
+
+</td></tr>
+</table>
+
+  <!-- End Default Content REMOVE THIS -->
+  
+  
+ 
+  
+  
+</body>
+</apex:page>

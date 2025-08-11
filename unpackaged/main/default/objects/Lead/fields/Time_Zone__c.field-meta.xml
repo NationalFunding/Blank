@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Time_Zone__c</fullName>
+    <description>The time zone this lead is in.</description>
+    <inlineHelpText>The time zone this lead is in.</inlineHelpText>
+    <label>Time Zone</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>01 Eastern</fullName>
+                <default>false</default>
+                <label>01 Eastern</label>
+            </value>
+            <value>
+                <fullName>02 Indiana</fullName>
+                <default>false</default>
+                <label>02 Indiana</label>
+            </value>
+            <value>
+                <fullName>03 Central</fullName>
+                <default>false</default>
+                <label>03 Central</label>
+            </value>
+            <value>
+                <fullName>04 Mountain</fullName>
+                <default>false</default>
+                <label>04 Mountain</label>
+            </value>
+            <value>
+                <fullName>05 Arizona</fullName>
+                <default>false</default>
+                <label>05 Arizona</label>
+            </value>
+            <value>
+                <fullName>06 Pacific</fullName>
+                <default>false</default>
+                <label>06 Pacific</label>
+            </value>
+            <value>
+                <fullName>07 Alaska</fullName>
+                <default>false</default>
+                <label>07 Alaska</label>
+            </value>
+            <value>
+                <fullName>08 Hawaii</fullName>
+                <default>false</default>
+                <label>08 Hawaii</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

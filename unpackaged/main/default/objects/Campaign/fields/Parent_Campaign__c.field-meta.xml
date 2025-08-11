@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Parent_Campaign__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field will determine for reporting/sorting purposes if a campaign is a parent campaign.</description>
+    <inlineHelpText>Check the box if this is the campaign is a parent campaign.</inlineHelpText>
+    <label>Is Parent Campaign</label>
+    <type>Checkbox</type>
+</CustomField>

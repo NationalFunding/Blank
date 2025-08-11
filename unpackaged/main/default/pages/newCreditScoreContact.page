@@ -1,0 +1,150 @@
+<apex:page standardController="Account" extensions="newCreditScoreExtensionContact" action="{!checkResubmit}">
+<script>
+function checkAll(cb) {
+    var inputElem = document.getElementsByTagName("input");
+    for(var i=0; i<inputElem.length; i++) {
+        if(inputElem[i].className.indexOf("checkMe")!=-1)
+            inputElem[i].checked = cb;
+       }
+}
+
+function lockAddress(value) {
+    var inputElem = document.getElementsByTagName("input");
+    for(var i=0; i<inputElem.length; i++) {
+        if(inputElem[i].className.indexOf("addressField")!=-1)
+            inputElem[i].disabled = value;
+       }
+
+    var inputElem = document.getElementsByTagName("select");
+    for(var i=0; i<inputElem.length; i++) {
+        if(inputElem[i].className.indexOf("addressField")!=-1)
+            inputElem[i].disabled = value;
+       }
+}
+
+function fillInAddresses() {
+    var inputElem = document.getElementsByTagName("input");
+    for(var i=0; i<inputElem.length; i++) {
+        if(inputElem[i].className.indexOf("addressField")!= -1)
+            inputElem[i].value = 'Error';
+       }
+
+    var inputElem = document.getElementsByTagName("select");
+    for(var i=0; i<inputElem.length; i++) {
+        if(inputElem[i].className.indexOf("addressField")!= -1)
+            inputElem[i].value = 'AL';
+       }
+}
+</script>
+  <apex:sectionHeader title="Lead Details" subtitle="Credit Management" />
+  <p><a href="/{!account}">Back to Account</a></p>
+  <style>.labelCol { vertical-align: middle!important }</style>
+  <apex:pageMessages />
+  <apex:form rendered="{!showContacts}">
+      <apex:pageBlock title="Choose from Existing Contacts">
+          <apex:pageblockSection >
+              <apex:selectRadio value="{!selectedContactId}" layout="pageDirection">
+                  <apex:selectOptions value="{!contactList}" />
+              </apex:selectRadio>
+          </apex:pageblockSection>
+          <apex:pageBlockButtons location="bottom">
+              <apex:commandButton action="{!updateContact}" value="Select This Contact/Option" />
+          </apex:pageBlockButtons>
+      </apex:pageBlock>
+   </apex:form>
+     <apex:form rendered="{!showContacts == false}">
+      <apex:pageBlock title="Add New Contact" rendered="{!selectedContactId == 'Create'}">
+          <apex:pageBlockButtons location="top">
+              <apex:commandLink action="{!backToContacts}" value="<< Choose Another Contact" immediate="true" />
+          </apex:pageBlockButtons>
+          <apex:pageBlockButtons location="bottom" >
+              <apex:commandButton value="Add Person" action="{!addPerson}" />
+          </apex:pageBlockButtons>
+          <apex:pageBlockSection columns="2" dir="vertical">
+              <apex:inputField value="{!cs.First_Name__c}" required="true" taborderhint="1" />
+              <apex:inputField value="{!cs.DOB__c}" taborderhint="8" />
+              <apex:inputField value="{!cs.Last_Name__c}" required="true" taborderhint="2" />
+              <apex:inputField value="{!cs.Home_Phone__c}" taborderhint="9" />
+              <apex:inputField value="{!cs.SSN__c}" required="true" taborderhint="3" />
+              <apex:inputField value="{!cs.Address_Number__c}" taborderhint="10" required="true" styleClass="addressField" />
+              <apex:inputField value="{!cs.Mobile_Phone__c}" taborderhint="4" />
+              <apex:inputField value="{!cs.Address_Street__c}" taborderhint="11" required="true" styleClass="addressField" />
+              <apex:inputField value="{!cs.Email__c}" taborderhint="5" />
+              <apex:inputField value="{!cs.City__c}" taborderhint="12" required="true" styleClass="addressField" />
+              <apex:inputField value="{!cs.Title__c}" taborderhint="6" />
+              <apex:inputField value="{!cs.State__c}" taborderhint="13" required="true" styleClass="addressField" />
+              <apex:inputField value="{!cs.Ownership_Percentage__c}" taborderhint="7" />
+              <apex:inputField value="{!cs.Zip_Postal_Code__c}" required="true" styleClass="addressField" taborderhint="14" />
+              <apex:pageBlockSectionItem rendered="{!showAddressCheck}"></apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!showAddressCheck}">
+                  <apex:outputLabel value="" />
+                  <apex:commandLink value="Use Business Address" onclick="fillInAddresses()" rendered="{!showAddressCheck}" action="{!copyBizAddress}" />
+              </apex:pageBlockSectionItem>
+          </apex:pageblockSection>
+      </apex:pageBlock>
+      <apex:pageBlock title="Modify Contact" rendered="{!selectedContactId != 'Create'}">
+          <apex:pageBlockButtons location="top">
+              <apex:commandLink action="{!backToContacts}" value="<< Choose Another Contact" immediate="true" />
+          </apex:pageBlockButtons>
+          <apex:pageBlockButtons location="bottom" >
+              <apex:commandButton value="Update Contact and Create Credit Request" action="{!addPerson}" />
+          </apex:pageBlockButtons>
+          <apex:pageBlockSection columns="2" dir="vertical">
+              <apex:inputField value="{!cs.First_Name__c}" required="true" taborderhint="1" />
+              <apex:inputField value="{!cs.DOB__c}" taborderhint="8" />
+              <apex:inputField value="{!cs.Last_Name__c}" required="true" taborderhint="2" />
+              <apex:inputField value="{!cs.Home_Phone__c}" taborderhint="9" />
+              <apex:inputField value="{!cs.SSN__c}" required="true" taborderhint="3" />
+              <apex:inputField value="{!cs.Address_Number__c}" taborderhint="10" required="true" styleClass="addressField" />
+              <apex:inputField value="{!cs.Mobile_Phone__c}" taborderhint="4" />
+              <apex:inputField value="{!cs.Address_Street__c}" taborderhint="11" required="true" styleClass="addressField" />
+              <apex:inputField value="{!cs.Email__c}" taborderhint="5" />
+              <apex:inputField value="{!cs.City__c}" taborderhint="12" styleClass="addressField" required="true" />
+              <apex:inputField value="{!cs.Title__c}" taborderhint="6" />
+              <apex:inputField value="{!cs.State__c}" taborderhint="13" styleClass="addressField" required="true" />
+              <apex:inputField value="{!cs.Ownership_Percentage__c}" taborderhint="7" />
+              <apex:inputField value="{!cs.Zip_Postal_Code__c}" taborderhint="14" required="true" styleClass="addressField" />
+              <apex:pageBlockSectionItem rendered="{!showAddressCheck}"></apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!showAddressCheck}">
+                  <apex:outputLabel value="" />
+                  <apex:commandLink value="Use Business Address" onclick="fillInAddresses()" rendered="{!showAddressCheck}" action="{!copyBizAddress}" />
+              </apex:pageBlockSectionItem>
+          </apex:pageblockSection>
+      </apex:pageBlock>
+  </apex:form>
+  <apex:form id="theForm" rendered="{!showContacts}">
+       <apex:actionPoller action="{!updateScores}" rerender="opSubmitted, opReceived" interval="5" status="RefreshStatus" rendered="{!isProcessingRecords}"/>
+       <apex:pageBlock title="Pending Requests" id="opSubmitted">
+          <apex:pageBlockButtons location="bottom"><apex:commandButton value="Run Credit Check(s)" action="{!submitRequests}" /> <apex:commandButton value="Remove Selected Request" action="{!deleteRequests}" />&nbsp;&nbsp;<apex:actionStatus id="RefreshStatus" startText=" WARNING: Checking for updated requests..."></apex:actionStatus> </apex:pageblockButtons>
+          <apex:pageBlockTable value="{!creditScoreWrappers}" var="wrapper">
+             <apex:column width="24" style="text-align: center">
+                 <apex:facet name="header"><apex:inputCheckbox onchange="checkAll(this.checked)" /></apex:facet>
+                 <apex:inputCheckbox styleclass="checkMe" value="{!wrapper.isSelected}" rendered="{!wrapper.isSubmitted == false}" />
+                 <apex:image value="{!$Resource.CreditCheckLoaderIcon}" rendered="{!wrapper.isSubmitted}" />
+             </apex:column>
+             <apex:column value="{!wrapper.score.Full_Name__c}"/>
+             <apex:column value="{!wrapper.score.SSN__c}"/>
+             <apex:column value="{!wrapper.score.Request_ID__c}"/>
+          </apex:pageBlockTable>
+      </apex:pageBlock>
+      <apex:outputPanel id="opReceived">
+          <apex:pageBlock id="pbReceived" title="Received Requests" rendered="{!HasReceivedScores}">
+              <apex:pageBlockTable value="{!receivedScores}" var="score">
+                 <apex:column value="{!score.Full_Name__c}"/>
+                 <apex:column value="{!score.Title__c}"/>
+                 <apex:column value="{!score.Mobile_Phone__c}" width="130" style="text-align: right" />
+                 <apex:column value="{!score.Email__c}" width="130" style="text-align: right" />
+                 <apex:column value="{!score.Ownership_Percentage__c}" width="130" style="text-align: right" />
+                 <apex:column value="{!score.FICO_Score__c}" width="65" style="text-align: right;"/>
+                 <apex:column width="220" style="text-align: center; padding-right: 5px">
+                     <apex:facet name="header"></apex:facet>
+                     <a href="{!score.Latest_Report_URL__c}" target="_blank">View Detailed Report</a> &nbsp;&nbsp;
+                     <!--<apex:outputLink value="/{!score.id}">Edit Record</apex:outputLink> &nbsp;&nbsp;-->
+                     <apex:outputLink value="/apex/resubmitCreditScore?account={!account}&id={!score.id}">Resubmit</apex:outputLink>
+                 </apex:column>
+              </apex:pageBlockTable>
+          </apex:pageBlock>
+      </apex:outputPanel>
+  </apex:form>
+  <div style="margin: 10px; background-color: #eee; padding: 10px; display: none"><strong>Debug:</strong> For Lead {!lead}</div>
+</apex:page>

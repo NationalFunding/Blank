@@ -1,0 +1,7 @@
+Hello, 
+
+Insurance information has been provided for {!Opportunity.Name}, please request a certificate of insurance. 
+
+{!Opportunity.Link} 
+
+Thanks

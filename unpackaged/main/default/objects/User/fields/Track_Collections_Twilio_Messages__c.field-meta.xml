@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Track_Collections_Twilio_Messages__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Checkbox for Collections View All VF page to get twilio messages to/from this user.</description>
+    <inlineHelpText>Check to include user's Twilio messages in Collections View All VF page</inlineHelpText>
+    <label>Track Collections Twilio Messages</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Checkbox</type>
+</CustomField>

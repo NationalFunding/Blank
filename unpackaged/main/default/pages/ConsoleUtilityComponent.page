@@ -1,0 +1,49 @@
+<apex:page controller="CardSearchController1_v2" id="test" standardStylesheets="false" showHeader="false">
+    <apex:includeScript value="/support/console/37.0/integration.js"/>
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" />
+    <apex:includeScript value="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"/>
+    <apex:stylesheet value="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    
+
+    
+    <script type="text/javascript">
+    function openfive9() {
+        console.log('opening five 9:: Missed Call Reports');
+        sforce.console.openPrimaryTab(undefined,
+                                      '/apex/Five9_MissedCallViewer', true, 'Missed Calls');
+    };
+    function createLead() {
+        console.log('opening Lead Page:: /apex/New_Lead_Flow?retURL=%2F00Q%2Fo');
+        sforce.console.openPrimaryTab(undefined,
+                                      '/apex/New_Lead_Flow?retURL=%2F00Q%2Fo', true, 'Create Lead');
+    };
+    function getDashboard() {
+        console.log('opening Dashboard:: /01Z80000000nzR9');
+        sforce.console.openPrimaryTab(undefined,
+                                      '/01Z80000000nzR9', true, 'Rep Dashboard');
+    };
+    function callOutAgentList() {
+        console.log('opening callOutAgentList');
+        sforce.console.openPrimaryTab(undefined,
+                                      '/apex/WSController_HTML', true, 'Rep Mailer Priority');
+    };
+
+    function closeWin() {
+        sforce.console.setCustomConsoleComponentVisible(false);
+    }
+    
+    </script>
+
+    <apex:form id="utilityconsole">
+    <!--c:Five9CampaignSwitch /-->
+            <div class="jumbotron">
+
+            <ul>
+            <apex:commandButton styleclass="btn btn-lg btn-primary" style="margin-bottom: 5px; width=300px;"  onclick="closeWin(); openfive9(); return false" value="Go To Missed Call Report"/>
+            <apex:commandButton styleclass="btn btn-lg btn-success" style="margin-bottom: 5px; width=300px;" value="Create Lead" onclick="closeWin(); createLead(); return false;"/>
+            <apex:commandButton styleclass="btn btn-lg btn-warning" style="margin-bottom: 5px; width=300px;" value="View Dashboard" onclick="closeWin(); getDashboard(); return false;"/>
+            <apex:commandButton styleclass="btn btn-lg btn-danger" id="banana" style="margin-bottom: 5px; width=300px;" value="Rep Mailer Priority" onclick="closeWin(); callOutAgentList(); return false"/>
+                </ul>
+                </div>
+    </apex:form>
+</apex:page>

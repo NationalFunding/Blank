@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Do_Not_Mail__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Check this box if the lead desires no further communication via mail.</description>
+    <inlineHelpText>Check this box if the lead desires no further communication via mail.</inlineHelpText>
+    <label>Do Not Mail</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

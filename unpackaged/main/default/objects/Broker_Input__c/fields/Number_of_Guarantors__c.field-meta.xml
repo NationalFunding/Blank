@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Number_of_Guarantors__c</fullName>
+    <label>Number of Guarantors</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>One Guarantor</fullName>
+                <default>false</default>
+                <label>One Guarantor</label>
+            </value>
+            <value>
+                <fullName>Two Guarantors</fullName>
+                <default>false</default>
+                <label>Two Guarantors</label>
+            </value>
+            <value>
+                <fullName>Three Guarantors</fullName>
+                <default>false</default>
+                <label>Three Guarantors</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

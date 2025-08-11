@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Scored_Retro__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field will be marked true only for the set of WC Decision records that were scored retroactively to have a full data set for the year of 2015.  Please do not use this field for any other purpose.  It will only be updated one time to identify the retro scored records.  This field will be read only for all users.</description>
+    <inlineHelpText>This field will be marked true only for the set of WC Decision records that were scored retroactively to have a full data set for the year of 2015.  Please do not use this field for any other purpose.</inlineHelpText>
+    <label>Scored Retro</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

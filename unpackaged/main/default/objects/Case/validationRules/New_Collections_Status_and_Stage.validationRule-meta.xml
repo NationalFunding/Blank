@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Collections_Status_and_Stage</fullName>
+    <active>false</active>
+    <description>Use Case_bypass_New_Collections_Status_Rule Permission Set to add Users who bypass rule
+//Deactivated 1/23/23 - AB</description>
+    <errorConditionFormula>AND(
+OR(
+ISBLANK(New_Sum_Note__c), 
+ISBLANK(TEXT(New_Collections_Stage__c)),
+ISBLANK(TEXT(New_Collections_Status__c))
+),
+OR(
+RecordType.DeveloperName = 'ACH_Bounce',
+RecordType.DeveloperName = 'Portfolio_Management'
+),
+ISCHANGED(Status),
+NOT(
+AND(
+RecordType.DeveloperName = 'ACH_Bounce',
+ISPICKVAL(Status,'On Hold') 
+)),
+NOT(
+OR(
+$Permission.Case_bypass_New_Collections_Status_Rule  = TRUE,
+$User.UserRoleId='00E80000001jt0B'
+))
+)</errorConditionFormula>
+    <errorMessage>New Collections Status, Stage and Sum Note must be entered.</errorMessage>
+</ValidationRule>

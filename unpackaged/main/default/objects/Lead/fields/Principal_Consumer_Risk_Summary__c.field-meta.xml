@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Principal_Consumer_Risk_Summary__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>The most influential Consumer Risk Summary that should be used for lead prioritization.</description>
+    <label>Principal Consumer Risk Summary</label>
+    <referenceTo>Consumer_Risk_Summary__c</referenceTo>
+    <relationshipLabel>Leads</relationshipLabel>
+    <relationshipName>Leads</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

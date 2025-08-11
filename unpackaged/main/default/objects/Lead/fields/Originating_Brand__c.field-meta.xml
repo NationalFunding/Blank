@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Originating_Brand__c</fullName>
+    <description>Introduced as part of the Quick Bridge to National Funding migration project to capture which brand the response originally came from. Inserted by LeadGen.</description>
+    <inlineHelpText>Displays which brand this lead was originally sourced from</inlineHelpText>
+    <label>Originating Brand</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Originating_Brand</valueSetName>
+    </valueSet>
+</CustomField>

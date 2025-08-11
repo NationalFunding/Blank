@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Regular_Payment__c</fullName>
+    <description>Regular Payment</description>
+    <inlineHelpText>Type in the regular payment amount.</inlineHelpText>
+    <label>Regular Payment</label>
+    <precision>17</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LANDLORD_CONTACT_NAME__c</fullName>
+    <description>Contact name at the customer's landlord</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Type in the name of the customer's contact with their landlord.</inlineHelpText>
+    <label>LANDLORD_CONTACT_NAME</label>
+    <length>64</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

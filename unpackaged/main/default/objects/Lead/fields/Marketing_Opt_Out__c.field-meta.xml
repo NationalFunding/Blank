@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Marketing_Opt_Out__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field is updated via sync from Marketing Cloud</description>
+    <inlineHelpText>Updated via Marketing Cloud Integration</inlineHelpText>
+    <label>NF Marketing Opt-Out</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

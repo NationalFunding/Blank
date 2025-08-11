@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Maturity_Default_Fee_Amount__c</fullName>
+    <inlineHelpText>If null, the global ‘Maturity Default Fee Amount’ in National Funding Settings (Custom Settings) will be used</inlineHelpText>
+    <label>Maturity Default Fee Amount</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+</CustomField>

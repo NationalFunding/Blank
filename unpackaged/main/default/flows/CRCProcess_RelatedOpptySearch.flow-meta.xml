@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apexPluginCalls>
+        <name>varCreditReviewId</name>
+        <label>varCreditReviewId</label>
+        <locationX>277</locationX>
+        <locationY>39</locationY>
+        <apexClass>FlowToWebservice_Class</apexClass>
+        <inputParameters>
+            <name>varCRCId</name>
+            <value>
+                <elementReference>varCRCId</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>varCRId</name>
+            <value>
+                <elementReference>varCRId</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>varManualStart</name>
+            <value>
+                <elementReference>varManualStart</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>varProcessName</name>
+            <value>
+                <elementReference>varProcessStep</elementReference>
+            </value>
+        </inputParameters>
+        <outputParameters>
+            <assignToReference>varROSresult</assignToReference>
+            <name>varResult</name>
+        </outputParameters>
+        <outputParameters>
+            <assignToReference>varROSId</assignToReference>
+            <name>varROSID</name>
+        </outputParameters>
+        <outputParameters>
+            <assignToReference>varErrorCode</assignToReference>
+            <name>varErrorCode</name>
+        </outputParameters>
+        <outputParameters>
+            <assignToReference>varDeclineReason</assignToReference>
+            <name>varDeclineReason</name>
+        </outputParameters>
+    </apexPluginCalls>
+    <apiVersion>49.0</apiVersion>
+    <constants>
+        <name>RelatedOpportunitySearchInput</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Related Opportunity Search - Input</stringValue>
+        </value>
+    </constants>
+    <interviewLabel>CRCProcess.RelatedOpptySearch {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>CRCProcess.RelatedOpptySearch Manual Start</label>
+    <processType>AutoLaunchedFlow</processType>
+    <startElementReference>varCreditReviewId</startElementReference>
+    <status>Active</status>
+    <textTemplates>
+        <name>BodyTemplate</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>Credit Review ID: {!varCRId}
+
+Manual Start? {!varManualStart}
+
+Process Name: {!varProcessStep} 
+
+CRC ID:  {!varCRCId}</text>
+    </textTemplates>
+    <variables>
+        <name>varCRCId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>varCRId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>varDeclineReason</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>varErrorCode</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>varManualStart</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>varProcessStep</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>varROSId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>varROSresult</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

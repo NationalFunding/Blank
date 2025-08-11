@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank</letterhead>
+    <name>Material MOD - Avoid Litigation - QB</name>
+    <style>freeForm</style>
+    <subject>{!Case.Merchant_Number__c} - {!Account.Legal_Name__c}</subject>
+    <textOnly>I am an attorney with National Funding.  I was reviewing your loan since you have had trouble making your payments.  In light of the COVID-19 pandemic, we have additional payment options that we can offer to get you back on track and avoid litigation.  Please email or call me as soon as possible to discuss.
+
+
+Thank you,
+
+{!User.Name} | {!User.Title}
+
+National Funding, Inc., the parent and servicing company of
+
+Quick Bridge Funding, LLC
+9820 Towne Centre Drive
+San Diego, CA 92121
+P: {!User.Phone} | F: {!User.Fax}
+E: {!User.Email}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

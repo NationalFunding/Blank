@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WC_ACH_Payments_Sum__c</fullName>
+    <description>This field will sum the amount of the ACH payments.  We can use this field to determine if the funding amount is equal to the payment amounts.</description>
+    <inlineHelpText>This field will sum the amount of the ACH payments.  We can use this field to determine if the funding amount is equal to the payment amounts.</inlineHelpText>
+    <label>WC ACH Payments Sum</label>
+    <summarizedField>ACH_Payment__c.Amount__c</summarizedField>
+    <summaryFilterItems>
+        <field>ACH_Payment__c.Lease_or_Loan__c</field>
+        <operation>equals</operation>
+        <value>Working Capital</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>ACH_Payment__c.Receiving_Company_Name__c</field>
+        <operation>notEqual</operation>
+        <value>BofI Federal</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>ACH_Payment__c.Lease_or_Loan__c</field>
+        <operation>equals</operation>
+        <value></value>
+    </summaryFilterItems>
+    <summaryForeignKey>ACH_Payment__c.Opportunity__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

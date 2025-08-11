@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Decline_Email_Status__c</fullName>
+    <description>Indicates the status of the Reg B or Notice of Incomplete Application email. 'Not Applicable' will be used if the Consumer Risk Summary is deemed not to require a decline email.</description>
+    <label>Decline Email Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Model_Status__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Not Started</fullName>
+                <default>true</default>
+                <label>Not Started</label>
+            </value>
+            <value>
+                <fullName>Pending</fullName>
+                <default>false</default>
+                <label>Pending</label>
+            </value>
+            <value>
+                <fullName>Sent</fullName>
+                <default>false</default>
+                <label>Sent</label>
+            </value>
+            <value>
+                <fullName>Not Applicable</fullName>
+                <default>false</default>
+                <label>Not Applicable</label>
+            </value>
+            <value>
+                <fullName>Error</fullName>
+                <default>false</default>
+                <label>Error</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Not Started</controllingFieldValue>
+            <controllingFieldValue>Processing</controllingFieldValue>
+            <controllingFieldValue>Success</controllingFieldValue>
+            <controllingFieldValue>Error</controllingFieldValue>
+            <controllingFieldValue>Expired</controllingFieldValue>
+            <valueName>Not Started</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Success</controllingFieldValue>
+            <controllingFieldValue>Expired</controllingFieldValue>
+            <valueName>Pending</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Success</controllingFieldValue>
+            <controllingFieldValue>Expired</controllingFieldValue>
+            <valueName>Sent</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Success</controllingFieldValue>
+            <controllingFieldValue>Expired</controllingFieldValue>
+            <valueName>Not Applicable</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Success</controllingFieldValue>
+            <controllingFieldValue>Expired</controllingFieldValue>
+            <valueName>Error</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

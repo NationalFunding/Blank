@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CURRENT_BALANCE__c</fullName>
+    <description>Current balance with the customer's lease / loan reference.</description>
+    <inlineHelpText>Type in the customer's current balance with their lease / loan reference.</inlineHelpText>
+    <label>CURRENT_BALANCE</label>
+    <precision>17</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

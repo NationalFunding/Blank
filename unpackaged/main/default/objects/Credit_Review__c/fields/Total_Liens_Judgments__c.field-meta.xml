@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Liens_Judgments__c</fullName>
+    <formula>IF(ISPICKVAL(Credit_Review_Version__c, 'Version 2'), (Open_Public_Records_Balance__c + PG_1_Open_Public_Record_Balance__c + PG_2_Open_Public_Record_Balance__c + PG_3_Open_Public_Record_Balance__c), (Open_Judgments_Amount__c + Open_Liens_Amount__c + 
+PG_1_Judgement_Amount__c + PG_1_Open_Tax_Lien_Amount__c + PG_2_Open_Tax_Lien_Amount__c + 
+PG_2_Judgement_Amount__c + PG_3_Open_Tax_Lien_Amount__c + PG_3_Judgement_Amount__c))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Total Liens &amp; Judgments</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

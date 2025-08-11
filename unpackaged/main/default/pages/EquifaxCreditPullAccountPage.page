@@ -1,0 +1,85 @@
+<!--- Created by oporter on 5/29/2018. -->
+<apex:page id="EquifaxCreditPullAccountPage" standardController="Account" extensions="EquifaxCreditPullController">
+    <head>
+        <apex:stylesheet value="{!URLFOR($Resource.SLDS2018, 'styles/salesforce-lightning-design-system.css')}" />
+        <script src="http://code.jquery.com/jquery-1.10.1.min.js" type="text/javascript"></script>
+
+        <style>
+        .not-active {
+              pointer-events: none;
+              cursor: default;
+              text-decoration: none;
+              color: black;
+         }
+        </style>
+    </head>
+
+    <apex:form id="theForm">
+        <apex:outputPanel id="refreshCreditTable">
+        <apex:pageMessages />
+
+        <table class="slds-table slds-table--bordered slds-table--cell-buffer">
+            <thead>
+            <tr class="slds-text-title--caps">
+                <th scope="col">
+                    <div class="slds-truncate" title="First Name">Name</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="Latest Pull Date">Latest Pull Date</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="FICO Score">FICO Score</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="Report">View Report</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="Status">Status</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="Action">Action</div>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <apex:repeat value="{!contactCCSMap}" var="contactOrLead">
+                <tr>
+                    <th scope="row" data-label="Name">
+                        <div class="slds-truncate" title="Name">{!contactOrLead.Name}</div>
+                    </th>
+                    <td data-label="Latest Pull Date">
+                        <apex:outputText value="{0,date,MM'-'dd'-'yyyy}">
+                            <apex:param value="{!IF(contactNoCCSMap[contactOrLead] == TRUE, NULL, contactCCSMap[contactOrLead].Transaction_Date__c)}" />
+                        </apex:outputText>
+                    </td>
+                    <td data-label="FICO Score">
+                        <div class="slds-truncate" title="FICO">{!IF(contactNoCCSMap[contactOrLead] == TRUE, NULL, contactCCSMap[contactOrLead].FICO__c)}</div>
+                    </td>
+                    <td data-label="Report">
+                        <a target="_blank" class="{!IF(contactNoCCSMap[contactOrLead] == TRUE, 'not-active', 'active')}" href="{!IF(contactNoCCSMap[contactOrLead] == TRUE, '', contactCCSMap[contactOrLead].URL_for_View_Link__c)}">{!IF(contactNoCCSMap[contactOrLead] == TRUE, NULL, 'Click Here')}</a>
+                    </td>
+                    <td data-label="Status">
+                        <div class="slds-truncate" title="Status">{!IF(contactNoCCSMap[contactOrLead] == TRUE, 'Awaiting Pull Request', contactCCSMap[contactOrLead].Status__c)}</div>
+                    </td>
+                    <td data-label="Action" id="pullCreditButton">
+                        <apex:actionStatus id="spinnerStatusCredit">
+                            <apex:facet name="start">
+                                <apex:outputPanel >
+                                    <img src="/img/loading24.gif" style="vertical-align:middle; horizontal-align:middle"/>
+                                    <span>Please wait...</span>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:facet name="stop">
+                                <apex:commandButton id="pullCreditButtonId" rendered="{!$Permission.PullEquifax}" action="{!creditPullandReRender}" value="Pull Credit" status="spinnerStatusCredit" reRender="theForm">
+                                    <apex:param name="eventId" value="{!contactOrLead.Id}" assignTo="{!paramValue}"/>
+                                </apex:commandButton>
+                            </apex:facet>
+                        </apex:actionStatus>
+                    </td>
+                </tr>
+            </apex:repeat>
+            </tbody>
+        </table>
+        </apex:outputPanel>
+    </apex:form>
+</apex:page>

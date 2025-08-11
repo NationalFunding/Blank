@@ -1,0 +1,47 @@
+<table height="400" width="600" cellpadding="5" border="0" cellspacing="5" >
+<tr height="50" valign="top" >
+<td style=" color:#000000; font-size:12pt; background-color:#FFFFFF; font-family:arial; bLabel:main; bEditID:r3st1;" tEditID="c1r1" locked="0" aEditID="c1r1" >
+<![CDATA[]]></td>
+</tr>
+<tr height="300" valign="top" >
+<td style=" color:#000000; font-size:12pt; background-color:#FFFFFF; font-family:arial; bLabel:main; bEditID:r3st1;" tEditID="c1r2" locked="0" aEditID="c1r2" >
+<![CDATA[<p class="MsoNormal" style="margin-bottom: 0.0001pt;"><span style="background-color: rgb(255, 255, 255);">Hi {!Contact.FirstName},</span></p><p class="MsoNormal" style="margin-bottom: 0.0001pt;"><br></p><p class="MsoNormal" style="margin-bottom: 0.0001pt;">It
+was great speaking with you today!&nbsp; I
+have attached an updated copy of the verification form.&nbsp; Please sign &amp; date and send back with:<o:p></o:p></p>
+
+<p class="MsoNormal" style="margin-bottom: 0.0001pt;"><b>&nbsp;</b></p>
+
+<ul style="margin-top:0in" type="disc">
+ <li class="MsoNormal" style="margin-bottom: 0.0001pt;"><b>The
+     last 6 months of business bank account statements<o:p></o:p></b></li>
+ <li class="MsoNormal" style="margin-bottom: 0.0001pt;"><b>The
+     page of your 2013 business tax return that lists gross revenue<o:p></o:p></b></li>
+</ul>
+
+<p class="MsoNormal" style="margin-bottom: 0.0001pt;"><o:p>&nbsp;</o:p></p>
+
+<p class="MsoNormal" style="margin-bottom: 0.0001pt;">Through
+National Funding’s special renewal program <b>you
+could be eligible for more funds and longer terms!</b> <o:p></o:p></p>
+
+<p class="MsoNormal" style="margin-bottom: 0.0001pt;"><o:p>&nbsp;</o:p></p>
+
+<p class="MsoNormal" style="margin-bottom: 0.0001pt;">We
+look forward to working with you again!<o:p></o:p></p>
+
+<p class="MsoNormal" style="margin-bottom: 0.0001pt;"><o:p>&nbsp;</o:p></p>
+
+<p class="MsoNormal" style="margin-bottom: 0.0001pt;"><a>Have a
+good day,</a></p><p class="MsoNormal" style="margin-bottom: 0.0001pt;"><a><font size="4"><span style="font-family: 'Times New Roman', Times, serif; font-style: italic; font-weight: bold;">{!User.Name}</span></font><br><br><font size="4" style="font-family: Arial, sans-serif; font-weight: bold;"><span style="font-style: italic;"></span></font><span style="font-family: Arial, sans-serif; font-weight: bold;"></span>{!User.Name}<br>{!User.Title}<br><a href="http://www.nationalfunding.com/?utm_source=SF%20Emails&amp;utm_medium=Email&amp;utm_campaign=CoolProspect">www.nationalfunding.com</a><br>P: {!User.Phone} | F: {!User.Fax}<br>Email: {!User.Email}<br><br><font color="#CC0000" size="1">Follow Us on:&nbsp;</font><br><a href="https://www.facebook.com/national.funding"><img alt="" src="https://c.na6.content.force.com/servlet/servlet.ImageServer?id=01580000001WNEu&amp;oid=00D80000000diq5" align="left" border="0"></a><a href="http://www.linkedin.com/company/national-funding"><img alt="" src="https://c.na6.content.force.com/servlet/servlet.ImageServer?id=01580000001WNFn&amp;oid=00D80000000diq5" align="left" border="0"></a><a href="https://twitter.com/NatFunding"><img alt="" src="https://c.na6.content.force.com/servlet/servlet.ImageServer?id=01580000001WNFx&amp;oid=00D80000000diq5" align="left" border="0"></a><a title="Google+" href="https://plus.google.com/+Nationalfunding/" target="_blank" alt="Google+"><img src="https://c.na6.content.force.com/servlet/servlet.ImageServer?id=01580000001Xf1W&amp;oid=00D80000000diq5&amp;lastMod=1363900191000"></a></a></p><p class="MsoNormal" style="margin-bottom: 0.0001pt;"><a><br></a></p><div><div><div id="_com_1" class="msocomtxt" language="JavaScript">
+
+<!--[if !supportAnnotations]--></div>
+
+<!--[endif]--></div>
+
+</div>]]></td>
+</tr>
+<tr height="50" valign="top" >
+<td style=" color:#000000; font-size:12pt; background-color:#FFFFFF; font-family:arial; bLabel:main; bEditID:r3st1;" tEditID="c1r3" locked="0" aEditID="c1r3" >
+<![CDATA[]]></td>
+</tr>
+</table>

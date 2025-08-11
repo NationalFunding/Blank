@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Send_Yodlee_Request</fullName>
+    <availability>online</availability>
+    <description>Custom button on Account Layout for Sending Yodlee Request email</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>Digital Loan Process</masterLabel>
+    <openType>sidebar</openType>
+    <protected>false</protected>
+    <url>/apex/SendYodleeRequest?id={!Account.Id}</url>
+</WebLink>

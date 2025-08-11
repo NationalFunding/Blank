@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rep_Owner_Date_WC_Submitted__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF((Rep_Ownership_Date__c &gt; DATEVALUE(Newest_WC_Oppty_Submitted__c)) || (TEXT(Newest_WC_Oppty_Submitted__c) = ''), 'True', 'False')</formula>
+    <label>Rep Owner Date &gt; WC Submitted</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

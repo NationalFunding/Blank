@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Restriction - Send Email Using Org-Wide Addresses Only</label>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>Restrict_from_sending_email_from_personal_email</name>
+    </customPermissions>
+</PermissionSet>

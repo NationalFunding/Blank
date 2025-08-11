@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Eq_Has_Quote__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Captures if lessee has a quote for equipment.</description>
+    <inlineHelpText>Check the box if the customer has a quote for the equipment that is going to be purchased.</inlineHelpText>
+    <label>Eq Has Quote</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

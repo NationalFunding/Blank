@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Internal_Renewal_Net_And_Payoff_Validate</fullName>
+    <active>false</active>
+    <description>(Deprecated PD-270)
+This rule will validate that the sum of the "Net to Customer" field and the "Existing Loan Balance" is equal to Actual Amount Offered.</description>
+    <errorConditionFormula>AND( 
+OR( Lender_Account__c = "0018000000nfIJI", Lender_Account__c = "0018000000whwPY", Lender_Account__c = "00180000011jo4A", Lender_Account__c = "0018000001HXhIz"),
+RecordTypeId="01280000000BZwl",
+ISPICKVAL(StageName, "Funded"),
+ISPICKVAL( Type , "RENEWAL"), 
+ BLANKVALUE(Current_Balance__c, 0)  +   BLANKVALUE(Net_to_Customer__c, 0) &lt;&gt;   BLANKVALUE(ACTUAL_AMT_OFFERED__c, 0) )</errorConditionFormula>
+    <errorMessage>The sum of the fields "Net to Customer" and "Existing Loan Balance" does not equal the field "Actual Amount Offered"</errorMessage>
+</ValidationRule>

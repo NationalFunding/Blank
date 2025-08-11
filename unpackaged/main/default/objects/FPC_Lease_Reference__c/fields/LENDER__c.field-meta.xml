@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LENDER__c</fullName>
+    <description>Lender who is customer's lease / loan reference.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Type in the lender who is the customer's lease / loan reference.</inlineHelpText>
+    <label>LENDER</label>
+    <length>64</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

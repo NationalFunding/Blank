@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>This email will be sent out to National Funding and Quick Bridge to inform the team when a Broker Account is removed from the Navigator program.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Naitonal_Funding_Standard_Letterhead_Stack</letterhead>
+    <name>Navigator - Remove Broker</name>
+    <style>freeForm</style>
+    <subject>Navigator Program - Remove Broker</subject>
+    <textOnly>The following Broker has been removed from the Navigator Program:
+
+Legal Name: {!Account.Legal_Name__c}
+Salesforce Id: {!Account.AccountID18__c}
+Quick Bridge Id: {!Account.Quick_Bridge_Broker_Id__c}
+
+Thank you,
+
+National Funding</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

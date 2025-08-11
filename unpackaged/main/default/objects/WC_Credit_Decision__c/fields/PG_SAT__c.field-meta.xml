@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PG_SAT__c</fullName>
+    <defaultValue>0</defaultValue>
+    <description>Number of accounts satisfactory on file</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Number of accounts satisfactory on file</inlineHelpText>
+    <label>Satisfactory Trades</label>
+    <precision>16</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

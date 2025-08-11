@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Adobe_Signor_Name_TagW__c</fullName>
+    <description>This is a field to populate the full name of (Signer 2/Signor) to prepopulate the full of a customer in a signature field. in the color of white</description>
+    <externalId>false</externalId>
+    <formula>'{{' + '!' + 'S2Full_es_:signer2:fullname:font(color=ffffff)}}'</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Adobe Signor Name TagW</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

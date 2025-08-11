@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Collections_Status__c</fullName>
+    <label>Collections Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Collections_Stage__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Paying</fullName>
+                <default>false</default>
+                <label>Paying</label>
+            </value>
+            <value>
+                <fullName>Current</fullName>
+                <default>false</default>
+                <label>Current</label>
+            </value>
+            <value>
+                <fullName>CU Needed</fullName>
+                <default>false</default>
+                <label>CU Needed</label>
+            </value>
+            <value>
+                <fullName>CU Scheduled</fullName>
+                <default>false</default>
+                <label>CU Scheduled</label>
+            </value>
+            <value>
+                <fullName>Active ST Mod</fullName>
+                <default>false</default>
+                <label>Active ST Mod</label>
+            </value>
+            <value>
+                <fullName>RPM</fullName>
+                <default>false</default>
+                <label>RPM</label>
+            </value>
+            <value>
+                <fullName>Skip Trace</fullName>
+                <default>false</default>
+                <label>Skip Trace</label>
+            </value>
+            <value>
+                <fullName>Needs Legal Demand</fullName>
+                <default>false</default>
+                <label>Needs Legal Demand</label>
+            </value>
+            <value>
+                <fullName>Needs NCCI</fullName>
+                <default>false</default>
+                <label>Needs NCCI</label>
+            </value>
+            <value>
+                <fullName>NCCI Out</fullName>
+                <default>false</default>
+                <label>NCCI Out</label>
+            </value>
+            <value>
+                <fullName>NCCI Complete</fullName>
+                <default>false</default>
+                <label>NCCI Complete</label>
+            </value>
+            <value>
+                <fullName>Active Perm Mod</fullName>
+                <default>false</default>
+                <label>Active Perm Mod</label>
+            </value>
+            <value>
+                <fullName>Requested - Bouncing</fullName>
+                <default>false</default>
+                <label>Requested - Bouncing</label>
+            </value>
+            <value>
+                <fullName>Requested by Customer</fullName>
+                <default>false</default>
+                <label>Requested by Customer</label>
+            </value>
+            <value>
+                <fullName>Needs Review</fullName>
+                <default>false</default>
+                <label>Needs Review</label>
+            </value>
+            <value>
+                <fullName>Terminate</fullName>
+                <default>false</default>
+                <label>Terminate</label>
+            </value>
+            <value>
+                <fullName>Monitoring</fullName>
+                <default>false</default>
+                <label>Monitoring</label>
+            </value>
+            <value>
+                <fullName>Breach</fullName>
+                <default>false</default>
+                <label>Breach</label>
+            </value>
+            <value>
+                <fullName>Attempting to Resume</fullName>
+                <default>false</default>
+                <label>Attempting to Resume</label>
+            </value>
+            <value>
+                <fullName>Legal Demand Out</fullName>
+                <default>false</default>
+                <label>Legal Demand Out</label>
+            </value>
+            <value>
+                <fullName>Awaiting Banks for Mod</fullName>
+                <default>false</default>
+                <label>Awaiting Banks for Mod</label>
+            </value>
+            <value>
+                <fullName>Bankruptcy</fullName>
+                <default>false</default>
+                <label>Bankruptcy</label>
+            </value>
+            <value>
+                <fullName>Dark</fullName>
+                <default>false</default>
+                <label>Dark</label>
+            </value>
+            <value>
+                <fullName>Making Payments</fullName>
+                <default>false</default>
+                <label>Making Payments</label>
+            </value>
+            <value>
+                <fullName>Mod Docs Out</fullName>
+                <default>false</default>
+                <label>Mod Docs Out</label>
+            </value>
+            <value>
+                <fullName>Need Mod Payment</fullName>
+                <default>false</default>
+                <label>Need Mod Payment</label>
+            </value>
+            <value>
+                <fullName>New Charge Off Account</fullName>
+                <default>false</default>
+                <label>New Charge Off Account</label>
+            </value>
+            <value>
+                <fullName>Responsive</fullName>
+                <default>false</default>
+                <label>Responsive</label>
+            </value>
+            <value>
+                <fullName>Mod Requested</fullName>
+                <default>false</default>
+                <label>Mod Requested</label>
+            </value>
+            <value>
+                <fullName>Awaiting Financials</fullName>
+                <default>false</default>
+                <label>Awaiting Financials</label>
+            </value>
+            <value>
+                <fullName>Pending Review</fullName>
+                <default>false</default>
+                <label>Pending Review</label>
+            </value>
+            <value>
+                <fullName>Mod Approved</fullName>
+                <default>false</default>
+                <label>Mod Approved</label>
+            </value>
+            <value>
+                <fullName>Active Concession</fullName>
+                <default>false</default>
+                <label>Active Concession</label>
+            </value>
+            <value>
+                <fullName>Active Recon</fullName>
+                <default>false</default>
+                <label>Active Recon</label>
+            </value>
+            <value>
+                <fullName>Recon Retracted</fullName>
+                <default>false</default>
+                <label>Recon Retracted</label>
+            </value>
+            <value>
+                <fullName>FRPSA CU Needed</fullName>
+                <default>false</default>
+                <label>FRPSA CU Needed</label>
+            </value>
+            <value>
+                <fullName>FRPSA CU Scheduled</fullName>
+                <default>false</default>
+                <label>FRPSA CU Scheduled</label>
+            </value>
+            <value>
+                <fullName>Active Settlement Agreement</fullName>
+                <default>false</default>
+                <label>Active Settlement Agreement</label>
+            </value>
+            <value>
+                <fullName>Mod Options Generated</fullName>
+                <default>false</default>
+                <label>Mod Options Generated</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Default</controllingFieldValue>
+            <valueName>Needs Legal Demand</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Default</controllingFieldValue>
+            <controllingFieldValue>FRPSA - Default</controllingFieldValue>
+            <valueName>Needs NCCI</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Default</controllingFieldValue>
+            <controllingFieldValue>FRPSA - Default</controllingFieldValue>
+            <valueName>NCCI Out</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Default</controllingFieldValue>
+            <valueName>NCCI Complete</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Default</controllingFieldValue>
+            <controllingFieldValue>Charge Off</controllingFieldValue>
+            <controllingFieldValue>FRPSA - Recon</controllingFieldValue>
+            <controllingFieldValue>FRPSA - Default</controllingFieldValue>
+            <controllingFieldValue>FRPSA- Charge Off</controllingFieldValue>
+            <valueName>Attempting to Resume</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Default</controllingFieldValue>
+            <controllingFieldValue>FRPSA - Default</controllingFieldValue>
+            <valueName>Legal Demand Out</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Charge Off</controllingFieldValue>
+            <valueName>Active Perm Mod</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Charge Off</controllingFieldValue>
+            <valueName>Awaiting Banks for Mod</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Charge Off</controllingFieldValue>
+            <valueName>Bankruptcy</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Charge Off</controllingFieldValue>
+            <valueName>Dark</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Charge Off</controllingFieldValue>
+            <controllingFieldValue>FRPSA- Charge Off</controllingFieldValue>
+            <valueName>Making Payments</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Charge Off</controllingFieldValue>
+            <valueName>Mod Docs Out</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Charge Off</controllingFieldValue>
+            <valueName>Need Mod Payment</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Charge Off</controllingFieldValue>
+            <valueName>New Charge Off Account</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Charge Off</controllingFieldValue>
+            <valueName>Responsive</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Charge Off</controllingFieldValue>
+            <controllingFieldValue>FRPSA- Charge Off</controllingFieldValue>
+            <valueName>Mod Options Generated</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Modification</controllingFieldValue>
+            <valueName>Mod Requested</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Modification</controllingFieldValue>
+            <valueName>Awaiting Financials</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Modification</controllingFieldValue>
+            <valueName>Pending Review</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Modification</controllingFieldValue>
+            <valueName>Mod Approved</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FRPSA - Paying</controllingFieldValue>
+            <controllingFieldValue>FRPSA- Charge Off</controllingFieldValue>
+            <valueName>Paying</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FRPSA - Paying</controllingFieldValue>
+            <valueName>Active Concession</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FRPSA - Paying</controllingFieldValue>
+            <valueName>Active Recon</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FRPSA - Paying</controllingFieldValue>
+            <valueName>Recon Retracted</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FRPSA - Paying</controllingFieldValue>
+            <valueName>FRPSA CU Needed</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FRPSA - Paying</controllingFieldValue>
+            <valueName>FRPSA CU Scheduled</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FRPSA - Recon</controllingFieldValue>
+            <valueName>Requested - Bouncing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FRPSA - Recon</controllingFieldValue>
+            <valueName>Requested by Customer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FRPSA - Recon</controllingFieldValue>
+            <valueName>Needs Review</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FRPSA- Charge Off</controllingFieldValue>
+            <valueName>Terminate</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FRPSA- Charge Off</controllingFieldValue>
+            <valueName>Monitoring</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FRPSA- Charge Off</controllingFieldValue>
+            <valueName>Breach</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FRPSA- Charge Off</controllingFieldValue>
+            <valueName>Active Settlement Agreement</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Paying</controllingFieldValue>
+            <valueName>Current</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Paying</controllingFieldValue>
+            <valueName>CU Needed</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Paying</controllingFieldValue>
+            <valueName>CU Scheduled</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Paying</controllingFieldValue>
+            <valueName>Active ST Mod</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Paying</controllingFieldValue>
+            <valueName>RPM</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

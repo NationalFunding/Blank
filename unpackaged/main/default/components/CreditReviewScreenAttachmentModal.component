@@ -1,0 +1,33 @@
+<apex:component layout="none">
+<!--Attachment Information Modal Starts here-->
+  <div id="attachmentmodel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3 id="myModalLabel">New Attachment</h3>
+        </div>
+        <div class="modal-body"> 
+            <div class="form-group">
+                <center>
+                    <label for="fileToUpload">Select a File to Upload :</label><br/><br/>
+                    <div style="height:0px;overflow:hidden">
+                        <input type="file" name="fileToUpload" id="fileToUpload" onchange="fileSelected(this.files);" style="width:180px;"/>
+                    </div>
+                    <span style="font-size:14px;color: #1F6289;font-weight:bold;">Browse and select OR Drop file below</span> 
+                    <div id="dropbox" class="dropbox" onclick="$('#fileToUpload').click()">Drag and Drop Files Here</div>
+                    <div class="upload-progress">
+                        Please Wait..........
+                    </div><br/><br/>
+                    <apex:image url="{!URLFOR($Resource.CreditReviewScreen, 'images/dataloader.gif')}" id="loading" style="vertical-align:middle;display:none"/>
+                </center>
+            </div>
+        </div>
+        <!--<div class="modal-footer" style="text-align:center;">
+          <input type="button" onclick="uploadFile()" value="Upload" style="cursor: pointer;" id="btn" class="btn btn-primary attUpload" />
+        </div>-->
+      </div>
+    </div>
+  </div>
+  <!--Attachment Information Modal End here-->
+</apex:component>

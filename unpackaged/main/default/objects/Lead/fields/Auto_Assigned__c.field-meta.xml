@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Auto_Assigned__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field will indicate if a lead has been auto-assigned.</description>
+    <inlineHelpText>This field will indicate if a lead has been auto-assigned.</inlineHelpText>
+    <label>Auto Assigned</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank</letterhead>
+    <name>MOD approval - 4 weeks half - QB</name>
+    <style>freeForm</style>
+    <subject>{!Case.Merchant_Number__c} - {!Account.Legal_Name__c}</subject>
+    <textOnly>Good Afternoon,
+
+We have received approval to setup 4 weeks of half payments. Prior to the completion of the 4 weeks if you need the payment concession extended you may reach out and provide updated bank statements for an extension.
+
+
+Thank you,
+
+Modification Department
+
+National Funding, Inc., the parent and servicing company of
+Quick Bridge Funding, LLC
+9820 Towne Centre Drive
+San Diego, CA 92121</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

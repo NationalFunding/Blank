@@ -1,0 +1,14 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="50" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[]]></td>
+</tr>
+<tr valign="top" height="300" >
+<td tEditID="c1r2" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r2" locked="0" >
+<![CDATA[<div style="color: rgb(0, 0, 0);"><b style=""><span style="font-size: 12pt; font-family: Arial, Helvetica, sans-serif; background-color: rgb(255, 255, 255);">Stip: {!Stipulations__c.Stip_Description__c}&nbsp;</span><font size="1"><br style="font-family: Arial, Helvetica, sans-serif;"></font></b></div><div style="color: rgb(0, 0, 0);"><b style=""><span style="font-family: Arial, Helvetica, sans-serif; background-color: rgb(255, 255, 255);"><font size="1"><br></font></span></b></div><div style="font-size: 12pt; color: rgb(0, 0, 0);"><b style=""><font face="Arial, sans-serif" style=""><span style="background-color: rgb(255, 255, 255);">Status: {!Stipulations__c.Status__c}&nbsp;</span><br style=""></font></b><br style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;"><span style="font-size: 12px; font-family: Arial, Helvetica, sans-serif; background-color: rgb(255, 255, 255);">Opportunity: {!Stipulations__c.Oppty_Name__c}&nbsp;</span><br style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;"><span style="font-size: 12px; font-family: Arial, Helvetica, sans-serif; background-color: rgb(255, 255, 255);">Funding Record: <a href="http://nf.my.salesforce.com/{!Stipulations__c.FundingId__c}">Click Here</a></span><br style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;"><br style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;"><span style="font-size: 12px; font-family: Arial, Helvetica, sans-serif; background-color: rgb(255, 255, 255);"><b><u>Comments:&nbsp;</u></b></span><br style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;"><br style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;"><span style="font-size: 12px; font-family: Arial, Helvetica, sans-serif; background-color: rgb(255, 255, 255);">{!Stipulations__c.Comments__c}</span></div>]]></td>
+</tr>
+<tr valign="top" height="50" >
+<td tEditID="c1r3" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r3" locked="0" >
+<![CDATA[]]></td>
+</tr>
+</table>

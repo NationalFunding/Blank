@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pawnee_EFA_Restricted_State</fullName>
+    <active>true</active>
+    <errorConditionFormula>((Physical_Address_State__c = 'ND') || 
+(Physical_Address_State__c = 'NV') || 
+(Physical_Address_State__c = 'NY') || 
+(Physical_Address_State__c = 'OR') || 
+(Physical_Address_State__c = 'SD') || 
+(Physical_Address_State__c = 'VT')) &amp;&amp; 
+ISPICKVAL(Residual_Ownership__c,'EFA') &amp;&amp; 
+((Lender_Account__r.Name = 'Pawnee Leasing Corporation - Broker Account') || 
+(Lender_Account__r.Name = 'Pawnee Leasing Corporation - Discounter Account'))</errorConditionFormula>
+    <errorDisplayField>Residual_Ownership__c</errorDisplayField>
+    <errorMessage>Pawnee deals cannot have a Residual Ownership of 'EFA' for States: ND, NV, NY, OR, SD, or VT</errorMessage>
+</ValidationRule>

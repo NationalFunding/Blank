@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sales_Manager_Override__c</fullName>
+    <label>Sales Manager Override</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Retention Pricing Exclusion</fullName>
+                <default>false</default>
+                <label>Retention Pricing Exclusion</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

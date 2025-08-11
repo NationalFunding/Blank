@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank</letterhead>
+    <name>POQ - ACH</name>
+    <style>freeForm</style>
+    <subject>{!Account.Legal_Name__c} {!Case.Merchant_Number__c} - Payoff - ACH</subject>
+    <textOnly>Hello,
+
+Per your request, we will be ACHing the full balance due of ${!Case.Total_Payoff__c} from the account on file.
+
+If this request is received before 2pm PST the payment will draft the following business day. If this request is received after 2pm PST the payment will process in two business days.
+
+Your response to this email is required to authorize this charge. Please respond to confirm that you authorize the payment draft above.
+
+
+Thank you,
+
+
+Thank you,
+
+Payoff Department
+
+National Funding
+{!$Setup.Company_Information__c.Street__c}
+{!$Setup.Company_Information__c.City__c}, {!$Setup.Company_Information__c.State__c} {!$Setup.Company_Information__c.Zip__c}
+P: (800) 294-1702 | F: (888) 279-7564
+E: payoff@nationalfunding.com</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

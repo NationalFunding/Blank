@@ -1,0 +1,188 @@
+<apex:page standardController="Credit_Review__c" showChat="false" sidebar="false" extensions="vf_balanceSheet" action="{!redirectToVersion2}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+    <style>
+        div.column { display: inline-block; *display: block; *zoom: 1; width: 6.8%; font-size: 8pt; vertical-align: top; padding: 0; margin: 0 }
+        div.column2 { display: inline-block; *display: block; *zoom: 1; width: 8.0%; font-size: 8pt; vertical-align: top; padding: 0; margin: 0 }
+        div.column3 { display: inline-block; *display: block; *zoom: 1; width: 30.0%; font-size: 10pt; vertical-align: top; padding: 0 0 20px 1%; margin: 0 }
+        .column3 strong { padding-bottom: 10px; display: inline-block; font-size: 12pt }
+        div.firstColumn { width: 7.4%; font-size: 7pt; font-weight: bold }
+        div.field { height: 16pt; text-align: center; vertical-align: middle; }
+        div.field input { width: 96%; margin: 0; padding: 0; text-align: right }
+        div.field textarea { width: 43%; margin: 0; padding: 0; }
+        div.field2 { height: 16pt; text-align: center; vertical-align: middle; width: 23%; display: inline-block; *display: block; *zoom: 1; }
+        div.field2 input, textarea { width: 96%; margin: 0; padding: 0; text-align: right }
+        div.smallInput input { width: 70%; }
+        div.smallInput label { width: 20%; display: inline-block; *display: block; *zoom: 1; }
+        form > h1 { display: block; border-top: 1px solid #555; margin: 10px 10px 10px 10px; padding: 10px 0 0 10px }
+        .column3 label { width: 45%!important; display: inline-block; *display: block; *zoom: 1; text-align: left; font-size: 9pt; font-weight: bold; padding-right: 10px }
+        .column3 input, .column3 select:not([multiple]) { width: 45%!important; display: inline-block; *display: block; *zoom: 1; vertical-align: middle }
+        .column3 select[multiple] { width: 100%!important; }
+        .column3 span { width: 45%; text-align: right; display: inline-block; *display: block; *zoom: 1; }
+        .column3 .field { height: auto!important; padding: 4px 0 }
+        .multiSelectPicklistTable { width: 96% }
+        .dateFormat { display: none!important }
+        .pageMessage { text-align: center; color: #f00; padding: 0 0 20px 0 }
+    </style>
+    <apex:form >
+    <apex:sectionHeader title="Credit Review for {!Credit_Review__c.Opportunity__r.Account.Name}" subtitle="Balance Sheet View"/>
+        <apex:outputPanel layout="block" styleClass="pageMessage" rendered="{!pageMessage != null}">{!pageMessage}</apex:outputPanel>
+        <div style="padding: 0 0 20px 0; text-align: center">
+          <apex:outputPanel id="topButtons">
+        <apex:commandButton value="Quick Save" action="{!saveReview}" rendered="{!IF(($Permission.eNoahBalanceSheetView || $Permission.FullBalanceSheetView) && cr.Status__c != 'Declined', true, false)}" />
+        <apex:commandButton value="Save and Back" action="{!save_and_back}" rendered="{!IF(($Permission.eNoahBalanceSheetView || $Permission.FullBalanceSheetView) && cr.Status__c != 'Declined', true, false)}"/> 
+        <apex:commandButton value="Go Back" action="{!goBack}" immediate="True" rendered="{!IF((cr.Status__c == 'Declined' && cr.Send_To_Syndication__c == true) || cr.Send_To_Syndication__c == true, true, false)}"/>
+        <apex:commandButton value="Open Diamond Review" rendered="{!IF(cr.Status__c == 'Declined', true, false)}" action="{!secondaryReviewDiamond}" /> 
+        <apex:commandButton value="Open Platinum Review" rendered="{!IF(cr.Status__c == 'Declined', true, false)}" action="{!secondaryReviewPlatinum}" /> 
+        <apex:commandButton value="Open Gold Review" rendered="{!IF(cr.Status__c == 'Declined', true, false)}" action="{!secondaryReviewGold}"  />
+        <apex:commandButton value="Open Commercial Review" rendered="{!IF(cr.Commercial_Prequalified__c == 'Commercial Approvable' && cr.Status__c = 'Declined', true, false)}" action="{!secondaryReviewCommercial}"/>
+        <apex:commandButton value="Increase Approval Commercial" action="{!increaseApprovalComm}" rendered="{!IF($Permission.CommercialCreditReview && cr.Status__c ='Approved', true, false)}" />
+        <apex:commandButton value="Increase Approval Gold" action="{!increaseApprovalGold}" rendered="{!If($Permission.FullBalanceSheetView && cr.Status__c == 'Approved' && cr.Review_Type__c == 'Gold Review',true,false)}" />
+        <apex:commandButton value="Increase Approval Platinum" action="{!increaseApprovalPlatinum}" rendered="{!If($Permission.FullBalanceSheetView && cr.Status__c == 'Approved' && cr.Review_Type__c == 'Platinum Review',true,false)}" />
+        <apex:commandButton value="Increase Approval Diamond" action="{!increaseApprovalDiamond}" rendered="{!If($Permission.FullBalanceSheetView && cr.Status__c == 'Approved' && cr.Review_Type__c == 'Diamond Review',true,false)}" />
+        <apex:commandButton value="Update Review to Gold" action="{!updateFundingGold}" rendered="{!If($Permission.FullBalanceSheetView && cr.Allow_Review_Type_Update__c = true && cr.Status__c != 'Approved' && cr.Status__c != 'Declined' && (cr.Review_Type__c == 'Platinum Review' || cr.Review_Type__c == 'Diamond Review') && cr.Opportunity__r.RecordType.DeveloperName != 'Broker_WC_Oppty',true,false)}" />
+        <apex:commandButton value="Update Review to Platinum" action="{!updateFundingPlatinum}" rendered="{!If($Permission.FullBalanceSheetView && cr.Allow_Review_Type_Update__c = true && cr.Status__c != 'Approved' && cr.Status__c != 'Declined' && (cr.Review_Type__c == 'Gold Review' || cr.Review_Type__c == 'Diamond Review'),true, false)}" />
+        <apex:commandButton value="Update Review to Diamond" action="{!updateFundingDiamond}" rendered="{!If($Permission.FullBalanceSheetView && cr.Allow_Review_Type_Update__c = true && cr.Status__c != 'Approved' && cr.Status__c != 'Declined' && (cr.Review_Type__c == 'Gold Review' || cr.Review_Type__c == 'Platinum Review'),true,false)}" />
+        <apex:commandButton value="Start Financial Analysis" rendered="{!IF(cr.Review_Type__c == 'Commercial Review' && (cr.Status__c == 'In Progress' || cr.Status__c = 'Increase Review'), true, false)}" action="{!startCommercialFinAnalysis}"/>
+        <apex:commandButton value="Start UW Call" rendered="{!IF(cr.Review_Type__c == 'Commercial Review' && cr.Status__c = 'Financial Analysis', true, false)}" action="{!startCommercialUwCall}"/>
+        <apex:commandButton value="Send to Syndication" action="{!fullDeclineReview}" rendered="{!IF($Permission.FullBalanceSheetView && cr.Opportunity__r.RecordType.DeveloperName = 'MCA_Oppty' && cr.Send_To_Syndication__c == false && cr.Status__c != 'Approved' && cr.Allow_Review_Type_Update__c = false, true, false)}" />
+          </apex:outputPanel>
+        </div>
+        <div class="column firstColumn">
+            <div class="field"></div>
+            <apex:repeat value="{!monthly_summary_fields}" var="field">
+                <div class="field">{!field.label}</div>
+            </apex:repeat>
+        </div>
+    <apex:repeat value="{!monthlyReviews}" var="mr">
+        <div class="column">
+            <div style="text-align: center; font-weight: bold">{!mr.mr.Month_Name__c} {!ROUND(mr.mr.Year__c,0)}</div>
+            <apex:repeat value="{!monthly_summary_fields}" var="field">
+                <div class="field"><apex:inputField value="{!mr.mr[field.fieldPath]}" styleClass="lockMe" /></div>
+            </apex:repeat>
+        </div>
+    </apex:repeat>
+    <div class="column">
+        <div style="text-align: center; font-weight: bold">Averages</div>
+        <apex:repeat value="{!monthly_summary_fields}" var="field">
+            <div class="field">
+                <apex:outputText value="{0,number,#,##0.##}" rendered="{!field.type == 'double'}"><apex:param value="{!mravg[field.fieldPath]}" /></apex:outputText>
+                <apex:outputText value="{0,number,$#,##0.00}" rendered="{!field.type == 'currency'}"><apex:param value="{!mravg[field.fieldPath]}" /></apex:outputText>
+            </div>
+        </apex:repeat>
+    </div>
+
+        <h1>Daily Balances</h1>
+    <apex:repeat value="{!monthlyReviews}" var="mr">
+        <div class="column2">
+            <div style="text-align: center; font-weight: bold">{!mr.mr.Month_Name__c} {!ROUND(mr.mr.Year__c,0)}</div>
+            <apex:variable value="{!1}" var="rowNum"/>
+            <apex:repeat value="{!mr.fieldNames}" var="fieldName">
+                <div class="field smallInput"><label>{!ROUND(rowNum,0)}</label><apex:inputField value="{!mr.mr[fieldName]}" styleClass="lockMe" /></div>
+                <apex:variable var="rowNum" value="{!rowNum + 1}"/>
+            </apex:repeat>
+        </div>
+    </apex:repeat>
+    <hr />
+    <div class="column3">
+        <strong>{!$Label.Credit_Review_First_Column_Name}</strong>
+        <apex:repeat value="{!column_1_fields}" var="field">
+            <div class="field">
+                <label>{!field.label}</label>
+                <apex:inputField value="{!cr[field.fieldPath]}" styleClass="lockMe" />
+            </div>
+        </apex:repeat>
+    </div>
+    <div class="column3">
+        <strong>{!$Label.Credit_Review_Second_Column_Name}</strong>
+        <apex:repeat value="{!column_2_fields}" var="field">
+            <div class="field">
+                <label>{!field.label}</label>
+                <apex:inputField value="{!cr[field.fieldPath]}" styleClass="lockMe" />
+            </div>
+        </apex:repeat>
+    </div>
+    <div class="column3">
+        <strong>{!$Label.Credit_Review_Third_Column_Name}</strong>
+        <apex:repeat value="{!column_3_fields}" var="field">
+            <div class="field">
+                <label>{!field.label}</label>
+                <apex:inputField value="{!cr[field.fieldPath]}" styleClass="lockMe" />
+            </div>
+        </apex:repeat>
+    </div><br />
+    <div class="column3">
+        <strong>{!$Label.Credit_Review_Fourth_Column_Name}</strong>
+        <apex:repeat value="{!column_4_fields}" var="field">
+            <div class="field">
+                <label>{!field.label}</label>
+                <apex:inputField value="{!cr[field.fieldPath]}" styleClass="lockMe" />
+            </div>
+        </apex:repeat>
+    </div>
+    <div class="column3">
+        <strong>{!$Label.Credit_Review_Fifth_Column_Name}</strong>
+        <apex:repeat value="{!column_5_fields}" var="field">
+            <div class="field">
+                <label>{!field.label}</label>
+                <apex:inputField value="{!cr[field.fieldPath]}" styleClass="lockMe" />
+            </div>
+        </apex:repeat>
+    </div>
+    <div class="column3">
+        <strong>{!$Label.Credit_Review_Sixth_Column_Name}</strong>
+        <apex:repeat value="{!column_6_fields}" var="field">
+            <div class="field">
+                <label>{!field.label}</label>
+                <apex:inputField value="{!cr[field.fieldPath]}" styleClass="lockMe" />
+            </div>
+        </apex:repeat>
+    </div>
+
+    <apex:detail relatedList="true" showChatter="false" subject="{!cr}" title="false"/>
+
+
+    <apex:pageBlock title="Contact Details">
+        <apex:pageBlockTable value="{!contacts}" var="rec">
+            <apex:column width="70" style="padding: 5px 10px">
+                <apex:facet name="header"></apex:facet>
+                <a href="/{!rec.id}">View Record</a>
+            </apex:column>
+            <apex:repeat value="{!contact_summary_fields}" var="field">
+            <apex:column value="{!rec[field]}">
+                <apex:facet name="header">{!field.label}</apex:facet>
+            </apex:column>
+            </apex:repeat>
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+    
+    <center>
+                    
+        <apex:outputPanel id="bottomButtons">
+            <apex:commandButton value="Quick Save" action="{!saveReview}" rendered="{!IF(($Permission.eNoahBalanceSheetView || $Permission.FullBalanceSheetView) && cr.Status__c != 'Declined', true, false)}" /> 
+            <apex:commandButton value="Go Back" action="{!goBack}" immediate="True" rendered="{!IF((cr.Status__c == 'Declined' && cr.Send_To_Syndication__c == true) || cr.Send_To_Syndication__c == true, false, true)}"/>
+            <apex:commandButton value="Save and Back" action="{!save_and_back}" rendered="{!IF(($Permission.eNoahBalanceSheetView || $Permission.FullBalanceSheetView) && cr.Status__c != 'Declined', true, false)}" /> 
+            <apex:commandButton value="eNoah Review Done" action="{!submitEpSecondReview}" rendered="{!IF($Permission.eNoahBalanceSheetView && cr.Status__c == 'In Progress' && cr.Number_of_Months_Reviewed__c >= 1, true, false)}" /> 
+            <apex:commandButton value="Processing Done" action="{!submitEpSecondReview}" rendered="{!IF($Permission.FullBalanceSheetView && cr.Status__c == 'In Progress' && cr.Number_of_Months_Reviewed__c >=1 && cr.Review_Type__c != 'Commercial Review', true, false)}" />
+            <apex:commandButton value="NF Second Review" action="{!submitSecondReview}" rendered="{!IF($Permission.FullBalanceSheetView && cr.Status__c != 'Declined' && cr.Status__c != 'Approved' && cr.Review_Type__c != 'Commercial Review' && cr.Number_of_Months_Reviewed__c >= 1, true, false)}" /> 
+            <apex:commandButton value="Change to Comm Review" action="{!changeReviewToCommercial}" rendered="{!IF(($Permission.CommercialLendingDirector && cr.Status__c != 'Declined' && cr.Status__c != 'Approved') || ($Permission.FullBalanceSheetView && cr.Review_Type__c != 'Commercial Review' && cr.Status__c != 'Declined' && cr.Status__c != 'Approved' && cr.Opportunity__r.Amount >= 200000 && cr.Commercial_Prequalified__c = 'Commercial Approvable'), true, false)}" />
+            <apex:commandButton value="Comm Final Review" action="{!sendFinalReviewCommercial}" rendered="{!IF($Permission.FullBalanceSheetView && cr.Status__c != 'Declined' && cr.Status__c != 'Approved' && cr.Review_Type__c = 'Commercial Review', true, false)}" />
+            <apex:commandButton value="Rescore" action="{!rescoreReview}" rendered="{!IF($Permission.FullBalanceSheetView && cr.Number_of_Months_Reviewed__c >= 1, true, false)}" />
+            <apex:commandButton value="Approve Comm Review" action="{!approveReview}" rendered="{!IF($Permission.CommercialCreditReview && cr.BOFI_Deal__c != '' && cr.Review_Type__c = 'Commercial Review' && cr.Status__c != 'Declined' && cr.Status__c != 'Approved', true, false)}" />
+            <apex:commandButton value="Approve Review" action="{!approveReview}" rendered="{!IF($Permission.FullBalanceSheetView && cr.BOFI_Deal__c != '' && cr.Review_Type__c != 'Commercial Review' && cr.Status__c != 'Approved' && cr.Status__c != 'Declined', true, false)}" /> 
+            <apex:commandButton value="Tier Decline" action="{!declineReview}" rendered="{!IF($Permission.FullBalanceSheetView && cr.Status__c != 'Declined' && cr.Status__c != 'Approved', true, false)}" />
+            <apex:commandButton value="Withdraw Approval" action="{!withdrawApproval}" rendered="{!IF($Permission.FullBalanceSheetView && cr.Status__c == 'Approved' && cr.Opportunity__r.RecordType.DeveloperName = 'MCA_Oppty', true, false)}" />
+            <apex:commandButton value="Send to Syndication" action="{!fullDeclineReview}" rendered="{!IF($Permission.FullBalanceSheetView && cr.Opportunity__r.RecordType.DeveloperName = 'MCA_Oppty' && cr.Status__c != 'Approved' && ((cr.Send_To_Syndication__c == false) || (cr.Send_To_Syndication__c == true && cr.Status__c != 'Declined' && (cr.WC_Decision_Recomendation__c = 'NF Auto Decline' || cr.WC_Decision_Recomendation__c = 'Auto Decline' || cr.WC_Decision_Recomendation__c = 'Decline'))), true, false)}" />
+            <apex:commandButton value="Broker Full Decline" action="{!fullBrokerDecline}" rendered="{!IF($Permission.FullBalanceSheetView && cr.Opportunity__r.RecordType.DeveloperName = 'Broker_WC_Oppty' && cr.Status__c != 'Approved', true, false)}" />
+            <apex:commandButton value="Business Loan Approval" rendered="{!IF(cr.Status__c = 'Approved' && $Permission.FullBalanceSheetView, true, false)}"
+        action="{!URLFOR($Action.Credit_Review__c.View,Credit_Review__c.Id)}" onclick="openConga()"/>
+         </apex:outputPanel>
+        <Script Language="JavaScript">
+        function openConga() { window.open('{!URLFOR($Action.Credit_Review__c.Business_Loan_Approval,Credit_Review__c.Id)}','','scrollbars=yes,menubar=no,height=600,width=800,resizable=yes,toolbar=no,location=no,status=yes'); }  
+       </Script> </center><br />
+    </apex:form>
+    <script>
+    $(document).ready(function(){
+    <apex:outputText rendered="{!cr.Status__c == 'Declined' || cr.Status__c == 'Withdraw'}">$('.lockMe').prop('disabled', true);</apex:outputText>
+    });
+    </script>
+</apex:page>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SSN_Must_be_Valid</fullName>
+    <active>true</active>
+    <errorConditionFormula>OR(
+AND(NOT(ISBLANK(Social_Security_Number__c)), LEN(Social_Security_Number__c) &lt;&gt; 9),
+Social_Security_Number__c = "123456789",
+Social_Security_Number__c = "987654321",
+Social_Security_Number__c = "111111111",
+Social_Security_Number__c = "222222222",
+Social_Security_Number__c = "333333333",
+Social_Security_Number__c = "444444444",
+Social_Security_Number__c = "555555555",
+Social_Security_Number__c = "666666666",
+Social_Security_Number__c = "777777777",
+Social_Security_Number__c = "888888888",
+Social_Security_Number__c = "999999999")</errorConditionFormula>
+    <errorMessage>Social Security Number Denied.  Please enter a valid SSN.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X2015_Q2_Promo</fullName>
+    <active>false</active>
+    <label>2015 Q2 Promo</label>
+    <picklistValues>
+        <picklist>Promotion_Rebate_Selected__c</picklist>
+        <values>
+            <fullName>Apple iPad Air Wi-Fi 16GB - %28%24499%2E00 Value%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Apple iPad Mini 2 Wi-Fi 16GB - %28%24300 Value%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Shipping_Provider__c</picklist>
+        <values>
+            <fullName>DHL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FedEx</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Overnight Express</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UPS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>USPS</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

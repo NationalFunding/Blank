@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Referred_By__c</fullName>
+    <description>This field will capture the user that referred the customer to the other Sales Group.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This field will capture the user that referred the customer to the other Sales Group.</inlineHelpText>
+    <label>Referred By</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

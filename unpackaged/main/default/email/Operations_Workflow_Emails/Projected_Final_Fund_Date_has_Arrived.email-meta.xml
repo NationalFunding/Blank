@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Naitonal_Funding_Standard_Letterhead_Stack</letterhead>
+    <name>Projected Final Fund Date has Arrived</name>
+    <style>formalLetter</style>
+    <subject>Projected Final Fund Date has Arrived</subject>
+    <textOnly>Hello,
+
+This email is to inform you that the Projected final fund date for {!Opportunity.Name} has arrived.
+
+Below is a link to the Opportunity in Salesforce:
+{!Opportunity.Link}
+
+Thanks</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

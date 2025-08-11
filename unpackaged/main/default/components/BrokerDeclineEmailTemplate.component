@@ -1,0 +1,32 @@
+<apex:component id="BrokerDeclineEmailTemplate" controller="BrokerDeclineEmailTemplate" access="global">
+    <apex:attribute name="opptyId" description="This is the value for the component." type="Id" assignTo="{!controllerValue}"/>
+    
+    <style type="text/css">
+        p { font-size: 15px; font-family: "Arial", Times, serif; color: #141516;}
+        #title {text-decoration: underline;}
+        .center {text-align: center;}
+        .displayinline{display: inline-block;}
+    </style>
+    
+    {!LoadData} 
+    
+    <div class = 'center'>
+        <p><strong>Loan #:</strong> {!cr.Internal_MID__c}</p>
+    </div>
+    
+    <div>
+        <p><strong>Decline Date:</strong> {!newDate}</p>
+        <p><strong>Customer:</strong> {!opp.Legal_Name__c}</p>
+        <p><strong>DBA:</strong> {!opp.Company_DBA__c}</p>
+        <p><strong>Physical Address:</strong> 
+            {!opp.Physical_Address_1__c}
+            {!opp.Physical_Address_City__c}, {!opp.Physical_Address_State__c} {!opp.Physical_Address_Zip__c}
+        </p>
+        <p><strong>Decline Reason:</strong> 
+            <apex:dataList value="{!declineReasons}" var="reason" id="reasonId" >
+                <apex:outputText value="{!reason}" id="theValue"/>
+            </apex:dataList>
+        </p>
+    </div>
+    
+</apex:component>

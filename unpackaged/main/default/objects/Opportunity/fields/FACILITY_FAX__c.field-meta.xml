@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FACILITY_FAX__c</fullName>
+    <description>Merchant Landlord/Facility Company's Phone Number</description>
+    <inlineHelpText>Type in the phone number of the merchants Landlord / Facility Company.</inlineHelpText>
+    <label>FACILITY_FAX</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Phone</type>
+</CustomField>

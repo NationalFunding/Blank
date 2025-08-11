@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lender_Charge_Interim_Rent__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Does the leasing lender allow us to charge interim rent to the lessee?</description>
+    <inlineHelpText>Does the leasing lender allow us to charge interim rent to the lessee?</inlineHelpText>
+    <label>Lender Charge Interim Rent</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,35 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="400" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[<p style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; margin: 7.5pt 0in 0.0001pt;"><span style="font-size:10.5pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+color:#172B4D;letter-spacing:-.05pt">NACHA Generation Process has completed.</span></p>
+
+<p style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; margin: 7.5pt 0in 0.0001pt; font-variant-ligatures: normal; font-variant-caps: normal; orphans: 2; text-align: start; widows: 2; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; white-space: pre-wrap; word-spacing: 0px;"><span style="font-size:10.5pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+color:#172B4D;letter-spacing:-.05pt"><b>File Type:</b> <i>{!NACHA_FileLog__c.File_Type__c}</i><o:p></o:p></span></p>
+
+<p style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; margin: 7.5pt 0in 0.0001pt; font-variant-ligatures: normal; font-variant-caps: normal; orphans: 2; text-align: start; widows: 2; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; white-space: pre-wrap; word-spacing: 0px;"><span style="font-size:10.5pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+color:#172B4D;letter-spacing:-.05pt"><b>Status: </b><i>{!NACHA_FileLog__c.Status__c}</i><o:p></o:p></span></p>
+
+<p style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; margin: 7.5pt 0in 0.0001pt; font-variant-ligatures: normal; font-variant-caps: normal; orphans: 2; text-align: start; widows: 2; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; white-space: pre-wrap; word-spacing: 0px;"><span style="font-size:10.5pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+color:#172B4D;letter-spacing:-.05pt"><b>Create ACH File Date:</b> <i>{!NACHA_FileLog__c.Target_Date__c}</i><o:p></o:p></span></p>
+
+<p style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; margin: 7.5pt 0in 0.0001pt; font-variant-ligatures: normal; font-variant-caps: normal; orphans: 2; text-align: start; widows: 2; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; white-space: pre-wrap; word-spacing: 0px;"><span style="font-size:10.5pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+color:#172B4D;letter-spacing:-.05pt"><b>File Generated:</b> <i>{!NACHA_FileLog__c.File_Generated__c}</i><o:p></o:p></span></p>
+
+<p style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; margin: 7.5pt 0in 0.0001pt; font-variant-ligatures: normal; font-variant-caps: normal; orphans: 2; text-align: start; widows: 2; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; white-space: pre-wrap; word-spacing: 0px;"><span style="font-size:10.5pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+color:#172B4D;letter-spacing:-.05pt">&nbsp;<o:p></o:p></span></p>
+
+<p style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; margin: 7.5pt 0in 0.0001pt; font-variant-ligatures: normal; font-variant-caps: normal; orphans: 2; text-align: start; widows: 2; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; white-space: pre-wrap; word-spacing: 0px;"><span style="font-size:10.5pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+color:#172B4D;letter-spacing:-.05pt"><b>Total Transactions in File:</b> <i>{!NACHA_FileLog__c.Total_Transactions__c}</i><o:p></o:p></span></p>
+
+<p style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; margin: 7.5pt 0in 0.0001pt; font-variant-ligatures: normal; font-variant-caps: normal; orphans: 2; text-align: start; widows: 2; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; white-space: pre-wrap; word-spacing: 0px;"><span style="font-size:10.5pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+color:#172B4D;letter-spacing:-.05pt"><b>Total Amount of Transactions in File:</b> <i>{!NACHA_FileLog__c.Total_Amount__c}</i><o:p></o:p></span></p>
+
+<p style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; margin: 7.5pt 0in 0.0001pt; font-variant-ligatures: normal; font-variant-caps: normal; orphans: 2; text-align: start; widows: 2; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; white-space: pre-wrap; word-spacing: 0px;"><span style="font-size:10.5pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+color:#172B4D;letter-spacing:-.05pt">&nbsp;<o:p></o:p></span></p><p style="margin: 7.5pt 0in 0.0001pt; orphans: 2; text-align: start; widows: 2; text-decoration-style: initial; text-decoration-color: initial;"><span style="color: rgb(23, 43, 77); font-family: &quot;Segoe UI&quot;, sans-serif; font-size: 10.5pt; font-variant-ligatures: normal; font-variant-caps: normal; white-space: pre-wrap; word-spacing: 0px; -webkit-text-stroke-width: 0px; letter-spacing: -0.05pt;">Results: </span><font color="#172b4d" face="Segoe UI, sans-serif"><span style="font-size: 14px; letter-spacing: -0.0666667px; white-space: pre-wrap;">{!NACHA_FileLog__c.Link}</span></font></p><p style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; margin: 7.5pt 0in 0.0001pt; font-variant-ligatures: normal; font-variant-caps: normal; orphans: 2; text-align: start; widows: 2; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; white-space: pre-wrap; word-spacing: 0px;"><span style="font-size:10.5pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+color:#172B4D;letter-spacing:-.05pt"><br></span></p>
+
+<p style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; margin: 7.5pt 0in 0.0001pt; font-variant-ligatures: normal; font-variant-caps: normal; orphans: 2; text-align: start; widows: 2; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; white-space: pre-wrap; word-spacing: 0px;"><span style="font-size:10.5pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+color:#172B4D;letter-spacing:-.05pt">To retrieve file download from the SFTP folder. <o:p></o:p></span></p>]]></td>
+</tr>
+</table>

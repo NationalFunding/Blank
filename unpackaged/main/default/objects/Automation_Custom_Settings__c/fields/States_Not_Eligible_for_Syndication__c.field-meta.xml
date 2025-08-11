@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>States_Not_Eligible_for_Syndication__c</fullName>
+    <description>BAU-256, prevent syndication for states no longer eligible (CT)</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Used in flow "Funding - Create Funding Records for Syndication" and "Opportunity - Check Eligibility to Syndicate" to prevent syndication for states no longer eligible</inlineHelpText>
+    <label>States Not Eligible for Syndication</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

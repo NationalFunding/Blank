@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank</letterhead>
+    <name>Material MOD - Follow Up - QB</name>
+    <style>freeForm</style>
+    <subject>{!Case.Merchant_Number__c} - {!Account.Legal_Name__c}</subject>
+    <textOnly>I have not received a response from my previous email.  I have a limited amount of time in which I can put you on a new program to keep your loan from defaulting and incurring legal fees.  Please let me know as soon as possible if you want to take advantage of this program.
+
+
+Thank you,
+
+{!User.Name} | {!User.Title}
+
+National Funding, Inc., the parent and servicing company of
+
+Quick Bridge Funding, LLC
+9820 Towne Centre Drive
+San Diego, CA 92121
+P: {!User.Phone} | F: {!User.Fax}
+E: {!User.Email}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

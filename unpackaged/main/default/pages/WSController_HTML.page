@@ -1,0 +1,81 @@
+<apex:page controller="CalloutAgentList">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
+
+    <style>
+        li { 
+            font-size: 14px;
+        }
+        #liItalics { 
+            font-style: italic; font-size: 14px;
+        }
+        outputText {
+            font-family: Helvetica;
+        } 
+        #linemeup div {  
+            display: inline-block;
+        }
+        div #movebutton {
+            margin-bottom: 20px;
+        }
+
+        
+    </style>
+
+    <script>
+    function writeDB()
+    {
+        window.location.reload(true);
+    }
+    </script>
+    
+    <apex:pageMessages />
+    
+    <div>
+        <div class= "col-md-12" id = "linemeup">
+          <apex:sectionHeader title="Rep Mailer Priority"/>
+            <button type="submit" id="movebutton" class="btn btn-link" onClick="writeDB();">
+                <span class="glyphicon glyphicon-refresh"></span>
+            </button>
+        </div>
+    </div>
+    
+    <div class= "col-md-12">
+        <ul>
+            <li>Below is the current priority that Five9 will attempt to distribute new inbound phone mail leads. </li>
+            <li>The order is based on new leads assigned today.</li>
+            <li>Anyone in the 1st group may get the call. </li>
+            <li id="liItalics">List last updated: {!newDate} </li>
+        </ul>
+         <br/>
+    </div>
+    
+    <apex:pageBlock >
+        <apex:pageBlockTable value="{!info.AgentList.Agents}" var="AgentInfo" style="width: 100%; margin: 0 auto;">
+            <apex:column headerValue="Priority" style="{!IF(
+                                                          AgentInfo.Username == userEmail,
+                                                          'background-color: #F78D2C',
+                                                          IF(
+                                                          AgentInfo.priorityNumber = 1,
+                                                          'background-color: #98D2F1',
+                                                          'background-color: white'
+                                                          )
+                                                          )}">
+                <apex:outputText value="{!AgentInfo.priorityNumber}" />
+            </apex:column>
+            <apex:column headerValue="Agent Email" style="{!IF(
+                                                          AgentInfo.Username == userEmail,
+                                                          'background-color: #F78D2C',
+                                                          IF(
+                                                          AgentInfo.priorityNumber = 1,
+                                                          'background-color: #98D2F1',
+                                                          'background-color: white'
+                                                          )
+                                                          )}">
+                <apex:outputText value="{!AgentInfo.Username}" />
+            </apex:column>
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+    
+</apex:page>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LP_Payment_History__c</fullName>
+    <externalId>false</externalId>
+    <formula>HYPERLINK("/lightning/r/00O34000006GMXd/view?fv0="&amp; LP_Loan_Number__c , "View Report")</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>LP Payment History</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type__c</fullName>
+    <label>Type</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Weekly</fullName>
+                <default>false</default>
+                <label>Weekly</label>
+            </value>
+            <value>
+                <fullName>Longer Term Only</fullName>
+                <default>false</default>
+                <label>Longer Term Only</label>
+            </value>
+            <value>
+                <fullName>Increase in Funding</fullName>
+                <default>false</default>
+                <label>Increase in Funding</label>
+            </value>
+            <value>
+                <fullName>Payoff Net Rules</fullName>
+                <default>false</default>
+                <label>Payoff Net Rules</label>
+            </value>
+            <value>
+                <fullName>Payoff/Layer</fullName>
+                <default>false</default>
+                <label>Payoff/Layer</label>
+            </value>
+            <value>
+                <fullName>Layer</fullName>
+                <default>false</default>
+                <label>Layer</label>
+            </value>
+            <value>
+                <fullName>Request Welcome Call</fullName>
+                <default>false</default>
+                <label>Request Welcome Call</label>
+            </value>
+            <value>
+                <fullName>Longer Term</fullName>
+                <default>false</default>
+                <label>Longer Term</label>
+            </value>
+            <value>
+                <fullName>Early Funding</fullName>
+                <default>false</default>
+                <label>Early Funding</label>
+            </value>
+            <value>
+                <fullName>New Buy Rate</fullName>
+                <default>false</default>
+                <label>New Buy Rate</label>
+            </value>
+            <value>
+                <fullName>Early Renewal</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Early Renewal</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Payoff Only 1 Loan</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Payoff Only 1 Loan</label>
+            </value>
+            <value>
+                <fullName>Self-Site</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Self-Site</label>
+            </value>
+            <value>
+                <fullName>Wire</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Wire</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

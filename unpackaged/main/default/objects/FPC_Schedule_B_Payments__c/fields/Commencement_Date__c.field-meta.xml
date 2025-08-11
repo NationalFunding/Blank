@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Commencement_Date__c</fullName>
+    <description>Commencement date of the agreement.</description>
+    <inlineHelpText>Type in the commencement date of the agreement.</inlineHelpText>
+    <label>Commencement Date</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product_Target__c</fullName>
+    <description>This field will capture the Product Target of each campaign. It will also allow for better segmentation for reporting.</description>
+    <inlineHelpText>Select the Product Target that this campaign is targeting.</inlineHelpText>
+    <label>Product Target</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Lease</fullName>
+                <default>false</default>
+                <label>Lease</label>
+            </value>
+            <value>
+                <fullName>Merchant</fullName>
+                <default>false</default>
+                <label>Merchant</label>
+            </value>
+            <value>
+                <fullName>EPP</fullName>
+                <default>false</default>
+                <label>EPP</label>
+            </value>
+            <value>
+                <fullName>Generic</fullName>
+                <default>false</default>
+                <label>Generic</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

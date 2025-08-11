@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>How_will_the_money_help_the_business__c</fullName>
+    <inlineHelpText>How the Customer will use the money to help their business. This field must be 50 characters long in order to be able to save the record.</inlineHelpText>
+    <label>How will the money help the business?</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

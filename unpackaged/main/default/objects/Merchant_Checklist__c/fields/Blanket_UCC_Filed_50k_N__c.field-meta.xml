@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Blanket_UCC_Filed_50k_N__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field will indicate if a Blanket UCC is required on the transaction.</description>
+    <inlineHelpText>This field will indicate if a Blanket UCC is required on the transaction.</inlineHelpText>
+    <label>Blanket UCC Filed $50k+ (N)</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

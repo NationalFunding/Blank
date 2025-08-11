@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Visa_MC_Debit_Amount__c</fullName>
+    <description>Total Amount of Visa + MC + Debit</description>
+    <formula>DEBIT_AMOUNT__c + VISA_AMOUNT__c + MC_AMOUNT__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Total Amount of Visa + MC + Debit</inlineHelpText>
+    <label>Visa / MC / Debit Amount</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

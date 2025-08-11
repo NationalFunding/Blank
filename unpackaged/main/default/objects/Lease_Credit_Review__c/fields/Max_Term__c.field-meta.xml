@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Max_Term__c</fullName>
+    <description>This field will indicate the max approval term for the lease.</description>
+    <inlineHelpText>This field will indicate the max approval term for the lease.</inlineHelpText>
+    <label>Max Term</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>24 Months</fullName>
+                <default>false</default>
+                <label>24 Months</label>
+            </value>
+            <value>
+                <fullName>36 Months</fullName>
+                <default>false</default>
+                <label>36 Months</label>
+            </value>
+            <value>
+                <fullName>48 Months</fullName>
+                <default>false</default>
+                <label>48 Months</label>
+            </value>
+            <value>
+                <fullName>60 Months</fullName>
+                <default>false</default>
+                <label>60 Months</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

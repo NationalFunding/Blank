@@ -1,0 +1,123 @@
+<messaging:emailTemplate subject="Welcome to National Funding! Let’s grow your business together" recipientType="Lead" relatedToType="Lead">
+    <messaging:htmlEmailBody >
+        <html>
+
+        <head>
+            <meta name="viewport" content="width=device-width" />
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <title>Apply now and get up to $500K for your business.</title>
+            <style media="all" type="text/css">
+            @media only screen and (max-width: 620px) {
+                table[class=body] h1,
+                table[class=body] h2,
+                table[class=body] h3,
+                table[class=body] h4 {
+                    font-weight: 600 !important;
+                }
+                table[class=body] h1 {
+                    font-size: 22px !important;
+                }
+                table[class=body] h2 {
+                    font-size: 18px !important;
+                }
+                table[class=body] h3 {
+                    font-size: 16px !important;
+                }
+                table[class=body] .content,
+                table[class=body] .wrapper {
+                    padding: 0 !important;
+                }
+                table[class=body] .container {
+                    padding: 0 !important;
+                    width: 100% !important;
+                }
+                table[class=body] .btn table,
+                table[class=body] .btn a {
+                    width: 100% !important;
+                }
+            }
+            </style>
+        </head>
+
+        <body style="margin: 10; font-family: Arial, sans-serif; font-size: 16px; height: 100% !important; line-height: 1.6em; -webkit-font-smoothing: antialiased; padding: 10; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; width: 100% !important; background-color: #f6f6f6;">
+            <table class="body" style="box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; background-color: #f6f6f6;" width="100%" bgcolor="#f6f6f6">
+                <tr>
+                    <td style="box-sizing: border-box; font-family: Arial, 'Lucida Grande', sans-serif; font-size: 16px; vertical-align: top;" valign="top"></td>
+                    <td class="container" style="box-sizing: border-box; font-family: Arial, 'Lucida Grande', sans-serif; font-size: 16px; vertical-align: top; display: block; Margin: 0 auto !important; max-width: 580px; padding: 10px; width: 580px;" width="580" valign="top">
+                        <div class="content" style="box-sizing: border-box; display: block; margin: 0 auto; max-width: 580px; padding: 10px;">
+                            <table class="main" style="box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; background: #ffffff; border: 1px solid #e9e9e9; border-radius: 3px;" width="100%">
+                                <tr class="blue" style="margin-bottom: 15px; margin-top: 10px; width: 100%; background-color: white; text-align: center;" bgcolor="#223657" align="center">
+                                    <td style="box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top;" valign="top">
+                                        <a href="{!$Setup.Instance_Settings__c.Base_URL__c}?source=email_amone&utm_campaign=welcome_amone&utm_medium=email&utm_source=sf_welcome&payload={!RelatedTo.Encrypted_Email_String__c}" style="box-sizing: border-box; color: #DC0032; text-decoration: underline;">
+                                            <apex:image url="https://694044703213-static-assets.s3.us-west-2.amazonaws.com/salesforce/24Q2-NF-AmOne.png" width="100%"/>
+                                        </a>
+                                    </td>                                                   
+                                </tr>
+                                <tr>
+                                    <td class="wrapper" style="box-sizing: border-box; font-family: Arial; font-size: 16px; vertical-align: top; padding: 10px;" valign="top">
+                                        <table style="box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;" width="100%">
+                                            <tr>
+                                                <td style="box-sizing: border-box; font-family:Arial; font-size: 16px; vertical-align: top;" valign="top">
+                                                        <br/>
+                                                        <p style="font-family: Arial; font-size: 16px; font-weight: normal; margin: 0; margin-bottom: 15px;">
+                                                            Hi {!RelatedTo.firstname},
+                                                        </p>
+                                                        <p style="font-family:Arial, sans-serif; font-size: 16px; font-weight: normal; margin: 0; margin-bottom: 15px;">
+                                                         Congratulations on taking the first step toward getting working capital for your business. As a valued partner of AmOne, National Funding has supported over 75,000 businesses nationwide.
+                                                        </p>
+                                                        <p style="font-family: Arial; font-size: 16px; font-weight: normal; margin: 0; margin-bottom: 15px;">
+                                                        We offer financing solutions tailored to suit your business needs and help you reach your goals faster:
+                                                        </p>
+                                                        <p style="font-family: Arial; font-size: 16px; font-weight: normal; margin: 0; margin-bottom: 15px;">
+                                                        <ul>
+                                                        <li style="font-family: Arial; font-size: 16px; font-weight: normal; margin: 0; margin-bottom: 5px;"><a style="color:#F78D2C" href="{!$Setup.Instance_Settings__c.Base_URL__c}?source=email_amone&utm_campaign=welcome_amone&utm_medium=email&utm_source=sf_welcome&payload={!RelatedTo.Encrypted_Email_String__c}">Simple application process</a> and no hidden fees</li>
+                                                        <li style="font-family: Arial; font-size: 16px; font-weight: normal; margin: 0; margin-bottom: 5px;">Up to {!$Setup.Welcome_Email_Variables__c.Funding_Amount__c} cash in as little as 24 hours<sup style="color:#F78D2C">1</sup></li>
+                                                        <li style="font-family: Arial; font-size: 16px; font-weight: normal; margin: 0; margin-bottom: 5px;">Early payoff discounts<sup style="color:#F78D2C">2</sup></li>
+                                                        </ul>
+                                                        </p>
+                                                        <p style="font-family:Arial; font-size: 16px; font-weight: normal; margin: 0; margin-bottom: 15px;">
+                                                            We’re committed to providing excellent customer service and working capital solutions for your business. To get funded as quickly as possible, fill out our application and a Funding Specialist will contact you shortly.
+                                                        </p>
+                                                            <table class="btn btn-primary" cellpadding="0" cellspacing="0" style="box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;" width="100%">
+                                                              <tr>
+                                                                 <td style="box-sizing: border-box; font-family:Arial, ; font-size: 16px; vertical-align: top; background-color: white; border-radius: 5px; text-align: center;" valign="top" bgcolor="#F78D2C" align="center">
+                                                                    <a href="{!$Setup.Instance_Settings__c.Base_URL__c}?source=email_amone&utm_campaign=welcome_amone&utm_medium=email&utm_source=sf_welcome&payload={!RelatedTo.Encrypted_Email_String__c}" style="box-sizing: border-box; border-color: #F78D2C; text-decoration: none; background-color: #F78D2C; border: solid 1px #F78D2C; border-radius: 5px; cursor: pointer; color: white; font-size: 14px; font-weight: bold; margin: 0; padding: 7px 25px; text-transform: capitalize; display: inline-block;">Apply Now</a>
+                                                                 </td>
+                                                              </tr>
+                                                            </table>
+                                                        <p style="font-family: Arial; font-size: 16px; font-weight: normal; margin: 0; margin-bottom: 10px;">
+                                                            <br/><b>{!relatedTo.Owner.FirstName} {!relatedTo.Owner.LastName}</b> | {!relatedTo.Owner.Title}
+                                                             <br/><apex:image url="https://694044703213-static-assets.s3.us-west-2.amazonaws.com/salesforce/NF+Logo-Horizontal.png" height="36" width="200"/>
+                                                             <br/>{!$Setup.Welcome_Email_Variables__c.NF_Address__c}
+                                                            <br/>P: {!relatedTo.Owner.Phone}
+                                                            <br/>E: <a style="color:#F78D2C" href="mailto:{!relatedTo.Owner.Email}">{!relatedTo.Owner.Email}</a> | <a style="color:#F78D2C" href="https://www.nationalfunding.com">www.nationalfunding.com</a>
+                                                        </p>
+                                                     </td>
+                                            </tr>
+                                             <tr>
+                                                <td class="align-left small-gray pad-t20" style="box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; vertical-align: top; font-size: 10px; text-align: left; color: #223657; padding-top: 10px;" valign="top" align="left">
+                                                  <br/>
+                                                   <a style="color:#F78D2C" href="https://www.nationalfunding.com/terms-conditions/">Terms and Conditions</a> | <a style="color:#F78D2C" href="https://www.nationalfunding.com/privacy-policy/">Privacy Policy</a> | <a style="color:#F78D2C" href="https://www.nationalfunding.com/contact-us/">Contact Us</a>
+                                                   <br/>© {!YEAR(TODAY())} National Funding. All rights reserved.
+                                                   <br/>{!$Setup.Welcome_Email_Variables__c.NF_Address__c}
+                                                   <p style="font-family:Arial; font-size: 10px; color: #223657">
+                                                         <br/>Subject to approval. Terms and conditions apply. Products offered by National Funding, Inc. and affiliates are business products only. Products are made or arranged pursuant to a California Financing Law License. License number: 603A169
+                                                         <br/><span style="font-size: 10px;color:#F78D2C">1.</span> Fast approvals and 24-hour funding subject to receipt of required documentation, underwriting guidelines, and processing time by your bank. Funds are deposited into your business checking account as soon as the next business day after approval and acceptance of terms.
+                                                         <br/><span style="font-size: 10px;color:#F78D2C">2.</span> Early payment discount amounts and details will be provided prior to acceptance of terms and funding. Customers must pay off the balance in full, be current, and in good standing to take advantage of the discount within the time parameters.
+                                                   </p>      
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                    <td style="box-sizing: border-box; font-family:Arial; font-size: 16px; vertical-align: top;" valign="top"></td>
+                </tr>
+            </table>
+        </body>
+
+        </html>
+    </messaging:htmlEmailBody>
+</messaging:emailTemplate>

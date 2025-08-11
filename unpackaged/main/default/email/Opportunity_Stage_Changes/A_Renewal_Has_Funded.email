@@ -1,0 +1,6 @@
+<table height="400" width="550" cellpadding="5" border="0" cellspacing="5" >
+<tr height="400" valign="top" >
+<td style=" color:#000000; font-size:12pt; background-color:#FFFFFF; font-family:arial; bLabel:main; bEditID:r3st1;" tEditID="c1r1" locked="0" aEditID="c1r1" >
+<![CDATA[<font size="2">Hello {!Opportunity.OwnerFullName},<br><br>An Opportunity with your name on it has changed stages.<br><br>Account Name: {!Opportunity.Account}<br>Opportunity Name: {!Opportunity.Name}</font><br><br>New Stage:&nbsp; <span style="font-weight: bold; font-style: italic;">{!Opportunity.StageName}</span><br>Renewal Amount: <span style="font-weight: bold; font-style: italic;">{!Opportunity.Pipeline_Amount__c}</span><br><br><font size="2">Sincerely,<br>Salesforce Automation</font><br>]]></td>
+</tr>
+</table>

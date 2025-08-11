@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Recommended_Term__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE( Review_Type__c,  
+'Diamond Review', WC_Decision_Record__r.WC_Credit_Decision_Diamond_Term__c,
+'Platinum Review',WC_Decision_Record__r.WC_Credit_Decision_Platinum_Term__c,
+'Gold Review',WC_Decision_Record__r.WC_Credit_Decision_Gold_Term__c,
+Null)</formula>
+    <label>Recommended Term</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

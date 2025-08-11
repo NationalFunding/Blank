@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank</letterhead>
+    <name>Charge off - Mod</name>
+    <style>freeForm</style>
+    <subject>{!Case.Merchant_Number__c} - {!Account.Legal_Name__c}</subject>
+    <textOnly>Hello,
+
+Your account is currently at risk for charge off this month due to either 90 days of non-payment or excessive delinquency.
+
+
+
+In an effort to prevent the charge off this month, your account will need to be set up on a formal modification.
+
+
+
+To apply for the modification, please respond with:
+
+Bank Statements for {!Case.Last_Month__c}
+
+Month to date transaction history for {!Case.Current_Month__c}
+
+What payments you can maintain daily/weekly/monthly
+
+When do you anticipate being able to resume in full?
+
+
+Once received, The credit manager and legal team will review and issue a Modification Agreement for signature.
+
+
+
+
+Thank you,
+
+{!User.Name} | {!User.Title}
+
+{!Case.Email_Signature_Company__c}
+
+{!$Setup.Company_Information__c.Street__c}
+{!$Setup.Company_Information__c.City__c}, {!$Setup.Company_Information__c.State__c} {!$Setup.Company_Information__c.Zip__c}
+P: {!User.Phone} | F: {!User.Fax}
+E: {!User.Email}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

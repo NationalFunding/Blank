@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bank_State__c</fullName>
+    <externalId>false</externalId>
+    <formula>if( ISBLANK( Opportunity_Name__r.Bank_State__c) = true, (" ") ,if( ISNULL(Opportunity_Name__r.Bank_State__c) =true,(" ") ,Opportunity_Name__r.Bank_State__c ))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Bank State</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

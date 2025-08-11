@@ -1,0 +1,20 @@
+<table border="0" cellpadding="5" width="600" cellspacing="5" height="400" >
+<tr valign="top" height="50" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[<div style="text-align: left;"><font color="#666666" size="6"><strong>Get Started Today!</strong></font></div>]]></td>
+</tr>
+<tr valign="top" height="300" >
+<td tEditID="c1r2" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r2" locked="0" >
+<![CDATA[<p style="font-family: arial; text-align: justify; line-height: normal; margin-bottom: 0pt;" class="MsoNormal"><br></p><p style="text-align: justify; line-height: normal; margin-bottom: 0pt;" class="MsoNormal"><font face="Arial, sans-serif">{!Lead.FirstName},<br><br>Thank you for activating your Platinum Account!</font></p><ul><li><font face="Arial, sans-serif">Credit Limit:&nbsp; Can qualify up to $150,000</font></li><li><font face="Arial, sans-serif">Account Executive: <font size="3">{!Lead.OwnerFullName}</font></font></li></ul><p align="left"><font face="Arial, sans-serif">You've gotten this far in business by making smart decisions.&nbsp; Now it's time to make another one.&nbsp; Use your Account to finance new or pre-owned equipment for your business, from the vendor of your choice. &nbsp;It will allow you to grow your business, control your cash flow, and may even help save you money at tax time.</font></p><p class="MsoNormal" style="margin-bottom: 0pt; text-align: justify;"><font face="Arial, sans-serif"><br>Have you already selected equipment and received a price quote?&nbsp; Have you decided when you would like to obtain the equipment?&nbsp; If so, give us a call at&nbsp;{!Lead.OwnerPhone}&nbsp;to get started.</font></p><p style="text-align: justify; line-height: normal; margin-bottom: 0pt;" class="MsoNormal"><font face="Arial, sans-serif"><br>{!Lead.OwnerFullName}<span style="font-style: italic; font-weight: bold;"></span><br><strong>National Funding</strong><br>Phone:&nbsp; {!Lead.OwnerPhone}<br>Email:&nbsp; {!Lead.OwnerEmail}</font></p><p style="font-family: arial;">&nbsp;</p>]]></td>
+</tr>
+<tr valign="top" height="50" >
+<td tEditID="c1r3" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r3" locked="1" >
+<![CDATA[<span style="color: rgb(153, 153, 153); font-family: &quot;Arial&quot;,&quot;sans-serif&quot;; font-size: 7.5pt;"><font color="#666666" size="1" face="arial, sans-serif"><font color="#666666" size="1" face="arial, sans-serif"><span style="color: rgb(153, 153, 153); font-family: &quot;Arial&quot;,&quot;sans-serif&quot;; font-size: 7.5pt;"><font color="#666666" size="1" face="arial, sans-serif"><font color="#666666" size="1" face="arial, sans-serif"><span style="color: rgb(153, 153, 153); font-family: &quot;Arial&quot;,&quot;sans-serif&quot;; font-size: 7.5pt;"><font color="#666666" size="1" face="arial, sans-serif"><font color="#666666" size="1" face="arial, sans-serif"><font color="#666666" size="1" face="arial, sans-serif">If you no longer
+ wish to receive emails from&nbsp;National Funding, send an email to 
+<a href="mailto:emailreply@nationalfunding.com">emailreply@nationalfunding.com</a> with Unsubscribe in the subject line. 
+You may also unsubscribe by sending written notice to:&nbsp;National Funding&nbsp;Unsubscribe<br>&nbsp;9530 Towne Centre Dr., Suite 120, San 
+Diego, CA 92121. Thank you.&nbsp;<br>National Funding </font></font></font></span></font></font></span>respects your privacy. Our commitment to your privacy is  
+described in our Privacy Policy which is available on our Web site for  
+your reference.          <br>          © 2018 National Funding. &nbsp;All Rights Reserved. &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</font></font></span>]]></td>
+</tr>
+</table>

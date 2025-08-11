@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>User_developer_name_cant_contain_spaces</fullName>
+    <active>true</active>
+    <description>Prohibits a value in the User Developer Name field from being saved if there are blank spaces.</description>
+    <errorConditionFormula>NOT(
+REGEX(User_Developer_Name__c,"([a-zA-Z_])*")
+)</errorConditionFormula>
+    <errorDisplayField>User_Developer_Name__c</errorDisplayField>
+    <errorMessage>User Developer Name cannot contain blank spaces</errorMessage>
+</ValidationRule>

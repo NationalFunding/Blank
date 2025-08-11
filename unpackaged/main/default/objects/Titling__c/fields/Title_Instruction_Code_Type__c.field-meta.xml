@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Title_Instruction_Code_Type__c</fullName>
+    <label>Title Instruction Code Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>State__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>ELT #</fullName>
+                <default>false</default>
+                <label>ELT #</label>
+            </value>
+            <value>
+                <fullName>EIN#</fullName>
+                <default>false</default>
+                <label>EIN#</label>
+            </value>
+            <value>
+                <fullName>Lienholder Code</fullName>
+                <default>false</default>
+                <label>Lienholder Code</label>
+            </value>
+            <value>
+                <fullName>NJ Corp Code</fullName>
+                <default>false</default>
+                <label>NJ Corp Code</label>
+            </value>
+            <value>
+                <fullName>Secured Party Code</fullName>
+                <default>false</default>
+                <label>Secured Party Code</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>UT</controllingFieldValue>
+            <controllingFieldValue>VT</controllingFieldValue>
+            <controllingFieldValue>VA</controllingFieldValue>
+            <controllingFieldValue>WA</controllingFieldValue>
+            <controllingFieldValue>WV</controllingFieldValue>
+            <controllingFieldValue>WY</controllingFieldValue>
+            <controllingFieldValue>HI</controllingFieldValue>
+            <controllingFieldValue>ID</controllingFieldValue>
+            <controllingFieldValue>IL</controllingFieldValue>
+            <controllingFieldValue>IN</controllingFieldValue>
+            <controllingFieldValue>IA</controllingFieldValue>
+            <controllingFieldValue>KS</controllingFieldValue>
+            <controllingFieldValue>KY</controllingFieldValue>
+            <controllingFieldValue>ME</controllingFieldValue>
+            <controllingFieldValue>AL</controllingFieldValue>
+            <controllingFieldValue>AK</controllingFieldValue>
+            <controllingFieldValue>AR</controllingFieldValue>
+            <controllingFieldValue>CO</controllingFieldValue>
+            <controllingFieldValue>CT</controllingFieldValue>
+            <controllingFieldValue>DE</controllingFieldValue>
+            <controllingFieldValue>MD</controllingFieldValue>
+            <controllingFieldValue>MI</controllingFieldValue>
+            <controllingFieldValue>MN</controllingFieldValue>
+            <controllingFieldValue>MS</controllingFieldValue>
+            <controllingFieldValue>MO</controllingFieldValue>
+            <controllingFieldValue>MT</controllingFieldValue>
+            <controllingFieldValue>NE</controllingFieldValue>
+            <controllingFieldValue>NV</controllingFieldValue>
+            <controllingFieldValue>NH</controllingFieldValue>
+            <controllingFieldValue>NM</controllingFieldValue>
+            <controllingFieldValue>NY</controllingFieldValue>
+            <controllingFieldValue>NC</controllingFieldValue>
+            <controllingFieldValue>ND</controllingFieldValue>
+            <controllingFieldValue>OH</controllingFieldValue>
+            <controllingFieldValue>OK</controllingFieldValue>
+            <controllingFieldValue>OR</controllingFieldValue>
+            <controllingFieldValue>RI</controllingFieldValue>
+            <controllingFieldValue>SC</controllingFieldValue>
+            <controllingFieldValue>SD</controllingFieldValue>
+            <controllingFieldValue>TN</controllingFieldValue>
+            <controllingFieldValue>TX</controllingFieldValue>
+            <valueName>EIN#</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WI</controllingFieldValue>
+            <valueName>Secured Party Code</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>GA</controllingFieldValue>
+            <controllingFieldValue>LA</controllingFieldValue>
+            <controllingFieldValue>AZ</controllingFieldValue>
+            <controllingFieldValue>FL</controllingFieldValue>
+            <controllingFieldValue>PA</controllingFieldValue>
+            <valueName>ELT #</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>MA</controllingFieldValue>
+            <valueName>Lienholder Code</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NJ</controllingFieldValue>
+            <valueName>NJ Corp Code</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

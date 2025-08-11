@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Funded_Opportunity_with_Open_Balance__c</fullName>
+    <description>Count Funded Opportunity with Open Balance (PD-2370)</description>
+    <label>Funded Opportunity with Open Balance</label>
+    <summaryFilterItems>
+        <field>Opportunity.StageName</field>
+        <operation>equals</operation>
+        <value>Funded</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>Opportunity.Internal_Funding_Status__c</field>
+        <operation>equals</operation>
+        <value>Funded</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>Opportunity.Balance_Remaining_Percent__c</field>
+        <operation>greaterThan</operation>
+        <value>0</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>Opportunity.Balance_Remaining__c</field>
+        <operation>greaterThan</operation>
+        <value>0</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

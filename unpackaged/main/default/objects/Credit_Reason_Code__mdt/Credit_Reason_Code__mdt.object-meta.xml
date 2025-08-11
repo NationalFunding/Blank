@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Mapping between Code and Description for the ConsumerCreditSummaryMark__c object.</description>
+    <label>Credit Reason Code</label>
+    <pluralLabel>Credit Reason Codes</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

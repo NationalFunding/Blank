@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Business_Day_Next__c</fullName>
+    <formula>CASE( MOD(DATEVALUE(WC_Start_Date__c) - DATE( 1900, 1, 7 ), 7 ), 
+0, DATEVALUE(WC_Start_Date__c) + 0 + 1, /* Sun:Date+0 wknd day+1 day */ 
+5, DATEVALUE(WC_Start_Date__c) + 2 + 1, /* Fri:Date+2 wknd days+1 day */ 
+6, DATEVALUE(WC_Start_Date__c) + 1 + 1, /* Sat:Date+1 wknd days+1 day */ 
+DATEVALUE(WC_Start_Date__c) + 1 /* Default (Mon/Tue/Wed):Date+1 day */ 
+)</formula>
+    <label>Business Day (Next)</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FMV_Tax_UpFront__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>FMV Tax Upfront- Status</description>
+    <inlineHelpText>Check box if tax will be collected upfront on a FMV lease.</inlineHelpText>
+    <label>FMV Tax UpFront</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

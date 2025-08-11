@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lender_Fee_60__c</fullName>
+    <description>Lender fee for 60 month term lease.</description>
+    <inlineHelpText>Lender fee for 60 month term lease.</inlineHelpText>
+    <label>Lender Fee 60</label>
+    <precision>17</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

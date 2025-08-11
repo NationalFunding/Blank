@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SATISFACTORY__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Satisfactory landlord reference - status</description>
+    <inlineHelpText>Check box if landlord provided customer with a satisfactory landlord reference.</inlineHelpText>
+    <label>SATISFACTORY</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

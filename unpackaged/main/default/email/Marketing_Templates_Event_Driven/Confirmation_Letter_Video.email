@@ -1,0 +1,28 @@
+<table border="0" cellpadding="5" width="600" cellspacing="5" height="400" >
+<tr valign="top" height="50" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[<div style="text-align: center;"><font style="font-weight: bold;" color="#666666" size="7"><span style="font-family: Arial,Sans-Serif;">Get Started Today!</span></font><br></div>]]></td>
+</tr>
+<tr valign="top" height="300" >
+<td tEditID="c1r2" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r2" locked="0" >
+<![CDATA[<p style="margin-bottom: 0.0001pt; line-height: normal; text-align: justify; font-family: Arial,Sans-Serif;" class="MsoNormal">{!Lead.FirstName},<br><br>Thank you for activating your Working Capital Account!<br></p><ul style="font-family: Arial,Sans-Serif;"><li>Credit Limit:&nbsp; Can qualify up to $150,000</li><li>Account Executive:&nbsp; {!Lead.OwnerFullName}</li></ul><p style="margin-bottom: 0.0001pt; line-height: normal; text-align: justify; font-family: Arial,Sans-Serif;" class="MsoNormal">You've
+ gotten this far in business by making smart decisions.&nbsp; Now it is time 
+to make another one.&nbsp; Use your Working Capital Funding Card to get cash 
+for your business.&nbsp; You decide how you want to use the money.&nbsp; For over 
+13 years, we've helped thousands of businesses with cash needs to 
+expand, purchase inventory, advertise, and pay expenses.<br><span style="font-size: 12pt;"><br><b>Video:</b></span><span style="font-size: 12pt;"> </span><a href="http://www.nationalfunding.com/working-capital/#wcvideo" style="font-size: 12pt;">Working Capital Benefits Over Banks</a><br><span style="font-size: 12pt;"><br>It
+ only takes a few minutes to get started.&nbsp; If your business takes credit
+ cards, we can get you an advance on future sales.&nbsp; If you don't take 
+credit cards, we can still get you cash for any business purpose.<br></span><span style="font-size: 12pt;"><br>Give me a call at {!Lead.OwnerPhone} and I will go to work for you immediately.</span></p><p><br></p><p style="font-family: Arial,Sans-Serif;">{!Lead.OwnerFullName}<br><span style="font-weight: bold; font-style: italic;">National Funding</span><br>Phone:&nbsp; {!Lead.OwnerPhone}<br>Email:&nbsp; {!Lead.OwnerEmail}</p>]]></td>
+</tr>
+<tr valign="top" height="50" >
+<td tEditID="c1r3" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r3" locked="1" >
+<![CDATA[<span style="font-size: 7.5pt; font-family: &quot;Arial&quot;,&quot;sans-serif&quot;; color: rgb(153, 153, 153);"><font color="#666666" face="arial, sans-serif" size="1"><font color="#666666" face="arial, sans-serif" size="1"><span style="font-size: 7.5pt; font-family: &quot;Arial&quot;,&quot;sans-serif&quot;; color: rgb(153, 153, 153);"><font color="#666666" face="arial, sans-serif" size="1"><font color="#666666" face="arial, sans-serif" size="1"><font color="#666666" face="arial, sans-serif" size="1">If you no longer
+ wish to receive emails from <font size="1">National Funding</font>, send an email to 
+emailreply@<font size="1">nationalfunding</font>.com with Unsubscribe in the subject line. 
+You may also unsubscribe by sending written notice to: <font size="1">National Funding</font> Unsubscribe, 9530 <font size="1">Towne Centre Dr., Suite 120</font>, San 
+Diego, CA 9212<font size="1">1</font>. Thank you. </font></font></font></span><br>National Funding respects your privacy. Our commitment to your privacy is  
+described in our Privacy Policy which is available on our Web site for  
+your reference.          <br>© 2018<font size="1">&nbsp;National Funding. &nbsp;All Rights Reserved.</font></font></font></span>]]></td>
+</tr>
+</table>

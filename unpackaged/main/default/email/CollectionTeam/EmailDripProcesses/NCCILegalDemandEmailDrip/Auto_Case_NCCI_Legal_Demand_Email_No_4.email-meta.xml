@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Legal Demand Week 2 — Notice of potential litigation and credit penalties.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Auto - Case NCCI/Legal Demand Email No. 4</name>
+    <relatedEntityType>Case</relatedEntityType>
+    <style>none</style>
+    <subject>2nd Follow-up on Legal Demand ({{{Case.Legal_Name__c}}} - {{{Case.Merchant_Number__c}}}</subject>
+    <type>custom</type>
+    <uiType>SFX</uiType>
+</EmailTemplate>

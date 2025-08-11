@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Strategic_Partner_Declined__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Captures if the Strategic Partner was declined after review.</description>
+    <inlineHelpText>Check this box to decline this Strategic Partner after review.</inlineHelpText>
+    <label>Strategic Partner Declined</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

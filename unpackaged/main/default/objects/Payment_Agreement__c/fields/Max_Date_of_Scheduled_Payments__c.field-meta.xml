@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Max_Date_of_Scheduled_Payments__c</fullName>
+    <description>Inserts the date of the farthest scheduled payment date in the future</description>
+    <label>Max Date of Scheduled Payments</label>
+    <summarizedField>Scheduled_Payment__c.Scheduled_Date__c</summarizedField>
+    <summaryForeignKey>Scheduled_Payment__c.Payment_Agreement__c</summaryForeignKey>
+    <summaryOperation>max</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

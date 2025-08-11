@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Actuals_Audit_Complete__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field will indicate when the operations department has audited the information and made necessary adjustments to the actuals.  It will be the trigger that indicates to accounting that the funded opportunity is ready to be imported into Lease Plus.</description>
+    <inlineHelpText>This field will indicate when the operations department has audited the information and made necessary adjustments to the actuals.  It will be the trigger that indicates to accounting that the funded opportunity is ready to be imported into Lease Plus.</inlineHelpText>
+    <label>Actuals Audit Complete</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

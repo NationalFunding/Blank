@@ -1,0 +1,346 @@
+<template>
+
+    <!-- Lightning Card -->
+    <lightning-card>
+
+        <div class="slds-grid">
+
+            <!-- Contextual Buttons -->
+            <div class="slds-col slds-size_1-of-1">
+
+                <div class="slds-align_absolute-center">
+
+                    <!-- Unordered List -->
+                    <ul class="slds-button-group-row">
+                        <!-- Send Opt In Text -->
+                        <li class="slds-button-group-item" if:true={optInText}>
+                            <button class="slds-button slds-button_brand" onclick={openTextModal}>
+                                Send Opt-In Text
+                            </button>
+                        </li>
+                        <!-- Send DFP Email -->
+                        <li class="slds-button-group-item" if:true={dlpEmail}>
+                            <button class="slds-button slds-button_brand"
+                                onclick={openDLPEmailModal}>
+                                Send DFP Email
+                            </button>
+                        </li>
+                        <!-- Send DFP Text -->
+                        <li class="slds-button-group-item" if:true={dlpText}>
+                            <button class="slds-button slds-button_brand" onclick={openDLPTextModal}>
+                                Send DFP Text
+                            </button>
+                        </li>
+                        <!-- Web Search -->
+                        <li class="slds-button-group-item" if:true={webSearch}>
+                            <button class="slds-button slds-button_brand" onclick={searchWeb}>
+                                Web Search
+                            </button>
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </lightning-card>
+
+    <!-- DLP EMAIL MODAL -->
+    <template if:true={dlpEmailModal}>
+
+        <div class="demo-only" style="height: 640px;">
+
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+
+                <div class="slds-modal__container">
+
+                    <header class="slds-modal__header">
+
+                        <!-- TITLE -->
+                        <h2 id="modal-heading-02" class="slds-text-heading_medium slds-hyphenate">
+                            Send DFP Email
+                        </h2>
+
+                    </header>
+
+                    <!-- BODY -->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-2">
+
+                        <!-- CREATE CONTACT -->
+                        <lightning-card>
+
+                            <!-- Lightning Messages Display -->
+                            <lightning-messages></lightning-messages>
+
+                            <!-- Contact Edit Form -->
+                            <div class="slds-grid slds-gutters">
+
+                                <div class="slds-col">
+                                    <ul class="slds-has-dividers_around-space"
+                                        style="margin-right: 5px; margin-left: 5px;">
+
+                                        <template for:each={contacts} for:item="contact">
+                                            <li class="slds-item" key={contact.Id}>
+                                                <lightning-card title={contact.Name}>
+                                                    <div slot="actions">
+                                                        <a>
+                                                            <lightning-icon icon-name="standard:email_chatter"
+                                                                data-id={contact.Id}
+                                                                data-optout={contact.HasOptedOutOfEmail}
+                                                                onclick={sendDLPEmail}
+                                                                alternative-text="Send DFP Email">
+                                                            </lightning-icon>
+                                                        </a>
+                                                    </div>
+                                                </lightning-card>
+                                            </li>
+                                        </template>
+
+                                    </ul>
+
+                                </div>
+
+                            </div>
+                        </lightning-card>
+                    </div>
+
+                    <!-- FOOTER -->
+                    <footer class="slds-modal__footer">
+                        <!-- Cancel Button -->
+                        <lightning-button label="Close" variant="neutral" onclick={closeDLPEmailModal}>
+                        </lightning-button>
+
+                    </footer>
+
+                </div>
+
+            </section>
+            <!-- Create Shading for Modal -->
+            <div class="slds-backdrop slds-backdrop_open"></div>
+
+        </div>
+
+    </template>
+
+    <!-- DLP TEXT Modal -->
+    <template if:true={dlpTextModal}>
+
+        <div class="demo-only" style="height: 640px;">
+
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+
+                <div class="slds-modal__container">
+
+                    <header class="slds-modal__header">
+
+                        <!-- TITLE -->
+                        <h2 id="dlpTextModal" class="slds-text-heading_medium slds-hyphenate">
+                            Send DFP Text
+                        </h2>
+
+                    </header>
+
+                    <!-- BODY -->
+                    <div class="slds-modal__content slds-p-around_medium" id="dlpTextModal_Header">
+
+                        <!-- CREATE CONTACT -->
+                        <lightning-card>
+
+                            <!-- Lightning Messages Display -->
+                            <lightning-messages></lightning-messages>
+
+                            <!-- Contact Edit Form -->
+                            <div class="slds-grid slds-gutters">
+
+                                <div class="slds-col">
+                                    <ul class="slds-has-dividers_around-space"
+                                        style="margin-right: 5px; margin-left: 5px;">
+
+                                        <template for:each={contacts} for:item="contact">
+                                            <li class="slds-item" key={contact.Id}>
+                                                <lightning-card title={contact.Name}>
+                                                    <div slot="actions">
+                                                        <a>
+                                                            <lightning-icon icon-name="custom:custom110"
+                                                                data-id={contact.Id}
+                                                                data-optout={contact.SMS_Opt_Out__c}
+                                                                data-optin={contact.SMS_Opt_In__c}
+                                                                data-mobile={contact.MobilePhone}
+                                                                onclick={sendDLPText}
+                                                                alternative-text="Send DFP Text">
+                                                            </lightning-icon>
+                                                        </a>
+                                                    </div>
+                                                </lightning-card>
+                                            </li>
+                                        </template>
+
+                                    </ul>
+
+                                </div>
+
+                            </div>
+                        </lightning-card>
+                    </div>
+
+                    <!-- FOOTER -->
+                    <footer class="slds-modal__footer">
+                        <!-- Cancel Button -->
+                        <lightning-button label="Close" variant="neutral" onclick={closeDLPTextModal}>
+                        </lightning-button>
+
+                    </footer>
+
+                </div>
+
+            </section>
+            <!-- Create Shading for Modal -->
+            <div class="slds-backdrop slds-backdrop_open"></div>
+
+        </div>
+
+    </template>
+
+    <!-- OPT IN MODAL -->
+    <template if:true={textmodal}>
+
+        <div class="demo-only" style="height: 640px;">
+
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+
+                <div class="slds-modal__container">
+
+                    <header class="slds-modal__header">
+
+                        <!-- TITLE -->
+                        <h2 id="modal-heading-03" class="slds-text-heading_medium slds-hyphenate">
+                            Send Opt-In Text
+                        </h2>
+
+                    </header>
+
+                    <!-- BODY -->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-3">
+
+                        <!-- CREATE CONTACT -->
+                        <lightning-card>
+
+                            <!-- Lightning Messages Display -->
+                            <lightning-messages></lightning-messages>
+
+                            <!-- Contact Edit Form -->
+                            <div class="slds-grid slds-gutters">
+
+                                <div class="slds-col">
+                                    <ul class="slds-has-dividers_around-space"
+                                        style="margin-right: 5px; margin-left: 5px;">
+
+                                        <template for:each={contacts} for:item="contact">
+                                            <li class="slds-item" key={contact.Id}>
+                                                <lightning-card title={contact.Name}>
+                                                    <div slot="actions">
+                                                        <a>
+                                                            <lightning-icon icon-name="standard:work_queue"
+                                                                data-id={contact.Id}
+                                                                data-mobile={contact.MobilePhone}
+                                                                onclick={openTwilioModal}
+                                                                alternative-text="Send Opt In">
+                                                            </lightning-icon>
+                                                        </a>
+                                                    </div>
+                                                </lightning-card>
+                                            </li>
+                                        </template>
+
+                                    </ul>
+
+                                </div>
+
+                            </div>
+                        </lightning-card>
+                    </div>
+
+                    <!-- FOOTER -->
+                    <footer class="slds-modal__footer">
+                        <!-- Cancel Button -->
+                        <lightning-button label="Close" variant="neutral" onclick={closeTextModal}>
+                        </lightning-button>
+
+                    </footer>
+
+                </div>
+
+            </section>
+            <!-- Create Shading for Modal -->
+            <div class="slds-backdrop slds-backdrop_open"></div>
+
+        </div>
+
+    </template>
+
+    <!-- Opt In Message Modal -->
+    <template if:true={TwilioModal}>
+
+        <div class="contact-edit" data-id="twilioModal" style="height: 640px;">
+
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+
+                <div class="slds-modal__container">
+
+                    <header class="slds-modal__header">
+
+                        <!-- TITLE -->
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">
+                            Confirm Opt In
+                        </h2>
+
+                    </header>
+
+                    <!-- BODY -->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+
+                        Please Confirm that this person wants to receive text messages from National Funding.
+
+                        <lightning-radio-group 
+                            label =""
+                            name ="optInConfirmation"
+                            onchange={handleChange}
+                            options={options}
+                            value={value}
+                            type='radio'>
+                        </lightning-radio-group>
+
+                    </div>
+
+                    <!-- FOOTER -->
+                    <footer class="slds-modal__footer">
+                        <!-- Cancel Button -->
+                        <lightning-button label="Cancel" variant="neutral" onclick={closeTwilioModal}>
+                        </lightning-button>
+
+                        <!-- Spacing -->
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+
+                        <!-- Update/Save Button -->
+                        <lightning-button label="Send Opt In Message" variant="brand" onclick={sendOptInText}>
+                        </lightning-button>
+
+                    </footer>
+
+                </div>
+
+            </section>
+            <!-- Create Shading for Modal -->
+            <div class="slds-backdrop slds-backdrop_open"></div>
+
+        </div>
+
+    </template>
+
+</template>
