@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Business_Type__c</fullName>
+    <description>If values are being added to this list, they also need to be added to the Accepted Business Types field on the Lender Profile object and Business Type field on the Account object. Standard value set isn't being used because this fields is populated by webservice - decoupling the need to add values across front end and salesforce</description>
+    <externalId>false</externalId>
+    <label>Business Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Sole Proprietorship</fullName>
+                <default>false</default>
+                <label>Sole Proprietorship</label>
+            </value>
+            <value>
+                <fullName>Partnership</fullName>
+                <default>false</default>
+                <label>Partnership</label>
+            </value>
+            <value>
+                <fullName>S Corp</fullName>
+                <default>false</default>
+                <label>S Corp</label>
+            </value>
+            <value>
+                <fullName>C Corp</fullName>
+                <default>false</default>
+                <label>C Corp</label>
+            </value>
+            <value>
+                <fullName>LLC</fullName>
+                <default>false</default>
+                <label>LLC</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

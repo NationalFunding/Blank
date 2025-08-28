@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Business_Industry__c</fullName>
+    <description>If values are being added to this list, they also need to be added to the Accepted Industries field on the Lender Profile object and Business Industries field on the Account object. Standard value set isn't being used because this fields is populated by webservice - decoupling the need to add values across front end and salesforce</description>
+    <externalId>false</externalId>
+    <label>Business Industry</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Administrative Support</fullName>
+                <default>false</default>
+                <label>Administrative Support</label>
+            </value>
+            <value>
+                <fullName>Agriculture</fullName>
+                <default>false</default>
+                <label>Agriculture</label>
+            </value>
+            <value>
+                <fullName>Arts, Entertainment, and Recreation</fullName>
+                <default>false</default>
+                <label>Arts, Entertainment, and Recreation</label>
+            </value>
+            <value>
+                <fullName>Auto Repair</fullName>
+                <default>false</default>
+                <label>Auto Repair</label>
+            </value>
+            <value>
+                <fullName>Commercial Trucking</fullName>
+                <default>false</default>
+                <label>Commercial Trucking</label>
+            </value>
+            <value>
+                <fullName>Construction</fullName>
+                <default>false</default>
+                <label>Construction</label>
+            </value>
+            <value>
+                <fullName>Educational Services</fullName>
+                <default>false</default>
+                <label>Educational Services</label>
+            </value>
+            <value>
+                <fullName>Finance and Insurance</fullName>
+                <default>false</default>
+                <label>Finance and Insurance</label>
+            </value>
+            <value>
+                <fullName>Healthcare and Social Assistance</fullName>
+                <default>false</default>
+                <label>Healthcare and Social Assistance</label>
+            </value>
+            <value>
+                <fullName>Landscaping</fullName>
+                <default>false</default>
+                <label>Landscaping</label>
+            </value>
+            <value>
+                <fullName>Manufacturing</fullName>
+                <default>false</default>
+                <label>Manufacturing</label>
+            </value>
+            <value>
+                <fullName>Medical Practice</fullName>
+                <default>false</default>
+                <label>Medical Practice</label>
+            </value>
+            <value>
+                <fullName>Mining</fullName>
+                <default>false</default>
+                <label>Mining</label>
+            </value>
+            <value>
+                <fullName>Professional, Scientific, and Technical Services</fullName>
+                <default>false</default>
+                <label>Professional, Scientific, and Technical Services</label>
+            </value>
+            <value>
+                <fullName>Public Administration</fullName>
+                <default>false</default>
+                <label>Public Administration</label>
+            </value>
+            <value>
+                <fullName>Real Estate and Leasing</fullName>
+                <default>false</default>
+                <label>Real Estate and Leasing</label>
+            </value>
+            <value>
+                <fullName>Restaurants and Food Services</fullName>
+                <default>false</default>
+                <label>Restaurants and Food Services</label>
+            </value>
+            <value>
+                <fullName>Retail</fullName>
+                <default>false</default>
+                <label>Retail</label>
+            </value>
+            <value>
+                <fullName>Utilities</fullName>
+                <default>false</default>
+                <label>Utilities</label>
+            </value>
+            <value>
+                <fullName>Wholesale Trade</fullName>
+                <default>false</default>
+                <label>Wholesale Trade</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

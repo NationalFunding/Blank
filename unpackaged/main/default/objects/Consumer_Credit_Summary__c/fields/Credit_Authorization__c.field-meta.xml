@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Credit_Authorization__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Boolean value to show if the customer agreed to having credit pulled. Combination of this field and Consent DateTime will show which version of the credit auth terms and conditions the customer agreed to if needed</description>
+    <externalId>false</externalId>
+    <label>Credit Authorization</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

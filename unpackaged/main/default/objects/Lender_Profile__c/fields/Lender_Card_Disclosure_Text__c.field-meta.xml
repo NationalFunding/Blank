@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lender_Card_Disclosure_Text__c</fullName>
+    <description>Partner lender disclosure verbiage text displayed on website lender card.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This text will appear in the disclosures section of the lender card</inlineHelpText>
+    <label>Lender Card Disclosure Text</label>
+    <length>5000</length>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

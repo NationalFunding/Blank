@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Accepted_Funding_Purpose__c</fullName>
+    <description>If values are being added to this, they should also be added to Funding Purpose field on the Account and Customer Form objects. Standard value set isn't being used because the Funding Purpose field is populated by webservice - decoupling the need to add values across front end and salesforce</description>
+    <externalId>false</externalId>
+    <label>Accepted Funding Purposes</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Startup</fullName>
+                <default>false</default>
+                <label>Startup</label>
+            </value>
+            <value>
+                <fullName>Working Capital</fullName>
+                <default>false</default>
+                <label>Working Capital</label>
+            </value>
+            <value>
+                <fullName>Expansion</fullName>
+                <default>false</default>
+                <label>Expansion</label>
+            </value>
+            <value>
+                <fullName>Purchase Equipment</fullName>
+                <default>false</default>
+                <label>Purchase Equipment</label>
+            </value>
+            <value>
+                <fullName>Buy Existing Business</fullName>
+                <default>false</default>
+                <label>Buy Existing Business</label>
+            </value>
+            <value>
+                <fullName>Real Estate</fullName>
+                <default>false</default>
+                <label>Real Estate</label>
+            </value>
+            <value>
+                <fullName>Payroll</fullName>
+                <default>false</default>
+                <label>Payroll</label>
+            </value>
+            <value>
+                <fullName>Refinance Debt</fullName>
+                <default>false</default>
+                <label>Refinance Debt</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

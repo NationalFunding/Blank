@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Self_Reported_Credit_Rating__c</fullName>
+    <description>Reported by the customer while going through the frontend web form. If values are being added to this picklist, they also need to be added to the Contact field</description>
+    <externalId>false</externalId>
+    <label>Self Reported Credit Rating</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Excellent</fullName>
+                <default>false</default>
+                <label>Excellent</label>
+            </value>
+            <value>
+                <fullName>Good</fullName>
+                <default>false</default>
+                <label>Good</label>
+            </value>
+            <value>
+                <fullName>Fair</fullName>
+                <default>false</default>
+                <label>Fair</label>
+            </value>
+            <value>
+                <fullName>Poor</fullName>
+                <default>false</default>
+                <label>Poor</label>
+            </value>
+            <value>
+                <fullName>Very Good</fullName>
+                <default>false</default>
+                <label>Very Good</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

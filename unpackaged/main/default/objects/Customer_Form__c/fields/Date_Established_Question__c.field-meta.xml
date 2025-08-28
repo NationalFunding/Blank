@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Date_Established_Question__c</fullName>
+    <description>Created to accept input from the “When was your business established?” question on the online webform. Currently this question allows users to input the Date Established (maps to the Date Established field) or select a radio button labeled “Not yet started”. If Date Provided is selected in this picklist, the Date Established field should not be null</description>
+    <externalId>false</externalId>
+    <label>Date Established Question</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Not yet started</fullName>
+                <default>false</default>
+                <label>Not yet started</label>
+            </value>
+            <value>
+                <fullName>Date provided</fullName>
+                <default>false</default>
+                <label>Date provided</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
