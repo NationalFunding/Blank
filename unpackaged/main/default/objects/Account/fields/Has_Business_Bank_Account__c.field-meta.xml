@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Has_Business_Bank_Account__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Checked if the customer responded yes to having a business bank account on the website form</description>
+    <externalId>false</externalId>
+    <label>Has Business Bank Account</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

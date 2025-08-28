@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Logo_Preview__c</fullName>
+    <externalId>false</externalId>
+    <formula>IMAGE( RIGHT(Lender_Card_Logo_URL__c,LEN(Lender_Card_Logo_URL__c)-8), Lender_Card_Outer_Heading__c , 100, Lender_Card_Logo_Width__c )</formula>
+    <label>Logo Preview</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>First_Lender_Match_DateTime__c</fullName>
+    <externalId>false</externalId>
+    <label>First Lender Match DateTime</label>
+    <summarizedField>Matched_Lender_Opportunity__c.Matched_DateTime__c</summarizedField>
+    <summaryForeignKey>Matched_Lender_Opportunity__c.Matched_Lender__c</summaryForeignKey>
+    <summaryOperation>min</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

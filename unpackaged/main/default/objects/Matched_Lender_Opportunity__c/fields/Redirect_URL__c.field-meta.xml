@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Redirect_URL__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Tracking field to capture where we would send the person if they were redirected to the Lender's website</inlineHelpText>
+    <label>Redirect URL</label>
+    <length>3000</length>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

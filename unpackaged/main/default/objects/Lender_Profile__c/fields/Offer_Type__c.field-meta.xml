@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Offer_Type__c</fullName>
+    <description>This field is used by the UI to determine the color scheme of the lender card when there is match and is returned to the front end SBL-326</description>
+    <externalId>false</externalId>
+    <label>Offer Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Business Loan</fullName>
+                <default>false</default>
+                <label>Business Loan</label>
+            </value>
+            <value>
+                <fullName>Working Capital Loan</fullName>
+                <default>false</default>
+                <label>Working Capital Loan</label>
+            </value>
+            <value>
+                <fullName>Term Loan</fullName>
+                <default>false</default>
+                <label>Term Loan</label>
+            </value>
+            <value>
+                <fullName>SBA Loan</fullName>
+                <default>false</default>
+                <label>SBA Loan</label>
+            </value>
+            <value>
+                <fullName>Credit Card</fullName>
+                <default>false</default>
+                <label>Credit Card</label>
+            </value>
+            <value>
+                <fullName>Equipment Financing</fullName>
+                <default>false</default>
+                <label>Equipment Financing</label>
+            </value>
+            <value>
+                <fullName>Equipment Leasing</fullName>
+                <default>false</default>
+                <label>Equipment Leasing</label>
+            </value>
+            <value>
+                <fullName>Merchant Cash Advance</fullName>
+                <default>false</default>
+                <label>Merchant Cash Advance</label>
+            </value>
+            <value>
+                <fullName>Line of Credit</fullName>
+                <default>false</default>
+                <label>Line of Credit</label>
+            </value>
+            <value>
+                <fullName>Personal Loan</fullName>
+                <default>false</default>
+                <label>Personal Loan</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

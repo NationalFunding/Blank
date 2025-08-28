@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lender_Deal_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Lender Deal Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Initial draw</fullName>
+                <default>false</default>
+                <label>Initial draw</label>
+            </value>
+            <value>
+                <fullName>Subsequent draw</fullName>
+                <default>false</default>
+                <label>Subsequent draw</label>
+            </value>
+            <value>
+                <fullName>Initial renewal</fullName>
+                <default>false</default>
+                <label>Initial renewal</label>
+            </value>
+            <value>
+                <fullName>Potential renewal</fullName>
+                <default>false</default>
+                <label>Potential renewal</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

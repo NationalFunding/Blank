@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Terms_and_Conditions_Accepted__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Checkbox from the front end website</description>
+    <externalId>false</externalId>
+    <label>Terms and Conditions Accepted</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Checkbox</type>
+</CustomField>

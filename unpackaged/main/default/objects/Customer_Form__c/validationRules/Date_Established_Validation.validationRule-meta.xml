@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Date_Established_Validation</fullName>
+    <active>true</active>
+    <description>Ensure a date established is not null when the Date Established question is set to "date provided"</description>
+    <errorConditionFormula>ISPICKVAL(Date_Established_Question__c, "Date provided") &amp;&amp;
+ISBLANK(Date_Established__c)</errorConditionFormula>
+    <errorDisplayField>Date_Established__c</errorDisplayField>
+    <errorMessage>Date established should not be null if the Date Established Question = Date Provided</errorMessage>
+</ValidationRule>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Business_Industry__c</fullName>
+    <description>If values are being added to this list, they also need to be added to the Accepted Industries field on the Lender Profile object and Business Industry field on the Customer Form object. Standard value set isn't being used because this fields is populated by webservice - decoupling the need to add values across front end and salesforce</description>
+    <externalId>false</externalId>
+    <label>Business Industry</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Agriculture</fullName>
+                <default>false</default>
+                <label>Agriculture</label>
+            </value>
+            <value>
+                <fullName>Auto Repair</fullName>
+                <default>false</default>
+                <label>Auto Repair</label>
+            </value>
+            <value>
+                <fullName>Commercial Trucking</fullName>
+                <default>false</default>
+                <label>Commercial Trucking</label>
+            </value>
+            <value>
+                <fullName>Construction</fullName>
+                <default>false</default>
+                <label>Construction</label>
+            </value>
+            <value>
+                <fullName>Consultancy</fullName>
+                <default>false</default>
+                <label>Consultancy</label>
+            </value>
+            <value>
+                <fullName>Insurance/Real Estate</fullName>
+                <default>false</default>
+                <label>Insurance/Real Estate</label>
+            </value>
+            <value>
+                <fullName>Landscaping</fullName>
+                <default>false</default>
+                <label>Landscaping</label>
+            </value>
+            <value>
+                <fullName>Medical Practice</fullName>
+                <default>false</default>
+                <label>Medical Practice</label>
+            </value>
+            <value>
+                <fullName>Restaurants</fullName>
+                <default>false</default>
+                <label>Restaurants</label>
+            </value>
+            <value>
+                <fullName>Retail</fullName>
+                <default>false</default>
+                <label>Retail</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

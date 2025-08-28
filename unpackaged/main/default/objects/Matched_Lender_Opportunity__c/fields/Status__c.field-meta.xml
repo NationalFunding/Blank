@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <description>Contains a combination of Sales and Underwriting picklist values. Meant to track the status of the customer after the matches are presented to them on the website</description>
+    <externalId>false</externalId>
+    <label>Status</label>
+    <required>true</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>New</fullName>
+                <default>true</default>
+                <label>New</label>
+            </value>
+            <value>
+                <fullName>CTA Clicked</fullName>
+                <default>false</default>
+                <label>CTA Clicked</label>
+            </value>
+            <value>
+                <fullName>Attempting Contact</fullName>
+                <default>false</default>
+                <label>Attempting Contact</label>
+            </value>
+            <value>
+                <fullName>Working Contacted</fullName>
+                <default>false</default>
+                <label>Working Contacted</label>
+            </value>
+            <value>
+                <fullName>Working Application Out</fullName>
+                <default>false</default>
+                <label>Working Application Out</label>
+            </value>
+            <value>
+                <fullName>Closed Not Converted (dead)</fullName>
+                <default>false</default>
+                <label>Closed Not Converted (dead)</label>
+            </value>
+            <value>
+                <fullName>Closed Future Client</fullName>
+                <default>false</default>
+                <label>Closed Future Client</label>
+            </value>
+            <value>
+                <fullName>Closed Converted (converted to Opp/Application In)</fullName>
+                <default>false</default>
+                <label>Closed Converted (converted to Opp/Application In)</label>
+            </value>
+            <value>
+                <fullName>Application Missing Info</fullName>
+                <default>false</default>
+                <label>Application Missing Info</label>
+            </value>
+            <value>
+                <fullName>Application In</fullName>
+                <default>false</default>
+                <label>Application In</label>
+            </value>
+            <value>
+                <fullName>Underwriting</fullName>
+                <default>false</default>
+                <label>Underwriting</label>
+            </value>
+            <value>
+                <fullName>Requesting Stips</fullName>
+                <default>false</default>
+                <label>Requesting Stips</label>
+            </value>
+            <value>
+                <fullName>Approved</fullName>
+                <default>false</default>
+                <label>Approved</label>
+            </value>
+            <value>
+                <fullName>Selling Approval</fullName>
+                <default>false</default>
+                <label>Selling Approval</label>
+            </value>
+            <value>
+                <fullName>Offer Not Accepted (Customer)</fullName>
+                <default>false</default>
+                <label>Offer Not Accepted (Customer)</label>
+            </value>
+            <value>
+                <fullName>Contracts Out</fullName>
+                <default>false</default>
+                <label>Contracts Out</label>
+            </value>
+            <value>
+                <fullName>Contracts In</fullName>
+                <default>false</default>
+                <label>Contracts In</label>
+            </value>
+            <value>
+                <fullName>Closed Lost (received an approval but did not fund)</fullName>
+                <default>false</default>
+                <label>Closed Lost (received an approval but did not fund)</label>
+            </value>
+            <value>
+                <fullName>DOA</fullName>
+                <default>false</default>
+                <label>DOA</label>
+            </value>
+            <value>
+                <fullName>Declined (never approved)</fullName>
+                <default>false</default>
+                <label>Declined (never approved)</label>
+            </value>
+            <value>
+                <fullName>Dead (DNC)</fullName>
+                <default>false</default>
+                <label>Dead (DNC)</label>
+            </value>
+            <value>
+                <fullName>Closed Lost</fullName>
+                <default>false</default>
+                <label>Closed Lost</label>
+            </value>
+            <value>
+                <fullName>Closed Future Client (received an approval but did not fund)</fullName>
+                <default>false</default>
+                <label>Closed Future Client (received an approval but did not fund)</label>
+            </value>
+            <value>
+                <fullName>Funded (Closed Won)</fullName>
+                <default>false</default>
+                <label>Funded (Closed Won)</label>
+            </value>
+            <value>
+                <fullName>Started</fullName>
+                <default>false</default>
+                <label>Started</label>
+            </value>
+            <value>
+                <fullName>Error</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Error</label>
+            </value>
+            <value>
+                <fullName>InvalidInput</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>InvalidInput</label>
+            </value>
+            <value>
+                <fullName>Success</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Success</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
