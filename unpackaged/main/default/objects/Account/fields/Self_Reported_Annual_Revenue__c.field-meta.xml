@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Self_Reported_Annual_Revenue__c</fullName>
+    <description>"Revenue" and "Sales" are being treated as the same thing by the business. If the website says "Sales" we can interchange with "Revenue"</description>
+    <externalId>false</externalId>
+    <label>Self Reported Annual Revenue</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+</CustomField>

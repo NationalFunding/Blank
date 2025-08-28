@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Bypass Multi-Factor Authentication</label>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Matched_Lender_Opportunity__c.Lender_Profile__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>BypassMFAForUiLogins</name>
+    </userPermissions>
+</PermissionSet>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Interested_Product__c</fullName>
+    <description>Shows the product the customer showed interest in before being redirected to the web form. Tracked via UTM params in the URL. Example would be if a customer selected Small Business Loans on a partner website, then they sent the customer to SBL for qualification</description>
+    <externalId>false</externalId>
+    <label>Interested Product</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>SBA Loans</fullName>
+                <default>false</default>
+                <label>SBA Loans</label>
+            </value>
+            <value>
+                <fullName>Credit Cards</fullName>
+                <default>false</default>
+                <label>Credit Cards</label>
+            </value>
+            <value>
+                <fullName>Lines of Credit</fullName>
+                <default>false</default>
+                <label>Lines of Credit</label>
+            </value>
+            <value>
+                <fullName>Small Business Loans</fullName>
+                <default>false</default>
+                <label>Small Business Loans</label>
+            </value>
+            <value>
+                <fullName>Equipment Financing</fullName>
+                <default>false</default>
+                <label>Equipment Financing</label>
+            </value>
+            <value>
+                <fullName>POS Equipment</fullName>
+                <default>false</default>
+                <label>POS Equipment</label>
+            </value>
+            <value>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+                <label>Insurance</label>
+            </value>
+            <value>
+                <fullName>Business Checking</fullName>
+                <default>false</default>
+                <label>Business Checking</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>API_Status__c</fullName>
+    <description>Status to track this match's submission to the defined lender</description>
+    <externalId>false</externalId>
+    <label>API Status</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Not Sent</fullName>
+                <default>true</default>
+                <label>Not Sent</label>
+            </value>
+            <value>
+                <fullName>Sent Automatically</fullName>
+                <default>false</default>
+                <label>Sent Automatically</label>
+            </value>
+            <value>
+                <fullName>Sent via CTA</fullName>
+                <default>false</default>
+                <label>Sent via CTA</label>
+            </value>
+            <value>
+                <fullName>Error</fullName>
+                <default>false</default>
+                <label>Error</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

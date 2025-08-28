@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>API_Lender__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Used to determine if leads/opportunities can be sent to the lender via API</description>
+    <externalId>false</externalId>
+    <label>API Lender</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>
